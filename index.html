@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED ETF | Innovation Factor ETF | Diamond Brothers LLC</title>
+    <meta name="description" content="RED Innovation Factor ETF (RED) - A systematic approach to identifying mid-large cap US equities with superior innovation characteristics.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .cambria-header {
+            background: #1a0a0a;
+            color: white;
+        }
+        .cambria-nav {
+            background: #2d0f0f;
+            border-bottom: 1px solid #4a1a1a;
+        }
+        .cambria-section {
+            background: #faf8f8;
+            border-top: 1px solid #e8e0e0;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .cambria-card {
+            background: white;
+            border: 1px solid #e8e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(139, 0, 0, 0.05);
+        }
+        .cambria-button {
+            background: #8b0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cambria-button:hover {
+            background: #a00000;
+        }
+        .cambria-button-secondary {
+            background: white;
+            color: #8b0000;
+            border: 1px solid #8b0000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .cambria-button-secondary:hover {
+            background: #faf8f8;
+        }
+        .cambria-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cambria-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .cambria-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .cambria-table tr:hover {
+            background: #faf8f8;
+        }
+        .cambria-footer {
+            background: #1a0a0a;
+            color: white;
+        }
+        .cambria-disclosure {
+            background: #fff3f3;
+            border: 1px solid #ffd6d6;
+            border-left: 4px solid #8b0000;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .fund-details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .fund-details-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .fund-details-table td:first-child {
+            font-weight: 600;
+            color: #495057;
+            width: 40%;
+        }
+        .fund-details-table td:last-child {
+            color: #8b0000;
+            font-weight: 500;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .price-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .price-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .performance-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .performance-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .documents-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .documents-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .documents-table a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .documents-table a:hover {
+            text-decoration: underline;
+        }
+        .company-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        .product-name {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            margin-top: -2px;
+        }
+        .hero-subtitle {
+            color: #8b0000;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        .logo-placeholder {
+            width: 44px;
+            height: 44px;
+            background: #8b0000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Top Header -->
+    <div class="cambria-header py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center text-sm">
+                <div class="flex items-center space-x-6">
+                    <span>Email: info@dbe.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-gray-300 hover:text-white">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="cambria-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="logo-placeholder" aria-label="Diamond Brothers Logo">DB</div>
+                    <div>
+                        <div class="company-logo">Diamond Brothers</div>
+                        <div class="product-name">Innovation Factor ETF</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Fund Details</a>
+                    <a href="#performance" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Performance</a>
+                    <a href="#holdings" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Holdings</a>
+                    <a href="#documents" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Documents</a>
+                    <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="cambria-button text-sm">Fact Sheet</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="hero-subtitle">Diamond Brothers</div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                    RED Innovation Factor ETF
+                </h1>
+                <p class="text-xl text-gray-600 mb-8 max-w-4xl mx-auto">
+                    A systematic approach to identifying mid-large cap US equities with superior innovation characteristics.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-gray-900 mb-2">RED</div>
+                        <div class="text-gray-600">Ticker</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-gray-900 mb-2">0.50%</div>
+                        <div class="text-gray-600">Expense Ratio</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-gray-900 mb-2">45-100</div>
+                        <div class="text-gray-600">Holdings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why RED Section -->
+    <section class="cambria-section py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Why RED?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="cambria-card p-6 text-center">
+                    <div class="text-4xl font-bold text-red-800 mb-4">1</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Systematic Innovation Strategy</h3>
+                    <p class="text-gray-700">
+                        Systematic strategy targeting an equal-weight portfolio of ~45-100 high-innovation companies in mid-large cap US equities
+                    </p>
+                </div>
+                
+                <div class="cambria-card p-6 text-center">
+                    <div class="text-4xl font-bold text-red-800 mb-4">2</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Valuation Advantage</h3>
+                    <p class="text-gray-700">
+                        Historically, traded at a valuation discount versus traditional growth indices while capturing innovation-driven returns
+                    </p>
+                </div>
+                
+                <div class="cambria-card p-6 text-center">
+                    <div class="text-4xl font-bold text-red-800 mb-4">3</div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Cost Efficiency</h3>
+                    <p class="text-gray-700">
+                        Expense ratio below Morningstar Large Growth category average, providing cost-effective access to innovation factors
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Details Section -->
+    <section id="overview" class="cambria-section py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Investment Objective</h2>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        The RED Innovation Factor ETF seeks to provide long-term capital appreciation by investing in 
+                        companies that demonstrate superior innovation characteristics within the mid-large cap US equity universe.
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Innovation factor is to growth as innovation delineates sources of growth. Firms growing 
+                        because of their investments into R&D are fundamentally different from firms growing due 
+                        to other sources.
+                    </p>
+                    
+                    <div class="cambria-disclosure">
+                        <h4 class="font-semibold text-gray-900 mb-2">Key Insight</h4>
+                        <p class="text-sm text-gray-700">
+                            Innovation leads the way for future revenue increases, opening up avenues for high 
+                            innovation firms being a predictor of future realized sales growth and unexpected 
+                            sales earnings surprises.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="cambria-card p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Details</h3>
+                    <table class="fund-details-table">
+                        <tr>
+                            <td>Fund Inception</td>
+                            <td>2024</td>
+                        </tr>
+                        <tr>
+                            <td>Ticker</td>
+                            <td>RED</td>
+                        </tr>
+                        <tr>
+                            <td>Net Assets</td>
+                            <td>TBD</td>
+                        </tr>
+                        <tr>
+                            <td>Shares Outstanding</td>
+                            <td>1,000,000</td>
+                        </tr>
+                        <tr>
+                            <td>Primary Exchange</td>
+                            <td>CBOE BZX</td>
+                        </tr>
+                        <tr>
+                            <td>CUSIP</td>
+                            <td>123456789</td>
+                        </tr>
+                        <tr>
+                            <td>Fund Type</td>
+                            <td>Actively Managed ETF</td>
+                        </tr>
+                        <tr>
+                            <td>Investment Objective</td>
+                            <td>Growth</td>
+                        </tr>
+                        <tr>
+                            <td>Management Fee</td>
+                            <td>0.50%</td>
+                        </tr>
+                        <tr>
+                            <td>Custody Fee</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>Acquired Fund Fee & Expenses</td>
+                            <td>0.00%</td>
+                        </tr>
+                        <tr>
+                            <td>Total Expense Ratio</td>
+                            <td>0.50%</td>
+                        </tr>
+                        <tr>
+                            <td>Net Asset Value (NAV)</td>
+                            <td>RED.NV</td>
+                        </tr>
+                        <tr>
+                            <td>Portfolio Managers</td>
+                            <td>Diamond Brothers LLC</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Holdings</td>
+                            <td>45-100</td>
+                        </tr>
+                        <tr>
+                            <td>Rebalancing</td>
+                            <td>Quarterly</td>
+                        </tr>
+                    </table>
+                    <p class="text-xs text-gray-500 mt-4">Data as of <span id="current-date">December 19, 2024</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">About Diamond Brothers</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Diamond Brothers is a research-driven investment management firm focused on systematic factor investing.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-6">Our Mission</h3>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        Diamond Brothers is dedicated to developing innovative investment strategies that identify and capture 
+                        systematic risk factors in equity markets. Our research-driven approach combines academic 
+                        rigor with practical implementation to deliver superior risk-adjusted returns for our clients.
+                    </p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">
+                        We believe that innovation is a key driver of long-term value creation in equity markets. 
+                        Our systematic approach to identifying innovation factors provides investors with exposure 
+                        to companies that are likely to generate sustainable growth through research and development.
+                    </p>
+                    
+                    <div class="cambria-disclosure">
+                        <h4 class="font-semibold text-gray-900 mb-2">Investment Philosophy</h4>
+                        <p class="text-sm text-gray-700">
+                            We focus on factors that have demonstrated persistent risk-adjusted returns across 
+                            different market environments and economic cycles. Our innovation factor strategy 
+                            represents the culmination of years of research into the relationship between 
+                            R&D investment and future equity returns.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="cambria-card p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Company Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Founded</span>
+                            <span class="font-semibold text-gray-900">2024</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Headquarters</span>
+                            <span class="font-semibold text-gray-900">New York, NY</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Investment Focus</span>
+                            <span class="font-semibold text-gray-900">Systematic Factor Investing</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Research Approach</span>
+                            <span class="font-semibold text-gray-900">Academic & Empirical</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Regulatory Status</span>
+                            <span class="font-semibold text-gray-900">SEC Registered</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-900 mb-3">Contact Information</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i data-lucide="map-pin" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>123 Main Street, Suite 1000, New York, NY 10001</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="phone" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>(555) 123-4567</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="mail" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>info@dbe.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Prices Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Fund Prices</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="cambria-card p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Premium Discount Chart</h3>
+                    <div class="bg-gray-50 p-8 rounded text-center">
+                        <i data-lucide="bar-chart-3" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
+                        <p class="text-gray-500">Premium/Discount Chart</p>
+                        <p class="text-xs text-gray-400">Coming Soon</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="cambria-card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">NAV</h3>
+                        <table class="price-table">
+                            <tr>
+                                <th>Net Asset Value</th>
+                            </tr>
+                            <tr>
+                                <td>$25.45</td>
+                            </tr>
+                            <tr>
+                                <td>Daily Change</td>
+                            </tr>
+                            <tr>
+                                <td>+0.12%</td>
+                            </tr>
+                            <tr>
+                                <td>Volume</td>
+                            </tr>
+                            <tr>
+                                <td>TBD</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="cambria-card p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Price</h3>
+                        <table class="price-table">
+                            <tr>
+                                <th>Closing Price</th>
+                            </tr>
+                            <tr>
+                                <td>$25.42</td>
+                            </tr>
+                            <tr>
+                                <td>Daily Change</td>
+                            </tr>
+                            <tr>
+                                <td>+0.08%</td>
+                            </tr>
+                            <tr>
+                                <td>30-Day Median Bid/Ask Spread</td>
+                            </tr>
+                            <tr>
+                                <td>0.12%</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-sm text-gray-600 mt-4">
+                The exchange-traded fund's median bid-ask spread is rounded to the nearest hundredth and computed by (1) identifying the exchange-traded fund's national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days, (2) dividing the difference between each such bid and offer by the midpoint of the national best bid and national best offer, and (3) identifying the median of those values.
+            </p>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="cambria-section py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Performance</h2>
+            
+            <div class="mb-8">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Month end returns as of: <span id="performance-date">December 19, 2024</span></h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="cambria-card p-6">
+                        <h4 class="font-semibold text-gray-900 mb-4">CUMULATIVE</h4>
+                        <table class="performance-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>1 Mo.</th>
+                                    <th>3 Mo.</th>
+                                    <th>6 Mo.</th>
+                                    <th>Since Inception</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Fund NAV</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>Closing Price</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="cambria-card p-6">
+                        <h4 class="font-semibold text-gray-900 mb-4">AVG. ANNUALIZED</h4>
+                        <table class="performance-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>1 Yr.</th>
+                                    <th>3 Yr.</th>
+                                    <th>5 Yr.</th>
+                                    <th>10 Yr.</th>
+                                    <th>Since Inception</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Fund NAV</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>Closing Price</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cambria-disclosure">
+                <p class="text-sm text-gray-800">
+                    <strong>The performance data quoted represents past performance. Past performance does not guarantee future results.</strong> The investment return and principal value of an investment will fluctuate so that an investor's shares, when redeemed, may be worth more or less than their original cost and current performance may be lower or higher than the performance quoted.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    Cumulative return is the aggregate amount that an investment has gained or lost over time. Annualized return is the average return gained or lost by an investment each year over a given time period. Diamond Brothers LLC's NAVs are calculated using prices as of 4:00 PM Eastern Time.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    The closing market price is the Mid-Point between the Bid and Ask price as of the close of exchange. Since the Fund's Shares typically do not trade in the secondary market until several days after the Fund's inception, for the period from inception to the first day of secondary market trading in Shares, the NAV of the Fund is used to calculate market returns.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holdings Section -->
+    <section id="holdings" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">TOP 10 HOLDINGS</h2>
+                <div class="flex space-x-4">
+                    <button class="cambria-button text-sm">Download Holdings</button>
+                    <button class="cambria-button-secondary text-sm">Full Holdings</button>
+                </div>
+            </div>
+            
+            <div class="cambria-card p-6 mb-8">
+                <table class="cambria-table">
+                    <thead>
+                        <tr>
+                            <th>PERCENTAGE OF NET ASSETS</th>
+                            <th>TICKER</th>
+                            <th>NAME</th>
+                            <th>IDENTIFIER</th>
+                            <th>SHARES HELD</th>
+                            <th>MARKET VALUE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-semibold text-gray-900">7.2%</td>
+                            <td class="font-mono text-gray-900">NVDA</td>
+                            <td class="text-gray-900">NVIDIA Corporation</td>
+                            <td class="font-mono text-gray-600">67066G104</td>
+                            <td class="text-right text-gray-900">125,000</td>
+                            <td class="text-right text-gray-900">$7,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">6.8%</td>
+                            <td class="font-mono text-gray-900">MSFT</td>
+                            <td class="text-gray-900">Microsoft Corporation</td>
+                            <td class="font-mono text-gray-600">594918104</td>
+                            <td class="text-right text-gray-900">180,000</td>
+                            <td class="text-right text-gray-900">$6,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">5.9%</td>
+                            <td class="font-mono text-gray-900">GOOGL</td>
+                            <td class="text-gray-900">Alphabet Inc.</td>
+                            <td class="font-mono text-gray-600">02079K305</td>
+                            <td class="text-right text-gray-900">45,000</td>
+                            <td class="text-right text-gray-900">$5,900,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">5.4%</td>
+                            <td class="font-mono text-gray-900">AAPL</td>
+                            <td class="text-gray-900">Apple Inc.</td>
+                            <td class="font-mono text-gray-600">037833100</td>
+                            <td class="text-right text-gray-900">32,000</td>
+                            <td class="text-right text-gray-900">$5,400,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">4.8%</td>
+                            <td class="font-mono text-gray-900">TSLA</td>
+                            <td class="text-gray-900">Tesla, Inc.</td>
+                            <td class="font-mono text-gray-600">88160R101</td>
+                            <td class="text-right text-gray-900">24,000</td>
+                            <td class="text-right text-gray-900">$4,800,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-sm text-gray-500 mt-4">Data as of <span id="holdings-date">December 19, 2024</span></p>
+                <p class="text-sm text-gray-600 mt-2">Holdings are subject to change</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section -->
+    <section id="documents" class="cambria-section py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investor Materials</h2>
+            
+            <div class="cambria-card p-6">
+                <table class="documents-table">
+                    <thead>
+                        <tr>
+                            <th>Summary Prospectus</th>
+                            <th>Statutory Prospectus</th>
+                            <th>Statement of Additional Information</th>
+                            <th>Semi-Annual Report</th>
+                            <th>Annual Report</th>
+                            <th>Semi-Annual Financial Statements</th>
+                            <th>Annual Financial Statements</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#">Download</a></td>
+                            <td><a href="#">Download</a></td>
+                            <td><a href="#">Download</a></td>
+                            <td><a href="#">Download</a></td>
+                            <td><a href="#">Download</a></td>
+                            <td><a href="#">Download</a></td>
+                            <td><a href="#">Download</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Additional Filings</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="cambria-card p-6">
+                        <h4 class="font-semibold text-gray-900 mb-3">All XBRL Filings</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-red-800 hover:underline">Registration Statement XBRL</a></li>
+                            <li><a href="#" class="text-red-800 hover:underline">Prospectus Supplement XBRL</a></li>
+                        </ul>
+                    </div>
+                    <div class="cambria-card p-6">
+                        <h4 class="font-semibold text-gray-900 mb-3">N-PX Files</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-red-800 hover:underline">N-PX</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cambria-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="cambria-disclosure mb-8">
+                <p class="text-sm text-gray-800">
+                    <strong>To determine if this Fund is an appropriate investment for you, carefully consider the Fund's investment objectives, risk factors, charges and expense before investing.</strong> This and other information can be found in the Fund's full or summary prospectus which may be obtained by calling 1-555-123-4567 or visiting our website at www.dbe.com. Read the prospectus carefully before investing or sending money.
+                </p>
+            </div>
+
+            <div class="text-sm text-gray-400 space-y-4 mb-8">
+                <p>
+                    The RED ETFs are distributed by Diamond Brothers LLC, 123 Main Street, Suite 1000, New York, NY 10001, which is not affiliated with Diamond Brothers LLC, the Investment Adviser for the Fund.
+                </p>
+                <p>
+                    <strong>Investing involves risk, including potential loss of capital.</strong>
+                </p>
+                <p>
+                    <strong>RED:</strong> There is no guarantee that a Fund will achieve its investment goal. Investing involves risk, including the possible loss of principal. Innovation-focused stocks are often speculative, high-risk investments. The underlying holdings of the Funds may be leveraged, which will expose the holding to higher volatility and may accelerate the impact of any losses. These companies can be investing heavily in R&D and may not be profitable, which could have a material adverse effect on the stock price of these companies and the Fund's performance. International investing may involve risk of capital loss from unfavorable fluctuations in currency values, from differences in generally accepted accounting principles, or from economic or political instability in other nations. Emerging markets involve heightened risks related to the same factors as well as increased volatility and lower trading volume. Investments in smaller companies typically exhibit higher volatility. Narrowly focused funds typically exhibit higher volatility.
+                </p>
+                <p>
+                    RED is actively managed.
+                </p>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Home</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">ETFs</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">About</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Legal</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Disclaimer</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Site Map</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400">© 2024 - 2025 Diamond Brothers LLC</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Update dates
+        const currentDate = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        document.getElementById('current-date').textContent = currentDate;
+        document.getElementById('performance-date').textContent = currentDate;
+        document.getElementById('holdings-date').textContent = currentDate;
+    </script>
+</body>
+</html> 
