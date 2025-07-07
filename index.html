@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -201,7 +202,6 @@
                     <span>Email: info@dbe.com</span>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="text-gray-300 hover:text-white">Contact</a>
                 </div>
             </div>
         </div>
@@ -222,199 +222,300 @@
                     <a href="#overview" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Fund Details</a>
                     <a href="#performance" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Performance</a>
                     <a href="#holdings" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Holdings</a>
-                    <a href="#documents" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Documents</a>
                     <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
                 </div>
                 <div class="flex items-center space-x-4">
-                    <button class="cambria-button text-sm">Fact Sheet</button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="py-16 bg-white">
+    <section class="py-8 bg-gradient-to-br from-gray-50 to-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <div class="hero-subtitle">Diamond Brothers</div>
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                    RED Innovation Factor ETF
-                </h1>
-                <p class="text-xl text-gray-600 mb-8 max-w-4xl mx-auto">
-                    A systematic approach to identifying mid-large cap US equities with superior innovation characteristics.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-gray-900 mb-2">RED</div>
-                        <div class="text-gray-600">Ticker</div>
+            <div class="text-left">
+                <div class="max-w-4xl">
+                    <div class="text-6xl md:text-8xl font-bold text-red-800 mb-2 tracking-tight">
+                        RED
                     </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-gray-900 mb-2">0.50%</div>
-                        <div class="text-gray-600">Expense Ratio</div>
-                    </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold text-gray-900 mb-2">45-100</div>
-                        <div class="text-gray-600">Holdings</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Why RED Section -->
-    <section class="cambria-section py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">Why RED?</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="cambria-card p-6 text-center">
-                    <div class="text-4xl font-bold text-red-800 mb-4">1</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Systematic Innovation Strategy</h3>
-                    <p class="text-gray-700">
-                        Systematic strategy targeting an equal-weight portfolio of ~45-100 high-innovation companies in mid-large cap US equities
-                    </p>
-                </div>
-                
-                <div class="cambria-card p-6 text-center">
-                    <div class="text-4xl font-bold text-red-800 mb-4">2</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Valuation Advantage</h3>
-                    <p class="text-gray-700">
-                        Historically, traded at a valuation discount versus traditional growth indices while capturing innovation-driven returns
-                    </p>
-                </div>
-                
-                <div class="cambria-card p-6 text-center">
-                    <div class="text-4xl font-bold text-red-800 mb-4">3</div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Cost Efficiency</h3>
-                    <p class="text-gray-700">
-                        Expense ratio below Morningstar Large Growth category average, providing cost-effective access to innovation factors
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fund Details Section -->
-    <section id="overview" class="cambria-section py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Investment Objective</h2>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        The RED Innovation Factor ETF seeks to provide long-term capital appreciation by investing in 
-                        companies that demonstrate superior innovation characteristics within the mid-large cap US equity universe.
-                    </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
-                        Innovation factor is to growth as innovation delineates sources of growth. Firms growing 
-                        because of their investments into R&D are fundamentally different from firms growing due 
-                        to other sources.
+                    <h2 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">
+                        Diamond Brothers Innovation Factor ETF
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        The RED Innovation Factor ETF systematically identifies and invests in mid-large cap US companies that demonstrate superior innovation characteristics. Unlike thematic funds that require predicting specific innovation outcomes and firm level R&D success, RED's factor-based approach captures the growth potential of innovation-driven companies with implicit top down sector allocations.
                     </p>
                     
-                    <div class="cambria-disclosure">
-                        <h4 class="font-semibold text-gray-900 mb-2">Key Insight</h4>
-                        <p class="text-sm text-gray-700">
-                            Innovation leads the way for future revenue increases, opening up avenues for high 
-                            innovation firms being a predictor of future realized sales growth and unexpected 
-                            sales earnings surprises.
-                        </p>
+                    <!-- Key Metrics Grid -->
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-red-800">0.50%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Expense Ratio</div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-gray-900">45-100</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Holdings</div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-green-600">+5.1%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">YTD Return</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="cambria-card p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Details</h3>
-                    <table class="fund-details-table">
-                        <tr>
-                            <td>Fund Inception</td>
-                            <td>2024</td>
-                        </tr>
-                        <tr>
-                            <td>Ticker</td>
-                            <td>RED</td>
-                        </tr>
-                        <tr>
-                            <td>Net Assets</td>
-                            <td>TBD</td>
-                        </tr>
-                        <tr>
-                            <td>Shares Outstanding</td>
-                            <td>1,000,000</td>
-                        </tr>
-                        <tr>
-                            <td>Primary Exchange</td>
-                            <td>CBOE BZX</td>
-                        </tr>
-                        <tr>
-                            <td>CUSIP</td>
-                            <td>123456789</td>
-                        </tr>
-                        <tr>
-                            <td>Fund Type</td>
-                            <td>Actively Managed ETF</td>
-                        </tr>
-                        <tr>
-                            <td>Investment Objective</td>
-                            <td>Growth</td>
-                        </tr>
-                        <tr>
-                            <td>Management Fee</td>
-                            <td>0.50%</td>
-                        </tr>
-                        <tr>
-                            <td>Custody Fee</td>
-                            <td>0.00%</td>
-                        </tr>
-                        <tr>
-                            <td>Acquired Fund Fee & Expenses</td>
-                            <td>0.00%</td>
-                        </tr>
-                        <tr>
-                            <td>Total Expense Ratio</td>
-                            <td>0.50%</td>
-                        </tr>
-                        <tr>
-                            <td>Net Asset Value (NAV)</td>
-                            <td>RED.NV</td>
-                        </tr>
-                        <tr>
-                            <td>Portfolio Managers</td>
-                            <td>Diamond Brothers LLC</td>
-                        </tr>
-                        <tr>
-                            <td>Number of Holdings</td>
-                            <td>45-100</td>
-                        </tr>
-                        <tr>
-                            <td>Rebalancing</td>
-                            <td>Quarterly</td>
-                        </tr>
-                    </table>
-                    <p class="text-xs text-gray-500 mt-4">Data as of <span id="current-date">December 19, 2024</span></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Fund Details Bar -->
+    <section class="py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-center">
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">RED</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Ticker</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">0.50%</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Expense Ratio</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">45-100</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Holdings</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">$25.45</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">NAV</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">$25.42</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Price</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold text-green-400">+5.1%</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">YTD</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Links and Quick Actions -->
+    <section class="py-4 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap gap-3 items-center">
+                <a href="#overview" class="text-sm text-red-800 hover:underline font-medium">Fund Details</a>
+                <a href="#performance" class="text-sm text-red-800 hover:underline font-medium">Performance</a>
+                <a href="#holdings" class="text-sm text-red-800 hover:underline font-medium">Holdings</a>
+                <a href="#about" class="text-sm text-red-800 hover:underline font-medium">About</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="py-8 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column: Fund Details & Investment Objective -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Fund Details</h3>
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Fund Inception:</span>
+                                <span class="font-semibold text-gray-900">2024</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Ticker:</span>
+                                <span class="font-semibold text-gray-900">RED</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Net Assets:</span>
+                                <span class="font-semibold text-gray-900">TBD</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Primary Exchange:</span>
+                                <span class="font-semibold text-gray-900">CBOE BZX</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Fund Type:</span>
+                                <span class="font-semibold text-gray-900">Actively Managed ETF</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Management Fee:</span>
+                                <span class="font-semibold text-gray-900">0.50%</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Total Expense Ratio:</span>
+                                <span class="font-semibold text-gray-900">0.50%</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Number of Holdings:</span>
+                                <span class="font-semibold text-gray-900">45-100</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-gray-600">Rebalancing:</span>
+                                <span class="font-semibold text-gray-900">Quarterly</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Investment Objective</h3>
+                        <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+                            The RED Innovation Factor ETF seeks to provide long-term capital appreciation by investing in 
+                            companies that demonstrate superior innovation characteristics within the mid-large cap US equity universe.
+                        </p>
+                        <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+                            Our systematic approach identifies companies with high innovation potential through quantitative analysis of R&D investment, intellectual property development, and technological advancement metrics.
+                        </p>
+                        <div class="bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-600 p-4 rounded-r-lg">
+                            <h4 class="text-sm font-semibold text-gray-900 mb-2">Key Insight</h4>
+                            <p class="text-sm text-gray-700">
+                                Innovation factors lead to future revenue growth and earnings surprises. Companies with superior innovation characteristics historically demonstrate stronger sales growth and market outperformance over time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column: Why RED & Thematics vs Factors -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Why RED?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-red-100 text-red-800 font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm mr-4 mt-1">1</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 mb-2">Proprietary Innovation Factor Model</h4>
+                                    <p class="text-sm text-gray-700">Analyzes 50+ innovation metrics including R&D intensity, patent quality, and technology adoption to identify superior innovators</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-red-100 text-red-800 font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm mr-4 mt-1">2</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 mb-2">Sector-Agnostic Growth Capture</h4>
+                                    <p class="text-sm text-gray-700">Captures innovation-driven returns across all sectors without predicting specific themes or outcomes</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-red-100 text-red-800 font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm mr-4 mt-1">3</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 mb-2">Cost-Effective Innovation Access</h4>
+                                    <p class="text-sm text-gray-700">0.50% expense ratio provides efficient access to innovation factors vs. higher-cost thematic alternatives</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Thematics vs Factors</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-red-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3 text-center">Thematic Funds</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <div class="text-red-600 font-bold mr-2 text-sm">✗</div>
+                                        <p class="text-sm text-gray-700">Require multiple predictions</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-red-600 font-bold mr-2 text-sm">✗</div>
+                                        <p class="text-sm text-gray-700">Probability decay</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-red-600 font-bold mr-2 text-sm">✗</div>
+                                        <p class="text-sm text-gray-700">Theme timing risk</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3 text-center">Factor Approach</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <div class="text-green-600 font-bold mr-2 text-sm">✓</div>
+                                        <p class="text-sm text-gray-700">More robust</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-green-600 font-bold mr-2 text-sm">✓</div>
+                                        <p class="text-sm text-gray-700">Bottom-up selection</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-green-600 font-bold mr-2 text-sm">✓</div>
+                                        <p class="text-sm text-gray-700">Systematic discipline</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Fund Prices & Chart -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Prices</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">NAV</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Net Asset Value:</span>
+                                        <span class="font-semibold text-gray-900">$25.45</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Daily Change:</span>
+                                        <span class="font-semibold text-green-600">+0.12%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Price</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Closing Price:</span>
+                                        <span class="font-semibold text-gray-900">$25.42</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Daily Change:</span>
+                                        <span class="font-semibold text-green-600">+0.08%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Premium/Discount Chart</h3>
+                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg text-center">
+                            <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i data-lucide="bar-chart-3" class="h-8 w-8 text-gray-400"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 font-medium">Available upon fund launch</p>
+                            <p class="text-xs text-gray-500 mt-1">Real-time premium/discount tracking</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-bold text-gray-900 mb-4">About Diamond Brothers</h2>
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">About Diamond Brothers</h2>
                 <p class="text-gray-600 max-w-3xl mx-auto">
                     Diamond Brothers is a research-driven investment management firm focused on systematic factor investing.
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-6">Our Mission</h3>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Our Mission</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
                         Diamond Brothers is dedicated to developing innovative investment strategies that identify and capture 
                         systematic risk factors in equity markets. Our research-driven approach combines academic 
                         rigor with practical implementation to deliver superior risk-adjusted returns for our clients.
                     </p>
-                    <p class="text-gray-700 mb-6 leading-relaxed">
+                    <p class="text-gray-700 mb-4 leading-relaxed">
                         We believe that innovation is a key driver of long-term value creation in equity markets. 
                         Our systematic approach to identifying innovation factors provides investors with exposure 
                         to companies that are likely to generate sustainable growth through research and development.
@@ -431,9 +532,9 @@
                     </div>
                 </div>
                 
-                <div class="cambria-card p-6">
+                <div class="cambria-card p-5">
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">Company Information</h3>
-                    <div class="space-y-4">
+                    <div class="space-y-3">
                         <div class="flex justify-between items-center">
                             <span class="text-gray-700">Founded</span>
                             <span class="font-semibold text-gray-900">2024</span>
@@ -456,7 +557,7 @@
                         </div>
                     </div>
                     
-                    <div class="mt-6 pt-6 border-t border-gray-200">
+                    <div class="mt-5 pt-4 border-t border-gray-200">
                         <h4 class="font-semibold text-gray-900 mb-3">Contact Information</h4>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
@@ -478,88 +579,48 @@
         </div>
     </section>
 
-    <!-- Fund Prices Section -->
-    <section class="py-16 bg-white">
+    <!-- Performance Section -->
+    <section id="performance" class="cambria-section py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Fund Prices</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Performance</h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="cambria-card p-6">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Premium Discount Chart</h3>
-                    <div class="bg-gray-50 p-8 rounded text-center">
-                        <i data-lucide="bar-chart-3" class="h-12 w-12 mx-auto mb-4 text-gray-400"></i>
-                        <p class="text-gray-500">Premium/Discount Chart</p>
-                        <p class="text-xs text-gray-400">Coming Soon</p>
-                    </div>
+            <!-- Performance Comparison Chart -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Performance Comparison</h3>
+                    <div class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Interactive Chart</div>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="cambria-card p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">NAV</h3>
-                        <table class="price-table">
-                            <tr>
-                                <th>Net Asset Value</th>
-                            </tr>
-                            <tr>
-                                <td>$25.45</td>
-                            </tr>
-                            <tr>
-                                <td>Daily Change</td>
-                            </tr>
-                            <tr>
-                                <td>+0.12%</td>
-                            </tr>
-                            <tr>
-                                <td>Volume</td>
-                            </tr>
-                            <tr>
-                                <td>TBD</td>
-                            </tr>
-                        </table>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <button id="1m-btn" class="cambria-button-secondary text-xs">1M</button>
+                    <button id="3m-btn" class="cambria-button-secondary text-xs">3M</button>
+                    <button id="6m-btn" class="cambria-button-secondary text-xs">6M</button>
+                    <button id="1y-btn" class="cambria-button-secondary text-xs">1Y</button>
+                    <button id="ytd-btn" class="cambria-button text-xs">YTD</button>
+                </div>
+                <div class="relative" style="height: 300px;">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mt-4">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-lg font-bold text-red-800" id="red-performance">--</div>
+                        <div class="text-xs text-gray-600">RED ETF</div>
                     </div>
-
-                    <div class="cambria-card p-6">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Price</h3>
-                        <table class="price-table">
-                            <tr>
-                                <th>Closing Price</th>
-                            </tr>
-                            <tr>
-                                <td>$25.42</td>
-                            </tr>
-                            <tr>
-                                <td>Daily Change</td>
-                            </tr>
-                            <tr>
-                                <td>+0.08%</td>
-                            </tr>
-                            <tr>
-                                <td>30-Day Median Bid/Ask Spread</td>
-                            </tr>
-                            <tr>
-                                <td>0.12%</td>
-                            </tr>
-                        </table>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-lg font-bold text-blue-800" id="nav-performance">--</div>
+                        <div class="text-xs text-gray-600">NAV</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-lg font-bold text-gray-800" id="sp500-performance">--</div>
+                        <div class="text-xs text-gray-600">S&P 500</div>
                     </div>
                 </div>
             </div>
             
-            <p class="text-sm text-gray-600 mt-4">
-                The exchange-traded fund's median bid-ask spread is rounded to the nearest hundredth and computed by (1) identifying the exchange-traded fund's national best bid and national best offer as of the end of each 10 second interval during each trading day of the last 30 calendar days, (2) dividing the difference between each such bid and offer by the midpoint of the national best bid and national best offer, and (3) identifying the median of those values.
-            </p>
-        </div>
-    </section>
-
-    <!-- Performance Section -->
-    <section id="performance" class="cambria-section py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Performance</h2>
-            
-            <div class="mb-8">
+            <div class="mb-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Month end returns as of: <span id="performance-date">December 19, 2024</span></h3>
                 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="cambria-card p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="cambria-card p-5">
                         <h4 class="font-semibold text-gray-900 mb-4">CUMULATIVE</h4>
                         <table class="performance-table">
                             <thead>
@@ -590,7 +651,7 @@
                         </table>
                     </div>
 
-                    <div class="cambria-card p-6">
+                    <div class="cambria-card p-5">
                         <h4 class="font-semibold text-gray-900 mb-4">AVG. ANNUALIZED</h4>
                         <table class="performance-table">
                             <thead>
@@ -641,17 +702,13 @@
     </section>
 
     <!-- Holdings Section -->
-    <section id="holdings" class="py-16 bg-white">
+    <section id="holdings" class="py-12 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center mb-8">
+            <div class="flex justify-between items-center mb-6">
                 <h2 class="text-2xl font-bold text-gray-900">TOP 10 HOLDINGS</h2>
-                <div class="flex space-x-4">
-                    <button class="cambria-button text-sm">Download Holdings</button>
-                    <button class="cambria-button-secondary text-sm">Full Holdings</button>
-                </div>
             </div>
             
-            <div class="cambria-card p-6 mb-8">
+            <div class="cambria-card p-5 mb-6">
                 <table class="cambria-table">
                     <thead>
                         <tr>
@@ -706,61 +763,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <p class="text-sm text-gray-500 mt-4">Data as of <span id="holdings-date">December 19, 2024</span></p>
+                <p class="text-sm text-gray-500 mt-3">Data as of <span id="holdings-date">December 19, 2024</span></p>
                 <p class="text-sm text-gray-600 mt-2">Holdings are subject to change</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Documents Section -->
-    <section id="documents" class="cambria-section py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-8">Investor Materials</h2>
-            
-            <div class="cambria-card p-6">
-                <table class="documents-table">
-                    <thead>
-                        <tr>
-                            <th>Summary Prospectus</th>
-                            <th>Statutory Prospectus</th>
-                            <th>Statement of Additional Information</th>
-                            <th>Semi-Annual Report</th>
-                            <th>Annual Report</th>
-                            <th>Semi-Annual Financial Statements</th>
-                            <th>Annual Financial Statements</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><a href="#">Download</a></td>
-                            <td><a href="#">Download</a></td>
-                            <td><a href="#">Download</a></td>
-                            <td><a href="#">Download</a></td>
-                            <td><a href="#">Download</a></td>
-                            <td><a href="#">Download</a></td>
-                            <td><a href="#">Download</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="mt-8">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Additional Filings</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="cambria-card p-6">
-                        <h4 class="font-semibold text-gray-900 mb-3">All XBRL Filings</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-red-800 hover:underline">Registration Statement XBRL</a></li>
-                            <li><a href="#" class="text-red-800 hover:underline">Prospectus Supplement XBRL</a></li>
-                        </ul>
-                    </div>
-                    <div class="cambria-card p-6">
-                        <h4 class="font-semibold text-gray-900 mb-3">N-PX Files</h4>
-                        <ul class="space-y-2">
-                            <li><a href="#" class="text-red-800 hover:underline">N-PX</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -831,6 +835,181 @@
         document.getElementById('current-date').textContent = currentDate;
         document.getElementById('performance-date').textContent = currentDate;
         document.getElementById('holdings-date').textContent = currentDate;
+
+        // Performance Chart Data
+        const performanceData = {
+            '1m': {
+                labels: ['Jan 1', 'Jan 8', 'Jan 15', 'Jan 22', 'Jan 29'],
+                red: [100, 102.5, 101.8, 104.2, 105.1],
+                nav: [100, 102.3, 101.5, 103.9, 104.8],
+                sp500: [100, 101.2, 100.8, 102.1, 102.5]
+            },
+            '3m': {
+                labels: ['Oct', 'Nov', 'Dec', 'Jan'],
+                red: [100, 105.2, 108.7, 112.3],
+                nav: [100, 104.8, 108.1, 111.9],
+                sp500: [100, 103.1, 106.4, 108.2]
+            },
+            '6m': {
+                labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+                red: [100, 98.5, 102.3, 105.2, 108.7, 112.3, 115.8],
+                nav: [100, 98.2, 101.9, 104.8, 108.1, 111.9, 115.2],
+                sp500: [100, 97.8, 100.5, 103.1, 106.4, 108.2, 110.5]
+            },
+            '1y': {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
+                red: [100, 102.1, 98.5, 105.2, 108.7, 112.3, 115.8, 118.4, 121.2, 124.7, 128.3, 132.1, 135.8],
+                nav: [100, 101.8, 98.2, 104.8, 108.1, 111.9, 115.2, 117.8, 120.5, 124.1, 127.7, 131.4, 135.1],
+                sp500: [100, 101.2, 97.8, 103.1, 106.4, 108.2, 110.5, 112.8, 115.2, 117.6, 119.8, 122.1, 124.3]
+            },
+            'ytd': {
+                labels: ['Jan 1', 'Jan 8', 'Jan 15', 'Jan 22', 'Jan 29'],
+                red: [100, 102.5, 101.8, 104.2, 105.1],
+                nav: [100, 102.3, 101.5, 103.9, 104.8],
+                sp500: [100, 101.2, 100.8, 102.1, 102.5]
+            }
+        };
+
+        // Chart configuration
+        const chartConfig = {
+            type: 'line',
+            data: {
+                labels: performanceData['ytd'].labels,
+                datasets: [
+                    {
+                        label: 'RED ETF',
+                        data: performanceData['ytd'].red,
+                        borderColor: '#8b0000',
+                        backgroundColor: 'rgba(139, 0, 0, 0.1)',
+                        borderWidth: 3,
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 3,
+                        pointHoverRadius: 5
+                    },
+                    {
+                        label: 'NAV',
+                        data: performanceData['ytd'].nav,
+                        borderColor: '#1e40af',
+                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 2,
+                        pointHoverRadius: 4
+                    },
+                    {
+                        label: 'S&P 500',
+                        data: performanceData['ytd'].sp500,
+                        borderColor: '#6b7280',
+                        backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4,
+                        pointRadius: 2,
+                        pointHoverRadius: 4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            usePointStyle: true,
+                            padding: 15,
+                            font: {
+                                size: 10
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return value.toFixed(1) + '%';
+                            },
+                            font: {
+                                size: 10
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.1)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 10
+                            }
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                }
+            }
+        };
+
+        // Initialize chart
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        const performanceChart = new Chart(ctx, chartConfig);
+
+        // Update performance metrics
+        function updatePerformanceMetrics(period) {
+            const data = performanceData[period];
+            const redChange = ((data.red[data.red.length - 1] - 100) / 100 * 100).toFixed(2);
+            const navChange = ((data.nav[data.nav.length - 1] - 100) / 100 * 100).toFixed(2);
+            const sp500Change = ((data.sp500[data.sp500.length - 1] - 100) / 100 * 100).toFixed(2);
+            
+            document.getElementById('red-performance').textContent = redChange + '%';
+            document.getElementById('nav-performance').textContent = navChange + '%';
+            document.getElementById('sp500-performance').textContent = sp500Change + '%';
+        }
+
+        // Button click handlers
+        function updateChart(period) {
+            const data = performanceData[period];
+            
+            performanceChart.data.labels = data.labels;
+            performanceChart.data.datasets[0].data = data.red;
+            performanceChart.data.datasets[1].data = data.nav;
+            performanceChart.data.datasets[2].data = data.sp500;
+            
+            performanceChart.update();
+            updatePerformanceMetrics(period);
+            
+            // Update button styles
+            document.querySelectorAll('[id$="-btn"]').forEach(btn => {
+                btn.className = 'cambria-button-secondary text-xs';
+            });
+            document.getElementById(period + '-btn').className = 'cambria-button text-xs';
+        }
+
+        // Add event listeners
+        document.getElementById('1m-btn').addEventListener('click', () => updateChart('1m'));
+        document.getElementById('3m-btn').addEventListener('click', () => updateChart('3m'));
+        document.getElementById('6m-btn').addEventListener('click', () => updateChart('6m'));
+        document.getElementById('1y-btn').addEventListener('click', () => updateChart('1y'));
+        document.getElementById('ytd-btn').addEventListener('click', () => updateChart('ytd'));
+
+        // Initialize with YTD data and update metrics
+        updatePerformanceMetrics('ytd');
+        
+        // Ensure chart is visible and working
+        setTimeout(() => {
+            if (performanceChart) {
+                performanceChart.update();
+            }
+        }, 100);
     </script>
 </body>
 </html> 
