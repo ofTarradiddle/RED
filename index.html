@@ -282,15 +282,15 @@
                     <div class="text-xs text-gray-300 uppercase tracking-wide">Holdings</div>
                 </div>
                 <div class="bg-white/10 rounded-lg p-3">
-                    <div class="text-lg font-bold">$25.45</div>
+                    <div class="text-lg font-bold" id="quick-nav">$25.45</div>
                     <div class="text-xs text-gray-300 uppercase tracking-wide">NAV</div>
                 </div>
                 <div class="bg-white/10 rounded-lg p-3">
-                    <div class="text-lg font-bold">$25.42</div>
+                    <div class="text-lg font-bold" id="quick-price">$25.42</div>
                     <div class="text-xs text-gray-300 uppercase tracking-wide">Price</div>
                 </div>
                 <div class="bg-white/10 rounded-lg p-3">
-                    <div class="text-lg font-bold text-green-400">+5.1%</div>
+                    <div class="text-lg font-bold text-green-400" id="quick-ytd">+5.1%</div>
                     <div class="text-xs text-gray-300 uppercase tracking-wide">YTD</div>
                 </div>
             </div>
@@ -458,11 +458,11 @@
                                 <div class="space-y-2 text-sm">
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">Net Asset Value:</span>
-                                        <span class="font-semibold text-gray-900">$25.45</span>
+                                        <span class="font-semibold text-gray-900" id="nav-price">$25.45</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">Daily Change:</span>
-                                        <span class="font-semibold text-green-600">+0.12%</span>
+                                        <span class="font-semibold text-green-600" id="nav-change">+0.12%</span>
                                     </div>
                                 </div>
                             </div>
@@ -471,11 +471,11 @@
                                 <div class="space-y-2 text-sm">
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">Closing Price:</span>
-                                        <span class="font-semibold text-gray-900">$25.42</span>
+                                        <span class="font-semibold text-gray-900" id="etf-price">$25.42</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span class="text-gray-600">Daily Change:</span>
-                                        <span class="font-semibold text-green-600">+0.08%</span>
+                                        <span class="font-semibold text-green-600" id="etf-change">+0.08%</span>
                                     </div>
                                 </div>
                             </div>
@@ -483,13 +483,14 @@
                     </div>
 
                     <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
-                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Premium/Discount Chart</h3>
-                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg text-center">
-                            <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <i data-lucide="bar-chart-3" class="h-8 w-8 text-gray-400"></i>
-                            </div>
-                            <p class="text-sm text-gray-600 font-medium">Available upon fund launch</p>
-                            <p class="text-xs text-gray-500 mt-1">Real-time premium/discount tracking</p>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Premium/Discount</h3>
+                        <div class="h-64">
+                            <canvas id="premiumChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-green-600 mb-2" id="premium-value">+0.14%</div>
+                            <p class="text-sm text-gray-600 font-medium">Current Premium/Discount</p>
+                            <p class="text-xs text-gray-500 mt-1">RED ETF vs NAV</p>
                         </div>
                     </div>
                 </div>
@@ -598,7 +599,7 @@
                     <button id="ytd-btn" class="cambria-button text-xs">YTD</button>
                 </div>
                 <div class="relative" style="height: 300px;">
-                    <canvas id="performanceChart"></canvas>
+                    <canvas id="performanceChart" height="300"></canvas>
                 </div>
                 <div class="grid grid-cols-3 gap-4 mt-4">
                     <div class="bg-gray-50 rounded-lg p-3 text-center">
@@ -822,194 +823,677 @@
     </footer>
 
     <script>
-        // Initialize Lucide icons
-        lucide.createIcons();
-        
-        // Update dates
-        const currentDate = new Date().toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
+        // Global variables
+        let performanceChart = null;
+        let premiumChart = null;
+        let currentPeriod = 'YTD';
+        let performanceData = null;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing...');
+            
+            loadPerformanceData();
+            setupEventListeners();
+            updateDates();
         });
-        
-        document.getElementById('current-date').textContent = currentDate;
-        document.getElementById('performance-date').textContent = currentDate;
-        document.getElementById('holdings-date').textContent = currentDate;
 
-        // Performance Chart Data
-        const performanceData = {
-            '1m': {
-                labels: ['Jan 1', 'Jan 8', 'Jan 15', 'Jan 22', 'Jan 29'],
-                red: [100, 102.5, 101.8, 104.2, 105.1],
-                nav: [100, 102.3, 101.5, 103.9, 104.8],
-                sp500: [100, 101.2, 100.8, 102.1, 102.5]
-            },
-            '3m': {
-                labels: ['Oct', 'Nov', 'Dec', 'Jan'],
-                red: [100, 105.2, 108.7, 112.3],
-                nav: [100, 104.8, 108.1, 111.9],
-                sp500: [100, 103.1, 106.4, 108.2]
-            },
-            '6m': {
-                labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
-                red: [100, 98.5, 102.3, 105.2, 108.7, 112.3, 115.8],
-                nav: [100, 98.2, 101.9, 104.8, 108.1, 111.9, 115.2],
-                sp500: [100, 97.8, 100.5, 103.1, 106.4, 108.2, 110.5]
-            },
-            '1y': {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'],
-                red: [100, 102.1, 98.5, 105.2, 108.7, 112.3, 115.8, 118.4, 121.2, 124.7, 128.3, 132.1, 135.8],
-                nav: [100, 101.8, 98.2, 104.8, 108.1, 111.9, 115.2, 117.8, 120.5, 124.1, 127.7, 131.4, 135.1],
-                sp500: [100, 101.2, 97.8, 103.1, 106.4, 108.2, 110.5, 112.8, 115.2, 117.6, 119.8, 122.1, 124.3]
-            },
-            'ytd': {
-                labels: ['Jan 1', 'Jan 8', 'Jan 15', 'Jan 22', 'Jan 29'],
-                red: [100, 102.5, 101.8, 104.2, 105.1],
-                nav: [100, 102.3, 101.5, 103.9, 104.8],
-                sp500: [100, 101.2, 100.8, 102.1, 102.5]
+        // Update dates
+        function updateDates() {
+            const currentDate = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            document.getElementById('performance-date').textContent = currentDate;
+            document.getElementById('holdings-date').textContent = currentDate;
+        }
+
+        // Load performance data from API
+        async function loadPerformanceData() {
+            try {
+                console.log('=== LOADING PERFORMANCE DATA ===');
+                console.log('Fetching from: http://localhost:5001/api/performance-data');
+                
+                const response = await fetch('http://localhost:5001/api/performance-data');
+                console.log('Response status:', response.status);
+                console.log('Response ok:', response.ok);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                performanceData = await response.json();
+                console.log('API data loaded successfully');
+                console.log('Data structure:', {
+                    hasChartData: !!performanceData.chart_data,
+                    hasPremiumData: !!performanceData.premium_data,
+                    hasReturns: !!performanceData.returns,
+                    hasLatestValues: !!performanceData.latest_values,
+                    chartDataLabels: performanceData.chart_data?.labels?.length || 0,
+                    chartDataDatasets: performanceData.chart_data?.datasets?.length || 0,
+                    premiumDataLabels: performanceData.premium_data?.labels?.length || 0
+                });
+                
+                // Update all components
+                console.log('Updating chart...');
+                updateChart();
+                console.log('Updating premium chart...');
+                updatePremiumChart();
+                console.log('Updating performance metrics...');
+                updatePerformanceMetrics();
+                console.log('Updating fund prices...');
+                updateFundPrices();
+                console.log('Updating premium discount...');
+                updatePremiumDiscount();
+                console.log('Updating quick details...');
+                updateQuickDetails();
+                console.log('=== DATA LOADING COMPLETE ===');
+                
+            } catch (error) {
+                console.error('=== ERROR LOADING PERFORMANCE DATA ===');
+                console.error('Error details:', error);
+                console.error('Error message:', error.message);
+                console.log('Using fallback sample data...');
+                useSampleData();
             }
-        };
+        }
 
-        // Chart configuration
-        const chartConfig = {
-            type: 'line',
-            data: {
-                labels: performanceData['ytd'].labels,
+        // Fallback sample data
+        function useSampleData() {
+            performanceData = {
+                chart_data: {
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
+                    datasets: [
+                        {
+                            label: 'RED ETF',
+                            data: [100, 105.2, 110.4, 115.3, 119.8, 123.9, 127.6, 130.9, 133.8, 136.3, 138.4, 140.1],
+                            borderColor: '#dc2626',
+                            backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'NAV',
+                            data: [100, 105.1, 110.2, 115.1, 119.6, 123.7, 127.4, 130.7, 133.6, 136.1, 138.2, 139.9],
+                            borderColor: '#2563eb',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'S&P 500',
+                            data: [100, 102.8, 106.2, 109.4, 112.6, 115.8, 119.0, 122.2, 125.4, 128.6, 131.8, 135.0],
+                            borderColor: '#6b7280',
+                            backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                premium_data: {
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
+                    datasets: [
+                        {
+                            label: 'Premium/Discount',
+                            data: [0.14, 0.12, 0.10, 0.08, 0.06, 0.04, 0.02, 0.00, -0.02, -0.04, -0.06, -0.08],
+                            borderColor: '#8b0000',
+                            backgroundColor: 'rgba(139, 0, 0, 0.05)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                returns: {
+                    '1M': {'RED_ETF': 2.1, 'NAV': 2.0, 'SP500': 1.6},
+                    '3M': {'RED_ETF': 6.3, 'NAV': 6.1, 'SP500': 4.8},
+                    '6M': {'RED_ETF': 12.8, 'NAV': 12.5, 'SP500': 10.2},
+                    '1Y': {'RED_ETF': 25.6, 'NAV': 25.2, 'SP500': 20.4},
+                    'YTD': {'RED_ETF': 40.1, 'NAV': 39.9, 'SP500': 35.0}
+                },
+                latest_values: {
+                    'RED_ETF': 141.2,
+                    'NAV': 141.0,
+                    'SP500': 137.2,
+                    'Premium_Discount': 0.14 // Added for premium discount update
+                }
+            };
+            
+            updateChart();
+            updatePremiumChart();
+            updatePerformanceMetrics();
+            updateFundPrices();
+            updatePremiumDiscount();
+            updateQuickDetails();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Period buttons
+            document.getElementById('1m-btn').addEventListener('click', () => setPeriod('1M'));
+            document.getElementById('3m-btn').addEventListener('click', () => setPeriod('3M'));
+            document.getElementById('6m-btn').addEventListener('click', () => setPeriod('6M'));
+            document.getElementById('1y-btn').addEventListener('click', () => setPeriod('1Y'));
+            document.getElementById('ytd-btn').addEventListener('click', () => setPeriod('YTD'));
+        }
+
+        // Set period and update chart
+        function setPeriod(period) {
+            console.log('Setting period to:', period);
+            currentPeriod = period;
+            
+            // Update button styles
+            document.querySelectorAll('[id$="-btn"]').forEach(btn => {
+                btn.classList.remove('cambria-button');
+                btn.classList.add('cambria-button-secondary');
+            });
+            document.getElementById(period.toLowerCase() + '-btn').classList.remove('cambria-button-secondary');
+            document.getElementById(period.toLowerCase() + '-btn').classList.add('cambria-button');
+            
+            updateChart();
+            updatePremiumChart();
+            updatePerformanceMetrics();
+            updateFundPrices();
+        }
+
+        // Update chart with filtered data
+        function updateChart() {
+            console.log('=== CHART UPDATE START ===');
+            
+            if (!performanceData || !performanceData.chart_data) {
+                console.error('No performance data available for chart');
+                return;
+            }
+
+            const canvas = document.getElementById('performanceChart');
+            if (!canvas) {
+                console.error('Canvas element not found');
+                return;
+            }
+
+            console.log('Canvas found, dimensions:', canvas.width, 'x', canvas.height);
+
+            // Destroy existing chart if it exists
+            if (performanceChart) {
+                console.log('Destroying existing chart');
+                performanceChart.destroy();
+                performanceChart = null;
+            }
+
+            // Use the embedded data directly
+            const chartData = {
+                labels: performanceData.chart_data.labels,
+                datasets: performanceData.chart_data.datasets
+            };
+            
+            console.log('Chart data:', chartData);
+            console.log('Labels count:', chartData.labels.length);
+            console.log('Datasets count:', chartData.datasets.length);
+
+            // Create new chart
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Could not get 2D context from canvas');
+                return;
+            }
+
+            console.log('Creating new Chart.js instance...');
+            
+            try {
+                performanceChart = new Chart(ctx, {
+                    type: 'line',
+                    data: chartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#dc2626',
+                                borderWidth: 1
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 8,
+                                    font: {
+                                        size: 10
+                                    }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 10
+                                    },
+                                    callback: function(value) {
+                                        return value.toFixed(0);
+                                    }
+                                }
+                            }
+                        },
+                        interaction: {
+                            mode: 'nearest',
+                            axis: 'x',
+                            intersect: false
+                        },
+                        elements: {
+                            point: {
+                                radius: 0,
+                                hoverRadius: 4,
+                                borderWidth: 0
+                            },
+                            line: {
+                                borderWidth: 2,
+                                tension: 0.1
+                            }
+                        }
+                    }
+                });
+                
+                console.log('Chart created successfully:', performanceChart);
+                
+            } catch (error) {
+                console.error('Error creating chart:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack trace:', error.stack);
+            }
+            
+            console.log('=== CHART UPDATE END ===');
+        }
+
+        // Get filtered data based on period
+        function getFilteredData(period) {
+            console.log('=== FILTERING DATA ===');
+            console.log('Period:', period);
+            
+            const allData = performanceData.chart_data;
+            const allLabels = allData.labels;
+            const allDatasets = allData.datasets;
+            
+            console.log('All labels count:', allLabels?.length || 0);
+            console.log('All datasets count:', allDatasets?.length || 0);
+            
+            if (!allLabels || allLabels.length === 0) {
+                console.error('No labels in chart data');
+                return allData;
+            }
+
+            // Calculate start date based on period
+            const lastDate = new Date(allLabels[allLabels.length - 1]);
+            console.log('Last date in data:', lastDate);
+            
+            let startDate;
+            
+            switch(period) {
+                case '1M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 1, lastDate.getDate());
+                    break;
+                case '3M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 3, lastDate.getDate());
+                    break;
+                case '6M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 6, lastDate.getDate());
+                    break;
+                case '1Y':
+                    startDate = new Date(lastDate.getFullYear() - 1, lastDate.getMonth(), lastDate.getDate());
+                    break;
+                case 'YTD':
+                    startDate = new Date(lastDate.getFullYear(), 0, 1);
+                    break;
+                default:
+                    console.log('Unknown period, returning all data');
+                    return allData;
+            }
+
+            console.log('Filter start date:', startDate);
+
+            // Filter data
+            const filteredLabels = [];
+            const filteredDatasets = allDatasets.map(dataset => ({
+                ...dataset,
+                data: []
+            }));
+
+            allLabels.forEach((label, index) => {
+                const labelDate = new Date(label);
+                if (labelDate >= startDate) {
+                    filteredLabels.push(label);
+                    allDatasets.forEach((dataset, datasetIndex) => {
+                        if (dataset.data[index] !== undefined) {
+                            filteredDatasets[datasetIndex].data.push(dataset.data[index]);
+                        }
+                    });
+                }
+            });
+
+            console.log('Filtered labels count:', filteredLabels.length);
+            console.log('Filtered datasets data lengths:', filteredDatasets.map(ds => ds.data.length));
+
+            // Ensure we have at least 2 points
+            if (filteredLabels.length < 2) {
+                console.log('Not enough filtered points, using last 2 points');
+                return {
+                    labels: allLabels.slice(-2),
+                    datasets: allDatasets.map(dataset => ({
+                        ...dataset,
+                        data: dataset.data.slice(-2)
+                    }))
+                };
+            }
+
+            // Ensure proper styling for each dataset
+            const result = {
+                labels: filteredLabels,
                 datasets: [
                     {
                         label: 'RED ETF',
-                        data: performanceData['ytd'].red,
-                        borderColor: '#8b0000',
-                        backgroundColor: 'rgba(139, 0, 0, 0.1)',
-                        borderWidth: 3,
+                        data: filteredDatasets[0].data,
+                        borderColor: '#dc2626',
+                        backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                        borderWidth: 2,
                         fill: false,
-                        tension: 0.4,
-                        pointRadius: 3,
-                        pointHoverRadius: 5
+                        tension: 0.1
                     },
                     {
                         label: 'NAV',
-                        data: performanceData['ytd'].nav,
-                        borderColor: '#1e40af',
-                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                        data: filteredDatasets[1].data,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37, 99, 235, 0.1)',
                         borderWidth: 2,
                         fill: false,
-                        tension: 0.4,
-                        pointRadius: 2,
-                        pointHoverRadius: 4
+                        tension: 0.1
                     },
                     {
                         label: 'S&P 500',
-                        data: performanceData['ytd'].sp500,
+                        data: filteredDatasets[2].data,
                         borderColor: '#6b7280',
                         backgroundColor: 'rgba(107, 114, 128, 0.1)',
                         borderWidth: 2,
                         fill: false,
-                        tension: 0.4,
-                        pointRadius: 2,
-                        pointHoverRadius: 4
+                        tension: 0.1
                     }
                 ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'top',
-                        labels: {
-                            usePointStyle: true,
-                            padding: 15,
-                            font: {
-                                size: 10
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        },
-                        ticks: {
-                            callback: function(value) {
-                                return value.toFixed(1) + '%';
-                            },
-                            font: {
-                                size: 10
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.1)'
-                        },
-                        ticks: {
-                            font: {
-                                size: 10
-                            }
-                        }
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index'
-                }
-            }
-        };
-
-        // Initialize chart
-        const ctx = document.getElementById('performanceChart').getContext('2d');
-        const performanceChart = new Chart(ctx, chartConfig);
+            };
+            
+            console.log('Final result - labels:', result.labels.length, 'datasets:', result.datasets.length);
+            console.log('=== FILTERING COMPLETE ===');
+            
+            return result;
+        }
 
         // Update performance metrics
-        function updatePerformanceMetrics(period) {
-            const data = performanceData[period];
-            const redChange = ((data.red[data.red.length - 1] - 100) / 100 * 100).toFixed(2);
-            const navChange = ((data.nav[data.nav.length - 1] - 100) / 100 * 100).toFixed(2);
-            const sp500Change = ((data.sp500[data.sp500.length - 1] - 100) / 100 * 100).toFixed(2);
-            
-            document.getElementById('red-performance').textContent = redChange + '%';
-            document.getElementById('nav-performance').textContent = navChange + '%';
-            document.getElementById('sp500-performance').textContent = sp500Change + '%';
-        }
-
-        // Button click handlers
-        function updateChart(period) {
-            const data = performanceData[period];
-            
-            performanceChart.data.labels = data.labels;
-            performanceChart.data.datasets[0].data = data.red;
-            performanceChart.data.datasets[1].data = data.nav;
-            performanceChart.data.datasets[2].data = data.sp500;
-            
-            performanceChart.update();
-            updatePerformanceMetrics(period);
-            
-            // Update button styles
-            document.querySelectorAll('[id$="-btn"]').forEach(btn => {
-                btn.className = 'cambria-button-secondary text-xs';
-            });
-            document.getElementById(period + '-btn').className = 'cambria-button text-xs';
-        }
-
-        // Add event listeners
-        document.getElementById('1m-btn').addEventListener('click', () => updateChart('1m'));
-        document.getElementById('3m-btn').addEventListener('click', () => updateChart('3m'));
-        document.getElementById('6m-btn').addEventListener('click', () => updateChart('6m'));
-        document.getElementById('1y-btn').addEventListener('click', () => updateChart('1y'));
-        document.getElementById('ytd-btn').addEventListener('click', () => updateChart('ytd'));
-
-        // Initialize with YTD data and update metrics
-        updatePerformanceMetrics('ytd');
-        
-        // Ensure chart is visible and working
-        setTimeout(() => {
-            if (performanceChart) {
-                performanceChart.update();
+        function updatePerformanceMetrics() {
+            if (!performanceData || !performanceData.returns || !performanceData.returns[currentPeriod]) {
+                console.log('No returns data for period:', currentPeriod);
+                return;
             }
-        }, 100);
+
+            const returns = performanceData.returns[currentPeriod];
+            
+            const redElement = document.getElementById('red-performance');
+            const navElement = document.getElementById('nav-performance');
+            const sp500Element = document.getElementById('sp500-performance');
+            
+            if (redElement) redElement.textContent = returns.RED_ETF.toFixed(1) + '%';
+            if (navElement) navElement.textContent = returns.NAV.toFixed(1) + '%';
+            if (sp500Element) sp500Element.textContent = returns.SP500.toFixed(1) + '%';
+        }
+
+        // Update fund prices
+        function updateFundPrices() {
+            if (!performanceData || !performanceData.latest_values) {
+                console.log('No latest values data');
+                return;
+            }
+
+            const latest = performanceData.latest_values;
+            
+            // Update NAV and ETF prices
+            const navPriceElement = document.getElementById('nav-price');
+            const etfPriceElement = document.getElementById('etf-price');
+            
+            if (navPriceElement) navPriceElement.textContent = `$${latest.NAV.toFixed(2)}`;
+            if (etfPriceElement) etfPriceElement.textContent = `$${latest.RED_ETF.toFixed(2)}`;
+            
+            // Calculate daily changes (simplified)
+            const navChange = ((latest.NAV - 140.88) / 140.88 * 100).toFixed(2);
+            const etfChange = ((latest.RED_ETF - 140.80) / 140.80 * 100).toFixed(2);
+            
+            const navChangeElement = document.getElementById('nav-change');
+            const etfChangeElement = document.getElementById('etf-change');
+            
+            if (navChangeElement) {
+                navChangeElement.textContent = `${navChange >= 0 ? '+' : ''}${navChange}%`;
+                navChangeElement.className = `font-semibold ${navChange >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+            
+            if (etfChangeElement) {
+                etfChangeElement.textContent = `${etfChange >= 0 ? '+' : ''}${etfChange}%`;
+                etfChangeElement.className = `font-semibold ${etfChange >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+        }
+
+        // Update premium/discount chart
+        function updatePremiumChart() {
+            if (!performanceData || !performanceData.premium_data) return;
+
+            const allData = performanceData.premium_data;
+            const allLabels = allData.labels;
+            const allDatasets = allData.datasets;
+
+            if (!allLabels || allLabels.length === 0) {
+                console.error('No labels in premium data');
+                return;
+            }
+
+            const lastDate = new Date(allLabels[allLabels.length - 1]);
+            const startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 1, lastDate.getDate()); // 1 month ago
+
+            const filteredLabels = [];
+            const filteredDatasets = [
+                {
+                    label: 'Premium/Discount',
+                    data: [],
+                    borderColor: '#8b0000',
+                    backgroundColor: 'rgba(139, 0, 0, 0.05)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.1
+                }
+            ];
+
+            allLabels.forEach(label => {
+                const labelDate = new Date(label);
+                if (labelDate >= startDate) {
+                    filteredLabels.push(label);
+                    const premium = allDatasets[0].data[allLabels.indexOf(label)]; // Premium data
+                    filteredDatasets[0].data.push(premium);
+                }
+            });
+
+            if (filteredLabels.length < 2) {
+                console.log('Not enough filtered points for premium chart, using last 2 points');
+                return;
+            }
+
+            const ctx = document.getElementById('premiumChart').getContext('2d');
+            if (!ctx) {
+                console.error('Canvas element not found for premium chart');
+                return;
+            }
+
+            if (premiumChart) {
+                premiumChart.destroy();
+                premiumChart = null;
+            }
+
+            try {
+                premiumChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: filteredLabels,
+                        datasets: filteredDatasets
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#8b0000',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Premium/Discount: ' + context.parsed.y.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 8,
+                                    font: {
+                                        size: 10
+                                    }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 10
+                                    },
+                                    callback: function(value) {
+                                        return value.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        interaction: {
+                            mode: 'nearest',
+                            axis: 'x',
+                            intersect: false
+                        },
+                        elements: {
+                            point: {
+                                radius: 0,
+                                hoverRadius: 4,
+                                borderWidth: 0
+                            },
+                            line: {
+                                borderWidth: 2,
+                                tension: 0.1
+                            }
+                        }
+                    }
+                });
+                console.log('Premium chart created successfully:', premiumChart);
+            } catch (error) {
+                console.error('Error creating premium chart:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack trace:', error.stack);
+            }
+        }
+
+        // Update premium/discount
+        function updatePremiumDiscount() {
+            if (!performanceData || !performanceData.latest_values) return;
+
+            const latest = performanceData.latest_values;
+            const premium = latest.Premium_Discount;
+            
+            const premiumValueElement = document.getElementById('premium-value');
+            const premiumDetailsElement = document.getElementById('premium-details');
+
+            if (premiumValueElement) {
+                premiumValueElement.textContent = `${premium >= 0 ? '+' : ''}${premium.toFixed(2)}%`;
+                premiumValueElement.className = `text-2xl font-bold ${premium >= 0 ? 'text-green-600' : 'text-red-600'} mb-2`;
+            }
+            
+            if (premiumDetailsElement) {
+                premiumDetailsElement.innerHTML = `
+                    <div>RED ETF: $${latest.RED_ETF.toFixed(2)}</div>
+                    <div>NAV: $${latest.NAV.toFixed(2)}</div>
+                `;
+            }
+        }
+
+        // Update quick fund details bar
+        function updateQuickDetails() {
+            if (!performanceData || !performanceData.latest_values || !performanceData.returns['YTD']) return;
+
+            const latest = performanceData.latest_values;
+            const ytdReturn = performanceData.returns['YTD'].RED_ETF;
+            
+            const quickNavElement = document.getElementById('quick-nav');
+            const quickPriceElement = document.getElementById('quick-price');
+            const quickYtdElement = document.getElementById('quick-ytd');
+            
+            if (quickNavElement) quickNavElement.textContent = `$${latest.NAV.toFixed(2)}`;
+            if (quickPriceElement) quickPriceElement.textContent = `$${latest.RED_ETF.toFixed(2)}`;
+            if (quickYtdElement) quickYtdElement.textContent = `${ytdReturn >= 0 ? '+' : ''}${ytdReturn.toFixed(1)}%`;
+        }
+
+        // Refresh data
+        function refreshData() {
+            loadPerformanceData();
+        }
+
+        // Auto-refresh every 5 minutes
+        setInterval(refreshData, 5 * 60 * 1000);
     </script>
 </body>
 </html> 
