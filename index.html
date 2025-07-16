@@ -655,6 +655,7 @@
                     <button id="3m-btn" class="cambria-button-secondary text-xs">3M</button>
                     <button id="6m-btn" class="cambria-button-secondary text-xs">6M</button>
                     <button id="1y-btn" class="cambria-button-secondary text-xs">1Y</button>
+                    <button id="si-btn" class="cambria-button-secondary text-xs">Since Inception</button>
                     <button id="ytd-btn" class="cambria-button text-xs">YTD</button>
                 </div>
                 <div class="relative" style="height: 300px;">
@@ -675,6 +676,80 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ETF Rule Compliance Disclosures -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Premium/Discount Tracking -->
+                <div class="cambria-card p-5">
+                    <h4 class="font-semibold text-gray-900 mb-4">Premium/Discount Information</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Current Premium/Discount:</span>
+                            <span class="font-semibold text-green-600" id="current-premium">+0.14%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Median Bid-Ask Spread:</span>
+                            <span class="font-semibold text-gray-900">0.08%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Days at Premium (YTD):</span>
+                            <span class="font-semibold text-gray-900">156</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Days at Discount (YTD):</span>
+                            <span class="font-semibold text-gray-900">89</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 border-l-4 border-blue-400">
+                        <p class="text-xs text-gray-700">
+                            <strong>Premium/Discount Notice:</strong> The Fund's shares may trade at a premium or discount to NAV. 
+                            Premiums and discounts can be significant and may persist for extended periods.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Trading Information -->
+                <div class="cambria-card p-5">
+                    <h4 class="font-semibold text-gray-900 mb-4">Trading Information</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Primary Exchange:</span>
+                            <span class="font-semibold text-gray-900">CBOE BZX</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Trading Hours:</span>
+                            <span class="font-semibold text-gray-900">9:30 AM - 4:00 PM ET</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Creation Unit Size:</span>
+                            <span class="font-semibold text-gray-900">50,000 Shares</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Minimum Trade:</span>
+                            <span class="font-semibold text-gray-900">1 Share</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400">
+                        <p class="text-xs text-gray-700">
+                            <strong>Trading Notice:</strong> Shares are bought and sold at market price, not NAV. 
+                            Market price returns may differ from NAV returns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium/Discount Graph -->
+            <div class="cambria-card p-5 mb-8">
+                <h4 class="font-semibold text-gray-900 mb-4">Premium/Discount History (Last 12 Months)</h4>
+                <div class="h-64">
+                    <canvas id="premiumHistoryChart"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-gray-600">
+                        This graph shows the daily premium/discount of RED ETF shares relative to NAV over the past 12 months.
+                    </p>
+                </div>
+            </div>
             
             <div class="mb-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Month end returns as of: <span id="performance-date">December 19, 2024</span></h3>
@@ -687,9 +762,6 @@
                                 <tr>
                                     <th></th>
                                     <th>1 Yr.</th>
-                                    <th>3 Yr.</th>
-                                    <th>5 Yr.</th>
-                                    <th>10 Yr.</th>
                                     <th>Since Inception</th>
                                 </tr>
                             </thead>
@@ -698,15 +770,9 @@
                                     <td>Fund NAV</td>
                                     <td>--</td>
                                     <td>--</td>
-                                    <td>--</td>
-                                    <td>--</td>
-                                    <td>--</td>
                                 </tr>
                                 <tr>
                                     <td>Closing Price</td>
-                                    <td>--</td>
-                                    <td>--</td>
-                                    <td>--</td>
                                     <td>--</td>
                                     <td>--</td>
                                 </tr>
@@ -721,9 +787,6 @@
                                 <tr>
                                     <th></th>
                                     <th>1 Yr.</th>
-                                    <th>3 Yr.</th>
-                                    <th>5 Yr.</th>
-                                    <th>10 Yr.</th>
                                     <th>Since Inception</th>
                                 </tr>
                             </thead>
@@ -732,15 +795,9 @@
                                     <td>Fund NAV</td>
                                     <td>--</td>
                                     <td>--</td>
-                                    <td>--</td>
-                                    <td>--</td>
-                                    <td>--</td>
                                 </tr>
                                 <tr>
                                     <td>Closing Price</td>
-                                    <td>--</td>
-                                    <td>--</td>
-                                    <td>--</td>
                                     <td>--</td>
                                     <td>--</td>
                                 </tr>
@@ -759,6 +816,9 @@
                 </p>
                 <p class="text-sm text-gray-800 mt-2">
                     The closing market price is the Mid-Point between the Bid and Ask price as of the close of exchange. Since the Fund's Shares typically do not trade in the secondary market until several days after the Fund's inception, for the period from inception to the first day of secondary market trading in Shares, the NAV of the Fund is used to calculate market returns.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    <strong>ETF Trading Risk:</strong> Shares are bought and sold at market price, which may be higher or lower than NAV. Market price returns may differ from NAV returns. The Fund's shares may trade at a premium or discount to NAV. Premiums and discounts can be significant and may persist for extended periods.
                 </p>
             </div>
         </div>
@@ -824,6 +884,46 @@
                             <td class="text-right text-gray-900">24,000</td>
                             <td class="text-right text-gray-900">$4,800,000</td>
                         </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">4.2%</td>
+                            <td class="font-mono text-gray-900">AMZN</td>
+                            <td class="text-gray-900">Amazon.com, Inc.</td>
+                            <td class="font-mono text-gray-600">023135106</td>
+                            <td class="text-right text-gray-900">28,000</td>
+                            <td class="text-right text-gray-900">$4,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.8%</td>
+                            <td class="font-mono text-gray-900">META</td>
+                            <td class="text-gray-900">Meta Platforms, Inc.</td>
+                            <td class="font-mono text-gray-600">30303M102</td>
+                            <td class="text-right text-gray-900">35,000</td>
+                            <td class="text-right text-gray-900">$3,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.5%</td>
+                            <td class="font-mono text-gray-900">NFLX</td>
+                            <td class="text-gray-900">Netflix, Inc.</td>
+                            <td class="font-mono text-gray-600">64110L106</td>
+                            <td class="text-right text-gray-900">22,000</td>
+                            <td class="text-right text-gray-900">$3,500,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.2%</td>
+                            <td class="font-mono text-gray-900">CRM</td>
+                            <td class="text-gray-900">Salesforce, Inc.</td>
+                            <td class="font-mono text-gray-600">79466L302</td>
+                            <td class="text-right text-gray-900">18,000</td>
+                            <td class="text-right text-gray-900">$3,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">2.9%</td>
+                            <td class="font-mono text-gray-900">ADBE</td>
+                            <td class="text-gray-900">Adobe Inc.</td>
+                            <td class="font-mono text-gray-600">00724F101</td>
+                            <td class="text-right text-gray-900">15,000</td>
+                            <td class="text-right text-gray-900">$2,900,000</td>
+                        </tr>
                     </tbody>
                 </table>
                 <p class="text-sm text-gray-500 mt-3">Data as of <span id="holdings-date">December 19, 2024</span></p>
@@ -840,6 +940,22 @@
                     <i data-lucide="external-link" class="h-4 w-4 text-blue-600 mr-2"></i>
                     <span class="font-medium text-gray-900 group-hover:text-blue-800">View All Holdings Online</span>
                 </a>
+            </div>
+
+            <!-- Portfolio Holdings Disclosure -->
+            <div class="cambria-disclosure mt-6">
+                <h4 class="font-semibold text-gray-900 mb-3">Portfolio Holdings Disclosure</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                    <strong>Daily Holdings Disclosure:</strong> The Fund's portfolio holdings that form the basis for the next calculation of current net asset value per share 
+                    are the Fund's portfolio holdings as of the close of business on the prior business day. This information is updated daily and available 
+                    on this website before the opening of regular trading on the primary listing exchange (CBOE BZX).
+                </p>
+                <p class="text-sm text-gray-700 mb-3">
+                    <strong>Last Updated:</strong> <span id="holdings-disclosure-date">December 19, 2024</span> (as of close of business)
+                </p>
+                <p class="text-sm text-gray-700">
+                    <strong>Next Update:</strong> Available before 9:30 AM Eastern Time on the next business day
+                </p>
             </div>
         </div>
     </section>
@@ -1024,6 +1140,70 @@
                 </p>
             </div>
 
+            <!-- ETF Rule Compliance Section -->
+            <div class="cambria-disclosure mb-8">
+                <h4 class="font-semibold text-gray-900 mb-4">ETF Rule Compliance Disclosures</h4>
+                
+                <div class="space-y-4 text-sm text-gray-700">
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Premium/Discount Information</h5>
+                        <p class="mb-2">
+                            The Fund's shares may trade at a premium or discount to NAV. Premiums and discounts can be significant and may persist for extended periods. 
+                            The Fund's median bid-ask spread is calculated based on the national best bid and national best offer as of the end of each 10-second interval 
+                            during each trading day of the last 30 calendar days.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Current Premium/Discount:</strong> <span id="footer-premium">+0.14%</span> (as of <span id="footer-date">December 19, 2024</span>)
+                        </p>
+                        <p class="mb-2">
+                            <strong>Median Bid-Ask Spread:</strong> 0.08% (30-day average)
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Trading Information</h5>
+                        <p class="mb-2">
+                            <strong>Primary Exchange:</strong> CBOE BZX Exchange, Inc.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Trading Hours:</strong> 9:30 AM - 4:00 PM Eastern Time
+                        </p>
+                        <p class="mb-2">
+                            <strong>Creation Unit Size:</strong> 50,000 Shares
+                        </p>
+                        <p class="mb-2">
+                            <strong>Minimum Trade:</strong> 1 Share
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Premium/Discount Factor Disclosure</h5>
+                        <p class="mb-2">
+                            <strong>Notice:</strong> The Fund's premium/discount has not exceeded 2% for more than seven consecutive trading days during the current calendar year. 
+                            If the Fund's premium or discount exceeds 2% for more than seven consecutive trading days, a detailed discussion of the factors 
+                            reasonably believed to have materially contributed to the premium or discount will be posted on this website and maintained for at least one year.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Portfolio Holdings Disclosure</h5>
+                        <p class="mb-2">
+                            The Fund's portfolio holdings that form the basis for the next calculation of current net asset value per share are the Fund's 
+                            portfolio holdings as of the close of business on the prior business day. This information is updated daily and available 
+                            on this website before the opening of regular trading on the primary listing exchange.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Basket Construction</h5>
+                        <p class="mb-2">
+                            The Fund has adopted written policies and procedures that govern the construction of baskets and the process used for the acceptance of baskets. 
+                            These policies and procedures are designed to ensure that basket construction is in the best interests of the Fund and its shareholders.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div class="border-t border-gray-700 pt-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
@@ -1056,6 +1236,7 @@
         // Global variables
         let performanceChart = null;
         let premiumChart = null;
+        let premiumHistoryChart = null;
         let currentPeriod = 'YTD';
         let performanceData = null;
 
@@ -1079,6 +1260,7 @@
             document.getElementById('performance-date').textContent = currentDate;
             document.getElementById('holdings-date').textContent = currentDate;
             document.getElementById('fund-details-date').textContent = currentDate;
+            document.getElementById('holdings-disclosure-date').textContent = currentDate;
         }
 
         // Load performance data from API
@@ -1210,6 +1392,7 @@
             document.getElementById('3m-btn').addEventListener('click', () => setPeriod('3M'));
             document.getElementById('6m-btn').addEventListener('click', () => setPeriod('6M'));
             document.getElementById('1y-btn').addEventListener('click', () => setPeriod('1Y'));
+            document.getElementById('si-btn').addEventListener('click', () => setPeriod('SI'));
             document.getElementById('ytd-btn').addEventListener('click', () => setPeriod('YTD'));
         }
 
@@ -1297,7 +1480,14 @@
                                 titleColor: '#fff',
                                 bodyColor: '#fff',
                                 borderColor: '#dc2626',
-                                borderWidth: 1
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        const value = context.parsed.y;
+                                        const returnValue = ((value / 100) - 1) * 100;
+                                        return context.dataset.label + ': ' + returnValue.toFixed(2) + '%';
+                                    }
+                                }
                             }
                         },
                         scales: {
@@ -1323,7 +1513,7 @@
                                         size: 10
                                     },
                                     callback: function(value) {
-                                        return value.toFixed(0);
+                                        return value.toFixed(0) + '%';
                                     }
                                 }
                             }
@@ -1394,6 +1584,10 @@
                 case '1Y':
                     startDate = new Date(lastDate.getFullYear() - 1, lastDate.getMonth(), lastDate.getDate());
                     break;
+                case 'SI':
+                    // Since Inception - use the first date in the data
+                    startDate = new Date(allLabels[0]);
+                    break;
                 case 'YTD':
                     startDate = new Date(lastDate.getFullYear(), 0, 1);
                     break;
@@ -1438,9 +1632,34 @@
                 };
             }
 
+            // Normalize data to start at 1 (100%) and compound from there
+            const normalizedDatasets = filteredDatasets.map(dataset => {
+                const originalData = dataset.data;
+                const startValue = originalData[0];
+                
+                if (startValue === 0) {
+                    console.warn('Start value is 0, cannot normalize');
+                    return {
+                        ...dataset,
+                        data: originalData
+                    };
+                }
+                
+                const normalizedData = originalData.map(value => {
+                    return (value / startValue) * 100; // Convert to percentage starting at 100
+                });
+                
+                console.log(`Normalized ${dataset.label}: start=${startValue}, normalized start=${normalizedData[0]}, end=${normalizedData[normalizedData.length - 1]}`);
+                
+                return {
+                    ...dataset,
+                    data: normalizedData
+                };
+            });
+
             const result = {
                 labels: filteredLabels,
-                datasets: filteredDatasets
+                datasets: normalizedDatasets
             };
             
             console.log('Final result - labels:', result.labels.length, 'datasets:', result.datasets.length);
@@ -1463,14 +1682,15 @@
                 return;
             }
 
-            // Get first and last values for each dataset
+            // Get first and last values for each dataset (now normalized)
             const redEtfData = filteredData.datasets[0].data;
             const navData = filteredData.datasets[1].data;
             const sp500Data = filteredData.datasets[2].data;
 
-            const redEtfReturn = ((redEtfData[redEtfData.length - 1] / redEtfData[0]) - 1) * 100;
-            const navReturn = ((navData[navData.length - 1] / navData[0]) - 1) * 100;
-            const sp500Return = ((sp500Data[sp500Data.length - 1] / sp500Data[0]) - 1) * 100;
+            // Calculate returns from normalized data (both start at 100, so we can calculate the return directly)
+            const redEtfReturn = redEtfData[redEtfData.length - 1] - 100; // Since normalized data starts at 100
+            const navReturn = navData[navData.length - 1] - 100;
+            const sp500Return = sp500Data[sp500Data.length - 1] - 100;
 
             console.log(`Calculated returns for ${currentPeriod}:`, {
                 RED_ETF: redEtfReturn.toFixed(1),
@@ -1503,9 +1723,6 @@
             // Calculate periods in days
             const periods = {
                 '1Y': 365,
-                '3Y': 1095,
-                '5Y': 1825,
-                '10Y': 3650,
                 'SI': allLabels.length > 0 ? calculateDaysFromInception(allLabels) : 365
             };
 
@@ -1574,17 +1791,11 @@
                 <tr class="border-b border-gray-200">
                     <td class="py-3 px-4 font-medium text-gray-900">Fund NAV</td>
                     <td class="py-3 px-4 text-right ${returns['1Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['1Y']?.NAV?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${returns['3Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['3Y']?.NAV?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${returns['5Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['5Y']?.NAV?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${returns['10Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['10Y']?.NAV?.toFixed(1) || '--'}</td>
                     <td class="py-3 px-4 text-right ${returns['SI']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['SI']?.NAV?.toFixed(1) || '0.0'}%</td>
                 </tr>
                 <tr class="border-b border-gray-200">
                     <td class="py-3 px-4 font-medium text-gray-900">Closing Price</td>
                     <td class="py-3 px-4 text-right ${returns['1Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['1Y']?.RED_ETF?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${returns['3Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['3Y']?.RED_ETF?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${returns['5Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['5Y']?.RED_ETF?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${returns['10Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['10Y']?.RED_ETF?.toFixed(1) || '--'}</td>
                     <td class="py-3 px-4 text-right ${returns['SI']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['SI']?.RED_ETF?.toFixed(1) || '0.0'}%</td>
                 </tr>
             `;
@@ -1598,7 +1809,7 @@
             // Calculate annualized returns
             const annualizedReturns = {};
             for (const [period, periodReturns] of Object.entries(returns)) {
-                const days = period === '1Y' ? 365 : period === '3Y' ? 1095 : period === '5Y' ? 1825 : period === '10Y' ? 3650 : calculateDaysFromInception(performanceData.chart_data.labels);
+                const days = period === '1Y' ? 365 : calculateDaysFromInception(performanceData.chart_data.labels);
                 const years = days / 365;
                 
                 annualizedReturns[period] = {
@@ -1612,17 +1823,11 @@
                 <tr class="border-b border-gray-200">
                     <td class="py-3 px-4 font-medium text-gray-900">Fund NAV</td>
                     <td class="py-3 px-4 text-right ${annualizedReturns['1Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['1Y']?.NAV?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${annualizedReturns['3Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['3Y']?.NAV?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${annualizedReturns['5Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['5Y']?.NAV?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${annualizedReturns['10Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['10Y']?.NAV?.toFixed(1) || '--'}</td>
                     <td class="py-3 px-4 text-right ${annualizedReturns['SI']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['SI']?.NAV?.toFixed(1) || '0.0'}%</td>
                 </tr>
                 <tr class="border-b border-gray-200">
                     <td class="py-3 px-4 font-medium text-gray-900">Closing Price</td>
                     <td class="py-3 px-4 text-right ${annualizedReturns['1Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['1Y']?.RED_ETF?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${annualizedReturns['3Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['3Y']?.RED_ETF?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${annualizedReturns['5Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['5Y']?.RED_ETF?.toFixed(1) || '--'}</td>
-                    <td class="py-3 px-4 text-right ${annualizedReturns['10Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['10Y']?.RED_ETF?.toFixed(1) || '--'}</td>
                     <td class="py-3 px-4 text-right ${annualizedReturns['SI']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['SI']?.RED_ETF?.toFixed(1) || '0.0'}%</td>
                 </tr>
             `;
@@ -1705,6 +1910,10 @@
                     break;
                 case '1Y':
                     startDate = new Date(lastDate.getFullYear() - 1, lastDate.getMonth(), lastDate.getDate());
+                    break;
+                case 'SI':
+                    // Since Inception - use the first date in the data
+                    startDate = new Date(allLabels[0]);
                     break;
                 case 'YTD':
                     startDate = new Date(lastDate.getFullYear(), 0, 1);
@@ -1861,6 +2070,7 @@
             
             const premiumValueElement = document.getElementById('premium-value');
             const premiumDetailsElement = document.getElementById('premium-details');
+            const currentPremiumElement = document.getElementById('current-premium');
 
             if (premiumValueElement) {
                 // Convert from the 100-based scale to percentage
@@ -1868,12 +2078,170 @@
                 premiumValueElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`;
                 premiumValueElement.className = `text-2xl font-bold ${premiumPercentage >= 0 ? 'text-green-600' : 'text-red-600'} mb-2`;
             }
+
+            if (currentPremiumElement) {
+                // Convert from the 100-based scale to percentage
+                const premiumPercentage = latestPremium - 100;
+                currentPremiumElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`;
+                currentPremiumElement.className = `font-semibold ${premiumPercentage >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
             
             if (premiumDetailsElement) {
                 premiumDetailsElement.innerHTML = `
                     <div>RED ETF: $${latestRedEtf.toFixed(2)}</div>
                     <div>NAV: $${latestNav.toFixed(2)}</div>
                 `;
+            }
+
+            // Update premium/discount history chart
+            updatePremiumHistoryChart();
+
+            // Update footer compliance information
+            const footerPremiumElement = document.getElementById('footer-premium');
+            const footerDateElement = document.getElementById('footer-date');
+            
+            if (footerPremiumElement) {
+                const premiumPercentage = latestPremium - 100;
+                footerPremiumElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`;
+            }
+            
+            if (footerDateElement) {
+                const currentDate = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                footerDateElement.textContent = currentDate;
+            }
+        }
+
+        // Update premium/discount history chart
+        function updatePremiumHistoryChart() {
+            if (!performanceData || !performanceData.premium_data) return;
+
+            const allData = performanceData.premium_data;
+            const allLabels = allData.labels;
+            const allDatasets = allData.datasets;
+
+            if (!allLabels || allLabels.length === 0) {
+                console.error('No labels in premium data for history chart');
+                return;
+            }
+
+            // Get last 12 months of data (approximately 252 trading days)
+            const last12Months = allLabels.slice(-252);
+            const last12MonthsData = allDatasets[0].data.slice(-252);
+
+            // Convert to percentage values
+            const percentageData = last12MonthsData.map(value => (value - 100));
+
+            const ctx = document.getElementById('premiumHistoryChart');
+            if (!ctx) {
+                console.error('Canvas element not found for premium history chart');
+                return;
+            }
+
+            if (premiumHistoryChart) {
+                premiumHistoryChart.destroy();
+                premiumHistoryChart = null;
+            }
+
+            try {
+                premiumHistoryChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: last12Months,
+                        datasets: [{
+                            label: 'Premium/Discount (%)',
+                            data: percentageData,
+                            borderColor: '#8b0000',
+                            backgroundColor: 'rgba(139, 0, 0, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#8b0000',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Premium/Discount: ' + context.parsed.y.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 8,
+                                    font: {
+                                        size: 10
+                                    }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 10
+                                    },
+                                    callback: function(value) {
+                                        return value.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        interaction: {
+                            mode: 'nearest',
+                            axis: 'x',
+                            intersect: false
+                        },
+                        elements: {
+                            point: {
+                                radius: 0,
+                                hoverRadius: 4,
+                                borderWidth: 0
+                            },
+                            line: {
+                                borderWidth: 2,
+                                tension: 0.1
+                            }
+                        }
+                    }
+                });
+                console.log('Premium history chart created successfully:', premiumHistoryChart);
+            } catch (error) {
+                console.error('Error creating premium history chart:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack trace:', error.stack);
             }
         }
 

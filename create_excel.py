@@ -10,7 +10,6 @@ np.random.seed(42)  # For reproducible results
 
 # Start with base values
 red_etf_base = 100
-nav_base = 100
 sp500_base = 100
 
 red_etf = []
@@ -21,24 +20,30 @@ premium_discount = []
 for i in range(len(dates)):
     # Add some daily variation
     red_etf_change = np.random.normal(0.15, 0.8)  # Daily return with volatility
-    nav_change = np.random.normal(0.14, 0.75)
     sp500_change = np.random.normal(0.08, 0.6)
     
     if i == 0:
         red_etf.append(red_etf_base)
-        nav.append(nav_base)
+        nav.append(red_etf_base)  # NAV starts same as RED ETF
         sp500.append(sp500_base)
-        premium_discount.append(100.00)  # Start at 100
+        premium_discount.append(100.00)  # Start at 100 (no premium/discount)
     else:
         red_etf.append(red_etf[-1] * (1 + red_etf_change/100))
-        nav.append(nav[-1] * (1 + nav_change/100))
         sp500.append(sp500[-1] * (1 + sp500_change/100))
         
-        # Calculate premium/discount (around 100 with small volatility)
-        # Add small random variation around 100
-        premium_variation = np.random.normal(0, 0.1)  # Small volatility around 0%
-        premium = 100 + premium_variation
-        premium_discount.append(premium)
+        # NAV should be very close to RED ETF price
+        # Add tiny random variation to NAV (much smaller than RED ETF variation)
+        nav_variation = np.random.normal(0, 0.02)  # Very small variation
+        nav.append(red_etf[-1] * (1 + nav_variation/100))
+        
+        # Calculate premium/discount as the percentage difference
+        # Premium/Discount = (RED_ETF / NAV - 1) * 100 + 100
+        # This gives us a value around 100 where 100 = no premium/discount
+        if nav[-1] != 0:
+            premium_pct = (red_etf[-1] / nav[-1] - 1) * 100
+            premium_discount.append(100 + premium_pct)
+        else:
+            premium_discount.append(100.00)
 
 # Create DataFrame
 df = pd.DataFrame({
@@ -90,4 +95,6 @@ print(df.head())
 print("\nLatest values:")
 print(df.tail())
 print(f"\nPremium/Discount range: {df['Premium_Discount'].min():.2f} to {df['Premium_Discount'].max():.2f}")
-print(f"Premium/Discount mean: {df['Premium_Discount'].mean():.2f}") 
+print(f"Premium/Discount mean: {df['Premium_Discount'].mean():.2f}")
+print(f"\nRED ETF vs NAV correlation: {df['RED_ETF'].corr(df['NAV']):.4f}")
+print(f"Average difference between RED ETF and NAV: {abs(df['RED_ETF'] - df['NAV']).mean():.4f}") 
