@@ -35,7 +35,9 @@ for i in range(len(dates)):
         sp500.append(sp500[-1] * (1 + sp500_change/100))
         
         # Calculate premium/discount (around 100 with small volatility)
-        premium = ((red_etf[-1] - nav[-1]) / nav[-1] * 100) + 100
+        # Add small random variation around 100
+        premium_variation = np.random.normal(0, 0.1)  # Small volatility around 0%
+        premium = 100 + premium_variation
         premium_discount.append(premium)
 
 # Create DataFrame
@@ -86,4 +88,6 @@ print(f"Data points: {len(df)}")
 print("Sample data:")
 print(df.head())
 print("\nLatest values:")
-print(df.tail()) 
+print(df.tail())
+print(f"\nPremium/Discount range: {df['Premium_Discount'].min():.2f} to {df['Premium_Discount'].max():.2f}")
+print(f"Premium/Discount mean: {df['Premium_Discount'].mean():.2f}") 

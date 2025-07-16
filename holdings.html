@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED ETF Holdings | Diamond Brothers LLC</title>
+    <meta name="description" content="Complete holdings for RED Innovation Factor ETF - View all portfolio positions and sector allocations.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .cambria-header {
+            background: #1a0a0a;
+            color: white;
+        }
+        .cambria-nav {
+            background: #2d0f0f;
+            border-bottom: 1px solid #4a1a1a;
+        }
+        .cambria-card {
+            background: white;
+            border: 1px solid #e8e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(139, 0, 0, 0.05);
+        }
+        .cambria-button {
+            background: #8b0000;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cambria-button:hover {
+            background: #a00000;
+        }
+        .cambria-button-secondary {
+            background: white;
+            color: #8b0000;
+            border: 1px solid #8b0000;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .cambria-button-secondary:hover {
+            background: #faf8f8;
+        }
+        .holdings-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .holdings-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .holdings-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .holdings-table tr:hover {
+            background: #faf8f8;
+        }
+        .sector-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .sector-technology { background: #dbeafe; color: #1e40af; }
+        .sector-healthcare { background: #dcfce7; color: #166534; }
+        .sector-financial { background: #fef3c7; color: #92400e; }
+        .sector-consumer { background: #fce7f3; color: #be185d; }
+        .sector-energy { background: #fef2f2; color: #dc2626; }
+        .sector-utilities { background: #f3e8ff; color: #7c3aed; }
+        .sector-materials { background: #ecfdf5; color: #047857; }
+        .sector-realestate { background: #fff7ed; color: #ea580c; }
+        .sector-communication { background: #f0f9ff; color: #0369a1; }
+        .logo-placeholder {
+            width: 44px;
+            height: 44px;
+            background: #8b0000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-right: 12px;
+        }
+        .company-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        .product-name {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            margin-top: -2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Top Header -->
+    <div class="cambria-header py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center text-sm">
+                <div class="flex items-center space-x-6">
+                    <span>Email: info@dbe.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-gray-300 hover:text-white">← Back to Fund Overview</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="cambria-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="logo-placeholder" aria-label="Diamond Brothers Logo">DB</div>
+                    <div>
+                        <div class="company-logo">Diamond Brothers</div>
+                        <div class="product-name">RED ETF Holdings</div>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Fund Overview</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-8 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">RED ETF Complete Holdings</h1>
+                <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+                    View all portfolio positions for the Diamond Brothers Innovation Factor ETF. 
+                    Holdings are updated daily and reflect the fund's systematic approach to identifying innovation-driven companies.
+                </p>
+                
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-red-800" id="total-holdings">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Total Holdings</div>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-gray-900" id="total-value">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Market Value</div>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-blue-600" id="tech-allocation">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Technology</div>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-green-600" id="healthcare-allocation">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Healthcare</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controls Section -->
+    <section class="py-6 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search and Filters -->
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <div class="relative">
+                        <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"></i>
+                        <input type="text" id="search-input" placeholder="Search by ticker or company name..." 
+                               class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                    </div>
+                    <select id="sector-filter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                        <option value="">All Sectors</option>
+                    </select>
+                </div>
+                
+                <!-- Sort Options -->
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">Sort by:</span>
+                    <select id="sort-select" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                        <option value="allocation-desc">Allocation (High to Low)</option>
+                        <option value="allocation-asc">Allocation (Low to High)</option>
+                        <option value="ticker-asc">Ticker (A-Z)</option>
+                        <option value="name-asc">Company Name (A-Z)</option>
+                        <option value="sector-asc">Sector (A-Z)</option>
+                        <option value="value-desc">Market Value (High to Low)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holdings Table Section -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="cambria-card overflow-hidden">
+                <div class="p-6 border-b border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-semibold text-gray-900">Complete Holdings</h2>
+                        <div class="text-sm text-gray-500">
+                            Data as of <span id="holdings-date">--</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="holdings-table" id="holdings-table">
+                        <thead>
+                            <tr>
+                                <th class="cursor-pointer hover:bg-gray-100" onclick="sortTable('allocation')">
+                                    Allocation % <i data-lucide="chevron-down" class="h-4 w-4 inline ml-1"></i>
+                                </th>
+                                <th class="cursor-pointer hover:bg-gray-100" onclick="sortTable('ticker')">
+                                    Ticker <i data-lucide="chevron-down" class="h-4 w-4 inline ml-1"></i>
+                                </th>
+                                <th class="cursor-pointer hover:bg-gray-100" onclick="sortTable('name')">
+                                    Company Name <i data-lucide="chevron-down" class="h-4 w-4 inline ml-1"></i>
+                                </th>
+                                <th>Sector</th>
+                                <th>CUSIP</th>
+                                <th class="text-right">Shares Held</th>
+                                <th class="text-right">Price</th>
+                                <th class="text-right cursor-pointer hover:bg-gray-100" onclick="sortTable('value')">
+                                    Market Value <i data-lucide="chevron-down" class="h-4 w-4 inline ml-1"></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdings-tbody">
+                            <!-- Holdings will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Loading State -->
+                <div id="loading-state" class="p-8 text-center">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-red-800 mx-auto mb-4"></div>
+                    <p class="text-gray-600">Loading holdings data...</p>
+                </div>
+                
+                <!-- No Results State -->
+                <div id="no-results" class="p-8 text-center hidden">
+                    <i data-lucide="search-x" class="h-12 w-12 text-gray-400 mx-auto mb-4"></i>
+                    <p class="text-gray-600">No holdings match your search criteria</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sector Breakdown Section -->
+    <section class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Sector Allocation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="sector-breakdown">
+                <!-- Sector cards will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm text-gray-400">
+                    © 2024 - 2025 Diamond Brothers LLC. All rights reserved.
+                </p>
+                <p class="text-xs text-gray-500 mt-2">
+                    Holdings are subject to change. Data is provided for informational purposes only.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let holdingsData = [];
+        let filteredData = [];
+        let currentSort = { field: 'allocation', direction: 'desc' };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Holdings page loaded, initializing...');
+            loadHoldingsData();
+            setupEventListeners();
+        });
+
+        // Load holdings data from Excel file
+        async function loadHoldingsData() {
+            try {
+                console.log('Loading holdings data from Excel file...');
+                
+                const response = await fetch('red_holdings.xlsx');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const arrayBuffer = await response.arrayBuffer();
+                const workbook = XLSX.read(arrayBuffer, { type: 'array' });
+                
+                // Get the Holdings sheet
+                const worksheet = workbook.Sheets['Holdings'];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet);
+                
+                console.log('Holdings data loaded:', jsonData.length, 'holdings');
+                
+                // Process the data
+                holdingsData = jsonData.map(row => ({
+                    ticker: row.ticker,
+                    name: row.name,
+                    cusip: row.cusip,
+                    sector: row.sector,
+                    allocation: parseFloat(row.allocation),
+                    shares: parseInt(row.shares),
+                    price: parseFloat(row.price),
+                    market_value: parseFloat(row.market_value),
+                    date: row.date
+                }));
+                
+                filteredData = [...holdingsData];
+                
+                // Update the page
+                updateHoldingsTable();
+                updateMetrics();
+                updateSectorBreakdown();
+                updateFilters();
+                
+                // Hide loading state
+                document.getElementById('loading-state').classList.add('hidden');
+                
+            } catch (error) {
+                console.error('Error loading holdings data:', error);
+                document.getElementById('loading-state').innerHTML = `
+                    <div class="text-center">
+                        <i data-lucide="alert-circle" class="h-12 w-12 text-red-500 mx-auto mb-4"></i>
+                        <p class="text-red-600 mb-2">Error loading holdings data</p>
+                        <p class="text-sm text-gray-600">Please try refreshing the page</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Search input
+            document.getElementById('search-input').addEventListener('input', filterHoldings);
+            
+            // Sector filter
+            document.getElementById('sector-filter').addEventListener('change', filterHoldings);
+            
+            // Sort select
+            document.getElementById('sort-select').addEventListener('change', function() {
+                const value = this.value;
+                const [field, direction] = value.split('-');
+                currentSort = { field, direction };
+                sortAndDisplayHoldings();
+            });
+        }
+
+        // Filter holdings based on search and sector
+        function filterHoldings() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const sectorFilter = document.getElementById('sector-filter').value;
+            
+            filteredData = holdingsData.filter(holding => {
+                const matchesSearch = !searchTerm || 
+                    holding.ticker.toLowerCase().includes(searchTerm) ||
+                    holding.name.toLowerCase().includes(searchTerm);
+                
+                const matchesSector = !sectorFilter || holding.sector === sectorFilter;
+                
+                return matchesSearch && matchesSector;
+            });
+            
+            sortAndDisplayHoldings();
+            updateMetrics();
+        }
+
+        // Sort and display holdings
+        function sortAndDisplayHoldings() {
+            const { field, direction } = currentSort;
+            
+            filteredData.sort((a, b) => {
+                let aVal = a[field];
+                let bVal = b[field];
+                
+                // Handle string comparisons
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = bVal.toLowerCase();
+                }
+                
+                if (direction === 'asc') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+            
+            updateHoldingsTable();
+        }
+
+        // Update holdings table
+        function updateHoldingsTable() {
+            const tbody = document.getElementById('holdings-tbody');
+            const noResults = document.getElementById('no-results');
+            
+            if (filteredData.length === 0) {
+                tbody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+            
+            noResults.classList.add('hidden');
+            
+            tbody.innerHTML = filteredData.map(holding => `
+                <tr class="hover:bg-gray-50">
+                    <td class="font-semibold text-gray-900">${holding.allocation.toFixed(2)}%</td>
+                    <td class="font-mono text-gray-900">${holding.ticker}</td>
+                    <td class="text-gray-900">${holding.name}</td>
+                    <td>
+                        <span class="sector-badge sector-${holding.sector.toLowerCase().replace(/\s+/g, '')}">
+                            ${holding.sector}
+                        </span>
+                    </td>
+                    <td class="font-mono text-gray-600">${holding.cusip}</td>
+                    <td class="text-right text-gray-900">${holding.shares.toLocaleString()}</td>
+                    <td class="text-right text-gray-900">$${holding.price.toFixed(2)}</td>
+                    <td class="text-right font-semibold text-gray-900">$${holding.market_value.toLocaleString()}</td>
+                </tr>
+            `).join('');
+        }
+
+        // Update metrics
+        function updateMetrics() {
+            const totalHoldings = filteredData.length;
+            const totalValue = filteredData.reduce((sum, h) => sum + h.market_value, 0);
+            const techAllocation = filteredData
+                .filter(h => h.sector === 'Technology')
+                .reduce((sum, h) => sum + h.allocation, 0);
+            const healthcareAllocation = filteredData
+                .filter(h => h.sector === 'Healthcare')
+                .reduce((sum, h) => sum + h.allocation, 0);
+            
+            document.getElementById('total-holdings').textContent = totalHoldings;
+            document.getElementById('total-value').textContent = `$${(totalValue / 1000000).toFixed(1)}M`;
+            document.getElementById('tech-allocation').textContent = `${techAllocation.toFixed(1)}%`;
+            document.getElementById('healthcare-allocation').textContent = `${healthcareAllocation.toFixed(1)}%`;
+        }
+
+        // Update sector breakdown
+        function updateSectorBreakdown() {
+            const sectorData = {};
+            
+            filteredData.forEach(holding => {
+                if (!sectorData[holding.sector]) {
+                    sectorData[holding.sector] = {
+                        count: 0,
+                        allocation: 0,
+                        value: 0
+                    };
+                }
+                sectorData[holding.sector].count++;
+                sectorData[holding.sector].allocation += holding.allocation;
+                sectorData[holding.sector].value += holding.market_value;
+            });
+            
+            const sectorBreakdown = document.getElementById('sector-breakdown');
+            sectorBreakdown.innerHTML = Object.entries(sectorData)
+                .sort(([,a], [,b]) => b.allocation - a.allocation)
+                .map(([sector, data]) => `
+                    <div class="cambria-card p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">${sector}</h3>
+                            <span class="sector-badge sector-${sector.toLowerCase().replace(/\s+/g, '')}">
+                                ${data.count} holdings
+                            </span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Allocation:</span>
+                                <span class="font-semibold text-gray-900">${data.allocation.toFixed(1)}%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Market Value:</span>
+                                <span class="font-semibold text-gray-900">$${(data.value / 1000000).toFixed(1)}M</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+        }
+
+        // Update filters
+        function updateFilters() {
+            const sectors = [...new Set(holdingsData.map(h => h.sector))].sort();
+            const sectorFilter = document.getElementById('sector-filter');
+            
+            sectorFilter.innerHTML = '<option value="">All Sectors</option>' +
+                sectors.map(sector => `<option value="${sector}">${sector}</option>`).join('');
+        }
+
+        // Sort table function (for header clicks)
+        function sortTable(field) {
+            if (currentSort.field === field) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.field = field;
+                currentSort.direction = 'desc';
+            }
+            
+            // Update sort select to match
+            const sortSelect = document.getElementById('sort-select');
+            sortSelect.value = `${field}-${currentSort.direction}`;
+            
+            sortAndDisplayHoldings();
+        }
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html> 
