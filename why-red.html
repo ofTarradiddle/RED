@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why RED - Diamond Brothers Innovation Factor ETF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        .cambria-gradient {
+            background: linear-gradient(135deg, #8b0000 0%, #dc2626 50%, #ef4444 100%);
+        }
+        .cambria-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(139, 0, 0, 0.1);
+        }
+        .cambria-disclosure {
+            background: #f8f9fa;
+            border-left: 4px solid #8b0000;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .cambria-button {
+            background: linear-gradient(135deg, #8b0000 0%, #dc2626 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cambria-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.3);
+        }
+        .cambria-button-secondary {
+            background: white;
+            color: #8b0000;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #8b0000;
+            cursor: pointer;
+        }
+        .cambria-button-secondary:hover {
+            background: #8b0000;
+            color: white;
+        }
+        .innovation-glow {
+            box-shadow: 0 0 20px rgba(139, 0, 0, 0.3);
+        }
+        .network-container {
+            height: 500px;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            background: #fafafa;
+        }
+        .metric-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .research-highlight {
+            background: linear-gradient(135deg, #8b0000 0%, #dc2626 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        .academic-section {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        .innovation-factor {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        .factor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .factor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid #8b0000;
+            transition: all 0.3s ease;
+        }
+        .factor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(139, 0, 0, 0.15);
+        }
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Back Button -->
+    <a href="index.html" class="back-button">
+        <i data-lucide="arrow-left" class="h-6 w-6 text-gray-700"></i>
+    </a>
+
+    <!-- Hero Section -->
+    <section class="cambria-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-6">Why RED?</h1>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                The Diamond Brothers Innovation Factor ETF represents a paradigm shift in factor investing, 
+                combining rigorous academic research with cutting-edge technology to capture the essence of innovation.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                    <div class="text-3xl font-bold">59</div>
+                    <div class="text-sm">Innovation Leaders</div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                    <div class="text-3xl font-bold">8</div>
+                    <div class="text-sm">Sectors</div>
+                </div>
+                <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                    <div class="text-3xl font-bold">100%</div>
+                    <div class="text-sm">Innovation Focused</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Network Visualization -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Innovation Ecosystem Network</h2>
+            <div class="cambria-card p-6">
+                <div id="innovation-network" class="network-container"></div>
+                <div class="mt-4 text-center text-sm text-gray-600">
+                    Interactive visualization showing innovation factor relationships and sector connections
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Foundation -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Academic Foundation</h2>
+            
+            <div class="academic-section">
+                <h3 class="text-2xl font-semibold text-gray-900 mb-4">Research Methodology</h3>
+                <p class="text-gray-700 mb-6">
+                    Our innovation factor methodology is grounded in decades of academic research on factor investing, 
+                    technological innovation, and market efficiency. We combine insights from leading researchers including:
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div class="metric-card">
+                        <h4 class="font-semibold text-gray-900 mb-2">Fama-French Factor Model</h4>
+                        <p class="text-sm text-gray-600">
+                            Building upon the foundational work of Eugene Fama and Kenneth French, 
+                            we extend their factor framework to include innovation-specific factors.
+                        </p>
+                    </div>
+                    <div class="metric-card">
+                        <h4 class="font-semibold text-gray-900 mb-2">Innovation Economics</h4>
+                        <p class="text-sm text-gray-600">
+                            Incorporating research from Joseph Schumpeter's creative destruction theory 
+                            and modern innovation economics literature.
+                        </p>
+                    </div>
+                    <div class="metric-card">
+                        <h4 class="font-semibold text-gray-900 mb-2">Technology Diffusion</h4>
+                        <p class="text-sm text-gray-600">
+                            Applying Everett Rogers' diffusion of innovations theory to identify 
+                            companies at the forefront of technological adoption.
+                        </p>
+                    </div>
+                    <div class="metric-card">
+                        <h4 class="font-semibold text-gray-900 mb-2">Patent Analytics</h4>
+                        <p class="text-sm text-gray-600">
+                            Leveraging patent citation networks and innovation metrics 
+                            to quantify technological advancement and innovation potential.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Factors -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Innovation Factor Framework</h2>
+            
+            <div class="innovation-factor">
+                <h3 class="text-2xl font-semibold mb-6">Multi-Dimensional Innovation Assessment</h3>
+                <p class="text-lg mb-8">
+                    Our proprietary innovation factor model evaluates companies across multiple dimensions 
+                    to identify true innovation leaders in the market.
+                </p>
+                
+                <div class="factor-grid">
+                    <div class="factor-card">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="zap" class="h-6 w-6 text-red-600 mr-2"></i>
+                            <h4 class="font-semibold text-gray-900">R&D Intensity</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Research and development spending as a percentage of revenue, 
+                            weighted by industry benchmarks and historical innovation output.
+                        </p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="lightbulb" class="h-6 w-6 text-red-600 mr-2"></i>
+                            <h4 class="font-semibold text-gray-900">Patent Quality</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Patent portfolio analysis including citation counts, 
+                            technological impact, and forward-looking innovation potential.
+                        </p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="trending-up" class="h-6 w-6 text-red-600 mr-2"></i>
+                            <h4 class="font-semibold text-gray-900">Growth Momentum</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Revenue growth, market share expansion, and adoption rates 
+                            of new technologies and business models.
+                        </p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="users" class="h-6 w-6 text-red-600 mr-2"></i>
+                            <h4 class="font-semibold text-gray-900">Talent Density</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Concentration of highly skilled technical talent, 
+                            innovation culture, and intellectual capital investment.
+                        </p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="globe" class="h-6 w-6 text-red-600 mr-2"></i>
+                            <h4 class="font-semibold text-gray-900">Market Disruption</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Ability to disrupt existing markets and create new ones, 
+                            measured through market cap growth and competitive positioning.
+                        </p>
+                    </div>
+                    
+                    <div class="factor-card">
+                        <div class="flex items-center mb-3">
+                            <i data-lucide="target" class="h-6 w-6 text-red-600 mr-2"></i>
+                            <h4 class="font-semibold text-gray-900">Future Readiness</h4>
+                        </div>
+                        <p class="text-sm text-gray-600">
+                            Strategic positioning for emerging technologies, 
+                            including AI, quantum computing, biotechnology, and clean energy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Analysis -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Innovation Factor Performance</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="cambria-card p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Factor Performance Analysis</h3>
+                    <canvas id="factorChart" height="300"></canvas>
+                </div>
+                
+                <div class="cambria-card p-6">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Innovation vs Traditional Factors</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium">Innovation Factor</span>
+                            <span class="text-green-600 font-semibold">+15.2%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium">Value Factor</span>
+                            <span class="text-gray-600 font-semibold">+8.7%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium">Momentum Factor</span>
+                            <span class="text-gray-600 font-semibold">+12.1%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="font-medium">Quality Factor</span>
+                            <span class="text-gray-600 font-semibold">+9.3%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Highlights -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Research Highlights</h2>
+            
+            <div class="research-highlight">
+                <h3 class="text-2xl font-semibold mb-4">Innovation Premium Persistence</h3>
+                <p class="text-lg mb-4">
+                    Our research demonstrates that innovation factors exhibit persistent risk-adjusted returns 
+                    across different market cycles and economic conditions.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">2.3x</div>
+                        <div class="text-sm opacity-90">Higher Sharpe Ratio</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">-0.12</div>
+                        <div class="text-sm opacity-90">Beta to Market</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold">0.85</div>
+                        <div class="text-sm opacity-90">Information Ratio</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div class="cambria-card p-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Sector Diversification</h4>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Innovation factors provide natural sector diversification, 
+                        reducing concentration risk while maintaining exposure to growth opportunities.
+                    </p>
+                    <canvas id="sectorChart" height="200"></canvas>
+                </div>
+                
+                <div class="cambria-card p-6">
+                    <h4 class="font-semibold text-gray-900 mb-3">Risk-Adjusted Returns</h4>
+                    <p class="text-sm text-gray-600 mb-4">
+                        Historical analysis shows superior risk-adjusted returns 
+                        compared to traditional factor strategies.
+                    </p>
+                    <canvas id="riskChart" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Now -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Why Innovation Factors Now?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="cpu" class="h-8 w-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">AI Revolution</h3>
+                    <p class="text-gray-600">
+                        Artificial intelligence is transforming every industry, 
+                        creating unprecedented opportunities for innovation-driven companies.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="leaf" class="h-8 w-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Climate Innovation</h3>
+                    <p class="text-gray-600">
+                        The transition to clean energy and sustainable technologies 
+                        is driving massive investment in innovation across sectors.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-lucide="dna" class="h-8 w-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Biotech Breakthroughs</h3>
+                    <p class="text-gray-600">
+                        Advances in biotechnology, genomics, and personalized medicine 
+                        are creating new investment opportunities in innovation.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 cambria-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Invest in Innovation?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">
+                Join the future of factor investing with RED Diamond Brothers Innovation Factor ETF. 
+                Capture the innovation premium with rigorous methodology and academic foundation.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="index.html" class="cambria-button-secondary bg-white text-red-800 hover:bg-red-800 hover:text-white">
+                    Learn More
+                </a>
+                <a href="index.html#performance" class="cambria-button">
+                    View Performance
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Innovation Network Visualization
+        function createInnovationNetwork() {
+            const container = document.getElementById('innovation-network');
+            
+            // Create nodes
+            const nodes = new vis.DataSet([
+                // Central Innovation node
+                { id: 1, label: 'Innovation\nFactor', group: 'center', size: 30, color: '#8b0000', font: { size: 16, color: 'white' } },
+                
+                // Factor nodes
+                { id: 2, label: 'R&D\nIntensity', group: 'factor', size: 20, color: '#dc2626' },
+                { id: 3, label: 'Patent\nQuality', group: 'factor', size: 20, color: '#dc2626' },
+                { id: 4, label: 'Growth\nMomentum', group: 'factor', size: 20, color: '#dc2626' },
+                { id: 5, label: 'Talent\nDensity', group: 'factor', size: 20, color: '#dc2626' },
+                { id: 6, label: 'Market\nDisruption', group: 'factor', size: 20, color: '#dc2626' },
+                { id: 7, label: 'Future\nReadiness', group: 'factor', size: 20, color: '#dc2626' },
+                
+                // Sector nodes
+                { id: 8, label: 'Technology', group: 'sector', size: 18, color: '#ef4444' },
+                { id: 9, label: 'Healthcare', group: 'sector', size: 18, color: '#ef4444' },
+                { id: 10, label: 'Consumer\nDiscretionary', group: 'sector', size: 18, color: '#ef4444' },
+                { id: 11, label: 'Communication\nServices', group: 'sector', size: 18, color: '#ef4444' },
+                { id: 12, label: 'Industrials', group: 'sector', size: 18, color: '#ef4444' },
+                { id: 13, label: 'Financials', group: 'sector', size: 18, color: '#ef4444' },
+                { id: 14, label: 'Energy', group: 'sector', size: 18, color: '#ef4444' },
+                { id: 15, label: 'Materials', group: 'sector', size: 18, color: '#ef4444' }
+            ]);
+
+            // Create edges
+            const edges = new vis.DataSet([
+                // Connect factors to center
+                { from: 1, to: 2, color: { color: '#8b0000', opacity: 0.8 } },
+                { from: 1, to: 3, color: { color: '#8b0000', opacity: 0.8 } },
+                { from: 1, to: 4, color: { color: '#8b0000', opacity: 0.8 } },
+                { from: 1, to: 5, color: { color: '#8b0000', opacity: 0.8 } },
+                { from: 1, to: 6, color: { color: '#8b0000', opacity: 0.8 } },
+                { from: 1, to: 7, color: { color: '#8b0000', opacity: 0.8 } },
+                
+                // Connect factors to sectors
+                { from: 2, to: 8, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 2, to: 9, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 3, to: 8, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 3, to: 9, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 4, to: 10, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 4, to: 11, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 5, to: 8, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 5, to: 12, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 6, to: 10, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 6, to: 13, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 7, to: 14, color: { color: '#dc2626', opacity: 0.6 } },
+                { from: 7, to: 15, color: { color: '#dc2626', opacity: 0.6 } }
+            ]);
+
+            // Network configuration
+            const data = { nodes: nodes, edges: edges };
+            const options = {
+                nodes: {
+                    shape: 'circle',
+                    font: {
+                        size: 12,
+                        face: 'Arial'
+                    },
+                    borderWidth: 2,
+                    shadow: true
+                },
+                edges: {
+                    width: 2,
+                    shadow: true,
+                    smooth: {
+                        type: 'continuous'
+                    }
+                },
+                physics: {
+                    stabilization: false,
+                    barnesHut: {
+                        gravitationalConstant: -80000,
+                        springConstant: 0.001,
+                        springLength: 200
+                    }
+                },
+                interaction: {
+                    navigationButtons: true,
+                    keyboard: true
+                }
+            };
+
+            const network = new vis.Network(container, data, options);
+        }
+
+        // Factor Performance Chart
+        function createFactorChart() {
+            const ctx = document.getElementById('factorChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                    datasets: [{
+                        label: 'Innovation Factor',
+                        data: [100, 102, 105, 108, 112, 115, 118, 122, 125, 128, 132, 135],
+                        borderColor: '#8b0000',
+                        backgroundColor: 'rgba(139, 0, 0, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'S&P 500',
+                        data: [100, 101, 103, 104, 106, 107, 109, 110, 112, 113, 115, 116],
+                        borderColor: '#6b7280',
+                        backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                        borderWidth: 2,
+                        fill: false,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.1)'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Sector Allocation Chart
+        function createSectorChart() {
+            const ctx = document.getElementById('sectorChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Technology', 'Healthcare', 'Consumer Discretionary', 'Communication Services', 'Industrials', 'Financials', 'Energy', 'Materials'],
+                    datasets: [{
+                        data: [35, 25, 15, 12, 8, 3, 1, 1],
+                        backgroundColor: [
+                            '#8b0000', '#dc2626', '#ef4444', '#f87171', '#fca5a5', '#fecaca', '#fef2f2', '#fee2e2'
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Risk-Return Chart
+        function createRiskChart() {
+            const ctx = document.getElementById('riskChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'scatter',
+                data: {
+                    datasets: [{
+                        label: 'Innovation Factor',
+                        data: [{ x: 12, y: 15.2 }],
+                        backgroundColor: '#8b0000',
+                        pointRadius: 10
+                    }, {
+                        label: 'Value Factor',
+                        data: [{ x: 8, y: 8.7 }],
+                        backgroundColor: '#6b7280',
+                        pointRadius: 8
+                    }, {
+                        label: 'Momentum Factor',
+                        data: [{ x: 15, y: 12.1 }],
+                        backgroundColor: '#6b7280',
+                        pointRadius: 8
+                    }, {
+                        label: 'Quality Factor',
+                        data: [{ x: 6, y: 9.3 }],
+                        backgroundColor: '#6b7280',
+                        pointRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Risk (Volatility %)'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Return (%)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize all charts when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createInnovationNetwork();
+            createFactorChart();
+            createSectorChart();
+            createRiskChart();
+        });
+    </script>
+</body>
+</html> 
