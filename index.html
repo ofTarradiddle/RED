@@ -252,10 +252,6 @@
                             <i data-lucide="trending-up" class="h-5 w-5 mr-2"></i>
                             View Performance
                         </a>
-                        <a href="why-red.html" class="cambria-button-secondary">
-                            <i data-lucide="lightbulb" class="h-5 w-5 mr-2"></i>
-                            Why RED?
-                        </a>
                         <a href="#holdings" class="cambria-button-secondary">
                             <i data-lucide="briefcase" class="h-5 w-5 mr-2"></i>
                             View Holdings
@@ -323,6 +319,10 @@
                     <i data-lucide="file-text" class="h-3 w-3 text-red-600 mr-1.5"></i>
                     <span class="text-xs font-medium text-gray-900 group-hover:text-red-800">Fact Sheet</span>
                 </a>
+                <a href="why-red.html" class="flex items-center px-3 py-1.5 bg-orange-50 hover:bg-orange-100 rounded-md transition-colors group border border-orange-200">
+                    <i data-lucide="lightbulb" class="h-3 w-3 text-orange-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-orange-800">Why RED?</span>
+                </a>
                 <a href="#" class="flex items-center px-3 py-1.5 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors group border border-blue-200">
                     <i data-lucide="trending-up" class="h-3 w-3 text-blue-600 mr-1.5"></i>
                     <span class="text-xs font-medium text-gray-900 group-hover:text-blue-800">Investment Case</span>
@@ -373,56 +373,28 @@
                                 <span class="font-semibold text-gray-900">RED</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Net Assets:</span>
-                                <span class="font-semibold text-gray-900">TBD</span>
+                                <span class="text-gray-600">Net Asset Value (NAV):</span>
+                                <span class="font-semibold text-gray-900" id="fund-nav">$25.45</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Shares Outstanding:</span>
-                                <span class="font-semibold text-gray-900">TBD</span>
+                                <span class="text-gray-600">Number of Holdings:</span>
+                                <span class="font-semibold text-gray-900" id="fund-holdings">55</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-gray-100">
                                 <span class="text-gray-600">Primary Exchange:</span>
                                 <span class="font-semibold text-gray-900">CBOE BZX</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">CUSIP:</span>
-                                <span class="font-semibold text-gray-900">TBD</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
                                 <span class="text-gray-600">Fund Type:</span>
                                 <span class="font-semibold text-gray-900">Actively Managed ETF</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Investment Objective:</span>
-                                <span class="font-semibold text-gray-900">Innovation Factor</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Management Fee:</span>
-                                <span class="font-semibold text-gray-900">0.50%</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Custody Fee:</span>
-                                <span class="font-semibold text-gray-900">0.00%</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Acquired Fund Fee & Expenses:</span>
-                                <span class="font-semibold text-gray-900">0.00%</span>
+                                <span class="text-gray-600">Benchmark:</span>
+                                <span class="font-semibold text-gray-900">S&P 500</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-gray-100">
                                 <span class="text-gray-600">Total Expense Ratio:</span>
                                 <span class="font-semibold text-gray-900">0.50%</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Net Asset Value (NAV):</span>
-                                <span class="font-semibold text-gray-900">RED.NV</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Portfolio Managers:</span>
-                                <span class="font-semibold text-gray-900">Diamond Brothers Team</span>
-                            </div>
-                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
-                                <span class="text-gray-600">Number of Holdings:</span>
-                                <span class="font-semibold text-gray-900">45-100</span>
                             </div>
                             <div class="flex justify-between items-center py-2 border-b border-gray-100">
                                 <span class="text-gray-600">Rebalancing:</span>
@@ -620,14 +592,6 @@
                             <span class="font-semibold text-gray-900">New York, NY</span>
                         </div>
                         <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Investment Focus</span>
-                            <span class="font-semibold text-gray-900">Systematic Factor Investing</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-700">Research Approach</span>
-                            <span class="font-semibold text-gray-900">Academic & Empirical</span>
-                        </div>
-                        <div class="flex justify-between items-center">
                             <span class="text-gray-700">Regulatory Status</span>
                             <span class="font-semibold text-gray-900">SEC Registered</span>
                         </div>
@@ -692,6 +656,25 @@
                     </div>
                 </div>
             </div>
+
+            <!-- CAGR Comparison Bar Chart -->
+            <!-- Temporarily removed due to syntax errors -->
+            <!--
+            <div class="bg-white border border-gray-200nded-xl p-6 shadow-lg mb-8>
+                <div class=flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900>CAGR Comparison</h3>
+                    <div class=text-xs text-gray-500g-gray-100 px-2 py-1ounded">Annualized Returns</div>
+                </div>
+                <h4 class="text-sm font-semibold text-gray-900 mb-3 text-center" id=cagr-bar-title">1 Year CAGR</h4
+                <div class=relative" style=height: 180px;                   <canvas id="cagrBarChart" height="160"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class=text-sm text-gray-600">
+                        Compound Annual Growth Rate (CAGR) shows the mean annual growth rate over a specified period.
+                    </p>
+                </div>
+            </div>
+            -->
 
             <!-- ETF Rule Compliance Disclosures -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
@@ -1256,6 +1239,9 @@
         let currentPeriod = 'YTD';
         let performanceData = null;
 
+        // CAGR Bar Chart instance
+        let cagrBarChartInstance = null;
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Page loaded, initializing...');
@@ -1273,10 +1259,13 @@
                 day: 'numeric'
             });
             
-            document.getElementById('performance-date').textContent = currentDate;
-            document.getElementById('holdings-date').textContent = currentDate;
-            document.getElementById('fund-details-date').textContent = currentDate;
-            document.getElementById('holdings-disclosure-date').textContent = currentDate;
+            // Use dynamic date from API if available, otherwise use current date
+            const dynamicDate = performanceData?.latest_values?.Latest_Date || currentDate;
+            
+            document.getElementById('performance-date').textContent = dynamicDate;
+            document.getElementById('holdings-date').textContent = dynamicDate;
+            document.getElementById('fund-details-date').textContent = dynamicDate;
+            document.getElementById('holdings-disclosure-date').textContent = dynamicDate;
         }
 
         // Load performance data from API
@@ -1318,6 +1307,9 @@
                 updatePremiumDiscount();
                 console.log('Updating quick details...');
                 updateQuickDetails();
+                console.log('Updating fund details...');
+                updateFundDetails();
+                // updateCagrBarChart(); // Temporarily disabled
                 console.log('=== DATA LOADING COMPLETE ===');
                 
             } catch (error) {
@@ -1369,7 +1361,7 @@
                     datasets: [
                         {
                             label: 'Premium/Discount',
-                            data: [0.14, 0.12, 0.10, 0.08, 0.06, 0.04, 0.02, 0.00, -0.02, -0.04, -0.06, -0.08],
+                            data: [100.14, 100.12, 100.10, 100.08, 100.06, 100.04, 100.02, 100.00, 99.98, 99.96, 99.94, 99.92],
                             borderColor: '#8b0000',
                             backgroundColor: 'rgba(139, 0, 0, 0.05)',
                             borderWidth: 2,
@@ -1389,7 +1381,7 @@
                     'RED_ETF': 141.2,
                     'NAV': 141.0,
                     'SP500': 137.2,
-                    'Premium_Discount': 0.14 // Added for premium discount update
+                    'Premium_Discount': 100.14 // Updated to 100-based format
                 }
             };
             
@@ -1399,6 +1391,8 @@
             updateFundPrices();
             updatePremiumDiscount();
             updateQuickDetails();
+            updateFundDetails();
+            updateCagrBarChart();
         }
 
         // Setup event listeners
@@ -1429,6 +1423,7 @@
             updatePremiumChart();
             updatePerformanceMetrics();
             updateFundPrices();
+            // updateCagrBarChart(); // Temporarily disabled
         }
 
         // Update chart with filtered data
@@ -2069,12 +2064,22 @@
 
         // Update premium/discount
         function updatePremiumDiscount() {
-            if (!performanceData || !performanceData.premium_data) return;
+            if (!performanceData || !performanceData.premium_data) {
+                console.log('No performance data or premium data available');
+                return;
+            }
 
             // Get the most recent premium/discount value from the premium data
             const premiumData = performanceData.premium_data;
             const premiumValues = premiumData.datasets[0].data;
             const latestPremium = premiumValues[premiumValues.length - 1];
+            
+            console.log('Premium discount debug:', {
+                premiumValuesLength: premiumValues.length,
+                latestPremium: latestPremium,
+                latestPremiumType: typeof latestPremium,
+                sampleValues: premiumValues.slice(-5)
+            });
             
             // Get the most recent RED ETF and NAV values for display
             const chartData = performanceData.chart_data;
@@ -2091,6 +2096,11 @@
             if (premiumValueElement) {
                 // Convert from the 100-based scale to percentage
                 const premiumPercentage = latestPremium - 100;
+                console.log('Calculating premium percentage:', {
+                    latestPremium: latestPremium,
+                    calculation: `${latestPremium} - 100 = ${premiumPercentage}`,
+                    finalValue: `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`
+                });
                 premiumValueElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`;
                 premiumValueElement.className = `text-2xl font-bold ${premiumPercentage >= 0 ? 'text-green-600' : 'text-red-600'} mb-2`;
             }
@@ -2277,6 +2287,27 @@
             if (quickYtdElement) quickYtdElement.textContent = `${ytdReturn >= 0 ? '+' : ''}${ytdReturn.toFixed(1)}%`;
         }
 
+        // Update fund details table
+        function updateFundDetails() {
+            if (!performanceData || !performanceData.latest_values) return;
+
+            const latest = performanceData.latest_values;
+            
+            // Update NAV in fund details table
+            const fundNavElement = document.getElementById('fund-nav');
+            if (fundNavElement) fundNavElement.textContent = `$${latest.NAV.toFixed(2)}`;
+            
+            // Update number of holdings from API
+            const fundHoldingsElement = document.getElementById('fund-holdings');
+            if (fundHoldingsElement && latest.Holdings) fundHoldingsElement.textContent = latest.Holdings;
+            
+            // Update as of date
+            const fundDetailsDateElement = document.getElementById('fund-details-date');
+            if (fundDetailsDateElement && latest.Latest_Date) {
+                fundDetailsDateElement.textContent = latest.Latest_Date;
+            }
+        }
+
         // Refresh data
         function refreshData() {
             loadPerformanceData();
@@ -2284,6 +2315,19 @@
 
         // Auto-refresh every 5 minutes
         setInterval(refreshData, 5 * 60 * 1000);
+
+        // Helper: Calculate annualized return for any period
+        function calcAnnualizedReturn(totalReturn, years) {
+            if (years <= 0 || totalReturn == null) return null;
+            return (Math.pow(1 + totalReturn / 100, 1 / years) - 1) * 100;
+        }
+
+        // Update CAGR Bar Chart for the current period
+        /*
+        function updateCagrBarChart() {
+            // Temporarily disabled due to syntax errors
+        }
+        */
     </script>
 </body>
 </html> 

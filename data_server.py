@@ -19,9 +19,19 @@ def load_performance_data():
         # Convert date column to datetime
         df['Date'] = pd.to_datetime(df['Date'])
         
-        # Calculate returns for different periods
+        # Get latest date from performance data
         latest_date = df['Date'].max()
+        latest_date_str = latest_date.strftime('%B %d, %Y')
         print(f"Latest date in data: {latest_date}")
+        
+        # Read holdings data to get number of holdings
+        try:
+            holdings_df = pd.read_excel('red_holdings.xlsx', sheet_name='Holdings')
+            num_holdings = len(holdings_df)
+            print(f"Number of holdings from Excel: {num_holdings}")
+        except Exception as e:
+            print(f"Warning: Could not read holdings file: {e}")
+            num_holdings = 59  # Fallback value
         
         # Calculate returns for different periods
         periods = {
@@ -112,7 +122,9 @@ def load_performance_data():
                 'RED_ETF': round(df['RED_ETF'].iloc[-1], 2),
                 'NAV': round(df['NAV'].iloc[-1], 2),
                 'SP500': round(df['SP500'].iloc[-1], 2),
-                'Premium_Discount': round(df['Premium_Discount'].iloc[-1], 2)
+                'Premium_Discount': round(df['Premium_Discount'].iloc[-1], 2),
+                'Holdings': num_holdings,  # Dynamic from holdings Excel file
+                'Latest_Date': latest_date_str  # Dynamic from performance data
             }
         }
         
