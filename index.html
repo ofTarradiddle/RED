@@ -724,6 +724,7 @@
                         <tr class="border-b border-gray-200">
                             <th class="text-left py-3 px-4 font-semibold text-gray-900">Period</th>
                             <th class="text-right py-3 px-4 font-semibold text-gray-900">RED ETF</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">NAV</th>
                             <th class="text-right py-3 px-4 font-semibold text-gray-900">S&P 500 Index</th>
                         </tr>
                     </thead>
@@ -731,10 +732,12 @@
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 font-medium text-gray-900">1 Year</td>
                             <td class="py-3 px-4 text-right font-semibold text-green-600">+25.8%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600">+25.9%</td>
                             <td class="py-3 px-4 text-right font-semibold text-gray-600">+20.4%</td>
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 font-medium text-gray-900">5 Years</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
                             <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
                             <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
                         </tr>
@@ -742,10 +745,12 @@
                             <td class="py-3 px-4 font-medium text-gray-900">10 Years</td>
                             <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
                             <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 font-medium text-gray-900">Since Inception</td>
                             <td class="py-3 px-4 text-right font-semibold text-green-600">+25.8%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600">+25.9%</td>
                             <td class="py-3 px-4 text-right font-semibold text-gray-600">+20.4%</td>
                         </tr>
                     </tbody>
@@ -767,6 +772,9 @@
                     </p>
                     <p>
                         The information shows how the Fund's performance compares with the returns of an index of funds with similar investment objectives. The Fund's performance reflects the deduction of Fund expenses, including management fees, but does not reflect the deduction of taxes that a shareholder would pay on Fund distributions or the redemption of Fund shares.
+                    </p>
+                    <p>
+                        The NAV (Net Asset Value) represents the Fund's underlying portfolio performance before trading costs, while the RED ETF returns reflect the actual market price performance that investors experience. The difference between NAV and market price returns demonstrates the impact of market trading dynamics and premium/discount fluctuations.
                     </p>
                     <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
                         <p class="text-sm text-gray-800 font-semibold">
@@ -2599,6 +2607,12 @@
                 if (year === '2024') return 20.4; // S&P 500 2024 return
                 return 0; // Fund didn't exist in other years
             });
+            
+            // NAV data for comparison (slightly different from RED ETF due to expenses)
+            const navReturns = years.map(year => {
+                if (year === '2024') return 25.9; // NAV 2024 return (slightly higher than RED ETF)
+                return 0; // Fund didn't exist in other years
+            });
 
             try {
                 annualReturnsChart = new Chart(ctx, {
@@ -2619,6 +2633,14 @@
                                 data: sp500Returns,
                                 backgroundColor: sp500Returns.map(value => value >= 0 ? '#6b7280' : '#9ca3af'),
                                 borderColor: sp500Returns.map(value => value >= 0 ? '#4b5563' : '#6b7280'),
+                                borderWidth: 1,
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'NAV',
+                                data: navReturns,
+                                backgroundColor: navReturns.map(value => value >= 0 ? '#2563eb' : '#3b82f6'),
+                                borderColor: navReturns.map(value => value >= 0 ? '#1d4ed8' : '#2563eb'),
                                 borderWidth: 1,
                                 borderRadius: 4
                             }
