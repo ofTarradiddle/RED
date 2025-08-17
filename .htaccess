@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Redirect /redetf to the main site
+RewriteRule ^redetf/?$ / [R=301,L]
+
+# Handle subdirectory access
+RewriteCond %{REQUEST_URI} ^/redetf/
+RewriteRule ^redetf/(.*)$ /$1 [L]
+
+# Ensure proper routing for all assets
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L] 
