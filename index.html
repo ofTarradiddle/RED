@@ -1554,7 +1554,7 @@
             console.log('Loading sample data...');
             performanceData = {
                 chart_data: {
-                    labels: ['21.1-01-01', '21.1-02-01', '21.1-03-01', '21.1-04-01', '21.1-05-01', '21.1-06-01', '21.1-07-01', '21.1-08-01', '21.1-09-01', '21.1-10-01', '21.1-11-01', '21.1-12-01'],
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
                     datasets: [
                         {
                             label: 'RED ETF',
@@ -1576,15 +1576,6 @@
                         },
                         {
                             label: 'Morningstar US Market Index',
-                            data: [100, 98.1, 102.8, 100.4, 106.2, 109.1, 106.8, 111.5, 114.3, 112.1, 117.8, 121.1],
-                            borderColor: '#6b7280',
-                            backgroundColor: 'rgba(107, 114, 128, 0.1)',
-                            borderWidth: 3,
-                            fill: false,
-                            tension: 0.4
-                        },
-                        {
-                            label: 'Morningstar US Market Index',
                             data: [100, 98.3, 102.5, 100.8, 106.8, 109.5, 107.2, 111.8, 114.6, 112.4, 118.2, 121.1],
                             borderColor: '#6b7280',
                             backgroundColor: 'rgba(107, 114, 128, 0.1)',
@@ -1595,7 +1586,7 @@
                     ]
                 },
                 premium_data: {
-                    labels: ['21.1-01-01', '21.1-02-01', '21.1-03-01', '21.1-04-01', '21.1-05-01', '21.1-06-01', '21.1-07-01', '21.1-08-01', '21.1-09-01', '21.1-10-01', '21.1-11-01', '21.1-12-01'],
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
                     datasets: [
                         {
                             label: 'Premium/Discount',
@@ -1609,19 +1600,19 @@
                     ]
                 },
                 returns: {
-                    '1M': {'RED_ETF': 2.1, 'NAV': 2.0, 'Morningstar': 1.6},
-                    '3M': {'RED_ETF': 6.3, 'NAV': 6.1, 'Morningstar': 4.8},
-                    '6M': {'RED_ETF': 12.8, 'NAV': 12.5, 'Morningstar': 10.2},
-                    '1Y': {'RED_ETF': 25.6, 'NAV': 25.2, 'Morningstar': 21.1},
-                    'YTD': {'RED_ETF': 40.1, 'NAV': 39.9, 'Morningstar': 35.0}
+                    '1M': {'RED_ETF': 2.7, 'NAV': 2.8, 'Morningstar': 2.2},
+                    '3M': {'RED_ETF': 7.4, 'NAV': 7.5, 'Morningstar': 5.8},
+                    '6M': {'RED_ETF': 13.2, 'NAV': 13.3, 'Morningstar': 10.1},
+                    '1Y': {'RED_ETF': 25.8, 'NAV': 25.9, 'Morningstar': 21.1},
+                    'YTD': {'RED_ETF': 25.8, 'NAV': 25.9, 'Morningstar': 21.1}
                 },
                 latest_values: {
                     'RED_ETF': 125.8,
                     'NAV': 125.9,
                     'Morningstar': 121.1,
-                    'Premium_Discount': 99.98, // Updated to 100-based format
+                    'Premium_Discount': 99.98,
                     'Holdings': 55,
-                    'Latest_Date': 'December 19, 21.1'
+                    'Latest_Date': 'December 19, 2024'
                 },
                 annual_returns: {
                     '2024': 25.8,
@@ -2653,14 +2644,6 @@
                                 data: returns,
                                 backgroundColor: returns.map(value => value >= 0 ? '#dc2626' : '#ef4444'),
                                 borderColor: returns.map(value => value >= 0 ? '#b91c1c' : '#dc2626'),
-                                borderWidth: 1,
-                                borderRadius: 4
-                            },
-                            {
-                                label: 'Morningstar US Market Index',
-                                data: morningstarReturns,
-                                backgroundColor: morningstarReturns.map(value => value >= 0 ? '#6b7280' : '#9ca3af'),
-                                borderColor: morningstarReturns.map(value => value >= 0 ? '#4b5563' : '#6b7280'),
                                 borderWidth: 1,
                                 borderRadius: 4
                             },
