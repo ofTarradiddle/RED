@@ -2593,27 +2593,51 @@
 
             const years = validReturns.map(([year]) => year);
             const returns = validReturns.map(([, returnValue]) => returnValue);
+            
+            // S&P 500 benchmark data for comparison
+            const sp500Returns = years.map(year => {
+                if (year === '2024') return 20.4; // S&P 500 2024 return
+                return 0; // Fund didn't exist in other years
+            });
 
             try {
                 annualReturnsChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
                         labels: years,
-                        datasets: [{
-                            label: 'Annual Return (%)',
-                            data: returns,
-                            backgroundColor: returns.map(value => value >= 0 ? '#dc2626' : '#ef4444'),
-                            borderColor: returns.map(value => value >= 0 ? '#b91c1c' : '#dc2626'),
-                            borderWidth: 1,
-                            borderRadius: 4
-                        }]
+                        datasets: [
+                            {
+                                label: 'RED ETF',
+                                data: returns,
+                                backgroundColor: returns.map(value => value >= 0 ? '#dc2626' : '#ef4444'),
+                                borderColor: returns.map(value => value >= 0 ? '#b91c1c' : '#dc2626'),
+                                borderWidth: 1,
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'S&P 500 Index',
+                                data: sp500Returns,
+                                backgroundColor: sp500Returns.map(value => value >= 0 ? '#6b7280' : '#9ca3af'),
+                                borderColor: sp500Returns.map(value => value >= 0 ? '#4b5563' : '#6b7280'),
+                                borderWidth: 1,
+                                borderRadius: 4
+                            }
+                        ]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         plugins: {
                             legend: {
-                                display: false
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
                             },
                             tooltip: {
                                 backgroundColor: 'rgba(0, 0, 0, 0.8)',
@@ -2623,7 +2647,7 @@
                                 borderWidth: 1,
                                 callbacks: {
                                     label: function(context) {
-                                        return 'Return: ' + context.parsed.y.toFixed(1) + '%';
+                                        return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
                                     }
                                 }
                             }
