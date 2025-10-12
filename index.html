@@ -222,6 +222,7 @@
                     <a href="#overview" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Fund Details</a>
                     <a href="#performance" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Performance</a>
                     <a href="#holdings" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Holdings</a>
+                    <a href="#blog" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Blog</a>
                     <a href="#documents" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Documents</a>
                     <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
                 </div>
@@ -269,7 +270,7 @@
                             <div class="text-xs text-gray-500 uppercase tracking-wide">Holdings</div>
                         </div>
                         <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                            <div class="text-2xl font-bold text-green-600">+5.1%</div>
+                            <div class="text-2xl font-bold text-green-600" id="hero-ytd-return">+104.9%</div>
                             <div class="text-xs text-gray-500 uppercase tracking-wide">YTD Return</div>
                         </div>
                     </div>
@@ -374,6 +375,7 @@
                 <a href="#overview" class="text-sm text-red-800 hover:underline font-medium">Fund Details</a>
                 <a href="#performance" class="text-sm text-red-800 hover:underline font-medium">Performance</a>
                 <a href="#holdings" class="text-sm text-red-800 hover:underline font-medium">Holdings</a>
+                <a href="#blog" class="text-sm text-red-800 hover:underline font-medium">Blog</a>
                 <a href="#documents" class="text-sm text-red-800 hover:underline font-medium">Documents</a>
                 <a href="#about" class="text-sm text-red-800 hover:underline font-medium">About</a>
             </div>
@@ -688,7 +690,7 @@
             <!-- REQUIRED: Annual Returns Bar Chart (SEC Regulation) -->
             <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
                 <div class="flex items-center justify-between mb-6">
-                    <h3 class="text-lg font-semibold text-gray-900">Annual Total Returns</h3>
+                    <h3 class="text-lg font-semibold text-gray-900">Total Returns by Period</h3>
                     <div class="text-xs text-gray-500 bg-red-100 px-2 py-1 rounded text-red-800">Required Disclosure</div>
                 </div>
                 <div class="relative" style="height: 300px;">
@@ -698,18 +700,6 @@
                     <p class="text-sm text-gray-600">
                         <strong>Note:</strong> Sales loads and account fees are not reflected in the bar chart. If these amounts were reflected, returns would be less than those shown.
                     </p>
-                </div>
-                <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
-                    <div class="bg-gray-50 rounded-lg p-3">
-                        <div class="font-semibold text-gray-900 mb-2">Quarterly High Return</div>
-                        <div class="text-green-600 font-bold">+8.7%</div>
-                        <div class="text-xs text-gray-500">Q2 21.1</div>
-                    </div>
-                    <div class="bg-gray-50 rounded-lg p-3">
-                        <div class="font-semibold text-gray-900 mb-2">Quarterly Low Return</div>
-                        <div class="text-red-600 font-bold">-2.3%</div>
-                        <div class="text-xs text-gray-500">Q1 21.1</div>
-                    </div>
                 </div>
             </div>
 
@@ -731,9 +721,9 @@
                     <tbody>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 font-medium text-gray-900">1 Year</td>
-                            <td class="py-3 px-4 text-right font-semibold text-green-600">+25.8%</td>
-                            <td class="py-3 px-4 text-right font-semibold text-blue-600">+25.9%</td>
-                            <td class="py-3 px-4 text-right font-semibold text-green-600">+21.1%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-1y-red">+25.8%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600" id="annual-1y-nav">+25.9%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-1y-morningstar">+21.1%</td>
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 font-medium text-gray-900">5 Years</td>
@@ -749,9 +739,9 @@
                         </tr>
                         <tr class="border-b border-gray-200">
                             <td class="py-3 px-4 font-medium text-gray-900">Since Inception</td>
-                            <td class="py-3 px-4 text-right font-semibold text-green-600">+25.8%</td>
-                            <td class="py-3 px-4 text-right font-semibold text-blue-600">+25.9%</td>
-                            <td class="py-3 px-4 text-right font-semibold text-green-600">+21.1%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-si-red">+25.8%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600" id="annual-si-nav">+25.9%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-si-morningstar">+21.1%</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1087,6 +1077,98 @@
                 <p class="text-sm text-gray-700">
                     <strong>Next Update:</strong> Available before 9:30 AM Eastern Time on the next business day
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">Latest Insights</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Stay informed with our latest research, market insights, and investment perspectives.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Featured Blog Post -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Featured</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Innovation Factor Investing in 2024</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Exploring how innovation factors are driving market performance and what this means for investors seeking growth opportunities.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 15, 2024</span>
+                            <a href="/blog/sample-post-1.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Market Volatility and ETF Performance</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Understanding how systematic factor investing can help navigate market volatility and provide consistent returns.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 10, 2024</span>
+                            <a href="/blog/sample-post-2.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">The Future of Factor-Based Investing</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            A deep dive into emerging trends in factor investing and how technology is reshaping investment strategies.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 5, 2024</span>
+                            <a href="/blog/sample-post-3.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 - Pitch Deck -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Strategy</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Innovation-Focused Investment Strategy</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Investor pitch deck: long-horizon single-factor innovation strategy blending academic rigor and industry execution.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 1, 2024</span>
+                            <a href="/blog/sample-post-4.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                View Deck →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Articles Button -->
+            <div class="text-center mt-8">
+                <a href="/blog/index.html" class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors duration-200">
+                    <i data-lucide="book-open" class="h-4 w-4 mr-2"></i>
+                    View All Articles
+                </a>
             </div>
         </div>
     </section>
@@ -1491,19 +1573,96 @@
         async function loadPerformanceData() {
             try {
                 console.log('=== LOADING PERFORMANCE DATA ===');
-                console.log('Fetching from: http://localhost:5001/api/performance-data');
+                console.log('Fetching from JSON files...');
                 
-                const response = await fetch('http://localhost:5001/api/performance-data');
-                console.log('Response status:', response.status);
-                console.log('Response ok:', response.ok);
+                // Load data from JSON files
+                const [perfResponse, holdingsResponse, metricsResponse] = await Promise.all([
+                    fetch('/data/performance_data.json'),
+                    fetch('/data/holdings_data.json'),
+                    fetch('/data/metrics.json')
+                ]);
                 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                if (!perfResponse.ok || !holdingsResponse.ok || !metricsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${perfResponse.status}`);
                 }
                 
-                performanceData = await response.json();
-                console.log('API data loaded successfully');
-                console.log('Data structure:', {
+                const rawPerformanceData = await perfResponse.json();
+                const holdingsData = await holdingsResponse.json();
+                const metrics = await metricsResponse.json();
+                
+                console.log('JSON data loaded successfully');
+                console.log('Raw data structure:', {
+                    performanceDataLength: rawPerformanceData.length,
+                    holdingsDataLength: holdingsData.length,
+                    metrics: metrics
+                });
+                
+                // Convert the data to the expected format
+                performanceData = {
+                    chart_data: {
+                        labels: rawPerformanceData.map(point => point.date),
+                        datasets: [
+                            {
+                                label: 'RED ETF',
+                                data: rawPerformanceData.map(point => point.red_etf),
+                                borderColor: '#dc2626',
+                                backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'NAV',
+                                data: rawPerformanceData.map(point => point.nav),
+                                borderColor: '#2563eb',
+                                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'S&P 500',
+                                data: rawPerformanceData.map(point => point.sp500),
+                                borderColor: '#6b7280',
+                                backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            }
+                        ]
+                    },
+                    premium_data: {
+                        labels: rawPerformanceData.map(point => point.date),
+                        datasets: [{
+                            label: 'Premium/Discount',
+                            data: rawPerformanceData.map(point => point.premium_discount),
+                            borderColor: '#8b0000',
+                            backgroundColor: 'rgba(139, 0, 0, 0.05)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }]
+                    },
+                    returns: {
+                        '1M': { 'RED_ETF': metrics.one_month, 'NAV': metrics.one_month, 'Morningstar': 2.2 },
+                        '3M': { 'RED_ETF': metrics.three_month, 'NAV': metrics.three_month, 'Morningstar': 5.8 },
+                        '6M': { 'RED_ETF': metrics.six_month, 'NAV': metrics.six_month, 'Morningstar': 10.1 },
+                        '1Y': { 'RED_ETF': metrics.one_year, 'NAV': metrics.one_year, 'Morningstar': 21.1 },
+                        'YTD': { 'RED_ETF': metrics.ytd, 'NAV': metrics.ytd, 'Morningstar': 21.1 },
+                        'SI': { 'RED_ETF': metrics.since_inception, 'NAV': metrics.since_inception, 'Morningstar': 21.1 }
+                    },
+                    latest_values: {
+                        'RED_ETF': metrics.latest_red_etf,
+                        'NAV': metrics.latest_nav,
+                        'SP500': metrics.latest_sp500,
+                        'Premium_Discount': 100.15,
+                        'Holdings': holdingsData.length,
+                        'Latest_Date': metrics.latest_date
+                    },
+                    annual_returns: calculateAnnualReturns(rawPerformanceData)
+                };
+                
+                console.log('Converted data structure:', {
                     hasChartData: !!performanceData.chart_data,
                     hasPremiumData: !!performanceData.premium_data,
                     hasReturns: !!performanceData.returns,
@@ -1528,6 +1687,10 @@
                 updateQuickDetails();
                 console.log('Updating fund details...');
                 updateFundDetails();
+                console.log('Updating hero section...');
+                updateHeroSection();
+                console.log('Updating annual returns table...');
+                updateAnnualReturnsTable();
                 console.log('Creating annual returns chart...');
                 createAnnualReturnsChart();
                 console.log('=== DATA LOADING COMPLETE ===');
@@ -1653,13 +1816,17 @@
 
         // Setup event listeners
         function setupEventListeners() {
-            // Period buttons
+            // Period buttons - Current available periods
             document.getElementById('1m-btn').addEventListener('click', () => setPeriod('1M'));
             document.getElementById('3m-btn').addEventListener('click', () => setPeriod('3M'));
             document.getElementById('6m-btn').addEventListener('click', () => setPeriod('6M'));
             document.getElementById('1y-btn').addEventListener('click', () => setPeriod('1Y'));
             document.getElementById('si-btn').addEventListener('click', () => setPeriod('SI'));
             document.getElementById('ytd-btn').addEventListener('click', () => setPeriod('YTD'));
+            
+            // Future period options (when more data is available):
+            // 3yr-btn, 5yr-btn, 10yr-btn, 15yr-btn can be added here
+            // These will be enabled when the Excel data contains sufficient historical data
         }
 
         // Set period and update chart
@@ -1679,6 +1846,8 @@
             updatePremiumChart();
             updatePerformanceMetrics();
             updateFundPrices();
+            updateAnnualReturnsTable();
+            createAnnualReturnsChart();
             // updateCagrBarChart(); // Temporarily disabled
         }
 
@@ -1706,9 +1875,9 @@
                 performanceChart = null;
             }
 
-            // Use the data directly without complex filtering for now
-            const chartData = performanceData.chart_data;
-            console.log('Chart data:', chartData);
+            // Get filtered data based on current period
+            const chartData = getFilteredData(currentPeriod);
+            console.log('Filtered chart data for period', currentPeriod, ':', chartData);
             console.log('Labels count:', chartData.labels.length);
             console.log('Datasets count:', chartData.datasets.length);
 
@@ -1974,18 +2143,28 @@
                 return;
             }
 
-            // Use the data directly from chart_data
-            const chartData = performanceData.chart_data;
-            const redEtfData = chartData.datasets[0].data;
-            const navData = chartData.datasets[1].data;
-            const morningstarData = chartData.datasets[2].data;
+            // Get filtered data based on current period
+            const filteredData = getFilteredData(currentPeriod);
+            if (!filteredData || filteredData.datasets.length < 3) {
+                console.log('No filtered data available for metrics');
+                return;
+            }
 
-            // Calculate returns from the data (assuming it starts at 100)
-            const redEtfReturn = redEtfData[redEtfData.length - 1] - 100;
-            const navReturn = navData[navData.length - 1] - 100;
-            const morningstarReturn = morningstarData[morningstarData.length - 1] - 100;
+            const redEtfData = filteredData.datasets[0].data;
+            const navData = filteredData.datasets[1].data;
+            const morningstarData = filteredData.datasets[2].data;
 
-            console.log(`Calculated returns:`, {
+            if (redEtfData.length < 2) {
+                console.log('Insufficient data for return calculation');
+                return;
+            }
+
+            // Calculate returns from the filtered data
+            const redEtfReturn = ((redEtfData[redEtfData.length - 1] - redEtfData[0]) / redEtfData[0]) * 100;
+            const navReturn = ((navData[navData.length - 1] - navData[0]) / navData[0]) * 100;
+            const morningstarReturn = ((morningstarData[morningstarData.length - 1] - morningstarData[0]) / morningstarData[0]) * 100;
+
+            console.log(`Calculated returns for period ${currentPeriod}:`, {
                 RED_ETF: redEtfReturn.toFixed(1),
                 NAV: navReturn.toFixed(1),
                 Morningstar: morningstarReturn.toFixed(1)
@@ -2590,8 +2769,8 @@
         function createAnnualReturnsChart() {
             console.log('=== CREATING ANNUAL RETURNS CHART ===');
             
-            if (!performanceData || !performanceData.annual_returns) {
-                console.error('No annual returns data available');
+            if (!performanceData || !performanceData.chart_data) {
+                console.error('No chart data available for annual returns');
                 return;
             }
 
@@ -2606,42 +2785,32 @@
                 annualReturnsChart = null;
             }
 
-            // Filter out years where fund didn't exist (0 returns)
-            const validReturns = Object.entries(performanceData.annual_returns)
-                .filter(([year, returnValue]) => returnValue !== 0)
-                .sort(([yearA], [yearB]) => parseInt(yearA) - parseInt(yearB));
-
-            if (validReturns.length === 0) {
-                console.log('No valid annual returns data available');
+            // Get filtered data based on current period
+            const filteredData = getFilteredData(currentPeriod);
+            if (!filteredData || filteredData.labels.length < 2) {
+                console.log('Not enough data to create annual returns chart');
                 return;
             }
 
-            const years = validReturns.map(([year]) => year);
-            const returns = validReturns.map(([, returnValue]) => returnValue);
+            // Calculate annual returns for the selected period
+            const annualData = calculateAnnualReturnsForPeriod(filteredData);
             
-            // NAV data for comparison
-            const navReturns = years.map(year => {
-                if (year === '2024') return 25.9; // NAV 2024 return
-                return 0; // Fund didn't exist in other years
-            });
-            
-            // Morningstar US Market Index data for comparison
-            const morningstarReturns = years.map(year => {
-                if (year === '2024') return 21.1; // Morningstar US Market Index 2024 return
-                return 0; // Fund didn't exist in other years
-            });
+            if (annualData.years.length === 0) {
+                console.log('No annual data available for the selected period');
+                return;
+            }
 
-            console.log('Chart data:', { years, returns, navReturns, morningstarReturns });
+            console.log('Annual returns chart data:', annualData);
 
             try {
                 annualReturnsChart = new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: years,
+                        labels: annualData.years,
                         datasets: [
                             {
                                 label: 'RED ETF',
-                                data: returns,
+                                data: annualData.redEtfReturns,
                                 backgroundColor: '#dc2626',
                                 borderColor: '#b91c1c',
                                 borderWidth: 1,
@@ -2649,7 +2818,7 @@
                             },
                             {
                                 label: 'NAV',
-                                data: navReturns,
+                                data: annualData.navReturns,
                                 backgroundColor: '#2563eb',
                                 borderColor: '#1d4ed8',
                                 borderWidth: 1,
@@ -2657,7 +2826,7 @@
                             },
                             {
                                 label: 'Morningstar US Market Index',
-                                data: morningstarReturns,
+                                data: annualData.morningstarReturns,
                                 backgroundColor: '#48bb78',
                                 borderColor: '#2b825b',
                                 borderWidth: 1,
@@ -2783,6 +2952,78 @@
             }
         }
 
+        // Update hero section with real data
+        function updateHeroSection() {
+            if (!performanceData || !performanceData.returns || !performanceData.latest_values) {
+                console.log('No hero section data available');
+                return;
+            }
+
+            const returns = performanceData.returns;
+            const latest = performanceData.latest_values;
+            
+            // Update YTD return
+            const ytdReturn = returns.YTD?.RED_ETF || 0;
+            const ytdElement = document.getElementById('hero-ytd-return');
+            if (ytdElement) {
+                const sign = ytdReturn >= 0 ? '+' : '';
+                ytdElement.textContent = `${sign}${ytdReturn.toFixed(1)}%`;
+                ytdElement.className = ytdReturn >= 0 ? 'text-2xl font-bold text-green-600' : 'text-2xl font-bold text-red-600';
+            }
+            
+            // Update holdings count
+            const holdingsElement = document.querySelector('.bg-white.border.border-gray-200.rounded-lg.p-4.shadow-sm .text-2xl.font-bold.text-gray-900');
+            if (holdingsElement && latest.Holdings) {
+                holdingsElement.textContent = latest.Holdings;
+            }
+            
+            // Update quick NAV in hero section
+            const quickNavElement = document.getElementById('quick-nav');
+            if (quickNavElement && latest.NAV) {
+                quickNavElement.textContent = `$${latest.NAV.toFixed(2)}`;
+            }
+        }
+
+        // Update annual returns table with real data
+        function updateAnnualReturnsTable() {
+            if (!performanceData || !performanceData.returns) {
+                console.log('No annual returns data available');
+                return;
+            }
+
+            const returns = performanceData.returns;
+            
+            // Update 1 Year returns
+            const oneYearRed = returns['1Y']?.RED_ETF || 0;
+            const oneYearNav = returns['1Y']?.NAV || 0;
+            const oneYearMorningstar = returns['1Y']?.Morningstar || 0;
+            
+            updateAnnualReturnCell('annual-1y-red', oneYearRed);
+            updateAnnualReturnCell('annual-1y-nav', oneYearNav);
+            updateAnnualReturnCell('annual-1y-morningstar', oneYearMorningstar);
+            
+            // Update Since Inception returns
+            const siRed = returns['SI']?.RED_ETF || 0;
+            const siNav = returns['SI']?.NAV || 0;
+            const siMorningstar = returns['SI']?.Morningstar || 0;
+            
+            updateAnnualReturnCell('annual-si-red', siRed);
+            updateAnnualReturnCell('annual-si-nav', siNav);
+            updateAnnualReturnCell('annual-si-morningstar', siMorningstar);
+            
+        }
+
+
+        // Helper function to update annual return cell
+        function updateAnnualReturnCell(elementId, value) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const sign = value >= 0 ? '+' : '';
+                element.textContent = `${sign}${value.toFixed(1)}%`;
+                element.className = `py-3 px-4 text-right font-semibold ${value >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+        }
+
         // Refresh data
         function refreshData() {
             loadPerformanceData();
@@ -2795,6 +3036,78 @@
         function calcAnnualizedReturn(totalReturn, years) {
             if (years <= 0 || totalReturn == null) return null;
             return (Math.pow(1 + totalReturn / 100, 1 / years) - 1) * 100;
+        }
+
+        // Calculate annual returns from performance data
+        function calculateAnnualReturns(performanceData) {
+            const annualReturns = {};
+            const years = new Set();
+            
+            // Group data by year
+            performanceData.forEach(point => {
+                const year = new Date(point.date).getFullYear();
+                years.add(year);
+            });
+            
+            // Calculate returns for each year
+            Array.from(years).sort().forEach(year => {
+                const yearData = performanceData.filter(point => 
+                    new Date(point.date).getFullYear() === year
+                );
+                
+                if (yearData.length > 0) {
+                    const firstValue = yearData[0].red_etf;
+                    const lastValue = yearData[yearData.length - 1].red_etf;
+                    const annualReturn = ((lastValue - firstValue) / firstValue) * 100;
+                    annualReturns[year] = annualReturn;
+                }
+            });
+            
+            return annualReturns;
+        }
+
+        // Calculate total returns for a specific period (single bar chart)
+        function calculateAnnualReturnsForPeriod(filteredData) {
+            const redEtfData = filteredData.datasets[0].data;
+            const navData = filteredData.datasets[1].data;
+            const sp500Data = filteredData.datasets[2].data;
+            
+            if (redEtfData.length < 2) {
+                return {
+                    years: [],
+                    redEtfReturns: [],
+                    navReturns: [],
+                    morningstarReturns: []
+                };
+            }
+            
+            // Calculate total return for the entire selected period
+            const redEtfFirst = redEtfData[0];
+            const redEtfLast = redEtfData[redEtfData.length - 1];
+            const redEtfReturn = ((redEtfLast - redEtfFirst) / redEtfFirst) * 100;
+            
+            const navFirst = navData[0];
+            const navLast = navData[navData.length - 1];
+            const navReturn = ((navLast - navFirst) / navFirst) * 100;
+            
+            const sp500First = sp500Data[0];
+            const sp500Last = sp500Data[sp500Data.length - 1];
+            const sp500Return = ((sp500Last - sp500First) / sp500First) * 100;
+            
+            // Create period label based on current period
+            let periodLabel = currentPeriod;
+            if (currentPeriod === 'SI') {
+                periodLabel = 'Since Inception';
+            } else if (currentPeriod === 'YTD') {
+                periodLabel = 'Year to Date';
+            }
+            
+            return {
+                years: [periodLabel],
+                redEtfReturns: [redEtfReturn],
+                navReturns: [navReturn],
+                morningstarReturns: [sp500Return]
+            };
         }
 
         // Update CAGR Bar Chart for the current period

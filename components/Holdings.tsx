@@ -1,28 +1,93 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { PieChart, Building2, Globe, TrendingUp } from 'lucide-react'
+import { holdingsData, getSectorAllocation, getCountryAllocation } from '@/lib/dataLoader'
 
 const Holdings = () => {
-  const topHoldings = [
-    { name: 'NVIDIA Corporation', ticker: 'NVDA', weight: '8.5%', sector: 'Technology' },
-    { name: 'Microsoft Corporation', ticker: 'MSFT', weight: '7.2%', sector: 'Technology' },
-    { name: 'Tesla, Inc.', ticker: 'TSLA', weight: '6.8%', sector: 'Consumer Discretionary' },
-    { name: 'Amazon.com, Inc.', ticker: 'AMZN', weight: '6.1%', sector: 'Consumer Discretionary' },
-    { name: 'Alphabet Inc.', ticker: 'GOOGL', weight: '5.9%', sector: 'Technology' },
-    { name: 'Apple Inc.', ticker: 'AAPL', weight: '5.4%', sector: 'Technology' },
-    { name: 'Meta Platforms, Inc.', ticker: 'META', weight: '4.8%', sector: 'Technology' },
-    { name: 'Netflix, Inc.', ticker: 'NFLX', weight: '4.2%', sector: 'Communication Services' },
-    { name: 'Salesforce, Inc.', ticker: 'CRM', weight: '3.9%', sector: 'Technology' },
-    { name: 'Adobe Inc.', ticker: 'ADBE', weight: '3.6%', sector: 'Technology' }
-  ]
+  const pieChartRef = useRef<HTMLCanvasElement>(null)
+  
+  // Get real data from dataLoader
+  const topHoldings = holdingsData.slice(0, 10).map(holding => ({
+    name: holding.name,
+    ticker: holding.ticker,
+    weight: `${holding.weight.toFixed(1)}%`,
+    sector: holding.sector
+  }))
+  
+  const sectorAllocation = getSectorAllocation(holdingsData).map(sector => ({
+    sector: sector.sector,
+    weight: `${sector.weight.toFixed(1)}%`,
+    color: getSectorColor(sector.sector)
+  }))
+  
+  const countryAllocation = getCountryAllocation(holdingsData)
+  
+  // Get portfolio statistics
+  const totalHoldings = holdingsData.length
+  const uniqueCountries = new Set(holdingsData.map(h => h.country).filter(Boolean)).size
+  const largestPosition = Math.max(...holdingsData.map(h => h.weight))
+  const uniqueSectors = new Set(holdingsData.map(h => h.sector)).size
+  
+  function getSectorColor(sector: string): string {
+    const colors = {
+      'Technology': 'bg-primary-500',
+      'Consumer Discretionary': 'bg-accent-500',
+      'Healthcare': 'bg-secondary-500',
+      'Communication Services': 'bg-green-500',
+      'Financial Services': 'bg-purple-500',
+      'Other': 'bg-gray-500'
+    }
+    return colors[sector as keyof typeof colors] || 'bg-gray-500'
+  }
 
-  const sectorAllocation = [
-    { sector: 'Technology', weight: '45.2%', color: 'bg-primary-500' },
-    { sector: 'Consumer Discretionary', weight: '18.7%', color: 'bg-accent-500' },
-    { sector: 'Healthcare', weight: '12.3%', color: 'bg-secondary-500' },
-    { sector: 'Communication Services', weight: '8.9%', color: 'bg-green-500' },
-    { sector: 'Financial Services', weight: '6.8%', color: 'bg-purple-500' },
-    { sector: 'Other', weight: '8.1%', color: 'bg-gray-500' }
-  ]
+  // Initialize pie chart
+  useEffect(() => {
+    const initPieChart = async () => {
+      if (typeof window !== 'undefined' && window.Chart && pieChartRef.current) {
+        const Chart = window.Chart
+        const ctx = pieChartRef.current.getContext('2d')
+        
+        if (ctx) {
+          const sectorData = getSectorAllocation(holdingsData)
+          const colors = [
+            '#dc2626', // red-600
+            '#2563eb', // blue-600
+            '#059669', // green-600
+            '#7c3aed', // violet-600
+            '#ea580c', // orange-600
+            '#6b7280'  // gray-500
+          ]
+          
+          new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+              labels: sectorData.map(s => s.sector),
+              datasets: [{
+                data: sectorData.map(s => s.weight),
+                backgroundColor: colors.slice(0, sectorData.length),
+                borderWidth: 2,
+                borderColor: '#ffffff'
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'bottom',
+                  labels: {
+                    padding: 20,
+                    usePointStyle: true
+                  }
+                }
+              }
+            }
+          })
+        }
+      }
+    }
+
+    initPieChart()
+  }, [])
 
   return (
     <section id="holdings" className="py-20 bg-secondary-50">
@@ -86,14 +151,10 @@ const Holdings = () => {
                 ))}
               </div>
               
-              {/* Chart Placeholder */}
+              {/* Sector Allocation Chart */}
               <div className="mt-8 p-6 bg-secondary-50 rounded-lg">
-                <div className="flex items-center justify-center h-48">
-                  <div className="text-center">
-                    <PieChart className="h-12 w-12 text-secondary-400 mx-auto mb-4" />
-                    <p className="text-secondary-600">Sector allocation chart</p>
-                    <p className="text-sm text-secondary-500">Coming soon</p>
-                  </div>
+                <div className="h-64">
+                  <canvas ref={pieChartRef}></canvas>
                 </div>
               </div>
             </div>
@@ -106,7 +167,7 @@ const Holdings = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mx-auto mb-4">
               <Building2 className="h-6 w-6 text-white" />
             </div>
-            <div className="text-2xl font-bold gradient-text mb-2">42</div>
+            <div className="text-2xl font-bold gradient-text mb-2">{totalHoldings}</div>
             <div className="text-secondary-600">Total Holdings</div>
           </div>
           
@@ -114,7 +175,7 @@ const Holdings = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-primary-500 rounded-lg flex items-center justify-center mx-auto mb-4">
               <Globe className="h-6 w-6 text-white" />
             </div>
-            <div className="text-2xl font-bold gradient-text mb-2">12</div>
+            <div className="text-2xl font-bold gradient-text mb-2">{uniqueCountries}</div>
             <div className="text-secondary-600">Countries</div>
           </div>
           
@@ -122,7 +183,7 @@ const Holdings = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-secondary-500 to-accent-500 rounded-lg flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="h-6 w-6 text-white" />
             </div>
-            <div className="text-2xl font-bold gradient-text mb-2">8.5%</div>
+            <div className="text-2xl font-bold gradient-text mb-2">{largestPosition.toFixed(1)}%</div>
             <div className="text-secondary-600">Largest Position</div>
           </div>
           
@@ -130,7 +191,7 @@ const Holdings = () => {
             <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-4">
               <PieChart className="h-6 w-6 text-white" />
             </div>
-            <div className="text-2xl font-bold gradient-text mb-2">6</div>
+            <div className="text-2xl font-bold gradient-text mb-2">{uniqueSectors}</div>
             <div className="text-secondary-600">Sectors</div>
           </div>
         </div>

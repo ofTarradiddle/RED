@@ -1,20 +1,125 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { TrendingUp, Calendar, DollarSign, BarChart3 } from 'lucide-react'
+import { performanceData, calculatePerformanceMetrics, calculateRiskMetrics, formatChartData, formatPremiumDiscountData } from '@/lib/dataLoader'
 
 const Performance = () => {
-  const performanceData = {
-    ytd: '+15.2%',
-    oneYear: '+28.4%',
-    threeYear: '+42.1%',
-    sinceInception: '+67.3%'
+  const chartRef = useRef<HTMLCanvasElement>(null)
+  const premiumChartRef = useRef<HTMLCanvasElement>(null)
+  
+  // Calculate real performance metrics from data
+  const metrics = calculatePerformanceMetrics(performanceData)
+  const riskMetrics = calculateRiskMetrics(performanceData)
+  
+  const performanceDataFormatted = {
+    ytd: `${metrics.ytd > 0 ? '+' : ''}${metrics.ytd.toFixed(1)}%`,
+    oneMonth: `${metrics.oneMonth > 0 ? '+' : ''}${metrics.oneMonth.toFixed(1)}%`,
+    threeMonth: `${metrics.threeMonth > 0 ? '+' : ''}${metrics.threeMonth.toFixed(1)}%`,
+    sixMonth: `${metrics.sixMonth > 0 ? '+' : ''}${metrics.sixMonth.toFixed(1)}%`,
+    oneYear: `${metrics.oneYear > 0 ? '+' : ''}${metrics.oneYear.toFixed(1)}%`,
+    sinceInception: `${metrics.sinceInception > 0 ? '+' : ''}${metrics.sinceInception.toFixed(1)}%`
   }
 
-  const riskMetrics = [
-    { label: 'Beta', value: '1.15', description: 'vs S&P 500' },
-    { label: 'Sharpe Ratio', value: '1.42', description: 'Risk-adjusted return' },
-    { label: 'Max Drawdown', value: '-18.2%', description: 'Historical maximum loss' },
-    { label: 'Volatility', value: '24.8%', description: 'Annualized standard deviation' }
+  const riskMetricsFormatted = [
+    { label: 'Beta', value: riskMetrics.beta.toFixed(2), description: 'vs S&P 500' },
+    { label: 'Sharpe Ratio', value: riskMetrics.sharpeRatio.toFixed(2), description: 'Risk-adjusted return' },
+    { label: 'Max Drawdown', value: `${riskMetrics.maxDrawdown.toFixed(1)}%`, description: 'Historical maximum loss' },
+    { label: 'Volatility', value: `${riskMetrics.volatility.toFixed(1)}%`, description: 'Annualized standard deviation' }
   ]
+
+  // Initialize charts
+  useEffect(() => {
+    const initCharts = async () => {
+      if (typeof window !== 'undefined' && window.Chart) {
+        const Chart = window.Chart
+        
+        // Performance Chart
+        if (chartRef.current) {
+          const ctx = chartRef.current.getContext('2d')
+          if (ctx) {
+            new Chart(ctx, {
+              type: 'line',
+              data: formatChartData(performanceData),
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    position: 'top',
+                  },
+                  title: {
+                    display: false,
+                  }
+                },
+                scales: {
+                  y: {
+                    beginAtZero: false,
+                    grid: {
+                      color: 'rgba(0, 0, 0, 0.1)',
+                    }
+                  },
+                  x: {
+                    grid: {
+                      color: 'rgba(0, 0, 0, 0.1)',
+                    }
+                  }
+                },
+                elements: {
+                  point: {
+                    radius: 0,
+                    hoverRadius: 6
+                  }
+                }
+              }
+            })
+          }
+        }
+
+        // Premium/Discount Chart
+        if (premiumChartRef.current) {
+          const ctx = premiumChartRef.current.getContext('2d')
+          if (ctx) {
+            new Chart(ctx, {
+              type: 'line',
+              data: formatPremiumDiscountData(performanceData),
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    position: 'top',
+                  },
+                  title: {
+                    display: false,
+                  }
+                },
+                scales: {
+                  y: {
+                    beginAtZero: false,
+                    grid: {
+                      color: 'rgba(0, 0, 0, 0.1)',
+                    }
+                  },
+                  x: {
+                    grid: {
+                      color: 'rgba(0, 0, 0, 0.1)',
+                    }
+                  }
+                },
+                elements: {
+                  point: {
+                    radius: 0,
+                    hoverRadius: 6
+                  }
+                }
+              }
+            })
+          }
+        }
+      }
+    }
+
+    initCharts()
+  }, [])
 
   return (
     <section id="performance" className="py-20 bg-white">
@@ -30,39 +135,43 @@ const Performance = () => {
         </div>
 
         {/* Performance Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-          <div className="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-xl text-center">
-            <div className="text-2xl font-bold gradient-text mb-2">{performanceData.ytd}</div>
-            <div className="text-secondary-600 text-sm">YTD Return</div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+          <div className="bg-gradient-to-br from-primary-50 to-primary-100 p-4 rounded-xl text-center">
+            <div className="text-xl font-bold gradient-text mb-1">{performanceDataFormatted.ytd}</div>
+            <div className="text-secondary-600 text-xs">YTD</div>
           </div>
-          <div className="bg-gradient-to-br from-accent-50 to-accent-100 p-6 rounded-xl text-center">
-            <div className="text-2xl font-bold gradient-text mb-2">{performanceData.oneYear}</div>
-            <div className="text-secondary-600 text-sm">1 Year Return</div>
+          <div className="bg-gradient-to-br from-accent-50 to-accent-100 p-4 rounded-xl text-center">
+            <div className="text-xl font-bold gradient-text mb-1">{performanceDataFormatted.oneMonth}</div>
+            <div className="text-secondary-600 text-xs">1 Month</div>
           </div>
-          <div className="bg-gradient-to-br from-secondary-50 to-secondary-100 p-6 rounded-xl text-center">
-            <div className="text-2xl font-bold gradient-text mb-2">{performanceData.threeYear}</div>
-            <div className="text-secondary-600 text-sm">3 Year Return</div>
+          <div className="bg-gradient-to-br from-secondary-50 to-secondary-100 p-4 rounded-xl text-center">
+            <div className="text-xl font-bold gradient-text mb-1">{performanceDataFormatted.threeMonth}</div>
+            <div className="text-secondary-600 text-xs">3 Month</div>
           </div>
-          <div className="bg-gradient-to-br from-primary-50 to-accent-100 p-6 rounded-xl text-center">
-            <div className="text-2xl font-bold gradient-text mb-2">{performanceData.sinceInception}</div>
-            <div className="text-secondary-600 text-sm">Since Inception</div>
+          <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-xl text-center">
+            <div className="text-xl font-bold gradient-text mb-1">{performanceDataFormatted.sixMonth}</div>
+            <div className="text-secondary-600 text-xs">6 Month</div>
+          </div>
+          <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-xl text-center">
+            <div className="text-xl font-bold gradient-text mb-1">{performanceDataFormatted.oneYear}</div>
+            <div className="text-secondary-600 text-xs">1 Year</div>
+          </div>
+          <div className="bg-gradient-to-br from-primary-50 to-accent-100 p-4 rounded-xl text-center">
+            <div className="text-xl font-bold gradient-text mb-1">{performanceDataFormatted.sinceInception}</div>
+            <div className="text-secondary-600 text-xs">Since Inception</div>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Performance Chart Placeholder */}
+          {/* Performance Chart */}
           <div className="bg-secondary-50 p-8 rounded-xl">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-xl font-semibold text-secondary-900">Performance Chart</h3>
               <BarChart3 className="h-6 w-6 text-secondary-400" />
             </div>
             <div className="bg-white p-6 rounded-lg border border-secondary-200">
-              <div className="h-64 flex items-center justify-center">
-                <div className="text-center">
-                  <TrendingUp className="h-12 w-12 text-primary-500 mx-auto mb-4" />
-                  <p className="text-secondary-600">Interactive performance chart</p>
-                  <p className="text-sm text-secondary-500">Coming soon</p>
-                </div>
+              <div className="h-64">
+                <canvas ref={chartRef}></canvas>
               </div>
             </div>
             <p className="text-sm text-secondary-500 mt-4">
@@ -70,22 +179,36 @@ const Performance = () => {
             </p>
           </div>
 
-          {/* Risk Metrics */}
-          <div>
-            <h3 className="text-xl font-semibold text-secondary-900 mb-6">Risk & Volatility Metrics</h3>
-            <div className="space-y-4">
-              {riskMetrics.map((metric, index) => (
-                <div key={index} className="bg-secondary-50 p-4 rounded-lg">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <div className="font-medium text-secondary-900">{metric.label}</div>
-                      <div className="text-sm text-secondary-600">{metric.description}</div>
-                    </div>
-                    <div className="text-xl font-bold gradient-text">{metric.value}</div>
-                  </div>
-                </div>
-              ))}
+          {/* Premium/Discount Chart */}
+          <div className="bg-secondary-50 p-8 rounded-xl">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-xl font-semibold text-secondary-900">Premium/Discount</h3>
+              <TrendingUp className="h-6 w-6 text-secondary-400" />
             </div>
+            <div className="bg-white p-6 rounded-lg border border-secondary-200">
+              <div className="h-64">
+                <canvas ref={premiumChartRef}></canvas>
+              </div>
+            </div>
+            <p className="text-sm text-secondary-500 mt-4">
+              * Premium/Discount shows the difference between ETF market price and NAV.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Risk Metrics */}
+        <div className="mt-12">
+          <h3 className="text-2xl font-semibold text-secondary-900 mb-8 text-center">Risk & Volatility Metrics</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {riskMetricsFormatted.map((metric, index) => (
+              <div key={index} className="bg-secondary-50 p-6 rounded-xl text-center">
+                <div className="text-2xl font-bold gradient-text mb-2">{metric.value}</div>
+                <div className="font-medium text-secondary-900 mb-1">{metric.label}</div>
+                <div className="text-sm text-secondary-600">{metric.description}</div>
+              </div>
+            ))}
+          </div>
 
             <div className="mt-8 bg-gradient-to-br from-secondary-50 to-accent-50 p-6 rounded-xl">
               <h4 className="font-semibold text-secondary-900 mb-4">Important Disclosures</h4>

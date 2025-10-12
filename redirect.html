@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RED ETF - Loading...</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #8b0000, #dc2626);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        a {
+            background: white;
+            color: #8b0000;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 200px;
+        }
+        a:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+        .loading {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>RED ETF</h1>
+        <p>Innovation Factor ETF | Diamond Brothers LLC</p>
+        
+        <div class="links">
+            <a href="standalone.html">🚀 View Full Website</a>
+            <a href="test-data.html">📊 Test Data Page</a>
+            <a href="blog/index.html">📝 Blog Section</a>
+            <a href="index.html">📄 Original Index</a>
+        </div>
+        
+        <div class="loading">
+            <p>Server is running on http://localhost:8000</p>
+            <p>Choose a page above to get started</p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-redirect to standalone.html after 3 seconds
+        setTimeout(() => {
+            window.location.href = 'standalone.html';
+        }, 3000);
+    </script>
+</body>
+</html>

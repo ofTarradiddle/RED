@@ -5,6 +5,7 @@ import About from '@/components/About'
 import Strategy from '@/components/Strategy'
 import Performance from '@/components/Performance'
 import Holdings from '@/components/Holdings'
+import Blog from '@/components/Blog'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <Strategy />
       <Performance />
       <Holdings />
+      <Blog />
       <Footer />
     </main>
   )
