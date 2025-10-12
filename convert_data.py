@@ -32,7 +32,7 @@ def convert_performance_data():
                 'date': row['Date'].strftime('%Y-%m-%d'),
                 'red_etf': float(row['RED_ETF']),
                 'nav': float(row['NAV']),
-                'sp500': float(row['SP500']),
+                'morningstar_us_market_index': float(row['Morningstar US Market Index']),
                 'premium_discount': float(row['Premium_Discount'])
             })
         
@@ -126,7 +126,7 @@ def calculate_metrics(performance_data):
         'latest_date': latest['date'].strftime('%Y-%m-%d'),
         'latest_red_etf': round(latest['red_etf'], 2),
         'latest_nav': round(latest['nav'], 2),
-        'latest_sp500': round(latest['sp500'], 2)
+        'latest_morningstar_us_market_index': round(latest['morningstar_us_market_index'], 2)
     }
     
     # Save metrics

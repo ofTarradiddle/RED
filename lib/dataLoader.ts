@@ -4,7 +4,7 @@ export interface PerformanceDataPoint {
   date: string;
   red_etf: number;
   nav: number;
-  sp500: number;
+  morningstar_us_market_index: number;
   premium_discount: number;
 }
 
@@ -107,22 +107,22 @@ export function calculateRiskMetrics(data: PerformanceDataPoint[]): RiskMetrics 
   const excessReturnMean = excessReturns.reduce((sum, ret) => sum + ret, 0) / excessReturns.length;
   const sharpeRatio = (excessReturnMean * 252) / (Math.sqrt(variance) * Math.sqrt(252));
   
-  // Calculate beta (correlation with S&P 500)
-  const sp500Returns = data.slice(1).map((point, index) => {
+  // Calculate beta (correlation with Morningstar US Market Index)
+  const morningstarUsMarketIndexReturns = data.slice(1).map((point, index) => {
     const prevPoint = data[index];
-    return (point.sp500 / prevPoint.sp500) - 1;
+    return (point.morningstar_us_market_index / prevPoint.morningstar_us_market_index) - 1;
   });
   
   const covariance = returns.reduce((sum, ret, index) => {
-    return sum + (ret - mean) * (sp500Returns[index] - sp500Returns.reduce((s, r) => s + r, 0) / sp500Returns.length);
+    return sum + (ret - mean) * (morningstarUsMarketIndexReturns[index] - morningstarUsMarketIndexReturns.reduce((s, r) => s + r, 0) / morningstarUsMarketIndexReturns.length);
   }, 0) / returns.length;
-  
-  const sp500Variance = sp500Returns.reduce((sum, ret) => {
-    const sp500Mean = sp500Returns.reduce((s, r) => s + r, 0) / sp500Returns.length;
-    return sum + Math.pow(ret - sp500Mean, 2);
-  }, 0) / sp500Returns.length;
-  
-  const beta = covariance / sp500Variance;
+
+  const morningstarUsMarketIndexVariance = morningstarUsMarketIndexReturns.reduce((sum, ret) => {
+    const morningstarUsMarketIndexMean = morningstarUsMarketIndexReturns.reduce((s, r) => s + r, 0) / morningstarUsMarketIndexReturns.length;
+    return sum + Math.pow(ret - morningstarUsMarketIndexMean, 2);
+  }, 0) / morningstarUsMarketIndexReturns.length;
+
+  const beta = covariance / morningstarUsMarketIndexVariance;
   
   return {
     beta: Math.round(beta * 100) / 100,
@@ -183,8 +183,8 @@ export function formatChartData(data: PerformanceDataPoint[]) {
         tension: 0.4
       },
       {
-        label: 'S&P 500',
-        data: data.map(point => point.sp500),
+        label: 'Morningstar US Market Index',
+        data: data.map(point => point.morningstar_us_market_index),
         borderColor: '#6b7280',
         backgroundColor: 'rgba(107, 114, 128, 0.1)',
         borderWidth: 3,

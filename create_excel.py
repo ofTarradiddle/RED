@@ -50,7 +50,7 @@ df = pd.DataFrame({
     'Date': dates,
     'RED_ETF': [round(x, 2) for x in red_etf],
     'NAV': [round(x, 2) for x in nav],
-    'SP500': [round(x, 2) for x in sp500],
+    'Morningstar US Market Index': [round(x, 2) for x in sp500],
     'Premium_Discount': [round(x, 2) for x in premium_discount]
 })
 

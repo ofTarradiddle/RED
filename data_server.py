@@ -52,10 +52,10 @@ def load_performance_data():
                 returns[period_name] = {
                     'RED_ETF': round(((final_values['RED_ETF'] / initial_values['RED_ETF']) - 1) * 100, 2),
                     'NAV': round(((final_values['NAV'] / initial_values['NAV']) - 1) * 100, 2),
-                    'SP500': round(((final_values['SP500'] / initial_values['SP500']) - 1) * 100, 2)
+                    'Morningstar US Market Index': round(((final_values['Morningstar US Market Index'] / initial_values['Morningstar US Market Index']) - 1) * 100, 2)
                 }
             else:
-                returns[period_name] = {'RED_ETF': 0, 'NAV': 0, 'SP500': 0}
+                returns[period_name] = {'RED_ETF': 0, 'NAV': 0, 'Morningstar US Market Index': 0}
         
         print(f"Calculated returns for periods: {list(returns.keys())}")
         
@@ -82,8 +82,8 @@ def load_performance_data():
                     'tension': 0.4
                 },
                 {
-                    'label': 'S&P 500',
-                    'data': df['SP500'].round(2).tolist(),
+                    'label': 'Morningstar US Market Index',
+                    'data': df['Morningstar US Market Index'].round(2).tolist(),
                     'borderColor': '#6b7280',
                     'backgroundColor': 'rgba(107, 114, 128, 0.1)',
                     'borderWidth': 3,
@@ -121,7 +121,7 @@ def load_performance_data():
             'latest_values': {
                 'RED_ETF': round(df['RED_ETF'].iloc[-1], 2),
                 'NAV': round(df['NAV'].iloc[-1], 2),
-                'SP500': round(df['SP500'].iloc[-1], 2),
+                'Morningstar US Market Index': round(df['Morningstar US Market Index'].iloc[-1], 2),
                 'Premium_Discount': round(df['Premium_Discount'].iloc[-1], 2),
                 'Holdings': num_holdings,  # Dynamic from holdings Excel file
                 'Latest_Date': latest_date_str  # Dynamic from performance data
@@ -205,7 +205,7 @@ if __name__ == '__main__':
             'Date': dates,
             'RED_ETF': [round(x, 2) for x in red_etf],
             'NAV': [round(x, 2) for x in nav],
-            'SP500': [round(x, 2) for x in sp500]
+            'Morningstar US Market Index': [round(x, 2) for x in sp500]
         })
         
         df.to_excel('data/performance_data.xlsx', sheet_name='Performance Data', index=False)

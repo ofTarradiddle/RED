@@ -178,7 +178,7 @@
                     <div class="bg-gray-50 p-6 rounded-xl text-center">
                         <div class="text-2xl font-bold gradient-text mb-2">1.15</div>
                         <div class="font-medium text-gray-900 mb-1">Beta</div>
-                        <div class="text-sm text-gray-600">vs S&P 500</div>
+                        <div class="text-sm text-gray-600">vs Morningstar US Market Index</div>
                     </div>
                     <div class="bg-gray-50 p-6 rounded-xl text-center">
                         <div class="text-2xl font-bold gradient-text mb-2">1.42</div>
@@ -642,7 +642,7 @@
                         tension: 0.4
                     },
                     {
-                        label: 'S&P 500',
+                        label: 'Morningstar US Market Index',
                         data: [100.0, 99.8, 102.1, 103.15, 104.25, 105.35, 106.35, 107.45, 108.55, 109.55, 110.7, 111.7],
                         borderColor: '#6b7280',
                         backgroundColor: 'rgba(107, 114, 128, 0.1)',
@@ -722,7 +722,7 @@
             // Convert the real data to chart format
             const labels = performanceData.map(point => point.date);
             const redEtfData = performanceData.map(point => point.red_etf);
-            const sp500Data = performanceData.map(point => point.sp500);
+            const morningstarUsMarketIndexData = performanceData.map(point => point.morningstar_us_market_index);
             const navData = performanceData.map(point => point.nav);
             
             return {
@@ -747,8 +747,8 @@
                         tension: 0.4
                     },
                     {
-                        label: 'S&P 500',
-                        data: sp500Data,
+                        label: 'Morningstar US Market Index',
+                        data: morningstarUsMarketIndexData,
                         borderColor: '#6b7280',
                         backgroundColor: 'rgba(107, 114, 128, 0.1)',
                         borderWidth: 3,

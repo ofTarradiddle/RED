@@ -20,7 +20,7 @@ const Performance = () => {
   }
 
   const riskMetricsFormatted = [
-    { label: 'Beta', value: riskMetrics.beta.toFixed(2), description: 'vs S&P 500' },
+    { label: 'Beta', value: riskMetrics.beta.toFixed(2), description: 'vs Morningstar US Market Index' },
     { label: 'Sharpe Ratio', value: riskMetrics.sharpeRatio.toFixed(2), description: 'Risk-adjusted return' },
     { label: 'Max Drawdown', value: `${riskMetrics.maxDrawdown.toFixed(1)}%`, description: 'Historical maximum loss' },
     { label: 'Volatility', value: `${riskMetrics.volatility.toFixed(1)}%`, description: 'Annualized standard deviation' }

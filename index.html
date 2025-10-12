@@ -1710,8 +1710,8 @@
                                 tension: 0.4
                             },
                             {
-                                label: 'S&P 500',
-                                data: rawPerformanceData.map(point => point.sp500),
+                                label: 'Morningstar US Market Index',
+                                data: rawPerformanceData.map(point => point.morningstar_us_market_index),
                                 borderColor: '#6b7280',
                                 backgroundColor: 'rgba(107, 114, 128, 0.1)',
                                 borderWidth: 3,
@@ -1743,7 +1743,7 @@
                     latest_values: {
                         'RED_ETF': metrics.latest_red_etf,
                         'NAV': metrics.latest_nav,
-                        'SP500': metrics.latest_sp500,
+                        'Morningstar': metrics.latest_morningstar_us_market_index,
                         'Premium_Discount': 100.15,
                         'Holdings': holdingsData.length,
                         'Latest_Date': metrics.latest_date
@@ -1760,6 +1760,17 @@
                     chartDataDatasets: performanceData.chart_data?.datasets?.length || 0,
                     premiumDataLabels: performanceData.premium_data?.labels?.length || 0
                 });
+                
+                // Check Morningstar data specifically
+                const morningstarDataset = performanceData.chart_data.datasets[2];
+                console.log('Morningstar dataset check:', {
+                    label: morningstarDataset.label,
+                    dataLength: morningstarDataset.data.length,
+                    firstValue: morningstarDataset.data[0],
+                    lastValue: morningstarDataset.data[morningstarDataset.data.length - 1],
+                    hasNaN: morningstarDataset.data.some(val => isNaN(val))
+                });
+                
                 
                 // Update all components
                 console.log('Updating chart...');
@@ -2243,6 +2254,7 @@
             const navData = filteredData.datasets[1].data;
             const morningstarData = filteredData.datasets[2].data;
 
+
             if (redEtfData.length < 2) {
                 console.log('Insufficient data for return calculation');
                 return;
@@ -2251,6 +2263,16 @@
             // Calculate returns from the filtered data
             const redEtfReturn = ((redEtfData[redEtfData.length - 1] - redEtfData[0]) / redEtfData[0]) * 100;
             const navReturn = ((navData[navData.length - 1] - navData[0]) / navData[0]) * 100;
+            
+            // Debug Morningstar calculation
+            console.log('Morningstar data check:', {
+                first: morningstarData[0],
+                last: morningstarData[morningstarData.length - 1],
+                length: morningstarData.length,
+                isNaN_first: isNaN(morningstarData[0]),
+                isNaN_last: isNaN(morningstarData[morningstarData.length - 1])
+            });
+            
             const morningstarReturn = ((morningstarData[morningstarData.length - 1] - morningstarData[0]) / morningstarData[0]) * 100;
 
             console.log(`Calculated returns for period ${currentPeriod}:`, {
@@ -3159,7 +3181,7 @@
         function calculateAnnualReturnsForPeriod(filteredData) {
             const redEtfData = filteredData.datasets[0].data;
             const navData = filteredData.datasets[1].data;
-            const sp500Data = filteredData.datasets[2].data;
+            const morningstarUsMarketIndexData = filteredData.datasets[2].data;
             
             if (redEtfData.length < 2) {
                 return {
@@ -3179,9 +3201,9 @@
             const navLast = navData[navData.length - 1];
             const navReturn = ((navLast - navFirst) / navFirst) * 100;
             
-            const sp500First = sp500Data[0];
-            const sp500Last = sp500Data[sp500Data.length - 1];
-            const sp500Return = ((sp500Last - sp500First) / sp500First) * 100;
+            const morningstarUsMarketIndexFirst = morningstarUsMarketIndexData[0];
+            const morningstarUsMarketIndexLast = morningstarUsMarketIndexData[morningstarUsMarketIndexData.length - 1];
+            const morningstarUsMarketIndexReturn = ((morningstarUsMarketIndexLast - morningstarUsMarketIndexFirst) / morningstarUsMarketIndexFirst) * 100;
             
             // Create period label based on current period
             let periodLabel = currentPeriod;
@@ -3195,7 +3217,7 @@
                 years: [periodLabel],
                 redEtfReturns: [redEtfReturn],
                 navReturns: [navReturn],
-                morningstarReturns: [sp500Return]
+                morningstarReturns: [morningstarUsMarketIndexReturn]
             };
         }
 
