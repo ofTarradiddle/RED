@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>RED ETF | Innovation Factor ETF | Diamond Brothers LLC</title>
     <meta name="description" content="RED Innovation Factor ETF (RED) - A systematic approach to identifying mid-large cap US equities with superior innovation characteristics.">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -57,6 +57,47 @@
         }
         .cambria-button-secondary:hover {
             background: #faf8f8;
+        }
+        
+        /* Mobile-specific improvements */
+        @media (max-width: 768px) {
+            .cambria-button, .cambria-button-secondary {
+                min-height: 44px; /* Better touch targets */
+                padding: 0.75rem 1rem;
+            }
+            
+            /* Improve chart readability on mobile */
+            .chart-container {
+                overflow-x: auto;
+            }
+            
+            /* Better spacing for mobile */
+            .section-padding {
+                padding: 2rem 1rem;
+            }
+            
+            /* Mobile-friendly tables */
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Mobile navigation improvements */
+            .mobile-menu-link {
+                padding: 1rem;
+                border-bottom: 1px solid #374151;
+            }
+        }
+        
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .cambria-button, .cambria-button-secondary {
+                transform: none;
+            }
+            
+            .cambria-button:active, .cambria-button-secondary:active {
+                transform: scale(0.98);
+            }
         }
         .cambria-table {
             width: 100%;
@@ -226,8 +267,29 @@
                     <a href="#documents" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Documents</a>
                     <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
                 </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
                 <div class="flex items-center space-x-4">
                 </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 border-t border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#overview" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Fund Details</a>
+                <a href="#performance" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Performance</a>
+                <a href="#holdings" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Holdings</a>
+                <a href="#blog" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Blog</a>
+                <a href="#documents" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Documents</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">About</a>
             </div>
         </div>
     </nav>
@@ -363,6 +425,10 @@
                 <a href="#" class="flex items-center px-3 py-1.5 bg-purple-50 hover:bg-purple-100 rounded-md transition-colors group border border-purple-200">
                     <i data-lucide="play-circle" class="h-3 w-3 text-purple-600 mr-1.5"></i>
                     <span class="text-xs font-medium text-gray-900 group-hover:text-purple-800">Product Video</span>
+                </a>
+                <a href="/blog/sample-post-4.html" class="flex items-center px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-md transition-colors group border border-red-200">
+                    <i data-lucide="presentation" class="h-3 w-3 text-red-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-red-800">Pitch Deck</span>
                 </a>
             </div>
         </div>
@@ -660,29 +726,29 @@
                     <h3 class="text-lg font-semibold text-gray-900">Performance Comparison</h3>
                     <div class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Interactive Chart</div>
                 </div>
-                <div class="flex flex-wrap gap-2 mb-4">
-                    <button id="1m-btn" class="cambria-button-secondary text-xs">1M</button>
-                    <button id="3m-btn" class="cambria-button-secondary text-xs">3M</button>
-                    <button id="6m-btn" class="cambria-button-secondary text-xs">6M</button>
-                    <button id="1y-btn" class="cambria-button-secondary text-xs">1Y</button>
-                    <button id="si-btn" class="cambria-button-secondary text-xs">Since Inception</button>
-                    <button id="ytd-btn" class="cambria-button text-xs">YTD</button>
+                <div class="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
+                    <button id="1m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">1M</button>
+                    <button id="3m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">3M</button>
+                    <button id="6m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">6M</button>
+                    <button id="1y-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">1Y</button>
+                    <button id="si-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[120px]">Since Inception</button>
+                    <button id="ytd-btn" class="cambria-button text-xs px-3 py-2 min-w-[60px]">YTD</button>
                 </div>
                 <div class="relative" style="height: 300px;">
                     <canvas id="performanceChart" height="300"></canvas>
                 </div>
-                <div class="grid grid-cols-3 gap-4 mt-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
                     <div class="bg-gray-50 rounded-lg p-3 text-center">
-                        <div class="text-lg font-bold text-red-800" id="red-performance">--</div>
-                        <div class="text-xs text-gray-600">RED ETF</div>
+                        <div class="text-xl sm:text-2xl font-bold text-red-800" id="red-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">RED ETF</div>
                     </div>
                     <div class="bg-gray-50 rounded-lg p-3 text-center">
-                        <div class="text-lg font-bold text-blue-800" id="nav-performance">--</div>
-                        <div class="text-xs text-gray-600">NAV</div>
+                        <div class="text-xl sm:text-2xl font-bold text-blue-800" id="nav-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">NAV</div>
                     </div>
                     <div class="bg-gray-50 rounded-lg p-3 text-center">
-                        <div class="text-lg font-bold text-gray-800" id="morningstar-performance">--</div>
-                        <div class="text-xs text-gray-600">Morningstar US Market Index</div>
+                        <div class="text-xl sm:text-2xl font-bold text-gray-800" id="morningstar-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">Morningstar US Market Index</div>
                     </div>
                 </div>
             </div>
@@ -1524,10 +1590,33 @@
         // CAGR Bar Chart instance
         let cagrBarChartInstance = null;
 
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        }
+
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
             console.log('=== PAGE LOADED ===');
             console.log('Page loaded, initializing...');
+            
+            // Initialize mobile menu
+            initMobileMenu();
             
             // Add visible debug info to the page
             const debugDiv = document.createElement('div');
