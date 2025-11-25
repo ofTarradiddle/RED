@@ -1,0 +1,23 @@
+[Unit]
+Description=ETF Weekly Operations
+Documentation=file:///path/to/etf-web/tasks/README.md
+After=network.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=etf-user
+Group=etf-user
+WorkingDirectory=/path/to/etf-web
+ExecStart=/usr/bin/python3 tasks/weekly_operations.py
+StandardOutput=append:/path/to/etf-web/logs/weekly_operations.log
+StandardError=append:/path/to/etf-web/logs/weekly_operations_error.log
+Environment="PYTHONPATH=/path/to/etf-web"
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+

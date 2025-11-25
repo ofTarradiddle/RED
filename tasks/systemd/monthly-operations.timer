@@ -1,0 +1,15 @@
+[Unit]
+Description=ETF Monthly Operations Timer
+Documentation=file:///path/to/etf-web/tasks/README.md
+Requires=monthly-operations.service
+
+[Timer]
+# Run on 1st of month at 4:00 PM ET (16:00 local time, adjust as needed)
+# This processes the previous month's data
+OnCalendar=*-*-01 16:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
+
