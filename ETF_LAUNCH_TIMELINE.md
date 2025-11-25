@@ -650,13 +650,15 @@
 
 **Annual Fixed Costs**:
 - Nasdaq listing: $4,000
-- Custody: $3,000 (minimum)
-- ETF Order Management: $10,000
+- Custody: $5,000 (budget estimate)
+- ETF Order Management: $0 (doing yourself - DIY)
+- Distributor: $0–$5,000 (typically $0; may have fees)
 - Audit: $4,000–$8,000 (typical for small funds)
 - Fidelity bond: ~$3,000
-- **Total Annual Fixed**: ~$24,000–$28,000
-  - Typical: ~$24,000 (with $4k audit)
-  - Higher: ~$28,000 (with $8k audit)
+- **Total Annual Fixed**: ~$16,000–$20,000
+  - Typical: ~$16,000 (with $4k audit, $0 distributor)
+  - Higher: ~$20,000 (with $8k audit, $0 distributor)
+  - Highest: ~$32,000 (with $15k audit, $5k distributor)
 
 **Annual Variable Costs (First Year)**:
 - Transfer Agent: $0 (offset by AP fees - you charge APs more than TA costs)
