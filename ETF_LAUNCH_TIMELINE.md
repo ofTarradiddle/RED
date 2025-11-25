@@ -207,12 +207,12 @@
 
 #### 15. Website Build (Rule 6c-11 Required Content)
 - **Required**: Yes
-- **Cost**: DIY $0–$5k; vendor $5k–$25k (one-time)
-- **Contact**: You + Web vendor
+- **Cost**: $0 (website already exists; add compliance pages only)
+- **Contact**: You + Web vendor (if needed for compliance pages)
 - **Purpose**: Public disclosure: daily holdings, 30-day median spread, P/D history, basket policy
-- **Alternatives**: Third-party fund website providers
+- **Alternatives**: Third-party fund website providers (not needed)
 - **Legal/Rule**: Rule 6c-11
-- **Action**: Automate data feeds from admin/TA/OMS
+- **Action**: Add Rule 6c-11 compliance pages to existing website; automate data feeds from admin/TA/OMS
 - **Owner**: Operations/Web Team
 
 **Required Website Content (Rule 6c-11)**:
@@ -461,48 +461,61 @@
 | N-8A / N-1A / 8-A filings | $0 | SEC fee (preparation/review costs internal) |
 | Adviser registration (IARD) | $40/$150/$225 | SEC fee tiered (initial & annual) |
 | Seed capital (net worth test) | ≥$100,000 | Capital (not expense); Your target ≥$5m day one |
-| Website build | $0–$25,000 | DIY $0–$5k; vendor $5k–$25k (one-time) |
+| Website build | $0 | Website already exists (Rule 6c-11 compliance only) |
 
-**Total Start-Up**: ~$1,610 + seed capital + website
+**Total Start-Up**: ~$1,610 + seed capital
 
-### Annual Fixed Costs
+### Annual Fixed Costs (Self-Admin)
 
 | Item | Cost (USD) | Notes |
 |------|------------|-------|
-| Exchange listing (Nasdaq) | $4,000/yr | |
-| Custody | Min $3,000/yr or 0.50 bps | Per fee schedule; confirm in quote |
-| ETF Order Management | $10,000/yr | |
-| Audit (PCAOB) | $4,000–$15,000/yr | Get competitive quotes |
-| Fidelity bond (Rule 17g-1) | ~$3,000/yr | Quote-based |
+| Exchange listing (Nasdaq) | $4,000/yr | Required for listing |
+| Custody | $3,000/yr minimum | Or 0.50 bps (whichever is higher) |
+| ETF Order Management | $10,000/yr | Required platform fee |
+| Audit (PCAOB) | $4,000–$15,000/yr | Get competitive quotes; typically $4k–$8k for small funds |
+| Fidelity bond (Rule 17g-1) | ~$3,000/yr | Quote-based; required coverage |
 
 **Total Annual Fixed**: ~$24,000–$35,000
+- **Typical (small fund)**: ~$24,000–$27,000 (with $4k–$8k audit)
+- **Higher end**: ~$35,000 (with $15k audit)
 
 ### Annual Variable Costs
 
-| Item | Cost (USD) | Notes |
-|------|------------|-------|
-| Transfer Agent tickets | $100/order (gross) | Offset with AP fee (e.g., $250/order) |
-| Rule 24f-2 fee | $138.10 per $1,000,000 net new sales | FY2026 rate (adjusted each Oct 1) |
-
-### Optional Admin Bundle (US Bank GFS)
+**What are variable costs?** These costs depend on fund activity and scale.
 
 | Item | Cost (USD) | Notes |
 |------|------------|-------|
-| Admin + Fund Accounting (base) | ~$40,000/yr | Quote-based |
-| N-PORT preparation/filing | ~$8,000/yr | Quote-based (if outsourced) |
-| N-CEN preparation/filing | ~$250/yr | Quote-based (if outsourced) |
-| CCO support package | ~$3,000/yr | Quote-based (per trust/per service) |
-| 15(c) board reporting | ~$2,000/yr | Quote-based (per fund) |
-| Valuation reporting (2a-5) | ~$2,000/yr | Quote-based (per fund) |
+| Transfer Agent tickets | $100/order (gross) | Only if you use TA for order processing. **Offset with AP fee** (e.g., charge APs $250/order, net cost = $0 or profit) |
+| Rule 24f-2 fee | $138.10 per $1,000,000 net new sales | Only paid on net new sales (sales minus redemptions). If no net sales, fee = $0. FY2026 rate (adjusted each Oct 1) |
 
-**Total Optional Bundle**: ~$55,250/yr (if fully outsourced)
+**Variable Cost Examples:**
+- **Year 1 (no net sales)**: $0 (24f-2 fee = $0)
+- **Year 1 (with TA orders)**: $100 per order, but offset by AP fees
+- **Year 1 ($10M net sales)**: $1,381 (24f-2 fee)
+- **Year 1 ($100M net sales)**: $13,810 (24f-2 fee)
+
+### Optional Admin Bundle (US Bank GFS) - **NOT APPLICABLE FOR DIY**
+
+**Note**: You are doing self-admin (DIY) for $0. The costs below are **ONLY if you choose to outsource** these functions. Since you're doing DIY, these costs are **$0**.
+
+| Item | Cost (USD) | Notes |
+|------|------------|-------|
+| Admin + Fund Accounting (base) | ~$40,000/yr | **If outsourced** (you're doing DIY = $0) |
+| N-PORT preparation/filing | ~$8,000/yr | **If outsourced** (you're doing DIY = $0) |
+| N-CEN preparation/filing | ~$250/yr | **If outsourced** (you're doing DIY = $0) |
+| CCO support package | ~$3,000/yr | **If outsourced** (you're doing DIY = $0) |
+| 15(c) board reporting | ~$2,000/yr | **If outsourced** (you're doing DIY = $0) |
+| Valuation reporting (2a-5) | ~$2,000/yr | **If outsourced** (you're doing DIY = $0) |
+
+**Your Cost**: $0 (doing all admin functions yourself)
+**If Fully Outsourced**: ~$55,250/yr (not applicable to you)
 
 ### Marketing/Website Costs
 
 | Item | Cost (USD) | Notes |
 |------|------------|-------|
-| FINRA advertising filings (AREF) | $300+ per submission | Expedite fees extra |
-| Website build | $0–$25,000 | DIY $0–$5k; vendor $5k–$25k (one-time) |
+| FINRA advertising filings (AREF) | $300+ per submission | Only when filing marketing materials; expedite fees extra |
+| Website build | $0 | Website already exists; only need to add Rule 6c-11 compliance pages |
 
 ---
 
@@ -622,20 +635,55 @@
 
 ---
 
-## Summary: Total First-Year Costs
+## Summary: Total First-Year Costs (Self-Admin DIY)
 
-### Minimum (Self-Admin)
-- **Start-Up**: ~$1,610 + seed capital + website ($0–$25k)
-- **Annual Fixed**: ~$24,000–$35,000
-- **Variable**: Transfer agent fees (offset by AP fees) + 24f-2 fees
-- **Total First Year**: ~$25,610–$60,610 + variable costs
+### Your Actual Costs (Self-Admin)
 
-### With Bundled Admin
-- **Start-Up**: ~$1,610 + seed capital + website ($0–$25k)
-- **Annual Fixed**: ~$24,000–$35,000
-- **Admin Bundle**: ~$55,250
-- **Variable**: Transfer agent fees (offset by AP fees) + 24f-2 fees
-- **Total First Year**: ~$80,860–$111,860 + variable costs
+**Start-Up Costs (One-Time)**:
+- DST formation: $500
+- CUSIP: $210
+- DTC eligibility: $900
+- IARD registration: $40–$225 (tiered)
+- **Total Start-Up**: ~$1,650–$1,835 + seed capital
+
+**Annual Fixed Costs**:
+- Nasdaq listing: $4,000
+- Custody: $3,000 (minimum)
+- ETF Order Management: $10,000
+- Audit: $4,000–$8,000 (typical for small funds)
+- Fidelity bond: ~$3,000
+- **Total Annual Fixed**: ~$24,000–$28,000
+  - Typical: ~$24,000 (with $4k audit)
+  - Higher: ~$28,000 (with $8k audit)
+
+**Annual Variable Costs**:
+- Transfer Agent: $0 (offset by AP fees - you charge APs more than TA costs)
+- Rule 24f-2: $0 (if no net sales) to $138.10 per $1M net sales
+  - Example: $10M net sales = $1,381
+  - Example: $100M net sales = $13,810
+
+**Total First Year (Typical)**:
+- Start-Up: ~$1,650 + seed capital
+- Annual Fixed: ~$24,000
+- Variable: ~$0–$2,000 (depending on sales)
+- **Total: ~$25,650–$27,650 + seed capital**
+
+**Total First Year (Higher Audit)**:
+- Start-Up: ~$1,835 + seed capital
+- Annual Fixed: ~$28,000
+- Variable: ~$0–$2,000
+- **Total: ~$29,835–$31,835 + seed capital**
+
+### Comparison: If You Outsourced Admin (Not Applicable)
+
+**If Fully Outsourced** (you're not doing this):
+- Start-Up: ~$1,650 + seed capital
+- Annual Fixed: ~$24,000–$28,000
+- Admin Bundle: ~$55,250
+- Variable: ~$0–$2,000
+- **Total: ~$80,900–$86,900 + seed capital**
+
+**Your Savings by Doing DIY**: ~$55,250/year
 
 ---
 
