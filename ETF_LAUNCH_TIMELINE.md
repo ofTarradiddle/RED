@@ -57,22 +57,22 @@
 #### 3. Select Custodian + Transfer Agent + ETF Order Management
 - **Required**: Yes (§17(f) custody & TA)
 - **Cost**: 
-  - Custody: min $3,000/yr or 0.50 bps (annual)
-  - ETF OM: $10,000/yr
+  - Custody: $5,000/yr (budget estimate)
+  - ETF OM: $0 (doing yourself - DIY)
   - TA: $100/order (offset by AP fee)
 - **Contact**: U.S. Bank GFS (+1-800-236-6954)
 - **Alternatives**: State Street; BNY Mellon; BBH
 - **Legal/Rule**: 1940 Act §17(f); ETF Rule 6c-11
-- **Note**: Set AP fee in SAI (e.g., $250/order) to offset TA tickets
+- **Note**: Set AP fee in SAI (e.g., $250/order) to offset TA tickets. You're handling order management yourself.
 - **Owner**: Operations/CFO
 
 #### 4. Select Distributor (Principal Underwriter)
 - **Required**: Yes
-- **Cost**: $0 from Trust (common); adviser may pay
+- **Cost**: $0–$5,000/yr (typically $0 retainer; may have per-filing fees or annual service fee)
 - **Contact**: Quasar (Foreside) 866-251-6920, legal@foreside.com
 - **Alternatives**: ALPS; SEI; Ultimus; Northern Lights
 - **Legal/Rule**: '33 Act distribution; FINRA Rule 2210
-- **Note**: Can be $0 retainer to the Trust under common forms
+- **Note**: Can be $0 retainer to the Trust under common forms, but may have filing fees or service fees
 - **Owner**: Adviser
 
 #### 5. Select Auditor (PCAOB)
@@ -470,14 +470,15 @@
 | Item | Cost (USD) | Notes |
 |------|------------|-------|
 | Exchange listing (Nasdaq) | $4,000/yr | Required for listing |
-| Custody | $3,000/yr minimum | Or 0.50 bps (whichever is higher) |
-| ETF Order Management | $10,000/yr | Required platform fee |
+| Custody | $5,000/yr | Budget estimate (just in case) |
+| ETF Order Management | $0 | Doing yourself (DIY) |
+| Distributor | $0–$5,000/yr | Typically $0 retainer; may have per-filing fees or annual service fee |
 | Audit (PCAOB) | $4,000–$15,000/yr | Get competitive quotes; typically $4k–$8k for small funds |
 | Fidelity bond (Rule 17g-1) | ~$3,000/yr | Quote-based; required coverage |
 
-**Total Annual Fixed**: ~$24,000–$35,000
-- **Typical (small fund)**: ~$24,000–$27,000 (with $4k–$8k audit)
-- **Higher end**: ~$35,000 (with $15k audit)
+**Total Annual Fixed**: ~$16,000–$32,000
+- **Typical (small fund)**: ~$16,000–$20,000 (with $4k–$8k audit, $0 distributor)
+- **Higher end**: ~$32,000 (with $15k audit, $5k distributor)
 
 ### Annual Variable Costs
 
@@ -488,11 +489,12 @@
 | Transfer Agent tickets | $100/order (gross) | Only if you use TA for order processing. **Offset with AP fee** (e.g., charge APs $250/order, net cost = $0 or profit) |
 | Rule 24f-2 fee | $138.10 per $1,000,000 net new sales | Only paid on net new sales (sales minus redemptions). If no net sales, fee = $0. FY2026 rate (adjusted each Oct 1) |
 
-**Variable Cost Examples:**
-- **Year 1 (no net sales)**: $0 (24f-2 fee = $0)
-- **Year 1 (with TA orders)**: $100 per order, but offset by AP fees
-- **Year 1 ($10M net sales)**: $1,381 (24f-2 fee)
-- **Year 1 ($100M net sales)**: $13,810 (24f-2 fee)
+**Variable Cost Notes:**
+- **First Year**: Typically $0 (no net sales expected in first year)
+- **Future Years**: Rule 24f-2 fee = $138.10 per $1M net sales (only if net sales occur)
+  - Example: $10M net sales = $1,381
+  - Example: $100M net sales = $13,810
+- Transfer Agent fees are offset by AP fees you charge
 
 ### Optional Admin Bundle (US Bank GFS) - **NOT APPLICABLE FOR DIY**
 
@@ -656,34 +658,22 @@
   - Typical: ~$24,000 (with $4k audit)
   - Higher: ~$28,000 (with $8k audit)
 
-**Annual Variable Costs**:
+**Annual Variable Costs (First Year)**:
 - Transfer Agent: $0 (offset by AP fees - you charge APs more than TA costs)
-- Rule 24f-2: $0 (if no net sales) to $138.10 per $1M net sales
-  - Example: $10M net sales = $1,381
-  - Example: $100M net sales = $13,810
+- Rule 24f-2: $0 (first year typically has no net sales)
+- **Total Variable (First Year)**: $0
 
 **Total First Year (Typical)**:
 - Start-Up: ~$1,650 + seed capital
-- Annual Fixed: ~$24,000
-- Variable: ~$0–$2,000 (depending on sales)
-- **Total: ~$25,650–$27,650 + seed capital**
+- Annual Fixed: ~$16,000–$20,000 (with $4k–$8k audit, $0 distributor)
+- Variable: $0
+- **Total: ~$17,650–$21,650 + seed capital**
 
-**Total First Year (Higher Audit)**:
+**Total First Year (Higher Audit/Distributor)**:
 - Start-Up: ~$1,835 + seed capital
-- Annual Fixed: ~$28,000
-- Variable: ~$0–$2,000
-- **Total: ~$29,835–$31,835 + seed capital**
-
-### Comparison: If You Outsourced Admin (Not Applicable)
-
-**If Fully Outsourced** (you're not doing this):
-- Start-Up: ~$1,650 + seed capital
-- Annual Fixed: ~$24,000–$28,000
-- Admin Bundle: ~$55,250
-- Variable: ~$0–$2,000
-- **Total: ~$80,900–$86,900 + seed capital**
-
-**Your Savings by Doing DIY**: ~$55,250/year
+- Annual Fixed: ~$32,000 (with $15k audit, $5k distributor)
+- Variable: $0
+- **Total: ~$33,835 + seed capital**
 
 ---
 
