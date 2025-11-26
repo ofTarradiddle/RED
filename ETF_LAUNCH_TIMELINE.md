@@ -667,18 +667,18 @@ Based on Sparklines ITAN ETF achieving <$15k all-in for service providers, here'
 - IARD registration: $40–$225 (tiered)
 - **Total Start-Up**: ~$1,650–$1,835 + seed capital
 
-**Annual Fixed Costs**:
+**Annual Fixed Costs (Base Case: ITAN Model)**:
 - Nasdaq listing: $4,000
-- Custody: $5,000 (budget estimate)
+- Custody: $3,000–$5,000 (negotiate minimum; can be lower)
 - ETF Order Management: $0 (doing yourself - DIY)
-- Distributor: $6,000–$10,000 (minimum annual fee; may be negotiable)
-- TA: 0
+- Transfer Agent: $0–$2,000 (per-order only; may have small minimum)
+- Distributor: $6,000–$8,000 (negotiate for startup/small fund)
 - Audit: $4,000–$8,000 (typical for small funds)
 - Fidelity bond: ~$3,000
-- **Total Annual Fixed**: ~$22,000–$30,000
-  - Typical: ~$22,000 (with $4k audit, $6k distributor)
-  - Higher: ~$26,000 (with $8k audit, $6k distributor)
-  - Highest: ~$38,000 (with $15k audit, $10k distributor)
+- **Total Annual Fixed**: ~$20,000–$28,000
+  - **Optimized (ITAN-like)**: ~$20,000–$22,000 (with $4k audit, $6k distributor, $3k custody, $0 TA minimum)
+  - Typical: ~$24,000–$26,000 (with $6k audit, $6k distributor, $5k custody)
+  - Higher: ~$28,000 (with $8k audit, $8k distributor, $5k custody)
 
 **Annual Variable Costs (First Year)**:
 - Transfer Agent: $0 (offset by AP fees - you charge APs more than TA costs)
