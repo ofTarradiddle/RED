@@ -102,6 +102,7 @@ class FundAdministration:
         if shares_outstanding == 0:
             pricing_exceptions.append("Shares outstanding is zero - cannot calculate NAV")
             validation_passed = False
+            nav_per_share = Decimal('0')
         else:
             # Calculate NAV per share
             nav_per_share = (net_assets / shares_outstanding).quantize(
@@ -198,12 +199,13 @@ class FundAdministration:
             # Process different types of corporate actions
             if action_type == "dividend":
                 # Dividend processing
+                amount = action.get('amount')
                 processed_actions.append({
                     "cusip": cusip,
                     "type": "dividend",
                     "ex_date": action.get('ex_date'),
                     "pay_date": action.get('pay_date'),
-                    "amount": action.get('amount')
+                    "amount": str(amount) if isinstance(amount, Decimal) else amount
                 })
             elif action_type == "split":
                 # Stock split processing
@@ -296,6 +298,7 @@ class FundAdministration:
     
     def _load_nav_data(self, start_date: date, end_date: date) -> List[Dict[str, Any]]:
         """Load NAV data for date range"""
+        from datetime import timedelta
         nav_data = []
         current_date = start_date
         
@@ -307,7 +310,7 @@ class FundAdministration:
                         nav_data.append(json.load(f))
                 except:
                     pass
-            current_date = current_date.replace(day=current_date.day + 1) if current_date.day < 28 else current_date.replace(month=current_date.month + 1, day=1)
+            current_date = current_date + timedelta(days=1)
         
         return nav_data
 

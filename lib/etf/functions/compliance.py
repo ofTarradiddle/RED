@@ -362,13 +362,24 @@ class Compliance:
             logger.error(f"Error fetching data for N-Q: {e}")
             return {"status": "error", "error": str(e)}
         
+        # Convert holdings to JSON-serializable format
+        serializable_holdings = []
+        for holding in holdings:
+            serializable_holding = {}
+            for key, value in holding.items():
+                if isinstance(value, Decimal):
+                    serializable_holding[key] = str(value)
+                else:
+                    serializable_holding[key] = value
+            serializable_holdings.append(serializable_holding)
+        
         n_q_data = {
             "form_type": "N-Q",
             "quarter_end": quarter_end.isoformat(),
             "status": "draft",
             "data": {
-                "holdings": holdings,
-                "total_holdings": len(holdings)
+                "holdings": serializable_holdings,
+                "total_holdings": len(serializable_holdings)
             }
         }
         

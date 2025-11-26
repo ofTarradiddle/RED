@@ -72,7 +72,9 @@ class MockDataSourceAdapter(DataSourceAdapter):
         return self.accounting_data
     
     def get_distribution_data(self, date: date):
-        return self.distribution_data
+        if hasattr(self, 'distribution_data') and isinstance(self.distribution_data, dict):
+            return self.distribution_data.get(date, {})
+        return getattr(self, 'distribution_data', {})
 
 
 @pytest.fixture

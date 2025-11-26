@@ -233,6 +233,20 @@ class TaxReporting:
         # Save form
         form_file = self.storage_path / f"1099b_{shareholder.account_number}_{tax_year}.json"
         form.file_path = str(form_file)
+        
+        # Convert transactions to JSON-serializable format
+        serializable_transactions = []
+        for txn in transactions:
+            serializable_txn = {}
+            for key, value in txn.items():
+                if isinstance(value, Decimal):
+                    serializable_txn[key] = str(value)
+                elif isinstance(value, date):
+                    serializable_txn[key] = value.isoformat()
+                else:
+                    serializable_txn[key] = value
+            serializable_transactions.append(serializable_txn)
+        
         with open(form_file, 'w') as f:
             json.dump({
                 "form_type": form.form_type,
@@ -242,7 +256,7 @@ class TaxReporting:
                 "tax_id": form.tax_id,
                 "proceeds": str(form.proceeds),
                 "cost_basis": str(form.cost_basis),
-                "transactions": transactions
+                "transactions": serializable_transactions
             }, f, indent=2)
         
         self.forms.append(form)

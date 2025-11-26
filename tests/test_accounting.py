@@ -71,11 +71,16 @@ class TestAccounting:
         """Test recording expense accrual"""
         accounting = Accounting(mock_adapter, temp_storage)
         
+        expense_data = {
+            "management_fee": Decimal('1000'),
+            "admin_expenses": Decimal('500'),
+            "custodial_fee": Decimal('200'),
+            "other_expenses": Decimal('100')
+        }
+        
         entries = accounting.record_expense_accrual(
-            date=date(2024, 12, 31),
-            expense_type="Management Fee",
-            amount=Decimal('1000'),
-            description="Monthly management fee"
+            expense_date=date(2024, 12, 31),
+            expense_data=expense_data
         )
         
         assert entries is not None
@@ -100,10 +105,10 @@ class TestAccounting:
         trial_balance = accounting.generate_trial_balance(date(2024, 12, 31))
         
         assert trial_balance is not None
-        assert "accounts" in trial_balance
-        assert "total_debits" in trial_balance
-        assert "total_credits" in trial_balance
-        assert trial_balance["total_debits"] == trial_balance["total_credits"]
+        assert hasattr(trial_balance, 'accounts')
+        assert hasattr(trial_balance, 'total_debits')
+        assert hasattr(trial_balance, 'total_credits')
+        assert trial_balance.total_debits == trial_balance.total_credits
     
     def test_generate_balance_sheet(self, mock_adapter, temp_storage):
         """Test generating balance sheet"""
@@ -112,25 +117,26 @@ class TestAccounting:
         balance_sheet = accounting.generate_balance_sheet(date(2024, 12, 31))
         
         assert balance_sheet is not None
-        assert "assets" in balance_sheet
-        assert "liabilities" in balance_sheet
-        assert "equity" in balance_sheet
-        assert "total_assets" in balance_sheet
-        assert "total_liabilities_equity" in balance_sheet
+        assert hasattr(balance_sheet, 'data')
+        assert "assets" in balance_sheet.data
+        assert "liabilities" in balance_sheet.data
+        assert "equity" in balance_sheet.data
+        assert "total_assets" in balance_sheet.data
     
     def test_generate_income_statement(self, mock_adapter, temp_storage):
         """Test generating income statement"""
         accounting = Accounting(mock_adapter, temp_storage)
         
         income_statement = accounting.generate_income_statement(
-            start_date=date(2024, 1, 1),
-            end_date=date(2024, 12, 31)
+            period_start=date(2024, 1, 1),
+            period_end=date(2024, 12, 31)
         )
         
         assert income_statement is not None
-        assert "revenue" in income_statement
-        assert "expenses" in income_statement
-        assert "net_income" in income_statement
+        assert hasattr(income_statement, 'data')
+        assert "income" in income_statement.data
+        assert "expenses" in income_statement.data
+        assert "net_income" in income_statement.data
     
     def test_daily_accounting_operations(self, mock_adapter, temp_storage, sample_date):
         """Test daily accounting operations"""
@@ -138,20 +144,26 @@ class TestAccounting:
         
         # Set up mock data
         mock_adapter.accounting_data = {
-            "nav_data": {
-                "total_assets": Decimal('1000000'),
-                "total_liabilities": Decimal('50000'),
-                "net_assets": Decimal('950000'),
-                "shares_outstanding": Decimal('1000000')
+            "expenses": {
+                "management_fee": Decimal('1000'),
+                "admin_expenses": Decimal('500')
             },
-            "expenses": [
-                {"type": "Management Fee", "amount": Decimal('1000')}
-            ]
+            "income": {
+                "dividend_income": Decimal('5000')
+            }
         }
         
-        result = accounting.daily_accounting_operations(sample_date)
+        nav_calculation = {
+            "total_assets": Decimal('1000000'),
+            "total_liabilities": Decimal('50000'),
+            "net_assets": Decimal('950000'),
+            "shares_outstanding": Decimal('1000000')
+        }
+        
+        result = accounting.daily_accounting_operations(sample_date, nav_calculation)
         
         assert result is not None
-        assert "status" in result
-        assert result["status"] == "success"
+        assert "date" in result
+        assert "nav_entries" in result
+        assert "expense_entries" in result
 

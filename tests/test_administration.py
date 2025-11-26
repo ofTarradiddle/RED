@@ -57,6 +57,7 @@ class TestFundAdministration:
         
         assert nav is not None
         assert nav.shares_outstanding == 0
+        # When shares_outstanding is 0, nav_per_share should be 0 (set in the function)
         assert nav.nav_per_share == 0
         assert not nav.validation_passed
         assert len(nav.pricing_exceptions) > 0
@@ -123,9 +124,10 @@ class TestFundAdministration:
         result = admin.process_corporate_actions(date(2024, 12, 31))
         
         assert result is not None
-        assert "status" in result
+        assert "date" in result
         assert "actions_processed" in result
         assert result["actions_processed"] > 0
+        assert "actions" in result
     
     def test_calculate_expense_ratio(self, mock_adapter, temp_storage):
         """Test expense ratio calculation"""

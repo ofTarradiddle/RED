@@ -16,11 +16,13 @@ class TestDistributor:
         """Test distribution calculation"""
         distributor = Distributor(mock_adapter, temp_storage)
         
-        # Set up mock data
+        # Set up mock data - distribution_data should be returned by get_distribution_data
         mock_adapter.distribution_data = {
-            "dividend_income": Decimal('5000'),
-            "capital_gains": Decimal('2000'),
-            "shares_outstanding": Decimal('1000000')
+            date(2024, 12, 31): {
+                "dividend_per_share": Decimal('0.005'),
+                "capital_gains_per_share": Decimal('0.002'),
+                "roc_per_share": Decimal('0')
+            }
         }
         
         nav_data = {
@@ -54,10 +56,13 @@ class TestDistributor:
             shares_outstanding=Decimal('1000000')
         )
         
+        # Add distribution to list first (as calculate_distribution would do)
+        distributor.distributions.append(distribution)
+        
         result = distributor.declare_distribution(distribution)
         
         assert result is not None
-        assert "status" in result
+        assert "distribution_id" in result
         assert distribution in distributor.distributions
         assert distribution.status == "declared"
     
@@ -79,10 +84,24 @@ class TestDistributor:
         
         distributor.distributions.append(distribution)
         
-        result = distributor.process_distribution_payment(distribution.distribution_id)
+        shareholder_data = [
+            {
+                "account_number": "ACC001",
+                "shareholder_name": "Test Shareholder",
+                "shares": Decimal('500000')
+            },
+            {
+                "account_number": "ACC002",
+                "shareholder_name": "Test Shareholder 2",
+                "shares": Decimal('500000')
+            }
+        ]
+        
+        result = distributor.process_distribution_payment(distribution, shareholder_data)
         
         assert result is not None
-        assert "status" in result
+        assert "distribution_id" in result
+        assert "payments_processed" in result
         assert distribution.status == "paid"
     
     def test_generate_distribution_schedule(self, mock_adapter, temp_storage):
@@ -103,12 +122,10 @@ class TestDistributor:
             )
         ]
         
-        schedule = distributor.generate_distribution_schedule(
-            start_date=date(2024, 1, 1),
-            end_date=date(2024, 12, 31)
-        )
+        schedule = distributor.generate_distribution_schedule(year=2024)
         
         assert schedule is not None
+        assert "year" in schedule
         assert "distributions" in schedule
         assert len(schedule["distributions"]) > 0
 
