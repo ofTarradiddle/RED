@@ -68,11 +68,11 @@
 
 #### 4. Select Distributor (Principal Underwriter)
 - **Required**: Yes
-- **Cost**: $0–$5,000/yr (typically $0 retainer; may have per-filing fees or annual service fee)
+- **Cost**: $6,000–$10,000/yr (minimum annual fee; may be negotiable for very small funds)
 - **Contact**: Quasar (Foreside) 866-251-6920, legal@foreside.com
 - **Alternatives**: ALPS; SEI; Ultimus; Northern Lights
 - **Legal/Rule**: '33 Act distribution; FINRA Rule 2210
-- **Note**: Can be $0 retainer to the Trust under common forms, but may have filing fees or service fees
+- **Note**: Industry standard appears to be minimum $6k+ annually. Some distributors may negotiate lower fees for startup/small funds, but $6k is a reasonable budget estimate. May also have per-filing fees for FINRA materials (AREF filings).
 - **Owner**: Adviser
 
 #### 5. Select Auditor (PCAOB)
@@ -472,13 +472,13 @@
 | Exchange listing (Nasdaq) | $4,000/yr | Required for listing |
 | Custody | $5,000/yr | Budget estimate (just in case) |
 | ETF Order Management | $0 | Doing yourself (DIY) |
-| Distributor | $0–$5,000/yr | Typically $0 retainer; may have per-filing fees or annual service fee |
+| Distributor | $6,000–$10,000/yr | Minimum annual fee; may be negotiable for very small funds |
 | Audit (PCAOB) | $4,000–$15,000/yr | Get competitive quotes; typically $4k–$8k for small funds |
 | Fidelity bond (Rule 17g-1) | ~$3,000/yr | Quote-based; required coverage |
 
-**Total Annual Fixed**: ~$16,000–$32,000
-- **Typical (small fund)**: ~$16,000–$20,000 (with $4k–$8k audit, $0 distributor)
-- **Higher end**: ~$32,000 (with $15k audit, $5k distributor)
+**Total Annual Fixed**: ~$22,000–$38,000
+- **Typical (small fund)**: ~$22,000–$26,000 (with $4k–$8k audit, $6k distributor)
+- **Higher end**: ~$38,000 (with $15k audit, $10k distributor)
 
 ### Annual Variable Costs
 
@@ -652,13 +652,13 @@
 - Nasdaq listing: $4,000
 - Custody: $5,000 (budget estimate)
 - ETF Order Management: $0 (doing yourself - DIY)
-- Distributor: $0–$5,000 (typically $0; may have fees)
+- Distributor: $6,000–$10,000 (minimum annual fee; may be negotiable)
 - Audit: $4,000–$8,000 (typical for small funds)
 - Fidelity bond: ~$3,000
-- **Total Annual Fixed**: ~$16,000–$20,000
-  - Typical: ~$16,000 (with $4k audit, $0 distributor)
-  - Higher: ~$20,000 (with $8k audit, $0 distributor)
-  - Highest: ~$32,000 (with $15k audit, $5k distributor)
+- **Total Annual Fixed**: ~$22,000–$30,000
+  - Typical: ~$22,000 (with $4k audit, $6k distributor)
+  - Higher: ~$26,000 (with $8k audit, $6k distributor)
+  - Highest: ~$38,000 (with $15k audit, $10k distributor)
 
 **Annual Variable Costs (First Year)**:
 - Transfer Agent: $0 (offset by AP fees - you charge APs more than TA costs)
@@ -667,15 +667,17 @@
 
 **Total First Year (Typical)**:
 - Start-Up: ~$1,650 + seed capital
-- Annual Fixed: ~$16,000–$20,000 (with $4k–$8k audit, $0 distributor)
+- Annual Fixed: ~$22,000–$26,000 (with $4k–$8k audit, $6k distributor)
 - Variable: $0
-- **Total: ~$17,650–$21,650 + seed capital**
+- **Total: ~$23,650–$27,650 + seed capital**
 
 **Total First Year (Higher Audit/Distributor)**:
 - Start-Up: ~$1,835 + seed capital
-- Annual Fixed: ~$32,000 (with $15k audit, $5k distributor)
+- Annual Fixed: ~$38,000 (with $15k audit, $10k distributor)
 - Variable: $0
-- **Total: ~$33,835 + seed capital**
+- **Total: ~$39,835 + seed capital**
+
+**Note on Distributor Costs**: Industry standard appears to be minimum $6k+ annually. Some distributors may negotiate lower fees for startup/small funds, but $6k is a reasonable budget estimate. Contact distributors directly to discuss pricing for very small funds.
 
 ---
 
