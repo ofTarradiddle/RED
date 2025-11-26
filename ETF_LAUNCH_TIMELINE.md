@@ -57,22 +57,29 @@
 #### 3. Select Custodian + Transfer Agent + ETF Order Management
 - **Required**: Yes (§17(f) custody & TA)
 - **Cost**: 
-  - Custody: $5,000/yr (budget estimate)
+  - Custody: $3,000–$5,000/yr (negotiate minimum; can be lower for small funds)
   - ETF OM: $0 (doing yourself - DIY)
-  - TA: $100/order (offset by AP fee)
+  - TA: $100/order (offset by AP fee); may have small annual minimum ($0–$2k)
 - **Contact**: U.S. Bank GFS (+1-800-236-6954)
 - **Alternatives**: State Street; BNY Mellon; BBH
 - **Legal/Rule**: 1940 Act §17(f); ETF Rule 6c-11
-- **Note**: Set AP fee in SAI (e.g., $250/order) to offset TA tickets. You're handling order management yourself.
+- **Note**: 
+  - Set AP fee in SAI (e.g., $250/order) to offset TA tickets
+  - You're handling order management yourself
+  - **Negotiate aggressively**: Small funds can achieve lower minimums (ITAN achieved <$15k total)
 - **Owner**: Operations/CFO
 
 #### 4. Select Distributor (Principal Underwriter)
 - **Required**: Yes
-- **Cost**: $6,000–$10,000/yr (minimum annual fee; may be negotiable for very small funds)
+- **Cost**: $6,000–$8,000/yr (negotiate for startup/small fund; can achieve lower than standard)
 - **Contact**: Quasar (Foreside) 866-251-6920, legal@foreside.com
 - **Alternatives**: ALPS; SEI; Ultimus; Northern Lights
 - **Legal/Rule**: '33 Act distribution; FINRA Rule 2210
-- **Note**: Industry standard appears to be minimum $6k+ annually. Some distributors may negotiate lower fees for startup/small funds, but $6k is a reasonable budget estimate. May also have per-filing fees for FINRA materials (AREF filings).
+- **Note**: 
+  - Industry standard is $6k+ annually, but small funds can negotiate lower
+  - **ITAN achieved <$15k total for all service providers** - aggressive negotiation is key
+  - May also have per-filing fees for FINRA materials (AREF filings)
+  - Consider adviser paying some expenses to reduce fund-level costs
 - **Owner**: Adviser
 
 #### 5. Select Auditor (PCAOB)
@@ -467,18 +474,30 @@
 
 ### Annual Fixed Costs (Self-Admin)
 
+**Base Case: ITAN Model (<$15k total third-party services)**
+
+Based on Sparklines ITAN ETF achieving <$15k all-in for service providers, here's a realistic base case structure:
+
 | Item | Cost (USD) | Notes |
 |------|------------|-------|
 | Exchange listing (Nasdaq) | $4,000/yr | Required for listing |
-| Custody | $5,000/yr | Budget estimate (just in case) |
+| Custody | $3,000–$5,000/yr | Negotiate minimum; can be lower for small funds |
 | ETF Order Management | $0 | Doing yourself (DIY) |
-| Distributor | $6,000–$10,000/yr | Minimum annual fee; may be negotiable for very small funds |
-| Audit (PCAOB) | $4,000–$15,000/yr | Get competitive quotes; typically $4k–$8k for small funds |
+| Transfer Agent | $0–$2,000/yr | Per-order only ($100/order, offset by AP fees); may have small annual minimum |
+| Distributor | $6,000–$8,000/yr | Negotiate for startup/small fund; can be lower than standard |
+| Audit (PCAOB) | $4,000–$8,000/yr | Get competitive quotes; small funds typically $4k–$6k |
 | Fidelity bond (Rule 17g-1) | ~$3,000/yr | Quote-based; required coverage |
 
-**Total Annual Fixed**: ~$22,000–$38,000
-- **Typical (small fund)**: ~$22,000–$26,000 (with $4k–$8k audit, $6k distributor)
-- **Higher end**: ~$38,000 (with $15k audit, $10k distributor)
+**Total Annual Fixed (Base Case - ITAN Model)**: ~$20,000–$28,000
+- **Optimized (ITAN-like)**: ~$20,000–$22,000 (with $4k audit, $6k distributor, $3k custody)
+- **Typical**: ~$24,000–$26,000 (with $6k audit, $6k distributor, $5k custody)
+- **Higher end**: ~$28,000 (with $8k audit, $8k distributor, $5k custody)
+
+**Key to Achieving <$15k Total**:
+- Negotiate aggressively with all vendors for startup/small fund pricing
+- Use per-order TA fees only (no annual minimum if possible)
+- Bundle services where possible
+- Adviser may pay some expenses (reduces fund-level costs)
 
 ### Annual Variable Costs
 
@@ -653,6 +672,7 @@
 - Custody: $5,000 (budget estimate)
 - ETF Order Management: $0 (doing yourself - DIY)
 - Distributor: $6,000–$10,000 (minimum annual fee; may be negotiable)
+- TA: 0
 - Audit: $4,000–$8,000 (typical for small funds)
 - Fidelity bond: ~$3,000
 - **Total Annual Fixed**: ~$22,000–$30,000
@@ -665,19 +685,32 @@
 - Rule 24f-2: $0 (first year typically has no net sales)
 - **Total Variable (First Year)**: $0
 
+**Total First Year (Optimized - ITAN Model)**:
+- Start-Up: ~$1,650 + seed capital
+- Annual Fixed: ~$20,000–$22,000 (aggressive negotiation: $4k audit, $6k distributor, $3k custody, $0 TA minimum)
+- Variable: $0
+- **Total: ~$21,650–$23,650 + seed capital**
+
 **Total First Year (Typical)**:
 - Start-Up: ~$1,650 + seed capital
-- Annual Fixed: ~$22,000–$26,000 (with $4k–$8k audit, $6k distributor)
+- Annual Fixed: ~$24,000–$26,000 (with $6k audit, $6k distributor, $5k custody)
 - Variable: $0
-- **Total: ~$23,650–$27,650 + seed capital**
+- **Total: ~$25,650–$27,650 + seed capital**
 
-**Total First Year (Higher Audit/Distributor)**:
+**Total First Year (Higher)**:
 - Start-Up: ~$1,835 + seed capital
-- Annual Fixed: ~$38,000 (with $15k audit, $10k distributor)
+- Annual Fixed: ~$28,000 (with $8k audit, $8k distributor, $5k custody)
 - Variable: $0
-- **Total: ~$39,835 + seed capital**
+- **Total: ~$29,835 + seed capital**
 
-**Note on Distributor Costs**: Industry standard appears to be minimum $6k+ annually. Some distributors may negotiate lower fees for startup/small funds, but $6k is a reasonable budget estimate. Contact distributors directly to discuss pricing for very small funds.
+**Key to Achieving <$15k Total (ITAN Model)**:
+- **Aggressive negotiation** with all vendors for startup/small fund pricing
+- **Per-order TA fees only** (no annual minimum if possible)
+- **Bundle services** where possible
+- **Adviser may pay some expenses** (reduces fund-level costs shown above)
+- **Minimal service provider model**: Only essential services, DIY where possible
+
+**Note**: ITAN achieved <$15k total by having adviser pay expenses and aggressive negotiation. For fund-level costs (what the fund pays directly), budget $20k–$28k, but total can be lower if adviser absorbs some costs.
 
 ---
 
