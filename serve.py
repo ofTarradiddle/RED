@@ -7,7 +7,9 @@ import http.server
 import socketserver
 import os
 import webbrowser
+import json
 from pathlib import Path
+from datetime import datetime
 
 def serve_website():
     """Start a local HTTP server to serve the website"""
@@ -18,6 +20,46 @@ def serve_website():
     # Change to the website directory
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
     
+    # Newsletter subscriptions file
+    NEWSLETTER_FILE = Path(__file__).parent / 'data' / 'newsletter_subscriptions.json'
+    
+    def ensure_data_dir():
+        """Ensure the data directory exists."""
+        NEWSLETTER_FILE.parent.mkdir(parents=True, exist_ok=True)
+    
+    def load_subscriptions():
+        """Load existing subscriptions from file."""
+        ensure_data_dir()
+        if NEWSLETTER_FILE.exists():
+            try:
+                with open(NEWSLETTER_FILE, 'r') as f:
+                    return json.load(f)
+            except (json.JSONDecodeError, IOError):
+                return []
+        return []
+    
+    def save_subscription(email):
+        """Save a new subscription to the file."""
+        subscriptions = load_subscriptions()
+        
+        # Check if email already exists
+        if any(sub.get('email') == email for sub in subscriptions):
+            return False
+        
+        # Add new subscription
+        subscriptions.append({
+            'email': email,
+            'subscribed_at': datetime.now().isoformat(),
+            'source': 'blog'
+        })
+        
+        # Save to file
+        ensure_data_dir()
+        with open(NEWSLETTER_FILE, 'w') as f:
+            json.dump(subscriptions, f, indent=2)
+        
+        return True
+    
     # Create a custom handler that serves .tsx files as JavaScript
     class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         def end_headers(self):
@@ -26,6 +68,47 @@ def serve_website():
             self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
             self.send_header('Access-Control-Allow-Headers', 'Content-Type')
             super().end_headers()
+        
+        def do_OPTIONS(self):
+            """Handle OPTIONS requests for CORS"""
+            self.send_response(200)
+            self.end_headers()
+        
+        def do_POST(self):
+            """Handle POST requests for newsletter subscription"""
+            if self.path == '/api/newsletter-subscribe':
+                content_length = int(self.headers.get('Content-Length', 0))
+                body = self.rfile.read(content_length).decode('utf-8')
+                
+                try:
+                    data = json.loads(body) if body else {}
+                    email = data.get('email', '').strip()
+                    
+                    if not email or '@' not in email:
+                        self.send_response(400)
+                        self.send_header('Content-Type', 'application/json')
+                        self.end_headers()
+                        self.wfile.write(json.dumps({'error': 'Invalid email address'}).encode())
+                        return
+                    
+                    if save_subscription(email):
+                        self.send_response(200)
+                        self.send_header('Content-Type', 'application/json')
+                        self.end_headers()
+                        self.wfile.write(json.dumps({'message': 'Successfully subscribed', 'email': email}).encode())
+                    else:
+                        self.send_response(200)
+                        self.send_header('Content-Type', 'application/json')
+                        self.end_headers()
+                        self.wfile.write(json.dumps({'message': 'Already subscribed', 'email': email}).encode())
+                except json.JSONDecodeError:
+                    self.send_response(400)
+                    self.send_header('Content-Type', 'application/json')
+                    self.end_headers()
+                    self.wfile.write(json.dumps({'error': 'Invalid JSON'}).encode())
+            else:
+                self.send_response(404)
+                self.end_headers()
         
         def guess_type(self, path):
             """Override MIME type guessing for better file serving"""
