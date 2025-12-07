@@ -2,7 +2,7 @@
 
 **Standalone Trust (Active ETF, Self-Admin Start)**
 
-**Sponsor**: Diamond Brothers ETF Trust  
+**Sponsor**: Diamond & Diamond ETF Trust  
 **Generated**: 2025-01-05  
 **Purpose**: Definitive, step-by-step checklist with costs, contacts, rules, and website obligations
 

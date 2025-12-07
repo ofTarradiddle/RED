@@ -105,7 +105,7 @@ const Footer = () => {
               <h5 className="font-semibold mb-4">Regulatory Information</h5>
               <div className="text-sm text-secondary-300 space-y-2">
                 <p>
-                  <strong>Investment Advisor:</strong> Diamond Brothers LLC<br />
+                  <strong>Investment Advisor:</strong> Diamond & Diamond (D&D)<br />
                   <strong>Fund Ticker:</strong> RED<br />
                   <strong>CUSIP:</strong> 123456789
                 </p>
@@ -126,7 +126,7 @@ const Footer = () => {
         <div className="border-t border-secondary-700 pt-6 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-secondary-400 mb-4 md:mb-0">
-              © 2024 Diamond Brothers LLC. All rights reserved.
+              © 2024 Diamond & Diamond (D&D). All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-secondary-400">
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>

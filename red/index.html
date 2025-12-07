@@ -1,0 +1,3251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>RED ETF | Innovation Factor ETF | Diamond & Diamond</title>
+    <meta name="description" content="RED Innovation Factor ETF (RED) - A systematic approach to identifying mid-large cap US equities with superior innovation characteristics.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .sticky-banner-wrapper {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        .cambria-header {
+            background: #1a0a0a;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .cambria-nav {
+            background: #2d0f0f;
+            border-bottom: 1px solid #4a1a1a;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .cambria-section {
+            background: #faf8f8;
+            border-top: 1px solid #e8e0e0;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .cambria-card {
+            background: white;
+            border: 1px solid #e8e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(139, 0, 0, 0.05);
+        }
+        .cambria-button {
+            background: #8b0000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cambria-button:hover {
+            background: #a00000;
+        }
+        .cambria-button-secondary {
+            background: white;
+            color: #8b0000;
+            border: 1px solid #8b0000;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .cambria-button-secondary:hover {
+            background: #faf8f8;
+        }
+        
+        /* Mobile-specific improvements */
+        @media (max-width: 768px) {
+            .cambria-button, .cambria-button-secondary {
+                min-height: 44px; /* Better touch targets */
+                padding: 0.75rem 1rem;
+            }
+            
+            /* Improve chart readability on mobile */
+            .chart-container {
+                overflow-x: auto;
+            }
+            
+            /* Better spacing for mobile */
+            .section-padding {
+                padding: 2rem 1rem;
+            }
+            
+            /* Mobile-friendly tables */
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            /* Mobile navigation improvements */
+            .mobile-menu-link {
+                padding: 1rem;
+                border-bottom: 1px solid #374151;
+            }
+        }
+        
+        /* Touch-friendly interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .cambria-button, .cambria-button-secondary {
+                transform: none;
+            }
+            
+            .cambria-button:active, .cambria-button-secondary:active {
+                transform: scale(0.98);
+            }
+        }
+        .cambria-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cambria-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .cambria-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .cambria-table tr:hover {
+            background: #faf8f8;
+        }
+        .cambria-footer {
+            background: #1a0a0a;
+            color: white;
+        }
+        .cambria-disclosure {
+            background: #fff3f3;
+            border: 1px solid #ffd6d6;
+            border-left: 4px solid #8b0000;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .fund-details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .fund-details-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .fund-details-table td:first-child {
+            font-weight: 600;
+            color: #495057;
+            width: 40%;
+        }
+        .fund-details-table td:last-child {
+            color: #8b0000;
+            font-weight: 500;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .price-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .price-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .performance-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .performance-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .documents-table th {
+            background: #faf8f8;
+            border-bottom: 1px solid #e8e0e0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .documents-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .documents-table a {
+            color: #8b0000;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .documents-table a:hover {
+            text-decoration: underline;
+        }
+        .company-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        .product-name {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            margin-top: -2px;
+        }
+        .hero-subtitle {
+            color: #8b0000;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        .logo-placeholder {
+            width: 44px;
+            height: 44px;
+            background: #8b0000;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-right: 12px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800" style="margin: 0; padding: 0;">
+    <!-- Sticky Banner Wrapper -->
+    <div class="sticky-banner-wrapper" style="position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%;">
+        <!-- Header -->
+        <div class="cambria-header py-2">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center text-sm">
+                    <div class="flex items-center space-x-6">
+                        <span>Email: info@ofnectar.com</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="cambria-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="logo-placeholder" aria-label="Diamond & Diamond Logo">DD</div>
+                    <div>
+                        <div class="company-logo">Diamond & Diamond</div>
+                        <div class="product-name">Innovation Factor ETF</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Fund Details</a>
+                    <a href="#performance" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Performance</a>
+                    <a href="#holdings" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Holdings</a>
+                    <a href="#blog" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Blog</a>
+                    <a href="#documents" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Documents</a>
+                    <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
+                    <a href="/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium border-l border-gray-600 pl-6 ml-2">D&D</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 border-t border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#overview" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Fund Details</a>
+                <a href="#performance" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Performance</a>
+                <a href="#holdings" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Holdings</a>
+                <a href="#blog" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Blog</a>
+                <a href="#documents" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Documents</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">About</a>
+                <a href="/" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium border-t border-gray-700 mt-2 pt-3">D&D</a>
+            </div>
+        </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-8 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-left">
+                <div class="max-w-4xl">
+                    <div class="text-6xl md:text-8xl font-bold text-red-800 mb-2 tracking-tight">
+                        RED
+                    </div>
+                    <h2 class="text-xl md:text-2xl font-semibold text-gray-700 mb-4">
+                        Diamond & Diamond Innovation Factor ETF
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        The RED Innovation Factor ETF systematically identifies and invests in mid-large cap US companies that demonstrate superior innovation characteristics. Unlike thematic funds that require predicting specific innovation outcomes and firm level R&D success, RED's factor-based approach captures the growth potential of innovation-driven companies with implicit top down sector allocations.
+                    </p>
+                    
+                    <!-- Call to Action Buttons -->
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <a href="#performance" class="cambria-button">
+                            <i data-lucide="trending-up" class="h-5 w-5 mr-2"></i>
+                            View Performance
+                        </a>
+                        <a href="#holdings" class="cambria-button-secondary">
+                            <i data-lucide="briefcase" class="h-5 w-5 mr-2"></i>
+                            View Holdings
+                        </a>
+                    </div>
+                    
+                    <!-- Key Metrics Grid -->
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-red-800">0.222%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Expense Ratio</div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-gray-900">45-100</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Holdings</div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-green-600" id="hero-ytd-return">+104.9%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">YTD Return</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRITICAL REGULATORY COMPLIANCE DISCLOSURES -->
+    <section class="py-6 bg-red-50 border-b-4 border-red-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-xl font-bold text-red-800 mb-4">IMPORTANT REGULATORY DISCLOSURES</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white p-3 rounded border border-red-200">
+                        <strong class="text-red-800">SEC Registered Investment Company</strong><br>
+                        <span class="text-gray-700">File No. 811-XXXXX</span>
+                    </div>
+                    <div class="bg-white p-3 rounded border border-red-200">
+                        <strong class="text-red-800">Exchange Traded Fund (ETF)</strong><br>
+                        <span class="text-gray-700">Actively Managed</span>
+                    </div>
+                    <div class="bg-white p-3 rounded border border-red-200">
+                        <strong class="text-red-800">Not FDIC Insured</strong><br>
+                        <span class="text-gray-700">No Bank Guarantee • May Lose Value</span>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-red-700">
+                    <strong>RED ETF is a registered investment company under the Investment Company Act of 1940.</strong> 
+                    D&D is registered with the SEC as an investment adviser. 
+                    This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Fund Details Bar -->
+    <section class="py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-center">
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">RED</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Ticker</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">0.222%</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Expense Ratio</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">45-100</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Holdings</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold" id="quick-nav">$25.45</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">NAV</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold" id="quick-price">$25.42</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Price</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold text-green-400" id="quick-ytd">+5.1%</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">YTD</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Links Section -->
+    <section class="py-4 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-sm font-medium text-gray-700 mr-2">Quick Access:</span>
+                <a href="#" class="flex items-center px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-md transition-colors group border border-red-200">
+                    <i data-lucide="file-text" class="h-3 w-3 text-red-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-red-800">Fact Sheet</span>
+                </a>
+                <a href="/red/why-red.html" class="flex items-center px-3 py-1.5 bg-orange-50 hover:bg-orange-100 rounded-md transition-colors group border border-orange-200">
+                    <i data-lucide="lightbulb" class="h-3 w-3 text-orange-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-orange-800">Why RED?</span>
+                </a>
+                <a href="#" class="flex items-center px-3 py-1.5 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors group border border-blue-200">
+                    <i data-lucide="trending-up" class="h-3 w-3 text-blue-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-blue-800">Investment Case</span>
+                </a>
+                <a href="#" class="flex items-center px-3 py-1.5 bg-green-50 hover:bg-green-100 rounded-md transition-colors group border border-green-200">
+                    <i data-lucide="layers" class="h-3 w-3 text-green-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-green-800">ETF Lineup</span>
+                </a>
+                <a href="#" class="flex items-center px-3 py-1.5 bg-purple-50 hover:bg-purple-100 rounded-md transition-colors group border border-purple-200">
+                    <i data-lucide="play-circle" class="h-3 w-3 text-purple-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-purple-800">Product Video</span>
+                </a>
+                <a href="/red/blog/sample-post-4.html" class="flex items-center px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-md transition-colors group border border-red-200">
+                    <i data-lucide="presentation" class="h-3 w-3 text-red-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-red-800">Pitch Deck</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Links and Quick Actions -->
+    <section class="py-4 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap gap-3 items-center">
+                <a href="#overview" class="text-sm text-red-800 hover:underline font-medium">Fund Details</a>
+                <a href="#performance" class="text-sm text-red-800 hover:underline font-medium">Performance</a>
+                <a href="#holdings" class="text-sm text-red-800 hover:underline font-medium">Holdings</a>
+                <a href="#blog" class="text-sm text-red-800 hover:underline font-medium">Blog</a>
+                <a href="#documents" class="text-sm text-red-800 hover:underline font-medium">Documents</a>
+                <a href="#about" class="text-sm text-red-800 hover:underline font-medium">About</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="py-8 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column: Fund Details & Investment Objective -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Fund Details</h3>
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Fund Inception:</span>
+                                <span class="font-semibold text-gray-900">21.1</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Ticker:</span>
+                                <span class="font-semibold text-gray-900">RED</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Net Asset Value (NAV):</span>
+                                <span class="font-semibold text-gray-900" id="fund-nav">$25.45</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Number of Holdings:</span>
+                                <span class="font-semibold text-gray-900" id="fund-holdings">55</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Primary Exchange:</span>
+                                <span class="font-semibold text-gray-900">CBOE BZX</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Fund Type:</span>
+                                <span class="font-semibold text-gray-900">Actively Managed ETF</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Benchmark:</span>
+                                <span class="font-semibold text-gray-900">Morningstar US Market Index</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Total Expense Ratio:</span>
+                                <span class="font-semibold text-gray-900">0.222%</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Rebalancing:</span>
+                                <span class="font-semibold text-gray-900">Quarterly</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-gray-600">Data as of:</span>
+                                <span class="font-semibold text-gray-900" id="fund-details-date">December 19, 21.1</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Investment Objective</h3>
+                        <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+                            The RED Innovation Factor ETF seeks to provide long-term capital appreciation by investing in 
+                            companies that demonstrate superior innovation characteristics within the mid-large cap US equity universe.
+                        </p>
+                        <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+                            Our systematic approach identifies companies with high innovation potential through quantitative analysis of R&D investment, intellectual property development, and technological advancement metrics.
+                        </p>
+                        <div class="bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-600 p-4 rounded-r-lg">
+                            <h4 class="text-sm font-semibold text-gray-900 mb-2">Key Insight</h4>
+                            <p class="text-sm text-gray-700">
+                                Innovation factors lead to future revenue growth and earnings surprises. Companies with superior innovation characteristics historically demonstrate stronger sales growth and market outperformance over time.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column: Why RED & Thematics vs Factors -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Why RED?</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="bg-red-100 text-red-800 font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm mr-4 mt-1">1</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 mb-2">Proprietary Innovation Factor Model</h4>
+                                    <p class="text-sm text-gray-700">Analyzes 50+ innovation metrics including R&D intensity, patent quality, and technology adoption to identify superior innovators</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-red-100 text-red-800 font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm mr-4 mt-1">2</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 mb-2">Sector-Agnostic Growth Capture</h4>
+                                    <p class="text-sm text-gray-700">Captures innovation-driven returns across all sectors without predicting specific themes or outcomes</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-red-100 text-red-800 font-bold rounded-full w-8 h-8 flex items-center justify-center text-sm mr-4 mt-1">3</div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 mb-2">Cost-Effective Innovation Access</h4>
+                                    <p class="text-sm text-gray-700">0.222% expense ratio provides efficient access to innovation factors vs. higher-cost thematic alternatives</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Thematics vs Factors</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-red-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3 text-center">Thematic Funds</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <div class="text-red-600 font-bold mr-2 text-sm">✗</div>
+                                        <p class="text-sm text-gray-700">Require multiple predictions</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-red-600 font-bold mr-2 text-sm">✗</div>
+                                        <p class="text-sm text-gray-700">Probability decay</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-red-600 font-bold mr-2 text-sm">✗</div>
+                                        <p class="text-sm text-gray-700">Theme timing risk</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3 text-center">Factor Approach</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <div class="text-green-600 font-bold mr-2 text-sm">✓</div>
+                                        <p class="text-sm text-gray-700">More robust</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-green-600 font-bold mr-2 text-sm">✓</div>
+                                        <p class="text-sm text-gray-700">Bottom-up selection</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="text-green-600 font-bold mr-2 text-sm">✓</div>
+                                        <p class="text-sm text-gray-700">Systematic discipline</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Fund Prices & Chart -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Prices</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">NAV</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Net Asset Value:</span>
+                                        <span class="font-semibold text-gray-900" id="nav-price">$25.45</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Daily Change:</span>
+                                        <span class="font-semibold text-green-600" id="nav-change">+0.12%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Price</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Closing Price:</span>
+                                        <span class="font-semibold text-gray-900" id="etf-price">$25.42</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Daily Change:</span>
+                                        <span class="font-semibold text-green-600" id="etf-change">+0.08%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Premium/Discount</h3>
+                        <div class="h-64">
+                            <canvas id="premiumChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-green-600 mb-2" id="premium-value">+0.14%</div>
+                            <p class="text-sm text-gray-600 font-medium">Current Premium/Discount</p>
+                            <p class="text-xs text-gray-500 mt-1">RED ETF vs NAV</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">About Diamond & Diamond</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    D&D is a research-driven investment management firm focused on systematic factor investing.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Our Mission</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        D&D is dedicated to developing innovative investment strategies that identify and capture 
+                        systematic risk factors in equity markets. Our research-driven approach combines academic 
+                        rigor with practical implementation to deliver superior risk-adjusted returns for our clients.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        We believe that innovation is a key driver of long-term value creation in equity markets. 
+                        Our systematic approach to identifying innovation factors provides investors with exposure 
+                        to companies that are likely to generate sustainable growth through research and development.
+                    </p>
+                    
+                    <div class="cambria-disclosure">
+                        <h4 class="font-semibold text-gray-900 mb-2">Investment Philosophy</h4>
+                        <p class="text-sm text-gray-700">
+                            We focus on factors that have demonstrated persistent risk-adjusted returns across 
+                            different market environments and economic cycles. Our innovation factor strategy 
+                            represents the culmination of years of research into the relationship between 
+                            R&D investment and future equity returns.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="cambria-card p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Company Information</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Founded</span>
+                            <span class="font-semibold text-gray-900">21.1</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Headquarters</span>
+                            <span class="font-semibold text-gray-900">New York, NY</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Regulatory Status</span>
+                            <span class="font-semibold text-gray-900">SEC Registered</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-900 mb-3">Contact Information</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i data-lucide="map-pin" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>123 Main Street, Suite 1000, New York, NY 10001</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="phone" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>(555) 123-4567</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="mail" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>info@dbe.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="cambria-section py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Performance</h2>
+            
+            <!-- Performance Comparison Chart -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Performance Comparison</h3>
+                    <div class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Interactive Chart</div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
+                    <button id="1m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">1M</button>
+                    <button id="3m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">3M</button>
+                    <button id="6m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">6M</button>
+                    <button id="1y-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">1Y</button>
+                    <button id="si-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[120px]">Since Inception</button>
+                    <button id="ytd-btn" class="cambria-button text-xs px-3 py-2 min-w-[60px]">YTD</button>
+                </div>
+                <div class="relative" style="height: 300px;">
+                    <canvas id="performanceChart" height="300"></canvas>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-xl sm:text-2xl font-bold text-red-800" id="red-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">RED ETF</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-xl sm:text-2xl font-bold text-blue-800" id="nav-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">NAV</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-xl sm:text-2xl font-bold text-gray-800" id="morningstar-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">Morningstar US Market Index</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REQUIRED: Annual Returns Bar Chart (SEC Regulation) -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Total Returns by Period</h3>
+                    <div class="text-xs text-gray-500 bg-red-100 px-2 py-1 rounded text-red-800">Required Disclosure</div>
+                </div>
+                <div class="relative" style="height: 300px;">
+                    <canvas id="annualReturnsChart" height="300"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-gray-600">
+                        <strong>Note:</strong> Sales loads and account fees are not reflected in the bar chart. If these amounts were reflected, returns would be less than those shown.
+                    </p>
+                </div>
+            </div>
+
+            <!-- REQUIRED: Average Annual Returns Table (SEC Regulation) -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Average Annual Total Returns</h3>
+                    <div class="text-xs text-gray-500 bg-red-100 px-2 py-1 rounded text-red-800">Required Disclosure</div>
+                </div>
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-left py-3 px-4 font-semibold text-gray-900">Period</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">RED ETF</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">NAV</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">Morningstar US Market Index</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">1 Year</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-1y-red">+25.8%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600" id="annual-1y-nav">+25.9%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-1y-morningstar">+21.1%</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">5 Years</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">10 Years</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">Since Inception</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-si-red">+25.8%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600" id="annual-si-nav">+25.9%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-si-morningstar">+21.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-4 text-xs text-gray-600">
+                    <p><strong>Note:</strong> The Fund's inception date is 21.1. 5-year and 10-year returns will be available once the Fund has sufficient history.</p>
+                </div>
+            </div>
+
+            <!-- REQUIRED: Risk/Return Narrative (SEC Regulation) -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Risk/Return Summary</h3>
+                    <div class="text-xs text-gray-500 bg-red-100 px-2 py-1 rounded text-red-800">Required Disclosure</div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-700">
+                    <p>
+                        The bar chart and table above provide some indication of the risks of investing in the Fund by showing changes in the Fund's performance from year to year and by showing how the Fund's average annual returns for 1, 5, and 10 years compare with those of a broad measure of market performance (Morningstar US Market Index).
+                    </p>
+                    <p>
+                        The information shows how the Fund's performance compares with the returns of an index of funds with similar investment objectives. The Fund's performance reflects the deduction of Fund expenses, including management fees, but does not reflect the deduction of taxes that a shareholder would pay on Fund distributions or the redemption of Fund shares.
+                    </p>
+                    <p>
+                        The NAV (Net Asset Value) represents the Fund's underlying portfolio performance before trading costs, while the RED ETF returns reflect the actual market price performance that investors experience. The difference between NAV and market price returns demonstrates the impact of market trading dynamics and premium/discount fluctuations.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                        <p class="text-sm text-gray-800">
+                            <strong>Benchmark Attribution:</strong> Morningstar US Market Index data is provided through Morningstar's Open Index Project, which offers free access to high-quality market indices for research and comparison purposes.
+                        </p>
+                    </div>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                        <p class="text-sm text-gray-800 font-semibold">
+                            <strong>Important:</strong> How the Fund has performed in the past is not necessarily an indication of how the Fund will perform in the future.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAGR Comparison Bar Chart -->
+            <!-- Temporarily removed due to syntax errors -->
+            <!--
+            <div class="bg-white border border-gray-200nded-xl p-6 shadow-lg mb-8>
+                <div class=flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900>CAGR Comparison</h3>
+                    <div class=text-xs text-gray-500g-gray-100 px-2 py-1ounded">Annualized Returns</div>
+                </div>
+                <h4 class="text-sm font-semibold text-gray-900 mb-3 text-center" id=cagr-bar-title">1 Year CAGR</h4
+                <div class=relative" style=height: 180px;                   <canvas id="cagrBarChart" height="160"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class=text-sm text-gray-600">
+                        Compound Annual Growth Rate (CAGR) shows the mean annual growth rate over a specified period.
+                    </p>
+                </div>
+            </div>
+            -->
+
+            <!-- ETF Rule Compliance Disclosures -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Premium/Discount Tracking -->
+                <div class="cambria-card p-5">
+                    <h4 class="font-semibold text-gray-900 mb-4">Premium/Discount Information</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Current Premium/Discount:</span>
+                            <span class="font-semibold text-green-600" id="current-premium">+0.14%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Median Bid-Ask Spread:</span>
+                            <span class="font-semibold text-gray-900">0.08%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Days at Premium (YTD):</span>
+                            <span class="font-semibold text-gray-900">156</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Days at Discount (YTD):</span>
+                            <span class="font-semibold text-gray-900">89</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 border-l-4 border-blue-400">
+                        <p class="text-xs text-gray-700">
+                            <strong>Premium/Discount Notice:</strong> The Fund's shares may trade at a premium or discount to NAV. 
+                            Premiums and discounts can be significant and may persist for extended periods.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Trading Information -->
+                <div class="cambria-card p-5">
+                    <h4 class="font-semibold text-gray-900 mb-4">Trading Information</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Primary Exchange:</span>
+                            <span class="font-semibold text-gray-900">CBOE BZX</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Trading Hours:</span>
+                            <span class="font-semibold text-gray-900">9:30 AM - 4:00 PM ET</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Creation Unit Size:</span>
+                            <span class="font-semibold text-gray-900">50,000 Shares</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Minimum Trade:</span>
+                            <span class="font-semibold text-gray-900">1 Share</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400">
+                        <p class="text-xs text-gray-700">
+                            <strong>Trading Notice:</strong> Shares are bought and sold at market price, not NAV. 
+                            Market price returns may differ from NAV returns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium/Discount Graph -->
+            <div class="cambria-card p-5 mb-8">
+                <h4 class="font-semibold text-gray-900 mb-4">Premium/Discount History (Last 12 Months)</h4>
+                <div class="h-64">
+                    <canvas id="premiumHistoryChart"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-gray-600">
+                        This graph shows the daily premium/discount of RED ETF shares relative to NAV over the past 12 months.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Month end returns as of: <span id="performance-date">December 19, 21.1</span></h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="cambria-card p-5">
+                        <h4 class="font-semibold text-gray-900 mb-4">CUMULATIVE</h4>
+                        <table class="performance-table" id="cumulative-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>1 Yr.</th>
+                                    <th>Since Inception</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Fund NAV</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>Closing Price</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="cambria-card p-5">
+                        <h4 class="font-semibold text-gray-900 mb-4">AVG. ANNUALIZED</h4>
+                        <table class="performance-table" id="annualized-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>1 Yr.</th>
+                                    <th>Since Inception</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Fund NAV</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>Closing Price</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cambria-disclosure">
+                <p class="text-sm text-gray-800">
+                    <strong>The performance data quoted represents past performance. Past performance does not guarantee future results.</strong> The investment return and principal value of an investment will fluctuate so that an investor's shares, when redeemed, may be worth more or less than their original cost and current performance may be lower or higher than the performance quoted.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    Cumulative return is the aggregate amount that an investment has gained or lost over time. Annualized return is the average return gained or lost by an investment each year over a given time period. Diamond & Diamond's NAVs are calculated using prices as of 4:00 PM Eastern Time.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    The closing market price is the Mid-Point between the Bid and Ask price as of the close of exchange. Since the Fund's Shares typically do not trade in the secondary market until several days after the Fund's inception, for the period from inception to the first day of secondary market trading in Shares, the NAV of the Fund is used to calculate market returns.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    <strong>ETF Trading Risk:</strong> Shares are bought and sold at market price, which may be higher or lower than NAV. Market price returns may differ from NAV returns. The Fund's shares may trade at a premium or discount to NAV. Premiums and discounts can be significant and may persist for extended periods.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holdings Section -->
+    <section id="holdings" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">TOP 10 HOLDINGS</h2>
+            </div>
+            
+            <div class="cambria-card p-5 mb-6">
+                <table class="cambria-table">
+                    <thead>
+                        <tr>
+                            <th>PERCENTAGE OF NET ASSETS</th>
+                            <th>TICKER</th>
+                            <th>NAME</th>
+                            <th>IDENTIFIER</th>
+                            <th>SHARES HELD</th>
+                            <th>MARKET VALUE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="font-semibold text-gray-900">7.2%</td>
+                            <td class="font-mono text-gray-900">NVDA</td>
+                            <td class="text-gray-900">NVIDIA Corporation</td>
+                            <td class="font-mono text-gray-600">67066G104</td>
+                            <td class="text-right text-gray-900">125,000</td>
+                            <td class="text-right text-gray-900">$7,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">6.8%</td>
+                            <td class="font-mono text-gray-900">MSFT</td>
+                            <td class="text-gray-900">Microsoft Corporation</td>
+                            <td class="font-mono text-gray-600">594918104</td>
+                            <td class="text-right text-gray-900">180,000</td>
+                            <td class="text-right text-gray-900">$6,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">5.9%</td>
+                            <td class="font-mono text-gray-900">GOOGL</td>
+                            <td class="text-gray-900">Alphabet Inc.</td>
+                            <td class="font-mono text-gray-600">02079K305</td>
+                            <td class="text-right text-gray-900">45,000</td>
+                            <td class="text-right text-gray-900">$5,900,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">5.4%</td>
+                            <td class="font-mono text-gray-900">AAPL</td>
+                            <td class="text-gray-900">Apple Inc.</td>
+                            <td class="font-mono text-gray-600">037833100</td>
+                            <td class="text-right text-gray-900">32,000</td>
+                            <td class="text-right text-gray-900">$5,400,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">4.8%</td>
+                            <td class="font-mono text-gray-900">TSLA</td>
+                            <td class="text-gray-900">Tesla, Inc.</td>
+                            <td class="font-mono text-gray-600">88160R101</td>
+                            <td class="text-right text-gray-900">24,000</td>
+                            <td class="text-right text-gray-900">$4,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">4.2%</td>
+                            <td class="font-mono text-gray-900">AMZN</td>
+                            <td class="text-gray-900">Amazon.com, Inc.</td>
+                            <td class="font-mono text-gray-600">023135106</td>
+                            <td class="text-right text-gray-900">28,000</td>
+                            <td class="text-right text-gray-900">$4,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.8%</td>
+                            <td class="font-mono text-gray-900">META</td>
+                            <td class="text-gray-900">Meta Platforms, Inc.</td>
+                            <td class="font-mono text-gray-600">30303M102</td>
+                            <td class="text-right text-gray-900">35,000</td>
+                            <td class="text-right text-gray-900">$3,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.5%</td>
+                            <td class="font-mono text-gray-900">NFLX</td>
+                            <td class="text-gray-900">Netflix, Inc.</td>
+                            <td class="font-mono text-gray-600">64110L106</td>
+                            <td class="text-right text-gray-900">22,000</td>
+                            <td class="text-right text-gray-900">$3,500,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.2%</td>
+                            <td class="font-mono text-gray-900">CRM</td>
+                            <td class="text-gray-900">Salesforce, Inc.</td>
+                            <td class="font-mono text-gray-600">79466L302</td>
+                            <td class="text-right text-gray-900">18,000</td>
+                            <td class="text-right text-gray-900">$3,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">2.9%</td>
+                            <td class="font-mono text-gray-900">ADBE</td>
+                            <td class="text-gray-900">Adobe Inc.</td>
+                            <td class="font-mono text-gray-600">00724F101</td>
+                            <td class="text-right text-gray-900">15,000</td>
+                            <td class="text-right text-gray-900">$2,900,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-sm text-gray-500 mt-3">Data as of <span id="holdings-date">December 19, 21.1</span></p>
+                <p class="text-sm text-gray-600 mt-2">Holdings are subject to change</p>
+            </div>
+            
+            <!-- Holdings Links -->
+            <div class="flex flex-wrap gap-4 items-center">
+                <a href="#" class="flex items-center px-4 py-2 bg-red-50 hover:bg-red-100 rounded-lg transition-colors group border border-red-200">
+                    <i data-lucide="download" class="h-4 w-4 text-red-600 mr-2"></i>
+                    <span class="font-medium text-gray-900 group-hover:text-red-800">Download Complete Holdings</span>
+                </a>
+                <a href="holdings.html" class="flex items-center px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors group border border-blue-200">
+                    <i data-lucide="external-link" class="h-4 w-4 text-blue-600 mr-2"></i>
+                    <span class="font-medium text-gray-900 group-hover:text-blue-800">View All Holdings Online</span>
+                </a>
+            </div>
+
+            <!-- Portfolio Holdings Disclosure -->
+            <div class="cambria-disclosure mt-6">
+                <h4 class="font-semibold text-gray-900 mb-3">Portfolio Holdings Disclosure</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                    <strong>Daily Holdings Disclosure:</strong> The Fund's portfolio holdings that form the basis for the next calculation of current net asset value per share 
+                    are the Fund's portfolio holdings as of the close of business on the prior business day. This information is updated daily and available 
+                    on this website before the opening of regular trading on the primary listing exchange (CBOE BZX).
+                </p>
+                <p class="text-sm text-gray-700 mb-3">
+                    <strong>Last Updated:</strong> <span id="holdings-disclosure-date">December 19, 21.1</span> (as of close of business)
+                </p>
+                <p class="text-sm text-gray-700">
+                    <strong>Next Update:</strong> Available before 9:30 AM Eastern Time on the next business day
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">Latest Insights</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    Stay informed with our latest research, market insights, and investment perspectives.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Featured Blog Post -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Featured</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Innovation Factor Investing in 2024</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Exploring how innovation factors are driving market performance and what this means for investors seeking growth opportunities.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 15, 2024</span>
+                            <a href="/red/blog/sample-post-1.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Market Volatility and ETF Performance</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Understanding how systematic factor investing can help navigate market volatility and provide consistent returns.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 10, 2024</span>
+                            <a href="/red/blog/sample-post-2.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">The Future of Factor-Based Investing</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            A deep dive into emerging trends in factor investing and how technology is reshaping investment strategies.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 5, 2024</span>
+                            <a href="/red/blog/sample-post-3.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                Read More →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 - Pitch Deck -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Strategy</span>
+                        </div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Innovation-Focused Investment Strategy</h3>
+                        <p class="text-gray-600 text-sm mb-4">
+                            Investor pitch deck: long-horizon single-factor innovation strategy blending academic rigor and industry execution.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-gray-500">December 1, 2024</span>
+                            <a href="/red/blog/sample-post-4.html" class="text-red-600 hover:text-red-800 text-sm font-medium">
+                                View Deck →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Articles Button -->
+            <div class="text-center mt-8">
+                <a href="/red/blog/index.html" class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors duration-200">
+                    <i data-lucide="book-open" class="h-4 w-4 mr-2"></i>
+                    View All Articles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents & Filings Section -->
+    <section id="documents" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Documents & Filings</h2>
+            
+            <!-- Fund Documents -->
+            <div class="cambria-card p-6 mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Documents</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">Summary Prospectus</div>
+                            <div class="text-xs text-gray-500">Key fund information</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">Statutory Prospectus</div>
+                            <div class="text-xs text-gray-500">Complete fund details</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">SAI</div>
+                            <div class="text-xs text-gray-500">Statement of Additional Information</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">Part F Q1</div>
+                            <div class="text-xs text-gray-500">Quarter 1 filing</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">Part F Q3</div>
+                            <div class="text-xs text-gray-500">Quarter 3 filing</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">Semi-Annual Financials</div>
+                            <div class="text-xs text-gray-500">6-month financial statements</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">Semi-Annual Schedule of Investments</div>
+                            <div class="text-xs text-gray-500">Portfolio holdings detail</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                    
+                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-red-800">Semi-Annual Tailored Shareholder Report</div>
+                            <div class="text-xs text-gray-500">Shareholder communication</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-red-600"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Regulatory Filings -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- XBRL Filings -->
+                <div class="cambria-card p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">XBRL Filings</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-blue-800">Registration Statement</div>
+                                <div class="text-xs text-gray-500">Machine-readable data</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-blue-200 px-2 py-1 rounded">XBRL</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-blue-600"></i>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-blue-800">Prospectus Supplement</div>
+                                <div class="text-xs text-gray-500">Supplemental data</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-blue-200 px-2 py-1 rounded">XBRL</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-blue-600"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- N-PX Files -->
+                <div class="cambria-card p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">N-PX Files</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-green-800">Voting Record</div>
+                                <div class="text-xs text-gray-500">Proxy voting history</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-green-200 px-2 py-1 rounded">N-PX</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-green-600"></i>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-green-800">Historical Records</div>
+                                <div class="text-xs text-gray-500">Past voting data</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-green-200 px-2 py-1 rounded">N-PX</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-green-600"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="cambria-disclosure mt-6">
+                <p class="text-sm text-gray-700">
+                    <strong>Document Availability:</strong> All documents available free upon request. Call 1-555-123-4567 or write to D&D, 123 Main Street, Suite 1000, New York, NY 10001.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRITICAL COMPLIANCE NOTICE BANNER -->
+    <div class="bg-red-600 text-white text-center py-3 px-4 text-sm font-medium">
+        <strong>IMPORTANT:</strong> RED ETF is a registered investment company under the Investment Company Act of 1940. 
+        D&D is SEC registered as an investment adviser. 
+        <span class="underline">Not FDIC Insured • No Bank Guarantee • May Lose Value</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cambria-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="cambria-disclosure mb-8">
+                <p class="text-sm text-gray-800">
+                    <strong>To determine if this Fund is an appropriate investment for you, carefully consider the Fund's investment objectives, risk factors, charges and expense before investing.</strong> This and other information can be found in the Fund's full or summary prospectus which may be obtained by calling 1-555-123-4567 or visiting our website at www.dbe.com. Read the prospectus carefully before investing or sending money.
+                </p>
+            </div>
+
+            <div class="text-sm text-gray-400 space-y-4 mb-8">
+                <p>
+                    The RED ETFs are distributed by D&D, 123 Main Street, Suite 1000, New York, NY 10001, which is not affiliated with D&D, the Investment Adviser for the Fund.
+                </p>
+                <p>
+                    <strong>Investing involves risk, including potential loss of capital.</strong>
+                </p>
+                <p>
+                    <strong>RED:</strong> There is no guarantee that a Fund will achieve its investment goal. Investing involves risk, including the possible loss of principal. Innovation-focused stocks are often speculative, high-risk investments. The underlying holdings of the Funds may be leveraged, which will expose the holding to higher volatility and may accelerate the impact of any losses. These companies can be investing heavily in R&D and may not be profitable, which could have a material adverse effect on the stock price of these companies and the Fund's performance. International investing may involve risk of capital loss from unfavorable fluctuations in currency values, from differences in generally accepted accounting principles, or from economic or political instability in other nations. Emerging markets involve heightened risks related to the same factors as well as increased volatility and lower trading volume. Investments in smaller companies typically exhibit higher volatility. Narrowly focused funds typically exhibit higher volatility.
+                </p>
+                <p>
+                    RED is actively managed.
+                </p>
+                <p>
+                    <strong>Regulatory Status:</strong> D&D is registered with the Securities and Exchange Commission (SEC) as an investment adviser under the Investment Advisers Act of 1940. RED ETF is registered under the Investment Company Act of 1940. This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities.
+                </p>
+                <p>
+                    <strong>Account Protection:</strong> Securities in your account are protected up to $500,000 (including $250,000 for claims for cash). Explanatory brochure available upon request or at www.sipc.org.
+                </p>
+            </div>
+
+            <!-- ETF Rule Compliance Section -->
+            <div class="cambria-disclosure mb-8">
+                <h4 class="font-semibold text-gray-900 mb-4">ETF Rule Compliance Disclosures</h4>
+                
+                <div class="space-y-4 text-sm text-gray-700">
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Premium/Discount Information</h5>
+                        <p class="mb-2">
+                            The Fund's shares may trade at a premium or discount to NAV. Premiums and discounts can be significant and may persist for extended periods. 
+                            The Fund's median bid-ask spread is calculated based on the national best bid and national best offer as of the end of each 10-second interval 
+                            during each trading day of the last 30 calendar days.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Current Premium/Discount:</strong> <span id="footer-premium">+0.14%</span> (as of <span id="footer-date">December 19, 21.1</span>)
+                        </p>
+                        <p class="mb-2">
+                            <strong>Median Bid-Ask Spread:</strong> 0.08% (30-day average)
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Trading Information</h5>
+                        <p class="mb-2">
+                            <strong>Primary Exchange:</strong> CBOE BZX Exchange, Inc.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Trading Hours:</strong> 9:30 AM - 4:00 PM Eastern Time
+                        </p>
+                        <p class="mb-2">
+                            <strong>Creation Unit Size:</strong> 50,000 Shares
+                        </p>
+                        <p class="mb-2">
+                            <strong>Minimum Trade:</strong> 1 Share
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Premium/Discount Factor Disclosure</h5>
+                        <p class="mb-2">
+                            <strong>Notice:</strong> The Fund's premium/discount has not exceeded 2% for more than seven consecutive trading days during the current calendar year. 
+                            If the Fund's premium or discount exceeds 2% for more than seven consecutive trading days, a detailed discussion of the factors 
+                            reasonably believed to have materially contributed to the premium or discount will be posted on this website and maintained for at least one year.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Portfolio Holdings Disclosure</h5>
+                        <p class="mb-2">
+                            The Fund's portfolio holdings that form the basis for the next calculation of current net asset value per share are the Fund's 
+                            portfolio holdings as of the close of business on the prior business day. This information is updated daily and available 
+                            on this website before the opening of regular trading on the primary listing exchange.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Basket Construction</h5>
+                        <p class="mb-2">
+                            The Fund has adopted written policies and procedures that govern the construction of baskets and the process used for the acceptance of baskets. 
+                            These policies and procedures are designed to ensure that basket construction is in the best interests of the Fund and its shareholders.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Regulatory Compliance</h5>
+                        <p class="mb-2">
+                            <strong>SEC Registration:</strong> RED ETF is registered under the Investment Company Act of 1940 (File No. 811-XXXXX). 
+                            D&D is registered with the SEC as an investment adviser under the Investment Advisers Act of 1940.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Exchange Listing:</strong> RED ETF shares are listed on CBOE BZX Exchange, Inc. under the ticker symbol "RED".
+                        </p>
+                        <p class="mb-2">
+                            <strong>Fund Classification:</strong> RED ETF is classified as a non-diversified, actively managed exchange-traded fund.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Additional Risk Disclosures</h5>
+                        <p class="mb-2">
+                            <strong>Concentration Risk:</strong> The Fund may be concentrated in certain sectors or industries, which may increase volatility and risk.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Active Management Risk:</strong> The Fund is actively managed and may underperform passive strategies or benchmarks.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Innovation Factor Risk:</strong> Companies focused on innovation may be more volatile and subject to greater risk of loss.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Home</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">ETFs</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">About</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Privacy Policy</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Legal</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Disclaimer</a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm">Site Map</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400">© 21.1 - 2025 Diamond & Diamond</p>
+                    <div class="mt-4 text-xs text-gray-500 space-y-2">
+                        <p>
+                            <strong>Legal Disclaimer:</strong> This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities. 
+                            Past performance does not guarantee future results. Investment returns and principal value will fluctuate.
+                        </p>
+                        <p>
+                            <strong>Regulatory Disclosures:</strong> RED ETF is registered under the Investment Company Act of 1940. 
+                            D&D is registered with the SEC as an investment adviser. 
+                            Securities offered through D&D, Member FINRA/SIPC.
+                        </p>
+                        <p>
+                            <strong>Risk Warnings:</strong> Investing involves risk, including potential loss of principal. 
+                            ETFs are subject to market risk, including the possible loss of principal. 
+                            There is no guarantee that the Fund will achieve its investment objective.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let performanceChart = null;
+        let premiumChart = null;
+        let premiumHistoryChart = null;
+        let annualReturnsChart = null;
+        let currentPeriod = 'YTD';
+        let performanceData = null;
+
+        // CAGR Bar Chart instance
+        let cagrBarChartInstance = null;
+
+        // Mobile menu functionality
+        function initMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== PAGE LOADED ===');
+            console.log('Page loaded, initializing...');
+            
+            // Initialize mobile menu
+            initMobileMenu();
+            
+            // Add visible debug info to the page
+            const debugDiv = document.createElement('div');
+            debugDiv.style.cssText = 'position: fixed; top: 10px; right: 10px; background: red; color: white; padding: 10px; z-index: 9999; font-family: monospace; font-size: 12px;';
+            debugDiv.innerHTML = 'Loading...';
+            document.body.appendChild(debugDiv);
+            
+            // Initialize with sample data first to ensure charts work
+            console.log('Loading sample data...');
+            useSampleData();
+            debugDiv.innerHTML = 'Sample data loaded';
+            
+            // Then try to load from API if available
+            loadPerformanceData();
+            setupEventListeners();
+            updateDates();
+            
+            // Create SEC-required annual returns chart
+            createAnnualReturnsChart();
+            
+            debugDiv.innerHTML = 'Initialization complete';
+            setTimeout(() => debugDiv.remove(), 3000);
+        });
+
+        // Update dates
+        function updateDates() {
+            const currentDate = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Use dynamic date from API if available, otherwise use current date
+            const dynamicDate = performanceData?.latest_values?.Latest_Date || currentDate;
+            
+            document.getElementById('performance-date').textContent = dynamicDate;
+            document.getElementById('holdings-date').textContent = dynamicDate;
+            document.getElementById('fund-details-date').textContent = dynamicDate;
+            document.getElementById('holdings-disclosure-date').textContent = dynamicDate;
+        }
+
+        // Load performance data from API
+        async function loadPerformanceData() {
+            try {
+                console.log('=== LOADING PERFORMANCE DATA ===');
+                console.log('Fetching from JSON files...');
+                
+                // Load data from JSON files
+                const [perfResponse, holdingsResponse, metricsResponse] = await Promise.all([
+                    fetch('/red/data/performance_data.json'),
+                    fetch('/red/data/holdings_data.json'),
+                    fetch('/red/data/metrics.json')
+                ]);
+                
+                if (!perfResponse.ok || !holdingsResponse.ok || !metricsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${perfResponse.status}`);
+                }
+                
+                const rawPerformanceData = await perfResponse.json();
+                const holdingsData = await holdingsResponse.json();
+                const metrics = await metricsResponse.json();
+                
+                console.log('JSON data loaded successfully');
+                console.log('Raw data structure:', {
+                    performanceDataLength: rawPerformanceData.length,
+                    holdingsDataLength: holdingsData.length,
+                    metrics: metrics
+                });
+                
+                // Convert the data to the expected format
+                performanceData = {
+                    chart_data: {
+                        labels: rawPerformanceData.map(point => point.date),
+                        datasets: [
+                            {
+                                label: 'RED ETF',
+                                data: rawPerformanceData.map(point => point.red_etf),
+                                borderColor: '#dc2626',
+                                backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'NAV',
+                                data: rawPerformanceData.map(point => point.nav),
+                                borderColor: '#2563eb',
+                                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'Morningstar US Market Index',
+                                data: rawPerformanceData.map(point => point.morningstar_us_market_index),
+                                borderColor: '#6b7280',
+                                backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            }
+                        ]
+                    },
+                    premium_data: {
+                        labels: rawPerformanceData.map(point => point.date),
+                        datasets: [{
+                            label: 'Premium/Discount',
+                            data: rawPerformanceData.map(point => point.premium_discount),
+                            borderColor: '#8b0000',
+                            backgroundColor: 'rgba(139, 0, 0, 0.05)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }]
+                    },
+                    returns: {
+                        '1M': { 'RED_ETF': metrics.one_month, 'NAV': metrics.one_month, 'Morningstar': 2.2 },
+                        '3M': { 'RED_ETF': metrics.three_month, 'NAV': metrics.three_month, 'Morningstar': 5.8 },
+                        '6M': { 'RED_ETF': metrics.six_month, 'NAV': metrics.six_month, 'Morningstar': 10.1 },
+                        '1Y': { 'RED_ETF': metrics.one_year, 'NAV': metrics.one_year, 'Morningstar': 21.1 },
+                        'YTD': { 'RED_ETF': metrics.ytd, 'NAV': metrics.ytd, 'Morningstar': 21.1 },
+                        'SI': { 'RED_ETF': metrics.since_inception, 'NAV': metrics.since_inception, 'Morningstar': 21.1 }
+                    },
+                    latest_values: {
+                        'RED_ETF': metrics.latest_red_etf,
+                        'NAV': metrics.latest_nav,
+                        'Morningstar': metrics.latest_morningstar_us_market_index,
+                        'Premium_Discount': 100.15,
+                        'Holdings': holdingsData.length,
+                        'Latest_Date': metrics.latest_date
+                    },
+                    annual_returns: calculateAnnualReturns(rawPerformanceData)
+                };
+                
+                console.log('Converted data structure:', {
+                    hasChartData: !!performanceData.chart_data,
+                    hasPremiumData: !!performanceData.premium_data,
+                    hasReturns: !!performanceData.returns,
+                    hasLatestValues: !!performanceData.latest_values,
+                    chartDataLabels: performanceData.chart_data?.labels?.length || 0,
+                    chartDataDatasets: performanceData.chart_data?.datasets?.length || 0,
+                    premiumDataLabels: performanceData.premium_data?.labels?.length || 0
+                });
+                
+                // Check Morningstar data specifically
+                const morningstarDataset = performanceData.chart_data.datasets[2];
+                console.log('Morningstar dataset check:', {
+                    label: morningstarDataset.label,
+                    dataLength: morningstarDataset.data.length,
+                    firstValue: morningstarDataset.data[0],
+                    lastValue: morningstarDataset.data[morningstarDataset.data.length - 1],
+                    hasNaN: morningstarDataset.data.some(val => isNaN(val))
+                });
+                
+                
+                // Update all components
+                console.log('Updating chart...');
+                updateChart();
+                console.log('Updating premium chart...');
+                updatePremiumChart();
+                console.log('Updating performance metrics...');
+                updatePerformanceMetrics();
+                console.log('Updating fund prices...');
+                updateFundPrices();
+                console.log('Updating premium discount...');
+                updatePremiumDiscount();
+                console.log('Updating quick details...');
+                updateQuickDetails();
+                console.log('Updating fund details...');
+                updateFundDetails();
+                console.log('Updating hero section...');
+                updateHeroSection();
+                console.log('Updating annual returns table...');
+                updateAnnualReturnsTable();
+                console.log('Creating annual returns chart...');
+                createAnnualReturnsChart();
+                console.log('=== DATA LOADING COMPLETE ===');
+                
+            } catch (error) {
+                console.error('=== ERROR LOADING PERFORMANCE DATA ===');
+                console.error('Error details:', error);
+                console.error('Error message:', error.message);
+                console.log('Using fallback sample data...');
+                // Don't call useSampleData() again since it's already loaded
+                // Just update the components with existing data
+                updateChart();
+                updatePremiumChart();
+                updatePerformanceMetrics();
+                updateFundPrices();
+                updatePremiumDiscount();
+                updateQuickDetails();
+                updateFundDetails();
+            }
+        }
+
+        // Fallback sample data
+        function useSampleData() {
+            console.log('Loading sample data...');
+            performanceData = {
+                chart_data: {
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
+                    datasets: [
+                        {
+                            label: 'RED ETF',
+                            data: [100, 97.8, 104.2, 101.5, 108.9, 112.3, 109.6, 115.2, 118.7, 116.1, 122.4, 125.8],
+                            borderColor: '#dc2626',
+                            backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'NAV',
+                            data: [100, 97.9, 104.3, 101.6, 109.0, 112.4, 109.7, 115.3, 118.8, 116.2, 122.5, 125.9],
+                            borderColor: '#2563eb',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Morningstar US Market Index',
+                            data: [100, 98.3, 102.5, 100.8, 106.8, 109.5, 107.2, 111.8, 114.6, 112.4, 118.2, 121.1],
+                            borderColor: '#6b7280',
+                            backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                premium_data: {
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
+                    datasets: [
+                        {
+                            label: 'Premium/Discount',
+                            data: [100.12, 99.87, 100.23, 99.95, 100.18, 99.76, 100.34, 99.89, 100.15, 99.92, 100.08, 99.98],
+                            borderColor: '#8b0000',
+                            backgroundColor: 'rgba(139, 0, 0, 0.05)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                returns: {
+                    '1M': {'RED_ETF': 2.7, 'NAV': 2.8, 'Morningstar': 2.2},
+                    '3M': {'RED_ETF': 7.4, 'NAV': 7.5, 'Morningstar': 5.8},
+                    '6M': {'RED_ETF': 13.2, 'NAV': 13.3, 'Morningstar': 10.1},
+                    '1Y': {'RED_ETF': 25.8, 'NAV': 25.9, 'Morningstar': 21.1},
+                    'YTD': {'RED_ETF': 25.8, 'NAV': 25.9, 'Morningstar': 21.1}
+                },
+                latest_values: {
+                    'RED_ETF': 125.8,
+                    'NAV': 125.9,
+                    'Morningstar': 121.1,
+                    'Premium_Discount': 99.98,
+                    'Holdings': 55,
+                    'Latest_Date': 'December 19, 2024'
+                },
+                annual_returns: {
+                    '2024': 25.8,
+                    '2023': 0, // Fund didn't exist
+                    '2022': 0, // Fund didn't exist
+                    '2021': 0, // Fund didn't exist
+                    '2020': 0, // Fund didn't exist
+                    '2019': 0, // Fund didn't exist
+                    '2018': 0, // Fund didn't exist
+                    '2017': 0, // Fund didn't exist
+                    '2016': 0, // Fund didn't exist
+                    '2015': 0, // Fund didn't exist
+                    '2014': 0   // Fund didn't exist
+                },
+                morningstar_returns: {
+                    '2024': 21.1,
+                    '2023': 0, // Fund didn't exist
+                    '2022': 0, // Fund didn't exist
+                    '2021': 0, // Fund didn't exist
+                    '2020': 0, // Fund didn't exist
+                    '2019': 0, // Fund didn't exist
+                    '2018': 0, // Fund didn't exist
+                    '2017': 0, // Fund didn't exist
+                    '2016': 0, // Fund didn't exist
+                    '2015': 0, // Fund didn't exist
+                    '2014': 0   // Fund didn't exist
+                }
+            };
+            
+            console.log('Sample data loaded successfully');
+            console.log('Data structure:', {
+                hasChartData: !!performanceData.chart_data,
+                hasPremiumData: !!performanceData.premium_data,
+                hasReturns: !!performanceData.returns,
+                hasLatestValues: !!performanceData.latest_values
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Period buttons - Current available periods
+            document.getElementById('1m-btn').addEventListener('click', () => setPeriod('1M'));
+            document.getElementById('3m-btn').addEventListener('click', () => setPeriod('3M'));
+            document.getElementById('6m-btn').addEventListener('click', () => setPeriod('6M'));
+            document.getElementById('1y-btn').addEventListener('click', () => setPeriod('1Y'));
+            document.getElementById('si-btn').addEventListener('click', () => setPeriod('SI'));
+            document.getElementById('ytd-btn').addEventListener('click', () => setPeriod('YTD'));
+            
+            // Future period options (when more data is available):
+            // 3yr-btn, 5yr-btn, 10yr-btn, 15yr-btn can be added here
+            // These will be enabled when the Excel data contains sufficient historical data
+        }
+
+        // Set period and update chart
+        function setPeriod(period) {
+            console.log('Setting period to:', period);
+            currentPeriod = period;
+            
+            // Update button styles
+            document.querySelectorAll('[id$="-btn"]').forEach(btn => {
+                btn.classList.remove('cambria-button');
+                btn.classList.add('cambria-button-secondary');
+            });
+            document.getElementById(period.toLowerCase() + '-btn').classList.remove('cambria-button-secondary');
+            document.getElementById(period.toLowerCase() + '-btn').classList.add('cambria-button');
+            
+            updateChart();
+            updatePremiumChart();
+            updatePerformanceMetrics();
+            updateFundPrices();
+            updateAnnualReturnsTable();
+            createAnnualReturnsChart();
+            // updateCagrBarChart(); // Temporarily disabled
+        }
+
+        // Update chart with filtered data
+        function updateChart() {
+            console.log('=== CHART UPDATE START ===');
+            
+            if (!performanceData || !performanceData.chart_data) {
+                console.error('No performance data available for chart');
+                return;
+            }
+
+            const canvas = document.getElementById('performanceChart');
+            if (!canvas) {
+                console.error('Canvas element not found');
+                return;
+            }
+
+            console.log('Canvas found, dimensions:', canvas.width, 'x', canvas.height);
+
+            // Destroy existing chart if it exists
+            if (performanceChart) {
+                console.log('Destroying existing chart');
+                performanceChart.destroy();
+                performanceChart = null;
+            }
+
+            // Get filtered data based on current period
+            const chartData = getFilteredData(currentPeriod);
+            console.log('Filtered chart data for period', currentPeriod, ':', chartData);
+            console.log('Labels count:', chartData.labels.length);
+            console.log('Datasets count:', chartData.datasets.length);
+
+            // Create new chart
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Could not get 2D context from canvas');
+                return;
+            }
+
+            console.log('Creating new Chart.js instance...');
+            
+            try {
+                performanceChart = new Chart(ctx, {
+                    type: 'line',
+                    data: chartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#dc2626',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        const value = context.parsed.y;
+                                        const returnValue = ((value / 100) - 1) * 100;
+                                        return context.dataset.label + ': ' + returnValue.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 8,
+                                    font: {
+                                        size: 10
+                                    }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 10
+                                    },
+                                    callback: function(value) {
+                                        return value.toFixed(0) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        interaction: {
+                            mode: 'nearest',
+                            axis: 'x',
+                            intersect: false
+                        },
+                        elements: {
+                            point: {
+                                radius: 0,
+                                hoverRadius: 4,
+                                borderWidth: 0
+                            },
+                            line: {
+                                borderWidth: 2,
+                                tension: 0.1
+                            }
+                        }
+                    }
+                });
+                
+                console.log('Chart created successfully:', performanceChart);
+                
+                // Add visible success indicator
+                const successDiv = document.createElement('div');
+                successDiv.style.cssText = 'position: fixed; top: 50px; right: 10px; background: green; color: white; padding: 10px; z-index: 9999; font-family: monospace; font-size: 12px;';
+                successDiv.innerHTML = 'Performance Chart: ✅';
+                document.body.appendChild(successDiv);
+                setTimeout(() => successDiv.remove(), 3000);
+                
+            } catch (error) {
+                console.error('Error creating chart:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack trace:', error.stack);
+                
+                // Try to create a simple fallback chart
+                try {
+                    console.log('Attempting to create fallback chart...');
+                    performanceChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                            datasets: [{
+                                label: 'RED ETF',
+                                data: [100, 105, 110, 115, 120, 125],
+                                borderColor: '#dc2626',
+                                backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    console.log('Fallback chart created successfully');
+                } catch (fallbackError) {
+                    console.error('Failed to create fallback chart:', fallbackError);
+                }
+            }
+            
+            console.log('=== CHART UPDATE END ===');
+        }
+
+        // Get filtered data based on period
+        function getFilteredData(period) {
+            console.log('=== FILTERING DATA ===');
+            console.log('Period:', period);
+            
+            const allData = performanceData.chart_data;
+            const allLabels = allData.labels;
+            const allDatasets = allData.datasets;
+            
+            console.log('All labels count:', allLabels?.length || 0);
+            console.log('All datasets count:', allDatasets?.length || 0);
+            
+            if (!allLabels || allLabels.length === 0) {
+                console.error('No labels in chart data');
+                return allData;
+            }
+
+            // Calculate start date based on period
+            const lastDate = new Date(allLabels[allLabels.length - 1]);
+            console.log('Last date in data:', lastDate);
+            
+            let startDate;
+            
+            switch(period) {
+                case '1M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 1, lastDate.getDate());
+                    break;
+                case '3M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 3, lastDate.getDate());
+                    break;
+                case '6M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 6, lastDate.getDate());
+                    break;
+                case '1Y':
+                    startDate = new Date(lastDate.getFullYear() - 1, lastDate.getMonth(), lastDate.getDate());
+                    break;
+                case 'SI':
+                    // Since Inception - use the first date in the data
+                    startDate = new Date(allLabels[0]);
+                    break;
+                case 'YTD':
+                    startDate = new Date(lastDate.getFullYear(), 0, 1);
+                    break;
+                default:
+                    console.log('Unknown period, returning all data');
+                    return allData;
+            }
+
+            console.log('Filter start date:', startDate);
+
+            // Filter data
+            const filteredLabels = [];
+            const filteredDatasets = allDatasets.map(dataset => ({
+                ...dataset,
+                data: []
+            }));
+
+            allLabels.forEach((label, index) => {
+                const labelDate = new Date(label);
+                if (labelDate >= startDate) {
+                    filteredLabels.push(label);
+                    allDatasets.forEach((dataset, datasetIndex) => {
+                        if (dataset.data[index] !== undefined) {
+                            filteredDatasets[datasetIndex].data.push(dataset.data[index]);
+                        }
+                    });
+                }
+            });
+
+            console.log('Filtered labels count:', filteredLabels.length);
+            console.log('Filtered datasets data lengths:', filteredDatasets.map(ds => ds.data.length));
+
+            // Ensure we have at least 2 points
+            if (filteredLabels.length < 2) {
+                console.log('Not enough filtered points, using last 2 points');
+                return {
+                    labels: allLabels.slice(-2),
+                    datasets: allDatasets.map(dataset => ({
+                        ...dataset,
+                        data: dataset.data.slice(-2)
+                    }))
+                };
+            }
+
+            // Normalize data to start at 1 (100%) and compound from there
+            const normalizedDatasets = filteredDatasets.map(dataset => {
+                const originalData = dataset.data;
+                const startValue = originalData[0];
+                
+                if (startValue === 0) {
+                    console.warn('Start value is 0, cannot normalize');
+                    return {
+                        ...dataset,
+                        data: originalData
+                    };
+                }
+                
+                const normalizedData = originalData.map(value => {
+                    return (value / startValue) * 100; // Convert to percentage starting at 100
+                });
+                
+                console.log(`Normalized ${dataset.label}: start=${startValue}, normalized start=${normalizedData[0]}, end=${normalizedData[normalizedData.length - 1]}`);
+                
+                return {
+                    ...dataset,
+                    data: normalizedData
+                };
+            });
+
+            const result = {
+                labels: filteredLabels,
+                datasets: normalizedDatasets
+            };
+            
+            console.log('Final result - labels:', result.labels.length, 'datasets:', result.datasets.length);
+            console.log('=== FILTERING COMPLETE ===');
+            
+            return result;
+        }
+
+        // Update performance metrics
+        function updatePerformanceMetrics() {
+            if (!performanceData || !performanceData.chart_data) {
+                console.log('No chart data available for metrics');
+                return;
+            }
+
+            // Get filtered data based on current period
+            const filteredData = getFilteredData(currentPeriod);
+            if (!filteredData || filteredData.datasets.length < 3) {
+                console.log('No filtered data available for metrics');
+                return;
+            }
+
+            const redEtfData = filteredData.datasets[0].data;
+            const navData = filteredData.datasets[1].data;
+            const morningstarData = filteredData.datasets[2].data;
+
+
+            if (redEtfData.length < 2) {
+                console.log('Insufficient data for return calculation');
+                return;
+            }
+
+            // Calculate returns from the filtered data
+            const redEtfReturn = ((redEtfData[redEtfData.length - 1] - redEtfData[0]) / redEtfData[0]) * 100;
+            const navReturn = ((navData[navData.length - 1] - navData[0]) / navData[0]) * 100;
+            
+            // Debug Morningstar calculation
+            console.log('Morningstar data check:', {
+                first: morningstarData[0],
+                last: morningstarData[morningstarData.length - 1],
+                length: morningstarData.length,
+                isNaN_first: isNaN(morningstarData[0]),
+                isNaN_last: isNaN(morningstarData[morningstarData.length - 1])
+            });
+            
+            const morningstarReturn = ((morningstarData[morningstarData.length - 1] - morningstarData[0]) / morningstarData[0]) * 100;
+
+            console.log(`Calculated returns for period ${currentPeriod}:`, {
+                RED_ETF: redEtfReturn.toFixed(1),
+                NAV: navReturn.toFixed(1),
+                Morningstar: morningstarReturn.toFixed(1)
+            });
+
+            const redElement = document.getElementById('red-performance');
+            const navElement = document.getElementById('nav-performance');
+            const morningstarElement = document.getElementById('morningstar-performance');
+            
+            if (redElement) redElement.textContent = redEtfReturn.toFixed(1) + '%';
+            if (navElement) navElement.textContent = navReturn.toFixed(1) + '%';
+            if (morningstarElement) morningstarElement.textContent = morningstarReturn.toFixed(1) + '%';
+
+            // Calculate cumulative and average annualized returns for all periods
+            updateCumulativeAndAnnualizedReturns();
+        }
+
+        // Calculate cumulative and average annualized returns
+        function updateCumulativeAndAnnualizedReturns() {
+            if (!performanceData || !performanceData.chart_data) return;
+
+            const allData = performanceData.chart_data;
+            const allLabels = allData.labels;
+            const redEtfData = allData.datasets[0].data;
+            const navData = allData.datasets[1].data;
+            const morningstarData = allData.datasets[2].data;
+
+            // Calculate periods in days
+            const periods = {
+                '1Y': 365,
+                'SI': allLabels.length > 0 ? calculateDaysFromInception(allLabels) : 365
+            };
+
+            // Calculate returns for each period
+            const returns = {};
+            for (const [period, days] of Object.entries(periods)) {
+                const startDate = new Date(allLabels[allLabels.length - 1]);
+                startDate.setDate(startDate.getDate() - days);
+                
+                const startIndex = allLabels.findIndex(label => new Date(label) >= startDate);
+                const actualStartIndex = Math.max(0, startIndex);
+                
+                if (actualStartIndex < allLabels.length - 1) {
+                    const redEtfReturn = ((redEtfData[redEtfData.length - 1] / redEtfData[actualStartIndex]) - 1) * 100;
+                    const navReturn = ((navData[navData.length - 1] / navData[actualStartIndex]) - 1) * 100;
+                    const morningstarReturn = ((morningstarData[morningstarData.length - 1] / morningstarData[actualStartIndex]) - 1) * 100;
+                    
+                    returns[period] = {
+                        RED_ETF: redEtfReturn,
+                        NAV: navReturn,
+                        Morningstar: morningstarReturn
+                    };
+                } else {
+                    // For periods longer than available data, return null/undefined to show '--'
+                    if (period !== 'SI') {
+                        returns[period] = { RED_ETF: null, NAV: null, Morningstar: null };
+                    } else {
+                        // SI should always have a value (from inception to now)
+                        const redEtfReturn = ((redEtfData[redEtfData.length - 1] / redEtfData[0]) - 1) * 100;
+                        const navReturn = ((navData[navData.length - 1] / navData[0]) - 1) * 100;
+                        const morningstarReturn = ((morningstarData[morningstarData.length - 1] / morningstarData[0]) - 1) * 100;
+                        
+                        returns[period] = {
+                            RED_ETF: redEtfReturn,
+                            NAV: navReturn,
+                            Morningstar: morningstarReturn
+                        };
+                    }
+                }
+            }
+
+            // Update cumulative returns table
+            updateCumulativeTable(returns);
+            
+            // Update average annualized returns table
+            updateAnnualizedTable(returns);
+        }
+
+        // Calculate days from inception
+        function calculateDaysFromInception(labels) {
+            if (!labels || labels.length === 0) return 365;
+            
+            const firstDate = new Date(labels[0]);
+            const lastDate = new Date(labels[labels.length - 1]);
+            const diffTime = Math.abs(lastDate - firstDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays;
+        }
+
+        // Update cumulative returns table
+        function updateCumulativeTable(returns) {
+            const tableBody = document.querySelector('#cumulative-table tbody');
+            if (!tableBody) return;
+
+            tableBody.innerHTML = `
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Fund NAV</td>
+                    <td class="py-3 px-4 text-right ${returns['1Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['1Y']?.NAV?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${returns['SI']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['SI']?.NAV?.toFixed(1) || '0.0'}%</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Closing Price</td>
+                    <td class="py-3 px-4 text-right ${returns['1Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['1Y']?.RED_ETF?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${returns['SI']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${returns['SI']?.RED_ETF?.toFixed(1) || '0.0'}%</td>
+                </tr>
+            `;
+        }
+
+        // Update average annualized returns table
+        function updateAnnualizedTable(returns) {
+            const tableBody = document.querySelector('#annualized-table tbody');
+            if (!tableBody) return;
+
+            // Calculate annualized returns
+            const annualizedReturns = {};
+            for (const [period, periodReturns] of Object.entries(returns)) {
+                const days = period === '1Y' ? 365 : calculateDaysFromInception(performanceData.chart_data.labels);
+                const years = days / 365;
+                
+                annualizedReturns[period] = {
+                    RED_ETF: years > 0 ? (Math.pow(1 + periodReturns.RED_ETF / 100, 1 / years) - 1) * 100 : 0,
+                    NAV: years > 0 ? (Math.pow(1 + periodReturns.NAV / 100, 1 / years) - 1) * 100 : 0,
+                    Morningstar: years > 0 ? (Math.pow(1 + periodReturns.Morningstar / 100, 1 / years) - 1) * 100 : 0
+                };
+            }
+
+            tableBody.innerHTML = `
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Fund NAV</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['1Y']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['1Y']?.NAV?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['SI']?.NAV >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['SI']?.NAV?.toFixed(1) || '0.0'}%</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Closing Price</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['1Y']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['1Y']?.RED_ETF?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['SI']?.RED_ETF >= 0 ? 'text-green-600' : 'text-red-600'}">${annualizedReturns['SI']?.RED_ETF?.toFixed(1) || '0.0'}%</td>
+                </tr>
+            `;
+        }
+
+        // Update fund prices
+        function updateFundPrices() {
+            if (!performanceData || !performanceData.chart_data) {
+                console.log('No chart data available for fund prices');
+                return;
+            }
+
+            // Get latest values from filtered data for current period
+            const filteredData = getFilteredData(currentPeriod);
+            if (!filteredData || filteredData.labels.length < 2) {
+                console.log('Not enough data to update fund prices');
+                return;
+            }
+
+            const redEtfData = filteredData.datasets[0].data;
+            const navData = filteredData.datasets[1].data;
+            
+            const latestRedEtf = redEtfData[redEtfData.length - 1];
+            const latestNav = navData[navData.length - 1];
+            
+            // Calculate daily changes (comparing to previous day)
+            const previousRedEtf = redEtfData[redEtfData.length - 2] || latestRedEtf;
+            const previousNav = navData[navData.length - 2] || latestNav;
+            
+            const redEtfChange = ((latestRedEtf - previousRedEtf) / previousRedEtf * 100);
+            const navChange = ((latestNav - previousNav) / previousNav * 100);
+            
+            // Update NAV and ETF prices
+            const navPriceElement = document.getElementById('nav-price');
+            const etfPriceElement = document.getElementById('etf-price');
+            
+            if (navPriceElement) navPriceElement.textContent = `$${latestNav.toFixed(2)}`;
+            if (etfPriceElement) etfPriceElement.textContent = `$${latestRedEtf.toFixed(2)}`;
+            
+            const navChangeElement = document.getElementById('nav-change');
+            const etfChangeElement = document.getElementById('etf-change');
+            
+            if (navChangeElement) {
+                navChangeElement.textContent = `${navChange >= 0 ? '+' : ''}${navChange.toFixed(2)}%`;
+                navChangeElement.className = `font-semibold ${navChange >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+            
+            if (etfChangeElement) {
+                etfChangeElement.textContent = `${redEtfChange >= 0 ? '+' : ''}${redEtfChange.toFixed(2)}%`;
+                etfChangeElement.className = `font-semibold ${redEtfChange >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+        }
+
+        // Update premium/discount chart
+        function updatePremiumChart() {
+            if (!performanceData || !performanceData.premium_data) return;
+
+            const allData = performanceData.premium_data;
+            const allLabels = allData.labels;
+            const allDatasets = allData.datasets;
+
+            if (!allLabels || allLabels.length === 0) {
+                console.error('No labels in premium data');
+                return;
+            }
+
+            // Calculate start date based on period (same as performance chart)
+            const lastDate = new Date(allLabels[allLabels.length - 1]);
+            let startDate;
+            
+            switch(currentPeriod) {
+                case '1M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 1, lastDate.getDate());
+                    break;
+                case '3M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 3, lastDate.getDate());
+                    break;
+                case '6M':
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 6, lastDate.getDate());
+                    break;
+                case '1Y':
+                    startDate = new Date(lastDate.getFullYear() - 1, lastDate.getMonth(), lastDate.getDate());
+                    break;
+                case 'SI':
+                    // Since Inception - use the first date in the data
+                    startDate = new Date(allLabels[0]);
+                    break;
+                case 'YTD':
+                    startDate = new Date(lastDate.getFullYear(), 0, 1);
+                    break;
+                default:
+                    startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 1, lastDate.getDate()); // Default to 1M
+            }
+
+            const filteredLabels = [];
+            const filteredDatasets = [
+                {
+                    label: 'Premium/Discount',
+                    data: [],
+                    borderColor: '#8b0000',
+                    backgroundColor: 'rgba(139, 0, 0, 0.05)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.1
+                }
+            ];
+
+            allLabels.forEach((label, index) => {
+                const labelDate = new Date(label);
+                if (labelDate >= startDate) {
+                    filteredLabels.push(label);
+                    const premium = allDatasets[0].data[index]; // Premium data
+                    filteredDatasets[0].data.push(premium);
+                }
+            });
+
+            if (filteredLabels.length < 2) {
+                console.log('Not enough filtered points for premium chart, using last 2 points');
+                return;
+            }
+
+            const ctx = document.getElementById('premiumChart').getContext('2d');
+            if (!ctx) {
+                console.error('Canvas element not found for premium chart');
+                return;
+            }
+
+            if (premiumChart) {
+                premiumChart.destroy();
+                premiumChart = null;
+            }
+
+            try {
+                premiumChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: filteredLabels,
+                        datasets: filteredDatasets
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#8b0000',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Premium/Discount: ' + context.parsed.y.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 8,
+                                    font: {
+                                        size: 10
+                                    }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 10
+                                    },
+                                    callback: function(value) {
+                                        return value.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        interaction: {
+                            mode: 'nearest',
+                            axis: 'x',
+                            intersect: false
+                        },
+                        elements: {
+                            point: {
+                                radius: 0,
+                                hoverRadius: 4,
+                                borderWidth: 0
+                            },
+                            line: {
+                                borderWidth: 2,
+                                tension: 0.1
+                            }
+                        }
+                    }
+                });
+                console.log('Premium chart created successfully:', premiumChart);
+                
+                // Add visible success indicator
+                const premiumSuccessDiv = document.createElement('div');
+                premiumSuccessDiv.style.cssText = 'position: fixed; top: 90px; right: 10px; background: green; color: white; padding: 10px; z-index: 9999; font-family: monospace; font-size: 12px;';
+                premiumSuccessDiv.innerHTML = 'Premium Chart: ✅';
+                document.body.appendChild(premiumSuccessDiv);
+                setTimeout(() => premiumSuccessDiv.remove(), 3000);
+                
+            } catch (error) {
+                console.error('Error creating premium chart:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack trace:', error.stack);
+                
+                // Try to create a simple fallback premium chart
+                try {
+                    console.log('Attempting to create fallback premium chart...');
+                    premiumChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                            datasets: [{
+                                label: 'Premium/Discount',
+                                data: [0.14, 0.12, 0.10, 0.08, 0.06, 0.04],
+                                borderColor: '#8b0000',
+                                backgroundColor: 'rgba(139, 0, 0, 0.1)',
+                                borderWidth: 2
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false
+                        }
+                    });
+                    console.log('Fallback premium chart created successfully');
+                } catch (fallbackError) {
+                    console.error('Failed to create fallback premium chart:', fallbackError);
+                }
+            }
+        }
+
+        // Update premium/discount
+        function updatePremiumDiscount() {
+            if (!performanceData || !performanceData.premium_data) {
+                console.log('No performance data or premium data available');
+                return;
+            }
+
+            // Get the most recent premium/discount value from the premium data
+            const premiumData = performanceData.premium_data;
+            const premiumValues = premiumData.datasets[0].data;
+            const latestPremium = premiumValues[premiumValues.length - 1];
+            
+            console.log('Premium discount debug:', {
+                premiumValuesLength: premiumValues.length,
+                latestPremium: latestPremium,
+                latestPremiumType: typeof latestPremium,
+                sampleValues: premiumValues.slice(-5)
+            });
+            
+            // Get the most recent RED ETF and NAV values for display
+            const chartData = performanceData.chart_data;
+            const redEtfValues = chartData.datasets[0].data;
+            const navValues = chartData.datasets[1].data;
+            
+            const latestRedEtf = redEtfValues[redEtfValues.length - 1];
+            const latestNav = navValues[navValues.length - 1];
+            
+            const premiumValueElement = document.getElementById('premium-value');
+            const premiumDetailsElement = document.getElementById('premium-details');
+            const currentPremiumElement = document.getElementById('current-premium');
+
+            if (premiumValueElement) {
+                // Convert from the 100-based scale to percentage
+                const premiumPercentage = latestPremium - 100;
+                console.log('Calculating premium percentage:', {
+                    latestPremium: latestPremium,
+                    calculation: `${latestPremium} - 100 = ${premiumPercentage}`,
+                    finalValue: `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`
+                });
+                premiumValueElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`;
+                premiumValueElement.className = `text-2xl font-bold ${premiumPercentage >= 0 ? 'text-green-600' : 'text-red-600'} mb-2`;
+            }
+
+            if (currentPremiumElement) {
+                // Convert from the 100-based scale to percentage
+                const premiumPercentage = latestPremium - 100;
+                currentPremiumElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`;
+                currentPremiumElement.className = `font-semibold ${premiumPercentage >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+            
+            if (premiumDetailsElement) {
+                premiumDetailsElement.innerHTML = `
+                    <div>RED ETF: $${latestRedEtf.toFixed(2)}</div>
+                    <div>NAV: $${latestNav.toFixed(2)}</div>
+                `;
+            }
+
+            // Update premium/discount history chart
+            updatePremiumHistoryChart();
+
+            // Update footer compliance information
+            const footerPremiumElement = document.getElementById('footer-premium');
+            const footerDateElement = document.getElementById('footer-date');
+            
+            if (footerPremiumElement) {
+                const premiumPercentage = latestPremium - 100;
+                footerPremiumElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage.toFixed(2)}%`;
+            }
+            
+            if (footerDateElement) {
+                const currentDate = new Date().toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                footerDateElement.textContent = currentDate;
+            }
+        }
+
+        // Update premium/discount history chart
+        function updatePremiumHistoryChart() {
+            if (!performanceData || !performanceData.premium_data) return;
+
+            const allData = performanceData.premium_data;
+            const allLabels = allData.labels;
+            const allDatasets = allData.datasets;
+
+            if (!allLabels || allLabels.length === 0) {
+                console.error('No labels in premium data for history chart');
+                return;
+            }
+
+            // Get last 12 months of data (approximately 252 trading days)
+            const last12Months = allLabels.slice(-252);
+            const last12MonthsData = allDatasets[0].data.slice(-252);
+
+            // Convert to percentage values
+            const percentageData = last12MonthsData.map(value => (value - 100));
+
+            const ctx = document.getElementById('premiumHistoryChart');
+            if (!ctx) {
+                console.error('Canvas element not found for premium history chart');
+                return;
+            }
+
+            if (premiumHistoryChart) {
+                premiumHistoryChart.destroy();
+                premiumHistoryChart = null;
+            }
+
+            try {
+                premiumHistoryChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: last12Months,
+                        datasets: [{
+                            label: 'Premium/Discount (%)',
+                            data: percentageData,
+                            borderColor: '#8b0000',
+                            backgroundColor: 'rgba(139, 0, 0, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#8b0000',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        return 'Premium/Discount: ' + context.parsed.y.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    maxTicksLimit: 8,
+                                    font: {
+                                        size: 10
+                                    }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 10
+                                    },
+                                    callback: function(value) {
+                                        return value.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        interaction: {
+                            mode: 'nearest',
+                            axis: 'x',
+                            intersect: false
+                        },
+                        elements: {
+                            point: {
+                                radius: 0,
+                                hoverRadius: 4,
+                                borderWidth: 0
+                            },
+                            line: {
+                                borderWidth: 2,
+                                tension: 0.1
+                            }
+                        }
+                    }
+                });
+                console.log('Premium history chart created successfully:', premiumHistoryChart);
+            } catch (error) {
+                console.error('Error creating premium history chart:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack trace:', error.stack);
+            }
+        }
+
+        // Create annual returns bar chart (SEC Required)
+        function createAnnualReturnsChart() {
+            console.log('=== CREATING ANNUAL RETURNS CHART ===');
+            
+            if (!performanceData || !performanceData.chart_data) {
+                console.error('No chart data available for annual returns');
+                return;
+            }
+
+            const ctx = document.getElementById('annualReturnsChart');
+            if (!ctx) {
+                console.error('Canvas element not found for annual returns chart');
+                return;
+            }
+
+            if (annualReturnsChart) {
+                annualReturnsChart.destroy();
+                annualReturnsChart = null;
+            }
+
+            // Get filtered data based on current period
+            const filteredData = getFilteredData(currentPeriod);
+            if (!filteredData || filteredData.labels.length < 2) {
+                console.log('Not enough data to create annual returns chart');
+                return;
+            }
+
+            // Calculate annual returns for the selected period
+            const annualData = calculateAnnualReturnsForPeriod(filteredData);
+            
+            if (annualData.years.length === 0) {
+                console.log('No annual data available for the selected period');
+                return;
+            }
+
+            console.log('Annual returns chart data:', annualData);
+
+            try {
+                annualReturnsChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: annualData.years,
+                        datasets: [
+                            {
+                                label: 'RED ETF',
+                                data: annualData.redEtfReturns,
+                                backgroundColor: '#dc2626',
+                                borderColor: '#b91c1c',
+                                borderWidth: 1,
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'NAV',
+                                data: annualData.navReturns,
+                                backgroundColor: '#2563eb',
+                                borderColor: '#1d4ed8',
+                                borderWidth: 1,
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'Morningstar US Market Index',
+                                data: annualData.morningstarReturns,
+                                backgroundColor: '#48bb78',
+                                borderColor: '#2b825b',
+                                borderWidth: 1,
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#dc2626',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 12
+                                    }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: {
+                                    color: 'rgba(0, 0, 0, 0.1)'
+                                },
+                                ticks: {
+                                    font: {
+                                        size: 12
+                                    },
+                                    callback: function(value) {
+                                        return value.toFixed(0) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        elements: {
+                            bar: {
+                                borderWidth: 0
+                            }
+                        }
+                    }
+                });
+                
+                console.log('Annual returns chart created successfully:', annualReturnsChart);
+                
+                // Add visible success indicator
+                const successDiv = document.createElement('div');
+                successDiv.style.cssText = 'position: fixed; top: 130px; right: 10px; background: green; color: white; padding: 10px; z-index: 9999; font-family: monospace; font-size: 12px;';
+                successDiv.innerHTML = 'Annual Returns Chart: ✅';
+                document.body.appendChild(successDiv);
+                setTimeout(() => successDiv.remove(), 3000);
+                
+            } catch (error) {
+                console.error('Error creating annual returns chart:', error);
+                console.error('Error details:', error.message);
+                console.error('Stack trace:', error.stack);
+            }
+            
+            console.log('=== ANNUAL RETURNS CHART COMPLETE ===');
+        }
+
+        // Update quick fund details bar
+        function updateQuickDetails() {
+            if (!performanceData || !performanceData.latest_values || !performanceData.returns['YTD']) return;
+
+            const latest = performanceData.latest_values;
+            const ytdReturn = performanceData.returns['YTD'].RED_ETF;
+            
+            const quickNavElement = document.getElementById('quick-nav');
+            const quickPriceElement = document.getElementById('quick-price');
+            const quickYtdElement = document.getElementById('quick-ytd');
+            
+            if (quickNavElement) quickNavElement.textContent = `$${latest.NAV.toFixed(2)}`;
+            if (quickPriceElement) quickPriceElement.textContent = `$${latest.RED_ETF.toFixed(2)}`;
+            if (quickYtdElement) quickYtdElement.textContent = `${ytdReturn >= 0 ? '+' : ''}${ytdReturn.toFixed(1)}%`;
+        }
+
+        // Update fund details table
+        function updateFundDetails() {
+            if (!performanceData || !performanceData.latest_values) return;
+
+            const latest = performanceData.latest_values;
+            
+            // Update NAV in fund details table
+            const fundNavElement = document.getElementById('fund-nav');
+            if (fundNavElement) fundNavElement.textContent = `$${latest.NAV.toFixed(2)}`;
+            
+            // Update number of holdings from API
+            const fundHoldingsElement = document.getElementById('fund-holdings');
+            if (fundHoldingsElement && latest.Holdings) fundHoldingsElement.textContent = latest.Holdings;
+            
+            // Update as of date
+            const fundDetailsDateElement = document.getElementById('fund-details-date');
+            if (fundDetailsDateElement && latest.Latest_Date) {
+                fundDetailsDateElement.textContent = latest.Latest_Date;
+            }
+        }
+
+        // Update hero section with real data
+        function updateHeroSection() {
+            if (!performanceData || !performanceData.returns || !performanceData.latest_values) {
+                console.log('No hero section data available');
+                return;
+            }
+
+            const returns = performanceData.returns;
+            const latest = performanceData.latest_values;
+            
+            // Update YTD return
+            const ytdReturn = returns.YTD?.RED_ETF || 0;
+            const ytdElement = document.getElementById('hero-ytd-return');
+            if (ytdElement) {
+                const sign = ytdReturn >= 0 ? '+' : '';
+                ytdElement.textContent = `${sign}${ytdReturn.toFixed(1)}%`;
+                ytdElement.className = ytdReturn >= 0 ? 'text-2xl font-bold text-green-600' : 'text-2xl font-bold text-red-600';
+            }
+            
+            // Update holdings count
+            const holdingsElement = document.querySelector('.bg-white.border.border-gray-200.rounded-lg.p-4.shadow-sm .text-2xl.font-bold.text-gray-900');
+            if (holdingsElement && latest.Holdings) {
+                holdingsElement.textContent = latest.Holdings;
+            }
+            
+            // Update quick NAV in hero section
+            const quickNavElement = document.getElementById('quick-nav');
+            if (quickNavElement && latest.NAV) {
+                quickNavElement.textContent = `$${latest.NAV.toFixed(2)}`;
+            }
+        }
+
+        // Update annual returns table with real data
+        function updateAnnualReturnsTable() {
+            if (!performanceData || !performanceData.returns) {
+                console.log('No annual returns data available');
+                return;
+            }
+
+            const returns = performanceData.returns;
+            
+            // Update 1 Year returns
+            const oneYearRed = returns['1Y']?.RED_ETF || 0;
+            const oneYearNav = returns['1Y']?.NAV || 0;
+            const oneYearMorningstar = returns['1Y']?.Morningstar || 0;
+            
+            updateAnnualReturnCell('annual-1y-red', oneYearRed);
+            updateAnnualReturnCell('annual-1y-nav', oneYearNav);
+            updateAnnualReturnCell('annual-1y-morningstar', oneYearMorningstar);
+            
+            // Update Since Inception returns
+            const siRed = returns['SI']?.RED_ETF || 0;
+            const siNav = returns['SI']?.NAV || 0;
+            const siMorningstar = returns['SI']?.Morningstar || 0;
+            
+            updateAnnualReturnCell('annual-si-red', siRed);
+            updateAnnualReturnCell('annual-si-nav', siNav);
+            updateAnnualReturnCell('annual-si-morningstar', siMorningstar);
+            
+        }
+
+
+        // Helper function to update annual return cell
+        function updateAnnualReturnCell(elementId, value) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const sign = value >= 0 ? '+' : '';
+                element.textContent = `${sign}${value.toFixed(1)}%`;
+                element.className = `py-3 px-4 text-right font-semibold ${value >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+        }
+
+        // Refresh data
+        function refreshData() {
+            loadPerformanceData();
+        }
+
+        // Auto-refresh every 5 minutes
+        setInterval(refreshData, 5 * 60 * 1000);
+
+        // Helper: Calculate annualized return for any period
+        function calcAnnualizedReturn(totalReturn, years) {
+            if (years <= 0 || totalReturn == null) return null;
+            return (Math.pow(1 + totalReturn / 100, 1 / years) - 1) * 100;
+        }
+
+        // Calculate annual returns from performance data
+        function calculateAnnualReturns(performanceData) {
+            const annualReturns = {};
+            const years = new Set();
+            
+            // Group data by year
+            performanceData.forEach(point => {
+                const year = new Date(point.date).getFullYear();
+                years.add(year);
+            });
+            
+            // Calculate returns for each year
+            Array.from(years).sort().forEach(year => {
+                const yearData = performanceData.filter(point => 
+                    new Date(point.date).getFullYear() === year
+                );
+                
+                if (yearData.length > 0) {
+                    const firstValue = yearData[0].red_etf;
+                    const lastValue = yearData[yearData.length - 1].red_etf;
+                    const annualReturn = ((lastValue - firstValue) / firstValue) * 100;
+                    annualReturns[year] = annualReturn;
+                }
+            });
+            
+            return annualReturns;
+        }
+
+        // Calculate total returns for a specific period (single bar chart)
+        function calculateAnnualReturnsForPeriod(filteredData) {
+            const redEtfData = filteredData.datasets[0].data;
+            const navData = filteredData.datasets[1].data;
+            const morningstarUsMarketIndexData = filteredData.datasets[2].data;
+            
+            if (redEtfData.length < 2) {
+                return {
+                    years: [],
+                    redEtfReturns: [],
+                    navReturns: [],
+                    morningstarReturns: []
+                };
+            }
+            
+            // Calculate total return for the entire selected period
+            const redEtfFirst = redEtfData[0];
+            const redEtfLast = redEtfData[redEtfData.length - 1];
+            const redEtfReturn = ((redEtfLast - redEtfFirst) / redEtfFirst) * 100;
+            
+            const navFirst = navData[0];
+            const navLast = navData[navData.length - 1];
+            const navReturn = ((navLast - navFirst) / navFirst) * 100;
+            
+            const morningstarUsMarketIndexFirst = morningstarUsMarketIndexData[0];
+            const morningstarUsMarketIndexLast = morningstarUsMarketIndexData[morningstarUsMarketIndexData.length - 1];
+            const morningstarUsMarketIndexReturn = ((morningstarUsMarketIndexLast - morningstarUsMarketIndexFirst) / morningstarUsMarketIndexFirst) * 100;
+            
+            // Create period label based on current period
+            let periodLabel = currentPeriod;
+            if (currentPeriod === 'SI') {
+                periodLabel = 'Since Inception';
+            } else if (currentPeriod === 'YTD') {
+                periodLabel = 'Year to Date';
+            }
+            
+            return {
+                years: [periodLabel],
+                redEtfReturns: [redEtfReturn],
+                navReturns: [navReturn],
+                morningstarReturns: [morningstarUsMarketIndexReturn]
+            };
+        }
+
+        // Update CAGR Bar Chart for the current period
+        /*
+        function updateCagrBarChart() {
+            // Temporarily disabled due to syntax errors
+        }
+        */
+    </script>
+</body>
+</html> 

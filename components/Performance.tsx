@@ -233,7 +233,7 @@ const Performance = () => {
                 Current performance may be lower or higher than the performance data quoted. The investment 
                 return and principal value of an investment will fluctuate so that an investor's shares, 
                 when redeemed, may be worth more or less than their original cost. For performance data 
-                current to the most recent month-end, please contact Diamond Brothers LLC.
+                current to the most recent month-end, please contact Diamond & Diamond (D&D).
               </p>
             </div>
           </div>

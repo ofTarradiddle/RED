@@ -1,6 +1,6 @@
 # RED ETF Website
 
-A modern, minimalist website for the RED Active Innovation Factor ETF, managed by Diamond Brothers LLC. This website showcases the ETF's investment strategy, performance, holdings, and provides essential information for potential investors.
+A modern, minimalist website for the RED Active Innovation Factor ETF, managed by Diamond & Diamond. This website showcases the ETF's investment strategy, performance, holdings, and provides essential information for potential investors.
 
 ## Features
 
@@ -106,7 +106,7 @@ The website includes standard investment disclaimers and regulatory information 
 - Performance disclaimers
 - Risk factor disclosures
 - Regulatory information
-- Contact details for Diamond Brothers LLC
+- Contact details for Diamond & Diamond
 
 ## Deployment
 
@@ -160,7 +160,7 @@ The project can be deployed to any platform that supports Next.js:
 
 ## License
 
-© 2024 Diamond Brothers LLC. All rights reserved.
+© 2024 Diamond & Diamond. All rights reserved.
 
 ## Contact
 

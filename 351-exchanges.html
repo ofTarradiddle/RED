@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 351 Exchanges | Diamond & Diamond</title>
+    <meta name="description" content="Understanding Section 351 tax-free exchanges for ETF creation and redemption units.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .cambria-header {
+            background: #1a0a0a;
+            color: white;
+        }
+        .cambria-nav {
+            background: #2d0f0f;
+            border-bottom: 1px solid #4a1a1a;
+        }
+        .cambria-section {
+            background: #faf8f8;
+            border-top: 1px solid #e8e0e0;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .cambria-card {
+            background: white;
+            border: 1px solid #e8e0e0;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(139, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .cambria-card:hover {
+            box-shadow: 0 12px 24px rgba(139, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+        .elegant-heading {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #8b0000, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .disclosure-box {
+            background: #fff3f3;
+            border: 1px solid #ffd6d6;
+            border-left: 4px solid #8b0000;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="cambria-header">
+        <div class="cambria-nav">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center gap-3">
+                        <a href="/" class="text-2xl font-bold text-white elegant-heading">D&D</a>
+                        <div class="text-sm text-gray-300 hidden sm:block">Diamond & Diamond</div>
+                    </div>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="/#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="/#fees" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Fees</a>
+                        <a href="/red" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">ETFs</a>
+                        <a href="/#contact" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="cambria-section py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight elegant-heading">
+                    Section 351 Exchanges
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+                    Understanding tax-free exchanges for ETF creation and redemption units
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Overview -->
+            <div class="cambria-card p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">What is Section 351?</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Section 351 of the Internal Revenue Code provides for tax-free exchanges when property is transferred 
+                    to a corporation in exchange for stock, provided certain conditions are met. For ETFs, this provision 
+                    is critical to the creation and redemption process, allowing Authorized Participants (APs) to exchange 
+                    baskets of securities for ETF shares (and vice versa) without triggering immediate tax consequences.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    This tax-efficient structure is one of the key advantages of ETFs over traditional mutual funds, 
+                    enabling investors to benefit from the creation/redemption mechanism while maintaining favorable tax treatment.
+                </p>
+            </div>
+
+            <!-- Requirements -->
+            <div class="cambria-card p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">Section 351 Requirements</h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    For an exchange to qualify as tax-free under Section 351, the following conditions must be met:
+                </p>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="w-4 h-4 text-#8b0000"></i>
+                        </div>
+                        <div>
+                            <strong class="text-gray-900">Control Requirement:</strong>
+                            <span class="text-gray-700"> The transferors must be in "control" of the corporation immediately after the exchange. 
+                            Control is defined as owning at least 80% of the total combined voting power and at least 80% of the total number 
+                            of shares of all other classes of stock.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="w-4 h-4 text-#8b0000"></i>
+                        </div>
+                        <div>
+                            <strong class="text-gray-900">Property for Stock:</strong>
+                            <span class="text-gray-700"> The exchange must involve property (securities) transferred solely in exchange for stock 
+                            (ETF shares). Cash or other property received in addition to stock may disqualify the exchange.</span>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <i data-lucide="check" class="w-4 h-4 text-#8b0000"></i>
+                        </div>
+                        <div>
+                            <strong class="text-gray-900">No Boot:</strong>
+                            <span class="text-gray-700"> The exchange must be solely for stock. If the transferor receives "boot" (cash or other property 
+                            in addition to stock), gain (but not loss) may be recognized to the extent of the boot received.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- ETF Application -->
+            <div class="cambria-card p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">Application to ETF Creation/Redemption</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Creation Units</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            When an AP creates ETF shares, they deliver a basket of securities (the "creation basket") to the ETF in exchange 
+                            for a specified number of ETF shares (typically 25,000 or 50,000 shares, known as a "Creation Unit"). This exchange 
+                            generally qualifies as a Section 351 exchange, meaning:
+                        </p>
+                        <ul class="list-disc list-inside mt-3 space-y-2 text-gray-700">
+                            <li>The AP does not recognize gain or loss on the exchange</li>
+                            <li>The AP's basis in the ETF shares equals their basis in the securities transferred</li>
+                            <li>The holding period of the ETF shares includes the holding period of the securities transferred</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Redemption Units</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            When an AP redeems ETF shares, they deliver a Creation Unit of ETF shares to the ETF in exchange for the redemption 
+                            basket of securities. This exchange also generally qualifies as a Section 351 exchange, with similar tax consequences:
+                        </p>
+                        <ul class="list-disc list-inside mt-3 space-y-2 text-gray-700">
+                            <li>The AP does not recognize gain or loss on the exchange</li>
+                            <li>The AP's basis in the received securities equals their basis in the ETF shares</li>
+                            <li>The holding period of the received securities includes the holding period of the ETF shares</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tax Benefits -->
+            <div class="cambria-card p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">Tax Benefits for ETF Investors</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    The Section 351 structure provides significant tax advantages for ETF investors:
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-4 bg-red-50 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">Tax Efficiency</h4>
+                        <p class="text-gray-700 text-sm">
+                            ETF shares can be created and redeemed without triggering taxable events at the fund level, 
+                            unlike traditional mutual funds which may realize capital gains when investors redeem shares.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-red-50 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">In-Kind Redemptions</h4>
+                        <p class="text-gray-700 text-sm">
+                            APs typically receive securities (not cash) when redeeming, which means the ETF doesn't need to 
+                            sell portfolio holdings to meet redemptions, avoiding capital gains distributions.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-red-50 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">Basis Preservation</h4>
+                        <p class="text-gray-700 text-sm">
+                            The tax basis of securities is preserved through the exchange, allowing for proper tax treatment 
+                            when the securities are ultimately sold.
+                        </p>
+                    </div>
+                    <div class="p-4 bg-red-50 rounded-lg">
+                        <h4 class="font-bold text-gray-900 mb-2">Flexibility</h4>
+                        <p class="text-gray-700 text-sm">
+                            The creation/redemption mechanism allows APs to arbitrage price differences between the ETF's 
+                            market price and its NAV, keeping the ETF trading close to its intrinsic value.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Considerations -->
+            <div class="cambria-card p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">Important Considerations</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Baskets</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Some ETFs allow for custom baskets (non-pro-rata slices of the portfolio) for creation/redemption. 
+                            While these may still qualify for Section 351 treatment, the specific terms and conditions should 
+                            be carefully reviewed to ensure compliance.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Cash-in-Lieu</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            When certain securities cannot be delivered (e.g., due to corporate actions or trading restrictions), 
+                            the ETF may provide cash-in-lieu. This cash component may be treated as "boot" and could result in 
+                            gain recognition to the extent of the cash received.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Individual Investors</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Section 351 exchanges are primarily relevant to APs who create and redeem Creation Units. Individual 
+                            investors who buy and sell ETF shares on the secondary market are subject to normal capital gains 
+                            tax rules, not Section 351. However, they still benefit from the tax efficiency of the ETF structure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclosure -->
+            <div class="disclosure-box">
+                <p class="text-gray-800 leading-relaxed">
+                    <strong>Tax Disclaimer:</strong> This information is for educational purposes only and does not constitute 
+                    tax, legal, or investment advice. Tax laws and regulations are complex and subject to change. The tax 
+                    treatment of ETF creation and redemption transactions may vary based on individual circumstances. 
+                    Investors should consult with a qualified tax advisor regarding their specific situation and the tax 
+                    implications of investing in ETFs. Diamond & Diamond (D&D) does not provide tax advice.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cambria-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2024 Diamond & Diamond (D&D). All rights reserved.
+                </p>
+                <p class="text-gray-500 text-xs text-center md:text-right">
+                    D&D is a registered investment advisor. Past performance does not guarantee future results.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
+

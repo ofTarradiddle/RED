@@ -13,7 +13,7 @@ def serve_website():
     """Start a local HTTP server to serve the website"""
     
     # Set the port
-    PORT = 8000
+    PORT = 8080
     
     # Change to the website directory
     os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -29,17 +29,23 @@ def serve_website():
         
         def guess_type(self, path):
             """Override MIME type guessing for better file serving"""
-            mimetype, encoding = super().guess_type(path)
+            # Get parent result first to see format
+            parent_result = super().guess_type(path)
             
             # Handle TypeScript/JSX files
             if path.endswith(('.tsx', '.ts')):
+                if isinstance(parent_result, tuple):
+                    return ('application/javascript',) + parent_result[1:]
                 return 'application/javascript'
             
             # Handle JSON files
             if path.endswith('.json'):
+                if isinstance(parent_result, tuple):
+                    return ('application/json',) + parent_result[1:]
                 return 'application/json'
             
-            return mimetype
+            # Return parent result as-is
+            return parent_result
     
     # Create the server
     with socketserver.TCPServer(("", PORT), CustomHTTPRequestHandler) as httpd:

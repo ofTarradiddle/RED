@@ -204,7 +204,7 @@ const Holdings = () => {
             The information provided is for informational purposes only and should not be considered as investment advice.
           </p>
           <p className="text-sm text-secondary-600">
-            For the most current holdings information, please contact Diamond Brothers LLC or refer to the most recent 
+            For the most current holdings information, please contact Diamond & Diamond (D&D) or refer to the most recent 
             fund fact sheet and prospectus.
           </p>
         </div>

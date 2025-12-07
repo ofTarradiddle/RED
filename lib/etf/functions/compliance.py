@@ -143,7 +143,7 @@ class Compliance:
             "status": "draft",
             "data": {
                 # TODO: Add all required N-CEN fields
-                "fund_name": "Diamond Brothers Innovation Factor ETF",
+                "fund_name": "Diamond & Diamond Innovation Factor ETF",
                 "fund_ticker": "RED",
                 "fiscal_year_end": filing_date.isoformat()
             }
