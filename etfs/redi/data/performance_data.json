@@ -1,0 +1,2480 @@
+[
+  {
+    "date": "2024-01-01",
+    "red_etf": 100.0,
+    "nav": 100.0,
+    "morningstar_us_market_index": 100.0,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-01-02",
+    "red_etf": 100.67,
+    "nav": 100.66,
+    "morningstar_us_market_index": 100.99,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-01-03",
+    "red_etf": 100.63,
+    "nav": 100.65,
+    "morningstar_us_market_index": 102.03,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-01-04",
+    "red_etf": 100.4,
+    "nav": 100.39,
+    "morningstar_us_market_index": 102.45,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-01-05",
+    "red_etf": 100.18,
+    "nav": 100.14,
+    "morningstar_us_market_index": 102.68,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-01-06",
+    "red_etf": 98.95,
+    "nav": 98.93,
+    "morningstar_us_market_index": 102.41,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-01-07",
+    "red_etf": 99.35,
+    "nav": 99.32,
+    "morningstar_us_market_index": 101.94,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-01-08",
+    "red_etf": 100.66,
+    "nav": 100.66,
+    "morningstar_us_market_index": 101.88,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-01-09",
+    "red_etf": 99.66,
+    "nav": 99.66,
+    "morningstar_us_market_index": 101.63,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-01-10",
+    "red_etf": 98.89,
+    "nav": 98.88,
+    "morningstar_us_market_index": 101.94,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-01-11",
+    "red_etf": 98.81,
+    "nav": 98.85,
+    "morningstar_us_market_index": 101.65,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-01-12",
+    "red_etf": 98.95,
+    "nav": 98.97,
+    "morningstar_us_market_index": 101.09,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-01-13",
+    "red_etf": 98.13,
+    "nav": 98.09,
+    "morningstar_us_market_index": 101.3,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-01-14",
+    "red_etf": 97.24,
+    "nav": 97.25,
+    "morningstar_us_market_index": 101.5,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-01-15",
+    "red_etf": 97.52,
+    "nav": 97.51,
+    "morningstar_us_market_index": 101.51,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-01-16",
+    "red_etf": 96.51,
+    "nav": 96.5,
+    "morningstar_us_market_index": 101.15,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-01-17",
+    "red_etf": 97.47,
+    "nav": 97.43,
+    "morningstar_us_market_index": 101.44,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-01-18",
+    "red_etf": 97.87,
+    "nav": 97.85,
+    "morningstar_us_market_index": 101.29,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-01-19",
+    "red_etf": 98.49,
+    "nav": 98.51,
+    "morningstar_us_market_index": 101.99,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-01-20",
+    "red_etf": 97.98,
+    "nav": 97.99,
+    "morningstar_us_market_index": 101.89,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-01-21",
+    "red_etf": 98.89,
+    "nav": 98.89,
+    "morningstar_us_market_index": 101.67,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-01-22",
+    "red_etf": 98.16,
+    "nav": 98.18,
+    "morningstar_us_market_index": 101.03,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-01-23",
+    "red_etf": 99.38,
+    "nav": 99.4,
+    "morningstar_us_market_index": 101.06,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-01-24",
+    "red_etf": 99.81,
+    "nav": 99.82,
+    "morningstar_us_market_index": 100.75,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-01-25",
+    "red_etf": 101.19,
+    "nav": 101.22,
+    "morningstar_us_market_index": 100.81,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-01-26",
+    "red_etf": 99.22,
+    "nav": 99.22,
+    "morningstar_us_market_index": 101.39,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-01-27",
+    "red_etf": 99.13,
+    "nav": 99.09,
+    "morningstar_us_market_index": 101.53,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-01-28",
+    "red_etf": 99.11,
+    "nav": 99.14,
+    "morningstar_us_market_index": 101.83,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-01-29",
+    "red_etf": 98.85,
+    "nav": 98.84,
+    "morningstar_us_market_index": 101.41,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-01-30",
+    "red_etf": 99.72,
+    "nav": 99.71,
+    "morningstar_us_market_index": 101.69,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-01-31",
+    "red_etf": 100.28,
+    "nav": 100.3,
+    "morningstar_us_market_index": 101.83,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-02-01",
+    "red_etf": 99.86,
+    "nav": 99.86,
+    "morningstar_us_market_index": 101.72,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-02-02",
+    "red_etf": 98.85,
+    "nav": 98.85,
+    "morningstar_us_market_index": 101.98,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-03",
+    "red_etf": 99.0,
+    "nav": 98.97,
+    "morningstar_us_market_index": 101.92,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-02-04",
+    "red_etf": 98.81,
+    "nav": 98.8,
+    "morningstar_us_market_index": 101.79,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-02-05",
+    "red_etf": 98.83,
+    "nav": 98.87,
+    "morningstar_us_market_index": 102.12,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-02-06",
+    "red_etf": 99.12,
+    "nav": 99.12,
+    "morningstar_us_market_index": 102.36,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-02-07",
+    "red_etf": 97.75,
+    "nav": 97.75,
+    "morningstar_us_market_index": 102.42,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-02-08",
+    "red_etf": 99.82,
+    "nav": 99.83,
+    "morningstar_us_market_index": 102.39,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-09",
+    "red_etf": 99.94,
+    "nav": 99.96,
+    "morningstar_us_market_index": 101.75,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-02-10",
+    "red_etf": 100.69,
+    "nav": 100.67,
+    "morningstar_us_market_index": 102.31,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-02-11",
+    "red_etf": 101.97,
+    "nav": 101.99,
+    "morningstar_us_market_index": 101.53,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-12",
+    "red_etf": 103.91,
+    "nav": 103.9,
+    "morningstar_us_market_index": 101.01,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-02-13",
+    "red_etf": 104.15,
+    "nav": 104.12,
+    "morningstar_us_market_index": 100.79,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-02-14",
+    "red_etf": 104.37,
+    "nav": 104.38,
+    "morningstar_us_market_index": 100.23,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-15",
+    "red_etf": 103.76,
+    "nav": 103.74,
+    "morningstar_us_market_index": 101.24,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-02-16",
+    "red_etf": 103.64,
+    "nav": 103.62,
+    "morningstar_us_market_index": 101.81,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-02-17",
+    "red_etf": 103.99,
+    "nav": 103.95,
+    "morningstar_us_market_index": 102.69,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-02-18",
+    "red_etf": 104.3,
+    "nav": 104.31,
+    "morningstar_us_market_index": 102.94,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-02-19",
+    "red_etf": 103.42,
+    "nav": 103.43,
+    "morningstar_us_market_index": 102.2,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-20",
+    "red_etf": 103.82,
+    "nav": 103.83,
+    "morningstar_us_market_index": 102.44,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-21",
+    "red_etf": 103.41,
+    "nav": 103.42,
+    "morningstar_us_market_index": 102.66,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-22",
+    "red_etf": 102.98,
+    "nav": 102.99,
+    "morningstar_us_market_index": 103.89,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-02-23",
+    "red_etf": 102.15,
+    "nav": 102.13,
+    "morningstar_us_market_index": 104.39,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-02-24",
+    "red_etf": 102.95,
+    "nav": 102.93,
+    "morningstar_us_market_index": 105.2,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-02-25",
+    "red_etf": 103.89,
+    "nav": 103.91,
+    "morningstar_us_market_index": 105.54,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-02-26",
+    "red_etf": 105.63,
+    "nav": 105.61,
+    "morningstar_us_market_index": 105.47,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-02-27",
+    "red_etf": 105.03,
+    "nav": 105.03,
+    "morningstar_us_market_index": 105.04,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-02-28",
+    "red_etf": 105.48,
+    "nav": 105.5,
+    "morningstar_us_market_index": 105.3,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-02-29",
+    "red_etf": 105.65,
+    "nav": 105.64,
+    "morningstar_us_market_index": 106.3,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-03-01",
+    "red_etf": 108.1,
+    "nav": 108.09,
+    "morningstar_us_market_index": 106.78,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-03-02",
+    "red_etf": 107.34,
+    "nav": 107.34,
+    "morningstar_us_market_index": 107.18,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-03-03",
+    "red_etf": 108.11,
+    "nav": 108.11,
+    "morningstar_us_market_index": 107.57,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-03-04",
+    "red_etf": 107.54,
+    "nav": 107.53,
+    "morningstar_us_market_index": 106.68,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-03-05",
+    "red_etf": 108.44,
+    "nav": 108.42,
+    "morningstar_us_market_index": 106.9,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-03-06",
+    "red_etf": 108.76,
+    "nav": 108.74,
+    "morningstar_us_market_index": 107.23,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-03-07",
+    "red_etf": 109.05,
+    "nav": 109.03,
+    "morningstar_us_market_index": 107.35,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-03-08",
+    "red_etf": 109.53,
+    "nav": 109.55,
+    "morningstar_us_market_index": 107.8,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-03-09",
+    "red_etf": 110.62,
+    "nav": 110.6,
+    "morningstar_us_market_index": 107.0,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-03-10",
+    "red_etf": 111.24,
+    "nav": 111.25,
+    "morningstar_us_market_index": 107.41,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-03-11",
+    "red_etf": 114.83,
+    "nav": 114.86,
+    "morningstar_us_market_index": 107.87,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-03-12",
+    "red_etf": 115.88,
+    "nav": 115.87,
+    "morningstar_us_market_index": 108.37,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-03-13",
+    "red_etf": 116.76,
+    "nav": 116.75,
+    "morningstar_us_market_index": 107.96,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-03-14",
+    "red_etf": 116.48,
+    "nav": 116.53,
+    "morningstar_us_market_index": 108.1,
+    "premium_discount": 99.95
+  },
+  {
+    "date": "2024-03-15",
+    "red_etf": 114.92,
+    "nav": 114.88,
+    "morningstar_us_market_index": 108.63,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-03-16",
+    "red_etf": 114.65,
+    "nav": 114.66,
+    "morningstar_us_market_index": 109.43,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-03-17",
+    "red_etf": 113.84,
+    "nav": 113.85,
+    "morningstar_us_market_index": 109.04,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-03-18",
+    "red_etf": 113.34,
+    "nav": 113.34,
+    "morningstar_us_market_index": 109.27,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-03-19",
+    "red_etf": 112.92,
+    "nav": 112.94,
+    "morningstar_us_market_index": 110.77,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-03-20",
+    "red_etf": 111.26,
+    "nav": 111.25,
+    "morningstar_us_market_index": 110.98,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-03-21",
+    "red_etf": 112.19,
+    "nav": 112.19,
+    "morningstar_us_market_index": 110.54,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-03-22",
+    "red_etf": 112.81,
+    "nav": 112.78,
+    "morningstar_us_market_index": 111.2,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-03-23",
+    "red_etf": 112.68,
+    "nav": 112.66,
+    "morningstar_us_market_index": 110.97,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-03-24",
+    "red_etf": 114.44,
+    "nav": 114.41,
+    "morningstar_us_market_index": 111.33,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-03-25",
+    "red_etf": 115.45,
+    "nav": 115.47,
+    "morningstar_us_market_index": 112.84,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-03-26",
+    "red_etf": 114.22,
+    "nav": 114.25,
+    "morningstar_us_market_index": 112.6,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-03-27",
+    "red_etf": 113.74,
+    "nav": 113.76,
+    "morningstar_us_market_index": 112.99,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-03-28",
+    "red_etf": 113.07,
+    "nav": 113.0,
+    "morningstar_us_market_index": 113.04,
+    "premium_discount": 100.06
+  },
+  {
+    "date": "2024-03-29",
+    "red_etf": 112.31,
+    "nav": 112.29,
+    "morningstar_us_market_index": 112.96,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-03-30",
+    "red_etf": 113.95,
+    "nav": 113.94,
+    "morningstar_us_market_index": 112.08,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-03-31",
+    "red_etf": 114.24,
+    "nav": 114.21,
+    "morningstar_us_market_index": 113.14,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-04-01",
+    "red_etf": 115.47,
+    "nav": 115.45,
+    "morningstar_us_market_index": 113.24,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-04-02",
+    "red_etf": 116.07,
+    "nav": 116.06,
+    "morningstar_us_market_index": 113.46,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-03",
+    "red_etf": 116.31,
+    "nav": 116.32,
+    "morningstar_us_market_index": 113.29,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-04-04",
+    "red_etf": 117.1,
+    "nav": 117.07,
+    "morningstar_us_market_index": 114.46,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-04-05",
+    "red_etf": 119.28,
+    "nav": 119.27,
+    "morningstar_us_market_index": 113.21,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-04-06",
+    "red_etf": 120.02,
+    "nav": 120.0,
+    "morningstar_us_market_index": 113.49,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-07",
+    "red_etf": 120.0,
+    "nav": 119.98,
+    "morningstar_us_market_index": 113.25,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-08",
+    "red_etf": 120.99,
+    "nav": 120.98,
+    "morningstar_us_market_index": 113.58,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-09",
+    "red_etf": 122.05,
+    "nav": 122.07,
+    "morningstar_us_market_index": 113.88,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-04-10",
+    "red_etf": 122.84,
+    "nav": 122.83,
+    "morningstar_us_market_index": 113.41,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-11",
+    "red_etf": 123.76,
+    "nav": 123.76,
+    "morningstar_us_market_index": 113.91,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-04-12",
+    "red_etf": 124.06,
+    "nav": 124.05,
+    "morningstar_us_market_index": 114.88,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-13",
+    "red_etf": 124.79,
+    "nav": 124.79,
+    "morningstar_us_market_index": 114.83,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-04-14",
+    "red_etf": 126.08,
+    "nav": 126.1,
+    "morningstar_us_market_index": 115.49,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-04-15",
+    "red_etf": 127.58,
+    "nav": 127.6,
+    "morningstar_us_market_index": 115.6,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-04-16",
+    "red_etf": 127.46,
+    "nav": 127.45,
+    "morningstar_us_market_index": 115.91,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-04-17",
+    "red_etf": 127.75,
+    "nav": 127.73,
+    "morningstar_us_market_index": 116.42,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-04-18",
+    "red_etf": 130.08,
+    "nav": 130.05,
+    "morningstar_us_market_index": 115.81,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-04-19",
+    "red_etf": 131.48,
+    "nav": 131.49,
+    "morningstar_us_market_index": 116.45,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-04-20",
+    "red_etf": 132.34,
+    "nav": 132.31,
+    "morningstar_us_market_index": 116.54,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-04-21",
+    "red_etf": 132.61,
+    "nav": 132.64,
+    "morningstar_us_market_index": 116.16,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-04-22",
+    "red_etf": 132.66,
+    "nav": 132.65,
+    "morningstar_us_market_index": 115.68,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-23",
+    "red_etf": 133.29,
+    "nav": 133.27,
+    "morningstar_us_market_index": 115.38,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-04-24",
+    "red_etf": 133.75,
+    "nav": 133.74,
+    "morningstar_us_market_index": 115.64,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-04-25",
+    "red_etf": 133.45,
+    "nav": 133.41,
+    "morningstar_us_market_index": 115.89,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-04-26",
+    "red_etf": 132.15,
+    "nav": 132.14,
+    "morningstar_us_market_index": 115.49,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-04-27",
+    "red_etf": 132.68,
+    "nav": 132.7,
+    "morningstar_us_market_index": 116.6,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-04-28",
+    "red_etf": 132.7,
+    "nav": 132.68,
+    "morningstar_us_market_index": 116.68,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-04-29",
+    "red_etf": 132.88,
+    "nav": 132.89,
+    "morningstar_us_market_index": 116.57,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-04-30",
+    "red_etf": 132.2,
+    "nav": 132.24,
+    "morningstar_us_market_index": 117.03,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-05-01",
+    "red_etf": 132.29,
+    "nav": 132.31,
+    "morningstar_us_market_index": 117.4,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-05-02",
+    "red_etf": 132.06,
+    "nav": 132.06,
+    "morningstar_us_market_index": 117.66,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-05-03",
+    "red_etf": 132.36,
+    "nav": 132.36,
+    "morningstar_us_market_index": 117.2,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-05-04",
+    "red_etf": 133.09,
+    "nav": 133.11,
+    "morningstar_us_market_index": 118.32,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-05-05",
+    "red_etf": 135.58,
+    "nav": 135.6,
+    "morningstar_us_market_index": 117.87,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-05-06",
+    "red_etf": 135.98,
+    "nav": 135.96,
+    "morningstar_us_market_index": 119.51,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-05-07",
+    "red_etf": 135.27,
+    "nav": 135.22,
+    "morningstar_us_market_index": 119.18,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-05-08",
+    "red_etf": 134.91,
+    "nav": 134.91,
+    "morningstar_us_market_index": 118.73,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-05-09",
+    "red_etf": 135.48,
+    "nav": 135.5,
+    "morningstar_us_market_index": 120.16,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-05-10",
+    "red_etf": 135.06,
+    "nav": 135.07,
+    "morningstar_us_market_index": 119.61,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-05-11",
+    "red_etf": 133.83,
+    "nav": 133.86,
+    "morningstar_us_market_index": 121.02,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-05-12",
+    "red_etf": 133.53,
+    "nav": 133.57,
+    "morningstar_us_market_index": 119.87,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-05-13",
+    "red_etf": 133.61,
+    "nav": 133.57,
+    "morningstar_us_market_index": 120.86,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-05-14",
+    "red_etf": 133.17,
+    "nav": 133.17,
+    "morningstar_us_market_index": 120.96,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-05-15",
+    "red_etf": 132.89,
+    "nav": 132.86,
+    "morningstar_us_market_index": 121.51,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-05-16",
+    "red_etf": 132.94,
+    "nav": 132.95,
+    "morningstar_us_market_index": 121.69,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-05-17",
+    "red_etf": 133.89,
+    "nav": 133.85,
+    "morningstar_us_market_index": 120.97,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-05-18",
+    "red_etf": 135.46,
+    "nav": 135.44,
+    "morningstar_us_market_index": 121.31,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-05-19",
+    "red_etf": 137.35,
+    "nav": 137.38,
+    "morningstar_us_market_index": 121.49,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-05-20",
+    "red_etf": 137.63,
+    "nav": 137.68,
+    "morningstar_us_market_index": 123.09,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-05-21",
+    "red_etf": 137.56,
+    "nav": 137.58,
+    "morningstar_us_market_index": 123.9,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-05-22",
+    "red_etf": 139.27,
+    "nav": 139.29,
+    "morningstar_us_market_index": 123.28,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-05-23",
+    "red_etf": 140.66,
+    "nav": 140.63,
+    "morningstar_us_market_index": 122.08,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-05-24",
+    "red_etf": 138.58,
+    "nav": 138.6,
+    "morningstar_us_market_index": 121.98,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-05-25",
+    "red_etf": 140.45,
+    "nav": 140.5,
+    "morningstar_us_market_index": 122.13,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-05-26",
+    "red_etf": 139.11,
+    "nav": 139.11,
+    "morningstar_us_market_index": 120.98,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-05-27",
+    "red_etf": 139.75,
+    "nav": 139.69,
+    "morningstar_us_market_index": 121.06,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-05-28",
+    "red_etf": 139.86,
+    "nav": 139.87,
+    "morningstar_us_market_index": 120.21,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-05-29",
+    "red_etf": 140.48,
+    "nav": 140.46,
+    "morningstar_us_market_index": 119.62,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-05-30",
+    "red_etf": 139.5,
+    "nav": 139.52,
+    "morningstar_us_market_index": 119.68,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-05-31",
+    "red_etf": 138.61,
+    "nav": 138.59,
+    "morningstar_us_market_index": 120.13,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-06-01",
+    "red_etf": 137.93,
+    "nav": 137.91,
+    "morningstar_us_market_index": 120.15,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-02",
+    "red_etf": 137.53,
+    "nav": 137.58,
+    "morningstar_us_market_index": 119.38,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-06-03",
+    "red_etf": 137.77,
+    "nav": 137.78,
+    "morningstar_us_market_index": 118.98,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-06-04",
+    "red_etf": 137.86,
+    "nav": 137.87,
+    "morningstar_us_market_index": 118.92,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-06-05",
+    "red_etf": 138.9,
+    "nav": 138.88,
+    "morningstar_us_market_index": 118.63,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-06-06",
+    "red_etf": 138.8,
+    "nav": 138.76,
+    "morningstar_us_market_index": 117.09,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-06-07",
+    "red_etf": 140.53,
+    "nav": 140.52,
+    "morningstar_us_market_index": 118.34,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-06-08",
+    "red_etf": 141.39,
+    "nav": 141.47,
+    "morningstar_us_market_index": 118.65,
+    "premium_discount": 99.94
+  },
+  {
+    "date": "2024-06-09",
+    "red_etf": 142.87,
+    "nav": 142.84,
+    "morningstar_us_market_index": 118.66,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-10",
+    "red_etf": 141.24,
+    "nav": 141.22,
+    "morningstar_us_market_index": 118.9,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-11",
+    "red_etf": 139.85,
+    "nav": 139.82,
+    "morningstar_us_market_index": 118.53,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-12",
+    "red_etf": 141.95,
+    "nav": 141.95,
+    "morningstar_us_market_index": 119.25,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-06-13",
+    "red_etf": 143.84,
+    "nav": 143.82,
+    "morningstar_us_market_index": 119.4,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-14",
+    "red_etf": 145.81,
+    "nav": 145.78,
+    "morningstar_us_market_index": 119.89,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-15",
+    "red_etf": 145.81,
+    "nav": 145.76,
+    "morningstar_us_market_index": 119.35,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-06-16",
+    "red_etf": 147.1,
+    "nav": 147.06,
+    "morningstar_us_market_index": 120.82,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-06-17",
+    "red_etf": 147.99,
+    "nav": 147.97,
+    "morningstar_us_market_index": 120.44,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-06-18",
+    "red_etf": 147.51,
+    "nav": 147.51,
+    "morningstar_us_market_index": 119.91,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-06-19",
+    "red_etf": 146.75,
+    "nav": 146.75,
+    "morningstar_us_market_index": 120.2,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-06-20",
+    "red_etf": 146.69,
+    "nav": 146.67,
+    "morningstar_us_market_index": 119.64,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-06-21",
+    "red_etf": 147.79,
+    "nav": 147.77,
+    "morningstar_us_market_index": 120.1,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-22",
+    "red_etf": 148.13,
+    "nav": 148.08,
+    "morningstar_us_market_index": 120.74,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-06-23",
+    "red_etf": 149.0,
+    "nav": 149.02,
+    "morningstar_us_market_index": 120.35,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-06-24",
+    "red_etf": 148.31,
+    "nav": 148.27,
+    "morningstar_us_market_index": 119.15,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-06-25",
+    "red_etf": 148.59,
+    "nav": 148.57,
+    "morningstar_us_market_index": 119.43,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-26",
+    "red_etf": 149.58,
+    "nav": 149.57,
+    "morningstar_us_market_index": 118.33,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-06-27",
+    "red_etf": 148.35,
+    "nav": 148.35,
+    "morningstar_us_market_index": 117.96,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-06-28",
+    "red_etf": 147.55,
+    "nav": 147.58,
+    "morningstar_us_market_index": 117.79,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-06-29",
+    "red_etf": 147.09,
+    "nav": 147.06,
+    "morningstar_us_market_index": 118.47,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-06-30",
+    "red_etf": 147.94,
+    "nav": 147.86,
+    "morningstar_us_market_index": 119.59,
+    "premium_discount": 100.05
+  },
+  {
+    "date": "2024-07-01",
+    "red_etf": 147.22,
+    "nav": 147.21,
+    "morningstar_us_market_index": 120.1,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-07-02",
+    "red_etf": 147.87,
+    "nav": 147.88,
+    "morningstar_us_market_index": 119.76,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-07-03",
+    "red_etf": 147.91,
+    "nav": 147.92,
+    "morningstar_us_market_index": 120.7,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-07-04",
+    "red_etf": 148.53,
+    "nav": 148.52,
+    "morningstar_us_market_index": 120.49,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-07-05",
+    "red_etf": 148.24,
+    "nav": 148.23,
+    "morningstar_us_market_index": 120.88,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-07-06",
+    "red_etf": 148.81,
+    "nav": 148.83,
+    "morningstar_us_market_index": 122.48,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-07-07",
+    "red_etf": 148.64,
+    "nav": 148.63,
+    "morningstar_us_market_index": 123.46,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-07-08",
+    "red_etf": 146.44,
+    "nav": 146.39,
+    "morningstar_us_market_index": 122.81,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-07-09",
+    "red_etf": 146.25,
+    "nav": 146.3,
+    "morningstar_us_market_index": 122.92,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-07-10",
+    "red_etf": 146.85,
+    "nav": 146.88,
+    "morningstar_us_market_index": 122.86,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-07-11",
+    "red_etf": 144.47,
+    "nav": 144.5,
+    "morningstar_us_market_index": 123.13,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-07-12",
+    "red_etf": 142.98,
+    "nav": 142.99,
+    "morningstar_us_market_index": 124.07,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-07-13",
+    "red_etf": 142.72,
+    "nav": 142.79,
+    "morningstar_us_market_index": 124.65,
+    "premium_discount": 99.95
+  },
+  {
+    "date": "2024-07-14",
+    "red_etf": 143.14,
+    "nav": 143.13,
+    "morningstar_us_market_index": 124.93,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-07-15",
+    "red_etf": 142.38,
+    "nav": 142.36,
+    "morningstar_us_market_index": 125.65,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-07-16",
+    "red_etf": 142.68,
+    "nav": 142.69,
+    "morningstar_us_market_index": 125.39,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-07-17",
+    "red_etf": 143.27,
+    "nav": 143.26,
+    "morningstar_us_market_index": 126.27,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-07-18",
+    "red_etf": 143.18,
+    "nav": 143.17,
+    "morningstar_us_market_index": 125.63,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-07-19",
+    "red_etf": 143.83,
+    "nav": 143.8,
+    "morningstar_us_market_index": 126.3,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-07-20",
+    "red_etf": 145.04,
+    "nav": 145.05,
+    "morningstar_us_market_index": 127.43,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-07-21",
+    "red_etf": 147.44,
+    "nav": 147.4,
+    "morningstar_us_market_index": 126.94,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-07-22",
+    "red_etf": 145.56,
+    "nav": 145.58,
+    "morningstar_us_market_index": 128.18,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-07-23",
+    "red_etf": 145.72,
+    "nav": 145.68,
+    "morningstar_us_market_index": 128.5,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-07-24",
+    "red_etf": 148.78,
+    "nav": 148.79,
+    "morningstar_us_market_index": 128.7,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-07-25",
+    "red_etf": 149.87,
+    "nav": 149.88,
+    "morningstar_us_market_index": 129.18,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-07-26",
+    "red_etf": 149.15,
+    "nav": 149.2,
+    "morningstar_us_market_index": 129.65,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-07-27",
+    "red_etf": 150.98,
+    "nav": 150.96,
+    "morningstar_us_market_index": 130.99,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-07-28",
+    "red_etf": 150.01,
+    "nav": 150.01,
+    "morningstar_us_market_index": 131.0,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-07-29",
+    "red_etf": 151.55,
+    "nav": 151.59,
+    "morningstar_us_market_index": 129.77,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-07-30",
+    "red_etf": 151.58,
+    "nav": 151.55,
+    "morningstar_us_market_index": 129.54,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-07-31",
+    "red_etf": 149.8,
+    "nav": 149.81,
+    "morningstar_us_market_index": 130.29,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-08-01",
+    "red_etf": 148.48,
+    "nav": 148.47,
+    "morningstar_us_market_index": 129.38,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-02",
+    "red_etf": 150.69,
+    "nav": 150.64,
+    "morningstar_us_market_index": 129.28,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-08-03",
+    "red_etf": 150.62,
+    "nav": 150.54,
+    "morningstar_us_market_index": 129.17,
+    "premium_discount": 100.05
+  },
+  {
+    "date": "2024-08-04",
+    "red_etf": 150.78,
+    "nav": 150.8,
+    "morningstar_us_market_index": 129.1,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-08-05",
+    "red_etf": 153.23,
+    "nav": 153.23,
+    "morningstar_us_market_index": 130.07,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-06",
+    "red_etf": 152.11,
+    "nav": 152.11,
+    "morningstar_us_market_index": 132.18,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-08-07",
+    "red_etf": 152.35,
+    "nav": 152.36,
+    "morningstar_us_market_index": 132.27,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-08-08",
+    "red_etf": 152.41,
+    "nav": 152.39,
+    "morningstar_us_market_index": 131.92,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-09",
+    "red_etf": 152.59,
+    "nav": 152.57,
+    "morningstar_us_market_index": 131.6,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-10",
+    "red_etf": 152.95,
+    "nav": 153.0,
+    "morningstar_us_market_index": 131.5,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-08-11",
+    "red_etf": 149.94,
+    "nav": 149.98,
+    "morningstar_us_market_index": 132.47,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-08-12",
+    "red_etf": 147.68,
+    "nav": 147.67,
+    "morningstar_us_market_index": 132.3,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-13",
+    "red_etf": 146.23,
+    "nav": 146.2,
+    "morningstar_us_market_index": 131.79,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-08-14",
+    "red_etf": 148.5,
+    "nav": 148.54,
+    "morningstar_us_market_index": 132.64,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-08-15",
+    "red_etf": 149.58,
+    "nav": 149.57,
+    "morningstar_us_market_index": 131.84,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-16",
+    "red_etf": 150.39,
+    "nav": 150.42,
+    "morningstar_us_market_index": 130.98,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-08-17",
+    "red_etf": 150.33,
+    "nav": 150.35,
+    "morningstar_us_market_index": 130.79,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-08-18",
+    "red_etf": 151.09,
+    "nav": 151.13,
+    "morningstar_us_market_index": 130.61,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-08-19",
+    "red_etf": 150.01,
+    "nav": 150.03,
+    "morningstar_us_market_index": 131.2,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-08-20",
+    "red_etf": 149.86,
+    "nav": 149.83,
+    "morningstar_us_market_index": 131.56,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-08-21",
+    "red_etf": 151.2,
+    "nav": 151.18,
+    "morningstar_us_market_index": 131.52,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-22",
+    "red_etf": 152.69,
+    "nav": 152.65,
+    "morningstar_us_market_index": 131.07,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-08-23",
+    "red_etf": 151.02,
+    "nav": 150.98,
+    "morningstar_us_market_index": 131.65,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-08-24",
+    "red_etf": 153.37,
+    "nav": 153.42,
+    "morningstar_us_market_index": 130.11,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-08-25",
+    "red_etf": 153.86,
+    "nav": 153.84,
+    "morningstar_us_market_index": 130.14,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-26",
+    "red_etf": 154.58,
+    "nav": 154.61,
+    "morningstar_us_market_index": 130.22,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-08-27",
+    "red_etf": 154.95,
+    "nav": 154.94,
+    "morningstar_us_market_index": 130.44,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-08-28",
+    "red_etf": 155.11,
+    "nav": 155.06,
+    "morningstar_us_market_index": 130.78,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-08-29",
+    "red_etf": 153.67,
+    "nav": 153.68,
+    "morningstar_us_market_index": 131.47,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-08-30",
+    "red_etf": 153.68,
+    "nav": 153.69,
+    "morningstar_us_market_index": 131.59,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-08-31",
+    "red_etf": 153.24,
+    "nav": 153.25,
+    "morningstar_us_market_index": 131.08,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-01",
+    "red_etf": 152.27,
+    "nav": 152.22,
+    "morningstar_us_market_index": 131.51,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-09-02",
+    "red_etf": 153.76,
+    "nav": 153.76,
+    "morningstar_us_market_index": 131.99,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-09-03",
+    "red_etf": 155.2,
+    "nav": 155.23,
+    "morningstar_us_market_index": 133.41,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-09-04",
+    "red_etf": 153.14,
+    "nav": 153.12,
+    "morningstar_us_market_index": 132.49,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-09-05",
+    "red_etf": 153.4,
+    "nav": 153.38,
+    "morningstar_us_market_index": 133.01,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-09-06",
+    "red_etf": 153.86,
+    "nav": 153.84,
+    "morningstar_us_market_index": 132.51,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-09-07",
+    "red_etf": 152.36,
+    "nav": 152.32,
+    "morningstar_us_market_index": 131.89,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-09-08",
+    "red_etf": 151.4,
+    "nav": 151.37,
+    "morningstar_us_market_index": 132.82,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-09-09",
+    "red_etf": 154.82,
+    "nav": 154.82,
+    "morningstar_us_market_index": 133.32,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-10",
+    "red_etf": 153.99,
+    "nav": 153.97,
+    "morningstar_us_market_index": 133.99,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-09-11",
+    "red_etf": 154.37,
+    "nav": 154.36,
+    "morningstar_us_market_index": 136.16,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-12",
+    "red_etf": 156.02,
+    "nav": 156.02,
+    "morningstar_us_market_index": 135.69,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-13",
+    "red_etf": 158.46,
+    "nav": 158.52,
+    "morningstar_us_market_index": 135.29,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-09-14",
+    "red_etf": 159.6,
+    "nav": 159.62,
+    "morningstar_us_market_index": 134.94,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-09-15",
+    "red_etf": 161.08,
+    "nav": 161.03,
+    "morningstar_us_market_index": 135.55,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-09-16",
+    "red_etf": 160.38,
+    "nav": 160.38,
+    "morningstar_us_market_index": 135.46,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-17",
+    "red_etf": 161.42,
+    "nav": 161.38,
+    "morningstar_us_market_index": 135.71,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-09-18",
+    "red_etf": 162.15,
+    "nav": 162.17,
+    "morningstar_us_market_index": 136.32,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-09-19",
+    "red_etf": 163.8,
+    "nav": 163.81,
+    "morningstar_us_market_index": 137.11,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-09-20",
+    "red_etf": 163.95,
+    "nav": 163.97,
+    "morningstar_us_market_index": 135.85,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-09-21",
+    "red_etf": 164.47,
+    "nav": 164.43,
+    "morningstar_us_market_index": 136.18,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-09-22",
+    "red_etf": 163.3,
+    "nav": 163.29,
+    "morningstar_us_market_index": 137.15,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-23",
+    "red_etf": 164.43,
+    "nav": 164.43,
+    "morningstar_us_market_index": 137.28,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-24",
+    "red_etf": 165.91,
+    "nav": 165.91,
+    "morningstar_us_market_index": 136.97,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-09-25",
+    "red_etf": 165.55,
+    "nav": 165.54,
+    "morningstar_us_market_index": 136.72,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-09-26",
+    "red_etf": 166.09,
+    "nav": 166.13,
+    "morningstar_us_market_index": 136.44,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-09-27",
+    "red_etf": 165.15,
+    "nav": 165.14,
+    "morningstar_us_market_index": 136.39,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-09-28",
+    "red_etf": 167.31,
+    "nav": 167.34,
+    "morningstar_us_market_index": 136.66,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-09-29",
+    "red_etf": 165.57,
+    "nav": 165.6,
+    "morningstar_us_market_index": 136.99,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-09-30",
+    "red_etf": 165.93,
+    "nav": 165.91,
+    "morningstar_us_market_index": 137.98,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-10-01",
+    "red_etf": 168.05,
+    "nav": 168.04,
+    "morningstar_us_market_index": 139.99,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-10-02",
+    "red_etf": 167.7,
+    "nav": 167.75,
+    "morningstar_us_market_index": 141.32,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-10-03",
+    "red_etf": 167.25,
+    "nav": 167.24,
+    "morningstar_us_market_index": 141.08,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-10-04",
+    "red_etf": 165.7,
+    "nav": 165.67,
+    "morningstar_us_market_index": 140.42,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-10-05",
+    "red_etf": 164.93,
+    "nav": 164.94,
+    "morningstar_us_market_index": 140.5,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-10-06",
+    "red_etf": 167.23,
+    "nav": 167.26,
+    "morningstar_us_market_index": 139.77,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-10-07",
+    "red_etf": 167.19,
+    "nav": 167.22,
+    "morningstar_us_market_index": 139.84,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-10-08",
+    "red_etf": 165.94,
+    "nav": 165.95,
+    "morningstar_us_market_index": 140.27,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-10-09",
+    "red_etf": 166.84,
+    "nav": 166.93,
+    "morningstar_us_market_index": 140.63,
+    "premium_discount": 99.95
+  },
+  {
+    "date": "2024-10-10",
+    "red_etf": 166.24,
+    "nav": 166.22,
+    "morningstar_us_market_index": 140.29,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-10-11",
+    "red_etf": 165.75,
+    "nav": 165.79,
+    "morningstar_us_market_index": 139.87,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-10-12",
+    "red_etf": 167.89,
+    "nav": 167.86,
+    "morningstar_us_market_index": 139.5,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-10-13",
+    "red_etf": 168.77,
+    "nav": 168.79,
+    "morningstar_us_market_index": 139.15,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-10-14",
+    "red_etf": 169.3,
+    "nav": 169.35,
+    "morningstar_us_market_index": 138.0,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-10-15",
+    "red_etf": 171.98,
+    "nav": 171.97,
+    "morningstar_us_market_index": 137.6,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-10-16",
+    "red_etf": 172.64,
+    "nav": 172.66,
+    "morningstar_us_market_index": 137.99,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-10-17",
+    "red_etf": 175.67,
+    "nav": 175.64,
+    "morningstar_us_market_index": 137.95,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-10-18",
+    "red_etf": 174.0,
+    "nav": 174.0,
+    "morningstar_us_market_index": 137.46,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-10-19",
+    "red_etf": 176.76,
+    "nav": 176.76,
+    "morningstar_us_market_index": 137.14,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-10-20",
+    "red_etf": 177.0,
+    "nav": 177.09,
+    "morningstar_us_market_index": 138.23,
+    "premium_discount": 99.95
+  },
+  {
+    "date": "2024-10-21",
+    "red_etf": 176.51,
+    "nav": 176.55,
+    "morningstar_us_market_index": 137.93,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-10-22",
+    "red_etf": 177.74,
+    "nav": 177.76,
+    "morningstar_us_market_index": 139.57,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-10-23",
+    "red_etf": 177.49,
+    "nav": 177.53,
+    "morningstar_us_market_index": 140.18,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-10-24",
+    "red_etf": 178.93,
+    "nav": 178.96,
+    "morningstar_us_market_index": 140.71,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-10-25",
+    "red_etf": 180.87,
+    "nav": 180.89,
+    "morningstar_us_market_index": 141.99,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-10-26",
+    "red_etf": 180.9,
+    "nav": 180.94,
+    "morningstar_us_market_index": 142.23,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-10-27",
+    "red_etf": 179.99,
+    "nav": 179.97,
+    "morningstar_us_market_index": 142.66,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-10-28",
+    "red_etf": 180.3,
+    "nav": 180.3,
+    "morningstar_us_market_index": 143.87,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-10-29",
+    "red_etf": 180.64,
+    "nav": 180.66,
+    "morningstar_us_market_index": 142.81,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-10-30",
+    "red_etf": 181.84,
+    "nav": 181.83,
+    "morningstar_us_market_index": 144.78,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-10-31",
+    "red_etf": 182.43,
+    "nav": 182.49,
+    "morningstar_us_market_index": 145.11,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-11-01",
+    "red_etf": 182.56,
+    "nav": 182.59,
+    "morningstar_us_market_index": 145.47,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-11-02",
+    "red_etf": 183.11,
+    "nav": 183.12,
+    "morningstar_us_market_index": 145.2,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-11-03",
+    "red_etf": 184.96,
+    "nav": 184.96,
+    "morningstar_us_market_index": 144.42,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-11-04",
+    "red_etf": 184.2,
+    "nav": 184.14,
+    "morningstar_us_market_index": 145.57,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-11-05",
+    "red_etf": 183.65,
+    "nav": 183.71,
+    "morningstar_us_market_index": 146.02,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-11-06",
+    "red_etf": 183.83,
+    "nav": 183.9,
+    "morningstar_us_market_index": 145.65,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-11-07",
+    "red_etf": 181.98,
+    "nav": 181.99,
+    "morningstar_us_market_index": 143.84,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-11-08",
+    "red_etf": 181.52,
+    "nav": 181.55,
+    "morningstar_us_market_index": 143.08,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-11-09",
+    "red_etf": 182.15,
+    "nav": 182.1,
+    "morningstar_us_market_index": 142.71,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-11-10",
+    "red_etf": 183.69,
+    "nav": 183.69,
+    "morningstar_us_market_index": 143.38,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-11-11",
+    "red_etf": 186.68,
+    "nav": 186.62,
+    "morningstar_us_market_index": 142.57,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-11-12",
+    "red_etf": 185.93,
+    "nav": 185.94,
+    "morningstar_us_market_index": 142.65,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-11-13",
+    "red_etf": 185.85,
+    "nav": 185.8,
+    "morningstar_us_market_index": 143.06,
+    "premium_discount": 100.03
+  },
+  {
+    "date": "2024-11-14",
+    "red_etf": 188.27,
+    "nav": 188.31,
+    "morningstar_us_market_index": 143.1,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-11-15",
+    "red_etf": 189.07,
+    "nav": 189.09,
+    "morningstar_us_market_index": 143.61,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-11-16",
+    "red_etf": 190.03,
+    "nav": 190.08,
+    "morningstar_us_market_index": 144.28,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-11-17",
+    "red_etf": 190.62,
+    "nav": 190.61,
+    "morningstar_us_market_index": 145.01,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-11-18",
+    "red_etf": 193.1,
+    "nav": 193.17,
+    "morningstar_us_market_index": 144.54,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-11-19",
+    "red_etf": 193.33,
+    "nav": 193.33,
+    "morningstar_us_market_index": 143.41,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-11-20",
+    "red_etf": 192.56,
+    "nav": 192.54,
+    "morningstar_us_market_index": 144.25,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-11-21",
+    "red_etf": 192.16,
+    "nav": 192.15,
+    "morningstar_us_market_index": 142.73,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-11-22",
+    "red_etf": 188.73,
+    "nav": 188.75,
+    "morningstar_us_market_index": 141.49,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-11-23",
+    "red_etf": 190.19,
+    "nav": 190.16,
+    "morningstar_us_market_index": 141.96,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-11-24",
+    "red_etf": 190.41,
+    "nav": 190.36,
+    "morningstar_us_market_index": 142.07,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-11-25",
+    "red_etf": 192.98,
+    "nav": 192.97,
+    "morningstar_us_market_index": 142.93,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-11-26",
+    "red_etf": 193.31,
+    "nav": 193.24,
+    "morningstar_us_market_index": 143.23,
+    "premium_discount": 100.04
+  },
+  {
+    "date": "2024-11-27",
+    "red_etf": 193.22,
+    "nav": 193.18,
+    "morningstar_us_market_index": 142.76,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-11-28",
+    "red_etf": 193.08,
+    "nav": 193.1,
+    "morningstar_us_market_index": 144.41,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-11-29",
+    "red_etf": 192.48,
+    "nav": 192.54,
+    "morningstar_us_market_index": 145.02,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-11-30",
+    "red_etf": 194.2,
+    "nav": 194.17,
+    "morningstar_us_market_index": 145.19,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-12-01",
+    "red_etf": 195.57,
+    "nav": 195.61,
+    "morningstar_us_market_index": 145.65,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-12-02",
+    "red_etf": 196.86,
+    "nav": 196.84,
+    "morningstar_us_market_index": 146.68,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-12-03",
+    "red_etf": 199.23,
+    "nav": 199.31,
+    "morningstar_us_market_index": 146.97,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-12-04",
+    "red_etf": 198.43,
+    "nav": 198.44,
+    "morningstar_us_market_index": 148.62,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-12-05",
+    "red_etf": 197.69,
+    "nav": 197.68,
+    "morningstar_us_market_index": 148.31,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-12-06",
+    "red_etf": 198.66,
+    "nav": 198.64,
+    "morningstar_us_market_index": 148.89,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-12-07",
+    "red_etf": 198.92,
+    "nav": 198.99,
+    "morningstar_us_market_index": 150.93,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-12-08",
+    "red_etf": 199.91,
+    "nav": 199.92,
+    "morningstar_us_market_index": 151.08,
+    "premium_discount": 100.0
+  },
+  {
+    "date": "2024-12-09",
+    "red_etf": 201.19,
+    "nav": 201.18,
+    "morningstar_us_market_index": 150.27,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-12-10",
+    "red_etf": 198.81,
+    "nav": 198.84,
+    "morningstar_us_market_index": 150.75,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-12-11",
+    "red_etf": 198.34,
+    "nav": 198.29,
+    "morningstar_us_market_index": 152.3,
+    "premium_discount": 100.02
+  },
+  {
+    "date": "2024-12-12",
+    "red_etf": 196.31,
+    "nav": 196.36,
+    "morningstar_us_market_index": 152.63,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-12-13",
+    "red_etf": 199.25,
+    "nav": 199.3,
+    "morningstar_us_market_index": 152.33,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-12-14",
+    "red_etf": 199.49,
+    "nav": 199.53,
+    "morningstar_us_market_index": 152.29,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-12-15",
+    "red_etf": 200.83,
+    "nav": 200.89,
+    "morningstar_us_market_index": 150.97,
+    "premium_discount": 99.97
+  },
+  {
+    "date": "2024-12-16",
+    "red_etf": 203.35,
+    "nav": 203.37,
+    "morningstar_us_market_index": 150.53,
+    "premium_discount": 99.99
+  },
+  {
+    "date": "2024-12-17",
+    "red_etf": 204.46,
+    "nav": 204.44,
+    "morningstar_us_market_index": 150.88,
+    "premium_discount": 100.01
+  },
+  {
+    "date": "2024-12-18",
+    "red_etf": 203.67,
+    "nav": 203.71,
+    "morningstar_us_market_index": 150.98,
+    "premium_discount": 99.98
+  },
+  {
+    "date": "2024-12-19",
+    "red_etf": 204.86,
+    "nav": 204.89,
+    "morningstar_us_market_index": 150.77,
+    "premium_discount": 99.98
+  }
+]

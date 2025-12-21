@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research | Diamond Asset Management - Insights & Analysis</title>
+    <title>Blog | RED ETF - Insights & Analysis</title>
     <meta name="description" content="Stay informed with our latest research, market insights, and strategic perspectives on innovation-driven investing.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,101 +25,28 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .disclaimer-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        .disclaimer-modal {
-            background: white;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Disclaimer Overlay -->
-    <div id="disclaimerOverlay" class="disclaimer-overlay">
-        <div class="disclaimer-modal">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">DISCLAIMER & AGREEMENT</h2>
-            <div class="text-sm text-gray-700 leading-relaxed space-y-4 mb-6">
-                <p>
-                    Diamond Asset Management Asset Management ("DAM") is a quantitative investment management firm. As such, we conduct extensive empirical finance research into financial markets, which includes the analysis of "investment factors," such as value, growth, quality, and intangible value.
-                </p>
-                <p>
-                    In the academic tradition, we believe in contributing our ideas to the research community, which includes, among others, academic researchers and investment professionals. In pursuit of this goal, we are making some of our research available in the form of research posts at our website.
-                </p>
-                <p>
-                    However, it is important to note that these research pieces are being provided for educational purposes only. Under no circumstances should they be construed as an offer or solicitation for the purchase or sale of any security. Nor should they be viewed as legal or tax advice or advertisements for DAM's advisory services. To the extent that they refer to investment factors, these should be viewed as purely hypothetical, academic, and non-investible.
-                </p>
-                <p>
-                    Moreover, since these reports do not contain all the necessary information required to make an investment, they should not be used as the basis for any investment decisions. DAM makes no representation or warranty as to the accuracy or completeness of the information, including third-party data sources. References to securities and strategies are for illustrative purposes only and do not constitute buy or sell recommendations.
-                </p>
-                <p>
-                    Finally, to the extent that empirical finance research necessarily relies on studying the hypothetical performance of investment factors through history, it is important that readers be well equipped to evaluate the pitfalls of such "backtested" analysis. Backtested results do not reflect the performance that any investor actually attained, nor are they representative of any actual investment strategy or product, whether managed by DAM or anyone else. Simulated performance may be prepared with the benefit of hindsight and may not incorporate all material factors impacting real-life results. There can be no assurance that hypothetical performance is achievable in practice.
-                </p>
-                <p>
-                    As a result, this content is being prepared only for academic researchers, institutional investors, registered investment advisers, and other financially sophisticated individuals who are able to fully understand the limitations of hypothetical performance and for whom the information provided is relevant to their research or investment interests. Each post contains a detailed disclaimer in the endnotes with important additional disclosures and, if relevant, key assumptions underlying backtested performance.
-                </p>
-                <p class="font-semibold">
-                    To view this content, you must agree to the following terms:
-                </p>
-                <ul class="list-disc list-inside space-y-2 ml-4">
-                    <li>I agree that this research is for educational purposes only</li>
-                    <li>I agree that this research does not constitute an offer or solicitation for the purchase or sale of securities or advisory services</li>
-                    <li>I agree that this research should not be used as the basis for investment decisions</li>
-                    <li>I agree that DAM makes no representation or warranty to the accuracy or completeness of the information</li>
-                    <li>I agree that I am financially sophisticated and understand the risks and limitations of hypothetical performance</li>
-                    <li>I agree to read the full disclaimer and backtest disclosures contained in each paper</li>
-                </ul>
-                <p class="font-semibold">
-                    By clicking "Agree," I certify that I have read, understand, and agree to the above disclaimer and terms.
-                </p>
-            </div>
-            <div class="flex gap-4 justify-end">
-                <button onclick="handleDisclaimerCancel()" class="px-6 py-2 bg-gray-200 text-gray-800 rounded-lg font-medium hover:bg-gray-300 transition-colors">
-                    Cancel
-                </button>
-                <button onclick="handleDisclaimerAgree()" class="px-6 py-2 bg-red-600 text-white rounded-lg font-medium hover:bg-red-700 transition-colors">
-                    Agree and Continue
-                </button>
-            </div>
-        </div>
-    </div>
     <!-- Header -->
-    <header class="bg-white shadow-sm border-b sticky top-0 z-50 relative">
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-6">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <a href="/" class="flex items-center space-x-2">
                         <div class="w-8 h-8 bg-gradient-to-br from-red-600 to-red-800 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xs">DAM</span>
+                            <span class="text-white font-bold text-sm">R</span>
                         </div>
+                        <span class="text-xl font-bold gradient-text">RED ETF</span>
                     </a>
                 </div>
                 <nav class="hidden md:flex space-x-6">
-                    <a href="/" class="text-gray-600 hover:text-red-600 transition-colors">Home</a>
-                    <a href="/#services" class="text-gray-600 hover:text-red-600 transition-colors">Services</a>
-                    <a href="/#fees" class="text-gray-600 hover:text-red-600 transition-colors">Fees</a>
-                    <a href="/section-351.html" class="text-gray-600 hover:text-red-600 transition-colors">Section 351</a>
-                    <a href="/research" class="text-red-600 font-medium">Research</a>
-                    <a href="/red" class="text-gray-600 hover:text-red-600 transition-colors">ETFs</a>
+                    <a href="/#about" class="text-gray-600 hover:text-red-600 transition-colors">About</a>
+                    <a href="/#strategy" class="text-gray-600 hover:text-red-600 transition-colors">Strategy</a>
+                    <a href="/#performance" class="text-gray-600 hover:text-red-600 transition-colors">Performance</a>
+                    <a href="/#blog" class="text-red-600 font-medium">Blog</a>
                 </nav>
             </div>
-            <!-- Small CRS Form link in top right corner -->
-            <a href="/form-crs.html" class="absolute top-2 right-2 text-xs text-gray-500 hover:text-red-600 transition-colors px-2 py-1 hover:underline">Form CRS</a>
         </div>
     </header>
 
@@ -128,7 +55,7 @@
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="fade-in">
                 <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                    Research & Analysis
+                    Insights & Analysis
                 </h1>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                     Stay informed with our latest research, market insights, and strategic perspectives on innovation-driven investing.
@@ -136,12 +63,13 @@
                 <div class="flex flex-wrap justify-center gap-4">
                     <span class="px-4 py-2 bg-red-600 text-white rounded-full text-sm font-medium">Strategy</span>
                     <span class="px-4 py-2 bg-white text-red-600 rounded-full text-sm font-medium">Market Analysis</span>
+                    <span class="px-4 py-2 bg-white text-red-600 rounded-full text-sm font-medium">ESG Insights</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Research Posts -->
+    <!-- Blog Posts -->
     <section class="py-16">
         <div class="max-w-7xl mx-auto px-4">
             <!-- Featured Post -->
@@ -276,18 +204,18 @@
                                 <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
                                     <i data-lucide="leaf" class="w-6 h-6 text-white"></i>
                                 </div>
-                                <p class="text-purple-600 text-sm font-medium">Market</p>
+                                <p class="text-purple-600 text-sm font-medium">ESG</p>
                             </div>
                         </div>
                         <div class="p-6">
                             <div class="flex items-center gap-3 mb-3">
-                                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded">Market</span>
+                                <span class="px-2 py-1 bg-purple-100 text-purple-700 text-xs font-medium rounded">ESG</span>
                             </div>
                             <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">
-                                Market Integration in Innovation-Focused Investing
+                                ESG Integration in Innovation-Focused Investing
                             </h3>
                             <p class="text-gray-600 mb-4 text-sm leading-relaxed">
-                                The intersection of Market factors with innovation metrics in our investment process.
+                                The intersection of environmental, social, and governance factors with innovation metrics in our investment process.
                             </p>
                             <div class="flex items-center justify-between text-sm text-gray-500 mb-4">
                                 <div class="flex items-center gap-1">
@@ -314,20 +242,16 @@
                 <p class="text-red-100 mb-6 max-w-2xl mx-auto">
                     Get the latest insights on innovation-driven investing delivered to your inbox.
                 </p>
-                <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="handleNewsletterSubmit(event)">
+                <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                     <input
                         type="email"
-                        id="newsletterEmail"
-                        name="email"
                         placeholder="Enter your email"
-                        required
                         class="flex-1 px-4 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white/20"
                     />
-                    <button type="submit" class="bg-white text-red-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
+                    <button class="bg-white text-red-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
                         Subscribe
                     </button>
-                </form>
-                <div id="newsletterMessage" class="mt-4 text-sm text-red-100 hidden"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -338,93 +262,26 @@
             <div class="text-center">
                 <div class="flex items-center justify-center space-x-2 mb-4">
                     <div class="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-xs">DAM</span>
+                        <span class="text-white font-bold text-sm">R</span>
                     </div>
+                    <span class="text-xl font-bold">RED ETF</span>
                 </div>
                 <p class="text-gray-400 mb-6">
-                    Diamond Asset Management
+                    Innovation Factor ETF | Diamond & Diamond
                 </p>
                 <div class="flex justify-center space-x-6 text-sm text-gray-400">
                     <a href="/#about" class="hover:text-white transition-colors">About</a>
                     <a href="/#strategy" class="hover:text-white transition-colors">Strategy</a>
                     <a href="/#performance" class="hover:text-white transition-colors">Performance</a>
-                    <a href="/research" class="hover:text-white transition-colors">Research</a>
+                    <a href="/#blog" class="hover:text-white transition-colors">Blog</a>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // Check if user has agreed to disclaimer
-        function checkDisclaimerAgreement() {
-            const agreed = sessionStorage.getItem('researchDisclaimerAgreed');
-            if (!agreed) {
-                document.getElementById('disclaimerOverlay').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.getElementById('disclaimerOverlay').style.display = 'none';
-                document.body.style.overflow = '';
-            }
-        }
-        
-        function handleDisclaimerAgree() {
-            sessionStorage.setItem('researchDisclaimerAgreed', 'true');
-            document.getElementById('disclaimerOverlay').style.display = 'none';
-            document.body.style.overflow = '';
-        }
-        
-        function handleDisclaimerCancel() {
-            window.location.href = '/';
-        }
-        
-        // Check disclaimer on page load
-        checkDisclaimerAgreement();
-        
         // Initialize Lucide icons
         lucide.createIcons();
-        
-        // Newsletter subscription handler
-        async function handleNewsletterSubmit(event) {
-            event.preventDefault();
-            const emailInput = document.getElementById('newsletterEmail');
-            const messageDiv = document.getElementById('newsletterMessage');
-            const email = emailInput.value.trim();
-            
-            if (!email) {
-                return;
-            }
-            
-            try {
-                // Store email in a list (send to server endpoint)
-                const response = await fetch('/api/newsletter-subscribe', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ email: email })
-                });
-                
-                if (response.ok) {
-                    messageDiv.textContent = 'Thank you for subscribing!';
-                    messageDiv.classList.remove('hidden');
-                    messageDiv.classList.add('text-green-200');
-                    emailInput.value = '';
-                } else {
-                    throw new Error('Subscription failed');
-                }
-            } catch (error) {
-                // Fallback: store in localStorage as backup
-                let emails = JSON.parse(localStorage.getItem('newsletterEmails') || '[]');
-                if (!emails.includes(email)) {
-                    emails.push(email);
-                    localStorage.setItem('newsletterEmails', JSON.stringify(emails));
-                }
-                messageDiv.textContent = 'Thank you for subscribing!';
-                messageDiv.classList.remove('hidden');
-                messageDiv.classList.add('text-green-200');
-                emailInput.value = '';
-            }
-        }
     </script>
 </body>
 </html>

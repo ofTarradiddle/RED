@@ -1583,9 +1583,9 @@
                 
                 // Load data from JSON files
                 const [perfResponse, holdingsResponse, metricsResponse] = await Promise.all([
-                    fetch('/red/data/performance_data.json'),
-                    fetch('/red/data/holdings_data.json'),
-                    fetch('/red/data/metrics.json')
+                    fetch('/etfs/redi/data/performance_data.json'),
+                    fetch('/etfs/redi/data/holdings_data.json'),
+                    fetch('/etfs/redi/data/metrics.json')
                 ]);
                 
                 if (!perfResponse.ok || !holdingsResponse.ok || !metricsResponse.ok) {
