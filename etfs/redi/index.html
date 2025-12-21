@@ -440,19 +440,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-wrap gap-2 items-center">
                 <span class="text-sm font-medium text-gray-700 mr-2">Quick Access:</span>
-                <a href="#" class="flex items-center px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-md transition-colors group border border-red-200">
+                <a href="document-placeholder.html?doc=fact-sheet" class="flex items-center px-3 py-1.5 bg-red-50 hover:bg-red-100 rounded-md transition-colors group border border-red-200">
                     <i data-lucide="file-text" class="h-3 w-3 text-red-600 mr-1.5"></i>
                     <span class="text-xs font-medium text-gray-900 group-hover:text-red-800">Fact Sheet</span>
                 </a>
-                <a href="#documents" class="flex items-center px-3 py-1.5 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors group border border-blue-200">
+                <a href="document-placeholder.html?doc=summary-prospectus" class="flex items-center px-3 py-1.5 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors group border border-blue-200">
                     <i data-lucide="file-text" class="h-3 w-3 text-blue-600 mr-1.5"></i>
                     <span class="text-xs font-medium text-gray-900 group-hover:text-blue-800">Summary Prospectus</span>
                 </a>
-                <a href="#documents" class="flex items-center px-3 py-1.5 bg-green-50 hover:bg-green-100 rounded-md transition-colors group border border-green-200">
+                <a href="document-placeholder.html?doc=sai" class="flex items-center px-3 py-1.5 bg-green-50 hover:bg-green-100 rounded-md transition-colors group border border-green-200">
                     <i data-lucide="file-text" class="h-3 w-3 text-green-600 mr-1.5"></i>
                     <span class="text-xs font-medium text-gray-900 group-hover:text-green-800">SAI</span>
                 </a>
-                <a href="#documents" class="flex items-center px-3 py-1.5 bg-orange-50 hover:bg-orange-100 rounded-md transition-colors group border border-orange-200">
+                <a href="document-placeholder.html?doc=investment-case" class="flex items-center px-3 py-1.5 bg-orange-50 hover:bg-orange-100 rounded-md transition-colors group border border-orange-200">
                     <i data-lucide="trending-up" class="h-3 w-3 text-orange-600 mr-1.5"></i>
                     <span class="text-xs font-medium text-gray-900 group-hover:text-orange-800">Investment Case</span>
                 </a>
@@ -1117,7 +1117,7 @@
             
             <!-- Holdings Links -->
             <div class="flex flex-wrap gap-4 items-center">
-                <a href="#" class="flex items-center px-4 py-2 bg-red-50 hover:bg-red-100 rounded-lg transition-colors group border border-red-200">
+                <a href="#" onclick="downloadHoldingsCSV(); return false;" class="flex items-center px-4 py-2 bg-red-50 hover:bg-red-100 rounded-lg transition-colors group border border-red-200">
                     <i data-lucide="download" class="h-4 w-4 text-red-600 mr-2"></i>
                     <span class="font-medium text-gray-900 group-hover:text-red-800"><strong>Download Complete Holdings</strong></span>
                 </a>
@@ -1154,7 +1154,7 @@
             <div class="cambria-card p-6 mb-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Documents</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=summary-prospectus" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Summary Prospectus</strong></div>
                             <div class="text-xs text-gray-500">Key fund information</div>
@@ -1165,7 +1165,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=statutory-prospectus" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Statutory Prospectus</strong></div>
                             <div class="text-xs text-gray-500">Complete fund details</div>
@@ -1176,7 +1176,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=sai" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>SAI</strong></div>
                             <div class="text-xs text-gray-500">Statement of Additional Information</div>
@@ -1187,7 +1187,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=investment-case" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Investment Case</strong></div>
                             <div class="text-xs text-gray-500">Investment thesis and analysis</div>
@@ -1198,7 +1198,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=part-f-q1" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Part F Q1</strong></div>
                             <div class="text-xs text-gray-500">Quarter 1 filing</div>
@@ -1209,7 +1209,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=part-f-q3" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Part F Q3</strong></div>
                             <div class="text-xs text-gray-500">Quarter 3 filing</div>
@@ -1220,7 +1220,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=semi-annual-financials" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Semi-Annual Financials</strong></div>
                             <div class="text-xs text-gray-500">6-month financial statements</div>
@@ -1231,7 +1231,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=semi-annual-schedule" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Semi-Annual Schedule of Investments</strong></div>
                             <div class="text-xs text-gray-500">Portfolio holdings detail</div>
@@ -1242,7 +1242,7 @@
                         </div>
                     </a>
                     
-                    <a href="#" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                    <a href="document-placeholder.html?doc=semi-annual-tsr" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
                         <div>
                             <div class="font-medium text-gray-900 group-hover:text-red-800"><strong>Semi-Annual Tailored Shareholder Report</strong></div>
                             <div class="text-xs text-gray-500">Shareholder communication</div>
@@ -1261,7 +1261,7 @@
                 <div class="cambria-card p-5">
                     <h3 class="text-lg font-semibold text-gray-900 mb-3">XBRL Filings</h3>
                     <div class="space-y-2">
-                        <a href="#" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
+                        <a href="document-placeholder.html?doc=registration-statement" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
                             <div>
                                 <div class="font-medium text-gray-900 group-hover:text-blue-800"><strong>Registration Statement</strong></div>
                                 <div class="text-xs text-gray-500">Machine-readable data</div>
@@ -1272,7 +1272,7 @@
                             </div>
                         </a>
                         
-                        <a href="#" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
+                        <a href="document-placeholder.html?doc=prospectus-supplement" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
                             <div>
                                 <div class="font-medium text-gray-900 group-hover:text-blue-800"><strong>Prospectus Supplement</strong></div>
                                 <div class="text-xs text-gray-500">Supplemental data</div>
@@ -1289,7 +1289,7 @@
                 <div class="cambria-card p-5">
                     <h3 class="text-lg font-semibold text-gray-900 mb-3">N-PX Files</h3>
                     <div class="space-y-2">
-                        <a href="#" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
+                        <a href="document-placeholder.html?doc=voting-record" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
                             <div>
                                 <div class="font-medium text-gray-900 group-hover:text-green-800"><strong>Voting Record</strong></div>
                                 <div class="text-xs text-gray-500">Proxy voting history</div>
@@ -1300,7 +1300,7 @@
                             </div>
                         </a>
                         
-                        <a href="#" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
+                        <a href="document-placeholder.html?doc=historical-records" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
                             <div>
                                 <div class="font-medium text-gray-900 group-hover:text-green-800"><strong>Historical Records</strong></div>
                                 <div class="text-xs text-gray-500">Past voting data</div>
@@ -3041,6 +3041,56 @@
             
         }
 
+
+        // Download holdings as CSV
+        async function downloadHoldingsCSV() {
+            try {
+                const response = await fetch('/etfs/redi/data/holdings_data.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load holdings data');
+                }
+                const holdings = await response.json();
+                
+                // Get metrics for date
+                const metricsResponse = await fetch('/etfs/redi/data/metrics.json');
+                let date = new Date().toLocaleDateString();
+                if (metricsResponse.ok) {
+                    const metrics = await metricsResponse.json();
+                    if (metrics.latest_date) {
+                        date = metrics.latest_date;
+                    }
+                }
+                
+                // Create CSV content
+                const headers = ['Ticker', 'Company Name', 'Sector', 'Allocation %', 'Country'];
+                const csvRows = [headers.join(',')];
+                
+                holdings.forEach(holding => {
+                    const row = [
+                        holding.ticker || '',
+                        `"${(holding.name || '').replace(/"/g, '""')}"`,
+                        holding.sector || '',
+                        (holding.weight || 0).toFixed(2),
+                        holding.country || 'USA'
+                    ];
+                    csvRows.push(row.join(','));
+                });
+                
+                const csvContent = csvRows.join('\n');
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', `REDI_ETF_Holdings_${date.replace(/-/g, '')}.csv`);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } catch (error) {
+                console.error('Error downloading holdings:', error);
+                alert('Failed to download holdings. Please try again.');
+            }
+        }
 
         // Helper function to update annual return cell
         function updateAnnualReturnCell(elementId, value) {

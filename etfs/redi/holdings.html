@@ -266,10 +266,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="cambria-card overflow-hidden">
                 <div class="p-6 border-b border-gray-200">
-                    <div class="flex justify-between items-center">
+                    <div class="flex justify-between items-center flex-wrap gap-4">
                         <h2 class="text-xl font-semibold text-gray-900">Complete Holdings</h2>
-                        <div class="text-sm text-gray-500">
-                            Data as of <span id="holdings-date">--</span>
+                        <div class="flex items-center gap-4">
+                            <button onclick="downloadHoldingsCSV()" class="flex items-center px-4 py-2 bg-red-50 hover:bg-red-100 rounded-lg transition-colors border border-red-200 text-red-800 font-medium text-sm">
+                                <i data-lucide="download" class="h-4 w-4 mr-2"></i>
+                                Download CSV
+                            </button>
+                            <div class="text-sm text-gray-500">
+                                Data as of <span id="holdings-date">--</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -600,6 +606,51 @@
             
             sectorFilter.innerHTML = '<option value="">All Sectors</option>' +
                 sectors.map(sector => `<option value="${sector}">${sector}</option>`).join('');
+        }
+
+        // Download holdings as CSV
+        function downloadHoldingsCSV() {
+            if (!holdingsData || holdingsData.length === 0) {
+                alert('Holdings data not loaded yet. Please wait and try again.');
+                return;
+            }
+            
+            try {
+                // Get current date
+                const date = new Date().toISOString().split('T')[0].replace(/-/g, '');
+                
+                // Create CSV content
+                const headers = ['Ticker', 'Company Name', 'Sector', 'CUSIP', 'Allocation %', 'Shares Held', 'Price', 'Market Value'];
+                const csvRows = [headers.join(',')];
+                
+                filteredData.forEach(holding => {
+                    const row = [
+                        holding.ticker || '',
+                        `"${(holding.name || '').replace(/"/g, '""')}"`,
+                        holding.sector || '',
+                        holding.cusip || '',
+                        (holding.allocation || 0).toFixed(2),
+                        (holding.shares || 0).toString(),
+                        (holding.price || 0).toFixed(2),
+                        (holding.market_value || 0).toFixed(2)
+                    ];
+                    csvRows.push(row.join(','));
+                });
+                
+                const csvContent = csvRows.join('\n');
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                link.setAttribute('href', url);
+                link.setAttribute('download', `REDI_ETF_Holdings_${date}.csv`);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            } catch (error) {
+                console.error('Error downloading holdings:', error);
+                alert('Failed to download holdings. Please try again.');
+            }
         }
 
         // Sort table function (for header clicks)
