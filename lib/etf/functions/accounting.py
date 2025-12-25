@@ -86,17 +86,20 @@ class Accounting:
         >>> results = accounting.daily_accounting_operations(date.today(), nav_data)
     """
     
-    def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/accounting"):
+    def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/accounting",
+                 audit_trail=None):
         """
         Initialize Accounting system.
         
         Args:
             data_adapter: DataSourceAdapter for fetching accounting data
             storage_path: Path for storing accounting data files
+            audit_trail: Optional AuditTrailManager for audit logging
         """
         self.data_adapter = data_adapter
         self.storage_path = Path(storage_path)
         self.storage_path.mkdir(parents=True, exist_ok=True)
+        self.audit_trail = audit_trail
         self.general_ledger: Dict[str, GeneralLedger] = {}
         self.journal_entries: List[AccountingEntry] = []
         self.load_ledger()
@@ -280,6 +283,33 @@ class Accounting:
         
         self.journal_entries.extend(journal_entries)
         self.save_ledger()
+        
+        # Log to audit trail
+        if self.audit_trail:
+            self.audit_trail.log_operation(
+                record_type="journal_entry",
+                record_date=entry_date,
+                operation=f"Journal entry: {description}",
+                data={
+                    "entry_id": entry_id,
+                    "description": description,
+                    "reference": reference,
+                    "entries": [
+                        {
+                            "account": e.account,
+                            "account_name": self.general_ledger.get(e.account, GeneralLedger(e.account, "", "asset", Decimal('0'))).account_name,
+                            "debit": str(e.debit),
+                            "credit": str(e.credit),
+                            "description": e.description
+                        }
+                        for e in journal_entries
+                    ],
+                    "total_debits": str(total_debits),
+                    "total_credits": str(total_credits),
+                    "balanced": total_debits == total_credits
+                },
+                related_records=[entry_id]
+            )
         
         logger.info(f"Created journal entry with {len(journal_entries)} line items")
         return journal_entries
@@ -560,7 +590,18 @@ class Accounting:
             accounting_data = self.data_adapter.get_accounting_data(operation_date)
             
             # Record NAV entries
-            results["nav_entries"] = self.record_nav_entries(operation_date, nav_calculation)
+            # Handle both dict and NAVCalculation dataclass
+            if hasattr(nav_calculation, 'total_assets'):
+                # It's a NAVCalculation dataclass
+                nav_data = {
+                    "total_assets": str(nav_calculation.total_assets),
+                    "total_liabilities": str(nav_calculation.total_liabilities),
+                    "net_assets": str(nav_calculation.net_assets)
+                }
+            else:
+                # It's a dict
+                nav_data = nav_calculation
+            results["nav_entries"] = self.record_nav_entries(operation_date, nav_data)
             
             # Record expense accruals
             expense_data = accounting_data.get('expenses', {})

@@ -1,0 +1,206 @@
+{
+  "open_lots": [
+    {
+      "lot_id": "LOT_AMZN_2024-01-01_0",
+      "ticker": "AMZN",
+      "cusip": "023135106",
+      "quantity": "11923",
+      "cost_basis": "209.105996704101558",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "11923"
+    },
+    {
+      "lot_id": "LOT_GOOGL_2024-01-01_1",
+      "ticker": "GOOGL",
+      "cusip": "02079K305",
+      "quantity": "4952",
+      "cost_basis": "283.13099670410154",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4952"
+    },
+    {
+      "lot_id": "LOT_GOOG_2024-01-01_2",
+      "ticker": "GOOG",
+      "cusip": "02079K107",
+      "quantity": "4948",
+      "cost_basis": "284.40",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4948"
+    },
+    {
+      "lot_id": "LOT_IBM_2024-01-01_3",
+      "ticker": "IBM",
+      "cusip": "459200101",
+      "quantity": "4333",
+      "cost_basis": "272.5784912109375",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4333"
+    },
+    {
+      "lot_id": "LOT_CSCO_2024-01-01_4",
+      "ticker": "CSCO",
+      "cusip": "17275R102",
+      "quantity": "14709",
+      "cost_basis": "69.99750137329101",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "14709"
+    },
+    {
+      "lot_id": "LOT_AMZN_2024-01-01_5",
+      "ticker": "AMZN",
+      "cusip": "023135106",
+      "quantity": "11923",
+      "cost_basis": "209.078997802734375",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "11923"
+    },
+    {
+      "lot_id": "LOT_GOOGL_2024-01-01_6",
+      "ticker": "GOOGL",
+      "cusip": "02079K305",
+      "quantity": "4952",
+      "cost_basis": "283.207489013671875",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4952"
+    },
+    {
+      "lot_id": "LOT_GOOG_2024-01-01_7",
+      "ticker": "GOOG",
+      "cusip": "02079K107",
+      "quantity": "4948",
+      "cost_basis": "284.463006591796875",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4948"
+    },
+    {
+      "lot_id": "LOT_IBM_2024-01-01_8",
+      "ticker": "IBM",
+      "cusip": "459200101",
+      "quantity": "4333",
+      "cost_basis": "272.4840087890625",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4333"
+    },
+    {
+      "lot_id": "LOT_CSCO_2024-01-01_9",
+      "ticker": "CSCO",
+      "cusip": "17275R102",
+      "quantity": "14709",
+      "cost_basis": "69.979497528076173",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "14709"
+    },
+    {
+      "lot_id": "LOT_AMZN_2024-01-01_10",
+      "ticker": "AMZN",
+      "cusip": "023135106",
+      "quantity": "11923",
+      "cost_basis": "209.07909393310548",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "11923"
+    },
+    {
+      "lot_id": "LOT_GOOGL_2024-01-01_11",
+      "ticker": "GOOGL",
+      "cusip": "02079K305",
+      "quantity": "4952",
+      "cost_basis": "283.14898681640625",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4952"
+    },
+    {
+      "lot_id": "LOT_GOOG_2024-01-01_12",
+      "ticker": "GOOG",
+      "cusip": "02079K107",
+      "quantity": "4948",
+      "cost_basis": "284.42529602050779",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4948"
+    },
+    {
+      "lot_id": "LOT_IBM_2024-01-01_13",
+      "ticker": "IBM",
+      "cusip": "459200101",
+      "quantity": "4333",
+      "cost_basis": "272.64825439453125",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4333"
+    },
+    {
+      "lot_id": "LOT_CSCO_2024-01-01_14",
+      "ticker": "CSCO",
+      "cusip": "17275R102",
+      "quantity": "14709",
+      "cost_basis": "69.979497528076173",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "14709"
+    },
+    {
+      "lot_id": "LOT_AMZN_2024-01-01_15",
+      "ticker": "AMZN",
+      "cusip": "023135106",
+      "quantity": "11923",
+      "cost_basis": "208.899000549316404",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "11923"
+    },
+    {
+      "lot_id": "LOT_GOOGL_2024-01-01_16",
+      "ticker": "GOOGL",
+      "cusip": "02079K305",
+      "quantity": "4952",
+      "cost_basis": "283.319989013671875",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4952"
+    },
+    {
+      "lot_id": "LOT_GOOG_2024-01-01_17",
+      "ticker": "GOOG",
+      "cusip": "02079K107",
+      "quantity": "4948",
+      "cost_basis": "284.571002197265625",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4948"
+    },
+    {
+      "lot_id": "LOT_IBM_2024-01-01_18",
+      "ticker": "IBM",
+      "cusip": "459200101",
+      "quantity": "4333",
+      "cost_basis": "272.56050109863279",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "4333"
+    },
+    {
+      "lot_id": "LOT_CSCO_2024-01-01_19",
+      "ticker": "CSCO",
+      "cusip": "17275R102",
+      "quantity": "14709",
+      "cost_basis": "69.934501647949221",
+      "purchase_date": "2024-01-01",
+      "sold_date": null,
+      "original_quantity": "14709"
+    }
+  ],
+  "closed_lots": [],
+  "realized_gains": []
+}

@@ -1,0 +1,8 @@
+{
+  "date": "2025-12-22",
+  "status": "exception",
+  "exceptions": [
+    "Cash difference: Portfolio=0, Custodian=50000, Diff=-50000"
+  ],
+  "cash_difference": "-50000"
+}

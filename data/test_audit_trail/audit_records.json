@@ -1,0 +1,100 @@
+[
+  {
+    "record_id": "nav_calculation_2025-12-24_0",
+    "record_type": "nav_calculation",
+    "record_date": "2025-12-24",
+    "operation": "Daily NAV calculation",
+    "data": {
+      "date": "2025-12-24",
+      "total_assets": "500.00000000000000",
+      "total_liabilities": "0.00000",
+      "net_assets": "500.00000000000000",
+      "shares_outstanding": "0.0",
+      "nav_per_share": "0",
+      "pricing_exceptions": [
+        "Shares outstanding is zero - cannot calculate NAV"
+      ],
+      "validation_passed": false,
+      "holdings": [
+        {
+          "cusip": "023135106",
+          "ticker": "AMZN",
+          "quantity": "0",
+          "price": "232.3800048828125",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "02079K305",
+          "ticker": "GOOGL",
+          "quantity": "0",
+          "price": "314.0899963378906",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "02079K107",
+          "ticker": "GOOG",
+          "quantity": "0",
+          "price": "315.6700134277344",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "459200101",
+          "ticker": "IBM",
+          "quantity": "0",
+          "price": "304.55999755859375",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "17275R102",
+          "ticker": "CSCO",
+          "quantity": "0",
+          "price": "78.0199966430664",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "79466L302",
+          "ticker": "CRM",
+          "quantity": "0",
+          "price": "265.260009765625",
+          "market_value": "0E-12"
+        },
+        {
+          "cusip": "747525103",
+          "ticker": "QCOM",
+          "quantity": "0",
+          "price": "174.77000427246094",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "G1151C101",
+          "ticker": "ACN",
+          "quantity": "0",
+          "price": "269.9800109863281",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "194162103",
+          "ticker": "COF",
+          "quantity": "0",
+          "price": "248.27000427246094",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "00206R102",
+          "ticker": "T",
+          "quantity": "0",
+          "price": "24.65999984741211",
+          "market_value": "0E-14"
+        }
+      ],
+      "cash_balance": "0",
+      "accrued_income": "500",
+      "accrued_expenses": "0",
+      "total_securities_value": "0"
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:23:40.825401",
+    "related_records": []
+  }
+]

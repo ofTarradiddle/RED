@@ -38,6 +38,7 @@ class Distributor:
         self.storage_path = Path(storage_path)
         self.storage_path.mkdir(parents=True, exist_ok=True)
         self.distributions: List[DistributionRecord] = []
+        self.max_distributions_per_year = 12  # Limited to twelve per requirements
         self.load_distributions()
     
     def load_distributions(self):
@@ -91,9 +92,31 @@ class Distributor:
             logger.error(f"Error saving distributions: {e}")
     
     def calculate_distribution(self, dist_date: date, distribution_type: str, 
-                             nav_data: Dict[str, Any]) -> DistributionRecord:
-        """Calculate distribution amount"""
-        logger.info(f"Calculating {distribution_type} distribution for {dist_date}")
+                             nav_data: Dict[str, Any], payout_ratio: Decimal = Decimal('1.0'),
+                             ledger_data: Optional[Dict[str, Any]] = None) -> DistributionRecord:
+        """
+        Calculate distribution amount with payout ratio support.
+        
+        As a regulated investment company (RIC), the fund must distribute substantially all
+        of its income to avoid corporate taxation. Typically, ETFs distribute dividends quarterly.
+        This function computes the distribution amount and can apply a payout ratio (e.g., 0.95
+        for 95% distribution, retaining 5% which may be subject to excise tax).
+        
+        References:
+        - Freeman Law: RIC Distribution Requirements
+        - IRS Form 8613: Excise Tax on Undistributed Income
+        
+        Args:
+            dist_date: Distribution date
+            distribution_type: Type of distribution ("dividend", "capital_gains", "return_of_capital")
+            nav_data: Dictionary with NAV data including shares_outstanding
+            payout_ratio: Ratio of income to distribute (default 1.0 = 100%)
+            ledger_data: Optional ledger data with income balances
+            
+        Returns:
+            DistributionRecord object
+        """
+        logger.info(f"Calculating {distribution_type} distribution for {dist_date} with payout ratio {payout_ratio}")
         
         try:
             distribution_data = self.data_adapter.get_distribution_data(dist_date)
@@ -103,10 +126,20 @@ class Distributor:
         
         shares_outstanding = Decimal(str(nav_data.get('shares_outstanding', 0)))
         
+        # Calculate base distribution amount
         if distribution_type == "dividend":
-            amount_per_share = Decimal(str(distribution_data.get('dividend_per_share', 0)))
+            # If ledger data provided, use accumulated dividend income
+            if ledger_data and 'Dividend Income' in ledger_data:
+                available_income = -Decimal(str(ledger_data.get('Dividend Income', 0)))  # credit balance as positive
+                if available_income < 0:
+                    available_income = Decimal('0')
+                # Apply payout ratio
+                distribute_amount_total = available_income * payout_ratio
+                amount_per_share = distribute_amount_total / shares_outstanding if shares_outstanding > 0 else Decimal('0')
+            else:
+                amount_per_share = Decimal(str(distribution_data.get('dividend_per_share', 0))) * payout_ratio
         elif distribution_type == "capital_gains":
-            amount_per_share = Decimal(str(distribution_data.get('capital_gains_per_share', 0)))
+            amount_per_share = Decimal(str(distribution_data.get('capital_gains_per_share', 0))) * payout_ratio
         elif distribution_type == "return_of_capital":
             amount_per_share = Decimal(str(distribution_data.get('roc_per_share', 0)))
         else:
@@ -118,6 +151,14 @@ class Distributor:
         record_date = dist_date
         ex_date = dist_date
         pay_date = dist_date + timedelta(days=2)
+        
+        # Check distribution limit (12 per year)
+        year_distributions = [d for d in self.distributions if d.record_date.year == dist_date.year]
+        if len(year_distributions) >= self.max_distributions_per_year:
+            raise ValueError(
+                f"Maximum distributions per year ({self.max_distributions_per_year}) reached for {dist_date.year}. "
+                f"Additional estimates must be negotiated ad-hoc."
+            )
         
         distribution_id = f"DIST_{distribution_type.upper()}_{dist_date.isoformat()}"
         
@@ -136,7 +177,7 @@ class Distributor:
         self.distributions.append(distribution)
         self.save_distributions()
         
-        logger.info(f"Distribution calculated: ${amount_per_share} per share, Total: ${total_amount}")
+        logger.info(f"Distribution calculated: ${amount_per_share} per share, Total: ${total_amount} (payout ratio: {payout_ratio})")
         return distribution
     
     def declare_distribution(self, distribution: DistributionRecord) -> Dict[str, Any]:

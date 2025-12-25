@@ -164,6 +164,73 @@ class TaxReporting:
         logger.warning("1099-DIV generation partially implemented - needs full IRS format")
         return form
     
+    def generate_1099_misc(self, tax_year: int, shareholder: ShareholderRecord,
+                           misc_income: Dict[str, Decimal]) -> TaxForm1099:
+        """
+        Generate Form 1099-MISC for shareholder
+        
+        Form 1099-MISC reports miscellaneous income (rents, royalties, etc.)
+        that may be applicable to certain fund structures.
+        
+        Args:
+            tax_year: Tax year
+            shareholder: ShareholderRecord
+            misc_income: Dictionary with miscellaneous income amounts
+                {
+                    "rents": Decimal,
+                    "royalties": Decimal,
+                    "other_income": Decimal,
+                    "federal_income_tax_withheld": Decimal
+                }
+            
+        Returns:
+            TaxForm1099 object
+            
+        TODO: Implement full 1099-MISC generation per IRS requirements
+        """
+        logger.info(f"Generating 1099-MISC for {shareholder.account_number} for tax year {tax_year}")
+        
+        total_misc = (
+            misc_income.get("rents", Decimal('0')) +
+            misc_income.get("royalties", Decimal('0')) +
+            misc_income.get("other_income", Decimal('0'))
+        )
+        
+        form = TaxForm1099(
+            form_type="1099-MISC",
+            tax_year=tax_year,
+            shareholder_account=shareholder.account_number,
+            shareholder_name=shareholder.shareholder_name,
+            tax_id=shareholder.tax_id or "",
+            distributions=total_misc,
+            dividends=Decimal('0'),
+            capital_gains=Decimal('0'),
+            return_of_capital=Decimal('0'),
+            interest=misc_income.get("rents", Decimal('0')) + misc_income.get("royalties", Decimal('0')),
+            proceeds=Decimal('0'),
+            cost_basis=Decimal('0')
+        )
+        
+        # Save form
+        form_file = self.storage_path / f"1099misc_{shareholder.account_number}_{tax_year}.json"
+        form.file_path = str(form_file)
+        with open(form_file, 'w') as f:
+            json.dump({
+                "form_type": form.form_type,
+                "tax_year": form.tax_year,
+                "shareholder_account": form.shareholder_account,
+                "shareholder_name": form.shareholder_name,
+                "tax_id": form.tax_id,
+                "rents": str(misc_income.get("rents", Decimal('0'))),
+                "royalties": str(misc_income.get("royalties", Decimal('0'))),
+                "other_income": str(misc_income.get("other_income", Decimal('0'))),
+                "federal_income_tax_withheld": str(misc_income.get("federal_income_tax_withheld", Decimal('0')))
+            }, f, indent=2)
+        
+        self.forms.append(form)
+        logger.info(f"Generated 1099-MISC for {shareholder.account_number}")
+        return form
+    
     def generate_1099_b(self, tax_year: int, shareholder: ShareholderRecord,
                        transactions: List[Dict[str, Any]]) -> TaxForm1099:
         """
@@ -347,56 +414,178 @@ class TaxReporting:
         logger.warning("IRS electronic filing not fully implemented - see TODO")
         return result
     
-    def generate_tax_return_form_1120_ric(self, tax_year: int) -> Dict[str, Any]:
+    def generate_tax_return_form_1120_ric(self, tax_year: int, ledger_data: Dict[str, Any],
+                                         taxlot_manager: Any, distributions: List[Dict[str, Any]]) -> Dict[str, Any]:
         """
         Generate Form 1120-RIC (Regulated Investment Company Tax Return)
         
         This is the fund's tax return, not individual shareholder returns.
+        A RIC (mutual fund/ETF) generally is not subject to corporate income tax to the extent
+        it distributes its income and gains to shareholders.
+        
+        References:
+        - IRS Form 1120-RIC Instructions
+        - Freeman Law: RIC Tax Treatment
         
         Args:
             tax_year: Tax year
+            ledger_data: Dictionary with ledger balances and income data
+            taxlot_manager: TaxLotManager instance for realized gains data
+            distributions: List of distribution records for the tax year
             
         Returns:
-            Dictionary with tax return data
-            
-        TODO: Implement full Form 1120-RIC generation
+            Dictionary with Form 1120-RIC data
         """
         logger.info(f"Generating Form 1120-RIC for tax year {tax_year}")
         
-        # ============================================================================
-        # TODO: IMPLEMENT FORM 1120-RIC GENERATION
-        # ============================================================================
-        # Form 1120-RIC requires:
-        # - Fund information
-        # - Income statement
-        # - Balance sheet
-        # - Distribution deductions
-        # - Tax calculations
-        # - Schedule M-1 (reconciliation)
-        #
-        # Steps:
-        # 1. Get financial statements for tax year
-        # 2. Calculate taxable income
-        # 3. Calculate distribution deductions
-        # 4. Calculate tax liability
-        # 5. Format according to IRS Form 1120-RIC
-        # 6. Save return
-        # ============================================================================
+        # Gather needed values from ledger
+        # Total ordinary income (dividends, interest) earned
+        total_income = -Decimal(str(ledger_data.get('Dividend Income', 0)))  # credit balance as positive income
+        if total_income < 0:
+            total_income = Decimal('0')
+        
+        # Total realized capital gains from tax lot manager
+        realized_gains_summary = taxlot_manager.get_realized_gains_summary(
+            start_date=date(tax_year, 1, 1),
+            end_date=date(tax_year, 12, 31)
+        )
+        
+        realized_long_gain = Decimal(str(realized_gains_summary.get('net_long_term', 0)))
+        realized_short_gain = Decimal(str(realized_gains_summary.get('net_short_term', 0)))
+        
+        if realized_long_gain < 0:
+            realized_long_gain = Decimal('0')
+        if realized_short_gain < 0:
+            realized_short_gain = Decimal('0')
+        
+        # Amounts distributed to shareholders
+        total_distributed_income = Decimal('0')
+        total_distributed_cap_gain = Decimal('0')
+        
+        for dist in distributions:
+            if dist.get('distribution_type') == 'dividend':
+                total_distributed_income += Decimal(str(dist.get('total_amount', 0)))
+            elif dist.get('distribution_type') == 'capital_gains':
+                total_distributed_cap_gain += Decimal(str(dist.get('total_amount', 0)))
+        
+        # Form 1120-RIC calculations
+        # Investment company taxable income (ordinary income + short-term gains)
+        icti = total_income + realized_short_gain
+        
+        # Deduction for dividends paid (ordinary + short-term distributed)
+        dividends_deductible = total_distributed_income  # assuming distributions cover ordinary + any short-term gains
+        
+        taxable_income = icti - dividends_deductible
+        if taxable_income < 0:
+            taxable_income = Decimal('0')
+        
+        # Corporate tax rate (default 21%)
+        corporate_rate = Decimal('0.21')
+        corporate_tax = taxable_income * corporate_rate
         
         form_1120_ric = {
             "form_type": "1120-RIC",
             "tax_year": tax_year,
             "status": "draft",
-            "data": {
-                # TODO: Add all required Form 1120-RIC fields
-            }
+            "investment_company_taxable_income": str(icti),
+            "dividends_paid_deduction": str(dividends_deductible),
+            "taxable_income_after_deduction": str(taxable_income),
+            "regular_corporate_tax_rate": str(corporate_rate),
+            "corporate_tax_due": str(corporate_tax),
+            "realized_long_term_gains": str(realized_long_gain),
+            "realized_short_term_gains": str(realized_short_gain),
+            "total_income": str(total_income),
+            "total_distributed_income": str(total_distributed_income),
+            "total_distributed_capital_gains": str(total_distributed_cap_gain)
         }
         
-        # Save draft
+        # Save form
         form_file = self.storage_path / f"form_1120ric_{tax_year}.json"
         with open(form_file, 'w') as f:
             json.dump(form_1120_ric, f, indent=2)
         
-        logger.warning("Form 1120-RIC generation not fully implemented - see TODO")
+        logger.info(f"Form 1120-RIC generated: Taxable income=${taxable_income}, Tax due=${corporate_tax}")
         return form_1120_ric
+    
+    def generate_form_8613(self, tax_year: int, ledger_data: Dict[str, Any],
+                           taxlot_manager: Any, distributions: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Generate Form 8613 (Excise Tax Return for Regulated Investment Companies)
+        
+        RICs must pay a 4% excise tax on any income not distributed by year-end.
+        98% of ordinary income and 98.2% of capital gains must be distributed.
+        
+        References:
+        - IRS Form 8613 Instructions
+        - IRS Publication 542: Corporations
+        
+        Args:
+            tax_year: Tax year
+            ledger_data: Dictionary with ledger balances and income data
+            taxlot_manager: TaxLotManager instance for realized gains data
+            distributions: List of distribution records for the tax year
+            
+        Returns:
+            Dictionary with Form 8613 data
+        """
+        logger.info(f"Generating Form 8613 for tax year {tax_year}")
+        
+        # Get income and gains
+        total_income = -Decimal(str(ledger_data.get('Dividend Income', 0)))
+        if total_income < 0:
+            total_income = Decimal('0')
+        
+        realized_gains_summary = taxlot_manager.get_realized_gains_summary(
+            start_date=date(tax_year, 1, 1),
+            end_date=date(tax_year, 12, 31)
+        )
+        
+        realized_long_gain = Decimal(str(realized_gains_summary.get('net_long_term', 0)))
+        if realized_long_gain < 0:
+            realized_long_gain = Decimal('0')
+        
+        # Required distributions: 98% of ordinary income, 98.2% of capital gains
+        required_dist_income = Decimal('0.98') * total_income
+        required_dist_capgain = Decimal('0.982') * realized_long_gain
+        required_total = required_dist_income + required_dist_capgain
+        
+        # Actual distributions
+        total_distributed_income = Decimal('0')
+        total_distributed_cap_gain = Decimal('0')
+        
+        for dist in distributions:
+            if dist.get('distribution_type') == 'dividend':
+                total_distributed_income += Decimal(str(dist.get('total_amount', 0)))
+            elif dist.get('distribution_type') == 'capital_gains':
+                total_distributed_cap_gain += Decimal(str(dist.get('total_amount', 0)))
+        
+        actual_total_dist = total_distributed_income + total_distributed_cap_gain
+        
+        # Calculate shortfall
+        shortfall = required_total - actual_total_dist if required_total > actual_total_dist else Decimal('0')
+        
+        # Excise tax rate is 4%
+        excise_rate = Decimal('0.04')
+        excise_tax = shortfall * excise_rate
+        
+        form_8613 = {
+            "form_type": "8613",
+            "calendar_year": tax_year,
+            "ordinary_income_required_distribution": str(required_dist_income),
+            "capital_gain_required_distribution": str(required_dist_capgain),
+            "total_required_distribution": str(required_total),
+            "actual_distribution": str(actual_total_dist),
+            "undistributed_amount": str(shortfall),
+            "excise_tax_4pct": str(excise_tax),
+            "total_income": str(total_income),
+            "realized_long_term_gains": str(realized_long_gain)
+        }
+        
+        # Save form
+        form_file = self.storage_path / f"form_8613_{tax_year}.json"
+        with open(form_file, 'w') as f:
+            json.dump(form_8613, f, indent=2)
+        
+        logger.info(f"Form 8613 generated: Shortfall=${shortfall}, Excise tax=${excise_tax}")
+        return form_8613
 

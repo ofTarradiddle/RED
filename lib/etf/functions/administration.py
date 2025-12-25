@@ -18,10 +18,12 @@ logger = logging.getLogger(__name__)
 class FundAdministration:
     """Production-ready Fund Administration implementation"""
     
-    def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/admin"):
+    def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/admin",
+                 audit_trail=None):
         self.data_adapter = data_adapter
         self.storage_path = Path(storage_path)
         self.storage_path.mkdir(parents=True, exist_ok=True)
+        self.audit_trail = audit_trail
         self.price_tolerance = Decimal('0.05')  # 5% price tolerance
     
     def calculate_nav(self, nav_date: date) -> NAVCalculation:
@@ -121,8 +123,16 @@ class FundAdministration:
             validation_passed=validation_passed
         )
         
-        # Save NAV calculation
-        self._save_nav_calculation(result)
+        # Save NAV calculation with complete audit data
+        self._save_nav_calculation(
+            result,
+            holdings=holdings,
+            prices=prices,
+            cash=cash,
+            accrued_income=accrued_income,
+            accrued_expenses=accrued_expenses,
+            total_securities_value=total_securities_value
+        )
         
         logger.info(f"NAV calculated: ${nav_per_share} per share (Net Assets: ${net_assets})")
         
@@ -280,8 +290,10 @@ class FundAdministration:
             logger.error(f"Error calculating expense ratio: {e}")
             return {"status": "error", "error": str(e)}
     
-    def _save_nav_calculation(self, nav: NAVCalculation):
-        """Save NAV calculation to storage"""
+    def _save_nav_calculation(self, nav: NAVCalculation, holdings=None, prices=None, 
+                             cash=None, accrued_income=None, accrued_expenses=None,
+                             total_securities_value=None):
+        """Save NAV calculation to storage with complete audit data"""
         nav_file = self.storage_path / f"nav_{nav.date.isoformat()}.json"
         data = {
             "date": nav.date.isoformat(),
@@ -291,10 +303,34 @@ class FundAdministration:
             "shares_outstanding": str(nav.shares_outstanding),
             "nav_per_share": str(nav.nav_per_share),
             "pricing_exceptions": nav.pricing_exceptions,
-            "validation_passed": nav.validation_passed
+            "validation_passed": nav.validation_passed,
+            # Complete audit trail data
+            "holdings": [
+                {
+                    "cusip": h.get('cusip', ''),
+                    "ticker": h.get('ticker', ''),
+                    "quantity": str(h.get('quantity', 0)),
+                    "price": str(prices.get(h.get('cusip', ''), Decimal('0'))) if prices and h.get('cusip') in prices else "0",
+                    "market_value": str(Decimal(str(h.get('quantity', 0))) * prices.get(h.get('cusip', ''), Decimal('0'))) if prices and h.get('cusip') in prices else "0"
+                }
+                for h in (holdings or []) if h.get('cusip')
+            ] if holdings else [],
+            "cash_balance": str(cash) if cash else "0",
+            "accrued_income": str(accrued_income) if accrued_income else "0",
+            "accrued_expenses": str(accrued_expenses) if accrued_expenses else "0",
+            "total_securities_value": str(total_securities_value) if total_securities_value else "0"
         }
         with open(nav_file, 'w') as f:
-            json.dump(data, f, indent=2)
+            json.dump(data, f, indent=2, default=str)
+        
+        # Log to audit trail
+        if self.audit_trail:
+            self.audit_trail.log_operation(
+                record_type="nav_calculation",
+                record_date=nav.date,
+                operation="Daily NAV calculation",
+                data=data
+            )
     
     def _load_nav_data(self, start_date: date, end_date: date) -> List[Dict[str, Any]]:
         """Load NAV data for date range"""

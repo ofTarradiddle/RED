@@ -135,12 +135,30 @@ class TestTaxReporting:
     
     def test_generate_tax_return_form_1120_ric(self, mock_adapter, temp_storage):
         """Test Form 1120-RIC generation"""
-        tax = TaxReporting(mock_adapter, temp_storage)
+        from lib.etf.functions.tax_lot import TaxLotManager
         
-        form_1120_ric = tax.generate_tax_return_form_1120_ric(2024)
+        tax = TaxReporting(mock_adapter, temp_storage)
+        taxlot_manager = TaxLotManager(storage_path=str(temp_storage))
+        
+        # Set up ledger data
+        ledger_data = {
+            'Dividend Income': -Decimal('100000'),  # Credit balance
+        }
+        
+        distributions = [
+            {"distribution_type": "dividend", "total_amount": "95000"}
+        ]
+        
+        form_1120_ric = tax.generate_tax_return_form_1120_ric(
+            tax_year=2024,
+            ledger_data=ledger_data,
+            taxlot_manager=taxlot_manager,
+            distributions=distributions
+        )
         
         assert form_1120_ric is not None
         assert form_1120_ric["form_type"] == "1120-RIC"
         assert form_1120_ric["tax_year"] == 2024
-        assert form_1120_ric["status"] == "draft"
+        assert 'investment_company_taxable_income' in form_1120_ric
+        assert 'corporate_tax_due' in form_1120_ric
 

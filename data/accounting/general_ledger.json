@@ -1,0 +1,150 @@
+{
+  "1000": {
+    "account_code": "1000",
+    "account_name": "Cash and Cash Equivalents",
+    "account_type": "asset",
+    "balance": "-100.00",
+    "entries": [
+      {
+        "entry_id": "JE_2025-12-23_0_1",
+        "date": "2025-12-23",
+        "account": "1000",
+        "debit": "0",
+        "credit": "100.00",
+        "description": "Buy 100 shares of AAPL",
+        "reference": null,
+        "reconciled": false
+      }
+    ]
+  },
+  "1100": {
+    "account_code": "1100",
+    "account_name": "Investments - Securities",
+    "account_type": "asset",
+    "balance": "100.00",
+    "entries": [
+      {
+        "entry_id": "JE_2025-12-23_0_0",
+        "date": "2025-12-23",
+        "account": "1100",
+        "debit": "100.00",
+        "credit": "0",
+        "description": "Buy 100 shares of AAPL",
+        "reference": null,
+        "reconciled": false
+      }
+    ]
+  },
+  "1200": {
+    "account_code": "1200",
+    "account_name": "Receivables",
+    "account_type": "asset",
+    "balance": "0",
+    "entries": []
+  },
+  "1300": {
+    "account_code": "1300",
+    "account_name": "Accrued Income",
+    "account_type": "asset",
+    "balance": "0",
+    "entries": []
+  },
+  "2000": {
+    "account_code": "2000",
+    "account_name": "Payables",
+    "account_type": "liability",
+    "balance": "0",
+    "entries": []
+  },
+  "2100": {
+    "account_code": "2100",
+    "account_name": "Accrued Expenses",
+    "account_type": "liability",
+    "balance": "0",
+    "entries": []
+  },
+  "2200": {
+    "account_code": "2200",
+    "account_name": "Distributions Payable",
+    "account_type": "liability",
+    "balance": "0",
+    "entries": []
+  },
+  "3000": {
+    "account_code": "3000",
+    "account_name": "Share Capital",
+    "account_type": "equity",
+    "balance": "0",
+    "entries": []
+  },
+  "3100": {
+    "account_code": "3100",
+    "account_name": "Retained Earnings",
+    "account_type": "equity",
+    "balance": "0",
+    "entries": []
+  },
+  "3200": {
+    "account_code": "3200",
+    "account_name": "Net Assets",
+    "account_type": "equity",
+    "balance": "0",
+    "entries": []
+  },
+  "4000": {
+    "account_code": "4000",
+    "account_name": "Dividend Income",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "4100": {
+    "account_code": "4100",
+    "account_name": "Interest Income",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "4200": {
+    "account_code": "4200",
+    "account_name": "Realized Gains/Losses",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "4300": {
+    "account_code": "4300",
+    "account_name": "Unrealized Gains/Losses",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "5000": {
+    "account_code": "5000",
+    "account_name": "Management Fees",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": []
+  },
+  "5100": {
+    "account_code": "5100",
+    "account_name": "Administrative Expenses",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": []
+  },
+  "5200": {
+    "account_code": "5200",
+    "account_name": "Custodial Fees",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": []
+  },
+  "5300": {
+    "account_code": "5300",
+    "account_name": "Other Expenses",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": []
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "form_type": "1120-RIC",
+  "tax_year": 2025,
+  "status": "draft",
+  "investment_company_taxable_income": "0",
+  "dividends_paid_deduction": "0",
+  "taxable_income_after_deduction": "0",
+  "regular_corporate_tax_rate": "0.21",
+  "corporate_tax_due": "0.00",
+  "realized_long_term_gains": "0",
+  "realized_short_term_gains": "0",
+  "total_income": "0",
+  "total_distributed_income": "0",
+  "total_distributed_capital_gains": "0"
+}

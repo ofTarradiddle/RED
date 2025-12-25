@@ -1,0 +1,1073 @@
+{
+  "date": "2025-12-24",
+  "total_assets": "66988069.56",
+  "total_liabilities": "825.8738547945205479452054795",
+  "net_assets": "66987243.68614520547945205479",
+  "shares_outstanding": "1724311.854262038748987407521",
+  "nav_per_share": "38.8487",
+  "pricing_exceptions": [],
+  "validation_passed": true,
+  "holdings": [
+    {
+      "cusip": "023135106",
+      "ticker": "AMZN",
+      "quantity": "12124",
+      "price": "232.38",
+      "market_value": "2817375.12"
+    },
+    {
+      "cusip": "02079K107",
+      "ticker": "GOOG",
+      "quantity": "5032",
+      "price": "315.67",
+      "market_value": "1588451.44"
+    },
+    {
+      "cusip": "02079K305",
+      "ticker": "GOOGL",
+      "quantity": "5036",
+      "price": "314.09",
+      "market_value": "1581757.24"
+    },
+    {
+      "cusip": "459200101",
+      "ticker": "IBM",
+      "quantity": "4405",
+      "price": "304.56",
+      "market_value": "1341586.80"
+    },
+    {
+      "cusip": "17275R102",
+      "ticker": "CSCO",
+      "quantity": "14958",
+      "price": "78.02",
+      "market_value": "1167023.16"
+    },
+    {
+      "cusip": "79466L302",
+      "ticker": "CRM",
+      "quantity": "4275",
+      "price": "265.26",
+      "market_value": "1133986.50"
+    },
+    {
+      "cusip": "747525103",
+      "ticker": "QCOM",
+      "quantity": "6306",
+      "price": "174.77",
+      "market_value": "1102099.62"
+    },
+    {
+      "cusip": "14040H105",
+      "ticker": "COF",
+      "quantity": "4193",
+      "price": "248.27",
+      "market_value": "1040996.11"
+    },
+    {
+      "cusip": "58933Y105",
+      "ticker": "MRK",
+      "quantity": "9670",
+      "price": "106.45",
+      "market_value": "1029371.50"
+    },
+    {
+      "cusip": "00206R102",
+      "ticker": "T",
+      "quantity": "41482",
+      "price": "24.66",
+      "market_value": "1022946.12"
+    },
+    {
+      "cusip": "G1151C101",
+      "ticker": "ACN",
+      "quantity": "3793",
+      "price": "269.98",
+      "market_value": "1024034.14"
+    },
+    {
+      "cusip": "595112103",
+      "ticker": "MU",
+      "quantity": "3476",
+      "price": "286.68",
+      "market_value": "996499.68"
+    },
+    {
+      "cusip": "949746101",
+      "ticker": "WFC",
+      "quantity": "10458",
+      "price": "95.3",
+      "market_value": "996647.4"
+    },
+    {
+      "cusip": "717081103",
+      "ticker": "PFE",
+      "quantity": "37876",
+      "price": "25.03",
+      "market_value": "948036.28"
+    },
+    {
+      "cusip": "458140100",
+      "ticker": "INTC",
+      "quantity": "26005",
+      "price": "36.16",
+      "market_value": "940340.80"
+    },
+    {
+      "cusip": "75513E101",
+      "ticker": "RTX",
+      "quantity": "4962",
+      "price": "186.38",
+      "market_value": "924817.56"
+    },
+    {
+      "cusip": "254687106",
+      "ticker": "DIS",
+      "quantity": "7981",
+      "price": "114.48",
+      "market_value": "913664.88"
+    },
+    {
+      "cusip": "92343V104",
+      "ticker": "VZ",
+      "quantity": "21212",
+      "price": "40.32",
+      "market_value": "855267.84"
+    },
+    {
+      "cusip": "G5960L103",
+      "ticker": "MDT",
+      "quantity": "8811",
+      "price": "96.56",
+      "market_value": "850790.16"
+    },
+    {
+      "cusip": "126650100",
+      "ticker": "CVS",
+      "quantity": "9949",
+      "price": "79.12",
+      "market_value": "787164.88"
+    },
+    {
+      "cusip": "097023105",
+      "ticker": "BA",
+      "quantity": "3583",
+      "price": "218.16",
+      "market_value": "781667.28"
+    },
+    {
+      "cusip": "37045V100",
+      "ticker": "GM",
+      "quantity": "9025",
+      "price": "82.88",
+      "market_value": "747992.00"
+    },
+    {
+      "cusip": "438516106",
+      "ticker": "HON",
+      "quantity": "3820",
+      "price": "196.93",
+      "market_value": "752272.60"
+    },
+    {
+      "cusip": "872590104",
+      "ticker": "TMUS",
+      "quantity": "3726",
+      "price": "199.02",
+      "market_value": "741548.52"
+    },
+    {
+      "cusip": "110122108",
+      "ticker": "BMY",
+      "quantity": "12867",
+      "price": "54.71",
+      "market_value": "703953.57"
+    },
+    {
+      "cusip": "934423104",
+      "ticker": "WBD",
+      "quantity": "23936",
+      "price": "29.23",
+      "market_value": "699649.28"
+    },
+    {
+      "cusip": "31428X106",
+      "ticker": "FDX",
+      "quantity": "2302",
+      "price": "295.9",
+      "market_value": "681161.8"
+    },
+    {
+      "cusip": "24703L202",
+      "ticker": "DELL",
+      "quantity": "5165",
+      "price": "128.38",
+      "market_value": "663082.70"
+    },
+    {
+      "cusip": "375558103",
+      "ticker": "GILD",
+      "quantity": "5291",
+      "price": "125.67",
+      "market_value": "664919.97"
+    },
+    {
+      "cusip": "958102105",
+      "ticker": "WDC",
+      "quantity": "3695",
+      "price": "179.56",
+      "market_value": "663474.20"
+    },
+    {
+      "cusip": "00724F101",
+      "ticker": "ADBE",
+      "quantity": "1867",
+      "price": "352.98",
+      "market_value": "659013.66"
+    },
+    {
+      "cusip": "666807102",
+      "ticker": "NOC",
+      "quantity": "1117",
+      "price": "582.35",
+      "market_value": "650484.95"
+    },
+    {
+      "cusip": "20030N101",
+      "ticker": "CMCSA",
+      "quantity": "21505",
+      "price": "29.78",
+      "market_value": "640418.90"
+    },
+    {
+      "cusip": "539830109",
+      "ticker": "LMT",
+      "quantity": "1292",
+      "price": "485.75",
+      "market_value": "627589.00"
+    },
+    {
+      "cusip": "231021106",
+      "ticker": "CMI",
+      "quantity": "1154",
+      "price": "517.6",
+      "market_value": "597310.4"
+    },
+    {
+      "cusip": "345370860",
+      "ticker": "F",
+      "quantity": "44456",
+      "price": "13.36",
+      "market_value": "593932.16"
+    },
+    {
+      "cusip": "502431109",
+      "ticker": "LHX",
+      "quantity": "1918",
+      "price": "298.14",
+      "market_value": "571832.52"
+    },
+    {
+      "cusip": "70450Y103",
+      "ticker": "PYPL",
+      "quantity": "9308",
+      "price": "60.04",
+      "market_value": "558852.32"
+    },
+    {
+      "cusip": "87612E106",
+      "ticker": "TGT",
+      "quantity": "5614",
+      "price": "96.53",
+      "market_value": "541919.42"
+    },
+    {
+      "cusip": "192446102",
+      "ticker": "CTSH",
+      "quantity": "6260",
+      "price": "85.42",
+      "market_value": "534729.20"
+    },
+    {
+      "cusip": "369550108",
+      "ticker": "GD",
+      "quantity": "1533",
+      "price": "345.39",
+      "market_value": "529482.87"
+    },
+    {
+      "cusip": "075887109",
+      "ticker": "BDX",
+      "quantity": "2639",
+      "price": "196.12",
+      "market_value": "517560.68"
+    },
+    {
+      "cusip": "852234103",
+      "ticker": "XYZ",
+      "quantity": "7795",
+      "price": "66.05",
+      "market_value": "514859.75"
+    },
+    {
+      "cusip": "910047109",
+      "ticker": "UAL",
+      "quantity": "4378",
+      "price": "114.81",
+      "market_value": "502638.18"
+    },
+    {
+      "cusip": "88579Y101",
+      "ticker": "MMM",
+      "quantity": "2996",
+      "price": "160.34",
+      "market_value": "480378.64"
+    },
+    {
+      "cusip": "171779309",
+      "ticker": "CIEN",
+      "quantity": "1978",
+      "price": "240.28",
+      "market_value": "475273.84"
+    },
+    {
+      "cusip": "30212P303",
+      "ticker": "EXPE",
+      "quantity": "1654",
+      "price": "286.57",
+      "market_value": "473986.78"
+    },
+    {
+      "cusip": "N6596X109",
+      "ticker": "NXPI",
+      "quantity": "2122",
+      "price": "225.26",
+      "market_value": "478001.72"
+    },
+    {
+      "cusip": "020002101",
+      "ticker": "ALL",
+      "quantity": "2191",
+      "price": "209.05",
+      "market_value": "458028.55"
+    },
+    {
+      "cusip": "247361702",
+      "ticker": "DAL",
+      "quantity": "6415",
+      "price": "70.96",
+      "market_value": "455208.40"
+    },
+    {
+      "cusip": "278642103",
+      "ticker": "EBAY",
+      "quantity": "5383",
+      "price": "84.6",
+      "market_value": "455401.8"
+    },
+    {
+      "cusip": "219350105",
+      "ticker": "GLW",
+      "quantity": "4992",
+      "price": "89.66",
+      "market_value": "447582.72"
+    },
+    {
+      "cusip": "42824C109",
+      "ticker": "HPE",
+      "quantity": "18087",
+      "price": "24.44",
+      "market_value": "442046.28"
+    },
+    {
+      "cusip": "G87052109",
+      "ticker": "TEL",
+      "quantity": "1881",
+      "price": "231.9",
+      "market_value": "436203.9"
+    },
+    {
+      "cusip": "98138H101",
+      "ticker": "WDAY",
+      "quantity": "1938",
+      "price": "216.85",
+      "market_value": "420255.30"
+    },
+    {
+      "cusip": "444859102",
+      "ticker": "HUM",
+      "quantity": "1606",
+      "price": "258.37",
+      "market_value": "414942.22"
+    },
+    {
+      "cusip": "46266C105",
+      "ticker": "IQV",
+      "quantity": "1813",
+      "price": "226.02",
+      "market_value": "409774.26"
+    },
+    {
+      "cusip": "16119P108",
+      "ticker": "CHTR",
+      "quantity": "1928",
+      "price": "208.46",
+      "market_value": "401910.88"
+    },
+    {
+      "cusip": "14149Y108",
+      "ticker": "CAH",
+      "quantity": "1867",
+      "price": "207.54",
+      "market_value": "387477.18"
+    },
+    {
+      "cusip": "09062X103",
+      "ticker": "BIIB",
+      "quantity": "2072",
+      "price": "176.33",
+      "market_value": "365355.76"
+    },
+    {
+      "cusip": "452327109",
+      "ticker": "ILMN",
+      "quantity": "2712",
+      "price": "135.32",
+      "market_value": "366987.84"
+    },
+    {
+      "cusip": "501044101",
+      "ticker": "KR",
+      "quantity": "5899",
+      "price": "62.93",
+      "market_value": "371224.07"
+    },
+    {
+      "cusip": "525327102",
+      "ticker": "LDOS",
+      "quantity": "1982",
+      "price": "186.63",
+      "market_value": "369900.66"
+    },
+    {
+      "cusip": "77311W101",
+      "ticker": "RKT",
+      "quantity": "18298",
+      "price": "19.45",
+      "market_value": "355896.10"
+    },
+    {
+      "cusip": "285512109",
+      "ticker": "EA",
+      "quantity": "1705",
+      "price": "204.78",
+      "market_value": "349149.90"
+    },
+    {
+      "cusip": "40434L105",
+      "ticker": "HPQ",
+      "quantity": "15093",
+      "price": "23.16",
+      "market_value": "349553.88"
+    },
+    {
+      "cusip": "773903109",
+      "ticker": "ROK",
+      "quantity": "870",
+      "price": "398.22",
+      "market_value": "346451.40"
+    },
+    {
+      "cusip": "90138F102",
+      "ticker": "TWLO",
+      "quantity": "2482",
+      "price": "140.31",
+      "market_value": "348249.42"
+    },
+    {
+      "cusip": "15135B101",
+      "ticker": "CNC",
+      "quantity": "8580",
+      "price": "39.89",
+      "market_value": "342256.20"
+    },
+    {
+      "cusip": "466313103",
+      "ticker": "JBL",
+      "quantity": "1463",
+      "price": "234.49",
+      "market_value": "343058.87"
+    },
+    {
+      "cusip": "64110D104",
+      "ticker": "NTAP",
+      "quantity": "3075",
+      "price": "110.06",
+      "market_value": "338434.50"
+    },
+    {
+      "cusip": "30063P105",
+      "ticker": "EXAS",
+      "quantity": "3264",
+      "price": "101.54",
+      "market_value": "331426.56"
+    },
+    {
+      "cusip": "406216101",
+      "ticker": "HAL",
+      "quantity": "11421",
+      "price": "28.03",
+      "market_value": "320130.63"
+    },
+    {
+      "cusip": "744320102",
+      "ticker": "PRU",
+      "quantity": "2805",
+      "price": "114.55",
+      "market_value": "321312.75"
+    },
+    {
+      "cusip": "504922105",
+      "ticker": "LH",
+      "quantity": "1228",
+      "price": "254.46",
+      "market_value": "312476.88"
+    },
+    {
+      "cusip": "92556V106",
+      "ticker": "VTRS",
+      "quantity": "25718",
+      "price": "12.24",
+      "market_value": "314788.32"
+    },
+    {
+      "cusip": "98980L101",
+      "ticker": "ZM",
+      "quantity": "3569",
+      "price": "87.79",
+      "market_value": "313322.51"
+    },
+    {
+      "cusip": "844741108",
+      "ticker": "LUV",
+      "quantity": "7490",
+      "price": "41.3",
+      "market_value": "309337.0"
+    },
+    {
+      "cusip": "086516101",
+      "ticker": "BBY",
+      "quantity": "4301",
+      "price": "69.74",
+      "market_value": "299951.74"
+    },
+    {
+      "cusip": "83304A106",
+      "ticker": "SNAP",
+      "quantity": "38010",
+      "price": "7.85",
+      "market_value": "298378.50"
+    },
+    {
+      "cusip": "46982L108",
+      "ticker": "J",
+      "quantity": "2176",
+      "price": "136.11",
+      "market_value": "296175.36"
+    },
+    {
+      "cusip": "256163106",
+      "ticker": "DOCU",
+      "quantity": "4124",
+      "price": "69.64",
+      "market_value": "287195.36"
+    },
+    {
+      "cusip": "48020Q107",
+      "ticker": "JLL",
+      "quantity": "829",
+      "price": "346.91",
+      "market_value": "287588.39"
+    },
+    {
+      "cusip": "679295105",
+      "ticker": "OKTA",
+      "quantity": "3248",
+      "price": "88.39",
+      "market_value": "287090.72"
+    },
+    {
+      "cusip": "77543R102",
+      "ticker": "ROKU",
+      "quantity": "2574",
+      "price": "110.68",
+      "market_value": "284890.32"
+    },
+    {
+      "cusip": "876030107",
+      "ticker": "TPR",
+      "quantity": "2157",
+      "price": "130.2",
+      "market_value": "280841.4"
+    },
+    {
+      "cusip": "94419L101",
+      "ticker": "W",
+      "quantity": "2783",
+      "price": "100.71",
+      "market_value": "280275.93"
+    },
+    {
+      "cusip": "74834L100",
+      "ticker": "DGX",
+      "quantity": "1571",
+      "price": "175.92",
+      "market_value": "276370.32"
+    },
+    {
+      "cusip": "00971T101",
+      "ticker": "AKAM",
+      "quantity": "3028",
+      "price": "88.82",
+      "market_value": "268946.96"
+    },
+    {
+      "cusip": "02376R102",
+      "ticker": "AAL",
+      "quantity": "17056",
+      "price": "15.68",
+      "market_value": "267438.08"
+    },
+    {
+      "cusip": "28414H103",
+      "ticker": "ELAN",
+      "quantity": "11950",
+      "price": "22.38",
+      "market_value": "267441.00"
+    },
+    {
+      "cusip": "40131M109",
+      "ticker": "GH",
+      "quantity": "2614",
+      "price": "102.38",
+      "market_value": "267621.32"
+    },
+    {
+      "cusip": "099502106",
+      "ticker": "BAH",
+      "quantity": "3082",
+      "price": "85.15",
+      "market_value": "262432.30"
+    },
+    {
+      "cusip": "693506107",
+      "ticker": "PPG",
+      "quantity": "2545",
+      "price": "103.55",
+      "market_value": "263534.75"
+    },
+    {
+      "cusip": "127190304",
+      "ticker": "CACI",
+      "quantity": "467",
+      "price": "544.41",
+      "market_value": "254239.47"
+    },
+    {
+      "cusip": "260557103",
+      "ticker": "DOW",
+      "quantity": "10947",
+      "price": "23.06",
+      "market_value": "252437.82"
+    },
+    {
+      "cusip": "315616102",
+      "ticker": "FFIV",
+      "quantity": "978",
+      "price": "262.33",
+      "market_value": "256558.74"
+    },
+    {
+      "cusip": "370334104",
+      "ticker": "GIS",
+      "quantity": "5383",
+      "price": "47.0",
+      "market_value": "253001.0"
+    },
+    {
+      "cusip": "00766T100",
+      "ticker": "ACM",
+      "quantity": "2542",
+      "price": "97.49",
+      "market_value": "247819.58"
+    },
+    {
+      "cusip": "02005N100",
+      "ticker": "ALLY",
+      "quantity": "5363",
+      "price": "46.29",
+      "market_value": "248253.27"
+    },
+    {
+      "cusip": "071813109",
+      "ticker": "BAX",
+      "quantity": "13016",
+      "price": "19.11",
+      "market_value": "248735.76"
+    },
+    {
+      "cusip": "854502101",
+      "ticker": "SWK",
+      "quantity": "3344",
+      "price": "74.87",
+      "market_value": "250365.28"
+    },
+    {
+      "cusip": "883203101",
+      "ticker": "TXT",
+      "quantity": "2693",
+      "price": "90.87",
+      "market_value": "244712.91"
+    },
+    {
+      "cusip": "69932A204",
+      "ticker": "PSKY",
+      "quantity": "17789",
+      "price": "13.74",
+      "market_value": "244420.86"
+    },
+    {
+      "cusip": "896239100",
+      "ticker": "TRMB",
+      "quantity": "3023",
+      "price": "80.01",
+      "market_value": "241870.23"
+    },
+    {
+      "cusip": "91332U101",
+      "ticker": "U",
+      "quantity": "5349",
+      "price": "45.44",
+      "market_value": "243058.56"
+    },
+    {
+      "cusip": "67059N108",
+      "ticker": "NTNX",
+      "quantity": "4552",
+      "price": "52.0",
+      "market_value": "236704.0"
+    },
+    {
+      "cusip": "705573103",
+      "ticker": "PEGA",
+      "quantity": "3818",
+      "price": "62.13",
+      "market_value": "237212.34"
+    },
+    {
+      "cusip": "902494103",
+      "ticker": "TSN",
+      "quantity": "3997",
+      "price": "58.26",
+      "market_value": "232865.22"
+    },
+    {
+      "cusip": "989207105",
+      "ticker": "ZBRA",
+      "quantity": "957",
+      "price": "245.9",
+      "market_value": "235326.3"
+    },
+    {
+      "cusip": "G50871105",
+      "ticker": "JAZZ",
+      "quantity": "1370",
+      "price": "170.8",
+      "market_value": "233996.0"
+    },
+    {
+      "cusip": "013091103",
+      "ticker": "ACI",
+      "quantity": "12641",
+      "price": "17.28",
+      "market_value": "218436.48"
+    },
+    {
+      "cusip": "26614N102",
+      "ticker": "DD",
+      "quantity": "5431",
+      "price": "41.07",
+      "market_value": "223051.17"
+    },
+    {
+      "cusip": "418056107",
+      "ticker": "HAS",
+      "quantity": "2731",
+      "price": "81.63",
+      "market_value": "222931.53"
+    },
+    {
+      "cusip": "26210C104",
+      "ticker": "DBX",
+      "quantity": "7389",
+      "price": "28.1",
+      "market_value": "207630.9"
+    },
+    {
+      "cusip": "436440101",
+      "ticker": "HOLX",
+      "quantity": "2775",
+      "price": "74.5",
+      "market_value": "206737.5"
+    },
+    {
+      "cusip": "G3265R107",
+      "ticker": "APTV",
+      "quantity": "2740",
+      "price": "76.77",
+      "market_value": "210349.80"
+    },
+    {
+      "cusip": "550241103",
+      "ticker": "LUMN",
+      "quantity": "26101",
+      "price": "7.77",
+      "market_value": "202804.77"
+    },
+    {
+      "cusip": "55087P104",
+      "ticker": "LYFT",
+      "quantity": "10322",
+      "price": "19.61",
+      "market_value": "202414.42"
+    },
+    {
+      "cusip": "72352L106",
+      "ticker": "PINS",
+      "quantity": "7761",
+      "price": "26.13",
+      "market_value": "202794.93"
+    },
+    {
+      "cusip": "002896207",
+      "ticker": "ANF",
+      "quantity": "1519",
+      "price": "126.74",
+      "market_value": "192518.06"
+    },
+    {
+      "cusip": "099724106",
+      "ticker": "BWA",
+      "quantity": "4302",
+      "price": "45.42",
+      "market_value": "195396.84"
+    },
+    {
+      "cusip": "74736K101",
+      "ticker": "QRVO",
+      "quantity": "2219",
+      "price": "86.14",
+      "market_value": "191144.66"
+    },
+    {
+      "cusip": "090572207",
+      "ticker": "BIO",
+      "quantity": "629",
+      "price": "301.75",
+      "market_value": "189800.75"
+    },
+    {
+      "cusip": "29786A106",
+      "ticker": "ETSY",
+      "quantity": "3368",
+      "price": "55.97",
+      "market_value": "188506.96"
+    },
+    {
+      "cusip": "86771W105",
+      "ticker": "RUN",
+      "quantity": "9410",
+      "price": "20.16",
+      "market_value": "189705.60"
+    },
+    {
+      "cusip": "G3922B107",
+      "ticker": "G",
+      "quantity": "3833",
+      "price": "48.09",
+      "market_value": "184328.97"
+    },
+    {
+      "cusip": "83088M102",
+      "ticker": "SWKS",
+      "quantity": "2845",
+      "price": "64.51",
+      "market_value": "183530.95"
+    },
+    {
+      "cusip": "001084102",
+      "ticker": "AGCO",
+      "quantity": "1676",
+      "price": "105.28",
+      "market_value": "176449.28"
+    },
+    {
+      "cusip": "011659109",
+      "ticker": "ALK",
+      "quantity": "3386",
+      "price": "51.38",
+      "market_value": "173972.68"
+    },
+    {
+      "cusip": "277432100",
+      "ticker": "EMN",
+      "quantity": "2729",
+      "price": "62.86",
+      "market_value": "171544.94"
+    },
+    {
+      "cusip": "60871R209",
+      "ticker": "TAP",
+      "quantity": "3798",
+      "price": "46.33",
+      "market_value": "175961.34"
+    },
+    {
+      "cusip": "29414B104",
+      "ticker": "EPAM",
+      "quantity": "813",
+      "price": "209.08",
+      "market_value": "169982.04"
+    },
+    {
+      "cusip": "57667L107",
+      "ticker": "MTCH",
+      "quantity": "5161",
+      "price": "32.89",
+      "market_value": "169745.29"
+    },
+    {
+      "cusip": "90364P105",
+      "ticker": "PATH",
+      "quantity": "9707",
+      "price": "17.16",
+      "market_value": "166572.12"
+    },
+    {
+      "cusip": "G02602103",
+      "ticker": "DOX",
+      "quantity": "2087",
+      "price": "81.35",
+      "market_value": "169777.45"
+    },
+    {
+      "cusip": "23918K108",
+      "ticker": "DVA",
+      "quantity": "1416",
+      "price": "114.41",
+      "market_value": "162004.56"
+    },
+    {
+      "cusip": "552953101",
+      "ticker": "MGM",
+      "quantity": "4347",
+      "price": "37.09",
+      "market_value": "161230.23"
+    },
+    {
+      "cusip": "72703X106",
+      "ticker": "PL",
+      "quantity": "8017",
+      "price": "20.32",
+      "market_value": "162905.44"
+    },
+    {
+      "cusip": "829933100",
+      "ticker": "SIRI",
+      "quantity": "7892",
+      "price": "20.67",
+      "market_value": "163127.64"
+    },
+    {
+      "cusip": "60855R100",
+      "ticker": "MOH",
+      "quantity": "948",
+      "price": "163.47",
+      "market_value": "154969.56"
+    },
+    {
+      "cusip": "052800109",
+      "ticker": "ALV",
+      "quantity": "1256",
+      "price": "119.87",
+      "market_value": "150556.72"
+    },
+    {
+      "cusip": "343412102",
+      "ticker": "FLR",
+      "quantity": "3648",
+      "price": "40.94",
+      "market_value": "149349.12"
+    },
+    {
+      "cusip": "69366J200",
+      "ticker": "PTCT",
+      "quantity": "1878",
+      "price": "78.37",
+      "market_value": "147178.86"
+    },
+    {
+      "cusip": "917047102",
+      "ticker": "URBN",
+      "quantity": "1891",
+      "price": "78.19",
+      "market_value": "147857.29"
+    },
+    {
+      "cusip": "86333M108",
+      "ticker": "LRN",
+      "quantity": "2059",
+      "price": "65.95",
+      "market_value": "135791.05"
+    },
+    {
+      "cusip": "918204108",
+      "ticker": "VFC",
+      "quantity": "7301",
+      "price": "18.34",
+      "market_value": "133900.34"
+    },
+    {
+      "cusip": "465741106",
+      "ticker": "ITRI",
+      "quantity": "1327",
+      "price": "95.92",
+      "market_value": "127285.84"
+    },
+    {
+      "cusip": "053774105",
+      "ticker": "CAR",
+      "quantity": "860",
+      "price": "131.82",
+      "market_value": "113365.20"
+    },
+    {
+      "cusip": "81730H109",
+      "ticker": "S",
+      "quantity": "6985",
+      "price": "14.85",
+      "market_value": "103727.25"
+    },
+    {
+      "cusip": "549498202",
+      "ticker": "LCID",
+      "quantity": "8056",
+      "price": "11.81",
+      "market_value": "95141.36"
+    }
+  ],
+  "cash_balance": "146351",
+  "accrued_income": "500",
+  "accrued_expenses": "825.8738547945205479452054795",
+  "total_securities_value": "66841218.56"
+}
