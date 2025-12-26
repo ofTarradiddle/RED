@@ -574,6 +574,8 @@ All modules use the `DataSourceAdapter` pattern for data source integration. To 
 
 See `lib/etf/adapters/__init__.py` for TODO items and `tasks/DATA_SOURCE_TODOS.md` for detailed integration guide.
 
+**Custodian Data Integration**: See `CUSTODIAN_DATA_INTEGRATION.md` for detailed guide on implementing US Bank custodian data retrieval via API or SFTP.
+
 ### 🔌 Key External Party Contacts
 
 - **US Bank Global Fund Services**: Primary custodian, transfer agent, and order management
