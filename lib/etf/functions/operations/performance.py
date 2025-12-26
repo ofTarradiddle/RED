@@ -249,8 +249,10 @@ class PerformanceCalculator:
                                 div = Decimal(str(curr_row['Dividends']))
                             
                             # Compute growth factor including reinvested dividend
-                            # Formula: (price_curr + dividend) / price_prev
-                            # This gives total return when prices aren't adjusted
+                            # Standard total return formula: (price_curr + dividend) / price_prev
+                            # This compounds daily returns: (1 + r1) * (1 + r2) * ... * (1 + rn)
+                            # Where r_i = (price_i + div_i) / price_{i-1} - 1
+                            # This gives correct total return when prices aren't adjusted
                             if price_prev > 0:
                                 gf = (price_curr + div) / price_prev
                                 bench_index *= gf
