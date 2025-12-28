@@ -28,6 +28,25 @@
         }
         .elegant-heading {
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .cambria-button {
+            background: #8b0000;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+        .cambria-button:hover {
+            background: #a00000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(139, 0, 0, 0.4);
         }
         .disclosure-box {
             background: #fff3f3;
@@ -42,22 +61,47 @@
 </head>
 <body class="bg-gray-50">
     <!-- Header -->
-    <header class="cambria-header sticky top-0 z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <a href="/" class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                        <span class="text-#8b0000 font-bold text-xl">DAM</span>
-                    </div>
-                    <span class="text-xl font-bold">Diamond Asset Management</span>
-                </a>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="/" class="text-gray-300 hover:text-white transition-colors">Home</a>
-                    <a href="/#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
-                    <a href="/#fees" class="text-gray-300 hover:text-white transition-colors">Fees</a>
-                    <a href="/section-351.html" class="text-gray-300 hover:text-white transition-colors">Section 351</a>
-                    <a href="/#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a>
-                </nav>
+    <header class="cambria-header sticky top-0 z-50" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <div class="cambria-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-lg flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-lg elegant-heading">DAM</span>
+                </div>
+                        <div class="hidden sm:block">
+                            <div class="text-lg font-bold text-white elegant-heading tracking-tight leading-tight">Diamond</div>
+                            <div class="text-sm font-medium text-gray-300 tracking-tight">Asset Management</div>
+                </div>
+            </div>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#innovation" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Innovation</a>
+                        <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="#fees" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Fees</a>
+                        <a href="/research" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Research</a>
+                        <a href="/section-351.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Section 351</a>
+                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="/etfs/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">ETFs</a>
+                        <a href="#contact" class="cambria-button text-sm">Contact</a>
+                    </nav>
+                <!-- Mobile menu button -->
+                    <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+                </div>
+            </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-#2d0f0f border-t border-#4a1a1a">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#innovation" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Innovation</a>
+                <a href="#services" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Services</a>
+                <a href="#fees" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Fees</a>
+                <a href="/research" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Research</a>
+                <a href="/section-351.html" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Section 351</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">About</a>
+                <a href="/etfs/" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">ETFs</a>
+                <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Contact</a>
             </div>
         </div>
     </header>
@@ -111,7 +155,7 @@
                         <h2 class="text-2xl font-bold text-gray-900 mb-4 elegant-heading">Fees</h2>
                         <p class="text-gray-700 leading-relaxed mb-4">
                             <strong>Standard Services:</strong> When you invest in our ETFs, you pay <strong>only the ETF expense ratio</strong> 
-                            (22 bps / 0.22%). <strong>We charge no additional advisory fees</strong> for standard investment management services.
+                            (33.3 bps / 0.333%). <strong>We charge no additional advisory fees</strong> for standard investment management services.
                         </p>
                         <p class="text-gray-700 leading-relaxed mb-4">
                             Additional services fees are disclosed in your investment advisory agreement. For detailed fee information, 
@@ -250,6 +294,13 @@
 
     <script>
         lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
     </script>
 </body>
 </html>
