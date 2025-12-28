@@ -14,8 +14,8 @@ import json
 import yfinance as yf
 import pandas as pd
 
-from lib.etf.functions.administration import FundAdministration
-from lib.etf.functions.audit_trail import AuditTrailManager
+from lib.etf.functions.core.administration import FundAdministration
+from lib.etf.functions.compliance.audit_trail import AuditTrailManager
 from lib.etf.adapters import FileBasedDataSourceAdapter
 
 

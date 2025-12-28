@@ -6,7 +6,7 @@ import pytest
 from datetime import date
 from decimal import Decimal
 
-from lib.etf.functions.tax_reporting import TaxReporting, TaxForm1099
+from lib.etf.functions.tax.tax_reporting import TaxReporting, TaxForm1099
 from lib.etf.shared import ShareholderRecord
 
 
@@ -135,7 +135,7 @@ class TestTaxReporting:
     
     def test_generate_tax_return_form_1120_ric(self, mock_adapter, temp_storage):
         """Test Form 1120-RIC generation"""
-        from lib.etf.functions.tax_lot import TaxLotManager
+        from lib.etf.functions.tax.tax_lot import TaxLotManager
         
         tax = TaxReporting(mock_adapter, temp_storage)
         taxlot_manager = TaxLotManager(storage_path=str(temp_storage))

@@ -17,8 +17,8 @@ import pandas as pd
 from datetime import date, timedelta
 from decimal import Decimal
 
-from lib.etf.functions.administration import FundAdministration
-from lib.etf.functions.security_master import SecurityMasterFile, PortfolioRecords
+from lib.etf.functions.core.administration import FundAdministration
+from lib.etf.functions.supporting.security_master import SecurityMasterFile, PortfolioRecords
 from lib.etf.adapters import FileBasedDataSourceAdapter
 
 

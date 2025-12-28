@@ -6,8 +6,8 @@ import pytest
 from datetime import date
 from decimal import Decimal
 
-from lib.etf.functions.tax_reporting import TaxReporting
-from lib.etf.functions.tax_lot import TaxLotManager
+from lib.etf.functions.tax.tax_reporting import TaxReporting
+from lib.etf.functions.tax.tax_lot import TaxLotManager
 
 
 class TestTaxReportingEnhanced:

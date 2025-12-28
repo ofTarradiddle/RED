@@ -12,13 +12,13 @@ from pathlib import Path
 import json
 import yaml
 
-from lib.etf.functions.administration import FundAdministration
-from lib.etf.functions.accounting import Accounting
-from lib.etf.functions.tax_lot import TaxLotManager
-from lib.etf.functions.distributor import Distributor
-from lib.etf.functions.performance import PerformanceCalculator
-from lib.etf.functions.tax_reporting import TaxReporting
-from lib.etf.functions.orchestrator import DailyOrchestrator
+from lib.etf.functions.core.administration import FundAdministration
+from lib.etf.functions.core.accounting import Accounting
+from lib.etf.functions.tax.tax_lot import TaxLotManager
+from lib.etf.functions.operations.distributor import Distributor
+from lib.etf.functions.operations.performance import PerformanceCalculator
+from lib.etf.functions.tax.tax_reporting import TaxReporting
+from lib.etf.functions.core.orchestrator import DailyOrchestrator
 from lib.etf.adapters import FileBasedDataSourceAdapter
 
 

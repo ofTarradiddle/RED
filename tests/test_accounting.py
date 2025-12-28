@@ -6,7 +6,7 @@ import pytest
 from datetime import date
 from decimal import Decimal
 
-from lib.etf.functions.accounting import Accounting
+from lib.etf.functions.core.accounting import Accounting
 
 
 class TestAccounting:

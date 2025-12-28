@@ -6,7 +6,7 @@ import pytest
 from datetime import date
 from decimal import Decimal
 
-from lib.etf.functions.distributor import Distributor
+from lib.etf.functions.operations.distributor import Distributor
 from tests.conftest import MockDataSourceAdapter
 
 

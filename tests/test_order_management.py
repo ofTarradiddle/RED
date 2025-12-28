@@ -6,7 +6,7 @@ import pytest
 from datetime import date, datetime, time
 from decimal import Decimal
 
-from lib.etf.functions.order_management import OrderManagement, CreationBasket, RedemptionBasket
+from lib.etf.functions.operations.order_management import OrderManagement, CreationBasket, RedemptionBasket
 from lib.etf.shared import PCFFile, APOrder
 
 

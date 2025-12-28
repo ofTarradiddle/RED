@@ -6,7 +6,7 @@ import pytest
 from datetime import date
 from decimal import Decimal
 
-from lib.etf.functions.compliance import Compliance, SECFiling
+from lib.etf.functions.compliance.compliance import Compliance, SECFiling
 
 
 class TestCompliance:

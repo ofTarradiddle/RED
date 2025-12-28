@@ -1,0 +1,43 @@
+{
+  "date": "2025-12-24",
+  "creation_unit_size": 50000,
+  "securities": [
+    {
+      "cusip": "023135106",
+      "quantity": "0.0200",
+      "description": "",
+      "estimated_value": "0.0000"
+    },
+    {
+      "cusip": "02079K107",
+      "quantity": "0.0100",
+      "description": "",
+      "estimated_value": "0.0000"
+    },
+    {
+      "cusip": "02079K305",
+      "quantity": "0.0100",
+      "description": "",
+      "estimated_value": "0.0000"
+    },
+    {
+      "cusip": "459200101",
+      "quantity": "0.0160",
+      "description": "",
+      "estimated_value": "0.0000"
+    },
+    {
+      "cusip": "17275R102",
+      "quantity": "0.0400",
+      "description": "",
+      "estimated_value": "0.0000"
+    }
+  ],
+  "cash_component": "2.0000",
+  "estimated_cash_component": "2.0000",
+  "total_estimated_value": "0.0000",
+  "validation_passed": false,
+  "errors": [
+    "Total estimated value is zero"
+  ]
+}

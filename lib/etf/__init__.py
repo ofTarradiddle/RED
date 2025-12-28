@@ -9,13 +9,13 @@ Production-ready implementations for all ETF operational functions:
 - Distributor
 """
 
-from lib.etf.functions.accounting import Accounting
-from lib.etf.functions.administration import FundAdministration
-from lib.etf.functions.transfer_agent import TransferAgent
-from lib.etf.functions.order_management import OrderManagement
-from lib.etf.functions.distributor import Distributor
-from lib.etf.functions.compliance import Compliance
-from lib.etf.functions.tax_reporting import TaxReporting
+from lib.etf.functions.core.accounting import Accounting
+from lib.etf.functions.core.administration import FundAdministration
+from lib.etf.functions.operations.transfer_agent import TransferAgent
+from lib.etf.functions.operations.order_management import OrderManagement
+from lib.etf.functions.operations.distributor import Distributor
+from lib.etf.functions.compliance.compliance import Compliance
+from lib.etf.functions.tax.tax_reporting import TaxReporting
 
 from lib.etf.adapters import (
     DataSourceAdapter,

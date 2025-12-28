@@ -6,7 +6,7 @@ import pytest
 from datetime import date
 from decimal import Decimal
 
-from lib.etf.functions.transfer_agent import TransferAgent
+from lib.etf.functions.operations.transfer_agent import TransferAgent
 from lib.etf.shared import ShareholderRecord, ReconciliationResult
 
 

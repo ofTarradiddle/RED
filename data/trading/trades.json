@@ -1,0 +1,18 @@
+[
+  {
+    "trade_id": "TRD_20251227183807",
+    "cusip": "037833100",
+    "ticker": "AAPL",
+    "order_type": "buy",
+    "quantity": "1000",
+    "limit_price": "150.00",
+    "order_date": "2025-12-27",
+    "execution_date": "2025-12-27",
+    "execution_price": "100.00",
+    "status": "executed",
+    "broker": null,
+    "settlement_date": "2025-12-27",
+    "fees": "100.00000",
+    "notes": ""
+  }
+]

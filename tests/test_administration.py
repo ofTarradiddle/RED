@@ -6,7 +6,7 @@ import pytest
 from datetime import date
 from decimal import Decimal
 
-from lib.etf.functions.administration import FundAdministration
+from lib.etf.functions.core.administration import FundAdministration
 from lib.etf.shared import NAVCalculation
 
 

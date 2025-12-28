@@ -1,0 +1,15 @@
+{
+  "distribution_id": "DIST_DIVIDEND_2024-12-31",
+  "payments_processed": 1,
+  "total_paid": "0.0",
+  "expected_total": "0.0",
+  "payments": [
+    {
+      "account_number": "ACC001",
+      "shareholder_name": null,
+      "shares": "1000",
+      "amount_per_share": "0.0",
+      "payment_amount": "0.0"
+    }
+  ]
+}

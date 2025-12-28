@@ -1,0 +1,36 @@
+{
+  "valuation_date": "2025-12-27",
+  "total_securities": 3,
+  "fair_valued_securities": 0,
+  "market_priced_securities": 3,
+  "exceptions": [],
+  "valuation_results": [
+    {
+      "cusip": "037833100",
+      "ticker": "AAPL",
+      "market_price": "100.00",
+      "fair_value_price": "100.00",
+      "valuation_method": "market",
+      "confidence_level": "high",
+      "adjustment_reason": null
+    },
+    {
+      "cusip": "594918104",
+      "ticker": "MSFT",
+      "market_price": "100.00",
+      "fair_value_price": "100.00",
+      "valuation_method": "market",
+      "confidence_level": "high",
+      "adjustment_reason": null
+    },
+    {
+      "cusip": "30303M102",
+      "ticker": "GOOGL",
+      "market_price": "100.00",
+      "fair_value_price": "100.00",
+      "valuation_method": "market",
+      "confidence_level": "high",
+      "adjustment_reason": null
+    }
+  ]
+}

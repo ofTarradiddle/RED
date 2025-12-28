@@ -1,0 +1,29 @@
+{
+  "validation_date": "2025-12-27",
+  "passed": false,
+  "errors": [
+    "CUSIP overlap 66.67% below required 95.00% for substantial similarity",
+    "Value deviation 397122.22% exceeds maximum 5.00% allowed"
+  ],
+  "warnings": [
+    "Maximum position concentration 66.43% exceeds 25% - review for fair treatment"
+  ],
+  "validation_details": {
+    "cusip_overlap": 0.6666666666666666,
+    "value_deviation": 3971.222222222222,
+    "custom_total_value": "14300.00",
+    "standard_total_value": "3.600000",
+    "max_concentration": 0.6643356643356644,
+    "legitimate_purpose": "tax_optimization",
+    "disclosure_required": true,
+    "disclosure_status": "pending"
+  },
+  "standard_basket_summary": {
+    "cusip_count": 3,
+    "total_value": "3.000000"
+  },
+  "custom_basket_summary": {
+    "cusip_count": 2,
+    "total_value": "14300.00"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "record_id": "nav_calculation_2025-12-24_108",
+  "record_type": "nav_calculation",
+  "record_date": "2025-12-24",
+  "operation": "Daily NAV calculation",
+  "data": {
+    "date": "2025-12-24",
+    "total_assets": "100500",
+    "total_liabilities": "123.2876712328767123287671233",
+    "net_assets": "100376.7123287671232876712329",
+    "shares_outstanding": "100000",
+    "nav_per_share": "1.0038",
+    "pricing_exceptions": [
+      "Missing price for CUSIP 023135106",
+      "Missing price for CUSIP 02079K107",
+      "Missing price for CUSIP 02079K305",
+      "Missing price for CUSIP 459200101",
+      "Missing price for CUSIP 17275R102"
+    ],
+    "validation_passed": false,
+    "holdings": [
+      {
+        "cusip": "023135106",
+        "ticker": "AMZN",
+        "quantity": "1000",
+        "price": "0",
+        "market_value": "0"
+      },
+      {
+        "cusip": "02079K107",
+        "ticker": "GOOG",
+        "quantity": "500",
+        "price": "0",
+        "market_value": "0"
+      },
+      {
+        "cusip": "02079K305",
+        "ticker": "GOOGL",
+        "quantity": "500",
+        "price": "0",
+        "market_value": "0"
+      },
+      {
+        "cusip": "459200101",
+        "ticker": "IBM",
+        "quantity": "800",
+        "price": "0",
+        "market_value": "0"
+      },
+      {
+        "cusip": "17275R102",
+        "ticker": "CSCO",
+        "quantity": "2000",
+        "price": "0",
+        "market_value": "0"
+      }
+    ],
+    "cash_balance": "100000",
+    "accrued_income": "500",
+    "accrued_expenses": "123.2876712328767123287671233",
+    "total_securities_value": "0"
+  },
+  "user": null,
+  "system": "ETF_Admin_System",
+  "timestamp": "2025-12-25T18:35:02.577031",
+  "related_records": []
+}

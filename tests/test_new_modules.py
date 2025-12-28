@@ -7,15 +7,15 @@ from datetime import date
 from decimal import Decimal
 from pathlib import Path
 
-from lib.etf.functions.security_master import SecurityMasterFile, PortfolioRecords
-from lib.etf.functions.tax_adjustments import BookToTaxAdjustments
-from lib.etf.functions.state_tax import StateTaxReporting
-from lib.etf.functions.fbar_filing import FBARFilingSystem, ForeignAccount
-from lib.etf.functions.capital_gain_estimates import CapitalGainEstimates
-from lib.etf.functions.adviser_portal import AdviserPortal
-from lib.etf.functions.audit_cooperation import AuditCooperation
-from lib.etf.functions.tax_reporting import TaxReporting
-from lib.etf.functions.tax_lot import TaxLotManager
+from lib.etf.functions.supporting.security_master import SecurityMasterFile, PortfolioRecords
+from lib.etf.functions.tax.tax_adjustments import BookToTaxAdjustments
+from lib.etf.functions.tax.state_tax import StateTaxReporting
+from lib.etf.functions.tax.fbar_filing import FBARFilingSystem, ForeignAccount
+from lib.etf.functions.tax.capital_gain_estimates import CapitalGainEstimates
+from lib.etf.functions.supporting.adviser_portal import AdviserPortal
+from lib.etf.functions.compliance.audit_cooperation import AuditCooperation
+from lib.etf.functions.tax.tax_reporting import TaxReporting
+from lib.etf.functions.tax.tax_lot import TaxLotManager
 from tests.conftest import MockDataSourceAdapter
 
 
@@ -263,7 +263,7 @@ class TestAuditCooperation:
     
     def test_prepare_audit_package(self, temp_storage, mock_adapter):
         """Test audit package preparation"""
-        from lib.etf.functions.accounting import Accounting
+        from lib.etf.functions.core.accounting import Accounting
         
         accounting = Accounting(mock_adapter, storage_path=str(temp_storage))
         audit = AuditCooperation(storage_path=str(temp_storage))

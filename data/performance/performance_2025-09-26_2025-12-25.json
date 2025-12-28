@@ -1,0 +1,19 @@
+{
+    "start_date": "2025-09-26",
+    "end_date": "2025-12-25",
+    "start_nav": 25.0,
+    "end_nav": 25.0,
+    "pre_tax_total_return": 0.0,
+    "after_tax_total_return": 0.0,
+    "tax_drag": 0.0,
+    "tax_efficiency_ratio": 0,
+    "benchmark": {
+        "symbol": "VTI",
+        "start_price": 325.35015869140625,
+        "end_price": 339.8800048828125,
+        "total_return": 0.050514932885627126,
+        "method": "manual",
+        "note": "Using manual calculation (auto_adjust didn't adjust prices in this period)"
+    },
+    "fund_vs_benchmark": 0.050514932885627126
+}

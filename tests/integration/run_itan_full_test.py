@@ -12,13 +12,13 @@ import json
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from lib.etf.functions.orchestrator import DailyOrchestrator
-from lib.etf.functions.administration import FundAdministration
-from lib.etf.functions.accounting import Accounting
-from lib.etf.functions.tax_lot import TaxLotManager
-from lib.etf.functions.distributor import Distributor
-from lib.etf.functions.performance import PerformanceCalculator
-from lib.etf.functions.tax_reporting import TaxReporting
+from lib.etf.functions.core.orchestrator import DailyOrchestrator
+from lib.etf.functions.core.administration import FundAdministration
+from lib.etf.functions.core.accounting import Accounting
+from lib.etf.functions.tax.tax_lot import TaxLotManager
+from lib.etf.functions.operations.distributor import Distributor
+from lib.etf.functions.operations.performance import PerformanceCalculator
+from lib.etf.functions.tax.tax_reporting import TaxReporting
 from tests.integration.test_itan_live_data import ITANLiveDataAdapter
 
 

@@ -6,7 +6,7 @@ import pytest
 from datetime import date, timedelta
 from decimal import Decimal
 
-from lib.etf.functions.tax_lot import TaxLotManager, TaxLot, RealizedGainRecord
+from lib.etf.functions.tax.tax_lot import TaxLotManager, TaxLot, RealizedGainRecord
 
 
 class TestTaxLotManager:

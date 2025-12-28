@@ -1,0 +1,35 @@
+{
+  "assessment_date": "2025-12-27",
+  "overall_risk_level": "low",
+  "risk_score": "10",
+  "risk_factors": [
+    {
+      "factor": "concentration_risk",
+      "value": 0.5555555555555556,
+      "threshold": 0.3,
+      "risk_level": "medium"
+    }
+  ],
+  "recommendations": [
+    "Diversify portfolio to reduce concentration risk"
+  ],
+  "compliance_status": "compliant",
+  "portfolio_metrics": {
+    "total_portfolio_value": "180000.00",
+    "highly_liquid_value": "180000.00",
+    "moderately_liquid_value": "0",
+    "less_liquid_value": "0",
+    "illiquid_value": "0",
+    "highly_liquid_percentage": "1",
+    "moderately_liquid_percentage": "0E+2",
+    "less_liquid_percentage": "0E+2",
+    "illiquid_percentage": "0E+2",
+    "concentration_risk": "0.5555555555555555555555555556",
+    "avg_daily_volume_percentage": "0.25"
+  },
+  "security_classifications": {
+    "037833100": "highly_liquid",
+    "594918104": "highly_liquid",
+    "30303M102": "highly_liquid"
+  }
+}

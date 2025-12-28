@@ -6,7 +6,7 @@ import pytest
 from datetime import date, timedelta
 from decimal import Decimal
 
-from lib.etf.functions.distributor import Distributor, DistributionRecord
+from lib.etf.functions.operations.distributor import Distributor, DistributionRecord
 
 
 class TestDistributor:

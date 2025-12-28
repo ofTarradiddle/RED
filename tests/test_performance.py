@@ -8,7 +8,7 @@ from datetime import date
 from pathlib import Path
 from decimal import Decimal
 
-from lib.etf.functions.performance import PerformanceCalculator
+from lib.etf.functions.operations.performance import PerformanceCalculator
 
 
 @pytest.fixture

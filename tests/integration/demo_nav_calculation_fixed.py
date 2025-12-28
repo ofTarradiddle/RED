@@ -18,7 +18,7 @@ from datetime import date, timedelta
 from decimal import Decimal
 import json
 
-from lib.etf.functions.administration import FundAdministration
+from lib.etf.functions.core.administration import FundAdministration
 from lib.etf.adapters import FileBasedDataSourceAdapter
 
 

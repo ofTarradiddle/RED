@@ -8,7 +8,7 @@ from datetime import date
 from pathlib import Path
 from decimal import Decimal
 
-from lib.etf.functions.orchestrator import DailyOrchestrator
+from lib.etf.functions.core.orchestrator import DailyOrchestrator
 from tests.conftest import MockDataSourceAdapter
 
 

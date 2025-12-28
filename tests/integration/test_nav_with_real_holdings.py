@@ -15,8 +15,8 @@ from datetime import date, timedelta
 from decimal import Decimal
 import json
 
-from lib.etf.functions.administration import FundAdministration
-from lib.etf.functions.audit_trail import AuditTrailManager
+from lib.etf.functions.core.administration import FundAdministration
+from lib.etf.functions.compliance.audit_trail import AuditTrailManager
 from lib.etf.adapters import FileBasedDataSourceAdapter
 from tests.integration.fetch_real_etf_holdings import fetch_etf_holdings_with_quantities
 

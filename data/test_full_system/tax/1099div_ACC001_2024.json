@@ -1,0 +1,11 @@
+{
+  "form_type": "1099-DIV",
+  "tax_year": 2024,
+  "shareholder_account": "ACC001",
+  "shareholder_name": "John Doe",
+  "tax_id": "",
+  "distributions": "0.0",
+  "dividends": "0.0",
+  "capital_gains": "0",
+  "return_of_capital": "0"
+}
