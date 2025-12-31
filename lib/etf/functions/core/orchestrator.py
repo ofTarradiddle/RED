@@ -77,6 +77,10 @@ class DailyOrchestrator:
             data_adapter=data_adapter,
             storage_path=self.config.get('paths', {}).get('distributor_storage', './data/distributor')
         )
+        self.settlement_reconciliation = SettlementReconciliationManager(
+            data_adapter=data_adapter,
+            storage_path=self.config.get('paths', {}).get('settlement_storage', './data/settlement')
+        )
         self.performance = PerformanceCalculator(
             storage_path=self.config.get('paths', {}).get('performance_storage', './data/performance')
         )
