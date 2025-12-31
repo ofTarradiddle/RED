@@ -584,13 +584,125 @@ class OrderManagement:
             "fee_currency": "USD"
         }
     
-    def process_ap_order(self, order: APOrder, pcf: PCFFile) -> Dict[str, Any]:
+    def review_and_approve_custom_basket(self, order: APOrder, pcf: PCFFile,
+                                         approved_basket: Optional[List[Dict[str, Any]]] = None,
+                                         approval_action: str = "approve") -> Dict[str, Any]:
+        """
+        Review and approve/deny/modify AP's custom basket request.
+        
+        This implements the fund's discretion to approve, deny, or modify AP's custom basket request.
+        The fund has final say on what basket is delivered, even if AP requests a custom basket.
+        
+        Args:
+            order: APOrder with custom basket request
+            pcf: PCFFile for validation
+            approved_basket: Optional modified basket. If None and action is "approve", uses AP's basket.
+            approval_action: "approve", "deny", or "modify"
+            
+        Returns:
+            Dictionary with approval result and final approved basket
+        """
+        logger.info(f"Reviewing custom basket request for order {order.order_id}, action: {approval_action}")
+        
+        if not order.basket:
+            return {
+                "order_id": order.order_id,
+                "status": "error",
+                "reason": "No custom basket in order to review"
+            }
+        
+        if approval_action == "deny":
+            order.status = "rejected"
+            order.rejection_reason = "Custom basket request denied by fund"
+            return {
+                "order_id": order.order_id,
+                "status": "rejected",
+                "reason": "Custom basket request denied by fund",
+                "ap_requested_basket": order.basket
+            }
+        
+        # Determine final basket
+        if approval_action == "modify" and approved_basket:
+            # Fund modifies AP's request
+            final_basket_securities = approved_basket
+            modification_note = "Fund modified AP's custom basket request"
+        elif approval_action == "approve":
+            # Fund approves AP's request as-is
+            final_basket_securities = order.basket
+            modification_note = "Fund approved AP's custom basket request as-is"
+        else:
+            return {
+                "order_id": order.order_id,
+                "status": "error",
+                "reason": f"Invalid approval action: {approval_action}"
+            }
+        
+        # Build and validate final basket
+        if order.order_type == "creation":
+            final_basket = self.build_custom_creation_basket(pcf, order.creation_units, final_basket_securities)
+        else:
+            final_basket = self.build_custom_redemption_basket(pcf, order.creation_units, final_basket_securities)
+        
+        if not final_basket.validated:
+            order.status = "rejected"
+            order.rejection_reason = f"Final basket validation failed: {', '.join(final_basket.errors)}"
+            return {
+                "order_id": order.order_id,
+                "status": "rejected",
+                "reason": order.rejection_reason,
+                "ap_requested_basket": order.basket,
+                "final_basket": final_basket_securities
+            }
+        
+        # Save approval record
+        approval_record = {
+            "order_id": order.order_id,
+            "ap_id": order.ap_id,
+            "order_type": order.order_type,
+            "approval_action": approval_action,
+            "approval_date": datetime.now().isoformat(),
+            "ap_requested_basket": order.basket,
+            "final_approved_basket": final_basket.securities,
+            "modification_note": modification_note,
+            "basket_validation": {
+                "validated": final_basket.validated,
+                "errors": final_basket.errors
+            }
+        }
+        
+        approval_file = self.storage_path / f"basket_approval_{order.order_id}.json"
+        with open(approval_file, 'w') as f:
+            json.dump(approval_record, f, indent=2, default=str)
+        
+        logger.info(f"Custom basket approved for order {order.order_id}, final basket: {len(final_basket.securities)} securities")
+        
+        return {
+            "order_id": order.order_id,
+            "status": "approved",
+            "approval_action": approval_action,
+            "ap_requested_basket": order.basket,
+            "final_approved_basket": {
+                "securities": final_basket.securities,
+                "cash_component": str(final_basket.cash_component),
+                "total_value": str(final_basket.total_value)
+            },
+            "modification_note": modification_note,
+            "basket_type": final_basket.basket_type
+        }
+    
+    def process_ap_order(self, order: APOrder, pcf: PCFFile, 
+                        auto_approve_custom_baskets: bool = False) -> Dict[str, Any]:
         """
         Process AP order (validate, accept/reject, route)
+        
+        For custom baskets, this validates but does not automatically approve.
+        Use review_and_approve_custom_basket() to explicitly approve/deny/modify custom basket requests.
         
         Args:
             order: APOrder to process
             pcf: PCFFile for validation
+            auto_approve_custom_baskets: If True, automatically approves custom baskets (not recommended).
+                                        If False, custom baskets require explicit approval via review_and_approve_custom_basket()
             
         Returns:
             Dictionary with processing results
@@ -608,15 +720,31 @@ class OrderManagement:
                 "reason": error_msg
             }
         
-        # Build basket based on order type
+        # Handle custom basket requests
         if order.basket:
-            # Custom basket
-            if order.order_type == "creation":
-                basket = self.build_custom_creation_basket(pcf, order.creation_units, order.basket)
+            if not auto_approve_custom_baskets:
+                # Custom basket requires explicit approval
+                order.status = "pending_approval"
+                return {
+                    "order_id": order.order_id,
+                    "status": "pending_approval",
+                    "message": "Custom basket request requires fund approval. Use review_and_approve_custom_basket() to approve/deny/modify.",
+                    "ap_requested_basket": order.basket
+                }
             else:
-                basket = self.build_custom_redemption_basket(pcf, order.creation_units, order.basket)
+                # Auto-approve (not recommended - fund should review)
+                logger.warning(f"Auto-approving custom basket for order {order.order_id} (not recommended)")
+                approval_result = self.review_and_approve_custom_basket(order, pcf, approval_action="approve")
+                if approval_result["status"] != "approved":
+                    return approval_result
+                # Continue with approved basket
+                final_basket_securities = approval_result["final_approved_basket"]["securities"]
+                if order.order_type == "creation":
+                    basket = self.build_custom_creation_basket(pcf, order.creation_units, final_basket_securities)
+                else:
+                    basket = self.build_custom_redemption_basket(pcf, order.creation_units, final_basket_securities)
         else:
-            # Standard basket
+            # Standard basket - no approval needed
             if order.order_type == "creation":
                 basket = self.build_standard_creation_basket(pcf, order.creation_units)
             else:

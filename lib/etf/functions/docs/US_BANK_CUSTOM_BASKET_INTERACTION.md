@@ -14,33 +14,41 @@ This guide explains how to interact with US Bank for custom and in-kind basket o
 - Order routing and settlement coordination
 
 **Your responsibilities**:
-- **Creation Orders**: Validate AP's custom basket requests (Rule 6c-11 compliance)
-- **Redemption Orders**: Generate tax-optimized custom baskets (you tell AP what they'll receive)
-- Provide validated/generated baskets to US Bank
-- Notify AP of redemption basket composition (for redemption orders)
+- **Review and approve/deny/modify** all custom basket requests (fund has final discretion)
+- **Validate** custom baskets (Rule 6c-11 compliance)
+- **Generate** tax-optimized baskets for redemptions (if not using AP's request)
+- **Provide final approved baskets** to US Bank
+- **Notify AP** of final approved basket composition (what they must deliver/receive)
 - Monitor order status
 - Reconcile settlements
 
-**Key Difference**:
-- **Creation**: AP tells you what they want to deliver → You validate → Send to US Bank
-- **Redemption**: AP submits standard order → You generate optimized basket → You tell AP what they'll receive → Send to US Bank
+**Key Principle**: **The Fund has final discretion on all custom baskets**
+- AP can **request** a custom basket (for inventory constraints, settlement issues, tax lots, hard-to-source names)
+- Fund **reviews, approves, denies, or modifies** the request
+- Fund **tells AP** what the final approved basket is
+- AP **delivers exactly** what's approved
 
 ---
 
-## Workflow for Custom/In-Kind Baskets
+## Real-World Workflow for Custom/In-Kind Baskets
 
-**Important**: The workflow differs for **Creation** vs **Redemption** orders:
+**The standard workflow** (applies to both Creation and Redemption orders):
 
-- **Creation Orders**: AP tells you what securities they want to deliver (AP requests custom basket)
-- **Redemption Orders**: You tell AP what securities they'll receive (you generate optimized basket for tax efficiency)
+1. **AP requests** custom basket (often due to inventory constraints, settlement issues, tax lots, or hard-to-source names)
+2. **Transfer agent/US Bank routes** the request to you (and sometimes to portfolio management/trading)
+3. **You review and approve/deny/modify** the request (fund has discretion)
+4. **You send final agreed basket** to AP and US Bank (what to deliver + cash balancing)
+5. **AP delivers exactly** what's approved
+
+**Key Point**: AP can request, but **you tell AP what's in the final basket**. The fund has the discretion to accept, deny, or modify any custom basket request.
 
 ---
 
-## Workflow A: Creation Orders (AP Requests Custom Basket)
+## Workflow: Custom Basket Request and Approval
 
 ### 1. AP Submits Custom Basket Request
 
-**AP submits creation order with custom basket** (via US Bank portal, email, or API):
+**AP submits order with custom basket request** (via US Bank portal, email, or API):
 
 ```json
 {
@@ -53,16 +61,110 @@ This guide explains how to interact with US Bank for custom and in-kind basket o
     {"cusip": "594918104", "quantity": "50", "description": "MICROSOFT CORP"}
   ],
   "purpose": "inventory_management",
+  "reason": "AP has these securities in inventory and wants to avoid sourcing others",
   "order_date": "2024-01-15",
   "requested_settlement_date": "2024-01-17"
 }
 ```
 
-**Note**: For creation orders, AP requests custom basket because they want to deliver specific securities they have in inventory (inventory management) or for their own tax reasons.
+**Common reasons AP requests custom baskets**:
+- Inventory constraints (AP has specific securities in inventory)
+- Settlement issues (avoiding hard-to-settle securities)
+- Tax lots (AP wants to deliver specific tax lots)
+- Hard-to-source names (securities difficult to locate/borrow)
+
+**Note**: This is a **request**, not a final basket. The fund has discretion to approve, deny, or modify.
 
 ---
 
-### 2. Validate Custom Basket (Your System)
+### 2. Transfer Agent/US Bank Routes Request to You
+
+**US Bank receives the request and routes it to you** (via email, API, or portal notification):
+
+```python
+# You receive the order from US Bank
+order = om.create_ap_order(
+    ap_id="AP001",
+    order_type="creation",
+    creation_units=10,
+    basket=custom_basket_request  # AP's requested basket
+)
+```
+
+---
+
+### 3. Review and Approve/Deny/Modify Custom Basket (Your System)
+
+**You review the request and make a decision**:
+
+```python
+from lib.etf.functions.operations.order_management import OrderManagement
+from lib.etf.adapters import FileBasedDataSourceAdapter
+from datetime import date
+
+# Initialize
+adapter = FileBasedDataSourceAdapter(data_path="./data")
+om = OrderManagement(adapter)
+
+# Get current PCF
+pcf = om.generate_pcf(date.today())
+
+# Option A: Approve AP's request as-is
+approval_result = om.review_and_approve_custom_basket(
+    order=order,
+    pcf=pcf,
+    approval_action="approve"  # Approve AP's basket as-is
+)
+
+# Option B: Modify AP's request
+modified_basket = [
+    {"cusip": "037833100", "quantity": "100"},  # Keep this
+    {"cusip": "594918104", "quantity": "60"}    # Modify quantity
+]
+approval_result = om.review_and_approve_custom_basket(
+    order=order,
+    pcf=pcf,
+    approved_basket=modified_basket,
+    approval_action="modify"  # Fund modifies AP's request
+)
+
+# Option C: Deny AP's request (use standard basket instead)
+approval_result = om.review_and_approve_custom_basket(
+    order=order,
+    pcf=pcf,
+    approval_action="deny"  # Deny custom basket, will use standard
+)
+
+# Option D: Generate your own optimized basket (for redemptions)
+from lib.etf.functions.operations.tax_optimization import TaxEfficiencyOptimizer
+from lib.etf.functions.tax.tax_lot import TaxLotManager
+
+tax_optimizer = TaxEfficiencyOptimizer(adapter)
+tax_lot_mgr = TaxLotManager(storage_path="./data/tax_lots")
+tax_lots = tax_lot_mgr.get_all_tax_lots()
+
+# Generate optimized basket (highest cost basis for tax efficiency)
+optimized_basket = tax_optimizer.optimize_redemption_basket_for_tax(
+    pcf=pcf.__dict__,
+    creation_units=5,
+    tax_lots=tax_lots
+)
+
+# Approve your optimized basket instead of AP's request
+approval_result = om.review_and_approve_custom_basket(
+    order=order,
+    pcf=pcf,
+    approved_basket=optimized_basket,
+    approval_action="modify"  # Fund uses its own optimized basket
+)
+```
+
+**Review considerations**:
+- ✅ Rule 6c-11 compliance (substantial similarity, value deviation)
+- ✅ Portfolio management considerations
+- ✅ Tax optimization (for redemptions: highest cost basis)
+- ✅ Operational efficiency
+- ✅ AP's stated reason (inventory constraints, settlement issues, etc.)
 
 **Before sending to US Bank, validate the custom basket**:
 
@@ -695,12 +797,19 @@ ap_notification = {
 7. **Communicate clearly** - Maintain clear communication with APs and US Bank
 8. **Test first** - Test custom basket workflow with US Bank before going live
 
-## Summary: Who Determines Custom Basket?
+## Summary: Custom Basket Workflow
 
-| Order Type | Who Determines Custom Basket | Why |
-|------------|------------------------------|-----|
-| **Creation** | **AP** (tells you what they want to deliver) | AP has inventory management needs, wants to deliver specific securities they hold |
-| **Redemption** | **You** (tell AP what they'll receive) | Tax optimization - you select highest cost basis securities to minimize fund's realized gains |
+| Step | Who | What |
+|------|-----|------|
+| **1. Request** | **AP** | AP requests custom basket (inventory constraints, settlement issues, tax lots, hard-to-source names) |
+| **2. Route** | **US Bank/Transfer Agent** | Routes request to fund manager |
+| **3. Review & Approve** | **Fund (You)** | Fund reviews, approves, denies, or modifies request (fund has discretion) |
+| **4. Notify** | **Fund (You)** | Fund tells AP what the final approved basket is |
+| **5. Deliver** | **AP** | AP delivers exactly what's approved |
+
+**Key Principle**: AP can request, but **the fund has final discretion** and tells AP what's in the final basket.
+
+**For Redemptions**: Fund often generates its own tax-optimized basket (highest cost basis) rather than using AP's request, to minimize realized gains for the fund.
 
 ---
 
