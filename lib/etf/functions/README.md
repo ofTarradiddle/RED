@@ -106,7 +106,8 @@ functions/
    - Generate PCF (Portfolio Composition File) for NSCC
    - Publish PCF by 8:00 AM ET (before market open)
    - Process AP creation/redemption orders
-   - Validate baskets
+   - Validate baskets (standard and custom)
+   - Rule 6c-11 compliance for custom baskets
    - **When**: Daily, PCF by 8:00 AM, orders throughout day
    - **External Interfaces**:
      - **NSCC (National Securities Clearing Corporation)**: API or SFTP for PCF publication
@@ -116,8 +117,10 @@ functions/
        - Contact: NSCC Participant Services (if self-administering)
      - **US Bank (Order Management)**: **US Bank handles this**
        - **Note**: US Bank will handle PCF publication and AP order processing
-       - **Our Logic**: Kept for future use if needed (all functions implemented)
-       - Interface: If needed later, US Bank API or email notifications
+       - **Custom/In-Kind Baskets**: You validate custom baskets, then send to US Bank
+       - **Interface**: US Bank API, SFTP, or email for custom basket orders
+       - **Format**: JSON with validated basket data and Rule 6c-11 compliance results
+       - **See**: `docs/US_BANK_CUSTOM_BASKET_INTERACTION.md` for detailed guide
        - Contact: US Bank Global Fund Services
      - **Authorized Participants (APs)**: Email or portal for order submissions
        - Format: Email with order details or web portal
