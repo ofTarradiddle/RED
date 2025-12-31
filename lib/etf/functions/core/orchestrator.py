@@ -20,6 +20,7 @@ from decimal import Decimal
 
 from lib.etf.functions.core.administration import FundAdministration
 from lib.etf.functions.core.accounting import Accounting
+from lib.etf.functions.core.settlement_reconciliation import SettlementReconciliationManager
 from lib.etf.functions.tax.tax_lot import TaxLotManager
 from lib.etf.functions.operations.distributor import Distributor
 from lib.etf.functions.operations.performance import PerformanceCalculator
@@ -170,18 +171,23 @@ class DailyOrchestrator:
             ca_result = self.admin.process_corporate_actions(operation_date)
             results["operations"]["corporate_actions"] = ca_result
             
-            # 6. Check for distribution dates
-            logger.info("Step 6: Checking for distribution dates")
+            # 6. Settlement Reconciliation (T+1 and T+2)
+            logger.info("Step 6: Reconciling trade settlements")
+            settlement_result = self.settlement_reconciliation.reconcile_daily_settlements(operation_date)
+            results["operations"]["settlement_reconciliation"] = settlement_result
+            
+            # 7. Check for distribution dates
+            logger.info("Step 7: Checking for distribution dates")
             dist_result = self._process_distributions(operation_date, nav_data)
             if dist_result:
                 results["operations"]["distributions"] = dist_result
             
-            # 7. Year-end reporting tasks
+            # 8. Year-end reporting tasks
             fiscal_year_end = self.config.get('fund', {}).get('fiscal_year_end', '12-31')
             fy_month, fy_day = map(int, fiscal_year_end.split('-'))
             
             if operation_date.month == fy_month and operation_date.day == fy_day:
-                logger.info("Step 7: Running year-end reporting tasks")
+                logger.info("Step 8: Running year-end reporting tasks")
                 year_end_results = self._run_year_end_tasks(operation_date.year)
                 results["operations"]["year_end"] = year_end_results
             

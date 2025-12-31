@@ -11,7 +11,8 @@ functions/
 ├── core/              # Core daily operations
 │   ├── administration.py    # NAV calculation, reconciliation
 │   ├── accounting.py        # General ledger, financial statements
-│   └── orchestrator.py      # Daily workflow coordination
+│   ├── orchestrator.py      # Daily workflow coordination
+│   └── settlement_reconciliation.py  # T+1/T+2 settlement reconciliation
 │
 ├── tax/               # Tax-related functions
 │   ├── tax_lot.py            # Tax lot tracking (FIFO/LIFO)
@@ -147,6 +148,19 @@ functions/
        - Format: JSON files or CSV exports
        - Timing: On-demand for audit requests
        - Contact: Fund auditors (PwC, Deloitte, etc.)
+
+7. **Settlement Reconciliation** (`core/settlement_reconciliation.py`)
+   - Reconcile T+1 settlements (next-day settlement checks)
+   - Reconcile T+2 settlements (standard ETF settlement, trade date + 2 business days)
+   - Verify trade settlements (cash and positions)
+   - Track settlement status (settled, pending, failed)
+   - **When**: Daily, after market close
+   - **External Interfaces**:
+     - **Custodian (US Bank)**: API or SFTP for settlement data
+       - Format: CSV/Excel or JSON via API with trade settlement details
+       - Timing: Available by 6:00 PM ET
+       - Contact: US Bank Global Fund Services
+     - **Internal**: Uses trade records and custodian statements
 
 **Daily Workflow Script**: `tasks/daily_operations.py`
 
