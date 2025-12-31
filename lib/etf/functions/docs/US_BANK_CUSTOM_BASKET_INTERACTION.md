@@ -14,18 +14,33 @@ This guide explains how to interact with US Bank for custom and in-kind basket o
 - Order routing and settlement coordination
 
 **Your responsibilities**:
-- Validate custom baskets (Rule 6c-11 compliance)
-- Provide validated baskets to US Bank
+- **Creation Orders**: Validate AP's custom basket requests (Rule 6c-11 compliance)
+- **Redemption Orders**: Generate tax-optimized custom baskets (you tell AP what they'll receive)
+- Provide validated/generated baskets to US Bank
+- Notify AP of redemption basket composition (for redemption orders)
 - Monitor order status
 - Reconcile settlements
+
+**Key Difference**:
+- **Creation**: AP tells you what they want to deliver → You validate → Send to US Bank
+- **Redemption**: AP submits standard order → You generate optimized basket → You tell AP what they'll receive → Send to US Bank
 
 ---
 
 ## Workflow for Custom/In-Kind Baskets
 
+**Important**: The workflow differs for **Creation** vs **Redemption** orders:
+
+- **Creation Orders**: AP tells you what securities they want to deliver (AP requests custom basket)
+- **Redemption Orders**: You tell AP what securities they'll receive (you generate optimized basket for tax efficiency)
+
+---
+
+## Workflow A: Creation Orders (AP Requests Custom Basket)
+
 ### 1. AP Submits Custom Basket Request
 
-**AP submits order with custom basket** (via US Bank portal, email, or API):
+**AP submits creation order with custom basket** (via US Bank portal, email, or API):
 
 ```json
 {
@@ -37,11 +52,13 @@ This guide explains how to interact with US Bank for custom and in-kind basket o
     {"cusip": "037833100", "quantity": "100", "description": "APPLE INC"},
     {"cusip": "594918104", "quantity": "50", "description": "MICROSOFT CORP"}
   ],
-  "purpose": "tax_optimization",
+  "purpose": "inventory_management",
   "order_date": "2024-01-15",
   "requested_settlement_date": "2024-01-17"
 }
 ```
+
+**Note**: For creation orders, AP requests custom basket because they want to deliver specific securities they have in inventory (inventory management) or for their own tax reasons.
 
 ---
 
@@ -93,7 +110,134 @@ else:
 
 ---
 
-### 3. Send Validated Basket to US Bank
+## Workflow B: Redemption Orders (You Generate Optimized Basket)
+
+### 1. AP Submits Redemption Order
+
+**AP submits standard redemption order** (via US Bank portal, email, or API):
+
+```json
+{
+  "ap_id": "AP001",
+  "order_type": "redemption",
+  "creation_units": 5,
+  "basket_type": "standard",  // AP doesn't specify - you will determine
+  "order_date": "2024-01-15",
+  "requested_settlement_date": "2024-01-17"
+}
+```
+
+**Note**: For redemption orders, AP submits a standard order. **You then generate the optimized basket** based on tax efficiency (highest cost basis securities to minimize realized gains).
+
+---
+
+### 2. Generate Tax-Optimized Redemption Basket (Your System)
+
+**You generate the custom redemption basket** for tax optimization:
+
+```python
+from lib.etf.functions.operations.order_management import OrderManagement
+from lib.etf.functions.operations.tax_optimization import TaxEfficiencyOptimizer
+from lib.etf.functions.tax.tax_lot import TaxLotManager
+from lib.etf.adapters import FileBasedDataSourceAdapter
+from datetime import date
+
+# Initialize
+adapter = FileBasedDataSourceAdapter(data_path="./data")
+om = OrderManagement(adapter)
+tax_optimizer = TaxEfficiencyOptimizer(adapter)
+tax_lot_mgr = TaxLotManager(storage_path="./data/tax_lots")
+
+# Get current PCF
+pcf = om.generate_pcf(date.today())
+
+# Get tax lots for optimization
+tax_lots = tax_lot_mgr.get_all_tax_lots()  # Get all tax lots with cost basis
+
+# Generate optimized redemption basket (highest cost basis to minimize gains)
+optimized_basket = tax_optimizer.optimize_redemption_basket_for_tax(
+    pcf=pcf.__dict__,  # Convert PCFFile to dict
+    creation_units=5,
+    tax_lots=tax_lots
+)
+
+# Validate the optimized basket
+basket = om.build_custom_redemption_basket(
+    pcf=pcf,
+    creation_units=5,
+    custom_securities=optimized_basket
+)
+
+if not basket.validated:
+    print(f"Optimized basket validation failed: {basket.errors}")
+    # Fall back to standard basket if optimization fails
+    basket = om.build_standard_redemption_basket(pcf, 5)
+else:
+    print(f"Optimized basket generated: {len(basket.securities)} securities")
+    print(f"Expected tax benefit: Minimized realized gains")
+```
+
+**What this does**:
+- Analyzes all tax lots in portfolio
+- Selects securities with **highest cost basis** to deliver to AP
+- Minimizes realized capital gains for the fund
+- Validates basket against Rule 6c-11 requirements
+
+---
+
+### 3. Notify AP of Custom Redemption Basket
+
+**You tell the AP what securities they'll receive**:
+
+```json
+{
+  "order_id": "ORD-20240115-001",
+  "ap_id": "AP001",
+  "order_type": "redemption",
+  "creation_units": 5,
+  "basket_type": "custom",
+  "basket_securities": [
+    {
+      "cusip": "037833100",
+      "quantity": "100",
+      "description": "APPLE INC",
+      "cost_basis": "150.00",
+      "optimization_reason": "highest_cost_basis"
+    },
+    {
+      "cusip": "594918104",
+      "quantity": "50",
+      "description": "MICROSOFT CORP",
+      "cost_basis": "280.00",
+      "optimization_reason": "highest_cost_basis"
+    }
+  ],
+  "cash_component": "0.00",
+  "total_value": "250000.00",
+  "rule_6c11_validation": {
+    "passed": true,
+    "validation_date": "2024-01-15"
+  },
+  "purpose": "tax_optimization",
+  "settlement_date": "2024-01-17",
+  "notification_date": "2024-01-15T10:30:00Z"
+}
+```
+
+**Send this to AP via**:
+- Email notification
+- US Bank portal (if they support custom basket notifications)
+- API response (if AP queries order status)
+
+---
+
+### 4. Send Custom Basket to US Bank
+
+**Send the optimized basket to US Bank for processing**:
+
+---
+
+### 3. Send Validated Basket to US Bank (Creation) or Optimized Basket (Redemption)
 
 **Format for US Bank API/SFTP/Email**:
 
@@ -354,14 +498,14 @@ else:
 
 ---
 
-## Example: Complete Workflow
+## Example: Complete Workflows
+
+### Example A: Creation Order (AP Requests Custom Basket)
 
 ```python
 from lib.etf.functions.operations.order_management import OrderManagement
-from lib.etf.functions.operations.rule_6c11_compliance import Rule6c11Compliance
 from lib.etf.adapters import FileBasedDataSourceAdapter
-from datetime import date
-import json
+from datetime import date, timedelta
 
 # 1. Initialize
 adapter = FileBasedDataSourceAdapter(data_path="./data")
@@ -370,7 +514,7 @@ om = OrderManagement(adapter)
 # 2. Get current PCF
 pcf = om.generate_pcf(date.today())
 
-# 3. AP provides custom basket
+# 3. AP provides custom basket (AP tells you what they want to deliver)
 custom_securities = [
     {"cusip": "037833100", "quantity": "100"},
     {"cusip": "594918104", "quantity": "50"}
@@ -410,7 +554,7 @@ else:
             "passed": True,
             "validation_date": date.today().isoformat()
         },
-        "purpose": "tax_optimization",
+        "purpose": "inventory_management",  # AP's purpose
         "requested_settlement_date": (date.today() + timedelta(days=2)).isoformat()
     }
     
@@ -422,6 +566,80 @@ else:
     
     # 8. Reconcile settlement after T+2
     # settlement_result = reconcile_settlement(settlement_date)
+```
+
+### Example B: Redemption Order (You Generate Optimized Basket)
+
+```python
+from lib.etf.functions.operations.order_management import OrderManagement
+from lib.etf.functions.operations.tax_optimization import TaxEfficiencyOptimizer
+from lib.etf.functions.tax.tax_lot import TaxLotManager
+from lib.etf.adapters import FileBasedDataSourceAdapter
+from datetime import date, timedelta
+
+# 1. Initialize
+adapter = FileBasedDataSourceAdapter(data_path="./data")
+om = OrderManagement(adapter)
+tax_optimizer = TaxEfficiencyOptimizer(adapter)
+tax_lot_mgr = TaxLotManager(storage_path="./data/tax_lots")
+
+# 2. Get current PCF
+pcf = om.generate_pcf(date.today())
+
+# 3. AP submits standard redemption order (no custom basket specified)
+# You receive order from US Bank or AP
+
+# 4. Generate tax-optimized redemption basket (YOU tell AP what they'll receive)
+tax_lots = tax_lot_mgr.get_all_tax_lots()  # Get all tax lots with cost basis
+
+optimized_basket = tax_optimizer.optimize_redemption_basket_for_tax(
+    pcf=pcf.__dict__,
+    creation_units=5,
+    tax_lots=tax_lots
+)
+
+# 5. Validate optimized basket
+basket = om.build_custom_redemption_basket(
+    pcf=pcf,
+    creation_units=5,
+    custom_securities=optimized_basket
+)
+
+if not basket.validated:
+    # Fall back to standard basket
+    print(f"Optimized basket validation failed, using standard basket")
+    basket = om.build_standard_redemption_basket(pcf, 5)
+else:
+    print(f"Optimized basket generated: {len(basket.securities)} securities")
+
+# 6. Notify AP of what they'll receive
+ap_notification = {
+    "order_id": f"ORD-{date.today().isoformat()}-002",
+    "ap_id": "AP001",
+    "order_type": "redemption",
+    "creation_units": 5,
+    "basket_type": "custom",
+    "basket_securities": [
+        {
+            "cusip": sec["cusip"],
+            "quantity": str(sec["quantity"]),
+            "description": sec.get("description", ""),
+            "cost_basis": str(sec.get("cost_basis", "0")),
+            "optimization_reason": "highest_cost_basis"
+        }
+        for sec in basket.securities
+    ],
+    "cash_component": str(basket.cash_component),
+    "total_value": str(basket.total_value),
+    "purpose": "tax_optimization",  # Your purpose (minimize fund's realized gains)
+    "settlement_date": (date.today() + timedelta(days=2)).isoformat()
+}
+
+# 7. Send to US Bank and notify AP
+# send_to_us_bank(ap_notification)
+# notify_ap(ap_notification)
+
+# 8. Monitor order status and reconcile settlement
 ```
 
 ---
@@ -468,12 +686,21 @@ else:
 
 ## Best Practices
 
-1. **Always validate** custom baskets before sending to US Bank
-2. **Document everything** - Keep records of all custom basket orders
-3. **Monitor closely** - Check order status regularly
-4. **Reconcile promptly** - Reconcile settlements on T+2 date
-5. **Communicate clearly** - Maintain clear communication with APs and US Bank
-6. **Test first** - Test custom basket workflow with US Bank before going live
+1. **Creation Orders**: Always validate AP's custom basket requests before sending to US Bank
+2. **Redemption Orders**: Always generate tax-optimized baskets (highest cost basis) to minimize realized gains
+3. **Notify APs**: For redemption orders, notify APs of the custom basket composition before settlement
+4. **Document everything** - Keep records of all custom basket orders (both creation and redemption)
+5. **Monitor closely** - Check order status regularly
+6. **Reconcile promptly** - Reconcile settlements on T+2 date
+7. **Communicate clearly** - Maintain clear communication with APs and US Bank
+8. **Test first** - Test custom basket workflow with US Bank before going live
+
+## Summary: Who Determines Custom Basket?
+
+| Order Type | Who Determines Custom Basket | Why |
+|------------|------------------------------|-----|
+| **Creation** | **AP** (tells you what they want to deliver) | AP has inventory management needs, wants to deliver specific securities they hold |
+| **Redemption** | **You** (tell AP what they'll receive) | Tax optimization - you select highest cost basis securities to minimize fund's realized gains |
 
 ---
 
