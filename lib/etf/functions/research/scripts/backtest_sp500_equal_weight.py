@@ -35,8 +35,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Data paths
-CONSTITUENTS_FILE = Path('./data/research/sp500_constituents/sp500_monthly_constituents.csv')
-RETURNS_FILE = Path('./data/research/sp500_returns/sp500_total_returns_extended.csv')
+CONSTITUENTS_FILE = Path('./data/research/sp500_constituents/sp500_monthly_constituents_corrected.csv')
+RETURNS_FILE = Path('./data/research/sp500_returns/sp500_total_returns_corrected.csv')
 OUTPUT_DIR = Path('./data/research/sp500_backtest')
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -180,6 +180,9 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
     rebalance_count = 0
     missing_data_count = 0
     
+    # Track missing returns statistics
+    missing_returns_stats = []
+    
     for i, rebalance_date in enumerate(rebalance_dates):
         rebalance_date_str = rebalance_date.strftime('%Y-%m-%d')
         
@@ -198,6 +201,8 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
         
         # Filter to only tickers that have returns data
         available_tickers = [t for t in month_constituents if t in returns_df.columns]
+        missing_at_rebalance = len(month_constituents) - len(available_tickers)
+        missing_pct_at_rebalance = (missing_at_rebalance / len(month_constituents) * 100) if month_constituents else 0
         
         if len(available_tickers) == 0:
             logger.warning(f"No available tickers with returns data for {rebalance_date_str}")
@@ -213,7 +218,7 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
         rebalance_count += 1
         
         if len(available_tickers) < len(month_constituents):
-            logger.debug(f"Filtered {len(month_constituents) - len(available_tickers)} tickers without returns data")
+            logger.debug(f"Filtered {missing_at_rebalance} tickers without returns data at rebalance")
         
         # Calculate returns for the next month
         if i < len(rebalance_dates) - 1:
@@ -236,6 +241,13 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
                 missing_data_count += 1
                 continue
             
+            # Track missing returns during this period
+            total_days = len(period_returns)
+            days_with_missing = 0
+            total_missing_stocks = 0
+            max_missing_on_day = 0
+            missing_by_ticker = {ticker: 0 for ticker in current_holdings}
+            
             # Calculate portfolio return for each day in this period
             for date_idx in period_returns.index:
                 # Get returns for current holdings on this day
@@ -244,6 +256,18 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
                 # Filter out NaN values
                 valid_returns = day_returns.dropna()
                 valid_holdings = [h for h in current_holdings if h in valid_returns.index]
+                missing_on_day = len(current_holdings) - len(valid_holdings)
+                
+                # Track missing data
+                if missing_on_day > 0:
+                    days_with_missing += 1
+                    total_missing_stocks += missing_on_day
+                    max_missing_on_day = max(max_missing_on_day, missing_on_day)
+                    
+                    # Track which tickers are missing
+                    for ticker in current_holdings:
+                        if ticker not in valid_holdings:
+                            missing_by_ticker[ticker] += 1
                 
                 if len(valid_holdings) == 0:
                     continue
@@ -264,11 +288,75 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
                     'total_stocks': len(current_holdings),
                     'rebalance_month': rebalance_date.strftime('%Y-%m')  # Track which month this belongs to
                 })
+            
+            # Store missing returns statistics for this rebalance period
+            missing_returns_stats.append({
+                'rebalance_date': rebalance_date_str,
+                'rebalance_month': rebalance_date.strftime('%Y-%m'),
+                'total_constituents': len(month_constituents),
+                'available_at_rebalance': len(available_tickers),
+                'missing_at_rebalance': missing_at_rebalance,
+                'missing_pct_at_rebalance': missing_pct_at_rebalance,
+                'total_days_in_period': total_days,
+                'days_with_missing': days_with_missing,
+                'pct_days_with_missing': (days_with_missing / total_days * 100) if total_days > 0 else 0,
+                'avg_missing_per_day': (total_missing_stocks / total_days) if total_days > 0 else 0,
+                'max_missing_on_day': max_missing_on_day,
+                'pct_avg_missing': (total_missing_stocks / (total_days * len(current_holdings)) * 100) if (total_days > 0 and len(current_holdings) > 0) else 0,
+                'tickers_most_missing': sorted(missing_by_ticker.items(), key=lambda x: x[1], reverse=True)[:5] if missing_by_ticker else []
+                })
     
     logger.info(f"\nBacktest Summary:")
     logger.info(f"  Rebalances: {rebalance_count}")
     logger.info(f"  Missing data periods: {missing_data_count}")
     logger.info(f"  Total return observations: {len(portfolio_returns)}")
+    
+    # Calculate and log missing returns statistics
+    if missing_returns_stats:
+        missing_stats_df = pd.DataFrame(missing_returns_stats)
+        
+        logger.info(f"\n" + "="*70)
+        logger.info("Missing Returns Statistics")
+        logger.info("="*70)
+        logger.info(f"  Total rebalances analyzed: {len(missing_stats_df)}")
+        logger.info(f"  Avg constituents missing at rebalance: {missing_stats_df['missing_at_rebalance'].mean():.1f}")
+        logger.info(f"  Avg % missing at rebalance: {missing_stats_df['missing_pct_at_rebalance'].mean():.2f}%")
+        logger.info(f"  Max missing at rebalance: {missing_stats_df['missing_at_rebalance'].max()}")
+        logger.info(f"  Avg % days with missing data per period: {missing_stats_df['pct_days_with_missing'].mean():.2f}%")
+        logger.info(f"  Avg missing stocks per day: {missing_stats_df['avg_missing_per_day'].mean():.2f}")
+        logger.info(f"  Avg % of portfolio missing per day: {missing_stats_df['pct_avg_missing'].mean():.2f}%")
+        logger.info(f"  Max missing on single day: {missing_stats_df['max_missing_on_day'].max()}")
+        
+        # Save detailed statistics (convert tickers_most_missing to string for CSV)
+        stats_df_export = missing_stats_df.copy()
+        stats_df_export['tickers_most_missing'] = stats_df_export['tickers_most_missing'].apply(
+            lambda x: ', '.join([f"{t}:{c}" for t, c in x]) if x else ''
+        )
+        stats_file = OUTPUT_DIR / 'missing_returns_statistics.csv'
+        stats_df_export.to_csv(stats_file, index=False)
+        logger.info(f"\n✓ Saved detailed missing returns statistics to {stats_file}")
+        
+        # Save summary statistics
+        summary_stats = {
+            'total_rebalances': len(missing_stats_df),
+            'avg_missing_at_rebalance': float(missing_stats_df['missing_at_rebalance'].mean()),
+            'avg_pct_missing_at_rebalance': float(missing_stats_df['missing_pct_at_rebalance'].mean()),
+            'max_missing_at_rebalance': int(missing_stats_df['missing_at_rebalance'].max()),
+            'min_missing_at_rebalance': int(missing_stats_df['missing_at_rebalance'].min()),
+            'median_missing_at_rebalance': float(missing_stats_df['missing_at_rebalance'].median()),
+            'avg_pct_days_with_missing': float(missing_stats_df['pct_days_with_missing'].mean()),
+            'avg_missing_per_day': float(missing_stats_df['avg_missing_per_day'].mean()),
+            'avg_pct_portfolio_missing_per_day': float(missing_stats_df['pct_avg_missing'].mean()),
+            'max_missing_on_single_day': int(missing_stats_df['max_missing_on_day'].max()),
+            'rebalances_with_missing_at_rebalance': int((missing_stats_df['missing_at_rebalance'] > 0).sum()),
+            'pct_rebalances_with_missing': float((missing_stats_df['missing_at_rebalance'] > 0).sum() / len(missing_stats_df) * 100)
+        }
+        
+        import json
+        summary_file = OUTPUT_DIR / 'missing_returns_summary.json'
+        with open(summary_file, 'w') as f:
+            json.dump(summary_stats, f, indent=2)
+        logger.info(f"✓ Saved summary statistics to {summary_file}")
     
     # Convert to DataFrame
     if portfolio_returns:
@@ -524,165 +612,152 @@ def detect_and_correct_errors(portfolio_df: pd.DataFrame, benchmark_returns: pd.
     return portfolio_df
 
 
-def fetch_sp500_ew_benchmark(start_date: pd.Timestamp, end_date: pd.Timestamp) -> pd.Series:
+def construct_sp500_ew_from_constituents(constituents_by_date: Dict[str, List[str]], 
+                                         returns_df: pd.DataFrame,
+                                         start_date: pd.Timestamp, 
+                                         end_date: pd.Timestamp) -> pd.Series:
     """
-    Fetch S&P 500 Equal-Weighted Index returns for comparison.
-    Uses FMP API first with 5-year chunking, then Yahoo Finance as fallback.
+    Construct S&P 500 Equal Weight Index returns from constituents and returns data.
+    This fills the gap for 1990-2000 before RSP ETF existed.
     
     Args:
+        constituents_by_date: Dictionary of date -> tickers
+        returns_df: DataFrame of returns
         start_date: Start date
         end_date: End date
         
     Returns:
         Series of daily returns
     """
+    logger.info("Constructing S&P 500 Equal Weight Index from constituents...")
+    
+    # Get month-end dates for rebalancing
+    rebalance_dates = get_month_end_dates(start_date, end_date)
+    
+    benchmark_returns = []
+    
+    for i, rebalance_date in enumerate(rebalance_dates):
+        # Get constituents for this month
+        month_constituents = None
+        for date_str in sorted(constituents_by_date.keys(), reverse=True):
+            date_ts = pd.to_datetime(date_str)
+            if date_ts <= rebalance_date:
+                month_constituents = constituents_by_date[date_str]
+                break
+        
+        if not month_constituents:
+                continue
+        
+        # Filter to tickers with returns data
+        available_tickers = [t for t in month_constituents if t in returns_df.columns]
+        if len(available_tickers) == 0:
+            continue
+        
+        # Calculate returns for the next month
+        if i < len(rebalance_dates) - 1:
+            next_rebalance_date = rebalance_dates[i + 1]
+            period_start = rebalance_date + pd.Timedelta(days=1)
+            
+            # Ensure timezone-naive
+            if isinstance(period_start, pd.Timestamp) and period_start.tz is not None:
+                period_start = period_start.tz_localize(None)
+            if isinstance(next_rebalance_date, pd.Timestamp) and next_rebalance_date.tz is not None:
+                next_rebalance_date = next_rebalance_date.tz_localize(None)
+            
+            period_returns = returns_df.loc[period_start:next_rebalance_date]
+            
+            if period_returns.empty:
+                continue
+            
+            # Calculate equal-weighted return for each day
+            for date_idx in period_returns.index:
+                day_returns = period_returns.loc[date_idx, available_tickers]
+                valid_returns = day_returns.dropna()
+                
+                if len(valid_returns) > 0:
+                    # Equal-weighted average
+                    equal_weight = 1.0 / len(valid_returns)
+                    benchmark_return = (valid_returns * equal_weight).sum()
+                    benchmark_returns.append({
+                        'date': date_idx,
+                        'return': benchmark_return
+                    })
+    
+    if benchmark_returns:
+        df = pd.DataFrame(benchmark_returns)
+        df.set_index('date', inplace=True)
+        df.sort_index(inplace=True)
+        logger.info(f"✓ Constructed benchmark from constituents")
+        logger.info(f"  Date range: {df.index.min()} to {df.index.max()}")
+        logger.info(f"  Total observations: {len(df)}")
+        return df['return']
+    
+    return pd.Series(dtype=float)
+
+
+def fetch_sp500_ew_benchmark(start_date: pd.Timestamp, end_date: pd.Timestamp,
+                             constituents_by_date: Dict[str, List[str]] = None,
+                             returns_df: pd.DataFrame = None) -> pd.Series:
+    """
+    Fetch S&P 500 Equal-Weighted Index returns for comparison.
+    Uses RSP (ETF) for 2003+, SPY (S&P 500) for 1990-2003 as proxy.
+    
+    Args:
+        start_date: Start date
+        end_date: End date
+        constituents_by_date: Optional - not used, kept for compatibility
+        returns_df: Optional - not used, kept for compatibility
+        
+    Returns:
+        Series of daily returns
+    """
     logger.info("Fetching S&P 500 Equal-Weighted benchmark...")
     
-    # Try FMP API first (RSP - Invesco S&P 500 Equal Weight ETF)
     api_key = os.getenv('FMP_API_KEY')
     if not api_key:
         logger.warning("FMP_API_KEY environment variable not set. Cannot fetch benchmark from FMP API.")
         return pd.Series(dtype=float)
     
-    if api_key:
-        try:
-            import requests
-            import time
-            
-            url = "https://financialmodelingprep.com/stable/historical-price-eod/full"
-            
-            # Fetch in 5-year chunks going backwards from today
-            all_data = []
-            today = pd.Timestamp.now().normalize()
-            current_end = min(end_date, today)
-            chunk_count = 0
-            max_chunks = 30  # Safety limit (30 chunks = 150 years)
-            
-            logger.info(f"Fetching RSP data in 5-year chunks from {start_date.date()} to {end_date.date()}...")
-            
-            while chunk_count < max_chunks:
-                # Calculate 5 years back from current_end (approximately 1825 days)
-                chunk_start = current_end - pd.Timedelta(days=1825)
-                
-                # If we've gone past start_date, adjust
-                if chunk_start < start_date:
-                    chunk_start = start_date
-                
-                # If chunk_start >= current_end, we're done
-                if chunk_start >= current_end:
-                    break
-                
+    # Strategy: Use only RSP (S&P 500 Equal Weight ETF) starting from 2003
+    # RSP ETF launched in April 2003
+    rsp_launch_date = pd.to_datetime('2003-04-30')
+    
+    # Get RSP data for 2003+ period
+    if end_date >= rsp_launch_date:
+        rsp_start = max(start_date, rsp_launch_date)
+        logger.info(f"Fetching RSP (S&P 500 EW ETF) for period {rsp_start.date()} to {end_date.date()}...")
+        
+        # Try FMP API for RSP
+        if api_key:
+            try:
+                import requests
+                url = "https://financialmodelingprep.com/stable/historical-price-eod/full"
                 params = {
                     'symbol': 'RSP',
-                    'from': chunk_start.strftime('%Y-%m-%d'),
-                    'to': current_end.strftime('%Y-%m-%d'),
+                    'from': rsp_start.strftime('%Y-%m-%d'),
+                    'to': end_date.strftime('%Y-%m-%d'),
                     'apikey': api_key
                 }
-                
-                try:
-                    response = requests.get(url, params=params, timeout=60)
-                    
-                    if response.status_code == 200:
-                        data = response.json()
-                        if data and isinstance(data, list) and len(data) > 0:
-                            chunk_df = pd.DataFrame(data)
-                            chunk_df['date'] = pd.to_datetime(chunk_df['date'])
-                            chunk_df = chunk_df.set_index('date').sort_index()
-                            
-                            if not chunk_df.empty and 'close' in chunk_df.columns:
-                                all_data.append(chunk_df)
-                                logger.info(f"  ✓ Chunk {chunk_count + 1}: {len(chunk_df)} records ({chunk_df.index.min().date()} to {chunk_df.index.max().date()})")
-                                
-                                # Move to next chunk (go backwards)
-                                current_end = chunk_start - pd.Timedelta(days=1)
-                                chunk_count += 1
-                                
-                                # Rate limiting
-                                time.sleep(0.5)
-                                
-                                # If we've reached start_date, we're done
-                                if chunk_start <= start_date:
-                                    break
-                            else:
-                                # No more data available
-                                break
-                        else:
-                            # No more data available
-                            break
-                    else:
-                        logger.warning(f"  ⚠ API returned status {response.status_code} for chunk {chunk_count + 1}")
-                        break
-                except Exception as e:
-                    logger.warning(f"  ⚠ Error fetching chunk {chunk_count + 1}: {e}")
-                    break
-            
-            if all_data:
-                # Combine all chunks
-                df = pd.concat(all_data)
-                df = df.sort_index()
-                
-                # Remove duplicates (keep last)
-                df = df[~df.index.duplicated(keep='last')]
-                
-                # Filter to date range
-                df = df.loc[start_date:end_date]
-                
-                if not df.empty and 'close' in df.columns:
-                    returns = df['close'].pct_change().dropna()
-                    logger.info(f"✓ Retrieved RSP benchmark data from FMP API")
-                    logger.info(f"  Date range: {returns.index.min()} to {returns.index.max()}")
-                    logger.info(f"  Total observations: {len(returns)}")
-                    logger.info(f"  Fetched in {chunk_count} chunk(s)")
-                    return returns
-        except Exception as e:
-            logger.debug(f"FMP API failed: {e}")
-    
-    # Fallback to Yahoo Finance with retry logic
-    try:
-        import yfinance as yf
-        import time
-        
-        # Try RSP (Invesco S&P 500 Equal Weight ETF) first
-        symbols = ['RSP', 'SP500EW', '^SP500EW']
-        
-        for symbol in symbols:
-            try:
-                logger.info(f"Trying Yahoo Finance for {symbol}...")
-                ticker = yf.Ticker(symbol)
-                
-                # Add delay to avoid rate limits
-                time.sleep(2)
-                
-                hist = ticker.history(start=start_date, end=end_date)
-                
-                if not hist.empty:
-                    # Calculate returns
-                    returns = hist['Close'].pct_change().dropna()
-                    logger.info(f"✓ Retrieved benchmark data for {symbol}")
-                    logger.info(f"  Date range: {returns.index.min()} to {returns.index.max()}")
-                    logger.info(f"  Total observations: {len(returns)}")
-                    return returns
+                response = requests.get(url, params=params, timeout=60)
+                if response.status_code == 200:
+                    data = response.json()
+                    if data and isinstance(data, list) and len(data) > 0:
+                        df = pd.DataFrame(data)
+                        df['date'] = pd.to_datetime(df['date'])
+                        df = df.set_index('date').sort_index()
+                        if not df.empty and 'close' in df.columns:
+                            rsp_returns = df['close'].pct_change().dropna()
+                            if not rsp_returns.empty:
+                                logger.info(f"  ✓ RSP from FMP: {len(rsp_returns)} records ({rsp_returns.index.min().date()} to {rsp_returns.index.max().date()})")
+                                logger.info(f"  RSP benchmark will be normalized to portfolio value at {rsp_returns.index.min().date()} for comparison")
+                                return rsp_returns
+                else:
+                    logger.debug(f"FMP API for RSP returned status {response.status_code}")
             except Exception as e:
-                logger.debug(f"Failed to get {symbol}: {e}")
-                time.sleep(1)  # Wait before trying next symbol
-                continue
-        
-        logger.warning("Could not fetch SP500EW benchmark - will compare to SPY instead")
-        
-        # Fallback: Use SPY as proxy (market-cap weighted, not equal-weighted)
-        time.sleep(2)
-        ticker = yf.Ticker('SPY')
-        hist = ticker.history(start=start_date, end=end_date)
-        if not hist.empty:
-            returns = hist['Close'].pct_change().dropna()
-            logger.info(f"Using SPY as proxy benchmark")
-            return returns
-        
-    except ImportError:
-        logger.warning("yfinance not available - skipping benchmark comparison")
-    except Exception as e:
-        logger.warning(f"Error fetching benchmark: {e}")
+                logger.debug(f"FMP API for RSP failed: {e}")
     
+    # No data available from FMP
+    logger.warning("No benchmark data available from FMP API")
     return pd.Series(dtype=float)
 
 
@@ -838,14 +913,30 @@ def plot_results(portfolio_df: pd.DataFrame, benchmark_returns: pd.Series = None
             benchmark_returns = benchmark_returns.copy()
             benchmark_returns.index = benchmark_returns.index.tz_localize(None)
         
+        # Calculate benchmark cumulative returns
         benchmark_cumulative = (1 + benchmark_returns).cumprod()
+        
+        # Find the first date where both portfolio and benchmark have data
         common_dates = portfolio_cumulative.index.intersection(benchmark_cumulative.index)
         
         if len(common_dates) > 0:
-            ax1.plot(common_dates, benchmark_cumulative.loc[common_dates].values,
-                    label='S&P 500 EW Benchmark', linewidth=2, color='orange', linestyle='--')
+            # Get the portfolio value at the first common date (when RSP starts)
+            first_common_date = common_dates[0]
+            portfolio_value_at_start = portfolio_cumulative.loc[first_common_date]
+            benchmark_value_at_start = benchmark_cumulative.loc[first_common_date]
+            
+            # Normalize benchmark to start at the same value as portfolio
+            normalization_factor = portfolio_value_at_start / benchmark_value_at_start
+            benchmark_cumulative_normalized = benchmark_cumulative * normalization_factor
+            
+            # Plot normalized benchmark
+            ax1.plot(common_dates, benchmark_cumulative_normalized.loc[common_dates].values,
+                    label='RSP Benchmark (normalized)', linewidth=2, color='orange', linestyle='--')
     
-    ax1.set_title('Cumulative Returns: Equal-Weighted S&P 500 Portfolio', fontsize=14, fontweight='bold')
+    # Set x-axis to show full portfolio range (from 1990)
+    ax1.set_xlim(portfolio_cumulative.index.min(), portfolio_cumulative.index.max())
+    
+    ax1.set_title('Cumulative Returns: Equal-Weighted S&P 500 Portfolio (1990-2025)', fontsize=14, fontweight='bold')
     ax1.set_xlabel('Date', fontsize=12)
     ax1.set_ylabel('Cumulative Return', fontsize=12)
     ax1.legend(fontsize=11)
@@ -859,6 +950,9 @@ def plot_results(portfolio_df: pd.DataFrame, benchmark_returns: pd.Series = None
     rolling_returns = portfolio_df['portfolio_return'].rolling(window=30).mean() * 100
     ax2.plot(rolling_returns.index, rolling_returns.values, 
              label='30-Day Rolling Mean Return (%)', linewidth=1.5, color='blue', alpha=0.7)
+    
+    # Set x-axis to show full portfolio range
+    ax2.set_xlim(portfolio_df.index.min(), portfolio_df.index.max())
     
     if benchmark_returns is not None and not benchmark_returns.empty:
         common_dates = portfolio_df.index.intersection(benchmark_returns.index)
@@ -882,6 +976,9 @@ def plot_results(portfolio_df: pd.DataFrame, benchmark_returns: pd.Series = None
     rolling_vol = portfolio_df['portfolio_return'].rolling(window=30).std() * np.sqrt(252) * 100
     ax3.plot(rolling_vol.index, rolling_vol.values, 
              label='30-Day Rolling Volatility (%)', linewidth=1.5, color='red', alpha=0.7)
+    
+    # Set x-axis to show full portfolio range
+    ax3.set_xlim(portfolio_df.index.min(), portfolio_df.index.max())
     
     if benchmark_returns is not None and not benchmark_returns.empty:
         common_dates = portfolio_df.index.intersection(benchmark_returns.index)
@@ -934,7 +1031,12 @@ def main():
     # Fetch benchmark early for comparison using FMP API
     start_date = portfolio_df.index.min()
     end_date = portfolio_df.index.max()
-    benchmark_returns = fetch_sp500_ew_benchmark(start_date, end_date)
+    # Fetch benchmark - pass constituents and returns for construction if needed
+    benchmark_returns = fetch_sp500_ew_benchmark(
+        start_date, end_date, 
+        constituents_by_date=constituents_by_date,
+        returns_df=returns_df
+    )
     
     # Calculate performance metrics
     logger.info("\n" + "="*70)

@@ -8,6 +8,7 @@ Organized into logical modules:
 - compliance: SEC filings and audit functions
 - operations: Transfer agent, order management, distributions, performance
 - supporting: Security master, adviser portal
+- research: Backtesting and research tools
 """
 
 # Core Operations
@@ -60,6 +61,17 @@ from lib.etf.functions.supporting import (
     AdviserPortal
 )
 
+# Research
+from lib.etf.functions.research import (
+    FMPClient,
+    HoldingsLoader,
+    FundamentalDataLoader,
+    PriceLoader,
+    YahooPriceLoader,
+    Backtester,
+    estimate_rq_mixedlm
+)
+
 __all__ = [
     # Core
     'FundAdministration',
@@ -96,4 +108,12 @@ __all__ = [
     'SecurityMasterFile',
     'PortfolioRecords',
     'AdviserPortal',
+    # Research
+    'FMPClient',
+    'HoldingsLoader',
+    'FundamentalDataLoader',
+    'PriceLoader',
+    'YahooPriceLoader',
+    'Backtester',
+    'estimate_rq_mixedlm',
 ]

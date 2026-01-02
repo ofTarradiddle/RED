@@ -1,0 +1,56 @@
+{
+  "open_lots": [
+    {
+      "lot_id": "LOT_AMZN_2025-12-02_0",
+      "ticker": "AMZN",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "150.00",
+      "purchase_date": "2025-12-02",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AMZN_2025-12-02_1",
+      "ticker": "AMZN",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "150.00",
+      "purchase_date": "2025-12-02",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AMZN_2025-11-30_2",
+      "ticker": "AMZN",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "150.00",
+      "purchase_date": "2025-11-30",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AMZN_2025-11-30_3",
+      "ticker": "AMZN",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "150.00",
+      "purchase_date": "2025-11-30",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AMZN_2025-11-30_4",
+      "ticker": "AMZN",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "150.00",
+      "purchase_date": "2025-11-30",
+      "sold_date": null,
+      "original_quantity": "100"
+    }
+  ],
+  "closed_lots": [],
+  "realized_gains": []
+}

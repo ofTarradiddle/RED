@@ -1,0 +1,916 @@
+{
+  "1000": {
+    "account_code": "1000",
+    "account_name": "Cash and Cash Equivalents",
+    "account_type": "asset",
+    "balance": "0",
+    "entries": []
+  },
+  "1100": {
+    "account_code": "1100",
+    "account_name": "Investments - Securities",
+    "account_type": "asset",
+    "balance": "264195347.082760",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_0_0",
+        "date": "2026-01-02",
+        "account": "1100",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_0",
+        "date": "2026-01-02",
+        "account": "1100",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_0_0",
+        "date": "2026-01-02",
+        "account": "1100",
+        "debit": "66048836.770690",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_0",
+        "date": "2026-01-02",
+        "account": "1100",
+        "debit": "66048836.770690",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_0_0",
+        "date": "2026-01-02",
+        "account": "1100",
+        "debit": "66048836.770690",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_0",
+        "date": "2026-01-02",
+        "account": "1100",
+        "debit": "66048836.770690",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  },
+  "1200": {
+    "account_code": "1200",
+    "account_name": "Receivables",
+    "account_type": "asset",
+    "balance": "0",
+    "entries": []
+  },
+  "1300": {
+    "account_code": "1300",
+    "account_name": "Accrued Income",
+    "account_type": "asset",
+    "balance": "0",
+    "entries": []
+  },
+  "2000": {
+    "account_code": "2000",
+    "account_name": "Payables",
+    "account_type": "liability",
+    "balance": "0",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_0_1",
+        "date": "2026-01-02",
+        "account": "2000",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_1",
+        "date": "2026-01-02",
+        "account": "2000",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_0_1",
+        "date": "2026-01-02",
+        "account": "2000",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_1",
+        "date": "2026-01-02",
+        "account": "2000",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_0_1",
+        "date": "2026-01-02",
+        "account": "2000",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_1",
+        "date": "2026-01-02",
+        "account": "2000",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  },
+  "2100": {
+    "account_code": "2100",
+    "account_name": "Accrued Expenses",
+    "account_type": "liability",
+    "balance": "0",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_3_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_4",
+        "date": "2026-01-02",
+        "account": "2100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  },
+  "2200": {
+    "account_code": "2200",
+    "account_name": "Distributions Payable",
+    "account_type": "liability",
+    "balance": "0",
+    "entries": []
+  },
+  "3000": {
+    "account_code": "3000",
+    "account_name": "Share Capital",
+    "account_type": "equity",
+    "balance": "0",
+    "entries": []
+  },
+  "3100": {
+    "account_code": "3100",
+    "account_name": "Retained Earnings",
+    "account_type": "equity",
+    "balance": "0",
+    "entries": []
+  },
+  "3200": {
+    "account_code": "3200",
+    "account_name": "Net Assets",
+    "account_type": "equity",
+    "balance": "264195347.082760",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_0_2",
+        "date": "2026-01-02",
+        "account": "3200",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_2",
+        "date": "2026-01-02",
+        "account": "3200",
+        "debit": "0",
+        "credit": "0",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_0_2",
+        "date": "2026-01-02",
+        "account": "3200",
+        "debit": "0",
+        "credit": "66048836.770690",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_2",
+        "date": "2026-01-02",
+        "account": "3200",
+        "debit": "0",
+        "credit": "66048836.770690",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_0_2",
+        "date": "2026-01-02",
+        "account": "3200",
+        "debit": "0",
+        "credit": "66048836.770690",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_13_2",
+        "date": "2026-01-02",
+        "account": "3200",
+        "debit": "0",
+        "credit": "66048836.770690",
+        "description": "NAV calculation for 2026-01-02",
+        "reference": "NAV_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  },
+  "4000": {
+    "account_code": "4000",
+    "account_name": "Dividend Income",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "4100": {
+    "account_code": "4100",
+    "account_name": "Interest Income",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "4200": {
+    "account_code": "4200",
+    "account_name": "Realized Gains/Losses",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "4300": {
+    "account_code": "4300",
+    "account_name": "Unrealized Gains/Losses",
+    "account_type": "income",
+    "balance": "0",
+    "entries": []
+  },
+  "5000": {
+    "account_code": "5000",
+    "account_name": "Management Fees",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_3_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_0",
+        "date": "2026-01-02",
+        "account": "5000",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  },
+  "5100": {
+    "account_code": "5100",
+    "account_name": "Administrative Expenses",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_3_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_1",
+        "date": "2026-01-02",
+        "account": "5100",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  },
+  "5200": {
+    "account_code": "5200",
+    "account_name": "Custodial Fees",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_3_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_2",
+        "date": "2026-01-02",
+        "account": "5200",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  },
+  "5300": {
+    "account_code": "5300",
+    "account_name": "Other Expenses",
+    "account_type": "expense",
+    "balance": "0",
+    "entries": [
+      {
+        "entry_id": "JE_2026-01-02_3_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_3_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_8_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_16_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      },
+      {
+        "entry_id": "JE_2026-01-02_21_3",
+        "date": "2026-01-02",
+        "account": "5300",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2026-01-02",
+        "reference": "EXP_2026-01-02",
+        "reconciled": false
+      }
+    ]
+  }
+}

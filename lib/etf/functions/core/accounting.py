@@ -129,6 +129,14 @@ class Accounting:
         else:
             self._initialize_chart_of_accounts()
     
+    def get_ledger(self):
+        """Get the general ledger object (for external access)"""
+        # Return a simple object with accounts list
+        class LedgerWrapper:
+            def __init__(self, general_ledger):
+                self.accounts = list(general_ledger.values())
+        return LedgerWrapper(self.general_ledger)
+    
     def _initialize_chart_of_accounts(self):
         """Initialize chart of accounts for ETF"""
         accounts = [
@@ -182,7 +190,7 @@ class Accounting:
                     "entries": [
                         {
                             "entry_id": e.entry_id,
-                            "date": e.date.isoformat(),
+                            "date": e.date.isoformat() if hasattr(e.date, 'isoformat') else str(e.date),
                             "account": e.account,
                             "debit": str(e.debit),
                             "credit": str(e.credit),

@@ -923,3 +923,14 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
             with open(file_path, 'r') as f:
                 return json.load(f)
         return {"dividend_per_share": 0, "capital_gains_per_share": 0, "roc_per_share": 0}
+
+
+# Import FMP adapter
+from lib.etf.adapters.fmp_adapter import FMPDataSourceAdapter
+
+__all__ = [
+    'DataSourceAdapter',
+    'ExampleDataSourceAdapter',
+    'FileBasedDataSourceAdapter',
+    'FMPDataSourceAdapter',
+]

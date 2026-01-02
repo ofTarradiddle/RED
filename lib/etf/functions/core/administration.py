@@ -81,8 +81,22 @@ class FundAdministration:
             else:
                 pricing_exceptions.append(f"Missing price for CUSIP {cusip}")
         
-        # Get cash position
+        # Get cash position from custodian
         cash = Decimal(str(custodian_data.get('cash_balance', 0)))
+        
+        # Also check holdings for cash/money market positions (Cash&Other, money market funds)
+        # These may be in holdings but not have prices from FMP
+        for holding in holdings:
+            ticker = holding.get('ticker', '').upper()
+            # Check if it's a cash or money market position
+            if 'CASH' in ticker or 'FGXXX' in ticker or holding.get('market_value'):
+                # If no price found but has market_value, use that
+                cusip = holding.get('cusip', '')
+                if cusip not in prices and holding.get('market_value'):
+                    market_value = Decimal(str(holding.get('market_value', 0)))
+                    if market_value > 0:
+                        cash += market_value
+                        logger.debug(f"Added cash/money market from holdings: {ticker} = ${market_value}")
         
         # Calculate accrued income
         accrued_income = Decimal(str(expense_data.get('accrued_income', 0)))

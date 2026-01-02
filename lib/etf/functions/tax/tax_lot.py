@@ -7,6 +7,12 @@ creates a tax lot with a specific cost basis and acquisition date. When the fund
 the module closes (or partially closes) those lots to calculate realized gains or losses, using
 FIFO by default (first-in, first-out method).
 
+Tax Optimization Methods:
+- FIFO: Default IRS method, oldest lots first
+- LIFO: Newest lots first
+- LOWEST_COST: Lowest cost basis first (minimizes realized gains, tax-efficient)
+- HIGHEST_COST: Highest cost basis first (maximizes gains/losses, useful for tax-loss harvesting)
+
 References:
 - Investopedia: Tax Lot Accounting
 - IRS Publication 550: Investment Income and Expenses
@@ -224,14 +230,25 @@ class TaxLotManager:
         Sell a given quantity of a security, closing tax lots according to specified method.
         
         By default, uses FIFO (first-in, first-out) which is the most common tax lot relief method.
-        Can also use LIFO (last-in, first-out) or specific lot identification.
+        Can also use LIFO (last-in, first-out), LOWEST_COST (lowest cost basis first), 
+        HIGHEST_COST (highest cost basis first), or specific lot identification.
+        
+        Tax Optimization Strategies:
+        - LOWEST_COST: Sell lowest cost basis first to minimize realized gains (tax-efficient)
+        - HIGHEST_COST: Sell highest cost basis first to maximize realized gains (useful for tax-loss harvesting)
+        - FIFO: Default IRS method, oldest lots first
+        - LIFO: Newest lots first
         
         Args:
             ticker: Security ticker symbol
             quantity: Number of shares to sell
             price: Sale price per share
             sale_date: Date of sale
-            method: Tax lot relief method - 'FIFO' (default) or 'LIFO'
+            method: Tax lot relief method:
+                - 'FIFO' (default): First-in, first-out (oldest lots first)
+                - 'LIFO': Last-in, first-out (newest lots first)
+                - 'LOWEST_COST': Lowest cost basis first (tax-efficient, minimizes gains)
+                - 'HIGHEST_COST': Highest cost basis first (maximizes gains, useful for losses)
             
         Returns:
             Total realized gain (or loss) from this sale
@@ -239,12 +256,22 @@ class TaxLotManager:
         Raises:
             ValueError: If not enough lots are available to sell the requested quantity
         """
-        # Sort open lots of this ticker by purchase date for FIFO (or reverse for LIFO)
+        # Get all open lots for this ticker
         lots = [lot for lot in self.open_lots if lot.ticker == ticker]
-        if method.upper() == 'LIFO':
-            lots.sort(key=lambda lot: lot.purchase_date, reverse=True)
-        else:
-            lots.sort(key=lambda lot: lot.purchase_date)  # FIFO: oldest first
+        
+        # Sort lots according to method
+        method_upper = method.upper()
+        if method_upper == 'LIFO':
+            lots.sort(key=lambda lot: lot.purchase_date, reverse=True)  # Newest first
+        elif method_upper == 'LOWEST_COST':
+            # Sort by cost basis ascending (lowest first) - minimizes realized gains
+            lots.sort(key=lambda lot: lot.cost_basis)
+        elif method_upper == 'HIGHEST_COST':
+            # Sort by cost basis descending (highest first) - maximizes realized gains/losses
+            # Useful for tax-loss harvesting (selling losses first)
+            lots.sort(key=lambda lot: lot.cost_basis, reverse=True)
+        else:  # FIFO (default)
+            lots.sort(key=lambda lot: lot.purchase_date)  # Oldest first
         
         qty_to_sell = quantity
         total_realized_gain = Decimal('0')

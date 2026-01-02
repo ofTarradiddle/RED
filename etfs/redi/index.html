@@ -841,6 +841,39 @@
                 </div>
             </div>
 
+            <!-- Distributions Section -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Distributions</h3>
+                    <div class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Updated Daily</div>
+                </div>
+                <div class="mb-4 text-sm text-gray-600">
+                    <p>Distributions are calculated from dividend income received by the Fund's underlying holdings, net of expenses. Only dividends that went ex-dividend at least 2 business days before the Fund's ex-dividend date are included.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm" id="distributions-table">
+                        <thead>
+                            <tr class="border-b-2 border-gray-300">
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900">Ex Date</th>
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900">Record Date</th>
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900">Payable Date</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Income</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Short-Term Capital Gain</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Long-Term Capital Gain</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Total Capital Gain</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Total Distribution</th>
+                            </tr>
+                        </thead>
+                        <tbody id="distributions-tbody">
+                            <!-- Distribution data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-xs text-gray-600">
+                    <p><strong>Note:</strong> Distributions are subject to change. Past distributions are not indicative of future distributions. Capital gains distributions may occur when the Fund realizes gains from the sale of securities.</p>
+                </div>
+            </div>
+
             <!-- CAGR Comparison Bar Chart -->
             <!-- Temporarily removed due to syntax errors -->
             <!--
@@ -1546,6 +1579,7 @@
             
             // Then try to load from API if available
             loadPerformanceData();
+            loadDistributions();
             setupEventListeners();
             updateDates();
             
@@ -3100,9 +3134,64 @@
             }
         }
 
+        // Load distributions data
+        async function loadDistributions() {
+            try {
+                const response = await fetch('/etfs/redi/distributions.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load distributions');
+                }
+                const data = await response.json();
+                const tbody = document.getElementById('distributions-tbody');
+                
+                if (!tbody) return;
+                
+                tbody.innerHTML = '';
+                
+                data.distributions.forEach(dist => {
+                    const row = document.createElement('tr');
+                    row.className = 'border-b border-gray-200 hover:bg-gray-50';
+                    
+                    const formatDate = (dateStr) => {
+                        const date = new Date(dateStr);
+                        return date.toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: '2-digit', 
+                            day: '2-digit' 
+                        });
+                    };
+                    
+                    const formatCurrency = (value) => {
+                        if (value === 0 || value === null) return '—';
+                        return '$' + value.toFixed(4);
+                    };
+                    
+                    row.innerHTML = `
+                        <td class="py-3 px-4 text-gray-900">${formatDate(dist.ex_date)}</td>
+                        <td class="py-3 px-4 text-gray-900">${formatDate(dist.record_date)}</td>
+                        <td class="py-3 px-4 text-gray-900">${formatDate(dist.payable_date)}</td>
+                        <td class="py-3 px-4 text-right font-medium text-gray-900">${formatCurrency(dist.income)}</td>
+                        <td class="py-3 px-4 text-right text-gray-600">${formatCurrency(dist.short_term_capital_gain)}</td>
+                        <td class="py-3 px-4 text-right text-gray-600">${formatCurrency(dist.long_term_capital_gain)}</td>
+                        <td class="py-3 px-4 text-right text-gray-600">${formatCurrency(dist.total_capital_gain)}</td>
+                        <td class="py-3 px-4 text-right font-semibold text-gray-900">${formatCurrency(dist.total_distribution)}</td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading distributions:', error);
+                const tbody = document.getElementById('distributions-tbody');
+                if (tbody) {
+                    tbody.innerHTML = '<tr><td colspan="8" class="py-4 text-center text-gray-500">Failed to load distributions data</td></tr>';
+                }
+            }
+        }
+
         // Refresh data
         function refreshData() {
             loadPerformanceData();
+            loadDistributions();
         }
 
         // Auto-refresh every 5 minutes

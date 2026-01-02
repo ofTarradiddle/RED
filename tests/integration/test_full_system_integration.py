@@ -5,7 +5,7 @@ Tests all ETF functions end-to-end with dummy data
 
 import sys
 from pathlib import Path
-project_root = Path(__file__).parent.parent.parent
+project_root = Path(__file__).parent.parent.parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from datetime import date, timedelta

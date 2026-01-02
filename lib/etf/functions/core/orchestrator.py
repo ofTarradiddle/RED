@@ -26,6 +26,7 @@ from lib.etf.functions.operations.distributor import Distributor
 from lib.etf.functions.operations.performance import PerformanceCalculator
 from lib.etf.functions.tax.tax_reporting import TaxReporting
 from lib.etf.shared import DataSourceAdapter
+from lib.etf.adapters.fmp_adapter import FMPDataSourceAdapter
 
 logger = logging.getLogger(__name__)
 
@@ -99,6 +100,25 @@ class DailyOrchestrator:
                 format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
             )
         
+        # Check if using FMP adapter and initialize FMP workflows if so
+        self.use_fmp_workflows = isinstance(data_adapter, FMPDataSourceAdapter)
+        self.fmp_workflows = None
+        if self.use_fmp_workflows:
+            try:
+                from lib.etf.functions.core.fmp_workflows import FMPEnhancedWorkflows
+                etf_symbol = self.config.get('fund', {}).get('symbol', '')
+                if etf_symbol:
+                    self.fmp_workflows = FMPEnhancedWorkflows(
+                        etf_symbol=etf_symbol,
+                        fmp_client=data_adapter.fmp_client,
+                        fallback_adapter=data_adapter.fallback_adapter,
+                        storage_path=self.config.get('paths', {}).get('admin_storage', './data/admin')
+                    )
+                    logger.info(f"FMP workflows enabled for ETF: {etf_symbol}")
+            except Exception as e:
+                logger.warning(f"Could not initialize FMP workflows: {e}")
+                self.use_fmp_workflows = False
+        
         logger.info("Daily Orchestrator initialized")
     
     def _load_config(self) -> Dict[str, Any]:
@@ -138,42 +158,52 @@ class DailyOrchestrator:
         }
         
         try:
-            # 1. Calculate NAV
-            logger.info("Step 1: Calculating NAV")
-            nav_calc = self.admin.calculate_nav(operation_date)
-            results["operations"]["nav_calculation"] = {
-                "nav_per_share": str(nav_calc.nav_per_share),
-                "total_assets": str(nav_calc.total_assets),
-                "net_assets": str(nav_calc.net_assets),
-                "validation_passed": nav_calc.validation_passed
-            }
-            
-            # 2. Record NAV in accounting
-            logger.info("Step 2: Recording NAV in accounting")
-            nav_data = {
-                "total_assets": str(nav_calc.total_assets),
-                "total_liabilities": str(nav_calc.total_liabilities),
-                "net_assets": str(nav_calc.net_assets),
-                "shares_outstanding": str(nav_calc.shares_outstanding),
-                "nav_per_share": str(nav_calc.nav_per_share)
-            }
-            self.accounting.daily_accounting_operations(operation_date, nav_calc)
-            results["operations"]["accounting"] = {"status": "completed"}
-            
-            # 3. Process any scheduled trades
-            logger.info("Step 3: Processing scheduled trades")
-            trades_processed = self._process_trades(operation_date, nav_calc)
-            results["operations"]["trades"] = trades_processed
-            
-            # 4. Reconcile holdings and cash
-            logger.info("Step 4: Reconciling holdings and cash")
-            recon_result = self.admin.reconcile_holdings_cash(operation_date)
-            results["operations"]["reconciliation"] = recon_result
-            
-            # 5. Process corporate actions
-            logger.info("Step 5: Processing corporate actions")
-            ca_result = self.admin.process_corporate_actions(operation_date)
-            results["operations"]["corporate_actions"] = ca_result
+            # Use FMP workflows if available, otherwise use standard workflows
+            if self.use_fmp_workflows and self.fmp_workflows:
+                logger.info("Using FMP-enhanced workflows for daily operations")
+                benchmark_symbol = self.config.get('fund', {}).get('benchmark_symbol', 'SPY')
+                fmp_results = self.fmp_workflows.run_daily_operations(operation_date, benchmark_symbol)
+                results["operations"].update(fmp_results.get("operations", {}))
+                results["operations"]["workflow_type"] = "fmp_enhanced"
+            else:
+                # Standard workflow
+                # 1. Calculate NAV
+                logger.info("Step 1: Calculating NAV")
+                nav_calc = self.admin.calculate_nav(operation_date)
+                results["operations"]["nav_calculation"] = {
+                    "nav_per_share": str(nav_calc.nav_per_share),
+                    "total_assets": str(nav_calc.total_assets),
+                    "net_assets": str(nav_calc.net_assets),
+                    "validation_passed": nav_calc.validation_passed
+                }
+                
+                # 2. Record NAV in accounting
+                logger.info("Step 2: Recording NAV in accounting")
+                nav_data = {
+                    "total_assets": str(nav_calc.total_assets),
+                    "total_liabilities": str(nav_calc.total_liabilities),
+                    "net_assets": str(nav_calc.net_assets),
+                    "shares_outstanding": str(nav_calc.shares_outstanding),
+                    "nav_per_share": str(nav_calc.nav_per_share)
+                }
+                self.accounting.daily_accounting_operations(operation_date, nav_calc)
+                results["operations"]["accounting"] = {"status": "completed"}
+                
+                # 3. Process any scheduled trades
+                logger.info("Step 3: Processing scheduled trades")
+                trades_processed = self._process_trades(operation_date, nav_calc)
+                results["operations"]["trades"] = trades_processed
+                
+                # 4. Reconcile holdings and cash
+                logger.info("Step 4: Reconciling holdings and cash")
+                recon_result = self.admin.reconcile_holdings_cash(operation_date)
+                results["operations"]["reconciliation"] = recon_result
+                
+                # 5. Process corporate actions
+                logger.info("Step 5: Processing corporate actions")
+                ca_result = self.admin.process_corporate_actions(operation_date)
+                results["operations"]["corporate_actions"] = ca_result
+                results["operations"]["workflow_type"] = "standard"
             
             # 6. Settlement Reconciliation (T+1 and T+2)
             logger.info("Step 6: Reconciling trade settlements")
@@ -258,12 +288,16 @@ class DailyOrchestrator:
                 price = nav_calc.nav_per_share
                 
                 # Calculate realized gain from tax lots
+                # Use LOWEST_COST method for tax optimization (minimizes realized gains)
+                # This can be overridden in config if needed
+                tax_lot_method = self.config.get('tax', {}).get('lot_method', 'LOWEST_COST')
                 try:
                     realized_gain = self.taxlot_manager.sell(
                         ticker=ticker,
                         quantity=qty,
                         price=price,
-                        sale_date=trade_date
+                        sale_date=trade_date,
+                        method=tax_lot_method
                     )
                     
                     proceeds = price * qty

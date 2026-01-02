@@ -1,0 +1,13 @@
+{
+  "date": "2025-12-30",
+  "nav_per_share": "0",
+  "nav_change_pct": null,
+  "benchmark_symbol": "SPY",
+  "benchmark_change_pct": null,
+  "discrepancy_pct": null,
+  "reconciliation_status": "fail",
+  "exceptions": [
+    "Shares outstanding is zero - cannot calculate NAV"
+  ],
+  "validation_passed": false
+}

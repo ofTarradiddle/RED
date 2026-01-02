@@ -328,6 +328,291 @@ class FMPClient:
         
         price_df = pd.concat(price_dfs, axis=1)
         return price_df
+    
+    # ========== Accounting & Admin API Methods ==========
+    
+    def get_batch_quotes(self, symbols: List[str]) -> Dict[str, Dict[str, Any]]:
+        """
+        Get real-time or end-of-day quotes for multiple tickers.
+        Uses historical-price-eod endpoint which works reliably.
+        
+        Args:
+            symbols: List of stock/ETF symbols
+            
+        Returns:
+            Dictionary mapping symbol to quote data
+        """
+        # Use historical-price-eod endpoint which we know works
+        # Get latest price for each symbol
+        quotes = {}
+        for symbol in symbols:
+            try:
+                # Get latest EOD price (today or most recent)
+                price_data = self.get_historical_price_eod(symbol, date=None)
+                if price_data:
+                    # Convert to quote format
+                    quotes[symbol] = {
+                        'symbol': symbol,
+                        'price': price_data.get('adjClose') or price_data.get('close'),
+                        'close': price_data.get('adjClose') or price_data.get('close'),
+                        'open': price_data.get('adjOpen') or price_data.get('open'),
+                        'high': price_data.get('adjHigh') or price_data.get('high'),
+                        'low': price_data.get('adjLow') or price_data.get('low'),
+                        'volume': price_data.get('volume'),
+                        'date': price_data.get('date')
+                    }
+            except Exception as e:
+                logger.warning(f"Failed to get quote for {symbol}: {e}")
+                continue
+        
+        return quotes
+    
+    def get_historical_price_eod(self, symbol: str, date: Optional[str] = None) -> Optional[Dict[str, Any]]:
+        """
+        Get end-of-day price for a specific date.
+        Used for period-end valuations and historical NAV verification.
+        
+        Args:
+            symbol: Stock/ETF symbol
+            date: Optional date string (YYYY-MM-DD). If None, gets latest available.
+            
+        Returns:
+            Dictionary with price data for that date, or None
+        """
+        # Use the non-split-adjusted endpoint which works with the API key
+        endpoint = "stable/historical-price-eod/non-split-adjusted"
+        params = {'symbol': symbol}
+        if date:
+            params['date'] = date
+        
+        result = self._get(endpoint, params)
+        
+        if isinstance(result, list) and result:
+            # If date specified, find matching date, otherwise return most recent
+            if date:
+                for item in result:
+                    if item.get('date') == date:
+                        return item
+                return None
+            # Return most recent (first item)
+            return result[0]
+        return result if isinstance(result, dict) else None
+    
+    def get_dividends_calendar(self, start_date: Optional[str] = None, 
+                              end_date: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get upcoming dividend events across the market.
+        Used for dividend accrual tracking.
+        
+        Args:
+            start_date: Optional start date (YYYY-MM-DD)
+            end_date: Optional end date (YYYY-MM-DD)
+            
+        Returns:
+            List of dividend event dictionaries
+        """
+        endpoint = "stable/stock-dividend-calendar"
+        params = {}
+        if start_date:
+            params['from'] = start_date
+        if end_date:
+            params['to'] = end_date
+        
+        result = self._get(endpoint, params)
+        return result if isinstance(result, list) else []
+    
+    def get_dividends_company(self, symbol: str) -> List[Dict[str, Any]]:
+        """
+        Get declared dividends for a specific company with record/pay dates and amounts.
+        Used for dividend accrual tracking.
+        
+        Args:
+            symbol: Stock symbol
+            
+        Returns:
+            List of dividend dictionaries with ex-date, pay-date, amount
+        """
+        endpoint = f"stable/stock-dividend-calendar/{symbol}"
+        result = self._get(endpoint)
+        return result if isinstance(result, list) else []
+    
+    def get_stock_splits_calendar(self, start_date: Optional[str] = None,
+                                  end_date: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get upcoming stock splits market-wide with dates and ratios.
+        Used for corporate actions processing.
+        
+        Args:
+            start_date: Optional start date (YYYY-MM-DD)
+            end_date: Optional end date (YYYY-MM-DD)
+            
+        Returns:
+            List of stock split dictionaries
+        """
+        endpoint = "stable/stock-split-calendar"
+        params = {}
+        if start_date:
+            params['from'] = start_date
+        if end_date:
+            params['to'] = end_date
+        
+        result = self._get(endpoint, params)
+        return result if isinstance(result, list) else []
+    
+    def get_stock_split_details(self, symbol: str) -> List[Dict[str, Any]]:
+        """
+        Get stock split history and ratio details for a specific stock.
+        Used for corporate actions processing.
+        
+        Args:
+            symbol: Stock symbol
+            
+        Returns:
+            List of stock split dictionaries with date and ratio
+        """
+        endpoint = f"stable/stock-split-calendar/{symbol}"
+        result = self._get(endpoint)
+        return result if isinstance(result, list) else []
+    
+    def get_symbol_changes(self, start_date: Optional[str] = None,
+                          end_date: Optional[str] = None) -> List[Dict[str, Any]]:
+        """
+        Get recent ticker symbol changes due to mergers, acquisitions, splits, name changes.
+        Used for corporate actions processing.
+        
+        Args:
+            start_date: Optional start date (YYYY-MM-DD)
+            end_date: Optional end date (YYYY-MM-DD)
+            
+        Returns:
+            List of symbol change dictionaries
+        """
+        endpoint = "stable/symbol-changes-list"
+        params = {}
+        if start_date:
+            params['from'] = start_date
+        if end_date:
+            params['to'] = end_date
+        
+        result = self._get(endpoint, params)
+        return result if isinstance(result, list) else []
+    
+    def get_cusip_lookup(self, cusip: str) -> Optional[Dict[str, Any]]:
+        """
+        Get security information by CUSIP.
+        Used for regulatory filings (N-PORT) to verify identifiers.
+        
+        Args:
+            cusip: CUSIP identifier
+            
+        Returns:
+            Dictionary with security information, or None
+        """
+        endpoint = f"stable/cusip/{cusip}"
+        result = self._get(endpoint)
+        return result if isinstance(result, dict) else (result[0] if isinstance(result, list) and result else None)
+    
+    def get_cik_lookup(self, cik: str) -> Optional[Dict[str, Any]]:
+        """
+        Get issuer information by CIK (SEC Central Index Key).
+        Used for regulatory filings to get issuer details.
+        
+        Args:
+            cik: CIK identifier (10 digits, may need zero-padding)
+            
+        Returns:
+            Dictionary with issuer information, or None
+        """
+        # Ensure CIK is 10 digits
+        cik_padded = str(cik).zfill(10)
+        endpoint = f"stable/cik/{cik_padded}"
+        result = self._get(endpoint)
+        return result if isinstance(result, dict) else (result[0] if isinstance(result, list) and result else None)
+    
+    def get_index_market_data(self, index_symbol: str) -> Optional[Dict[str, Any]]:
+        """
+        Get benchmark index level and daily change.
+        Used for NAV verification against benchmark.
+        
+        Args:
+            index_symbol: Index symbol (e.g., "^GSPC" for S&P 500, "SPY" for S&P 500 ETF)
+            
+        Returns:
+            Dictionary with index level and change data, or None
+        """
+        # Try as regular quote first (works for ETF proxies like SPY)
+        endpoint = "stable/quote"
+        params = {'symbol': index_symbol}
+        result = self._get(endpoint, params)
+        
+        if isinstance(result, list) and result:
+            return result[0]
+        if isinstance(result, dict):
+            return result
+        
+        # If that fails, might need index-specific endpoint
+        # FMP may have different endpoint for indices
+        return None
+    
+    def get_key_metrics_ttm(self, symbol: str) -> Optional[Dict[str, Any]]:
+        """
+        Get key metrics (P/E, dividend yield, etc.) for a symbol (TTM - trailing twelve months).
+        Used for investor reporting to calculate portfolio-level ratios.
+        
+        Args:
+            symbol: Stock symbol
+            
+        Returns:
+            Dictionary with key metrics, or None
+        """
+        endpoint = f"stable/key-metrics-ttm/{symbol}"
+        result = self._get(endpoint)
+        return result if isinstance(result, dict) else (result[0] if isinstance(result, list) and result else None)
+    
+    def get_etf_sector_weightings(self, etf_symbol: str) -> List[Dict[str, Any]]:
+        """
+        Get sector allocation for an ETF.
+        Used for investor reporting (monthly factsheet).
+        
+        Args:
+            etf_symbol: ETF symbol
+            
+        Returns:
+            List of sector weighting dictionaries
+        """
+        endpoint = f"stable/etf-sector-weightings/{etf_symbol}"
+        result = self._get(endpoint)
+        return result if isinstance(result, list) else []
+    
+    def get_company_profile(self, symbol: str) -> Optional[Dict[str, Any]]:
+        """
+        Get company profile information.
+        Used for shareholder communications and investor queries.
+        
+        Args:
+            symbol: Stock symbol
+            
+        Returns:
+            Dictionary with company profile, or None
+        """
+        endpoint = f"stable/profile/{symbol}"
+        result = self._get(endpoint)
+        return result if isinstance(result, dict) else (result[0] if isinstance(result, list) and result else None)
+    
+    def get_etf_info(self, etf_symbol: str) -> Optional[Dict[str, Any]]:
+        """
+        Get ETF information including expense ratio.
+        Used for expense ratio verification and QA.
+        
+        Args:
+            etf_symbol: ETF symbol
+            
+        Returns:
+            Dictionary with ETF information, or None
+        """
+        endpoint = f"stable/etf/{etf_symbol}"
+        result = self._get(endpoint)
+        return result if isinstance(result, dict) else (result[0] if isinstance(result, list) and result else None)
 
 
 class HoldingsLoader:
