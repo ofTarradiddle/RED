@@ -134,6 +134,9 @@ class FMPClient:
         """
         Get ETF holdings for a given symbol and optional date.
         
+        Uses stable/etf/holdings endpoint which supports date parameter for historical data.
+        The api/v4 endpoints are legacy and restricted for new users.
+        
         Args:
             symbol: ETF symbol (e.g., "IWB")
             date: Optional date string (YYYY-MM-DD) for historical holdings
@@ -141,12 +144,11 @@ class FMPClient:
         Returns:
             List of holding dictionaries
         """
+        # Use stable endpoint - it supports date parameter for historical data
+        endpoint = "stable/etf/holdings"
+        params = {'symbol': symbol}
         if date:
-            endpoint = "api/v4/etf-holdings"
-            params = {'symbol': symbol, 'date': date}
-        else:
-            endpoint = "stable/etf/holdings"
-            params = {'symbol': symbol}
+            params['date'] = date
         
         result = self._get(endpoint, params)
         return result if isinstance(result, list) else []

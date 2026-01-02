@@ -39,19 +39,14 @@ class FinancialDataFetcher:
         """
         self.api_key = api_key
         self.base_storage_path = Path(base_storage_path)
-        # Check if path exists or can be created
+        # Check if path exists - if not, try to create but don't fail
         if not self.base_storage_path.exists():
             try:
                 self.base_storage_path.mkdir(parents=True, exist_ok=True)
                 logger.info(f"Created storage directory: {self.base_storage_path}")
-            except PermissionError:
-                logger.error(f"Permission denied creating {self.base_storage_path}")
-                logger.error("Please create the directory manually:")
-                logger.error(f"  mkdir -p '{self.base_storage_path}'")
-                raise PermissionError(
-                    f"Cannot create directory {self.base_storage_path}. "
-                    "Please create it manually or check permissions."
-                )
+            except (PermissionError, OSError) as e:
+                logger.warning(f"Could not create {self.base_storage_path}: {e}")
+                logger.warning("Will attempt to create subdirectories during data fetch")
         else:
             logger.info(f"Using existing storage directory: {self.base_storage_path}")
         
@@ -217,10 +212,13 @@ class FinancialDataFetcher:
         return df
     
     def _get_storage_path(self, symbol: str, statement_type: str) -> Path:
-        """Get storage path for a symbol and statement type."""
-        symbol_path = self.base_storage_path / symbol.upper()
-        symbol_path.mkdir(parents=True, exist_ok=True)
-        return symbol_path
+        """Get storage path for a symbol and statement type.
+        
+        Returns base storage path - files will be written directly here
+        without creating subdirectories.
+        """
+        # Return base path directly - no subdirectory creation
+        return self.base_storage_path
     
     def _save_dataframe(self, df: pd.DataFrame, storage_path: Path,
                        symbol: str, statement_type: str, period: str):
@@ -232,7 +230,7 @@ class FinancialDataFetcher:
             logger.warning(f"No data to save for {symbol} {statement_type}")
             return
         
-        # File paths
+        # File paths - write directly to base path (no subdirectories)
         csv_file = storage_path / f"{symbol}_{statement_type}_{period}.csv"
         parquet_file = storage_path / f"{symbol}_{statement_type}_{period}.parquet"
         
@@ -260,13 +258,28 @@ class FinancialDataFetcher:
             else:
                 logger.info(f"Creating new file: {csv_file}")
             
-            # Save as CSV (human-readable)
-            df.to_csv(csv_file, index=False)
-            logger.info(f"✓ Saved {len(df)} records to {csv_file}")
+            # Save as CSV (human-readable) - try multiple methods
+            try:
+                df.to_csv(csv_file, index=False)
+                logger.info(f"✓ Saved {len(df)} records to {csv_file}")
+            except (PermissionError, OSError) as e:
+                # Try alternative: write to string first, then file
+                try:
+                    csv_content = df.to_csv(index=False)
+                    with open(csv_file, 'w', encoding='utf-8') as f:
+                        f.write(csv_content)
+                    logger.info(f"✓ Saved {len(df)} records to {csv_file} (alternative method)")
+                except Exception as e2:
+                    logger.error(f"✗ Failed to save CSV: {e2}")
+                    raise
             
             # Save as Parquet (more efficient, preserves types)
-            df.to_parquet(parquet_file, index=False, engine='pyarrow')
-            logger.info(f"✓ Saved {len(df)} records to {parquet_file}")
+            try:
+                df.to_parquet(parquet_file, index=False, engine='pyarrow')
+                logger.info(f"✓ Saved {len(df)} records to {parquet_file}")
+            except (PermissionError, OSError) as e:
+                logger.warning(f"Could not save Parquet file: {e}")
+                logger.warning("CSV file saved successfully, continuing...")
             
             # Save metadata
             metadata = {

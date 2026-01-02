@@ -15,8 +15,9 @@ import numpy as np
 project_root = Path(os.getcwd())
 sys.path.insert(0, str(project_root))
 
-api_key = 'KzXIx6bXd7l7c9mIfRddOLBZY5AAgFVq'
-os.environ['FMP_API_KEY'] = api_key
+api_key = os.getenv('FMP_API_KEY')
+if not api_key:
+    raise ValueError("FMP_API_KEY environment variable is required. Set it in your .env file or export it.")
 
 from lib.etf.functions.research import FMPClient
 
