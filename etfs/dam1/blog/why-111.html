@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why 111? The Arithmetic of Concentration Exposure | DAM1 Blog</title>
+    <meta name="description" content="How we chose the number of holdings, why it's not 100 or 500, and the empirical basis for a mega-cap cutoff.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        .gradient-text { background: linear-gradient(135deg, #111, #444); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <a href="../" class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gray-900 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">D</span>
+                    </div>
+                    <span class="text-xl font-bold gradient-text">DAM1</span>
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="../" class="text-gray-600 hover:text-gray-900 transition-colors">Fund</a>
+                    <a href="./" class="text-gray-900 font-medium">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <article class="max-w-4xl mx-auto px-4 py-12">
+        <div class="mb-8">
+            <div class="flex items-center space-x-4 mb-4">
+                <span class="px-3 py-1 bg-gray-100 text-gray-800 text-sm font-medium rounded-full">Strategy</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Why 111? The Arithmetic of Concentration Exposure
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                How we chose the number of holdings, why it's not 100 or 500, and the empirical basis for a mega-cap cutoff.
+            </p>
+            <div class="flex items-center space-x-6 text-sm text-gray-500">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>December 2025</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <span>5 min read</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">The Short Answer</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                People ask about the number. Fair enough—it's unusual. Here's the reasoning, which is more empirical than numerological.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                We wanted the smallest universe that captures the vast majority of global market capitalization while maintaining sufficient breadth for rebalancing, liquidity, and regulatory comfort. The answer falls in a surprisingly tight range.
+            </p>
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">The Empirics</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                Consider the cumulative market cap share as you move down the global rankings:
+            </p>
+
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm mb-8">
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-left py-3 px-4 font-semibold text-gray-900">Companies Included</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">Share of Global Mkt Cap</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">Marginal Gain per Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-100"><td class="py-3 px-4">Top 10</td><td class="py-3 px-4 text-right">~22%</td><td class="py-3 px-4 text-right text-gray-600">~2.2% each</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-3 px-4">Top 50</td><td class="py-3 px-4 text-right">~42%</td><td class="py-3 px-4 text-right text-gray-600">~0.5% each</td></tr>
+                        <tr class="border-b border-gray-100 bg-gray-50"><td class="py-3 px-4 font-semibold">Top 111</td><td class="py-3 px-4 text-right font-semibold">~55%</td><td class="py-3 px-4 text-right text-gray-600 font-semibold">~0.2% each</td></tr>
+                        <tr class="border-b border-gray-100"><td class="py-3 px-4">Top 250</td><td class="py-3 px-4 text-right">~65%</td><td class="py-3 px-4 text-right text-gray-600">~0.07% each</td></tr>
+                        <tr><td class="py-3 px-4">Top 500</td><td class="py-3 px-4 text-right">~75%</td><td class="py-3 px-4 text-right text-gray-600">~0.04% each</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                The marginal information gain per additional name drops sharply after roughly 100–120 companies. Beyond that point, you're adding names that contribute fractions of a percent to total market cap. From a concentration-exposure perspective, they're noise.
+            </p>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                111 sits at the inflection point. It captures the mega-cap universe comprehensively—every company above approximately $100 billion in market cap—while keeping the portfolio tight enough that its concentration characteristics are meaningfully different from a broad index.
+            </p>
+
+            <div class="bg-gray-100 border-l-4 border-gray-900 p-6 my-8 rounded-r-lg">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Why Not a Round Number?</h3>
+                <p class="text-gray-700">
+                    100 is arbitrary. So is 111—but at least it's honest about being a calibrated cutoff rather than a marketing-friendly integer. The actual boundary is set by the market-cap distribution, which shifts over time as companies enter and exit the mega-cap tier. 111 reflects the current state of global equity markets. As markets evolve, the methodology adapts.
+                </p>
+            </div>
+
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">The Practical Benefits</h2>
+            <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                A 111-name portfolio has several advantages over both narrower (top 30) and broader (top 500) alternatives:
+            </p>
+            <ul class="space-y-3 mb-8">
+                <li class="flex items-start">
+                    <span class="w-2 h-2 bg-gray-900 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                    <span class="text-gray-700"><strong>Liquidity:</strong> Every constituent trades billions of dollars daily. Rebalancing is frictionless.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="w-2 h-2 bg-gray-900 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                    <span class="text-gray-700"><strong>Diversification within concentration:</strong> 111 names across multiple sectors and geographies. This isn't a bet on tech alone.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="w-2 h-2 bg-gray-900 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                    <span class="text-gray-700"><strong>Low turnover:</strong> The top 111 is remarkably stable. Annual reconstitution typically involves 5–10 name changes.</span>
+                </li>
+                <li class="flex items-start">
+                    <span class="w-2 h-2 bg-gray-900 rounded-full mt-3 mr-4 flex-shrink-0"></span>
+                    <span class="text-gray-700"><strong>Cost efficiency:</strong> 11.1 basis points. Low turnover + liquid names = low implementation costs.</span>
+                </li>
+            </ul>
+
+            <div class="bg-gray-900 text-white rounded-2xl p-8 my-12">
+                <h3 class="text-2xl font-bold mb-4">Summary</h3>
+                <p class="text-gray-300">
+                    111 is the answer to a specific question: what is the smallest portfolio that gives you comprehensive exposure to the concentration dynamic in global equities, with the liquidity and breadth characteristics of an institutional-quality product? The math says it's roughly here.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-200">
+            <a href="./" class="inline-flex items-center text-gray-600 hover:text-gray-900 font-medium">
+                <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i>
+                Back to all posts
+            </a>
+        </div>
+    </article>
+
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-gray-400">Diamond World's Largest 111 ETF | Diamond & Diamond</p>
+            <p class="text-gray-600 text-sm mt-4">&copy; <span class="current-year"></span> Diamond Asset Management. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
+</body>
+</html>
