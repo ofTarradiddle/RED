@@ -2701,7 +2701,7 @@
 </main>
 
 <footer class="site" role="contentinfo" style="border-top:1px solid var(--line); padding:1rem 6vw; color:var(--muted);">
-  © 2024 Diamond & Diamond. For institutional / sophisticated investors. Educational only; not an offer to sell or solicitation to buy any security.
+  © <span class="current-year"></span> Diamond & Diamond. For institutional / sophisticated investors. Educational only; not an offer to sell or solicitation to buy any security.
 </footer>
 
 <script>
@@ -2831,5 +2831,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
 </body>
 </html>

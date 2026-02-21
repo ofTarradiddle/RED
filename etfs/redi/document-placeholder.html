@@ -145,7 +145,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-sm text-center">
-                <p>&copy; 2024 Diamond Asset Management. All rights reserved.</p>
+                <p>&copy; <span class="current-year"></span> Diamond Asset Management. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -242,6 +242,7 @@
         document.getElementById('document-description').textContent = docInfo.description;
         document.getElementById('doc-type').textContent = docInfo.title;
     </script>
+<script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
 </body>
 </html>
 

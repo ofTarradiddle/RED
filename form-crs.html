@@ -287,7 +287,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
-                <p>&copy; 2025 Diamond Asset Management. All rights reserved.</p>
+                <p>&copy; <span class="current-year"></span> Diamond Asset Management. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -303,6 +303,7 @@
         }
     </script>
     <script src="js/site-navigation-disclaimer.js"></script>
+<script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
 </body>
 </html>
 

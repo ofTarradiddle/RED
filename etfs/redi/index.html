@@ -1504,7 +1504,7 @@
                     </div>
                 </div>
                 <div class="text-center mt-8 pt-8 border-t border-gray-700">
-                    <p class="text-gray-400">© 21.1 - 2025 Diamond Asset Management</p>
+                    <p class="text-gray-400">© <span class="current-year"></span> Diamond Asset Management</p>
                     <div class="mt-4 text-xs text-gray-500 space-y-2">
                         <p>
                             <strong>Legal Disclaimer:</strong> This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities. 
@@ -3283,5 +3283,6 @@
         */
     </script>
     <script src="../../js/site-navigation-disclaimer.js"></script>
+<script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
 </body>
 </html> 

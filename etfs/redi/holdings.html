@@ -338,7 +338,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <p class="text-sm text-gray-400">
-                    © 2024 - 2025 Diamond Asset Management. All rights reserved.
+                    © <span class="current-year"></span> Diamond Asset Management. All rights reserved.
                 </p>
                 <p class="text-xs text-gray-500 mt-2">
                     Holdings are subject to change. Data is provided for informational purposes only.
@@ -672,5 +672,6 @@
         // Initialize Lucide icons
         lucide.createIcons();
     </script>
+<script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
 </body>
 </html> 

@@ -132,11 +132,12 @@
     <footer class="bg-gray-900 text-gray-400 py-8 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <p class="text-sm">&copy; 2024 Diamond Asset Management (DAM). All rights reserved.</p>
+                <p class="text-sm">&copy; <span class="current-year"></span> Diamond Asset Management (DAM). All rights reserved.</p>
             </div>
         </div>
     </footer>
     <script src="../js/site-navigation-disclaimer.js"></script>
+<script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
 </body>
 </html>
 
