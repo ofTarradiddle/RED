@@ -1,0 +1,779 @@
+[
+  {
+    "name": "NVIDIA",
+    "ticker": "NVDA",
+    "weight": 9.54,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Apple",
+    "ticker": "AAPL",
+    "weight": 8.55,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Alphabet",
+    "ticker": "GOOGL",
+    "weight": 8.02,
+    "sector": "Communication Services",
+    "country": "USA"
+  },
+  {
+    "name": "Microsoft",
+    "ticker": "MSFT",
+    "weight": 7.69,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Amazon",
+    "ticker": "AMZN",
+    "weight": 5.25,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Meta Platforms",
+    "ticker": "META",
+    "weight": 3.56,
+    "sector": "Communication Services",
+    "country": "USA"
+  },
+  {
+    "name": "Broadcom",
+    "ticker": "AVGO",
+    "weight": 3.52,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Tesla",
+    "ticker": "TSLA",
+    "weight": 3.22,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Taiwan Semiconductor",
+    "ticker": "TSM",
+    "weight": 2.69,
+    "sector": "Technology",
+    "country": "Taiwan"
+  },
+  {
+    "name": "Berkshire Hathaway",
+    "ticker": "BRK.B",
+    "weight": 2.16,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Eli Lilly",
+    "ticker": "LLY",
+    "weight": 1.9,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "JPMorgan Chase",
+    "ticker": "JPM",
+    "weight": 1.27,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Visa",
+    "ticker": "V",
+    "weight": 1.37,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "UnitedHealth Group",
+    "ticker": "UNH",
+    "weight": 1.07,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Walmart",
+    "ticker": "WMT",
+    "weight": 1.16,
+    "sector": "Consumer Defensive",
+    "country": "USA"
+  },
+  {
+    "name": "Johnson & Johnson",
+    "ticker": "JNJ",
+    "weight": 0.85,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Exxon Mobil",
+    "ticker": "XOM",
+    "weight": 1.07,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Mastercard",
+    "ticker": "MA",
+    "weight": 1.07,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Procter & Gamble",
+    "ticker": "PG",
+    "weight": 0.85,
+    "sector": "Consumer Defensive",
+    "country": "USA"
+  },
+  {
+    "name": "Costco Wholesale",
+    "ticker": "COST",
+    "weight": 0.95,
+    "sector": "Consumer Defensive",
+    "country": "USA"
+  },
+  {
+    "name": "Home Depot",
+    "ticker": "HD",
+    "weight": 0.74,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Oracle",
+    "ticker": "ORCL",
+    "weight": 0.74,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Netflix",
+    "ticker": "NFLX",
+    "weight": 0.64,
+    "sector": "Communication Services",
+    "country": "USA"
+  },
+  {
+    "name": "Merck",
+    "ticker": "MRK",
+    "weight": 0.74,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "AbbVie",
+    "ticker": "ABBV",
+    "weight": 0.74,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Coca-Cola",
+    "ticker": "KO",
+    "weight": 0.64,
+    "sector": "Consumer Defensive",
+    "country": "USA"
+  },
+  {
+    "name": "Salesforce",
+    "ticker": "CRM",
+    "weight": 0.64,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "AMD",
+    "ticker": "AMD",
+    "weight": 0.64,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Chevron",
+    "ticker": "CVX",
+    "weight": 0.74,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "PepsiCo",
+    "ticker": "PEP",
+    "weight": 0.64,
+    "sector": "Consumer Defensive",
+    "country": "USA"
+  },
+  {
+    "name": "Adobe",
+    "ticker": "ADBE",
+    "weight": 0.53,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Linde",
+    "ticker": "LIN",
+    "weight": 0.53,
+    "sector": "Basic Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Cisco Systems",
+    "ticker": "CSCO",
+    "weight": 0.53,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Novo Nordisk",
+    "ticker": "NVO",
+    "weight": 0.85,
+    "sector": "Healthcare",
+    "country": "Denmark"
+  },
+  {
+    "name": "Accenture",
+    "ticker": "ACN",
+    "weight": 0.53,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "McDonald's",
+    "ticker": "MCD",
+    "weight": 0.53,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Qualcomm",
+    "ticker": "QCOM",
+    "weight": 0.53,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Thermo Fisher Scientific",
+    "ticker": "TMO",
+    "weight": 0.53,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Goldman Sachs",
+    "ticker": "GS",
+    "weight": 0.53,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Comcast",
+    "ticker": "CMCSA",
+    "weight": 0.43,
+    "sector": "Communication Services",
+    "country": "USA"
+  },
+  {
+    "name": "ASML Holding",
+    "ticker": "ASML",
+    "weight": 0.85,
+    "sector": "Technology",
+    "country": "Netherlands"
+  },
+  {
+    "name": "T-Mobile US",
+    "ticker": "TMUS",
+    "weight": 0.43,
+    "sector": "Communication Services",
+    "country": "USA"
+  },
+  {
+    "name": "Amgen",
+    "ticker": "AMGN",
+    "weight": 0.43,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Intuit",
+    "ticker": "INTU",
+    "weight": 0.43,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Honeywell International",
+    "ticker": "HON",
+    "weight": 0.43,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "Caterpillar",
+    "ticker": "CAT",
+    "weight": 0.43,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "Morgan Stanley",
+    "ticker": "MS",
+    "weight": 0.43,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Deere & Company",
+    "ticker": "DE",
+    "weight": 0.43,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "Boeing",
+    "ticker": "BA",
+    "weight": 0.32,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "ServiceNow",
+    "ticker": "NOW",
+    "weight": 0.43,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Progressive",
+    "ticker": "PGR",
+    "weight": 0.43,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "BlackRock",
+    "ticker": "BLK",
+    "weight": 0.43,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Starbucks",
+    "ticker": "SBUX",
+    "weight": 0.32,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "SAP",
+    "ticker": "SAP",
+    "weight": 0.43,
+    "sector": "Technology",
+    "country": "Germany"
+  },
+  {
+    "name": "Marsh & McLennan",
+    "ticker": "MMC",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Automatic Data Processing",
+    "ticker": "ADP",
+    "weight": 0.32,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Intuitive Surgical",
+    "ticker": "ISRG",
+    "weight": 0.32,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Palo Alto Networks",
+    "ticker": "PANW",
+    "weight": 0.32,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "CME Group",
+    "ticker": "CME",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Chubb",
+    "ticker": "CB",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Illinois Tool Works",
+    "ticker": "ITW",
+    "weight": 0.32,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "Becton Dickinson",
+    "ticker": "BDX",
+    "weight": 0.32,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Emerson Electric",
+    "ticker": "EMR",
+    "weight": 0.32,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "Texas Instruments",
+    "ticker": "TXN",
+    "weight": 0.32,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Union Pacific",
+    "ticker": "UNP",
+    "weight": 0.32,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "Southern Company",
+    "ticker": "SO",
+    "weight": 0.32,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "Duke Energy",
+    "ticker": "DUK",
+    "weight": 0.32,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "Nike",
+    "ticker": "NKE",
+    "weight": 0.32,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Philip Morris International",
+    "ticker": "PM",
+    "weight": 0.32,
+    "sector": "Consumer Defensive",
+    "country": "USA"
+  },
+  {
+    "name": "Lockheed Martin",
+    "ticker": "LMT",
+    "weight": 0.32,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "American Tower",
+    "ticker": "AMT",
+    "weight": 0.32,
+    "sector": "Real Estate",
+    "country": "USA"
+  },
+  {
+    "name": "Booking Holdings",
+    "ticker": "BKNG",
+    "weight": 0.32,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "TJX Companies",
+    "ticker": "TJX",
+    "weight": 0.32,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Abbott Laboratories",
+    "ticker": "ABT",
+    "weight": 0.32,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Raytheon Technologies",
+    "ticker": "RTX",
+    "weight": 0.32,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "General Electric",
+    "ticker": "GE",
+    "weight": 0.32,
+    "sector": "Industrials",
+    "country": "USA"
+  },
+  {
+    "name": "Target",
+    "ticker": "TGT",
+    "weight": 0.21,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Gilead Sciences",
+    "ticker": "GILD",
+    "weight": 0.21,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Vertex Pharmaceuticals",
+    "ticker": "VRTX",
+    "weight": 0.32,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Regeneron Pharmaceuticals",
+    "ticker": "REGN",
+    "weight": 0.21,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Charles Schwab",
+    "ticker": "SCHW",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "American Express",
+    "ticker": "AXP",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Citigroup",
+    "ticker": "C",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Bank of America",
+    "ticker": "BAC",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Wells Fargo",
+    "ticker": "WFC",
+    "weight": 0.32,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "ConocoPhillips",
+    "ticker": "COP",
+    "weight": 0.32,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Marathon Petroleum",
+    "ticker": "MPC",
+    "weight": 0.21,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Phillips 66",
+    "ticker": "PSX",
+    "weight": 0.21,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Valero Energy",
+    "ticker": "VLO",
+    "weight": 0.21,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Elevance Health",
+    "ticker": "ELV",
+    "weight": 0.32,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Cigna",
+    "ticker": "CI",
+    "weight": 0.21,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "CVS Health",
+    "ticker": "CVS",
+    "weight": 0.21,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Bristol-Myers Squibb",
+    "ticker": "BMY",
+    "weight": 0.21,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Pfizer",
+    "ticker": "PFE",
+    "weight": 0.21,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Mondelez International",
+    "ticker": "MDLZ",
+    "weight": 0.21,
+    "sector": "Consumer Defensive",
+    "country": "USA"
+  },
+  {
+    "name": "General Motors",
+    "ticker": "GM",
+    "weight": 0.21,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Ford Motor",
+    "ticker": "F",
+    "weight": 0.21,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Lowe's",
+    "ticker": "LOW",
+    "weight": 0.32,
+    "sector": "Consumer Cyclical",
+    "country": "USA"
+  },
+  {
+    "name": "Sherwin-Williams",
+    "ticker": "SHW",
+    "weight": 0.21,
+    "sector": "Basic Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Air Products and Chemicals",
+    "ticker": "APD",
+    "weight": 0.21,
+    "sector": "Basic Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Freeport-McMoRan",
+    "ticker": "FCX",
+    "weight": 0.21,
+    "sector": "Basic Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Nucor",
+    "ticker": "NUE",
+    "weight": 0.21,
+    "sector": "Basic Materials",
+    "country": "USA"
+  },
+  {
+    "name": "NextEra Energy",
+    "ticker": "NEE",
+    "weight": 0.32,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "Exelon",
+    "ticker": "EXC",
+    "weight": 0.21,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "Travelers",
+    "ticker": "TRV",
+    "weight": 0.21,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Aon",
+    "ticker": "AON",
+    "weight": 0.21,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "State Street",
+    "ticker": "STT",
+    "weight": 0.21,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "PNC Financial",
+    "ticker": "PNC",
+    "weight": 0.21,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Truist Financial",
+    "ticker": "TFC",
+    "weight": 0.21,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "U.S. Bancorp",
+    "ticker": "USB",
+    "weight": 0.21,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Equinix",
+    "ticker": "EQIX",
+    "weight": 0.32,
+    "sector": "Real Estate",
+    "country": "USA"
+  }
+]

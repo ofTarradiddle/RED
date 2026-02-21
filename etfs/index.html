@@ -75,6 +75,31 @@
             background: linear-gradient(90deg, #8b0000, transparent);
             border-radius: 1px;
         }
+        .etf-card-dark:hover {
+            border-color: #111;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        }
+        .etf-card-dark:hover .tagline-dark {
+            opacity: 1;
+            max-height: 3rem;
+            margin-top: 0.6rem;
+            padding-top: 0.5rem;
+        }
+        .tagline-dark {
+            border-top-color: #ccc;
+            color: #444;
+        }
+        .dif-dark {
+            color: #111 !important;
+            letter-spacing: 0.04em;
+        }
+        .dif-dark::after {
+            background: linear-gradient(90deg, #111, transparent) !important;
+        }
+        .ticker-box-dark {
+            background: linear-gradient(135deg, #111 0%, #333 100%) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+        }
         .ticker-box {
             width: 80px;
             height: 80px;
@@ -123,6 +148,14 @@
                         <div class="ticker-box">REDI</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Innovation Factor ETF</h2>
                         <p class="tagline">Innovation is the <span class="dif">DIF</span>erence</p>
+                    </div>
+            </a>
+            <!-- DAM1 ETF Card -->
+            <a href="../etfs/dam1/" class="etf-card etf-card-dark">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="ticker-box ticker-box-dark">DAM1</div>
+                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond World's Largest 111 ETF</h2>
+                        <p class="tagline tagline-dark">If one firm wins, <span class="dif dif-dark">you own it</span></p>
                     </div>
             </a>
         </div>

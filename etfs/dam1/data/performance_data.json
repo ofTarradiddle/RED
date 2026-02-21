@@ -1,0 +1,1717 @@
+[
+  {
+    "date": "2024-01-02",
+    "dam1_etf": 100.0,
+    "nav": 100.2092,
+    "morningstar_us_market_index": 100.0,
+    "premium_discount": 99.9329
+  },
+  {
+    "date": "2024-01-03",
+    "dam1_etf": 100.0438,
+    "nav": 99.8999,
+    "morningstar_us_market_index": 100.0195,
+    "premium_discount": 99.887
+  },
+  {
+    "date": "2024-01-04",
+    "dam1_etf": 100.1074,
+    "nav": 100.2746,
+    "morningstar_us_market_index": 100.6522,
+    "premium_discount": 99.977
+  },
+  {
+    "date": "2024-01-05",
+    "dam1_etf": 100.1611,
+    "nav": 100.0281,
+    "morningstar_us_market_index": 99.7377,
+    "premium_discount": 99.9106
+  },
+  {
+    "date": "2024-01-08",
+    "dam1_etf": 100.4916,
+    "nav": 100.2671,
+    "morningstar_us_market_index": 99.6912,
+    "premium_discount": 99.9746
+  },
+  {
+    "date": "2024-01-09",
+    "dam1_etf": 100.4916,
+    "nav": 100.2787,
+    "morningstar_us_market_index": 99.9124,
+    "premium_discount": 100.0343
+  },
+  {
+    "date": "2024-01-10",
+    "dam1_etf": 100.7628,
+    "nav": 100.6357,
+    "morningstar_us_market_index": 100.8675,
+    "premium_discount": 99.8921
+  },
+  {
+    "date": "2024-01-11",
+    "dam1_etf": 101.2915,
+    "nav": 101.1157,
+    "morningstar_us_market_index": 101.0875,
+    "premium_discount": 99.9584
+  },
+  {
+    "date": "2024-01-12",
+    "dam1_etf": 100.9744,
+    "nav": 100.7222,
+    "morningstar_us_market_index": 100.511,
+    "premium_discount": 100.0605
+  },
+  {
+    "date": "2024-01-16",
+    "dam1_etf": 101.2554,
+    "nav": 100.989,
+    "morningstar_us_market_index": 101.5757,
+    "premium_discount": 99.8997
+  },
+  {
+    "date": "2024-01-17",
+    "dam1_etf": 101.4127,
+    "nav": 101.5166,
+    "morningstar_us_market_index": 101.6429,
+    "premium_discount": 100.12
+  },
+  {
+    "date": "2024-01-18",
+    "dam1_etf": 101.8687,
+    "nav": 102.0387,
+    "morningstar_us_market_index": 100.7507,
+    "premium_discount": 100.0675
+  },
+  {
+    "date": "2024-01-19",
+    "dam1_etf": 101.8105,
+    "nav": 102.0409,
+    "morningstar_us_market_index": 101.2386,
+    "premium_discount": 100.1079
+  },
+  {
+    "date": "2024-01-22",
+    "dam1_etf": 102.4772,
+    "nav": 102.3373,
+    "morningstar_us_market_index": 101.2103,
+    "premium_discount": 99.9166
+  },
+  {
+    "date": "2024-01-23",
+    "dam1_etf": 102.8425,
+    "nav": 102.9677,
+    "morningstar_us_market_index": 101.5287,
+    "premium_discount": 100.0154
+  },
+  {
+    "date": "2024-01-24",
+    "dam1_etf": 103.4596,
+    "nav": 103.6032,
+    "morningstar_us_market_index": 100.8795,
+    "premium_discount": 100.0641
+  },
+  {
+    "date": "2024-01-25",
+    "dam1_etf": 103.9475,
+    "nav": 104.0811,
+    "morningstar_us_market_index": 99.9509,
+    "premium_discount": 100.0595
+  },
+  {
+    "date": "2024-01-26",
+    "dam1_etf": 102.4477,
+    "nav": 102.5706,
+    "morningstar_us_market_index": 99.6664,
+    "premium_discount": 100.1115
+  },
+  {
+    "date": "2024-01-29",
+    "dam1_etf": 102.0178,
+    "nav": 101.8962,
+    "morningstar_us_market_index": 100.4184,
+    "premium_discount": 99.9549
+  },
+  {
+    "date": "2024-01-30",
+    "dam1_etf": 102.5577,
+    "nav": 102.7932,
+    "morningstar_us_market_index": 99.7019,
+    "premium_discount": 99.9752
+  },
+  {
+    "date": "2024-01-31",
+    "dam1_etf": 103.2133,
+    "nav": 102.9703,
+    "morningstar_us_market_index": 99.142,
+    "premium_discount": 100.0457
+  },
+  {
+    "date": "2024-02-01",
+    "dam1_etf": 103.2944,
+    "nav": 103.069,
+    "morningstar_us_market_index": 99.0772,
+    "premium_discount": 100.0654
+  },
+  {
+    "date": "2024-02-02",
+    "dam1_etf": 103.5,
+    "nav": 103.7701,
+    "morningstar_us_market_index": 99.7849,
+    "premium_discount": 99.9091
+  },
+  {
+    "date": "2024-02-05",
+    "dam1_etf": 104.0316,
+    "nav": 104.3284,
+    "morningstar_us_market_index": 100.1699,
+    "premium_discount": 99.9633
+  },
+  {
+    "date": "2024-02-06",
+    "dam1_etf": 104.5733,
+    "nav": 104.3876,
+    "morningstar_us_market_index": 100.6467,
+    "premium_discount": 100.0014
+  },
+  {
+    "date": "2024-02-07",
+    "dam1_etf": 104.3159,
+    "nav": 104.4841,
+    "morningstar_us_market_index": 100.2823,
+    "premium_discount": 100.0774
+  },
+  {
+    "date": "2024-02-08",
+    "dam1_etf": 104.1574,
+    "nav": 104.2785,
+    "morningstar_us_market_index": 100.7743,
+    "premium_discount": 100.0325
+  },
+  {
+    "date": "2024-02-09",
+    "dam1_etf": 104.1368,
+    "nav": 104.4025,
+    "morningstar_us_market_index": 102.5654,
+    "premium_discount": 99.9845
+  },
+  {
+    "date": "2024-02-12",
+    "dam1_etf": 103.7602,
+    "nav": 104.007,
+    "morningstar_us_market_index": 101.9199,
+    "premium_discount": 99.9448
+  },
+  {
+    "date": "2024-02-13",
+    "dam1_etf": 104.3743,
+    "nav": 104.6359,
+    "morningstar_us_market_index": 103.0787,
+    "premium_discount": 99.996
+  },
+  {
+    "date": "2024-02-14",
+    "dam1_etf": 104.8272,
+    "nav": 105.0143,
+    "morningstar_us_market_index": 103.8274,
+    "premium_discount": 99.9444
+  },
+  {
+    "date": "2024-02-15",
+    "dam1_etf": 105.8617,
+    "nav": 106.132,
+    "morningstar_us_market_index": 103.905,
+    "premium_discount": 99.9008
+  },
+  {
+    "date": "2024-02-16",
+    "dam1_etf": 105.0952,
+    "nav": 104.8189,
+    "morningstar_us_market_index": 103.6638,
+    "premium_discount": 99.9915
+  },
+  {
+    "date": "2024-02-20",
+    "dam1_etf": 105.8335,
+    "nav": 105.6114,
+    "morningstar_us_market_index": 102.761,
+    "premium_discount": 99.8869
+  },
+  {
+    "date": "2024-02-21",
+    "dam1_etf": 105.9928,
+    "nav": 105.7226,
+    "morningstar_us_market_index": 103.0879,
+    "premium_discount": 99.9309
+  },
+  {
+    "date": "2024-02-22",
+    "dam1_etf": 105.9301,
+    "nav": 105.6705,
+    "morningstar_us_market_index": 103.7556,
+    "premium_discount": 100.0913
+  },
+  {
+    "date": "2024-02-23",
+    "dam1_etf": 106.4376,
+    "nav": 106.1974,
+    "morningstar_us_market_index": 105.5892,
+    "premium_discount": 99.8824
+  },
+  {
+    "date": "2024-02-26",
+    "dam1_etf": 106.9725,
+    "nav": 106.6829,
+    "morningstar_us_market_index": 105.2869,
+    "premium_discount": 100.0528
+  },
+  {
+    "date": "2024-02-27",
+    "dam1_etf": 106.7511,
+    "nav": 106.9488,
+    "morningstar_us_market_index": 104.8215,
+    "premium_discount": 100.0457
+  },
+  {
+    "date": "2024-02-28",
+    "dam1_etf": 107.5007,
+    "nav": 107.2715,
+    "morningstar_us_market_index": 104.5526,
+    "premium_discount": 100.0703
+  },
+  {
+    "date": "2024-02-29",
+    "dam1_etf": 107.5955,
+    "nav": 107.4769,
+    "morningstar_us_market_index": 105.2486,
+    "premium_discount": 100.046
+  },
+  {
+    "date": "2024-03-01",
+    "dam1_etf": 107.2683,
+    "nav": 107.4295,
+    "morningstar_us_market_index": 105.1801,
+    "premium_discount": 99.9936
+  },
+  {
+    "date": "2024-03-04",
+    "dam1_etf": 106.2221,
+    "nav": 106.0159,
+    "morningstar_us_market_index": 104.5302,
+    "premium_discount": 100.059
+  },
+  {
+    "date": "2024-03-05",
+    "dam1_etf": 105.9984,
+    "nav": 106.1646,
+    "morningstar_us_market_index": 104.9818,
+    "premium_discount": 99.945
+  },
+  {
+    "date": "2024-03-06",
+    "dam1_etf": 106.8962,
+    "nav": 106.7459,
+    "morningstar_us_market_index": 105.1159,
+    "premium_discount": 99.9262
+  },
+  {
+    "date": "2024-03-07",
+    "dam1_etf": 107.2033,
+    "nav": 107.3272,
+    "morningstar_us_market_index": 105.3875,
+    "premium_discount": 100.0629
+  },
+  {
+    "date": "2024-03-08",
+    "dam1_etf": 108.0414,
+    "nav": 107.9044,
+    "morningstar_us_market_index": 106.1954,
+    "premium_discount": 99.9962
+  },
+  {
+    "date": "2024-03-11",
+    "dam1_etf": 108.3598,
+    "nav": 108.6047,
+    "morningstar_us_market_index": 105.5925,
+    "premium_discount": 100.0059
+  },
+  {
+    "date": "2024-03-12",
+    "dam1_etf": 109.0888,
+    "nav": 108.9322,
+    "morningstar_us_market_index": 106.023,
+    "premium_discount": 99.9266
+  },
+  {
+    "date": "2024-03-13",
+    "dam1_etf": 110.0347,
+    "nav": 109.8892,
+    "morningstar_us_market_index": 106.1499,
+    "premium_discount": 99.8834
+  },
+  {
+    "date": "2024-03-14",
+    "dam1_etf": 111.4686,
+    "nav": 111.2618,
+    "morningstar_us_market_index": 106.0323,
+    "premium_discount": 100.1138
+  },
+  {
+    "date": "2024-03-15",
+    "dam1_etf": 112.6802,
+    "nav": 112.8909,
+    "morningstar_us_market_index": 106.267,
+    "premium_discount": 99.9103
+  },
+  {
+    "date": "2024-03-18",
+    "dam1_etf": 112.4778,
+    "nav": 112.2041,
+    "morningstar_us_market_index": 105.5762,
+    "premium_discount": 100.0895
+  },
+  {
+    "date": "2024-03-19",
+    "dam1_etf": 112.5224,
+    "nav": 112.3076,
+    "morningstar_us_market_index": 106.7777,
+    "premium_discount": 99.9857
+  },
+  {
+    "date": "2024-03-20",
+    "dam1_etf": 113.2207,
+    "nav": 113.0838,
+    "morningstar_us_market_index": 107.4433,
+    "premium_discount": 100.1059
+  },
+  {
+    "date": "2024-03-21",
+    "dam1_etf": 111.753,
+    "nav": 111.9485,
+    "morningstar_us_market_index": 108.1297,
+    "premium_discount": 99.9762
+  },
+  {
+    "date": "2024-03-22",
+    "dam1_etf": 112.2717,
+    "nav": 112.3865,
+    "morningstar_us_market_index": 107.8651,
+    "premium_discount": 99.8929
+  },
+  {
+    "date": "2024-03-25",
+    "dam1_etf": 111.995,
+    "nav": 112.1248,
+    "morningstar_us_market_index": 108.0151,
+    "premium_discount": 99.9529
+  },
+  {
+    "date": "2024-03-26",
+    "dam1_etf": 113.301,
+    "nav": 113.0022,
+    "morningstar_us_market_index": 107.3685,
+    "premium_discount": 100.0635
+  },
+  {
+    "date": "2024-03-27",
+    "dam1_etf": 113.1576,
+    "nav": 113.3789,
+    "morningstar_us_market_index": 108.544,
+    "premium_discount": 99.9342
+  },
+  {
+    "date": "2024-03-28",
+    "dam1_etf": 113.002,
+    "nav": 112.7975,
+    "morningstar_us_market_index": 108.4196,
+    "premium_discount": 99.9863
+  },
+  {
+    "date": "2024-03-29",
+    "dam1_etf": 113.2156,
+    "nav": 113.4876,
+    "morningstar_us_market_index": 107.6291,
+    "premium_discount": 99.9533
+  },
+  {
+    "date": "2024-04-01",
+    "dam1_etf": 113.5127,
+    "nav": 113.7369,
+    "morningstar_us_market_index": 106.8683,
+    "premium_discount": 100.0576
+  },
+  {
+    "date": "2024-04-02",
+    "dam1_etf": 114.2641,
+    "nav": 113.9746,
+    "morningstar_us_market_index": 107.021,
+    "premium_discount": 99.9306
+  },
+  {
+    "date": "2024-04-03",
+    "dam1_etf": 115.9797,
+    "nav": 115.7476,
+    "morningstar_us_market_index": 107.3821,
+    "premium_discount": 99.9217
+  },
+  {
+    "date": "2024-04-04",
+    "dam1_etf": 117.0037,
+    "nav": 116.8887,
+    "morningstar_us_market_index": 106.472,
+    "premium_discount": 99.9881
+  },
+  {
+    "date": "2024-04-05",
+    "dam1_etf": 116.9755,
+    "nav": 116.7567,
+    "morningstar_us_market_index": 106.7669,
+    "premium_discount": 99.9356
+  },
+  {
+    "date": "2024-04-08",
+    "dam1_etf": 118.2436,
+    "nav": 118.485,
+    "morningstar_us_market_index": 105.5473,
+    "premium_discount": 99.989
+  },
+  {
+    "date": "2024-04-09",
+    "dam1_etf": 118.9733,
+    "nav": 119.2108,
+    "morningstar_us_market_index": 106.0064,
+    "premium_discount": 100.0691
+  },
+  {
+    "date": "2024-04-10",
+    "dam1_etf": 120.0793,
+    "nav": 120.3043,
+    "morningstar_us_market_index": 106.5414,
+    "premium_discount": 100.1041
+  },
+  {
+    "date": "2024-04-11",
+    "dam1_etf": 120.1111,
+    "nav": 120.2961,
+    "morningstar_us_market_index": 106.1418,
+    "premium_discount": 100.0354
+  },
+  {
+    "date": "2024-04-12",
+    "dam1_etf": 119.1889,
+    "nav": 119.4706,
+    "morningstar_us_market_index": 106.2612,
+    "premium_discount": 99.8971
+  },
+  {
+    "date": "2024-04-15",
+    "dam1_etf": 119.0138,
+    "nav": 118.8806,
+    "morningstar_us_market_index": 107.7234,
+    "premium_discount": 100.0597
+  },
+  {
+    "date": "2024-04-16",
+    "dam1_etf": 118.5233,
+    "nav": 118.3095,
+    "morningstar_us_market_index": 107.9065,
+    "premium_discount": 99.9098
+  },
+  {
+    "date": "2024-04-17",
+    "dam1_etf": 117.3369,
+    "nav": 117.5746,
+    "morningstar_us_market_index": 107.5325,
+    "premium_discount": 100.1062
+  },
+  {
+    "date": "2024-04-18",
+    "dam1_etf": 117.436,
+    "nav": 117.2359,
+    "morningstar_us_market_index": 108.0624,
+    "premium_discount": 99.8993
+  },
+  {
+    "date": "2024-04-22",
+    "dam1_etf": 118.3564,
+    "nav": 118.2484,
+    "morningstar_us_market_index": 107.9213,
+    "premium_discount": 99.9574
+  },
+  {
+    "date": "2024-04-23",
+    "dam1_etf": 117.4448,
+    "nav": 117.2947,
+    "morningstar_us_market_index": 108.1439,
+    "premium_discount": 100.1109
+  },
+  {
+    "date": "2024-04-24",
+    "dam1_etf": 117.6769,
+    "nav": 117.9441,
+    "morningstar_us_market_index": 108.3763,
+    "premium_discount": 100.1082
+  },
+  {
+    "date": "2024-04-25",
+    "dam1_etf": 117.0333,
+    "nav": 117.3332,
+    "morningstar_us_market_index": 109.0803,
+    "premium_discount": 99.9447
+  },
+  {
+    "date": "2024-04-26",
+    "dam1_etf": 116.9314,
+    "nav": 117.0394,
+    "morningstar_us_market_index": 109.441,
+    "premium_discount": 99.9929
+  },
+  {
+    "date": "2024-04-29",
+    "dam1_etf": 117.6782,
+    "nav": 117.9085,
+    "morningstar_us_market_index": 109.75,
+    "premium_discount": 99.9236
+  },
+  {
+    "date": "2024-04-30",
+    "dam1_etf": 117.7479,
+    "nav": 117.965,
+    "morningstar_us_market_index": 111.2633,
+    "premium_discount": 99.998
+  },
+  {
+    "date": "2024-05-01",
+    "dam1_etf": 117.8033,
+    "nav": 117.6851,
+    "morningstar_us_market_index": 110.905,
+    "premium_discount": 99.96
+  },
+  {
+    "date": "2024-05-02",
+    "dam1_etf": 117.7814,
+    "nav": 118.0154,
+    "morningstar_us_market_index": 111.9469,
+    "premium_discount": 99.9592
+  },
+  {
+    "date": "2024-05-03",
+    "dam1_etf": 117.7801,
+    "nav": 117.5414,
+    "morningstar_us_market_index": 112.2596,
+    "premium_discount": 100.1068
+  },
+  {
+    "date": "2024-05-06",
+    "dam1_etf": 118.5566,
+    "nav": 118.8193,
+    "morningstar_us_market_index": 111.7781,
+    "premium_discount": 99.9892
+  },
+  {
+    "date": "2024-05-07",
+    "dam1_etf": 117.2737,
+    "nav": 117.1108,
+    "morningstar_us_market_index": 111.9517,
+    "premium_discount": 100.1128
+  },
+  {
+    "date": "2024-05-08",
+    "dam1_etf": 117.3982,
+    "nav": 117.579,
+    "morningstar_us_market_index": 111.4305,
+    "premium_discount": 100.1171
+  },
+  {
+    "date": "2024-05-09",
+    "dam1_etf": 117.9908,
+    "nav": 118.2223,
+    "morningstar_us_market_index": 111.8776,
+    "premium_discount": 99.9792
+  },
+  {
+    "date": "2024-05-10",
+    "dam1_etf": 117.2802,
+    "nav": 117.1427,
+    "morningstar_us_market_index": 112.2732,
+    "premium_discount": 100.0615
+  },
+  {
+    "date": "2024-05-13",
+    "dam1_etf": 117.1524,
+    "nav": 117.3775,
+    "morningstar_us_market_index": 111.1127,
+    "premium_discount": 99.9289
+  },
+  {
+    "date": "2024-05-14",
+    "dam1_etf": 117.4971,
+    "nav": 117.7069,
+    "morningstar_us_market_index": 111.1004,
+    "premium_discount": 99.9851
+  },
+  {
+    "date": "2024-05-15",
+    "dam1_etf": 117.0133,
+    "nav": 116.7736,
+    "morningstar_us_market_index": 111.547,
+    "premium_discount": 100.1136
+  },
+  {
+    "date": "2024-05-16",
+    "dam1_etf": 117.4139,
+    "nav": 117.1921,
+    "morningstar_us_market_index": 111.152,
+    "premium_discount": 99.918
+  },
+  {
+    "date": "2024-05-17",
+    "dam1_etf": 117.7699,
+    "nav": 117.9801,
+    "morningstar_us_market_index": 112.0155,
+    "premium_discount": 99.9024
+  },
+  {
+    "date": "2024-05-20",
+    "dam1_etf": 117.4195,
+    "nav": 117.718,
+    "morningstar_us_market_index": 112.472,
+    "premium_discount": 99.9907
+  },
+  {
+    "date": "2024-05-21",
+    "dam1_etf": 117.5745,
+    "nav": 117.698,
+    "morningstar_us_market_index": 114.416,
+    "premium_discount": 99.9996
+  },
+  {
+    "date": "2024-05-22",
+    "dam1_etf": 116.4129,
+    "nav": 116.6562,
+    "morningstar_us_market_index": 115.1344,
+    "premium_discount": 99.9456
+  },
+  {
+    "date": "2024-05-23",
+    "dam1_etf": 116.3506,
+    "nav": 116.6175,
+    "morningstar_us_market_index": 115.2155,
+    "premium_discount": 99.9385
+  },
+  {
+    "date": "2024-05-24",
+    "dam1_etf": 117.8308,
+    "nav": 117.6205,
+    "morningstar_us_market_index": 115.3707,
+    "premium_discount": 100.1012
+  },
+  {
+    "date": "2024-05-28",
+    "dam1_etf": 119.57,
+    "nav": 119.7716,
+    "morningstar_us_market_index": 115.1755,
+    "premium_discount": 100.0874
+  },
+  {
+    "date": "2024-05-29",
+    "dam1_etf": 119.9775,
+    "nav": 120.1327,
+    "morningstar_us_market_index": 114.9414,
+    "premium_discount": 99.9796
+  },
+  {
+    "date": "2024-05-30",
+    "dam1_etf": 119.6363,
+    "nav": 119.9231,
+    "morningstar_us_market_index": 115.1534,
+    "premium_discount": 100.0769
+  },
+  {
+    "date": "2024-05-31",
+    "dam1_etf": 119.5892,
+    "nav": 119.4326,
+    "morningstar_us_market_index": 115.4788,
+    "premium_discount": 100.0209
+  },
+  {
+    "date": "2024-06-03",
+    "dam1_etf": 118.2335,
+    "nav": 117.9337,
+    "morningstar_us_market_index": 117.2615,
+    "premium_discount": 99.9157
+  },
+  {
+    "date": "2024-06-04",
+    "dam1_etf": 118.269,
+    "nav": 118.0613,
+    "morningstar_us_market_index": 118.8585,
+    "premium_discount": 100.0125
+  },
+  {
+    "date": "2024-06-05",
+    "dam1_etf": 117.7079,
+    "nav": 117.4992,
+    "morningstar_us_market_index": 119.2694,
+    "premium_discount": 99.9572
+  },
+  {
+    "date": "2024-06-06",
+    "dam1_etf": 120.0984,
+    "nav": 120.2361,
+    "morningstar_us_market_index": 118.7103,
+    "premium_discount": 100.0172
+  },
+  {
+    "date": "2024-06-07",
+    "dam1_etf": 119.1766,
+    "nav": 119.3233,
+    "morningstar_us_market_index": 118.4227,
+    "premium_discount": 99.8905
+  },
+  {
+    "date": "2024-06-10",
+    "dam1_etf": 119.67,
+    "nav": 119.9189,
+    "morningstar_us_market_index": 119.1646,
+    "premium_discount": 100.0747
+  },
+  {
+    "date": "2024-06-11",
+    "dam1_etf": 120.7533,
+    "nav": 120.9305,
+    "morningstar_us_market_index": 119.1176,
+    "premium_discount": 100.077
+  },
+  {
+    "date": "2024-06-12",
+    "dam1_etf": 119.7489,
+    "nav": 119.4527,
+    "morningstar_us_market_index": 118.922,
+    "premium_discount": 99.8889
+  },
+  {
+    "date": "2024-06-13",
+    "dam1_etf": 120.7968,
+    "nav": 120.9973,
+    "morningstar_us_market_index": 119.4774,
+    "premium_discount": 100.0887
+  },
+  {
+    "date": "2024-06-14",
+    "dam1_etf": 119.5347,
+    "nav": 119.2599,
+    "morningstar_us_market_index": 119.6161,
+    "premium_discount": 100.0062
+  },
+  {
+    "date": "2024-06-17",
+    "dam1_etf": 120.6941,
+    "nav": 120.8855,
+    "morningstar_us_market_index": 121.5667,
+    "premium_discount": 99.9784
+  },
+  {
+    "date": "2024-06-18",
+    "dam1_etf": 121.2585,
+    "nav": 121.0275,
+    "morningstar_us_market_index": 122.0012,
+    "premium_discount": 99.9927
+  },
+  {
+    "date": "2024-06-20",
+    "dam1_etf": 120.5136,
+    "nav": 120.2198,
+    "morningstar_us_market_index": 121.4519,
+    "premium_discount": 100.0462
+  },
+  {
+    "date": "2024-06-21",
+    "dam1_etf": 120.7046,
+    "nav": 120.9346,
+    "morningstar_us_market_index": 122.051,
+    "premium_discount": 100.0846
+  },
+  {
+    "date": "2024-06-24",
+    "dam1_etf": 121.2825,
+    "nav": 121.0106,
+    "morningstar_us_market_index": 121.8137,
+    "premium_discount": 99.956
+  },
+  {
+    "date": "2024-06-25",
+    "dam1_etf": 120.6016,
+    "nav": 120.8453,
+    "morningstar_us_market_index": 121.3212,
+    "premium_discount": 100.0894
+  },
+  {
+    "date": "2024-06-26",
+    "dam1_etf": 119.9209,
+    "nav": 119.8137,
+    "morningstar_us_market_index": 122.0388,
+    "premium_discount": 100.0315
+  },
+  {
+    "date": "2024-06-27",
+    "dam1_etf": 118.4122,
+    "nav": 118.6964,
+    "morningstar_us_market_index": 121.9255,
+    "premium_discount": 100.0592
+  },
+  {
+    "date": "2024-06-28",
+    "dam1_etf": 118.8864,
+    "nav": 118.6996,
+    "morningstar_us_market_index": 123.3973,
+    "premium_discount": 100.0321
+  },
+  {
+    "date": "2024-07-01",
+    "dam1_etf": 119.0923,
+    "nav": 118.8178,
+    "morningstar_us_market_index": 124.4366,
+    "premium_discount": 100.0466
+  },
+  {
+    "date": "2024-07-02",
+    "dam1_etf": 118.9622,
+    "nav": 118.6815,
+    "morningstar_us_market_index": 123.9626,
+    "premium_discount": 100.0711
+  },
+  {
+    "date": "2024-07-03",
+    "dam1_etf": 118.6355,
+    "nav": 118.4768,
+    "morningstar_us_market_index": 125.4636,
+    "premium_discount": 99.9149
+  },
+  {
+    "date": "2024-07-05",
+    "dam1_etf": 119.4984,
+    "nav": 119.7046,
+    "morningstar_us_market_index": 126.0686,
+    "premium_discount": 100.0702
+  },
+  {
+    "date": "2024-07-08",
+    "dam1_etf": 122.0438,
+    "nav": 121.9098,
+    "morningstar_us_market_index": 126.2174,
+    "premium_discount": 100.089
+  },
+  {
+    "date": "2024-07-09",
+    "dam1_etf": 122.6575,
+    "nav": 122.4336,
+    "morningstar_us_market_index": 126.6669,
+    "premium_discount": 100.0991
+  },
+  {
+    "date": "2024-07-10",
+    "dam1_etf": 122.654,
+    "nav": 122.5254,
+    "morningstar_us_market_index": 128.9009,
+    "premium_discount": 99.941
+  },
+  {
+    "date": "2024-07-11",
+    "dam1_etf": 123.9235,
+    "nav": 123.7724,
+    "morningstar_us_market_index": 127.8182,
+    "premium_discount": 100.0731
+  },
+  {
+    "date": "2024-07-12",
+    "dam1_etf": 123.7875,
+    "nav": 124.0677,
+    "morningstar_us_market_index": 128.3816,
+    "premium_discount": 99.9179
+  },
+  {
+    "date": "2024-07-15",
+    "dam1_etf": 124.531,
+    "nav": 124.3427,
+    "morningstar_us_market_index": 127.3491,
+    "premium_discount": 100.021
+  },
+  {
+    "date": "2024-07-16",
+    "dam1_etf": 123.0066,
+    "nav": 122.7788,
+    "morningstar_us_market_index": 125.8271,
+    "premium_discount": 99.94
+  },
+  {
+    "date": "2024-07-17",
+    "dam1_etf": 123.1144,
+    "nav": 122.8453,
+    "morningstar_us_market_index": 125.9131,
+    "premium_discount": 99.9723
+  },
+  {
+    "date": "2024-07-18",
+    "dam1_etf": 123.5301,
+    "nav": 123.3335,
+    "morningstar_us_market_index": 125.4112,
+    "premium_discount": 100.0173
+  },
+  {
+    "date": "2024-07-19",
+    "dam1_etf": 122.783,
+    "nav": 122.998,
+    "morningstar_us_market_index": 123.8098,
+    "premium_discount": 99.9509
+  },
+  {
+    "date": "2024-07-22",
+    "dam1_etf": 123.1858,
+    "nav": 123.4814,
+    "morningstar_us_market_index": 124.305,
+    "premium_discount": 99.9459
+  },
+  {
+    "date": "2024-07-23",
+    "dam1_etf": 124.0809,
+    "nav": 124.2941,
+    "morningstar_us_market_index": 125.1687,
+    "premium_discount": 100.0587
+  },
+  {
+    "date": "2024-07-24",
+    "dam1_etf": 124.1005,
+    "nav": 124.2103,
+    "morningstar_us_market_index": 126.5281,
+    "premium_discount": 99.9992
+  },
+  {
+    "date": "2024-07-25",
+    "dam1_etf": 124.1607,
+    "nav": 123.8799,
+    "morningstar_us_market_index": 126.1202,
+    "premium_discount": 100.0717
+  },
+  {
+    "date": "2024-07-26",
+    "dam1_etf": 123.9344,
+    "nav": 123.713,
+    "morningstar_us_market_index": 125.7808,
+    "premium_discount": 100.0328
+  },
+  {
+    "date": "2024-07-29",
+    "dam1_etf": 122.4842,
+    "nav": 122.7084,
+    "morningstar_us_market_index": 126.0955,
+    "premium_discount": 100.053
+  },
+  {
+    "date": "2024-07-30",
+    "dam1_etf": 122.8276,
+    "nav": 123.0594,
+    "morningstar_us_market_index": 125.9528,
+    "premium_discount": 100.0308
+  },
+  {
+    "date": "2024-07-31",
+    "dam1_etf": 122.4612,
+    "nav": 122.7419,
+    "morningstar_us_market_index": 126.4581,
+    "premium_discount": 99.9541
+  },
+  {
+    "date": "2024-08-01",
+    "dam1_etf": 123.8834,
+    "nav": 124.0716,
+    "morningstar_us_market_index": 126.6699,
+    "premium_discount": 100.0558
+  },
+  {
+    "date": "2024-08-02",
+    "dam1_etf": 123.6672,
+    "nav": 123.5492,
+    "morningstar_us_market_index": 126.3231,
+    "premium_discount": 100.0594
+  },
+  {
+    "date": "2024-08-05",
+    "dam1_etf": 123.7766,
+    "nav": 123.6415,
+    "morningstar_us_market_index": 125.3813,
+    "premium_discount": 100.0095
+  },
+  {
+    "date": "2024-08-06",
+    "dam1_etf": 123.8448,
+    "nav": 124.1391,
+    "morningstar_us_market_index": 125.6114,
+    "premium_discount": 100.0992
+  },
+  {
+    "date": "2024-08-07",
+    "dam1_etf": 125.3223,
+    "nav": 125.0562,
+    "morningstar_us_market_index": 126.5556,
+    "premium_discount": 100.0779
+  },
+  {
+    "date": "2024-08-08",
+    "dam1_etf": 126.1961,
+    "nav": 126.3925,
+    "morningstar_us_market_index": 126.0254,
+    "premium_discount": 100.0592
+  },
+  {
+    "date": "2024-08-09",
+    "dam1_etf": 126.7887,
+    "nav": 126.621,
+    "morningstar_us_market_index": 125.1082,
+    "premium_discount": 100.1111
+  },
+  {
+    "date": "2024-08-12",
+    "dam1_etf": 127.1001,
+    "nav": 127.2283,
+    "morningstar_us_market_index": 125.5511,
+    "premium_discount": 100.0864
+  },
+  {
+    "date": "2024-08-13",
+    "dam1_etf": 126.5778,
+    "nav": 126.8226,
+    "morningstar_us_market_index": 127.3736,
+    "premium_discount": 100.1121
+  },
+  {
+    "date": "2024-08-14",
+    "dam1_etf": 127.06,
+    "nav": 126.7991,
+    "morningstar_us_market_index": 125.727,
+    "premium_discount": 100.0698
+  },
+  {
+    "date": "2024-08-15",
+    "dam1_etf": 127.5216,
+    "nav": 127.6244,
+    "morningstar_us_market_index": 125.4065,
+    "premium_discount": 99.9891
+  },
+  {
+    "date": "2024-08-16",
+    "dam1_etf": 127.551,
+    "nav": 127.7856,
+    "morningstar_us_market_index": 125.8416,
+    "premium_discount": 100.0203
+  },
+  {
+    "date": "2024-08-19",
+    "dam1_etf": 127.867,
+    "nav": 128.1315,
+    "morningstar_us_market_index": 124.0567,
+    "premium_discount": 99.906
+  },
+  {
+    "date": "2024-08-20",
+    "dam1_etf": 126.9831,
+    "nav": 126.8363,
+    "morningstar_us_market_index": 124.729,
+    "premium_discount": 100.0922
+  },
+  {
+    "date": "2024-08-21",
+    "dam1_etf": 127.9692,
+    "nav": 128.1815,
+    "morningstar_us_market_index": 126.3805,
+    "premium_discount": 99.9331
+  },
+  {
+    "date": "2024-08-22",
+    "dam1_etf": 129.3372,
+    "nav": 129.4498,
+    "morningstar_us_market_index": 124.5356,
+    "premium_discount": 100.0983
+  },
+  {
+    "date": "2024-08-23",
+    "dam1_etf": 129.9054,
+    "nav": 129.745,
+    "morningstar_us_market_index": 122.8266,
+    "premium_discount": 99.9135
+  },
+  {
+    "date": "2024-08-26",
+    "dam1_etf": 131.1228,
+    "nav": 130.8335,
+    "morningstar_us_market_index": 122.9961,
+    "premium_discount": 99.9982
+  },
+  {
+    "date": "2024-08-27",
+    "dam1_etf": 130.1708,
+    "nav": 130.2902,
+    "morningstar_us_market_index": 124.6674,
+    "premium_discount": 99.9126
+  },
+  {
+    "date": "2024-08-28",
+    "dam1_etf": 130.6093,
+    "nav": 130.8,
+    "morningstar_us_market_index": 122.9412,
+    "premium_discount": 100.0584
+  },
+  {
+    "date": "2024-08-29",
+    "dam1_etf": 130.7862,
+    "nav": 130.497,
+    "morningstar_us_market_index": 122.2504,
+    "premium_discount": 100.0581
+  },
+  {
+    "date": "2024-08-30",
+    "dam1_etf": 130.832,
+    "nav": 130.7011,
+    "morningstar_us_market_index": 121.8036,
+    "premium_discount": 99.9038
+  },
+  {
+    "date": "2024-09-03",
+    "dam1_etf": 131.8813,
+    "nav": 131.6834,
+    "morningstar_us_market_index": 120.553,
+    "premium_discount": 100.1084
+  },
+  {
+    "date": "2024-09-04",
+    "dam1_etf": 132.1145,
+    "nav": 132.008,
+    "morningstar_us_market_index": 122.0619,
+    "premium_discount": 99.9864
+  },
+  {
+    "date": "2024-09-05",
+    "dam1_etf": 131.4522,
+    "nav": 131.7423,
+    "morningstar_us_market_index": 122.2305,
+    "premium_discount": 99.9038
+  },
+  {
+    "date": "2024-09-06",
+    "dam1_etf": 131.6172,
+    "nav": 131.8543,
+    "morningstar_us_market_index": 121.6404,
+    "premium_discount": 100.1147
+  },
+  {
+    "date": "2024-09-09",
+    "dam1_etf": 132.1467,
+    "nav": 131.975,
+    "morningstar_us_market_index": 121.736,
+    "premium_discount": 99.9256
+  },
+  {
+    "date": "2024-09-10",
+    "dam1_etf": 131.4272,
+    "nav": 131.5516,
+    "morningstar_us_market_index": 123.264,
+    "premium_discount": 99.9891
+  },
+  {
+    "date": "2024-09-11",
+    "dam1_etf": 132.093,
+    "nav": 132.3256,
+    "morningstar_us_market_index": 123.1573,
+    "premium_discount": 100.0233
+  },
+  {
+    "date": "2024-09-12",
+    "dam1_etf": 131.6412,
+    "nav": 131.7455,
+    "morningstar_us_market_index": 122.5304,
+    "premium_discount": 99.9385
+  },
+  {
+    "date": "2024-09-13",
+    "dam1_etf": 132.6791,
+    "nav": 132.8043,
+    "morningstar_us_market_index": 122.4666,
+    "premium_discount": 99.8965
+  },
+  {
+    "date": "2024-09-16",
+    "dam1_etf": 133.1225,
+    "nav": 132.8695,
+    "morningstar_us_market_index": 122.3825,
+    "premium_discount": 99.9318
+  },
+  {
+    "date": "2024-09-17",
+    "dam1_etf": 133.7048,
+    "nav": 133.4309,
+    "morningstar_us_market_index": 122.3695,
+    "premium_discount": 99.9154
+  },
+  {
+    "date": "2024-09-18",
+    "dam1_etf": 134.4201,
+    "nav": 134.14,
+    "morningstar_us_market_index": 122.311,
+    "premium_discount": 100.086
+  },
+  {
+    "date": "2024-09-19",
+    "dam1_etf": 135.2044,
+    "nav": 135.0755,
+    "morningstar_us_market_index": 122.9981,
+    "premium_discount": 99.9402
+  },
+  {
+    "date": "2024-09-20",
+    "dam1_etf": 135.286,
+    "nav": 135.4209,
+    "morningstar_us_market_index": 122.4301,
+    "premium_discount": 99.8862
+  },
+  {
+    "date": "2024-09-23",
+    "dam1_etf": 134.6986,
+    "nav": 134.8016,
+    "morningstar_us_market_index": 121.9669,
+    "premium_discount": 99.9371
+  },
+  {
+    "date": "2024-09-24",
+    "dam1_etf": 134.0779,
+    "nav": 133.9131,
+    "morningstar_us_market_index": 122.8784,
+    "premium_discount": 99.8926
+  },
+  {
+    "date": "2024-09-25",
+    "dam1_etf": 134.2151,
+    "nav": 134.4634,
+    "morningstar_us_market_index": 124.4031,
+    "premium_discount": 100.059
+  },
+  {
+    "date": "2024-09-26",
+    "dam1_etf": 136.2271,
+    "nav": 136.4223,
+    "morningstar_us_market_index": 124.5992,
+    "premium_discount": 100.0032
+  },
+  {
+    "date": "2024-09-27",
+    "dam1_etf": 135.1384,
+    "nav": 135.2602,
+    "morningstar_us_market_index": 124.4414,
+    "premium_discount": 100.1069
+  },
+  {
+    "date": "2024-09-30",
+    "dam1_etf": 135.2534,
+    "nav": 135.3621,
+    "morningstar_us_market_index": 123.3186,
+    "premium_discount": 100.0881
+  },
+  {
+    "date": "2024-10-01",
+    "dam1_etf": 135.2262,
+    "nav": 135.0219,
+    "morningstar_us_market_index": 123.74,
+    "premium_discount": 100.1114
+  },
+  {
+    "date": "2024-10-02",
+    "dam1_etf": 135.0294,
+    "nav": 134.9172,
+    "morningstar_us_market_index": 123.2478,
+    "premium_discount": 99.9764
+  },
+  {
+    "date": "2024-10-03",
+    "dam1_etf": 134.5902,
+    "nav": 134.353,
+    "morningstar_us_market_index": 124.9642,
+    "premium_discount": 100.0983
+  },
+  {
+    "date": "2024-10-04",
+    "dam1_etf": 134.6366,
+    "nav": 134.5219,
+    "morningstar_us_market_index": 124.4132,
+    "premium_discount": 100.026
+  },
+  {
+    "date": "2024-10-07",
+    "dam1_etf": 134.5106,
+    "nav": 134.3975,
+    "morningstar_us_market_index": 125.4202,
+    "premium_discount": 100.0319
+  },
+  {
+    "date": "2024-10-08",
+    "dam1_etf": 134.1329,
+    "nav": 133.9232,
+    "morningstar_us_market_index": 126.0201,
+    "premium_discount": 100.1187
+  },
+  {
+    "date": "2024-10-09",
+    "dam1_etf": 134.894,
+    "nav": 134.6879,
+    "morningstar_us_market_index": 126.8588,
+    "premium_discount": 100.0253
+  },
+  {
+    "date": "2024-10-10",
+    "dam1_etf": 136.1277,
+    "nav": 136.2475,
+    "morningstar_us_market_index": 126.4686,
+    "premium_discount": 100.0847
+  },
+  {
+    "date": "2024-10-11",
+    "dam1_etf": 137.1391,
+    "nav": 137.3693,
+    "morningstar_us_market_index": 125.8489,
+    "premium_discount": 100.053
+  },
+  {
+    "date": "2024-10-14",
+    "dam1_etf": 136.8832,
+    "nav": 136.7402,
+    "morningstar_us_market_index": 126.9705,
+    "premium_discount": 99.9348
+  },
+  {
+    "date": "2024-10-15",
+    "dam1_etf": 137.6143,
+    "nav": 137.4465,
+    "morningstar_us_market_index": 127.0238,
+    "premium_discount": 99.9798
+  },
+  {
+    "date": "2024-10-16",
+    "dam1_etf": 136.6697,
+    "nav": 136.5507,
+    "morningstar_us_market_index": 127.5594,
+    "premium_discount": 100.0396
+  },
+  {
+    "date": "2024-10-17",
+    "dam1_etf": 136.1767,
+    "nav": 136.0018,
+    "morningstar_us_market_index": 126.7534,
+    "premium_discount": 100.1015
+  },
+  {
+    "date": "2024-10-18",
+    "dam1_etf": 135.6555,
+    "nav": 135.7689,
+    "morningstar_us_market_index": 126.9762,
+    "premium_discount": 99.9024
+  },
+  {
+    "date": "2024-10-21",
+    "dam1_etf": 133.9213,
+    "nav": 134.0406,
+    "morningstar_us_market_index": 127.2851,
+    "premium_discount": 100.0748
+  },
+  {
+    "date": "2024-10-22",
+    "dam1_etf": 134.0397,
+    "nav": 134.251,
+    "morningstar_us_market_index": 126.7358,
+    "premium_discount": 100.0148
+  },
+  {
+    "date": "2024-10-23",
+    "dam1_etf": 134.8377,
+    "nav": 134.6718,
+    "morningstar_us_market_index": 127.235,
+    "premium_discount": 99.9649
+  },
+  {
+    "date": "2024-10-24",
+    "dam1_etf": 134.2949,
+    "nav": 134.528,
+    "morningstar_us_market_index": 126.5779,
+    "premium_discount": 100.0883
+  },
+  {
+    "date": "2024-10-25",
+    "dam1_etf": 134.7886,
+    "nav": 135.0328,
+    "morningstar_us_market_index": 125.1578,
+    "premium_discount": 100.0241
+  },
+  {
+    "date": "2024-10-28",
+    "dam1_etf": 134.4371,
+    "nav": 134.6074,
+    "morningstar_us_market_index": 124.5142,
+    "premium_discount": 99.9311
+  },
+  {
+    "date": "2024-10-29",
+    "dam1_etf": 134.3963,
+    "nav": 134.165,
+    "morningstar_us_market_index": 124.5932,
+    "premium_discount": 99.906
+  },
+  {
+    "date": "2024-10-30",
+    "dam1_etf": 134.3136,
+    "nav": 134.0445,
+    "morningstar_us_market_index": 125.463,
+    "premium_discount": 100.063
+  },
+  {
+    "date": "2024-10-31",
+    "dam1_etf": 134.3702,
+    "nav": 134.585,
+    "morningstar_us_market_index": 125.0486,
+    "premium_discount": 100.0828
+  },
+  {
+    "date": "2024-11-01",
+    "dam1_etf": 133.2809,
+    "nav": 133.5758,
+    "morningstar_us_market_index": 125.5597,
+    "premium_discount": 100.0273
+  },
+  {
+    "date": "2024-11-04",
+    "dam1_etf": 133.6072,
+    "nav": 133.3787,
+    "morningstar_us_market_index": 126.7299,
+    "premium_discount": 100.103
+  },
+  {
+    "date": "2024-11-05",
+    "dam1_etf": 132.9259,
+    "nav": 132.66,
+    "morningstar_us_market_index": 126.6621,
+    "premium_discount": 99.9233
+  },
+  {
+    "date": "2024-11-06",
+    "dam1_etf": 132.8129,
+    "nav": 132.5724,
+    "morningstar_us_market_index": 126.5089,
+    "premium_discount": 99.9616
+  },
+  {
+    "date": "2024-11-07",
+    "dam1_etf": 132.77,
+    "nav": 132.8712,
+    "morningstar_us_market_index": 124.9296,
+    "premium_discount": 100.0159
+  },
+  {
+    "date": "2024-11-08",
+    "dam1_etf": 133.3915,
+    "nav": 133.2113,
+    "morningstar_us_market_index": 125.4582,
+    "premium_discount": 100.032
+  },
+  {
+    "date": "2024-11-11",
+    "dam1_etf": 134.2756,
+    "nav": 134.3817,
+    "morningstar_us_market_index": 127.4082,
+    "premium_discount": 99.9316
+  },
+  {
+    "date": "2024-11-12",
+    "dam1_etf": 134.0121,
+    "nav": 133.8281,
+    "morningstar_us_market_index": 127.3639,
+    "premium_discount": 99.9688
+  },
+  {
+    "date": "2024-11-13",
+    "dam1_etf": 134.0286,
+    "nav": 134.2729,
+    "morningstar_us_market_index": 129.101,
+    "premium_discount": 100.0162
+  },
+  {
+    "date": "2024-11-14",
+    "dam1_etf": 132.6591,
+    "nav": 132.5421,
+    "morningstar_us_market_index": 129.5605,
+    "premium_discount": 99.9178
+  },
+  {
+    "date": "2024-11-15",
+    "dam1_etf": 131.526,
+    "nav": 131.7496,
+    "morningstar_us_market_index": 127.2532,
+    "premium_discount": 99.9453
+  },
+  {
+    "date": "2024-11-18",
+    "dam1_etf": 129.9829,
+    "nav": 129.7505,
+    "morningstar_us_market_index": 126.0728,
+    "premium_discount": 99.9861
+  },
+  {
+    "date": "2024-11-19",
+    "dam1_etf": 130.8843,
+    "nav": 131.0389,
+    "morningstar_us_market_index": 125.3726,
+    "premium_discount": 99.9073
+  },
+  {
+    "date": "2024-11-20",
+    "dam1_etf": 130.7877,
+    "nav": 130.6017,
+    "morningstar_us_market_index": 124.4327,
+    "premium_discount": 100.0428
+  },
+  {
+    "date": "2024-11-21",
+    "dam1_etf": 131.3644,
+    "nav": 131.5617,
+    "morningstar_us_market_index": 123.569,
+    "premium_discount": 99.8909
+  },
+  {
+    "date": "2024-11-22",
+    "dam1_etf": 132.575,
+    "nav": 132.7541,
+    "morningstar_us_market_index": 122.883,
+    "premium_discount": 99.8818
+  },
+  {
+    "date": "2024-11-25",
+    "dam1_etf": 132.1389,
+    "nav": 131.9786,
+    "morningstar_us_market_index": 123.1615,
+    "premium_discount": 99.9129
+  },
+  {
+    "date": "2024-11-26",
+    "dam1_etf": 132.3308,
+    "nav": 132.1797,
+    "morningstar_us_market_index": 124.5643,
+    "premium_discount": 99.8819
+  },
+  {
+    "date": "2024-11-27",
+    "dam1_etf": 132.5989,
+    "nav": 132.3495,
+    "morningstar_us_market_index": 123.6852,
+    "premium_discount": 99.9712
+  },
+  {
+    "date": "2024-11-29",
+    "dam1_etf": 132.3256,
+    "nav": 132.5663,
+    "morningstar_us_market_index": 123.3628,
+    "premium_discount": 100.08
+  },
+  {
+    "date": "2024-12-02",
+    "dam1_etf": 133.0742,
+    "nav": 132.813,
+    "morningstar_us_market_index": 123.8681,
+    "premium_discount": 100.0868
+  },
+  {
+    "date": "2024-12-03",
+    "dam1_etf": 133.1523,
+    "nav": 133.0438,
+    "morningstar_us_market_index": 124.7971,
+    "premium_discount": 100.1011
+  },
+  {
+    "date": "2024-12-04",
+    "dam1_etf": 132.9033,
+    "nav": 133.1757,
+    "morningstar_us_market_index": 124.8535,
+    "premium_discount": 100.0176
+  },
+  {
+    "date": "2024-12-05",
+    "dam1_etf": 133.2208,
+    "nav": 132.9789,
+    "morningstar_us_market_index": 126.3661,
+    "premium_discount": 99.9076
+  },
+  {
+    "date": "2024-12-06",
+    "dam1_etf": 133.3156,
+    "nav": 133.2114,
+    "morningstar_us_market_index": 126.2332,
+    "premium_discount": 100.0723
+  },
+  {
+    "date": "2024-12-09",
+    "dam1_etf": 132.6521,
+    "nav": 132.8757,
+    "morningstar_us_market_index": 127.0176,
+    "premium_discount": 100.1007
+  },
+  {
+    "date": "2024-12-10",
+    "dam1_etf": 132.3569,
+    "nav": 132.4745,
+    "morningstar_us_market_index": 127.5022,
+    "premium_discount": 99.9384
+  },
+  {
+    "date": "2024-12-11",
+    "dam1_etf": 131.0181,
+    "nav": 131.2359,
+    "morningstar_us_market_index": 128.6135,
+    "premium_discount": 99.975
+  },
+  {
+    "date": "2024-12-12",
+    "dam1_etf": 130.141,
+    "nav": 129.9789,
+    "morningstar_us_market_index": 128.0939,
+    "premium_discount": 99.9599
+  },
+  {
+    "date": "2024-12-13",
+    "dam1_etf": 131.1379,
+    "nav": 131.2715,
+    "morningstar_us_market_index": 127.0763,
+    "premium_discount": 99.9074
+  },
+  {
+    "date": "2024-12-16",
+    "dam1_etf": 131.2463,
+    "nav": 131.4483,
+    "morningstar_us_market_index": 127.3212,
+    "premium_discount": 99.9639
+  },
+  {
+    "date": "2024-12-17",
+    "dam1_etf": 130.6304,
+    "nav": 130.8759,
+    "morningstar_us_market_index": 128.6984,
+    "premium_discount": 100.0756
+  },
+  {
+    "date": "2024-12-18",
+    "dam1_etf": 131.9763,
+    "nav": 131.829,
+    "morningstar_us_market_index": 127.1014,
+    "premium_discount": 99.9273
+  },
+  {
+    "date": "2024-12-19",
+    "dam1_etf": 131.0,
+    "nav": 131.12,
+    "morningstar_us_market_index": 128.0,
+    "premium_discount": 100.0373
+  }
+]
