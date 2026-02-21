@@ -29,12 +29,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 260px;
         }
         .etf-card:hover {
             border-color: #8b0000;
             box-shadow: 0 8px 24px rgba(139, 0, 0, 0.15);
             transform: translateY(-4px);
+            aspect-ratio: auto;
         }
         .etf-card:hover .tagline {
             opacity: 1;
@@ -78,6 +78,7 @@
         .etf-card-dark:hover {
             border-color: #111;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            aspect-ratio: auto;
         }
         .etf-card-dark:hover .tagline-dark {
             opacity: 1;
@@ -141,7 +142,7 @@
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <!-- ETF Grid -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div class="grid grid-cols-2 gap-6 max-w-lg mx-auto">
             <!-- REDI ETF Card -->
             <a href="../etfs/redi/" class="etf-card">
                     <div class="flex flex-col items-center text-center">
@@ -155,7 +156,7 @@
                     <div class="flex flex-col items-center text-center">
                         <div class="ticker-box ticker-box-dark">DAM1</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond World's Largest 111 ETF</h2>
-                        <p class="tagline tagline-dark">If one firm wins, <span class="dif dif-dark">you own it</span></p>
+                        <p class="tagline tagline-dark">When Many become <span class="dif dif-dark">1</span></p>
                     </div>
             </a>
         </div>
