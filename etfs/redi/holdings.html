@@ -377,7 +377,7 @@
             try {
                 console.log('Loading holdings data from JSON file...');
                 
-                const response = await fetch('/etfs/redi/data/holdings_data.json');
+                const response = await fetch('../../etfs/redi/data/holdings_data.json');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -389,7 +389,7 @@
                 // Get total NAV from metrics to calculate market values
                 let totalNav = 100000000; // Default $100M, will be updated if metrics available
                 try {
-                    const metricsResponse = await fetch('/etfs/redi/data/metrics.json');
+                    const metricsResponse = await fetch('../../etfs/redi/data/metrics.json');
                     if (metricsResponse.ok) {
                         const metrics = await metricsResponse.json();
                         // Calculate NAV from latest_nav and shares outstanding (estimate)

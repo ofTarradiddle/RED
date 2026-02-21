@@ -1615,9 +1615,9 @@
                 
                 // Load data from JSON files
                 const [perfResponse, holdingsResponse, metricsResponse] = await Promise.all([
-                    fetch('/etfs/redi/data/performance_data.json'),
-                    fetch('/etfs/redi/data/holdings_data.json'),
-                    fetch('/etfs/redi/data/metrics.json')
+                    fetch('../../etfs/redi/data/performance_data.json'),
+                    fetch('../../etfs/redi/data/holdings_data.json'),
+                    fetch('../../etfs/redi/data/metrics.json')
                 ]);
                 
                 if (!perfResponse.ok || !holdingsResponse.ok || !metricsResponse.ok) {
@@ -3077,14 +3077,14 @@
         // Download holdings as CSV
         async function downloadHoldingsCSV() {
             try {
-                const response = await fetch('/etfs/redi/data/holdings_data.json');
+                const response = await fetch('../../etfs/redi/data/holdings_data.json');
                 if (!response.ok) {
                     throw new Error('Failed to load holdings data');
                 }
                 const holdings = await response.json();
                 
                 // Get metrics for date
-                const metricsResponse = await fetch('/etfs/redi/data/metrics.json');
+                const metricsResponse = await fetch('../../etfs/redi/data/metrics.json');
                 let date = new Date().toLocaleDateString();
                 if (metricsResponse.ok) {
                     const metrics = await metricsResponse.json();
@@ -3137,7 +3137,7 @@
         // Load distributions data
         async function loadDistributions() {
             try {
-                const response = await fetch('/etfs/redi/distributions.json');
+                const response = await fetch('../../etfs/redi/distributions.json');
                 if (!response.ok) {
                     throw new Error('Failed to load distributions');
                 }

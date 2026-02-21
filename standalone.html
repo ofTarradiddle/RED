@@ -600,9 +600,9 @@
         async function loadData() {
             try {
                 const [perfResponse, holdingsResponse, metricsResponse] = await Promise.all([
-                    fetch('/data/performance_data.json'),
-                    fetch('/data/holdings_data.json'),
-                    fetch('/data/metrics.json')
+                    fetch('data/performance_data.json'),
+                    fetch('data/holdings_data.json'),
+                    fetch('data/metrics.json')
                 ]);
                 
                 performanceData = await perfResponse.json();
