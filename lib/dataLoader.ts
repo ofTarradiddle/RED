@@ -102,7 +102,7 @@ export function calculateRiskMetrics(data: PerformanceDataPoint[]): RiskMetrics 
   }
   
   // Calculate Sharpe ratio (assuming 2% risk-free rate)
-  const riskFreeRate = 0.02;
+  const riskFreeRate = 0.02; // todo come back here
   const excessReturns = returns.map(ret => ret - riskFreeRate / 252);
   const excessReturnMean = excessReturns.reduce((sum, ret) => sum + ret, 0) / excessReturns.length;
   const sharpeRatio = (excessReturnMean * 252) / (Math.sqrt(variance) * Math.sqrt(252));

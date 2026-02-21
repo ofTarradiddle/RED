@@ -1,0 +1,16 @@
+{
+  "notification_date": "2025-12-27",
+  "distribution_type": "dividend",
+  "record_date": "2025-12-27",
+  "ex_date": "2025-12-27",
+  "pay_date": "2025-12-29",
+  "amount_per_share": "0.0",
+  "exchanges_notified": [
+    "NYSE",
+    "NASDAQ"
+  ],
+  "notification_method": "api",
+  "status": "notified",
+  "confirmation_received": true,
+  "exchange_publication_date": "2025-12-27"
+}

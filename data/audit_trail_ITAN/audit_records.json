@@ -1,0 +1,986 @@
+[
+  {
+    "record_id": "nav_calculation_2025-12-24_0",
+    "record_type": "nav_calculation",
+    "record_date": "2025-12-24",
+    "operation": "Daily NAV calculation",
+    "data": {
+      "date": "2025-12-24",
+      "total_assets": "500.00000000000000",
+      "total_liabilities": "0.00000",
+      "net_assets": "500.00000000000000",
+      "shares_outstanding": "0.0",
+      "nav_per_share": "0",
+      "pricing_exceptions": [
+        "Shares outstanding is zero - cannot calculate NAV"
+      ],
+      "validation_passed": false,
+      "holdings": [
+        {
+          "cusip": "023135106",
+          "ticker": "AMZN",
+          "quantity": "0",
+          "price": "232.3800048828125",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "02079K305",
+          "ticker": "GOOGL",
+          "quantity": "0",
+          "price": "314.0899963378906",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "02079K107",
+          "ticker": "GOOG",
+          "quantity": "0",
+          "price": "315.6700134277344",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "459200101",
+          "ticker": "IBM",
+          "quantity": "0",
+          "price": "304.55999755859375",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "17275R102",
+          "ticker": "CSCO",
+          "quantity": "0",
+          "price": "78.0199966430664",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "79466L302",
+          "ticker": "CRM",
+          "quantity": "0",
+          "price": "265.260009765625",
+          "market_value": "0E-12"
+        },
+        {
+          "cusip": "747525103",
+          "ticker": "QCOM",
+          "quantity": "0",
+          "price": "174.77000427246094",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "G1151C101",
+          "ticker": "ACN",
+          "quantity": "0",
+          "price": "269.9800109863281",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "194162103",
+          "ticker": "COF",
+          "quantity": "0",
+          "price": "248.27000427246094",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "00206R102",
+          "ticker": "T",
+          "quantity": "0",
+          "price": "24.65999984741211",
+          "market_value": "0E-14"
+        }
+      ],
+      "cash_balance": "0",
+      "accrued_income": "500",
+      "accrued_expenses": "0",
+      "total_securities_value": "0"
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:24:05.103366",
+    "related_records": []
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_1",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: NAV calculation for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_0_2",
+      "description": "NAV calculation for 2025-12-24",
+      "reference": "NAV_2025-12-24",
+      "entries": [
+        {
+          "account": "1100",
+          "account_name": "Investments - Securities",
+          "debit": "500.00000000000000",
+          "credit": "0",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "2000",
+          "account_name": "Payables",
+          "debit": "0",
+          "credit": "0.00000",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "3200",
+          "account_name": "Net Assets",
+          "debit": "0",
+          "credit": "500.00000000000000",
+          "description": "NAV calculation for 2025-12-24"
+        }
+      ],
+      "total_debits": "500.00000000000000",
+      "total_credits": "500.00000000000000",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:24:05.104736",
+    "related_records": [
+      "JE_2025-12-24_0_2"
+    ]
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_2",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: Expense accrual for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_3_4",
+      "description": "Expense accrual for 2025-12-24",
+      "reference": "EXP_2025-12-24",
+      "entries": [
+        {
+          "account": "5000",
+          "account_name": "Management Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5100",
+          "account_name": "Administrative Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5200",
+          "account_name": "Custodial Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5300",
+          "account_name": "Other Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "2100",
+          "account_name": "Accrued Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        }
+      ],
+      "total_debits": "0",
+      "total_credits": "0",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:24:05.105909",
+    "related_records": [
+      "JE_2025-12-24_3_4"
+    ]
+  },
+  {
+    "record_id": "nav_calculation_2025-12-24_3",
+    "record_type": "nav_calculation",
+    "record_date": "2025-12-24",
+    "operation": "Daily NAV calculation",
+    "data": {
+      "date": "2025-12-24",
+      "total_assets": "500.00000000000000",
+      "total_liabilities": "0.00000",
+      "net_assets": "500.00000000000000",
+      "shares_outstanding": "0.0",
+      "nav_per_share": "0",
+      "pricing_exceptions": [
+        "Shares outstanding is zero - cannot calculate NAV"
+      ],
+      "validation_passed": false,
+      "holdings": [
+        {
+          "cusip": "023135106",
+          "ticker": "AMZN",
+          "quantity": "0",
+          "price": "232.3800048828125",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "02079K305",
+          "ticker": "GOOGL",
+          "quantity": "0",
+          "price": "314.0899963378906",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "02079K107",
+          "ticker": "GOOG",
+          "quantity": "0",
+          "price": "315.6700134277344",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "459200101",
+          "ticker": "IBM",
+          "quantity": "0",
+          "price": "304.55999755859375",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "17275R102",
+          "ticker": "CSCO",
+          "quantity": "0",
+          "price": "78.0199966430664",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "79466L302",
+          "ticker": "CRM",
+          "quantity": "0",
+          "price": "265.260009765625",
+          "market_value": "0E-12"
+        },
+        {
+          "cusip": "747525103",
+          "ticker": "QCOM",
+          "quantity": "0",
+          "price": "174.77000427246094",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "G1151C101",
+          "ticker": "ACN",
+          "quantity": "0",
+          "price": "269.9800109863281",
+          "market_value": "0E-13"
+        },
+        {
+          "cusip": "194162103",
+          "ticker": "COF",
+          "quantity": "0",
+          "price": "248.27000427246094",
+          "market_value": "0E-14"
+        },
+        {
+          "cusip": "00206R102",
+          "ticker": "T",
+          "quantity": "0",
+          "price": "24.65999984741211",
+          "market_value": "0E-14"
+        }
+      ],
+      "cash_balance": "0",
+      "accrued_income": "500",
+      "accrued_expenses": "0",
+      "total_securities_value": "0"
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:24:37.889152",
+    "related_records": []
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_4",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: NAV calculation for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_0_2",
+      "description": "NAV calculation for 2025-12-24",
+      "reference": "NAV_2025-12-24",
+      "entries": [
+        {
+          "account": "1100",
+          "account_name": "Investments - Securities",
+          "debit": "500.00000000000000",
+          "credit": "0",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "2000",
+          "account_name": "Payables",
+          "debit": "0",
+          "credit": "0.00000",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "3200",
+          "account_name": "Net Assets",
+          "debit": "0",
+          "credit": "500.00000000000000",
+          "description": "NAV calculation for 2025-12-24"
+        }
+      ],
+      "total_debits": "500.00000000000000",
+      "total_credits": "500.00000000000000",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:24:37.891118",
+    "related_records": [
+      "JE_2025-12-24_0_2"
+    ]
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_5",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: Expense accrual for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_3_4",
+      "description": "Expense accrual for 2025-12-24",
+      "reference": "EXP_2025-12-24",
+      "entries": [
+        {
+          "account": "5000",
+          "account_name": "Management Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5100",
+          "account_name": "Administrative Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5200",
+          "account_name": "Custodial Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5300",
+          "account_name": "Other Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "2100",
+          "account_name": "Accrued Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        }
+      ],
+      "total_debits": "0",
+      "total_credits": "0",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:24:37.892602",
+    "related_records": [
+      "JE_2025-12-24_3_4"
+    ]
+  },
+  {
+    "record_id": "nav_calculation_2025-12-24_6",
+    "record_type": "nav_calculation",
+    "record_date": "2025-12-24",
+    "operation": "Daily NAV calculation",
+    "data": {
+      "date": "2025-12-24",
+      "total_assets": "4013466.800000000109831020342",
+      "total_liabilities": "229.0506164383561643835616438",
+      "net_assets": "4013237.749383561753666636780",
+      "shares_outstanding": "500000.0",
+      "nav_per_share": "8.0265",
+      "pricing_exceptions": [],
+      "validation_passed": true,
+      "holdings": [
+        {
+          "cusip": "023135106",
+          "ticker": "AMZN",
+          "quantity": "2798.2151490525866",
+          "price": "232.3800048828125",
+          "market_value": "650249.2499999999815913330078"
+        },
+        {
+          "cusip": "02079K305",
+          "ticker": "GOOGL",
+          "quantity": "1656.2112963329841",
+          "price": "314.0899963378906",
+          "market_value": "520199.4000000000192817933973"
+        },
+        {
+          "cusip": "02079K107",
+          "ticker": "GOOG",
+          "quantity": "1647.9214935601985",
+          "price": "315.6700134277344",
+          "market_value": "520199.3999999999880726558693"
+        },
+        {
+          "cusip": "459200101",
+          "ticker": "IBM",
+          "quantity": "1281.026901521891",
+          "price": "304.55999755859375",
+          "market_value": "390149.5500000000391663208008"
+        },
+        {
+          "cusip": "17275R102",
+          "ticker": "CSCO",
+          "quantity": "4524.384326942551",
+          "price": "78.0199966430664",
+          "market_value": "352992.4500000000625931652784"
+        },
+        {
+          "cusip": "79466L302",
+          "ticker": "CRM",
+          "quantity": "1260.7022833765145",
+          "price": "265.260009765625",
+          "market_value": "334413.8999999999723687744141"
+        },
+        {
+          "cusip": "747525103",
+          "ticker": "QCOM",
+          "quantity": "1807.148493900719",
+          "price": "174.77000427246094",
+          "market_value": "315835.3500000000126006501654"
+        },
+        {
+          "cusip": "G1151C101",
+          "ticker": "ACN",
+          "quantity": "1101.0326242821482",
+          "price": "269.9800109863281",
+          "market_value": "297256.8000000000302037070980"
+        },
+        {
+          "cusip": "194162103",
+          "ticker": "COF",
+          "quantity": "1122.4805461966637",
+          "price": "248.27000427246094",
+          "market_value": "278678.2499999999863341112166"
+        },
+        {
+          "cusip": "00206R102",
+          "ticker": "T",
+          "quantity": "10547.433155288345",
+          "price": "24.65999984741211",
+          "market_value": "260099.7000000000176185090949"
+        }
+      ],
+      "cash_balance": "92892.7500",
+      "accrued_income": "500",
+      "accrued_expenses": "229.0506164383561643835616438",
+      "total_securities_value": "3920074.050000000109831020342"
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:25:59.398120",
+    "related_records": []
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_7",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: NAV calculation for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_0_2",
+      "description": "NAV calculation for 2025-12-24",
+      "reference": "NAV_2025-12-24",
+      "entries": [
+        {
+          "account": "1100",
+          "account_name": "Investments - Securities",
+          "debit": "4013466.800000000109831020342",
+          "credit": "0",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "2000",
+          "account_name": "Payables",
+          "debit": "0",
+          "credit": "229.0506164383561643835616438",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "3200",
+          "account_name": "Net Assets",
+          "debit": "0",
+          "credit": "4013237.749383561753666636780",
+          "description": "NAV calculation for 2025-12-24"
+        }
+      ],
+      "total_debits": "4013466.800000000109831020342",
+      "total_credits": "4013466.800000000109831020342",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:25:59.403006",
+    "related_records": [
+      "JE_2025-12-24_0_2"
+    ]
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_8",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: Expense accrual for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_3_4",
+      "description": "Expense accrual for 2025-12-24",
+      "reference": "EXP_2025-12-24",
+      "entries": [
+        {
+          "account": "5000",
+          "account_name": "Management Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5100",
+          "account_name": "Administrative Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5200",
+          "account_name": "Custodial Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5300",
+          "account_name": "Other Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "2100",
+          "account_name": "Accrued Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        }
+      ],
+      "total_debits": "0",
+      "total_credits": "0",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:25:59.406956",
+    "related_records": [
+      "JE_2025-12-24_3_4"
+    ]
+  },
+  {
+    "record_id": "nav_calculation_2025-12-24_9",
+    "record_type": "nav_calculation",
+    "record_date": "2025-12-24",
+    "operation": "Daily NAV calculation",
+    "data": {
+      "date": "2025-12-24",
+      "total_assets": "4013466.800000000109831020342",
+      "total_liabilities": "229.0506164383561643835616438",
+      "net_assets": "4013237.749383561753666636780",
+      "shares_outstanding": "500000.0",
+      "nav_per_share": "8.0265",
+      "pricing_exceptions": [],
+      "validation_passed": true,
+      "holdings": [
+        {
+          "cusip": "023135106",
+          "ticker": "AMZN",
+          "quantity": "2798.2151490525866",
+          "price": "232.3800048828125",
+          "market_value": "650249.2499999999815913330078"
+        },
+        {
+          "cusip": "02079K305",
+          "ticker": "GOOGL",
+          "quantity": "1656.2112963329841",
+          "price": "314.0899963378906",
+          "market_value": "520199.4000000000192817933973"
+        },
+        {
+          "cusip": "02079K107",
+          "ticker": "GOOG",
+          "quantity": "1647.9214935601985",
+          "price": "315.6700134277344",
+          "market_value": "520199.3999999999880726558693"
+        },
+        {
+          "cusip": "459200101",
+          "ticker": "IBM",
+          "quantity": "1281.026901521891",
+          "price": "304.55999755859375",
+          "market_value": "390149.5500000000391663208008"
+        },
+        {
+          "cusip": "17275R102",
+          "ticker": "CSCO",
+          "quantity": "4524.384326942551",
+          "price": "78.0199966430664",
+          "market_value": "352992.4500000000625931652784"
+        },
+        {
+          "cusip": "79466L302",
+          "ticker": "CRM",
+          "quantity": "1260.7022833765145",
+          "price": "265.260009765625",
+          "market_value": "334413.8999999999723687744141"
+        },
+        {
+          "cusip": "747525103",
+          "ticker": "QCOM",
+          "quantity": "1807.148493900719",
+          "price": "174.77000427246094",
+          "market_value": "315835.3500000000126006501654"
+        },
+        {
+          "cusip": "G1151C101",
+          "ticker": "ACN",
+          "quantity": "1101.0326242821482",
+          "price": "269.9800109863281",
+          "market_value": "297256.8000000000302037070980"
+        },
+        {
+          "cusip": "194162103",
+          "ticker": "COF",
+          "quantity": "1122.4805461966637",
+          "price": "248.27000427246094",
+          "market_value": "278678.2499999999863341112166"
+        },
+        {
+          "cusip": "00206R102",
+          "ticker": "T",
+          "quantity": "10547.433155288345",
+          "price": "24.65999984741211",
+          "market_value": "260099.7000000000176185090949"
+        }
+      ],
+      "cash_balance": "92892.7500",
+      "accrued_income": "500",
+      "accrued_expenses": "229.0506164383561643835616438",
+      "total_securities_value": "3920074.050000000109831020342"
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:28:51.134881",
+    "related_records": []
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_10",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: NAV calculation for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_0_2",
+      "description": "NAV calculation for 2025-12-24",
+      "reference": "NAV_2025-12-24",
+      "entries": [
+        {
+          "account": "1100",
+          "account_name": "Investments - Securities",
+          "debit": "4013466.800000000109831020342",
+          "credit": "0",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "2000",
+          "account_name": "Payables",
+          "debit": "0",
+          "credit": "229.0506164383561643835616438",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "3200",
+          "account_name": "Net Assets",
+          "debit": "0",
+          "credit": "4013237.749383561753666636780",
+          "description": "NAV calculation for 2025-12-24"
+        }
+      ],
+      "total_debits": "4013466.800000000109831020342",
+      "total_credits": "4013466.800000000109831020342",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:28:51.141162",
+    "related_records": [
+      "JE_2025-12-24_0_2"
+    ]
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_11",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: Expense accrual for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_3_4",
+      "description": "Expense accrual for 2025-12-24",
+      "reference": "EXP_2025-12-24",
+      "entries": [
+        {
+          "account": "5000",
+          "account_name": "Management Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5100",
+          "account_name": "Administrative Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5200",
+          "account_name": "Custodial Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5300",
+          "account_name": "Other Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "2100",
+          "account_name": "Accrued Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        }
+      ],
+      "total_debits": "0",
+      "total_credits": "0",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:28:51.146145",
+    "related_records": [
+      "JE_2025-12-24_3_4"
+    ]
+  },
+  {
+    "record_id": "nav_calculation_2025-12-24_12",
+    "record_type": "nav_calculation",
+    "record_date": "2025-12-24",
+    "operation": "Daily NAV calculation",
+    "data": {
+      "date": "2025-12-24",
+      "total_assets": "4013466.800000000109831020342",
+      "total_liabilities": "229.0506164383561643835616438",
+      "net_assets": "4013237.749383561753666636780",
+      "shares_outstanding": "500000.0",
+      "nav_per_share": "8.0265",
+      "pricing_exceptions": [],
+      "validation_passed": true,
+      "holdings": [
+        {
+          "cusip": "023135106",
+          "ticker": "AMZN",
+          "quantity": "2798.2151490525866",
+          "price": "232.3800048828125",
+          "market_value": "650249.2499999999815913330078"
+        },
+        {
+          "cusip": "02079K305",
+          "ticker": "GOOGL",
+          "quantity": "1656.2112963329841",
+          "price": "314.0899963378906",
+          "market_value": "520199.4000000000192817933973"
+        },
+        {
+          "cusip": "02079K107",
+          "ticker": "GOOG",
+          "quantity": "1647.9214935601985",
+          "price": "315.6700134277344",
+          "market_value": "520199.3999999999880726558693"
+        },
+        {
+          "cusip": "459200101",
+          "ticker": "IBM",
+          "quantity": "1281.026901521891",
+          "price": "304.55999755859375",
+          "market_value": "390149.5500000000391663208008"
+        },
+        {
+          "cusip": "17275R102",
+          "ticker": "CSCO",
+          "quantity": "4524.384326942551",
+          "price": "78.0199966430664",
+          "market_value": "352992.4500000000625931652784"
+        },
+        {
+          "cusip": "79466L302",
+          "ticker": "CRM",
+          "quantity": "1260.7022833765145",
+          "price": "265.260009765625",
+          "market_value": "334413.8999999999723687744141"
+        },
+        {
+          "cusip": "747525103",
+          "ticker": "QCOM",
+          "quantity": "1807.148493900719",
+          "price": "174.77000427246094",
+          "market_value": "315835.3500000000126006501654"
+        },
+        {
+          "cusip": "G1151C101",
+          "ticker": "ACN",
+          "quantity": "1101.0326242821482",
+          "price": "269.9800109863281",
+          "market_value": "297256.8000000000302037070980"
+        },
+        {
+          "cusip": "194162103",
+          "ticker": "COF",
+          "quantity": "1122.4805461966637",
+          "price": "248.27000427246094",
+          "market_value": "278678.2499999999863341112166"
+        },
+        {
+          "cusip": "00206R102",
+          "ticker": "T",
+          "quantity": "10547.433155288345",
+          "price": "24.65999984741211",
+          "market_value": "260099.7000000000176185090949"
+        }
+      ],
+      "cash_balance": "92892.7500",
+      "accrued_income": "500",
+      "accrued_expenses": "229.0506164383561643835616438",
+      "total_securities_value": "3920074.050000000109831020342"
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:31:07.628850",
+    "related_records": []
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_13",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: NAV calculation for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_0_2",
+      "description": "NAV calculation for 2025-12-24",
+      "reference": "NAV_2025-12-24",
+      "entries": [
+        {
+          "account": "1100",
+          "account_name": "Investments - Securities",
+          "debit": "4013466.800000000109831020342",
+          "credit": "0",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "2000",
+          "account_name": "Payables",
+          "debit": "0",
+          "credit": "229.0506164383561643835616438",
+          "description": "NAV calculation for 2025-12-24"
+        },
+        {
+          "account": "3200",
+          "account_name": "Net Assets",
+          "debit": "0",
+          "credit": "4013237.749383561753666636780",
+          "description": "NAV calculation for 2025-12-24"
+        }
+      ],
+      "total_debits": "4013466.800000000109831020342",
+      "total_credits": "4013466.800000000109831020342",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:31:07.633978",
+    "related_records": [
+      "JE_2025-12-24_0_2"
+    ]
+  },
+  {
+    "record_id": "journal_entry_2025-12-24_14",
+    "record_type": "journal_entry",
+    "record_date": "2025-12-24",
+    "operation": "Journal entry: Expense accrual for 2025-12-24",
+    "data": {
+      "entry_id": "JE_2025-12-24_3_4",
+      "description": "Expense accrual for 2025-12-24",
+      "reference": "EXP_2025-12-24",
+      "entries": [
+        {
+          "account": "5000",
+          "account_name": "Management Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5100",
+          "account_name": "Administrative Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5200",
+          "account_name": "Custodial Fees",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "5300",
+          "account_name": "Other Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        },
+        {
+          "account": "2100",
+          "account_name": "Accrued Expenses",
+          "debit": "0",
+          "credit": "0",
+          "description": "Expense accrual for 2025-12-24"
+        }
+      ],
+      "total_debits": "0",
+      "total_credits": "0",
+      "balanced": true
+    },
+    "user": null,
+    "system": "ETF_Admin_System",
+    "timestamp": "2025-12-25T16:31:07.638237",
+    "related_records": [
+      "JE_2025-12-24_3_4"
+    ]
+  }
+]

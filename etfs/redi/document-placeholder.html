@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Coming Soon - Diamond Innovation Factor ETF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Sticky Banner -->
+    <div class="sticky-banner-wrapper" style="position: sticky; top: 0; z-index: 1000; width: 100%; -webkit-position: sticky;">
+        <!-- Header -->
+        <header class="cambria-header bg-gray-900 text-white py-3 px-4 sm:px-6 lg:px-8" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl font-bold text-red-500">REDI</div>
+                    <div class="hidden sm:block">
+                        <div class="text-sm font-semibold">Diamond</div>
+                        <div class="text-xs text-gray-300">Innovation Factor ETF</div>
+                    </div>
+                </div>
+                <a href="mailto:info@diamondassetmgmt.com" class="text-sm text-gray-300 hover:text-white transition-colors">
+                    info@diamondassetmgmt.com
+                </a>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="cambria-nav bg-white border-b border-gray-200 py-3 px-4 sm:px-6 lg:px-8" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-red-800 px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="index.html#overview" class="text-gray-700 hover:text-red-800 px-3 py-2 text-sm font-medium">Fund Details</a>
+                    <a href="index.html#performance" class="text-gray-700 hover:text-red-800 px-3 py-2 text-sm font-medium">Performance</a>
+                    <a href="index.html#holdings" class="text-gray-700 hover:text-red-800 px-3 py-2 text-sm font-medium">Holdings</a>
+                    <a href="index.html#documents" class="text-gray-700 hover:text-red-800 px-3 py-2 text-sm font-medium">Documents</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-red-800 px-3 py-2 text-sm font-medium">About</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-red-800">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-4 py-2 space-y-1">
+                <a href="index.html" class="text-gray-700 hover:text-red-800 block px-3 py-2 text-base font-medium">Home</a>
+                <a href="index.html#overview" class="text-gray-700 hover:text-red-800 block px-3 py-2 text-base font-medium">Fund Details</a>
+                <a href="index.html#performance" class="text-gray-700 hover:text-red-800 block px-3 py-2 text-base font-medium">Performance</a>
+                <a href="index.html#holdings" class="text-gray-700 hover:text-red-800 block px-3 py-2 text-base font-medium">Holdings</a>
+                <a href="index.html#documents" class="text-gray-700 hover:text-red-800 block px-3 py-2 text-base font-medium">Documents</a>
+                <a href="index.html#about" class="text-gray-700 hover:text-red-800 block px-3 py-2 text-base font-medium">About</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-8 md:p-12 text-center">
+                <div class="mb-6">
+                    <i data-lucide="file-text" class="h-24 w-24 text-gray-400 mx-auto mb-4"></i>
+                </div>
+                
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4" id="document-title">Document Coming Soon</h1>
+                
+                <p class="text-lg text-gray-600 mb-8" id="document-description">
+                    This document is currently being prepared and will be available shortly.
+                </p>
+
+                <div class="bg-gray-50 rounded-lg p-6 mb-8 text-left">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-4">Document Information</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Document Type:</span>
+                            <span class="font-medium text-gray-900" id="doc-type">--</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Fund:</span>
+                            <span class="font-medium text-gray-900">Diamond Innovation Factor ETF (REDI)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Status:</span>
+                            <span class="font-medium text-yellow-600">Coming Soon</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+                    <h3 class="font-semibold text-blue-900 mb-2">Request This Document</h3>
+                    <p class="text-sm text-blue-800 mb-4">
+                        If you need this document immediately, please contact us and we'll provide it to you directly.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="mailto:info@diamondassetmgmt.com" class="inline-flex items-center px-6 py-3 bg-red-800 text-white rounded-lg hover:bg-red-900 transition-colors">
+                            <i data-lucide="mail" class="h-4 w-4 mr-2"></i>
+                            Email Us
+                        </a>
+                        <a href="tel:1-555-123-4567" class="inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors">
+                            <i data-lucide="phone" class="h-4 w-4 mr-2"></i>
+                            Call: 1-555-123-4567
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-8">
+                    <a href="index.html#documents" class="inline-flex items-center text-red-800 hover:text-red-900 font-medium">
+                        <i data-lucide="arrow-left" class="h-4 w-4 mr-2"></i>
+                        Back to Documents
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Diamond Innovation Factor ETF</h3>
+                    <p class="text-sm">Systematic innovation-driven investment strategy for long-term growth.</p>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="index.html#documents" class="hover:text-white transition-colors">Documents</a></li>
+                        <li><a href="holdings.html" class="hover:text-white transition-colors">Holdings</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white font-semibold mb-4">Contact</h3>
+                    <p class="text-sm">Email: info@diamondassetmgmt.com</p>
+                    <p class="text-sm">Phone: 1-555-123-4567</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2024 Diamond Asset Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Get document type from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const docType = urlParams.get('doc') || 'Document';
+
+        // Document type mappings
+        const docMappings = {
+            'fact-sheet': {
+                title: 'Fact Sheet',
+                description: 'The Fact Sheet provides key information about the Diamond Innovation Factor ETF, including investment objectives, strategy, risks, and performance data.'
+            },
+            'summary-prospectus': {
+                title: 'Summary Prospectus',
+                description: 'The Summary Prospectus contains key information about the Fund, including investment objectives, principal investment strategies, principal risks, fees and expenses, and performance information.'
+            },
+            'statutory-prospectus': {
+                title: 'Statutory Prospectus',
+                description: 'The Statutory Prospectus contains detailed information about the Fund, including investment objectives, strategies, risks, fees, and other important information.'
+            },
+            'statutory-prospectus': {
+                title: 'Statutory Prospectus',
+                description: 'The Statutory Prospectus contains detailed information about the Fund, including investment objectives, strategies, risks, fees, and other important information.'
+            },
+            'sai': {
+                title: 'Statement of Additional Information (SAI)',
+                description: 'The Statement of Additional Information provides additional details about the Fund\'s investment policies, management, and operations that are not included in the Prospectus.'
+            },
+            'investment-case': {
+                title: 'Investment Case',
+                description: 'The Investment Case document provides a detailed analysis of the Fund\'s investment strategy, methodology, and rationale for the innovation factor approach.'
+            },
+            'part-f-q1': {
+                title: 'Part F Q1',
+                description: 'Part F Q1 contains quarterly financial information and disclosures for the Fund for the first quarter.'
+            },
+            'part-f-q3': {
+                title: 'Part F Q3',
+                description: 'Part F Q3 contains quarterly financial information and disclosures for the Fund for the third quarter.'
+            },
+            'semi-annual-financials': {
+                title: 'Semi-Annual Financial Statements',
+                description: 'The Semi-Annual Financial Statements provide detailed financial information about the Fund, including the Statement of Assets and Liabilities, Statement of Operations, and Statement of Changes in Net Assets.'
+            },
+            'semi-annual-schedule': {
+                title: 'Semi-Annual Schedule of Investments',
+                description: 'The Semi-Annual Schedule of Investments provides a detailed listing of all securities held by the Fund as of the reporting date.'
+            },
+            'semi-annual-tsr': {
+                title: 'Semi-Annual Tailored Shareholder Report',
+                description: 'The Semi-Annual Tailored Shareholder Report provides shareholders with key information about the Fund\'s performance, holdings, and expenses in a concise format.'
+            },
+            'registration-statement': {
+                title: 'Registration Statement',
+                description: 'The Registration Statement is the initial filing with the SEC that registers the Fund as an investment company under the Investment Company Act of 1940.'
+            },
+            'prospectus-supplement': {
+                title: 'Prospectus Supplement',
+                description: 'The Prospectus Supplement contains updates or additional information that supplements the main Prospectus.'
+            },
+            'voting-record': {
+                title: 'Voting Record',
+                description: 'The Voting Record provides information about how the Fund voted on proxy proposals for portfolio companies.'
+            },
+            'historical-records': {
+                title: 'Historical Records',
+                description: 'Historical Records contain archived documents and historical information about the Fund.'
+            }
+        };
+
+        // Update page content based on document type
+        const docInfo = docMappings[docType] || {
+            title: docType.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()),
+            description: 'This document is currently being prepared and will be available shortly.'
+        };
+
+        document.getElementById('document-title').textContent = docInfo.title;
+        document.getElementById('document-description').textContent = docInfo.description;
+        document.getElementById('doc-type').textContent = docInfo.title;
+    </script>
+</body>
+</html>
+

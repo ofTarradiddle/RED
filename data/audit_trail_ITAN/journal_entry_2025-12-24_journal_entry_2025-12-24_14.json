@@ -1,0 +1,57 @@
+{
+  "record_id": "journal_entry_2025-12-24_14",
+  "record_type": "journal_entry",
+  "record_date": "2025-12-24",
+  "operation": "Journal entry: Expense accrual for 2025-12-24",
+  "data": {
+    "entry_id": "JE_2025-12-24_3_4",
+    "description": "Expense accrual for 2025-12-24",
+    "reference": "EXP_2025-12-24",
+    "entries": [
+      {
+        "account": "5000",
+        "account_name": "Management Fees",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2025-12-24"
+      },
+      {
+        "account": "5100",
+        "account_name": "Administrative Expenses",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2025-12-24"
+      },
+      {
+        "account": "5200",
+        "account_name": "Custodial Fees",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2025-12-24"
+      },
+      {
+        "account": "5300",
+        "account_name": "Other Expenses",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2025-12-24"
+      },
+      {
+        "account": "2100",
+        "account_name": "Accrued Expenses",
+        "debit": "0",
+        "credit": "0",
+        "description": "Expense accrual for 2025-12-24"
+      }
+    ],
+    "total_debits": "0",
+    "total_credits": "0",
+    "balanced": true
+  },
+  "user": null,
+  "system": "ETF_Admin_System",
+  "timestamp": "2025-12-25T16:31:07.638237",
+  "related_records": [
+    "JE_2025-12-24_3_4"
+  ]
+}

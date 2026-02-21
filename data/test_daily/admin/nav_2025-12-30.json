@@ -1,0 +1,17 @@
+{
+  "date": "2025-12-30",
+  "total_assets": "0.0",
+  "total_liabilities": "0",
+  "net_assets": "0.0",
+  "shares_outstanding": "0",
+  "nav_per_share": "0",
+  "pricing_exceptions": [
+    "Shares outstanding is zero - cannot calculate NAV"
+  ],
+  "validation_passed": false,
+  "holdings": [],
+  "cash_balance": "0",
+  "accrued_income": "0",
+  "accrued_expenses": "0",
+  "total_securities_value": "0"
+}

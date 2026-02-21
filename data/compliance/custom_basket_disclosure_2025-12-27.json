@@ -1,0 +1,55 @@
+{
+  "disclosure_date": "2025-12-27",
+  "custom_basket": [
+    {
+      "cusip": "037833100",
+      "quantity": "95",
+      "price": "150.00"
+    },
+    {
+      "cusip": "594918104",
+      "quantity": "48",
+      "price": "300.00"
+    }
+  ],
+  "standard_basket": [
+    {
+      "cusip": "037833100",
+      "quantity": "100",
+      "price": "150.00"
+    },
+    {
+      "cusip": "594918104",
+      "quantity": "50",
+      "price": "300.00"
+    }
+  ],
+  "validation_result": {
+    "passed": true,
+    "errors": [],
+    "warnings": [
+      "Maximum position concentration 50.26% exceeds 25% - review for fair treatment"
+    ],
+    "validation_details": {
+      "cusip_overlap": 1.0,
+      "value_deviation": 0.045,
+      "custom_total_value": "28650.00",
+      "standard_total_value": "30000",
+      "max_concentration": 0.5026178010471204,
+      "legitimate_purpose": "tax_optimization",
+      "disclosure_required": true,
+      "disclosure_status": "pending"
+    }
+  },
+  "rule_6c11_compliance": {
+    "substantial_similarity_met": true,
+    "value_deviation": 0.045,
+    "cusip_overlap": 1.0,
+    "disclosure_required": true
+  },
+  "required_notices": [
+    "Custom basket must be disclosed to all APs",
+    "Custom basket must be used for legitimate business purposes",
+    "Custom basket must be substantially the same as standard basket"
+  ]
+}

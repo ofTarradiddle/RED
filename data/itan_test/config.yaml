@@ -1,0 +1,74 @@
+distributions:
+  frequency: Quarterly
+  payout_ratio: 0.95
+fund:
+  benchmark: ^GSPC
+  fiscal_year_end: 12-31
+  inception_date: '2021-06-28'
+  name: Sparkline Intangible Value ETF
+  shares_outstanding: 1730000
+  ticker: ITAN
+holdings:
+- cost_basis: 209.19149780273438
+  shares: 11923
+  ticker: AMZN
+- cost_basis: 283.1039978027344
+  shares: 4952
+  ticker: GOOGL
+- cost_basis: 284.34600219726565
+  shares: 4948
+  ticker: GOOG
+- cost_basis: 272.6820098876953
+  shares: 4333
+  ticker: IBM
+- cost_basis: 70.02279052734376
+  shares: 14709
+  ticker: CSCO
+- cost_basis: 237.47398681640627
+  shares: 4206
+  ticker: CRM
+- cost_basis: 157.3843551635742
+  shares: 6201
+  ticker: QCOM
+- cost_basis: 243.74160461425782
+  shares: 3730
+  ticker: ACN
+- cost_basis: 222.47999725341796
+  shares: 4124
+  ticker: COF
+- cost_basis: 22.00949993133545
+  shares: 40789
+  ticker: T
+- cost_basis: 94.275
+  shares: 9508
+  ticker: MRK
+- cost_basis: 84.75750274658203
+  shares: 10284
+  ticker: WFC
+- cost_basis: 22.428000068664552
+  shares: 37243
+  ticker: PFE
+- cost_basis: 32.631931686401366
+  shares: 25570
+  ticker: INTC
+- cost_basis: 101.59650192260743
+  shares: 7849
+  ticker: DIS
+logging:
+  file: ./data/itan_test/fund_admin.log
+  level: INFO
+paths:
+  accounting_storage: ./data/itan_test/accounting
+  admin_storage: ./data/itan_test/admin
+  distribution_history: ./data/itan_test/distributions.csv
+  distributor_storage: ./data/itan_test/distributor
+  nav_history: ./data/itan_test/nav_history.csv
+  performance_storage: ./data/itan_test/performance
+  tax_lot_storage: ./data/itan_test/tax_lots
+  tax_storage: ./data/itan_test/tax
+tax:
+  corporate_rate: 0.21
+  dividend_tax_rate: 0.15
+  excise_rate: 0.04
+  lt_capital_gains_tax_rate: 0.2
+  st_capital_gains_tax_rate: 0.37

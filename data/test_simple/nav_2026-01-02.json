@@ -1,0 +1,53 @@
+{
+  "date": "2026-01-02",
+  "total_assets": "1117995.000",
+  "total_liabilities": "0",
+  "net_assets": "1117995.000",
+  "shares_outstanding": "0",
+  "nav_per_share": "0",
+  "pricing_exceptions": [
+    "Shares outstanding is zero - cannot calculate NAV"
+  ],
+  "validation_passed": false,
+  "holdings": [
+    {
+      "cusip": "037833100",
+      "ticker": "AAPL",
+      "quantity": "1000.0",
+      "price": "270.94",
+      "market_value": "270940.000"
+    },
+    {
+      "cusip": "594918104",
+      "ticker": "MSFT",
+      "quantity": "800.0",
+      "price": "472.94",
+      "market_value": "378352.000"
+    },
+    {
+      "cusip": "02079K305",
+      "ticker": "GOOGL",
+      "quantity": "500.0",
+      "price": "315.15",
+      "market_value": "157575.000"
+    },
+    {
+      "cusip": "023135106",
+      "ticker": "AMZN",
+      "quantity": "600.0",
+      "price": "226.5",
+      "market_value": "135900.00"
+    },
+    {
+      "cusip": "88160R101",
+      "ticker": "TSLA",
+      "quantity": "400.0",
+      "price": "438.07",
+      "market_value": "175228.000"
+    }
+  ],
+  "cash_balance": "0",
+  "accrued_income": "0",
+  "accrued_expenses": "0",
+  "total_securities_value": "1117995.000"
+}

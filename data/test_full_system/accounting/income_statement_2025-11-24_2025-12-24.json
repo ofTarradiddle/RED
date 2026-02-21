@@ -1,0 +1,15 @@
+{
+  "statement_type": "income_statement",
+  "period_start": "2025-11-24",
+  "period_end": "2025-12-24",
+  "income": {},
+  "expenses": {
+    "5000": {
+      "name": "Management Fees",
+      "amount": "123.29"
+    }
+  },
+  "total_income": "0",
+  "total_expenses": "123.29",
+  "net_income": "-123.29"
+}

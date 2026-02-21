@@ -1,0 +1,134 @@
+{
+  "date": "2025-12-24",
+  "accounts": [
+    {
+      "account_code": "1000",
+      "account_name": "Cash and Cash Equivalents",
+      "debits": "0",
+      "credits": "210000",
+      "balance": "-210000"
+    },
+    {
+      "account_code": "1100",
+      "account_name": "Investments - Securities",
+      "debits": "411000",
+      "credits": "0",
+      "balance": "411000"
+    },
+    {
+      "account_code": "1200",
+      "account_name": "Receivables",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "1300",
+      "account_name": "Accrued Income",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "2000",
+      "account_name": "Payables",
+      "debits": "0",
+      "credits": "246.5753424657534246575342233",
+      "balance": "246.5753424657534246575342233"
+    },
+    {
+      "account_code": "2100",
+      "account_name": "Accrued Expenses",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "2200",
+      "account_name": "Distributions Payable",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "3000",
+      "account_name": "Share Capital",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "3100",
+      "account_name": "Retained Earnings",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "3200",
+      "account_name": "Net Assets",
+      "debits": "0",
+      "credits": "200753.4246575342465753424658",
+      "balance": "200753.4246575342465753424658"
+    },
+    {
+      "account_code": "4000",
+      "account_name": "Dividend Income",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "4100",
+      "account_name": "Interest Income",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "4200",
+      "account_name": "Realized Gains/Losses",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "4300",
+      "account_name": "Unrealized Gains/Losses",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "5000",
+      "account_name": "Management Fees",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "5100",
+      "account_name": "Administrative Expenses",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "5200",
+      "account_name": "Custodial Fees",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    },
+    {
+      "account_code": "5300",
+      "account_name": "Other Expenses",
+      "debits": "0",
+      "credits": "0",
+      "balance": "0"
+    }
+  ],
+  "total_debits": "411000",
+  "total_credits": "411000.0000000000000000000000",
+  "balanced": true
+}

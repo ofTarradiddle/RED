@@ -1,0 +1,19 @@
+{
+    "start_date": "2025-06-28",
+    "end_date": "2025-12-25",
+    "start_nav": 25.0,
+    "end_nav": 25.0,
+    "pre_tax_total_return": 0.0,
+    "after_tax_total_return": 0.0,
+    "tax_drag": 0.0,
+    "tax_efficiency_ratio": 0,
+    "benchmark": {
+        "symbol": "SPY",
+        "start_price": 614.3264770507812,
+        "end_price": 690.3800048828125,
+        "total_return": 0.13020930248864446,
+        "method": "manual",
+        "note": "Using manual calculation (auto_adjust didn't adjust prices in this period)"
+    },
+    "fund_vs_benchmark": 0.13020930248864446
+}

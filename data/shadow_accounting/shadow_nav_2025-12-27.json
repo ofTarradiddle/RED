@@ -1,0 +1,16 @@
+{
+  "date": "2025-12-27",
+  "shadow_nav_per_share": "0.2300",
+  "official_nav_per_share": "0.2300",
+  "difference": "0.0000",
+  "difference_percentage": "0",
+  "status": "match",
+  "discrepancies": [],
+  "validation_passed": true,
+  "nav_calculation_details": {
+    "total_assets": "230000.00",
+    "total_liabilities": "0",
+    "net_assets": "230000.00",
+    "shares_outstanding": "1000000"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2025-12-24",
+  "source1": "TA",
+  "source2": "Custodian",
+  "source1_balance": "0",
+  "source2_balance": "0",
+  "difference": "0",
+  "status": "matched",
+  "exceptions": []
+}

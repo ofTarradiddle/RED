@@ -1,0 +1,136 @@
+{
+  "open_lots": [
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_0",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_1",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_2",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_3",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_4",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_5",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_6",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_7",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_8",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_9",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_10",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_11",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2025-12-23_12",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "1.00",
+      "purchase_date": "2025-12-23",
+      "sold_date": null,
+      "original_quantity": "100"
+    }
+  ],
+  "closed_lots": [],
+  "realized_gains": []
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "timestamp": "2025-12-27T18:38:07.935027",
+    "intraday_nav_per_share": "0.22",
+    "market_price": "0.22",
+    "bid_price": "0.21978",
+    "ask_price": "0.22022",
+    "spread": "0.00044",
+    "spread_percentage": "0.200",
+    "premium_discount": "0.00",
+    "premium_discount_percentage": "0",
+    "status": "wide_spread"
+  }
+]

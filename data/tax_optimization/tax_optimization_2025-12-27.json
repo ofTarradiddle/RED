@@ -1,0 +1,22 @@
+{
+  "optimization_date": "2025-12-27",
+  "optimized_basket": [
+    {
+      "cusip": "037833100",
+      "quantity": "100",
+      "cost_basis": "150.00",
+      "selected_lots": 2,
+      "optimization_strategy": "highest_cost_basis"
+    },
+    {
+      "cusip": "594918104",
+      "quantity": "50",
+      "cost_basis": "280.00",
+      "selected_lots": 1,
+      "optimization_strategy": "highest_cost_basis"
+    }
+  ],
+  "realized_gain": "-14000.00",
+  "total_cost_basis": "29000.00",
+  "optimization_type": "redemption_basket_tax_optimization"
+}

@@ -1,0 +1,50 @@
+{
+  "form_type": "N-PORT",
+  "month_end": "2025-12-24",
+  "status": "draft",
+  "data": {
+    "holdings": [
+      {
+        "cusip": "023135106",
+        "ticker": "AMZN",
+        "description": null,
+        "quantity": "1000",
+        "price": "0",
+        "value": "0"
+      },
+      {
+        "cusip": "02079K107",
+        "ticker": "GOOG",
+        "description": null,
+        "quantity": "500",
+        "price": "0",
+        "value": "0"
+      },
+      {
+        "cusip": "02079K305",
+        "ticker": "GOOGL",
+        "description": null,
+        "quantity": "500",
+        "price": "0",
+        "value": "0"
+      },
+      {
+        "cusip": "459200101",
+        "ticker": "IBM",
+        "description": null,
+        "quantity": "800",
+        "price": "0",
+        "value": "0"
+      },
+      {
+        "cusip": "17275R102",
+        "ticker": "CSCO",
+        "description": null,
+        "quantity": "2000",
+        "price": "0",
+        "value": "0"
+      }
+    ],
+    "total_holdings": 5
+  }
+}

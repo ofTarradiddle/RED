@@ -1,0 +1,14 @@
+[Unit]
+Description=ETF Weekly Operations Timer
+Documentation=file:///path/to/etf-web/tasks/README.md
+Requires=weekly-operations.service
+
+[Timer]
+# Run Fridays at 5:00 PM ET (17:00 local time, adjust as needed)
+OnCalendar=Fri *-*-* 17:00:00
+Persistent=true
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
+

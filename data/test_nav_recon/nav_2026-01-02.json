@@ -1,0 +1,62 @@
+{
+  "date": "2026-01-02",
+  "total_assets": "2543043.650",
+  "total_liabilities": "0",
+  "net_assets": "2543043.650",
+  "shares_outstanding": "0",
+  "nav_per_share": "0",
+  "pricing_exceptions": [
+    "Missing price for CUSIP ",
+    "Missing price for CUSIP 31846V336",
+    "Shares outstanding is zero - cannot calculate NAV"
+  ],
+  "validation_passed": false,
+  "holdings": [
+    {
+      "cusip": "037833100",
+      "ticker": "AAPL",
+      "quantity": "1000.0",
+      "price": "270.94",
+      "market_value": "270940.000"
+    },
+    {
+      "cusip": "594918104",
+      "ticker": "MSFT",
+      "quantity": "800.0",
+      "price": "472.94",
+      "market_value": "378352.000"
+    },
+    {
+      "cusip": "02079K305",
+      "ticker": "GOOGL",
+      "quantity": "500.0",
+      "price": "315.15",
+      "market_value": "157575.000"
+    },
+    {
+      "cusip": "023135106",
+      "ticker": "AMZN",
+      "quantity": "600.0",
+      "price": "226.5",
+      "market_value": "135900.00"
+    },
+    {
+      "cusip": "459200101",
+      "ticker": "IBM",
+      "quantity": "4405.0",
+      "price": "291.33",
+      "market_value": "1283308.650"
+    },
+    {
+      "cusip": "31846V336",
+      "ticker": "FGXXX",
+      "quantity": "124451.0",
+      "price": "0",
+      "market_value": "0"
+    }
+  ],
+  "cash_balance": "316968.0",
+  "accrued_income": "0",
+  "accrued_expenses": "0",
+  "total_securities_value": "2226075.650"
+}

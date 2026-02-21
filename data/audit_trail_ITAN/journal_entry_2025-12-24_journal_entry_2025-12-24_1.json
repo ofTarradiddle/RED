@@ -1,0 +1,43 @@
+{
+  "record_id": "journal_entry_2025-12-24_1",
+  "record_type": "journal_entry",
+  "record_date": "2025-12-24",
+  "operation": "Journal entry: NAV calculation for 2025-12-24",
+  "data": {
+    "entry_id": "JE_2025-12-24_0_2",
+    "description": "NAV calculation for 2025-12-24",
+    "reference": "NAV_2025-12-24",
+    "entries": [
+      {
+        "account": "1100",
+        "account_name": "Investments - Securities",
+        "debit": "500.00000000000000",
+        "credit": "0",
+        "description": "NAV calculation for 2025-12-24"
+      },
+      {
+        "account": "2000",
+        "account_name": "Payables",
+        "debit": "0",
+        "credit": "0.00000",
+        "description": "NAV calculation for 2025-12-24"
+      },
+      {
+        "account": "3200",
+        "account_name": "Net Assets",
+        "debit": "0",
+        "credit": "500.00000000000000",
+        "description": "NAV calculation for 2025-12-24"
+      }
+    ],
+    "total_debits": "500.00000000000000",
+    "total_credits": "500.00000000000000",
+    "balanced": true
+  },
+  "user": null,
+  "system": "ETF_Admin_System",
+  "timestamp": "2025-12-25T16:24:05.104736",
+  "related_records": [
+    "JE_2025-12-24_0_2"
+  ]
+}

@@ -149,7 +149,7 @@ def create_holdings_excel():
     # Add additional columns
     df['date'] = datetime.now().strftime('%Y-%m-%d')
     df['fund'] = 'RED'
-    df['fund_name'] = 'Diamond Brothers Innovation Factor ETF'
+    df['fund_name'] = 'Diamond & Diamond Innovation Factor ETF'
     
     # Reorder columns
     columns_order = [
@@ -183,7 +183,7 @@ def create_holdings_excel():
         # Fund details sheet
         fund_details = {
             'Fund Ticker': ['RED'],
-            'Fund Name': ['Diamond Brothers Innovation Factor ETF'],
+            'Fund Name': ['Diamond & Diamond Innovation Factor ETF'],
             'Total Holdings': [len(df)],
             'Total Market Value': [df['market_value'].sum()],
             'Date': [datetime.now().strftime('%Y-%m-%d')],

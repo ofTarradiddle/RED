@@ -1,0 +1,127 @@
+{
+  "year": 2024,
+  "total_distributions": 12,
+  "total_amount": "0.0",
+  "distributions": [
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    },
+    {
+      "distribution_id": "DIST_DIVIDEND_2024-12-31",
+      "type": "dividend",
+      "record_date": "2024-12-31",
+      "ex_date": "2024-12-31",
+      "pay_date": "2025-01-02",
+      "amount_per_share": "0.0",
+      "total_amount": "0.0",
+      "status": "paid"
+    }
+  ]
+}

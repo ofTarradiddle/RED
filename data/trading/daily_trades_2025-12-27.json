@@ -1,0 +1,9 @@
+{
+  "date": "2025-12-27",
+  "trades_processed": 0,
+  "trades_executed": 0,
+  "trades_rejected": 0,
+  "total_value": "0",
+  "total_fees": "0",
+  "executions": []
+}

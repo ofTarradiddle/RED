@@ -1,0 +1,62 @@
+{
+  "open_lots": [
+    {
+      "lot_id": "LOT_AAPL_2024-02-01_1",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "50",
+      "cost_basis": "160.00",
+      "purchase_date": "2024-02-01",
+      "sold_date": null,
+      "original_quantity": "100"
+    },
+    {
+      "lot_id": "LOT_AAPL_2024-03-01_2",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "100",
+      "cost_basis": "170.00",
+      "purchase_date": "2024-03-01",
+      "sold_date": null,
+      "original_quantity": "100"
+    }
+  ],
+  "closed_lots": [
+    {
+      "lot_id": "LOT_AAPL_2024-01-01_0",
+      "ticker": "AAPL",
+      "cusip": null,
+      "quantity": "0",
+      "cost_basis": "150.00",
+      "purchase_date": "2024-01-01",
+      "sold_date": "2024-06-01",
+      "original_quantity": "100"
+    }
+  ],
+  "realized_gains": [
+    {
+      "record_id": "GAIN_AAPL_2024-06-01_0",
+      "ticker": "AAPL",
+      "quantity": "100",
+      "purchase_date": "2024-01-01",
+      "sale_date": "2024-06-01",
+      "cost_basis": "150.00",
+      "sale_price": "180.00",
+      "gain": "3000.00",
+      "term": "short",
+      "lot_id": "LOT_AAPL_2024-01-01_0"
+    },
+    {
+      "record_id": "GAIN_AAPL_2024-06-01_1",
+      "ticker": "AAPL",
+      "quantity": "50",
+      "purchase_date": "2024-02-01",
+      "sale_date": "2024-06-01",
+      "cost_basis": "160.00",
+      "sale_price": "180.00",
+      "gain": "1000.00",
+      "term": "short",
+      "lot_id": "LOT_AAPL_2024-02-01_1"
+    }
+  ]
+}

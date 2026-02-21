@@ -47,7 +47,7 @@ const Hero = () => {
 
           {/* Trust Indicators */}
           <div className="mt-16 pt-8 border-t border-secondary-200">
-            <p className="text-sm text-secondary-500 mb-4">Managed by Diamond Brothers LLC</p>
+            <p className="text-sm text-secondary-500 mb-4">Managed by Diamond & Diamond (D&D)</p>
             <div className="flex justify-center items-center space-x-8 text-secondary-400">
               <div className="flex items-center space-x-2">
                 <TrendingUp className="h-5 w-5" />

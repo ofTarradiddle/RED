@@ -1,0 +1,14 @@
+{
+  "date": "2025-12-30",
+  "expense_data": {
+    "accrued_expenses": "0",
+    "accrued_income": "0",
+    "payables": "0",
+    "management_fee": "0",
+    "admin_expenses": "0",
+    "custodial_fee": "0",
+    "other_expenses": "0"
+  },
+  "expense_entries_recorded": 5,
+  "status": "completed"
+}

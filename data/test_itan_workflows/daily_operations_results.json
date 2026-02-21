@@ -1,0 +1,48 @@
+{
+  "date": "2026-01-02",
+  "operations": {
+    "nav_calculation": {
+      "date": "2026-01-02",
+      "error": "'TrialBalance' object has no attribute 'get'"
+    },
+    "corporate_actions": {
+      "date": "2026-01-02",
+      "actions_processed": 0,
+      "adjustment_log": [],
+      "status": "completed"
+    },
+    "dividend_accrual": {
+      "date": "2026-01-02",
+      "total_accrued_income": "0",
+      "dividend_schedule": [],
+      "income_recorded": false
+    },
+    "expense_accrual": {
+      "date": "2026-01-02",
+      "expense_data": {
+        "accrued_expenses": "0",
+        "accrued_income": "0",
+        "payables": "0",
+        "management_fee": "0",
+        "admin_expenses": "0",
+        "custodial_fee": "0",
+        "other_expenses": "0"
+      },
+      "expense_entries_recorded": 5,
+      "status": "completed"
+    },
+    "nav_verification": {
+      "date": "2026-01-02",
+      "nav_per_share": "0",
+      "nav_change_pct": null,
+      "benchmark_symbol": "SPY",
+      "benchmark_change_pct": 1.29,
+      "discrepancy_pct": null,
+      "reconciliation_status": "fail",
+      "exceptions": [
+        "Shares outstanding is zero - cannot calculate NAV"
+      ],
+      "validation_passed": false
+    }
+  }
+}

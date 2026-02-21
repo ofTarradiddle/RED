@@ -11,7 +11,7 @@ const About = () => {
     {
       icon: Users,
       title: 'Active Management',
-      description: 'Expert portfolio management by Diamond Brothers LLC with deep expertise in technology and innovation.'
+      description: 'Expert portfolio management by Diamond & Diamond (D&D) with deep expertise in technology and innovation.'
     },
     {
       icon: Shield,
@@ -55,7 +55,7 @@ const About = () => {
               and sustainable competitive advantages.
             </p>
             <div className="flex items-center space-x-4">
-              <div className="text-2xl font-bold gradient-text">Diamond Brothers LLC</div>
+              <div className="text-2xl font-bold gradient-text">Diamond & Diamond (D&D)</div>
               <div className="text-sm text-secondary-500">Investment Advisor</div>
             </div>
           </div>

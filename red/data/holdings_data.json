@@ -1,0 +1,415 @@
+[
+  {
+    "name": "Abbott Laboratories",
+    "ticker": "ABT",
+    "weight": 6.99,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Meta Platforms Inc.",
+    "ticker": "META",
+    "weight": 6.27,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Microsoft Corporation",
+    "ticker": "MSFT",
+    "weight": 5.73,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Amgen Inc.",
+    "ticker": "AMGN",
+    "weight": 5.48,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Johnson & Johnson",
+    "ticker": "JNJ",
+    "weight": 5.09,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Danaher Corporation",
+    "ticker": "DHR",
+    "weight": 5.07,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Thermo Fisher Scientific Inc.",
+    "ticker": "TMO",
+    "weight": 4.98,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "UnitedHealth Group Inc.",
+    "ticker": "UNH",
+    "weight": 4.25,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Adobe Inc.",
+    "ticker": "ADBE",
+    "weight": 4.12,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "NVIDIA Corporation",
+    "ticker": "NVDA",
+    "weight": 3.81,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Salesforce Inc.",
+    "ticker": "CRM",
+    "weight": 3.43,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Bristol-Myers Squibb Company",
+    "ticker": "BMY",
+    "weight": 3.43,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Pfizer Inc.",
+    "ticker": "PFE",
+    "weight": 3.36,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Tesla, Inc.",
+    "ticker": "TSLA",
+    "weight": 3.23,
+    "sector": "Consumer Discretionary",
+    "country": "USA"
+  },
+  {
+    "name": "AbbVie Inc.",
+    "ticker": "ABBV",
+    "weight": 2.87,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Alphabet Inc.",
+    "ticker": "GOOGL",
+    "weight": 2.64,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Eli Lilly and Company",
+    "ticker": "LLY",
+    "weight": 2.14,
+    "sector": "Healthcare",
+    "country": "USA"
+  },
+  {
+    "name": "Apple Inc.",
+    "ticker": "AAPL",
+    "weight": 2.11,
+    "sector": "Technology",
+    "country": "USA"
+  },
+  {
+    "name": "Netflix Inc.",
+    "ticker": "NFLX",
+    "weight": 1.92,
+    "sector": "Communication Services",
+    "country": "USA"
+  },
+  {
+    "name": "Citigroup Inc.",
+    "ticker": "C",
+    "weight": 1.77,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Morgan Stanley",
+    "ticker": "MS",
+    "weight": 1.68,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Amazon.com Inc.",
+    "ticker": "AMZN",
+    "weight": 1.41,
+    "sector": "Consumer Discretionary",
+    "country": "USA"
+  },
+  {
+    "name": "Goldman Sachs Group Inc.",
+    "ticker": "GS",
+    "weight": 1.15,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Wells Fargo & Company",
+    "ticker": "WFC",
+    "weight": 1.03,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "JPMorgan Chase & Co.",
+    "ticker": "JPM",
+    "weight": 0.73,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Bank of America Corp.",
+    "ticker": "BAC",
+    "weight": 0.53,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "BlackRock Inc.",
+    "ticker": "BLK",
+    "weight": 0.45,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Charles Schwab Corporation",
+    "ticker": "SCHW",
+    "weight": 0.45,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "U.S. Bancorp",
+    "ticker": "USB",
+    "weight": 0.45,
+    "sector": "Financial Services",
+    "country": "USA"
+  },
+  {
+    "name": "Procter & Gamble Co.",
+    "ticker": "PG",
+    "weight": 0.45,
+    "sector": "Consumer Staples",
+    "country": "USA"
+  },
+  {
+    "name": "Coca-Cola Company",
+    "ticker": "KO",
+    "weight": 0.45,
+    "sector": "Consumer Staples",
+    "country": "USA"
+  },
+  {
+    "name": "PepsiCo Inc.",
+    "ticker": "PEP",
+    "weight": 0.45,
+    "sector": "Consumer Staples",
+    "country": "USA"
+  },
+  {
+    "name": "Walmart Inc.",
+    "ticker": "WMT",
+    "weight": 0.45,
+    "sector": "Consumer Staples",
+    "country": "USA"
+  },
+  {
+    "name": "Home Depot Inc.",
+    "ticker": "HD",
+    "weight": 0.45,
+    "sector": "Consumer Discretionary",
+    "country": "USA"
+  },
+  {
+    "name": "McDonald's Corporation",
+    "ticker": "MCD",
+    "weight": 0.45,
+    "sector": "Consumer Discretionary",
+    "country": "USA"
+  },
+  {
+    "name": "Walt Disney Company",
+    "ticker": "DIS",
+    "weight": 0.45,
+    "sector": "Communication Services",
+    "country": "USA"
+  },
+  {
+    "name": "Nike Inc.",
+    "ticker": "NKE",
+    "weight": 0.45,
+    "sector": "Consumer Discretionary",
+    "country": "USA"
+  },
+  {
+    "name": "Starbucks Corporation",
+    "ticker": "SBUX",
+    "weight": 0.45,
+    "sector": "Consumer Discretionary",
+    "country": "USA"
+  },
+  {
+    "name": "Target Corporation",
+    "ticker": "TGT",
+    "weight": 0.45,
+    "sector": "Consumer Discretionary",
+    "country": "USA"
+  },
+  {
+    "name": "Exxon Mobil Corporation",
+    "ticker": "XOM",
+    "weight": 0.45,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Chevron Corporation",
+    "ticker": "CVX",
+    "weight": 0.45,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "ConocoPhillips",
+    "ticker": "COP",
+    "weight": 0.45,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "EOG Resources Inc.",
+    "ticker": "EOG",
+    "weight": 0.45,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Schlumberger Limited",
+    "ticker": "SLB",
+    "weight": 0.45,
+    "sector": "Energy",
+    "country": "USA"
+  },
+  {
+    "name": "Duke Energy Corporation",
+    "ticker": "DUK",
+    "weight": 0.45,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "Southern Company",
+    "ticker": "SO",
+    "weight": 0.45,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "Dominion Energy Inc.",
+    "ticker": "D",
+    "weight": 0.45,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "NextEra Energy Inc.",
+    "ticker": "NEE",
+    "weight": 0.45,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "American Electric Power Co.",
+    "ticker": "AEP",
+    "weight": 0.45,
+    "sector": "Utilities",
+    "country": "USA"
+  },
+  {
+    "name": "Linde plc",
+    "ticker": "LIN",
+    "weight": 0.45,
+    "sector": "Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Air Products and Chemicals Inc.",
+    "ticker": "APD",
+    "weight": 0.45,
+    "sector": "Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Ecolab Inc.",
+    "ticker": "ECL",
+    "weight": 0.45,
+    "sector": "Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Sherwin-Williams Company",
+    "ticker": "SHW",
+    "weight": 0.45,
+    "sector": "Materials",
+    "country": "USA"
+  },
+  {
+    "name": "Prologis Inc.",
+    "ticker": "PLD",
+    "weight": 0.45,
+    "sector": "Real Estate",
+    "country": "USA"
+  },
+  {
+    "name": "American Tower Corporation",
+    "ticker": "AMT",
+    "weight": 0.45,
+    "sector": "Real Estate",
+    "country": "USA"
+  },
+  {
+    "name": "Crown Castle Inc.",
+    "ticker": "CCI",
+    "weight": 0.45,
+    "sector": "Real Estate",
+    "country": "USA"
+  },
+  {
+    "name": "Equinix Inc.",
+    "ticker": "EQIX",
+    "weight": 0.45,
+    "sector": "Real Estate",
+    "country": "USA"
+  },
+  {
+    "name": "Realty Income Corporation",
+    "ticker": "O",
+    "weight": 0.45,
+    "sector": "Real Estate",
+    "country": "USA"
+  },
+  {
+    "name": "Simon Property Group Inc.",
+    "ticker": "SPG",
+    "weight": 0.45,
+    "sector": "Real Estate",
+    "country": "USA"
+  }
+]

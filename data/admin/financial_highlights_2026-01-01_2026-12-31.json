@@ -1,0 +1,16 @@
+{
+  "fiscal_year_start": "2026-01-01",
+  "fiscal_year_end": "2026-12-31",
+  "per_share_data": {
+    "nav_beginning": "0.0000",
+    "net_investment_income": "0.0000",
+    "net_gains_losses": "0.0000",
+    "nav_ending": "0.0000"
+  },
+  "ratios": {
+    "expense_ratio": "0.00",
+    "net_income_ratio": "0.00",
+    "portfolio_turnover_rate": "0.00"
+  },
+  "average_shares_outstanding": "0.00"
+}

@@ -1,0 +1,88 @@
+{
+  "date": "2026-01-02",
+  "total_assets": "7503107.290",
+  "total_liabilities": "0",
+  "net_assets": "7503107.290",
+  "shares_outstanding": "0",
+  "nav_per_share": "0",
+  "pricing_exceptions": [
+    "Shares outstanding is zero - cannot calculate NAV"
+  ],
+  "validation_passed": false,
+  "holdings": [
+    {
+      "cusip": "037833100",
+      "ticker": "AAPL",
+      "quantity": "1000.0",
+      "price": "270.94",
+      "market_value": "270940.000"
+    },
+    {
+      "cusip": "594918104",
+      "ticker": "MSFT",
+      "quantity": "800.0",
+      "price": "472.94",
+      "market_value": "378352.000"
+    },
+    {
+      "cusip": "02079K305",
+      "ticker": "GOOGL",
+      "quantity": "500.0",
+      "price": "315.15",
+      "market_value": "157575.000"
+    },
+    {
+      "cusip": "023135106",
+      "ticker": "AMZN",
+      "quantity": "600.0",
+      "price": "226.5",
+      "market_value": "135900.00"
+    },
+    {
+      "cusip": "459200101",
+      "ticker": "IBM",
+      "quantity": "4405.0",
+      "price": "291.33",
+      "market_value": "1283308.650"
+    },
+    {
+      "cusip": "17275R102",
+      "ticker": "CSCO",
+      "quantity": "14958.0",
+      "price": "76.04",
+      "market_value": "1137406.320"
+    },
+    {
+      "cusip": "79466L302",
+      "ticker": "CRM",
+      "quantity": "4275.0",
+      "price": "253.63",
+      "market_value": "1084268.250"
+    },
+    {
+      "cusip": "14040H105",
+      "ticker": "COF",
+      "quantity": "4193.0",
+      "price": "247.93",
+      "market_value": "1039570.490"
+    },
+    {
+      "cusip": "G1151C101",
+      "ticker": "ACN",
+      "quantity": "3793.0",
+      "price": "259.96",
+      "market_value": "986028.280"
+    },
+    {
+      "cusip": "58933Y105",
+      "ticker": "MRK",
+      "quantity": "9670.0",
+      "price": "106.49",
+      "market_value": "1029758.300"
+    }
+  ],
+  "cash_balance": "0",
+  "accrued_income": "0",
+  "accrued_expenses": "0",
+  "total_securities_value": "7503107.290"
+}

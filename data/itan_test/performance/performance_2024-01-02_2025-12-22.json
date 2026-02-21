@@ -1,0 +1,17 @@
+{
+    "start_date": "2024-01-02",
+    "end_date": "2025-12-22",
+    "start_nav": 25.999187469482425,
+    "end_nav": 37.41400146484375,
+    "pre_tax_total_return": 1.403945168077182,
+    "after_tax_total_return": 1.0306228964616428,
+    "tax_drag": 0.3733222716155391,
+    "tax_efficiency_ratio": 0.7340905612953286,
+    "benchmark": {
+        "symbol": "^GSPC",
+        "start_price": 4742.830078125,
+        "end_price": 6878.490234375,
+        "total_return": 0.45029236153750174
+    },
+    "fund_vs_benchmark": -0.9536528065396802
+}

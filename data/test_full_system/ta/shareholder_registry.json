@@ -1,0 +1,14 @@
+{
+  "CEDE0000": {
+    "account_number": "CEDE0000",
+    "account_type": "street_name",
+    "shareholder_name": "Cede & Co.",
+    "tax_id": null,
+    "address": null,
+    "shares": "0",
+    "creation_date": "2025-12-25",
+    "last_activity_date": "2025-12-24",
+    "aml_cleared": false,
+    "ofac_cleared": false
+  }
+}

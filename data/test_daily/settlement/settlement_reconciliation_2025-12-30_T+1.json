@@ -1,0 +1,21 @@
+{
+  "reconciliation_date": "2025-12-30",
+  "trade_date": "2025-12-29",
+  "settlement_date": "2025-12-30",
+  "settlement_type": "T+1",
+  "trades_reconciled": 0,
+  "trades_pending": 0,
+  "trades_failed": 0,
+  "cash_settled": "0",
+  "cash_pending": "0",
+  "cash_failed": "0",
+  "positions_settled": 0,
+  "positions_pending": 0,
+  "positions_failed": 0,
+  "status": "complete",
+  "exceptions": [],
+  "details": {
+    "total_trades": 0,
+    "settlement_rate": 0.0
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "etf_ticker": "SPY",
+  "nav_date": "2025-12-25",
+  "actual_nav": 681.66864,
+  "shares_outstanding": 917782016.0,
+  "total_assets": 625623218663.1782,
+  "holdings": [
+    {
+      "ticker": "AAPL",
+      "cusip": "037833100",
+      "weight": 7.0,
+      "price": 273.80999755859375,
+      "quantity": 159941659.16841987,
+      "market_value": 43793625306.42248
+    },
+    {
+      "ticker": "MSFT",
+      "cusip": "594918104",
+      "weight": 6.5,
+      "price": 488.0199890136719,
+      "quantity": 83327548.31476244,
+      "market_value": 40665509213.10658
+    },
+    {
+      "ticker": "GOOGL",
+      "cusip": "02079K305",
+      "weight": 4.0,
+      "price": 314.0899963378906,
+      "quantity": 79674389.62814309,
+      "market_value": 25024928746.52713
+    },
+    {
+      "ticker": "AMZN",
+      "cusip": "023135106",
+      "weight": 3.5,
+      "price": 232.3800048828125,
+      "quantity": 94228471.43950117,
+      "market_value": 21896812653.21124
+    },
+    {
+      "ticker": "NVDA",
+      "cusip": "67066G104",
+      "weight": 2.5,
+      "price": 188.61000061035156,
+      "quantity": 82925509.86673953,
+      "market_value": 15640580466.579456
+    },
+    {
+      "ticker": "META",
+      "cusip": "30303M102",
+      "weight": 2.2,
+      "price": 667.5499877929688,
+      "quantity": 20618247.41559061,
+      "market_value": 13763710810.589922
+    },
+    {
+      "ticker": "TSLA",
+      "cusip": "88160R101",
+      "weight": 2.0,
+      "price": 485.3999938964844,
+      "quantity": 25777636.03336994,
+      "market_value": 12512464373.263565
+    },
+    {
+      "ticker": "GOOG",
+      "cusip": "02079K107",
+      "weight": 1.8,
+      "price": 315.6700134277344,
+      "quantity": 35674018.61727741,
+      "market_value": 11261217935.937208
+    },
+    {
+      "ticker": "BRK.B",
+      "cusip": "084670702",
+      "weight": 1.8,
+      "price": NaN
+    },
+    {
+      "ticker": "UNH",
+      "cusip": "91324P102",
+      "weight": 1.5,
+      "price": 327.5799865722656,
+      "quantity": 28647501.876240063,
+      "market_value": 9384348279.947674
+    }
+  ]
+}

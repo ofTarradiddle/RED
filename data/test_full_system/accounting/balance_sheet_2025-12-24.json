@@ -1,0 +1,33 @@
+{
+  "statement_type": "balance_sheet",
+  "date": "2025-12-24",
+  "assets": {
+    "1000": {
+      "name": "Cash and Cash Equivalents",
+      "balance": "-420000"
+    },
+    "1100": {
+      "name": "Investments - Securities",
+      "balance": "520500"
+    }
+  },
+  "liabilities": {
+    "2000": {
+      "name": "Payables",
+      "balance": "123.2876712328767123287671"
+    },
+    "2100": {
+      "name": "Accrued Expenses",
+      "balance": "123.29"
+    }
+  },
+  "equity": {
+    "3200": {
+      "name": "Net Assets",
+      "balance": "100376.7123287671232876712329"
+    }
+  },
+  "total_assets": "100500",
+  "total_liabilities": "246.5776712328767123287671",
+  "total_equity": "100376.7123287671232876712329"
+}

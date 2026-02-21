@@ -1,0 +1,13 @@
+fund:
+  fiscal_year_end: 12-31
+  symbol: REDI
+logging:
+  level: INFO
+paths:
+  accounting_storage: ./data/test_daily/accounting
+  admin_storage: ./data/test_daily/admin
+  distributor_storage: ./data/test_daily/distributor
+  performance_storage: ./data/test_daily/performance
+  settlement_storage: ./data/test_daily/settlement
+  tax_lot_storage: ./data/test_daily/tax_lots
+  tax_storage: ./data/test_daily/tax

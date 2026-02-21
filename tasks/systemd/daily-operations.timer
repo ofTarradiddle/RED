@@ -1,0 +1,16 @@
+[Unit]
+Description=ETF Daily Operations Timer
+Documentation=file:///path/to/etf-web/tasks/README.md
+Requires=daily-operations.service
+
+[Timer]
+# Run daily at 6:00 PM ET (18:00 local time, adjust as needed)
+OnCalendar=*-*-* 18:00:00
+# Run immediately if missed (e.g., server was down)
+Persistent=true
+# Add random delay to avoid system load spikes (0-300 seconds)
+RandomizedDelaySec=300
+
+[Install]
+WantedBy=timers.target
+
