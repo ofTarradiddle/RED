@@ -21,7 +21,7 @@
             background: white;
             border: 2px solid #e8e0e0;
             border-radius: 12px;
-            padding: 2.5rem 2rem;
+            padding: 1.25rem 1.5rem;
             transition: all 0.3s ease;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -29,22 +29,33 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            max-width: 260px;
         }
         .etf-card:hover {
             border-color: #8b0000;
             box-shadow: 0 8px 24px rgba(139, 0, 0, 0.15);
             transform: translateY(-4px);
         }
+        .etf-card:hover .tagline {
+            opacity: 1;
+            max-height: 3rem;
+            margin-top: 0.6rem;
+            padding-top: 0.5rem;
+        }
         .tagline {
             font-family: 'Playfair Display', Georgia, serif;
             font-style: italic;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             letter-spacing: 0.02em;
             color: #5a4a4a;
-            margin-top: 1rem;
-            padding-top: 0.75rem;
+            margin-top: 0;
+            padding-top: 0;
             border-top: 1px solid #e0d6d6;
             line-height: 1.4;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.35s ease;
         }
         .tagline .dif {
             font-style: normal;
@@ -76,7 +87,7 @@
             font-weight: 800;
             color: white;
             box-shadow: 0 4px 12px rgba(139, 0, 0, 0.3);
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
         }
     </style>
 </head>
@@ -110,7 +121,7 @@
             <a href="../etfs/redi/" class="etf-card">
                     <div class="flex flex-col items-center text-center">
                         <div class="ticker-box">REDI</div>
-                        <h2 class="text-xl font-bold text-gray-900 mb-2">Diamond Innovation Factor ETF</h2>
+                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Innovation Factor ETF</h2>
                         <p class="tagline">Innovation is the <span class="dif">DIF</span>erence</p>
                     </div>
             </a>
