@@ -265,8 +265,14 @@ def rolling_ols(
     """
     Estimate rolling OLS regressions with lagged R&D variables.
     
-    For each firm-year, estimates an OLS regression of log(sales) on 5 lagged log(R&D) 
-    variables using a rolling 8-year window. Requires at least 4 non-missing lags for 
+    For each firm-year, estimates 5 SEPARATE OLS regressions (one for each lag):
+    - Regression 1: log(sales_t) = β₀ + β₁·log(R&D_{t-1}) + ε_t
+    - Regression 2: log(sales_t) = β₀ + β₂·log(R&D_{t-2}) + ε_t
+    - Regression 3: log(sales_t) = β₀ + β₃·log(R&D_{t-3}) + ε_t
+    - Regression 4: log(sales_t) = β₀ + β₄·log(R&D_{t-4}) + ε_t
+    - Regression 5: log(sales_t) = β₀ + β₅·log(R&D_{t-5}) + ε_t
+    
+    Uses a rolling 8-year window. Requires at least 4 non-missing lags for 
     each observation.
     
     Args:
@@ -275,13 +281,12 @@ def rolling_ols(
         year_col: Column name for year
         sales_col: Column name for sales/revenue
         rd_col: Column name for R&D spending
-        controls: Optional list of additional control variable column names
+        controls: Optional list of additional control variable column names (NOT USED in separate regressions)
         
     Returns:
         DataFrame indexed by [firm_col, year_col] with coefficients:
-        - const: Intercept
-        - lag1, lag2, ..., lag5: Coefficients for lagged log(R&D)
-        - Additional columns for any control variables
+        - const: Intercept (average of 5 intercepts)
+        - lag1, lag2, ..., lag5: Coefficients from each separate regression
         
     Example:
         >>> df = pd.DataFrame({
@@ -312,7 +317,6 @@ def rolling_ols(
         d[f'lag{i}'] = d.groupby(firm_col)['log_rd'].shift(i)
     
     results = []
-    ctrls = controls if controls else []
     
     # Loop by firm and year
     for firm, grp in d.groupby(firm_col):
@@ -328,28 +332,50 @@ def rolling_ols(
             if window.empty:
                 continue
             
-            cols = [f'lag{i}' for i in range(1, 6)] + ctrls
-            data = window[['log_sales'] + cols].dropna()
-            if data.empty:
-                continue
+            # Run 5 SEPARATE regressions, one for each lag
+            lag_coefs = {}
+            lag_consts = {}
             
-            Y = data['log_sales'].to_numpy()
-            X = data[cols].to_numpy()
+            for lag_num in range(1, 6):
+                lag_col = f'lag{lag_num}'
+                
+                # Get data with this lag and log_sales (drop rows where either is NaN)
+                data = window[['log_sales', lag_col]].dropna()
+                if len(data) < 4:  # Need at least 4 observations
+                    lag_coefs[lag_col] = np.nan
+                    lag_consts[lag_col] = np.nan
+                    continue
+                
+                Y = data['log_sales'].to_numpy()
+                X_lag = data[lag_col].to_numpy().reshape(-1, 1)
+                
+                # Add constant (intercept) column
+                X = np.column_stack([np.ones(len(X_lag)), X_lag])
+                
+                # Solve OLS: coefficients = [const, lag_coef]
+                try:
+                    coefs = np.linalg.lstsq(X, Y, rcond=None)[0]
+                    lag_consts[lag_col] = coefs[0]
+                    lag_coefs[lag_col] = coefs[1]
+                except np.linalg.LinAlgError as e:
+                    logger.warning(f"OLS estimation failed for {firm} in {year}, lag{lag_num}: {e}")
+                    lag_coefs[lag_col] = np.nan
+                    lag_consts[lag_col] = np.nan
+                    continue
             
-            # Add constant (intercept) column
-            X = np.column_stack([np.ones(len(X)), X])
+            # Record results - average intercept across the 5 regressions
+            valid_consts = [c for c in lag_consts.values() if pd.notna(c)]
+            avg_const = np.mean(valid_consts) if valid_consts else np.nan
             
-            # Solve OLS: coefficients = [const, lag1, ..., controls]
-            try:
-                coefs = np.linalg.lstsq(X, Y, rcond=None)[0]
-            except np.linalg.LinAlgError as e:
-                logger.warning(f"OLS estimation failed for {firm} in {year}: {e}")
-                continue
+            res = {
+                firm_col: firm,
+                year_col: year,
+                'const': avg_const
+            }
+            # Add each lag coefficient
+            for lag_col, coef in lag_coefs.items():
+                res[lag_col] = coef
             
-            # Record results
-            res = {firm_col: firm, year_col: year, 'const': coefs[0]}
-            for j, col in enumerate(cols, start=1):
-                res[col] = coefs[j]
             results.append(res)
     
     out = pd.DataFrame(results)

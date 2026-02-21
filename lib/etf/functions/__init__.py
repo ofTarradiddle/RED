@@ -16,7 +16,8 @@ from lib.etf.functions.core import (
     FundAdministration,
     Accounting,
     DailyOrchestrator,
-    ShadowAccounting
+    ShadowAccounting,
+    FMPEnhancedWorkflows
 )
 
 # Tax Functions
@@ -78,6 +79,7 @@ __all__ = [
     'Accounting',
     'DailyOrchestrator',
     'ShadowAccounting',
+    'FMPEnhancedWorkflows',
     # Tax
     'TaxLotManager',
     'TaxReporting',

@@ -2,7 +2,7 @@
 
 **Standalone Trust (Active ETF, Self-Admin Start)**
 
-**Sponsor**: Diamond & Diamond ETF Trust  
+**Sponsor**: Diamond Brothers ETF Trust  
 **Generated**: 2025-01-05  
 **Purpose**: Definitive, step-by-step checklist with costs, contacts, rules, and website obligations
 
@@ -672,7 +672,7 @@ Based on Sparklines ITAN ETF achieving <$15k all-in for service providers, here'
 - Custody: $3,000–$5,000 (negotiate minimum; can be lower)
 - ETF Order Management: $0 (doing yourself - DIY)
 - Transfer Agent: $0–$2,000 (per-order only; may have small minimum)
-- Distributor: $6,000–$8,000 (negotiate for startup/small fund)
+- Distributor: xxx negotiate here $6,000–$8,000 (negotiate for startup/small fund)
 - Audit: $4,000–$8,000 (typical for small funds)
 - Fidelity bond: ~$3,000
 - **Total Annual Fixed**: ~$20,000–$28,000

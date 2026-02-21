@@ -20,7 +20,8 @@ from lib.etf.functions.tax.tax_reporting import TaxReporting
 from lib.etf.adapters import (
     DataSourceAdapter,
     ExampleDataSourceAdapter,
-    FileBasedDataSourceAdapter
+    FileBasedDataSourceAdapter,
+    FMPDataSourceAdapter
 )
 
 from lib.etf.shared import (
@@ -44,6 +45,7 @@ __all__ = [
     'DataSourceAdapter',
     'ExampleDataSourceAdapter',
     'FileBasedDataSourceAdapter',
+    'FMPDataSourceAdapter',
     # Shared
     'ShareholderRecord',
     'ReconciliationResult',

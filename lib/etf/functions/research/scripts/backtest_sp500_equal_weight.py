@@ -35,7 +35,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Data paths
-CONSTITUENTS_FILE = Path('./data/research/sp500_constituents/sp500_monthly_constituents_corrected.csv')
+CONSTITUENTS_FILE = Path('./data/research/sp500_constituents/sp500_monthly_constituents.csv')
 RETURNS_FILE = Path('./data/research/sp500_returns/sp500_total_returns_corrected.csv')
 OUTPUT_DIR = Path('./data/research/sp500_backtest')
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -134,7 +134,7 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
     logger.info("="*70)
     
     # Determine date range - align with returns data availability
-    # Start from 1990 as requested
+    # Start from 1995 as requested
     returns_start = returns_df.index.min()
     returns_end = returns_df.index.max()
     
@@ -144,10 +144,10 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
     if isinstance(returns_end, pd.Timestamp) and returns_end.tz is not None:
         returns_end = returns_end.tz_localize(None)
     
-    # Start from 1990-01-01
-    requested_start = pd.to_datetime('1990-01-01')
+    # Start from 1995-01-01
+    requested_start = pd.to_datetime('1995-01-01')
     
-    # Find first constituent date that has returns data and is >= 1990
+    # Find first constituent date that has returns data and is >= 1995
     constituent_dates = sorted([pd.to_datetime(d) for d in constituents_by_date.keys()])
     first_valid_date = None
     for date in constituent_dates:
@@ -156,10 +156,12 @@ def backtest_equal_weight(constituents_by_date: Dict[str, List[str]],
             break
     
     if first_valid_date is None:
-        logger.error("No overlap between constituents and returns data starting from 1990")
+        logger.error("No overlap between constituents and returns data starting from 1995")
         return pd.DataFrame()
     
-    # Use returns data range, but start from 1990 or first valid constituent date
+    # Use returns data range, but start from 1970 or first valid constituent date
+    # If constituents start later than 1970, we'll use the earliest constituent date
+    # but we can still use returns data from 1970 for those tickers
     start_ts = max(first_valid_date, max(returns_start, requested_start))
     end_ts = min(pd.to_datetime(max(constituents_by_date.keys())), returns_end)
     
@@ -783,8 +785,20 @@ def calculate_performance_metrics(returns: pd.Series, name: str = "Portfolio") -
     total_return = df['cumulative'].iloc[-1] - 1.0
     num_periods = len(df)
     
-    # Annualized metrics
-    years = num_periods / 252  # Assuming trading days
+    # Annualized metrics - use actual date range, not num_periods / 252
+    # This is more accurate for irregular trading calendars
+    start_date = returns.index.min()
+    end_date = returns.index.max()
+    
+    # Ensure timezone-naive for calculation
+    if isinstance(start_date, pd.Timestamp) and start_date.tz is not None:
+        start_date = start_date.tz_localize(None)
+    if isinstance(end_date, pd.Timestamp) and end_date.tz is not None:
+        end_date = end_date.tz_localize(None)
+    
+    # Calculate years from actual date range
+    years = (end_date - start_date).days / 365.25
+    
     if years > 0:
         cagr = (df['cumulative'].iloc[-1] ** (1.0 / years)) - 1.0
     else:
@@ -933,10 +947,10 @@ def plot_results(portfolio_df: pd.DataFrame, benchmark_returns: pd.Series = None
             ax1.plot(common_dates, benchmark_cumulative_normalized.loc[common_dates].values,
                     label='RSP Benchmark (normalized)', linewidth=2, color='orange', linestyle='--')
     
-    # Set x-axis to show full portfolio range (from 1990)
+    # Set x-axis to show full portfolio range (from 1995)
     ax1.set_xlim(portfolio_cumulative.index.min(), portfolio_cumulative.index.max())
     
-    ax1.set_title('Cumulative Returns: Equal-Weighted S&P 500 Portfolio (1990-2025)', fontsize=14, fontweight='bold')
+    ax1.set_title('Cumulative Returns: Equal-Weighted S&P 500 Portfolio (1995-2025)', fontsize=14, fontweight='bold')
     ax1.set_xlabel('Date', fontsize=12)
     ax1.set_ylabel('Cumulative Return', fontsize=12)
     ax1.legend(fontsize=11)

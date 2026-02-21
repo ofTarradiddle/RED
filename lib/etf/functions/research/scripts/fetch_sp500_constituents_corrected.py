@@ -218,8 +218,8 @@ def main():
         logger.error("Failed to fetch historical constituents. Exiting.")
         return
     
-    # Build constituents by last trading day (starting from 1990)
-    constituents_by_date = build_constituents_by_last_trading_day(changes_df, start_year=1990)
+    # Build constituents by last trading day (starting from 1970)
+    constituents_by_date = build_constituents_by_last_trading_day(changes_df, start_year=1970)
     
     if not constituents_by_date:
         logger.error("Failed to build constituent lists. Exiting.")
@@ -237,8 +237,8 @@ def main():
     
     output_df = pd.DataFrame(records)
     
-    # Save to new file (don't overwrite existing)
-    csv_file = OUTPUT_DIR / 'sp500_monthly_constituents_corrected.csv'
+    # Save to main file (overwrite existing)
+    csv_file = OUTPUT_DIR / 'sp500_monthly_constituents.csv'
     output_df.to_csv(csv_file, index=False)
     logger.info(f"\n✓ Saved {len(output_df)} records to {csv_file}")
     
@@ -253,7 +253,7 @@ def main():
         })
     
     summary_df = pd.DataFrame(summary_records)
-    summary_file = OUTPUT_DIR / 'sp500_monthly_summary_corrected.csv'
+    summary_file = OUTPUT_DIR / 'sp500_monthly_summary.csv'
     summary_df.to_csv(summary_file, index=False)
     logger.info(f"✓ Saved monthly summary to {summary_file}")
     

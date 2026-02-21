@@ -19,7 +19,8 @@ from lib.etf import (
     OrderManagement,
     Distributor,
     FileBasedDataSourceAdapter,
-    ExampleDataSourceAdapter
+    ExampleDataSourceAdapter,
+    FMPDataSourceAdapter
 )
 
 logging.basicConfig(
@@ -149,8 +150,12 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="Run daily operations")
     parser.add_argument("--date", type=str, help="Operation date (YYYY-MM-DD), defaults to today")
-    parser.add_argument("--adapter", type=str, default="file", choices=["file", "custom"],
+    parser.add_argument("--adapter", type=str, default="file", choices=["file", "custom", "fmp"],
                        help="Data adapter type")
+    parser.add_argument("--etf-symbol", type=str, default="",
+                       help="ETF symbol (for FMP adapter)")
+    parser.add_argument("--holdings", type=str, default=None,
+                       help="Path to manual holdings file (JSON/CSV) for FMP adapter")
     
     args = parser.parse_args()
     
@@ -161,6 +166,32 @@ if __name__ == "__main__":
     
     if args.adapter == "file":
         data_adapter = FileBasedDataSourceAdapter(data_path="./data")
+    elif args.adapter == "fmp":
+        # Use FMP adapter
+        import os
+        import json
+        import pandas as pd
+        from pathlib import Path
+        
+        # Load manual holdings if provided
+        manual_holdings = []
+        if args.holdings:
+            holdings_path = Path(args.holdings)
+            if holdings_path.exists():
+                if holdings_path.suffix == '.json':
+                    with open(holdings_path, 'r') as f:
+                        manual_holdings = json.load(f)
+                elif holdings_path.suffix == '.csv':
+                    df = pd.read_csv(holdings_path)
+                    manual_holdings = df.to_dict('records')
+                logger.info(f"Loaded {len(manual_holdings)} holdings from {args.holdings}")
+        
+        # Create FMP adapter (API key from env var)
+        data_adapter = FMPDataSourceAdapter(
+            etf_symbol=args.etf_symbol,
+            manual_holdings=manual_holdings if manual_holdings else None
+        )
+        logger.info(f"Using FMP adapter (ETF: {args.etf_symbol or 'manual holdings'})")
     else:
         # Use custom adapter
         from lib.etf import ExampleDataSourceAdapter
