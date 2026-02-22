@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Weighting: How AZTH Adapts | AZTH Blog</title>
-    <meta name="description" content="How the ensemble monitors multiple signals and adjusts factor exposures based on which signals have been most predictive recently.">
+    <title>Why Single Factors Fail | AZOC Blog</title>
+    <meta name="description" content="Historical examples of factor droughts: value underperforming 2017-2020, momentum crashing in 2009, quality lagging in strong bull markets.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -32,12 +32,12 @@
                         <div class="w-8 h-8 bg-[#4a0080] rounded-lg flex items-center justify-center">
                             <span class="text-white font-bold text-sm">A</span>
                         </div>
-                        <span class="text-xl font-bold gradient-text">AZTH</span>
+                        <span class="text-xl font-bold gradient-text">AZOC</span>
                     </a>
                 </div>
                 <nav class="hidden md:flex space-x-6">
                     <a href="../" class="text-gray-600 hover:text-gray-900 transition-colors">Fund</a>
-                    <a href="../why-azth.html" class="text-gray-600 hover:text-gray-900 transition-colors">Investment Case</a>
+                    <a href="../why-azoc.html" class="text-gray-600 hover:text-gray-900 transition-colors">Investment Case</a>
                     <a href="../holdings.html" class="text-gray-600 hover:text-gray-900 transition-colors">Holdings</a>
                     <a href="./" class="text-gray-900 font-medium">Blog</a>
                 </nav>
@@ -49,84 +49,84 @@
         <div class="fade-in">
             <div class="mb-8">
                 <div class="flex items-center space-x-4 mb-4">
-                    <span class="px-3 py-1 bg-gray-900 text-white text-sm font-medium rounded-full">Strategy</span>
+                    <span class="px-3 py-1 bg-gray-900 text-white text-sm font-medium rounded-full">Analysis</span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                    Dynamic Weighting: How AZTH Adapts
+                    Why Single Factors Fail
                 </h1>
                 <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    How the ensemble monitors multiple signals and adjusts factor exposures based on which signals have been most predictive recently. Compares to ensemble methods in machine learning.
+                    Historical examples of factor droughts: value underperforming 2017-2020, momentum crashing in 2009, quality lagging in strong bull markets. The point: no single factor is always on.
                 </p>
                 <div class="flex items-center space-x-6 text-sm text-gray-500">
                     <div class="flex items-center space-x-2">
                         <i data-lucide="calendar" class="w-4 h-4"></i>
-                        <span>November 2025</span>
+                        <span>January 2026</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <i data-lucide="clock" class="w-4 h-4"></i>
-                        <span>8 min read</span>
+                        <span>7 min read</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="mb-12">
-            <div class="relative h-48 md:h-64 bg-gradient-to-br from-[#6b21a8] to-[#4a0080] rounded-2xl overflow-hidden flex items-center justify-center">
+            <div class="relative h-48 md:h-64 bg-gradient-to-br from-[#2d004d] to-[#4a0080] rounded-2xl overflow-hidden flex items-center justify-center">
                 <div class="text-center">
-                    <div class="text-6xl font-black text-white/90 mb-2">Adapt</div>
-                    <p class="text-gray-200 text-lg">Regime-aware weighting</p>
+                    <div class="text-6xl font-black text-white/90 mb-2">Drought</div>
+                    <p class="text-gray-200 text-lg">When factors go silent</p>
                 </div>
             </div>
         </div>
 
         <div class="prose prose-lg max-w-none">
             <div class="fade-in">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Static Problem</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Value Drought</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Most multi-factor funds combine factors, but they do it statically. They weight value at 30%, momentum at 30%, quality at 40%, and leave it there. The weights don't change. The factors don't adapt. The portfolio assumes all factors are equally predictive all the time.
+                    From 2017 through 2020, value investing went through one of its worst stretches in modern history. The Fama-French value factor—the academic foundation for thousands of funds—underperformed the market by wide margins. Value stocks got cheaper relative to growth, and stayed cheap. The factor that had worked for decades stopped working.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    But factors aren't equally predictive all the time. Value works better in some regimes. Momentum works better in others. Quality shines in downturns, lags in bull markets. Static weighting ignores this reality.
+                    Investors who'd built portfolios around value watched growth stocks run while their holdings stagnated. The academic evidence was still there. The long-term data still favored value. But in real time, with real money, value wasn't working. That's what factor droughts look like.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    Static multi-factor portfolios are better than single-factor portfolios. But they're not as good as they could be if they adapted to which factors are actually working.
+                    Value eventually came back. It always does. But if you'd needed returns during those years, "eventually" wasn't much comfort.
                 </p>
             </div>
 
             <div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">How Dynamic Weighting Works</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Momentum's Crash</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    AZTH doesn't weight factors statically. It monitors how predictive each factor has been recently. It tracks which signals have been working. It adjusts factor exposures based on what's actually happening, not what should happen in theory.
+                    Momentum strategies had their moment in the 2000s. Then 2009 happened. Momentum crashed harder than almost anything. The factor that had been printing money went deeply negative. Momentum investors learned the hard way that factors aren't just about returns—they're about timing.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    When value has been predictive, value gets more weight. When momentum has been working, momentum gets more weight. When quality signals have been strong, quality gets more weight. The portfolio adapts to regimes, not assumptions.
+                    The academic literature on momentum is extensive. The factor works. But academic papers don't tell you when momentum will stop working, or for how long. In 2009, momentum stopped working at exactly the wrong time.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    This isn't market timing. It's signal weighting. You're not betting on which factor will work next. You're adjusting weights based on which factors have been working. It's the difference between guessing and adapting.
+                    Momentum recovered. Factors always do. But the recovery came after momentum investors had already taken the hit.
                 </p>
             </div>
 
             <div class="fade-in">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Machine Learning Parallel</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Quality in Bull Markets</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Machine learning uses ensemble methods. It combines multiple models. But it doesn't weight them equally. It weights them based on performance. Models that have been accurate get more weight. Models that have been wrong get less. The ensemble adapts.
+                    Quality factors—companies with strong balance sheets, high returns on equity, stable earnings—work beautifully in downturns. They're defensive. They hold up when markets fall. But in strong bull markets, quality often lags. Growth stocks run, and quality stocks—often more mature, more stable—don't keep up.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Dynamic factor weighting works the same way. Factors that have been predictive get more weight. Factors that have been less predictive get less. The portfolio adapts to what's actually happening, not what should happen in theory.
+                    Quality investors watch bull markets from the sidelines. Their factor works, but it works best when markets don't. In the years when markets are strong, quality underperforms. That's not a bug. It's how the factor works.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    This isn't about predicting regimes. It's about adapting to them. You don't need to know which factor will work next. You need to weight factors based on which have been working.
+                    The pattern is consistent across factors. Each has its regime. Value works until growth runs. Momentum works until it crashes. Quality works until markets get too strong. No single factor is always on.
                 </p>
             </div>
 
             <div>
                 <div class="bg-gray-100 border-l-4 border-[#4a0080] p-6 my-8 rounded-r-lg">
                     <div class="flex items-start">
-                        <i data-lucide="activity" class="w-6 h-6 text-[#4a0080] mt-1 mr-3 flex-shrink-0"></i>
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-[#4a0080] mt-1 mr-3 flex-shrink-0"></i>
                         <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">The Process</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">The Lesson</h3>
                             <p class="text-gray-800">
-                                AZTH continuously monitors factor performance. It tracks which signals have been predictive over recent periods. It adjusts factor weights based on this data. The portfolio doesn't assume all factors are equal. It adapts to which factors are actually working.
+                                Factors work. But they work in regimes. Betting on one factor means betting you can time that factor's regime. Multi-factor investing bets on a different idea: that combining factors reduces your dependence on any single factor's timing.
                             </p>
                         </div>
                     </div>
@@ -136,10 +136,10 @@
             <div class="fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Why This Matters</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Static multi-factor portfolios are better than single-factor portfolios. But they leave performance on the table. They weight factors equally even when factors aren't performing equally.
+                    If you're building a portfolio around a single factor, you're making a timing bet. You're betting that factor will work when you need it to. Sometimes you'll be right. Often you won't.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    Dynamic weighting captures more of the benefit of multi-factor investing. It adapts to regimes. It weights factors based on what's working, not what should work. It's the difference between a good approach and a better one.
+                    Multi-factor investing doesn't eliminate factor risk. But it spreads that risk across multiple factors. When value goes into drought, momentum might be working. When momentum crashes, quality might hold up. You're not betting on one factor's timing. You're betting on the idea that combining factors produces more consistent returns.
                 </p>
             </div>
 
@@ -147,7 +147,7 @@
                 <div class="bg-[#1a0033] text-white rounded-2xl p-8 my-12">
                     <h3 class="text-2xl font-bold mb-4">Bottom Line</h3>
                     <p class="text-gray-200 mb-6">
-                        Multi-factor investing beats single-factor investing. But dynamic multi-factor investing beats static multi-factor investing. AZTH doesn't just combine factors. It adapts their weights based on which factors have been working. It's the difference between combining signals and actually using them.
+                        Every factor has its moment. Every factor has its drought. The question isn't whether factors work—they do. The question is whether you want to bet your returns on one factor's timing, or whether you want to combine factors and reduce that timing risk.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="../" class="bg-white hover:bg-gray-100 text-[#4a0080] px-6 py-3 rounded-lg font-medium transition-colors text-center">
@@ -170,7 +170,7 @@
                     <h3 class="text-lg font-semibold text-gray-900">Diamond & Diamond Research</h3>
                     <p class="text-gray-600 mb-2">Quantitative Research & Strategy</p>
                     <p class="text-gray-700">
-                        Research notes on dynamic signal weighting and regime-adaptive portfolio construction.
+                        Research notes on factor performance, timing risk, and why diversification across factors matters.
                     </p>
                 </div>
             </div>
@@ -195,18 +195,18 @@
                     </div>
                 </a>
 
-                <a href="single-factor-failure.html" class="group">
+                <a href="alchemy-and-alpha.html" class="group">
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow">
                         <h4 class="text-lg font-semibold text-gray-900 group-hover:text-[#4a0080] mb-2">
-                            Why Single Factors Fail
+                            Alchemy, Alpha, and the Art of Not Knowing
                         </h4>
                         <p class="text-gray-600 text-sm mb-3">
-                            Historical examples of factor droughts and timing risk.
+                            The philosophical underpinning of casting a wide net.
                         </p>
                         <div class="flex items-center text-sm text-gray-500">
-                            <span>January 2026</span>
+                            <span>December 2025</span>
                             <span class="mx-2">&bull;</span>
-                            <span>7 min read</span>
+                            <span>6 min read</span>
                         </div>
                     </div>
                 </a>
@@ -221,12 +221,12 @@
                     <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                         <span class="text-[#4a0080] font-bold text-sm">A</span>
                     </div>
-                    <span class="text-xl font-bold">AZTH</span>
+                    <span class="text-xl font-bold">AZOC</span>
                 </div>
                 <p class="text-gray-300 mb-6">Diamond Azoth ETF | Diamond & Diamond</p>
                 <div class="flex justify-center space-x-6 text-sm text-gray-300">
                     <a href="../" class="hover:text-white transition-colors">Fund</a>
-                    <a href="../why-azth.html" class="hover:text-white transition-colors">Investment Case</a>
+                    <a href="../why-azoc.html" class="hover:text-white transition-colors">Investment Case</a>
                     <a href="../holdings.html" class="hover:text-white transition-colors">Holdings</a>
                     <a href="./" class="hover:text-white transition-colors">Blog</a>
                 </div>

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alchemy, Alpha, and the Art of Not Knowing | AZTH Blog</title>
-    <meta name="description" content="The parallel between medieval alchemy's search for azoth and modern finance's search for alpha. Both require humility, experimentation, and the willingness to combine many imperfect approaches.">
+    <title>Dynamic Weighting: How AZOC Adapts | AZOC Blog</title>
+    <meta name="description" content="How the ensemble monitors multiple signals and adjusts factor exposures based on which signals have been most predictive recently.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
@@ -32,12 +32,12 @@
                         <div class="w-8 h-8 bg-[#4a0080] rounded-lg flex items-center justify-center">
                             <span class="text-white font-bold text-sm">A</span>
                         </div>
-                        <span class="text-xl font-bold gradient-text">AZTH</span>
+                        <span class="text-xl font-bold gradient-text">AZOC</span>
                     </a>
                 </div>
                 <nav class="hidden md:flex space-x-6">
                     <a href="../" class="text-gray-600 hover:text-gray-900 transition-colors">Fund</a>
-                    <a href="../why-azth.html" class="text-gray-600 hover:text-gray-900 transition-colors">Investment Case</a>
+                    <a href="../why-azoc.html" class="text-gray-600 hover:text-gray-900 transition-colors">Investment Case</a>
                     <a href="../holdings.html" class="text-gray-600 hover:text-gray-900 transition-colors">Holdings</a>
                     <a href="./" class="text-gray-900 font-medium">Blog</a>
                 </nav>
@@ -49,84 +49,84 @@
         <div class="fade-in">
             <div class="mb-8">
                 <div class="flex items-center space-x-4 mb-4">
-                    <span class="px-3 py-1 bg-gray-900 text-white text-sm font-medium rounded-full">Philosophy</span>
+                    <span class="px-3 py-1 bg-gray-900 text-white text-sm font-medium rounded-full">Strategy</span>
                 </div>
                 <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                    Alchemy, Alpha, and the Art of Not Knowing
+                    Dynamic Weighting: How AZOC Adapts
                 </h1>
                 <p class="text-xl text-gray-600 leading-relaxed mb-8">
-                    The parallel between medieval alchemy's search for azoth and modern finance's search for alpha. Both require humility, experimentation, and the willingness to combine many imperfect approaches.
+                    How the ensemble monitors multiple signals and adjusts factor exposures based on which signals have been most predictive recently. Compares to ensemble methods in machine learning.
                 </p>
                 <div class="flex items-center space-x-6 text-sm text-gray-500">
                     <div class="flex items-center space-x-2">
                         <i data-lucide="calendar" class="w-4 h-4"></i>
-                        <span>December 2025</span>
+                        <span>November 2025</span>
                     </div>
                     <div class="flex items-center space-x-2">
                         <i data-lucide="clock" class="w-4 h-4"></i>
-                        <span>6 min read</span>
+                        <span>8 min read</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="mb-12">
-            <div class="relative h-48 md:h-64 bg-gradient-to-br from-[#4a0080] to-[#6b21a8] rounded-2xl overflow-hidden flex items-center justify-center">
+            <div class="relative h-48 md:h-64 bg-gradient-to-br from-[#6b21a8] to-[#4a0080] rounded-2xl overflow-hidden flex items-center justify-center">
                 <div class="text-center">
-                    <div class="text-6xl font-black text-white/90 mb-2">Azoth</div>
-                    <p class="text-gray-200 text-lg">The universal substance</p>
+                    <div class="text-6xl font-black text-white/90 mb-2">Adapt</div>
+                    <p class="text-gray-200 text-lg">Regime-aware weighting</p>
                 </div>
             </div>
         </div>
 
         <div class="prose prose-lg max-w-none">
             <div class="fade-in">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Search for Azoth</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Static Problem</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Medieval alchemists spent centuries searching for azoth—the universal substance that could transform base metals into gold. They never found it. But in their search, they discovered something more valuable: chemistry. They learned that combining different elements produced reactions neither element could achieve alone. They learned that the search itself was the point.
+                    Most multi-factor funds combine factors, but they do it statically. They weight value at 30%, momentum at 30%, quality at 40%, and leave it there. The weights don't change. The factors don't adapt. The portfolio assumes all factors are equally predictive all the time.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Modern finance has its own azoth: alpha. The excess return that can't be explained by risk. The edge that makes you beat the market. Like the alchemists, we search for it. Like the alchemists, we probably won't find a single source of it.
+                    But factors aren't equally predictive all the time. Value works better in some regimes. Momentum works better in others. Quality shines in downturns, lags in bull markets. Static weighting ignores this reality.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    But like the alchemists, we might discover something in the search: that combining imperfect approaches produces something better than any single approach alone.
+                    Static multi-factor portfolios are better than single-factor portfolios. But they're not as good as they could be if they adapted to which factors are actually working.
                 </p>
             </div>
 
             <div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Humility of Not Knowing</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">How Dynamic Weighting Works</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    The alchemists' search failed in its stated goal. They never found azoth. But their failure taught them something: that you can't know everything, so you experiment. You try combinations. You see what works. You build on what works, discard what doesn't, and keep searching.
+                    AZOC doesn't weight factors statically. It monitors how predictive each factor has been recently. It tracks which signals have been working. It adjusts factor exposures based on what's actually happening, not what should happen in theory.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Multi-factor investing requires the same humility. You can't know which factor will work next. You can't know which signal will be predictive. So you don't bet on one approach. You combine approaches. You cast a wide net. You let multiple signals do their work, and you adjust based on what's actually working.
+                    When value has been predictive, value gets more weight. When momentum has been working, momentum gets more weight. When quality signals have been strong, quality gets more weight. The portfolio adapts to regimes, not assumptions.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    This isn't about confidence. It's about acknowledging that you don't have perfect knowledge, so you build portfolios that don't depend on perfect knowledge.
+                    This isn't market timing. It's signal weighting. You're not betting on which factor will work next. You're adjusting weights based on which factors have been working. It's the difference between guessing and adapting.
                 </p>
             </div>
 
             <div class="fade-in">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Art of Combination</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Machine Learning Parallel</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    The alchemists learned that combining elements produced reactions. Copper plus tin produced bronze—stronger than either metal alone. Lead plus sulfur, in the right combination, produced useful compounds. The magic wasn't in finding the perfect element. It was in the combination.
+                    Machine learning uses ensemble methods. It combines multiple models. But it doesn't weight them equally. It weights them based on performance. Models that have been accurate get more weight. Models that have been wrong get less. The ensemble adapts.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Multi-factor investing works the same way. Value plus momentum produces something neither factor alone achieves: more consistent returns, lower volatility, better risk-adjusted performance. Quality plus low volatility produces defensive characteristics value alone doesn't. The combination is the point.
+                    Dynamic factor weighting works the same way. Factors that have been predictive get more weight. Factors that have been less predictive get less. The portfolio adapts to what's actually happening, not what should happen in theory.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    AZTH doesn't search for the perfect factor. It searches for the right combinations. It combines value, momentum, quality, and other signals. It adjusts their weights based on what's been working. It acknowledges that the search for alpha, like the search for azoth, is about combining imperfect approaches into something better.
+                    This isn't about predicting regimes. It's about adapting to them. You don't need to know which factor will work next. You need to weight factors based on which have been working.
                 </p>
             </div>
 
             <div>
                 <div class="bg-gray-100 border-l-4 border-[#4a0080] p-6 my-8 rounded-r-lg">
                     <div class="flex items-start">
-                        <i data-lucide="book-open" class="w-6 h-6 text-[#4a0080] mt-1 mr-3 flex-shrink-0"></i>
+                        <i data-lucide="activity" class="w-6 h-6 text-[#4a0080] mt-1 mr-3 flex-shrink-0"></i>
                         <div>
-                            <h3 class="text-lg font-semibold text-gray-900 mb-2">The Parallel</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">The Process</h3>
                             <p class="text-gray-800">
-                                Both alchemy and alpha-seeking require the same things: humility about what you don't know, willingness to experiment, and the recognition that combining imperfect approaches often produces better results than betting on one perfect approach.
+                                AZOC continuously monitors factor performance. It tracks which signals have been predictive over recent periods. It adjusts factor weights based on this data. The portfolio doesn't assume all factors are equal. It adapts to which factors are actually working.
                             </p>
                         </div>
                     </div>
@@ -136,13 +136,10 @@
             <div class="fade-in">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Why This Matters</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Most investing approaches assume you can know things. Value investors assume they can know when value will work. Momentum traders assume they can know when momentum will work. Quality investors assume they can know when quality will work.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                    Multi-factor investing assumes something different: that you can't know, so you combine. You don't bet on one factor's timing. You bet on the idea that combining factors reduces your dependence on perfect timing.
+                    Static multi-factor portfolios are better than single-factor portfolios. But they leave performance on the table. They weight factors equally even when factors aren't performing equally.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-8">
-                    This isn't about finding azoth. It's about acknowledging that azoth might not exist as a single thing, but that combining approaches might produce something close enough.
+                    Dynamic weighting captures more of the benefit of multi-factor investing. It adapts to regimes. It weights factors based on what's working, not what should work. It's the difference between a good approach and a better one.
                 </p>
             </div>
 
@@ -150,7 +147,7 @@
                 <div class="bg-[#1a0033] text-white rounded-2xl p-8 my-12">
                     <h3 class="text-2xl font-bold mb-4">Bottom Line</h3>
                     <p class="text-gray-200 mb-6">
-                        The search for alpha, like the search for azoth, isn't about finding one perfect thing. It's about combining imperfect things into something better. It's about the humility to acknowledge you don't know everything, and the willingness to build portfolios that don't depend on perfect knowledge.
+                        Multi-factor investing beats single-factor investing. But dynamic multi-factor investing beats static multi-factor investing. AZOC doesn't just combine factors. It adapts their weights based on which factors have been working. It's the difference between combining signals and actually using them.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="../" class="bg-white hover:bg-gray-100 text-[#4a0080] px-6 py-3 rounded-lg font-medium transition-colors text-center">
@@ -173,7 +170,7 @@
                     <h3 class="text-lg font-semibold text-gray-900">Diamond & Diamond Research</h3>
                     <p class="text-gray-600 mb-2">Quantitative Research & Strategy</p>
                     <p class="text-gray-700">
-                        Research notes on the philosophy of alpha-seeking and why humility matters in portfolio construction.
+                        Research notes on dynamic signal weighting and regime-adaptive portfolio construction.
                     </p>
                 </div>
             </div>
@@ -198,18 +195,18 @@
                     </div>
                 </a>
 
-                <a href="dynamic-weighting.html" class="group">
+                <a href="single-factor-failure.html" class="group">
                     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow">
                         <h4 class="text-lg font-semibold text-gray-900 group-hover:text-[#4a0080] mb-2">
-                            Dynamic Weighting: How AZTH Adapts
+                            Why Single Factors Fail
                         </h4>
                         <p class="text-gray-600 text-sm mb-3">
-                            How the ensemble adapts to regime changes.
+                            Historical examples of factor droughts and timing risk.
                         </p>
                         <div class="flex items-center text-sm text-gray-500">
-                            <span>November 2025</span>
+                            <span>January 2026</span>
                             <span class="mx-2">&bull;</span>
-                            <span>8 min read</span>
+                            <span>7 min read</span>
                         </div>
                     </div>
                 </a>
@@ -224,12 +221,12 @@
                     <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                         <span class="text-[#4a0080] font-bold text-sm">A</span>
                     </div>
-                    <span class="text-xl font-bold">AZTH</span>
+                    <span class="text-xl font-bold">AZOC</span>
                 </div>
                 <p class="text-gray-300 mb-6">Diamond Azoth ETF | Diamond & Diamond</p>
                 <div class="flex justify-center space-x-6 text-sm text-gray-300">
                     <a href="../" class="hover:text-white transition-colors">Fund</a>
-                    <a href="../why-azth.html" class="hover:text-white transition-colors">Investment Case</a>
+                    <a href="../why-azoc.html" class="hover:text-white transition-colors">Investment Case</a>
                     <a href="../holdings.html" class="hover:text-white transition-colors">Holdings</a>
                     <a href="./" class="hover:text-white transition-colors">Blog</a>
                 </div>
