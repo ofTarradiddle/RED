@@ -153,6 +153,32 @@
             background: linear-gradient(135deg, #6B2540 0%, #9B3A5C 100%) !important;
             box-shadow: 0 4px 12px rgba(107, 37, 64, 0.4) !important;
         }
+        .etf-card-amber:hover {
+            border-color: #B8860B;
+            box-shadow: 0 8px 24px rgba(184, 134, 11, 0.25);
+            aspect-ratio: auto;
+        }
+        .etf-card-amber:hover .tagline-amber {
+            opacity: 1;
+            max-height: 3rem;
+            margin-top: 0.6rem;
+            padding-top: 0.5rem;
+        }
+        .tagline-amber {
+            border-top-color: #D4A843;
+            color: #8B6914;
+        }
+        .dif-amber {
+            color: #B8860B !important;
+            letter-spacing: 0.04em;
+        }
+        .dif-amber::after {
+            background: linear-gradient(90deg, #B8860B, transparent) !important;
+        }
+        .ticker-box-amber {
+            background: linear-gradient(135deg, #8B6914 0%, #B8860B 100%) !important;
+            box-shadow: 0 4px 12px rgba(139, 105, 20, 0.4) !important;
+        }
         .ticker-box {
             width: 80px;
             height: 80px;
@@ -194,9 +220,9 @@
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <!-- ETF Grid -->
-        <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
             <!-- REDI ETF Card -->
-            <a href="../etfs/redi/" class="etf-card">
+            <a href="../etfs/redi/" class="etf-card" style="width: 200px;">
                     <div class="flex flex-col items-center text-center">
                         <div class="ticker-box">REDI</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Innovation Factor ETF</h2>
@@ -204,7 +230,7 @@
                     </div>
             </a>
             <!-- DAM1 ETF Card -->
-            <a href="../etfs/dam1/" class="etf-card etf-card-dark">
+            <a href="../etfs/dam1/" class="etf-card etf-card-dark" style="width: 200px;">
                     <div class="flex flex-col items-center text-center">
                         <div class="ticker-box ticker-box-dark">DAM1</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond World's Largest 111 ETF</h2>
@@ -212,7 +238,7 @@
                     </div>
             </a>
             <!-- AZTH ETF Card -->
-            <a href="../etfs/azth/" class="etf-card etf-card-purple">
+            <a href="../etfs/azth/" class="etf-card etf-card-purple" style="width: 200px;">
                     <div class="flex flex-col items-center text-center">
                         <div class="ticker-box ticker-box-purple">AZTH</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Azoth ETF</h2>
@@ -220,11 +246,19 @@
                     </div>
             </a>
             <!-- MPD ETF Card -->
-            <a href="../etfs/mpd/" class="etf-card etf-card-rose">
+            <a href="../etfs/mpd/" class="etf-card etf-card-rose" style="width: 200px;">
                     <div class="flex flex-col items-center text-center">
                         <div class="ticker-box ticker-box-rose">MPD</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Quality Compounders ETF</h2>
                         <p class="tagline tagline-rose"><span class="dif dif-rose">Dr</span> Diamond <span class="dif dif-rose">Cr</span> Assets</p>
+                    </div>
+            </a>
+            <!-- MERI ETF Card -->
+            <a href="../etfs/meri/" class="etf-card etf-card-amber" style="width: 200px;">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="ticker-box ticker-box-amber">MERI</div>
+                        <h2 class="text-lg font-bold text-gray-900 mb-0">Merriment of Fundamental & Quant</h2>
+                        <p class="tagline tagline-amber">Eat, drink & be <span class="dif dif-amber">MERI</span></p>
                     </div>
             </a>
         </div>

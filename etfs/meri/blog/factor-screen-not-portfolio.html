@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Factor Screen Is Not the Portfolio | MERI Blog</title>
+    <meta name="description" content="How screening differs from factor investing. Using value, quality, and momentum as filters is fundamentally different from building a factor ETF.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #B8860B, #D4A843);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .fade-in { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="sticky top-0 z-50" style="background: #2D1F06; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+        <div class="max-w-4xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="../" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: #B8860B;">
+                            <span class="text-white font-bold text-sm">M</span>
+                        </div>
+                        <span class="text-xl font-bold gradient-text">MERI</span>
+                        <span class="hidden sm:inline text-sm text-gray-400">Merriment of Fundamental & Quant</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="../" class="text-gray-300 hover:text-white transition-colors">Fund</a>
+                    <a href="../why-meri.html" class="text-gray-300 hover:text-white transition-colors">Investment Case</a>
+                    <a href="../holdings.html" class="text-gray-300 hover:text-white transition-colors">Holdings</a>
+                    <a href="./" class="text-white font-medium" style="color: #D4A843;">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <article class="max-w-4xl mx-auto px-4 py-12">
+        <div class="fade-in">
+            <div class="mb-8">
+                <div class="flex items-center space-x-4 mb-4">
+                    <a href="./" class="text-sm flex items-center gap-1 hover:underline" style="color: #B8860B;">
+                        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                        Back to Blog
+                    </a>
+                    <span class="text-gray-400">|</span>
+                    <a href="../" class="text-sm flex items-center gap-1 hover:underline" style="color: #B8860B;">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        Fund
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="px-3 py-1 text-white text-sm font-medium rounded-full" style="background: #B8860B;">Strategy</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    The Factor Screen Is Not the Portfolio
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    A factor screen tells you which pond to fish in. It doesn't tell you which fish to catch. Using value, quality, and momentum as filters is fundamentally different from building a value ETF or a momentum ETF.
+                </p>
+                <div class="flex items-center space-x-6 text-sm text-gray-500">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        <span>February 2026</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-12">
+            <div class="relative h-48 md:h-64 rounded-2xl overflow-hidden flex items-center justify-center" style="background: linear-gradient(135deg, #2D1F06 0%, #4A3510 100%);">
+                <div class="text-center">
+                    <div class="text-6xl font-black mb-2" style="color: rgba(255,255,255,0.15);">Filter ≠ Process</div>
+                    <p class="text-gray-400 text-lg">Screening vs. factor investing</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+            <div class="fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Which Pond to Fish In</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    A factor screen tells you which pond to fish in. It doesn't tell you which fish to catch. Using value, quality, and momentum as filters is fundamentally different from building a value ETF or a momentum ETF. We're using factors as inputs to a process, not as the process itself. The distinction matters for drawdown management and regime-change resilience.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Consider a pure value ETF. It tilts heavily toward cheap stocks. When value works, it works. When value doesn't — and value has had long stretches of underperformance — you're fully exposed. The portfolio is the factor. There's no diversification across factor regimes. A quality ETF has the same problem: when quality gets expensive or momentum reverses, the entire portfolio moves in lockstep.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    MERI uses value, quality, and momentum as a combined screen. We're not betting on any single factor. We're saying: show us stocks that score well on all three. That's a much smaller universe. It's also a universe that has historically been more resilient. When value struggles, quality and momentum can offset. When momentum reverses, value and quality provide a floor. The factors work together as a filter, not as the portfolio's identity.
+                </p>
+            </div>
+
+            <div>
+                <div class="p-6 my-8 rounded-r-lg border-l-4" style="background: #fef9e7; border-color: #B8860B;">
+                    <div class="flex items-start">
+                        <i data-lucide="filter" class="w-6 h-6 mt-1 mr-3 flex-shrink-0" style="color: #8B6914;"></i>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">Inputs, Not Outputs</h3>
+                            <p class="text-gray-800">
+                                The factor screen narrows the universe. Fundamental review and conviction weighting determine what actually goes in the portfolio and at what size. Factors are the starting point — they're not the finish line.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Regime-Change Resilience</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The distinction matters for drawdown management. A single-factor portfolio can get crushed when that factor goes out of favor. A multi-factor screen that requires stocks to pass on value, quality, and momentum simultaneously tends to exclude the most extreme factor bets. You're not loading up on the cheapest-of-the-cheap value traps. You're not chasing the purest momentum names that have already run. You're in the intersection — stocks that have some of each.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    That intersection is smaller. It's also, historically, more stable. The factor screen is not the portfolio — it's the first gate. What happens after the screen — fundamental review, conviction weighting, risk management — is where the real portfolio construction begins. Get the distinction right, and you build something that can survive regime changes. Confuse the screen with the strategy, and you're just another factor ETF with a different label.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    The bottom line: we use factors as inputs. The portfolio is the output of a process that includes factors, fundamentals, and conviction. That's the difference.
+                </p>
+            </div>
+
+            <div>
+                <div class="rounded-2xl p-8 my-12 text-white" style="background: #2D1F06;">
+                    <h3 class="text-2xl font-bold mb-4">Bottom Line</h3>
+                    <p class="mb-6" style="color: #D4A843;">
+                        A factor screen tells you which pond to fish in. It doesn't tell you which fish to catch. Using value, quality, and momentum as filters is fundamentally different from building a factor ETF. We're using factors as inputs to a process, not as the process itself.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="../" class="px-6 py-3 rounded-lg font-medium transition-colors text-center hover:opacity-90" style="background: #B8860B; color: white;">
+                            View Fund Details
+                        </a>
+                        <a href="../why-meri.html" class="border px-6 py-3 rounded-lg font-medium transition-colors text-center hover:bg-white/10" style="border-color: #B8860B; color: white;">
+                            Read the Investment Case
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold text-gray-900 mb-8">Related</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="quants-who-read.html" class="group">
+                    <div class="rounded-xl shadow-sm border p-6 hover:shadow-lg transition-shadow" style="border-color: rgba(184, 134, 11, 0.3);">
+                        <h4 class="text-lg font-semibold text-gray-900 group-hover:text-gray-600 mb-2">
+                            Quants Who Read 10-Ks
+                        </h4>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Why the best systematic investors still do fundamental homework.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span>February 2026</span>
+                            <span class="mx-2">&bull;</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </a>
+                <a href="conviction-vs-cap-weight.html" class="group">
+                    <div class="rounded-xl shadow-sm border p-6 hover:shadow-lg transition-shadow" style="border-color: rgba(184, 134, 11, 0.3);">
+                        <h4 class="text-lg font-semibold text-gray-900 group-hover:text-gray-600 mb-2">
+                            Conviction Weighting vs. Market Cap Weighting
+                        </h4>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Why letting the market decide your weights is lazy.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span>February 2026</span>
+                            <span class="mx-2">&bull;</span>
+                            <span>8 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="text-gray-300 py-12 mt-16" style="background: #2D1F06; border-top: 1px solid rgba(184, 134, 11, 0.3);">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background: #B8860B;">
+                        <span class="text-white font-bold text-sm">M</span>
+                    </div>
+                    <span class="text-xl font-bold" style="color: #D4A843;">MERI</span>
+                </div>
+                <p class="mb-6" style="color: #8B6914;">Merriment of Fundamental & Quant | Diamond Asset Management</p>
+                <div class="flex justify-center space-x-6 text-sm">
+                    <a href="../" class="hover:text-white transition-colors">Fund</a>
+                    <a href="../why-meri.html" class="hover:text-white transition-colors">Investment Case</a>
+                    <a href="../holdings.html" class="hover:text-white transition-colors">Holdings</a>
+                    <a href="./" class="hover:text-white transition-colors">Blog</a>
+                </div>
+                <p class="text-sm mt-6" style="color: #8B6914;">&copy; <span class="current-year"></span> Diamond Asset Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/site-navigation-disclaimer.js"></script>
+    <script>lucide.createIcons();</script>
+    <script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Investment Case for MERI - Merriment of Fundamental & Quant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #2D1F06 0%, #4A3510 50%, #8B6914 100%);
+        }
+        .accent-amber { color: #B8860B; }
+        .accent-amber-light { color: #D4A843; }
+        .bg-accent-amber { background-color: #B8860B; }
+        .bg-accent-amber-light { background-color: #D4A843; }
+        .border-accent-amber { border-color: #B8860B; }
+        .dramatic-reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .dramatic-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="sticky-banner-wrapper" style="position: sticky; top: 0; z-index: 1000; width: 100%;">
+        <header class="text-white py-3 px-4 sm:px-6 lg:px-8" style="background: #2D1F06; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="text-2xl font-bold accent-amber" style="color: #B8860B;">MERI</div>
+                    <div class="hidden sm:block">
+                        <div class="text-sm font-semibold">Merriment</div>
+                        <div class="text-xs" style="color: #D4A843;">of Fundamental & Quant</div>
+                    </div>
+                </div>
+                <a href="mailto:info@diamondassetmgmt.com" class="text-sm hover:text-white transition-colors" style="color: #D4A843;">
+                    info@diamondassetmgmt.com
+                </a>
+            </div>
+        </header>
+        <nav class="py-3 px-4 sm:px-6 lg:px-8" style="background: #4A3510; border-bottom: 1px solid rgba(184, 134, 11, 0.3);">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                    <a href="index.html#performance" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Performance</a>
+                    <a href="holdings.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Holdings</a>
+                    <a href="why-meri.html" class="text-white font-semibold px-3 py-2 text-sm border-b-2 transition-colors" style="border-color: #B8860B;">Investment Case</a>
+                    <a href="blog/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Blog</a>
+                    <a href="../../" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">DAM</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero-bg min-h-[70vh] flex items-center justify-center relative">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <div class="text-8xl md:text-[12rem] font-black leading-none mb-4" style="color: rgba(255,255,255,0.08);">55</div>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 -mt-16 md:-mt-24">The Investment Case for MERI</h1>
+            <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed" style="color: #D4A843;">
+                Why neither quant nor fundamental alone is enough — and why 55 basis points buys you the marriage of both.
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 1: The False Dichotomy -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="dramatic-reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-8">The False Dichotomy</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The investment industry pretends you have to choose: either you're a quant or you're a fundamental investor. Quants think fundamental analysts are storytellers making post-hoc rationalizations. Fundamental analysts think quants are data miners without insight. They're both partially right about the other side.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The truth is that every good fundamental investor uses quantitative inputs (they screen, they rank, they build models), and every good quant benefits from understanding the businesses behind the tickers. MERI starts from the position that this separation is artificial and commercially motivated, not intellectually honest.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: What the Quant Side Does -->
+    <section class="py-20 text-white" style="background: linear-gradient(135deg, #2D1F06 0%, #4A3510 100%);">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="dramatic-reveal">
+                <h2 class="text-4xl font-bold mb-8">What the Quant Side Does</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    The quantitative screen serves one purpose: remove the 90% of the universe that isn't worth fundamental attention. It ranks on composite factor scores — value (cheap relative to intrinsic worth), quality (high and stable returns on capital), and momentum (the market is beginning to agree).
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    This isn't factor investing in the pure sense; it's using factors as a filter. The screen doesn't make the final call. It narrows thousands of candidates to roughly 150 that deserve human attention.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: What the Fundamental Side Does -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="dramatic-reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-8">What the Fundamental Side Does</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Fundamental analysis answers questions the numbers can't: Is this cheap because it's broken, or because the market hasn't figured it out yet? Is management allocating capital for shareholders or for empire? Are the competitive dynamics improving or eroding? Is the growth real or accounting fiction?
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The fundamental layer promotes ~45 names from the quant shortlist into the portfolio and assigns conviction-weighted positions. No market-cap weighting. If we think a mid-cap European industrial compounder is a better bet than a US mega-cap, the portfolio reflects that.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: The Rebalancing Discipline -->
+    <section class="py-20" style="background: #faf8f5;">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="dramatic-reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-8">The Rebalancing Discipline</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Quarterly rebalancing forces the portfolio to stay honest. Quant scores update, fundamental views get challenged by new data. Positions that no longer pass both filters get cut. No "permanent holdings," no sacred cows.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    The process is designed to be unsentimental. If the quant screen degrades on a name and the fundamental case weakens, it's gone — regardless of how well the narrative used to sound.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: What You're Paying For -->
+    <section class="py-20 text-white" style="background: linear-gradient(135deg, #2D1F06 0%, #4A3510 50%, #8B6914 100%);">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="dramatic-reveal">
+                <h2 class="text-4xl font-bold mb-8">What You're Paying For</h2>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    55 basis points buys a genuine two-stage process across a global universe. Not a quant fund with a fundamental marketing story. Not a fundamental fund that runs a backtest after the fact. A real blend.
+                </p>
+                <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                    Forty-five names, conviction-weighted, quarterly disciplined. The merriment is real.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Ready to Look Deeper?</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="index.html" class="text-white px-8 py-3 rounded-lg font-medium transition-colors hover:opacity-90" style="background: #B8860B;">
+                    Fund Details & Performance
+                </a>
+                <a href="holdings.html" class="bg-white border-2 text-gray-900 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors" style="border-color: #B8860B;">
+                    View All 45 Holdings
+                </a>
+                <a href="blog/" class="bg-white border border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-colors">
+                    Read the Research
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-gray-300 py-8 px-4 sm:px-6 lg:px-8" style="background: #2D1F06; border-top: 1px solid rgba(184, 134, 11, 0.3);">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-semibold mb-4" style="color: #B8860B;">Merriment of Fundamental & Quant ETF</h3>
+                    <p class="text-sm">Forty-five names. Quant filter, fundamental conviction. 55 bps.</p>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4" style="color: #B8860B;">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="holdings.html" class="hover:text-white transition-colors">Holdings</a></li>
+                        <li><a href="blog/" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4" style="color: #B8860B;">Contact</h3>
+                    <p class="text-sm">Email: info@diamondassetmgmt.com</p>
+                </div>
+            </div>
+            <div class="border-t pt-8 text-sm text-center" style="border-color: rgba(184, 134, 11, 0.3);">
+                <p>&copy; <span class="current-year"></span> Diamond Asset Management. All rights reserved.</p>
+                <p class="mt-4 text-xs max-w-3xl mx-auto" style="color: #4A3510;">
+                    This material is for informational purposes only and does not constitute an offer to sell or a solicitation to buy any security. Past performance is not indicative of future results. Investing involves risk, including the possible loss of principal.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/site-navigation-disclaimer.js"></script>
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.dramatic-reveal').forEach(el => observer.observe(el));
+    </script>
+    <script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
+</body>
+</html>

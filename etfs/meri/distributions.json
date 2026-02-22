@@ -1,0 +1,46 @@
+{
+  "etf_symbol": "MERI",
+  "last_updated": "2026-01-02",
+  "distributions": [
+    {
+      "ex_date": "2025-12-23",
+      "record_date": "2025-12-23",
+      "payable_date": "2025-12-24",
+      "income": 0.18,
+      "short_term_capital_gain": 0.04,
+      "long_term_capital_gain": 0.12,
+      "total_capital_gain": 0.16,
+      "total_distribution": 0.34
+    },
+    {
+      "ex_date": "2025-09-29",
+      "record_date": "2025-09-29",
+      "payable_date": "2025-09-30",
+      "income": 0.16,
+      "short_term_capital_gain": 0.03,
+      "long_term_capital_gain": 0.10,
+      "total_capital_gain": 0.13,
+      "total_distribution": 0.29
+    },
+    {
+      "ex_date": "2025-06-27",
+      "record_date": "2025-06-27",
+      "payable_date": "2025-06-30",
+      "income": 0.15,
+      "short_term_capital_gain": 0.02,
+      "long_term_capital_gain": 0.09,
+      "total_capital_gain": 0.11,
+      "total_distribution": 0.26
+    },
+    {
+      "ex_date": "2025-03-28",
+      "record_date": "2025-03-28",
+      "payable_date": "2025-03-31",
+      "income": 0.14,
+      "short_term_capital_gain": 0.03,
+      "long_term_capital_gain": 0.08,
+      "total_capital_gain": 0.11,
+      "total_distribution": 0.25
+    }
+  ]
+}

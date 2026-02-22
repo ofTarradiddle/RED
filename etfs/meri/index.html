@@ -1,0 +1,2439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>MERI ETF | Merriment of Fundamental & Quant ETF | Diamond Asset Management</title>
+    <meta name="description" content="Merriment of Fundamental & Quant ETF (MERI) - Combining quantitative factor screening with fundamental analysis to build a concentrated portfolio of 45 high-conviction global equities.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .sticky-banner-wrapper {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        .cambria-header {
+            background: #2D1F06;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .cambria-nav {
+            background: #3D2C0E;
+            border-bottom: 1px solid #5C4418;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+        .cambria-section {
+            background: #faf8f5;
+            border-top: 1px solid #e8e0d0;
+            border-bottom: 1px solid #e8e0d0;
+        }
+        .cambria-card {
+            background: white;
+            border: 1px solid #e8e0d0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(17, 17, 17, 0.05);
+        }
+        .cambria-button {
+            background: #B8860B;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cambria-button:hover {
+            background: #8B6914;
+        }
+        .cambria-button-secondary {
+            background: white;
+            color: #B8860B;
+            border: 1px solid #B8860B;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .cambria-button-secondary:hover {
+            background: #fffbeb;
+        }
+
+        @media (max-width: 768px) {
+            .cambria-button, .cambria-button-secondary {
+                min-height: 44px;
+                padding: 0.75rem 1rem;
+            }
+            .chart-container {
+                overflow-x: auto;
+            }
+            .section-padding {
+                padding: 2rem 1rem;
+            }
+            .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .mobile-menu-link {
+                padding: 1rem;
+                border-bottom: 1px solid #5C4418;
+            }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .cambria-button, .cambria-button-secondary {
+                transform: none;
+            }
+            .cambria-button:active, .cambria-button-secondary:active {
+                transform: scale(0.98);
+            }
+        }
+        .cambria-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .cambria-table th {
+            background: #faf8f5;
+            border-bottom: 1px solid #e8e0d0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .cambria-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0d0;
+        }
+        .cambria-table tr:hover {
+            background: #faf8f5;
+        }
+        .cambria-footer {
+            background: #2D1F06;
+            color: white;
+        }
+        .cambria-disclosure {
+            background: #f5f5f5;
+            border: 1px solid #d6d6d6;
+            border-left: 4px solid #B8860B;
+            padding: 16px;
+            margin: 16px 0;
+        }
+        .fund-details-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .fund-details-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e8e0d0;
+        }
+        .fund-details-table td:first-child {
+            font-weight: 600;
+            color: #495057;
+            width: 40%;
+        }
+        .fund-details-table td:last-child {
+            color: #111111;
+            font-weight: 500;
+        }
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .price-table th {
+            background: #faf8f5;
+            border-bottom: 1px solid #e8e0d0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .price-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0d0;
+        }
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        .performance-table th {
+            background: #faf8f5;
+            border-bottom: 1px solid #e8e0d0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .performance-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0d0;
+        }
+        .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .documents-table th {
+            background: #faf8f5;
+            border-bottom: 1px solid #e8e0d0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #495057;
+        }
+        .documents-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e0d0;
+        }
+        .documents-table a {
+            color: #B8860B;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .documents-table a:hover {
+            text-decoration: underline;
+        }
+        .company-logo {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+        .company-subtitle {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #cbd5e1;
+            margin-top: 2px;
+            letter-spacing: -0.2px;
+        }
+        .product-name {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-top: 4px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .hero-subtitle {
+            color: #111111;
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8B6914 0%, #B8860B 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800" style="margin: 0; padding: 0;">
+    <!-- Sticky Banner Wrapper -->
+    <div class="sticky-banner-wrapper" style="position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%;">
+        <!-- Header -->
+        <div class="cambria-header py-2">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center text-sm">
+                    <div class="flex items-center space-x-6">
+                        <span>Email: info@ofnectar.com</span>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="cambria-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-4">
+                    <div class="logo-placeholder" aria-label="MERI ETF Logo">MERI</div>
+                    <div class="flex flex-col">
+                        <div class="company-logo">Diamond</div>
+                        <div class="product-name">Merriment of Fundamental &amp; Quant ETF</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Fund Details</a>
+                    <a href="#performance" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Performance</a>
+                    <a href="#holdings" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Holdings</a>
+                    <a href="#documents" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Documents</a>
+                    <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">About</a>
+                    <a href="../../" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium border-l border-gray-600 pl-6 ml-2">DAM</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex items-center space-x-4">
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="md:hidden hidden" style="background: #4A3510; border-top: 1px solid #5C4418;">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#overview" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Fund Details</a>
+                <a href="#performance" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Performance</a>
+                <a href="#holdings" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Holdings</a>
+                <a href="#documents" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Documents</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">About</a>
+                <a href="../../" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium border-t border-gray-700 mt-2 pt-3">DAM</a>
+            </div>
+        </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-8 bg-gradient-to-br from-amber-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-left">
+                <div class="max-w-4xl">
+                    <div class="text-6xl md:text-8xl font-bold text-gray-900 mb-2 tracking-tight">
+                        MERI
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+                        Merriment of Fundamental &amp; Quant ETF
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        Here's an uncomfortable truth most of the industry ignores: fundamental analysis alone is storytelling with spreadsheets, and quant alone is pattern-matching without understanding. The best investors have always done both — they just won't admit it. Fundamental analysts sneak regressions into their 'qualitative' process. Quants read 10-Ks when their models break. MERI drops the pretense. We run a systematic screen for value, quality, and momentum across global equities, then apply fundamental judgment on capital allocation, competitive dynamics, and management credibility. Forty-five names. The merriment is in the compounding. 55 basis points.
+                    </p>
+
+                    <!-- Call to Action Buttons -->
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <a href="#performance" class="cambria-button">
+                            <i data-lucide="trending-up" class="h-5 w-5 mr-2"></i>
+                            View Performance
+                        </a>
+                        <a href="#holdings" class="cambria-button-secondary">
+                            <i data-lucide="briefcase" class="h-5 w-5 mr-2"></i>
+                            View Holdings
+                        </a>
+                    </div>
+
+                    <!-- Key Metrics Grid -->
+                    <div class="grid grid-cols-3 gap-4 mb-6">
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-gray-900" id="hero-expense-ratio">55 bps</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Expense Ratio</div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-gray-900" id="hero-holdings-count">45</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">Holdings</div>
+                        </div>
+                        <div class="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                            <div class="text-2xl font-bold text-green-600" id="hero-ytd-return">+18.5%</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wide">YTD Return</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRITICAL REGULATORY COMPLIANCE DISCLOSURES -->
+    <section class="py-6 bg-red-50 border-b-4 border-gray-600">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">IMPORTANT REGULATORY DISCLOSURES</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white p-3 rounded border border-gray-200">
+                        <strong class="text-gray-900">SEC Registered Investment Company</strong><br>
+                        <span class="text-gray-700">File No. 811-XXXXX</span>
+                    </div>
+                    <div class="bg-white p-3 rounded border border-gray-200">
+                        <strong class="text-gray-900">Exchange Traded Fund (ETF)</strong><br>
+                        <span class="text-gray-700">Actively Managed</span>
+                    </div>
+                    <div class="bg-white p-3 rounded border border-gray-200">
+                        <strong class="text-gray-900">Not FDIC Insured</strong><br>
+                        <span class="text-gray-700">No Bank Guarantee • May Lose Value</span>
+                    </div>
+                </div>
+                <div class="mt-4 text-xs text-gray-900">
+                    <strong>MERI ETF is a registered investment company under the Investment Company Act of 1940.</strong>
+                    DAM is registered with the SEC as an investment adviser.
+                    This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Fund Details Bar -->
+    <section class="py-4 text-white" style="background: linear-gradient(to right, #3D2C0E, #2D1F06);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-center">
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">MERI</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Ticker</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">55 bps</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Expense Ratio</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold">45</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Holdings</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold" id="quick-nav">$25.45</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">NAV</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold" id="quick-price">$25.42</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">Price</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3">
+                    <div class="text-lg font-bold text-green-400" id="quick-ytd">+5.1%</div>
+                    <div class="text-xs text-gray-300 uppercase tracking-wide">YTD</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Links Section -->
+    <section class="py-4 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-sm font-medium text-gray-700 mr-2">Quick Access:</span>
+                <a href="document-placeholder.html?doc=fact-sheet" class="flex items-center px-3 py-1.5 bg-amber-50 hover:bg-amber-100 rounded-md transition-colors group border border-gray-200">
+                    <i data-lucide="file-text" class="h-3 w-3 text-gray-800 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-gray-900">Fact Sheet</span>
+                </a>
+                <a href="document-placeholder.html?doc=summary-prospectus" class="flex items-center px-3 py-1.5 bg-blue-50 hover:bg-blue-100 rounded-md transition-colors group border border-blue-200">
+                    <i data-lucide="file-text" class="h-3 w-3 text-blue-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-blue-800">Summary Prospectus</span>
+                </a>
+                <a href="document-placeholder.html?doc=sai" class="flex items-center px-3 py-1.5 bg-green-50 hover:bg-green-100 rounded-md transition-colors group border border-green-200">
+                    <i data-lucide="file-text" class="h-3 w-3 text-green-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-green-800">SAI</span>
+                </a>
+                <a href="why-meri.html" class="flex items-center px-3 py-1.5 bg-orange-50 hover:bg-orange-100 rounded-md transition-colors group border border-orange-200">
+                    <i data-lucide="trending-up" class="h-3 w-3 text-orange-600 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-orange-800">Investment Case</span>
+                </a>
+                <a href="blog/" class="flex items-center px-3 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors group border border-gray-300">
+                    <i data-lucide="book-open" class="h-3 w-3 text-gray-700 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-900 group-hover:text-gray-900">Blog</span>
+                </a>
+                <a href="document-placeholder.html?doc=statutory-prospectus" class="flex items-center px-3 py-1.5 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors group border border-gray-200">
+                    <i data-lucide="file-text" class="h-3 w-3 text-gray-500 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-600 group-hover:text-gray-800">Prospectus</span>
+                </a>
+                <a href="document-placeholder.html?doc=semi-annual-financials" class="flex items-center px-3 py-1.5 bg-gray-50 hover:bg-gray-100 rounded-md transition-colors group border border-gray-200">
+                    <i data-lucide="file-text" class="h-3 w-3 text-gray-500 mr-1.5"></i>
+                    <span class="text-xs font-medium text-gray-600 group-hover:text-gray-800">Financials</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fund Links and Quick Actions -->
+    <section class="py-4 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap gap-3 items-center">
+                <a href="#overview" class="text-sm text-gray-900 hover:underline font-medium">Fund Details</a>
+                <a href="#performance" class="text-sm text-gray-900 hover:underline font-medium">Performance</a>
+                <a href="#holdings" class="text-sm text-gray-900 hover:underline font-medium">Holdings</a>
+                <a href="#documents" class="text-sm text-gray-900 hover:underline font-medium">Documents</a>
+                <a href="why-meri.html" class="text-sm text-gray-900 hover:underline font-medium">Investment Case</a>
+                <a href="blog/" class="text-sm text-gray-900 hover:underline font-medium">Blog</a>
+                <a href="#about" class="text-sm text-gray-900 hover:underline font-medium">About</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <section class="py-8 bg-gradient-to-br from-amber-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left Column: Fund Details & Investment Objective -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-900">Fund Details</h3>
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                        </div>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Fund Inception:</span>
+                                <span class="font-semibold text-gray-900">2024</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Ticker:</span>
+                                <span class="font-semibold text-gray-900">MERI</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Net Asset Value (NAV):</span>
+                                <span class="font-semibold text-gray-900" id="fund-nav">$25.45</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Number of Holdings:</span>
+                                <span class="font-semibold text-gray-900" id="fund-holdings">45</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Primary Exchange:</span>
+                                <span class="font-semibold text-gray-900">CBOE BZX</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Fund Type:</span>
+                                <span class="font-semibold text-gray-900">Actively Managed ETF</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Benchmark:</span>
+                                <span class="font-semibold text-gray-900">Morningstar US Market Index</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Total Expense Ratio:</span>
+                                <span class="font-semibold text-gray-900">0.55% (55 bps)</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2 border-b border-gray-100">
+                                <span class="text-gray-600">Rebalancing:</span>
+                                <span class="font-semibold text-gray-900">Quarterly</span>
+                            </div>
+                            <div class="flex justify-between items-center py-2">
+                                <span class="text-gray-600">Data as of:</span>
+                                <span class="font-semibold text-gray-900" id="fund-details-date">December 19, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Investment Objective</h3>
+                        <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+                            Combine quantitative factor screening with fundamental analysis to build a concentrated portfolio of high-conviction global equities exhibiting favorable value, quality, and momentum characteristics.
+                        </p>
+                        <p class="text-sm text-gray-700 mb-4 leading-relaxed">
+                            The fund uses a two-stage process: a systematic quantitative screen narrows a global universe to roughly 150 candidates based on composite factor scores, then fundamental analysis — focused on business quality, capital allocation discipline, and management credibility — selects the final 45 holdings. Weights reflect conviction, not market cap.
+                        </p>
+                        <div class="border-l-4 p-4 rounded-r-lg" style="background: linear-gradient(to right, #fffbeb, #fef3c7); border-color: #B8860B;">
+                            <h4 class="text-sm font-semibold text-gray-900 mb-2">Why This Exists</h4>
+                            <p class="text-sm text-gray-700">
+                                The quant-vs-fundamental debate is a false dichotomy. Pure quant strategies suffer in regime changes because they don't understand why patterns exist. Pure fundamental strategies suffer from narrative bias and overconfidence. The intersection is where the edge lives. 55 bps to own it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Column: The Marriage of Quant & Fundamental -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">The Marriage of Quant &amp; Fundamental</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-amber-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3 text-center">The Quant Side</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <div class="font-bold mr-2 text-sm" style="color: #B8860B;">◆</div>
+                                        <p class="text-sm text-gray-700">Systematic factor screen: value, quality, momentum</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="font-bold mr-2 text-sm" style="color: #B8860B;">◆</div>
+                                        <p class="text-sm text-gray-700">Removes emotional bias from candidate selection</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="font-bold mr-2 text-sm" style="color: #B8860B;">◆</div>
+                                        <p class="text-sm text-gray-700">Disciplined rebalancing prevents narrative drift</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-lg p-4" style="background: #2D1F06;">
+                                <h4 class="text-sm font-semibold text-white mb-3 text-center">The Fundamental Side</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <div class="font-bold mr-2 text-sm" style="color: #D4A843;">◆</div>
+                                        <p class="text-sm text-gray-300">Business quality assessment beyond what numbers capture</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="font-bold mr-2 text-sm" style="color: #D4A843;">◆</div>
+                                        <p class="text-sm text-gray-300">Capital allocation and management credibility review</p>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="font-bold mr-2 text-sm" style="color: #D4A843;">◆</div>
+                                        <p class="text-sm text-gray-300">Competitive dynamics that models can't fully quantify</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Fund Prices & Chart -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Prices</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">NAV</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Net Asset Value:</span>
+                                        <span class="font-semibold text-gray-900" id="nav-price">$25.45</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Daily Change:</span>
+                                        <span class="font-semibold text-green-600" id="nav-change">+0.12%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="text-sm font-semibold text-gray-900 mb-3">Price</h4>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Closing Price:</span>
+                                        <span class="font-semibold text-gray-900" id="etf-price">$25.42</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Daily Change:</span>
+                                        <span class="font-semibold text-green-600" id="etf-change">+0.08%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Premium/Discount</h3>
+                        <div class="h-64">
+                            <canvas id="premiumChart"></canvas>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <div class="text-2xl font-bold text-green-600 mb-2" id="premium-value">+0.14%</div>
+                            <p class="text-sm text-gray-600 font-medium">Current Premium/Discount</p>
+                            <p class="text-xs text-gray-500 mt-1">MERI ETF vs NAV</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">About Diamond Asset Management</h2>
+                <p class="text-gray-600 max-w-3xl mx-auto">
+                    DAM is a research-driven investment management firm focused on systematic factor investing.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Our Mission</h3>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        DAM is dedicated to developing innovative investment strategies that identify and capture
+                        systematic risk factors in equity markets. Our research-driven approach combines academic
+                        rigor with practical implementation to deliver superior risk-adjusted returns for our clients.
+                    </p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        We believe that the intersection of quantitative discipline and fundamental judgment produces
+                        better investment outcomes than either approach alone. MERI embodies this philosophy —
+                        systematic screening for factor exposure, followed by human judgment on what the numbers can't capture.
+                    </p>
+
+                    <div class="cambria-disclosure">
+                        <h4 class="font-semibold text-gray-900 mb-2">Investment Philosophy</h4>
+                        <p class="text-sm text-gray-700">
+                            We focus on the marriage of quantitative factor screening and fundamental analysis,
+                            combining the best of both disciplines to build concentrated, high-conviction portfolios.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cambria-card p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Company Information</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Founded</span>
+                            <span class="font-semibold text-gray-900">2024</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Headquarters</span>
+                            <span class="font-semibold text-gray-900">New York, NY</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-700">Regulatory Status</span>
+                            <span class="font-semibold text-gray-900">SEC Registered</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-5 pt-4 border-t border-gray-200">
+                        <h4 class="font-semibold text-gray-900 mb-3">Contact Information</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i data-lucide="map-pin" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>123 Main Street, Suite 1000, New York, NY 10001</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="phone" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>(555) 123-4567</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i data-lucide="mail" class="h-4 w-4 mr-2 text-gray-500"></i>
+                                <span>info@dbe.com</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="cambria-section py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Performance</h2>
+
+            <!-- Performance Comparison Chart -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Performance Comparison</h3>
+                    <div class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Interactive Chart</div>
+                </div>
+                <div class="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
+                    <button id="1m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">1M</button>
+                    <button id="3m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">3M</button>
+                    <button id="6m-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">6M</button>
+                    <button id="1y-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[60px]">1Y</button>
+                    <button id="si-btn" class="cambria-button-secondary text-xs px-3 py-2 min-w-[120px]">Since Inception</button>
+                    <button id="ytd-btn" class="cambria-button text-xs px-3 py-2 min-w-[60px]">YTD</button>
+                </div>
+                <div class="relative" style="height: 300px;">
+                    <canvas id="performanceChart" height="300"></canvas>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-xl sm:text-2xl font-bold text-gray-900" id="red-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">MERI ETF</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-xl sm:text-2xl font-bold text-blue-800" id="nav-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">NAV</div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 text-center">
+                        <div class="text-xl sm:text-2xl font-bold text-gray-800" id="morningstar-performance">--</div>
+                        <div class="text-xs sm:text-sm text-gray-600">Morningstar US Market Index</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- REQUIRED: Annual Returns Bar Chart (SEC Regulation) -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Total Returns by Period</h3>
+                    <div class="text-xs text-gray-500 bg-red-100 px-2 py-1 rounded text-gray-900">Required Disclosure</div>
+                </div>
+                <div class="relative" style="height: 300px;">
+                    <canvas id="annualReturnsChart" height="300"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-gray-600">
+                        <strong>Note:</strong> Sales loads and account fees are not reflected in the bar chart. If these amounts were reflected, returns would be less than those shown.
+                    </p>
+                </div>
+            </div>
+
+            <!-- REQUIRED: Average Annual Returns Table (SEC Regulation) -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Average Annual Total Returns</h3>
+                    <div class="text-xs text-gray-500 bg-red-100 px-2 py-1 rounded text-gray-900">Required Disclosure</div>
+                </div>
+                <table class="w-full text-sm">
+                    <thead>
+                        <tr class="border-b border-gray-200">
+                            <th class="text-left py-3 px-4 font-semibold text-gray-900">Period</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">MERI ETF</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">NAV</th>
+                            <th class="text-right py-3 px-4 font-semibold text-gray-900">Morningstar US Market Index</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">1 Year</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-1y-red">+18.5%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600" id="annual-1y-nav">+18.6%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-1y-morningstar">+21.1%</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">5 Years</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">10 Years</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                            <td class="py-3 px-4 text-right font-semibold text-gray-500">--</td>
+                        </tr>
+                        <tr class="border-b border-gray-200">
+                            <td class="py-3 px-4 font-medium text-gray-900">Since Inception</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-si-red">+18.5%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-blue-600" id="annual-si-nav">+18.6%</td>
+                            <td class="py-3 px-4 text-right font-semibold text-green-600" id="annual-si-morningstar">+21.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-4 text-xs text-gray-600">
+                    <p><strong>Note:</strong> The Fund's inception date is 2024. 5-year and 10-year returns will be available once the Fund has sufficient history.</p>
+                </div>
+            </div>
+
+            <!-- REQUIRED: Risk/Return Narrative (SEC Regulation) -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Risk/Return Summary</h3>
+                    <div class="text-xs text-gray-500 bg-red-100 px-2 py-1 rounded text-gray-900">Required Disclosure</div>
+                </div>
+                <div class="space-y-4 text-sm text-gray-700">
+                    <p>
+                        The bar chart and table above provide some indication of the risks of investing in the Fund by showing changes in the Fund's performance from year to year and by showing how the Fund's average annual returns for 1, 5, and 10 years compare with those of a broad measure of market performance (Morningstar US Market Index).
+                    </p>
+                    <p>
+                        The information shows how the Fund's performance compares with the returns of an index of funds with similar investment objectives. The Fund's performance reflects the deduction of Fund expenses, including management fees, but does not reflect the deduction of taxes that a shareholder would pay on Fund distributions or the redemption of Fund shares.
+                    </p>
+                    <p>
+                        The NAV (Net Asset Value) represents the Fund's underlying portfolio performance before trading costs, while the MERI ETF returns reflect the actual market price performance that investors experience. The difference between NAV and market price returns demonstrates the impact of market trading dynamics and premium/discount fluctuations.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-r-lg">
+                        <p class="text-sm text-gray-800">
+                            <strong>Benchmark Attribution:</strong> Morningstar US Market Index data is provided through Morningstar's Open Index Project, which offers free access to high-quality market indices for research and comparison purposes.
+                        </p>
+                    </div>
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-r-lg">
+                        <p class="text-sm text-gray-800 font-semibold">
+                            <strong>Important:</strong> How the Fund has performed in the past is not necessarily an indication of how the Fund will perform in the future.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Distributions Section -->
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-lg font-semibold text-gray-900">Distributions</h3>
+                    <div class="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded">Updated Daily</div>
+                </div>
+                <div class="mb-4 text-sm text-gray-600">
+                    <p>Distributions are calculated from dividend income received by the Fund's underlying holdings, net of expenses. Only dividends that went ex-dividend at least 2 business days before the Fund's ex-dividend date are included.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm" id="distributions-table">
+                        <thead>
+                            <tr class="border-b-2 border-gray-300">
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900">Ex Date</th>
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900">Record Date</th>
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900">Payable Date</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Income</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Short-Term Capital Gain</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Long-Term Capital Gain</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Total Capital Gain</th>
+                                <th class="text-right py-3 px-4 font-semibold text-gray-900">Total Distribution</th>
+                            </tr>
+                        </thead>
+                        <tbody id="distributions-tbody">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-xs text-gray-600">
+                    <p><strong>Note:</strong> Distributions are subject to change. Past distributions are not indicative of future distributions. Capital gains distributions may occur when the Fund realizes gains from the sale of securities.</p>
+                </div>
+            </div>
+
+            <!-- ETF Rule Compliance Disclosures -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <!-- Premium/Discount Tracking -->
+                <div class="cambria-card p-5">
+                    <h4 class="font-semibold text-gray-900 mb-4">Premium/Discount Information</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Current Premium/Discount:</span>
+                            <span class="font-semibold text-green-600" id="current-premium">+0.14%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Median Bid-Ask Spread:</span>
+                            <span class="font-semibold text-gray-900">0.08%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Days at Premium (YTD):</span>
+                            <span class="font-semibold text-gray-900">156</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Days at Discount (YTD):</span>
+                            <span class="font-semibold text-gray-900">89</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-blue-50 border-l-4 border-blue-400">
+                        <p class="text-xs text-gray-700">
+                            <strong>Premium/Discount Notice:</strong> The Fund's shares may trade at a premium or discount to NAV.
+                            Premiums and discounts can be significant and may persist for extended periods.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Trading Information -->
+                <div class="cambria-card p-5">
+                    <h4 class="font-semibold text-gray-900 mb-4">Trading Information</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Primary Exchange:</span>
+                            <span class="font-semibold text-gray-900">CBOE BZX</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Trading Hours:</span>
+                            <span class="font-semibold text-gray-900">9:30 AM - 4:00 PM ET</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Creation Unit Size:</span>
+                            <span class="font-semibold text-gray-900">50,000 Shares</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Minimum Trade:</span>
+                            <span class="font-semibold text-gray-900">1 Share</span>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-yellow-50 border-l-4 border-yellow-400">
+                        <p class="text-xs text-gray-700">
+                            <strong>Trading Notice:</strong> Shares are bought and sold at market price, not NAV.
+                            Market price returns may differ from NAV returns.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium/Discount Graph -->
+            <div class="cambria-card p-5 mb-8">
+                <h4 class="font-semibold text-gray-900 mb-4">Premium/Discount History (Last 12 Months)</h4>
+                <div class="h-64">
+                    <canvas id="premiumHistoryChart"></canvas>
+                </div>
+                <div class="mt-4 text-center">
+                    <p class="text-sm text-gray-600">
+                        This graph shows the daily premium/discount of MERI ETF shares relative to NAV over the past 12 months.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Month end returns as of: <span id="performance-date">December 19, 2024</span></h3>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="cambria-card p-5">
+                        <h4 class="font-semibold text-gray-900 mb-4">CUMULATIVE</h4>
+                        <table class="performance-table" id="cumulative-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>1 Yr.</th>
+                                    <th>Since Inception</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Fund NAV</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>Closing Price</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="cambria-card p-5">
+                        <h4 class="font-semibold text-gray-900 mb-4">AVG. ANNUALIZED</h4>
+                        <table class="performance-table" id="annualized-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>1 Yr.</th>
+                                    <th>Since Inception</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Fund NAV</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                                <tr>
+                                    <td>Closing Price</td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cambria-disclosure">
+                <p class="text-sm text-gray-800">
+                    <strong>The performance data quoted represents past performance. Past performance does not guarantee future results.</strong> The investment return and principal value of an investment will fluctuate so that an investor's shares, when redeemed, may be worth more or less than their original cost and current performance may be lower or higher than the performance quoted.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    Cumulative return is the aggregate amount that an investment has gained or lost over time. Annualized return is the average return gained or lost by an investment each year over a given time period. Diamond Asset Management's NAVs are calculated using prices as of 4:00 PM Eastern Time.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    The closing market price is the Mid-Point between the Bid and Ask price as of the close of exchange. Since the Fund's Shares typically do not trade in the secondary market until several days after the Fund's inception, for the period from inception to the first day of secondary market trading in Shares, the NAV of the Fund is used to calculate market returns.
+                </p>
+                <p class="text-sm text-gray-800 mt-2">
+                    <strong>ETF Trading Risk:</strong> Shares are bought and sold at market price, which may be higher or lower than NAV. Market price returns may differ from NAV returns. The Fund's shares may trade at a premium or discount to NAV. Premiums and discounts can be significant and may persist for extended periods.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holdings Section -->
+    <section id="holdings" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900">TOP 10 HOLDINGS</h2>
+            </div>
+
+            <div class="cambria-card p-5 mb-6">
+                <table class="cambria-table">
+                    <thead>
+                        <tr>
+                            <th>PERCENTAGE OF NET ASSETS</th>
+                            <th>TICKER</th>
+                            <th>NAME</th>
+                            <th>IDENTIFIER</th>
+                            <th>SHARES HELD</th>
+                            <th>MARKET VALUE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="holdings-tbody">
+                        <tr>
+                            <td class="font-semibold text-gray-900">5.2%</td>
+                            <td class="font-mono text-gray-900">BRK.B</td>
+                            <td class="text-gray-900">Berkshire Hathaway Inc.</td>
+                            <td class="font-mono text-gray-600">084670702</td>
+                            <td class="text-right text-gray-900">12,000</td>
+                            <td class="text-right text-gray-900">$5,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">4.8%</td>
+                            <td class="font-mono text-gray-900">JPM</td>
+                            <td class="text-gray-900">JPMorgan Chase & Co.</td>
+                            <td class="font-mono text-gray-600">46625H100</td>
+                            <td class="text-right text-gray-900">22,000</td>
+                            <td class="text-right text-gray-900">$4,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">4.5%</td>
+                            <td class="font-mono text-gray-900">MSFT</td>
+                            <td class="text-gray-900">Microsoft Corporation</td>
+                            <td class="font-mono text-gray-600">594918104</td>
+                            <td class="text-right text-gray-900">10,500</td>
+                            <td class="text-right text-gray-900">$4,500,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">4.1%</td>
+                            <td class="font-mono text-gray-900">GOOGL</td>
+                            <td class="text-gray-900">Alphabet Inc.</td>
+                            <td class="font-mono text-gray-600">02079K305</td>
+                            <td class="text-right text-gray-900">24,000</td>
+                            <td class="text-right text-gray-900">$4,100,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.8%</td>
+                            <td class="font-mono text-gray-900">UNH</td>
+                            <td class="text-gray-900">UnitedHealth Group Inc.</td>
+                            <td class="font-mono text-gray-600">91324P102</td>
+                            <td class="text-right text-gray-900">7,200</td>
+                            <td class="text-right text-gray-900">$3,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.5%</td>
+                            <td class="font-mono text-gray-900">V</td>
+                            <td class="text-gray-900">Visa Inc.</td>
+                            <td class="font-mono text-gray-600">92826C839</td>
+                            <td class="text-right text-gray-900">12,500</td>
+                            <td class="text-right text-gray-900">$3,500,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.2%</td>
+                            <td class="font-mono text-gray-900">ASML</td>
+                            <td class="text-gray-900">ASML Holding N.V.</td>
+                            <td class="font-mono text-gray-600">N07059210</td>
+                            <td class="text-right text-gray-900">4,800</td>
+                            <td class="text-right text-gray-900">$3,200,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">3.0%</td>
+                            <td class="font-mono text-gray-900">MA</td>
+                            <td class="text-gray-900">Mastercard Incorporated</td>
+                            <td class="font-mono text-gray-600">57636Q104</td>
+                            <td class="text-right text-gray-900">6,500</td>
+                            <td class="text-right text-gray-900">$3,000,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">2.8%</td>
+                            <td class="font-mono text-gray-900">TXN</td>
+                            <td class="text-gray-900">Texas Instruments Inc.</td>
+                            <td class="font-mono text-gray-600">882508104</td>
+                            <td class="text-right text-gray-900">15,000</td>
+                            <td class="text-right text-gray-900">$2,800,000</td>
+                        </tr>
+                        <tr>
+                            <td class="font-semibold text-gray-900">2.6%</td>
+                            <td class="font-mono text-gray-900">CSU.TO</td>
+                            <td class="text-gray-900">Constellation Software Inc.</td>
+                            <td class="font-mono text-gray-600">21037X100</td>
+                            <td class="text-right text-gray-900">800</td>
+                            <td class="text-right text-gray-900">$2,600,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-sm text-gray-500 mt-3">Data as of <span id="holdings-date">December 19, 2024</span></p>
+                <p class="text-sm text-gray-600 mt-2">Holdings are subject to change</p>
+            </div>
+
+            <!-- Holdings Links -->
+            <div class="flex flex-wrap gap-4 items-center">
+                <a href="#" onclick="downloadHoldingsCSV(); return false;" class="flex items-center px-4 py-2 bg-amber-50 hover:bg-amber-100 rounded-lg transition-colors group border border-gray-200">
+                    <i data-lucide="download" class="h-4 w-4 text-gray-800 mr-2"></i>
+                    <span class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Download Complete Holdings</strong></span>
+                </a>
+                <a href="holdings.html" class="flex items-center px-4 py-2 bg-blue-50 hover:bg-blue-100 rounded-lg transition-colors group border border-blue-200">
+                    <i data-lucide="external-link" class="h-4 w-4 text-blue-600 mr-2"></i>
+                    <span class="font-medium text-gray-900 group-hover:text-blue-800">View All Holdings Online</span>
+                </a>
+            </div>
+
+            <!-- Portfolio Holdings Disclosure -->
+            <div class="cambria-disclosure mt-6">
+                <h4 class="font-semibold text-gray-900 mb-3">Portfolio Holdings Disclosure</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                    <strong>Daily Holdings Disclosure:</strong> The Fund's portfolio holdings that form the basis for the next calculation of current net asset value per share
+                    are the Fund's portfolio holdings as of the close of business on the prior business day. This information is updated daily and available
+                    on this website before the opening of regular trading on the primary listing exchange (CBOE BZX).
+                </p>
+                <p class="text-sm text-gray-700 mb-3">
+                    <strong>Last Updated:</strong> <span id="holdings-disclosure-date">December 19, 2024</span> (as of close of business)
+                </p>
+                <p class="text-sm text-gray-700">
+                    <strong>Next Update:</strong> Available before 9:30 AM Eastern Time on the next business day
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents & Filings Section -->
+    <section id="documents" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Documents & Filings</h2>
+
+            <!-- Fund Documents -->
+            <div class="cambria-card p-6 mb-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">Fund Documents</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <a href="document-placeholder.html?doc=summary-prospectus" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Summary Prospectus</strong></div>
+                            <div class="text-xs text-gray-500">Key fund information</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=statutory-prospectus" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Statutory Prospectus</strong></div>
+                            <div class="text-xs text-gray-500">Complete fund details</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=sai" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>SAI</strong></div>
+                            <div class="text-xs text-gray-500">Statement of Additional Information</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=investment-case" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Investment Case</strong></div>
+                            <div class="text-xs text-gray-500">Investment thesis and analysis</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=part-f-q1" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Part F Q1</strong></div>
+                            <div class="text-xs text-gray-500">Quarter 1 filing</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=part-f-q3" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Part F Q3</strong></div>
+                            <div class="text-xs text-gray-500">Quarter 3 filing</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=semi-annual-financials" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Semi-Annual Financials</strong></div>
+                            <div class="text-xs text-gray-500">6-month financial statements</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=semi-annual-schedule" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Semi-Annual Schedule of Investments</strong></div>
+                            <div class="text-xs text-gray-500">Portfolio holdings detail</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+
+                    <a href="document-placeholder.html?doc=semi-annual-tsr" class="flex items-center justify-between p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors group">
+                        <div>
+                            <div class="font-medium text-gray-900 group-hover:text-gray-900"><strong>Semi-Annual Tailored Shareholder Report</strong></div>
+                            <div class="text-xs text-gray-500">Shareholder communication</div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs bg-gray-200 px-2 py-1 rounded">PDF</span>
+                            <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-gray-800"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Regulatory Filings -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- XBRL Filings -->
+                <div class="cambria-card p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">XBRL Filings</h3>
+                    <div class="space-y-2">
+                        <a href="document-placeholder.html?doc=registration-statement" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-blue-800"><strong>Registration Statement</strong></div>
+                                <div class="text-xs text-gray-500">Machine-readable data</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-blue-200 px-2 py-1 rounded">XBRL</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-blue-600"></i>
+                            </div>
+                        </a>
+
+                        <a href="document-placeholder.html?doc=prospectus-supplement" class="flex items-center justify-between p-2 bg-blue-50 hover:bg-blue-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-blue-800"><strong>Prospectus Supplement</strong></div>
+                                <div class="text-xs text-gray-500">Supplemental data</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-blue-200 px-2 py-1 rounded">XBRL</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-blue-600"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- N-PX Files -->
+                <div class="cambria-card p-5">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">N-PX Files</h3>
+                    <div class="space-y-2">
+                        <a href="document-placeholder.html?doc=voting-record" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-green-800"><strong>Voting Record</strong></div>
+                                <div class="text-xs text-gray-500">Proxy voting history</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-green-200 px-2 py-1 rounded">N-PX</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-green-600"></i>
+                            </div>
+                        </a>
+
+                        <a href="document-placeholder.html?doc=historical-records" class="flex items-center justify-between p-2 bg-green-50 hover:bg-green-100 rounded transition-colors group">
+                            <div>
+                                <div class="font-medium text-gray-900 group-hover:text-green-800"><strong>Historical Records</strong></div>
+                                <div class="text-xs text-gray-500">Past voting data</div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs bg-green-200 px-2 py-1 rounded">N-PX</span>
+                                <i data-lucide="download" class="h-4 w-4 text-gray-400 group-hover:text-green-600"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="cambria-disclosure mt-6">
+                <p class="text-sm text-gray-700">
+                    <strong>Document Availability:</strong> All documents available free upon request. Call 1-555-123-4567 or write to DAM, 123 Main Street, Suite 1000, New York, NY 10001.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CRITICAL COMPLIANCE NOTICE BANNER -->
+    <div class="text-white text-center py-3 px-4 text-sm font-medium" style="background: #4A3510;">
+        <strong>IMPORTANT:</strong> MERI ETF is a registered investment company under the Investment Company Act of 1940.
+        DAM is SEC registered as an investment adviser.
+        <span class="underline">Not FDIC Insured • No Bank Guarantee • May Lose Value</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="cambria-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="cambria-disclosure mb-8">
+                <p class="text-sm text-gray-800">
+                    <strong>To determine if this Fund is an appropriate investment for you, carefully consider the Fund's investment objectives, risk factors, charges and expense before investing.</strong> This and other information can be found in the Fund's full or summary prospectus which may be obtained by calling 1-555-123-4567 or visiting our website at www.dbe.com. Read the prospectus carefully before investing or sending money.
+                </p>
+            </div>
+
+            <div class="text-sm text-gray-400 space-y-4 mb-8">
+                <p>
+                    The MERI ETFs are distributed by DAM, 123 Main Street, Suite 1000, New York, NY 10001, which is not affiliated with DAM, the Investment Adviser for the Fund.
+                </p>
+                <p>
+                    <strong>Investing involves risk, including potential loss of capital.</strong>
+                </p>
+                <p>
+                    <strong>MERI:</strong> There is no guarantee that a Fund will achieve its investment goal. Investing involves risk, including the possible loss of principal. The Fund combines quantitative factor screening with fundamental analysis to build a concentrated portfolio of 45 global equities. Concentration risk is significant: the portfolio holds only 45 names and the largest holdings represent a substantial portion of assets. Blended approach risk: the two-stage process (quant screen followed by fundamental overlay) may underperform pure quant or pure fundamental strategies in certain market environments. Active management risk: the Fund's blended screening and selection process may fail to identify securities with favorable characteristics or may select companies whose fundamentals deteriorate. Factor exposure risk: the Fund's systematic screen targets value, quality, and momentum factors, which may individually or collectively underperform in certain market regimes. Style drift risk: the fundamental overlay may introduce biases that deviate from the systematic screen's factor targets. International investing may involve risk of capital loss from unfavorable fluctuations in currency values, from differences in generally accepted accounting principles, or from economic or political instability in other nations.
+                </p>
+                <p>
+                    MERI is actively managed.
+                </p>
+                <p>
+                    <strong>Regulatory Status:</strong> DAM is registered with the Securities and Exchange Commission (SEC) as an investment adviser under the Investment Advisers Act of 1940. MERI ETF is registered under the Investment Company Act of 1940. This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities.
+                </p>
+                <p>
+                    <strong>Account Protection:</strong> Securities in your account are protected up to $500,000 (including $250,000 for claims for cash). Explanatory brochure available upon request or at www.sipc.org.
+                </p>
+            </div>
+
+            <!-- ETF Rule Compliance Section -->
+            <div class="cambria-disclosure mb-8">
+                <h4 class="font-semibold text-gray-900 mb-4">ETF Rule Compliance Disclosures</h4>
+
+                <div class="space-y-4 text-sm text-gray-700">
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Premium/Discount Information</h5>
+                        <p class="mb-2">
+                            The Fund's shares may trade at a premium or discount to NAV. Premiums and discounts can be significant and may persist for extended periods.
+                            The Fund's median bid-ask spread is calculated based on the national best bid and national best offer as of the end of each 10-second interval
+                            during each trading day of the last 30 calendar days.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Current Premium/Discount:</strong> <span id="footer-premium">+0.14%</span> (as of <span id="footer-date">December 19, 2024</span>)
+                        </p>
+                        <p class="mb-2">
+                            <strong>Median Bid-Ask Spread:</strong> 0.08% (30-day average)
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Trading Information</h5>
+                        <p class="mb-2">
+                            <strong>Primary Exchange:</strong> CBOE BZX Exchange, Inc.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Trading Hours:</strong> 9:30 AM - 4:00 PM Eastern Time
+                        </p>
+                        <p class="mb-2">
+                            <strong>Creation Unit Size:</strong> 50,000 Shares
+                        </p>
+                        <p class="mb-2">
+                            <strong>Minimum Trade:</strong> 1 Share
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Premium/Discount Factor Disclosure</h5>
+                        <p class="mb-2">
+                            <strong>Notice:</strong> The Fund's premium/discount has not exceeded 2% for more than seven consecutive trading days during the current calendar year.
+                            If the Fund's premium or discount exceeds 2% for more than seven consecutive trading days, a detailed discussion of the factors
+                            reasonably believed to have materially contributed to the premium or discount will be posted on this website and maintained for at least one year.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Portfolio Holdings Disclosure</h5>
+                        <p class="mb-2">
+                            The Fund's portfolio holdings that form the basis for the next calculation of current net asset value per share are the Fund's
+                            portfolio holdings as of the close of business on the prior business day. This information is updated daily and available
+                            on this website before the opening of regular trading on the primary listing exchange.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Basket Construction</h5>
+                        <p class="mb-2">
+                            The Fund has adopted written policies and procedures that govern the construction of baskets and the process used for the acceptance of baskets.
+                            These policies and procedures are designed to ensure that basket construction is in the best interests of the Fund and its shareholders.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Regulatory Compliance</h5>
+                        <p class="mb-2">
+                            <strong>SEC Registration:</strong> MERI ETF is registered under the Investment Company Act of 1940 (File No. 811-XXXXX).
+                            DAM is registered with the SEC as an investment adviser under the Investment Advisers Act of 1940.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Exchange Listing:</strong> MERI ETF shares are listed on CBOE BZX Exchange, Inc. under the ticker symbol "MERI".
+                        </p>
+                        <p class="mb-2">
+                            <strong>Fund Classification:</strong> MERI ETF is classified as a non-diversified, actively managed exchange-traded fund.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h5 class="font-semibold text-gray-900 mb-2">Additional Risk Disclosures</h5>
+                        <p class="mb-2">
+                            <strong>Concentration Risk:</strong> The Fund holds only 45 securities, which increases concentration risk relative to more diversified strategies. Poor performance by a single holding may have an outsized impact on overall returns.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Blended Approach Risk:</strong> The Fund's two-stage process (quantitative screening followed by fundamental analysis) may underperform strategies that rely exclusively on one approach. The fundamental overlay may override quantitative signals that would have been profitable, and vice versa.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Active Management Risk:</strong> The Fund is actively managed and may underperform passive strategies or benchmarks. The Fund's blended quant-fundamental process may not successfully identify securities with favorable risk-return characteristics.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Factor Exposure Risk:</strong> The Fund's systematic screen targets value, quality, and momentum factors. These factors may individually or collectively underperform in certain market regimes, and historical factor premia may not persist in the future.
+                        </p>
+                        <p class="mb-2">
+                            <strong>Style Drift Risk:</strong> The fundamental overlay component of the investment process may introduce biases that cause the portfolio to deviate from the factor exposures targeted by the systematic screen. This may result in unintended risk exposures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t pt-8" style="border-color: #5C4418;">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="../../" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>Home</strong></a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>ETFs</strong></a></li>
+                            <li><a href="#about" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>About</strong></a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>Contact</strong></a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Resources</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>Privacy Policy</strong></a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>Legal</strong></a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>Disclaimer</strong></a></li>
+                            <li><a href="#" class="text-gray-300 hover:text-white transition-colors text-sm"><strong>Site Map</strong></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-8 pt-8" style="border-top: 1px solid #5C4418;">
+                    <p class="text-gray-400">&copy; <span class="current-year"></span> Diamond Asset Management</p>
+                    <div class="mt-4 text-xs text-gray-500 space-y-2">
+                        <p>
+                            <strong>Legal Disclaimer:</strong> This website is for informational purposes only and does not constitute an offer to sell or a solicitation to buy securities.
+                            Past performance does not guarantee future results. Investment returns and principal value will fluctuate.
+                        </p>
+                        <p>
+                            <strong>Regulatory Disclosures:</strong> MERI ETF is registered under the Investment Company Act of 1940.
+                            DAM is registered with the SEC as an investment adviser.
+                            Securities offered through DAM, Member FINRA/SIPC.
+                        </p>
+                        <p>
+                            <strong>Risk Warnings:</strong> Investing involves risk, including potential loss of principal.
+                            ETFs are subject to market risk, including the possible loss of principal.
+                            There is no guarantee that the Fund will achieve its investment objective.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let performanceChart = null;
+        let premiumChart = null;
+        let premiumHistoryChart = null;
+        let annualReturnsChart = null;
+        let currentPeriod = 'YTD';
+        let performanceData = null;
+
+        function initMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initMobileMenu();
+            useSampleData();
+            loadPerformanceData();
+            loadDistributions();
+            setupEventListeners();
+            updateDates();
+            createAnnualReturnsChart();
+        });
+
+        function updateDates() {
+            const currentDate = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            const dynamicDate = performanceData?.latest_values?.Latest_Date || currentDate;
+
+            document.getElementById('performance-date').textContent = dynamicDate;
+            document.getElementById('holdings-date').textContent = dynamicDate;
+            document.getElementById('fund-details-date').textContent = dynamicDate;
+            document.getElementById('holdings-disclosure-date').textContent = dynamicDate;
+        }
+
+        async function loadPerformanceData() {
+            try {
+                const [perfResponse, holdingsResponse, metricsResponse] = await Promise.all([
+                    fetch('data/performance_data.json'),
+                    fetch('data/holdings_data.json'),
+                    fetch('data/metrics.json')
+                ]);
+
+                if (!perfResponse.ok || !holdingsResponse.ok || !metricsResponse.ok) {
+                    throw new Error(`HTTP error! status: ${perfResponse.status}`);
+                }
+
+                const rawPerformanceData = await perfResponse.json();
+                const holdingsData = await holdingsResponse.json();
+                const metrics = await metricsResponse.json();
+
+                performanceData = {
+                    chart_data: {
+                        labels: rawPerformanceData.map(point => point.date),
+                        datasets: [
+                            {
+                                label: 'MERI ETF',
+                                data: rawPerformanceData.map(point => point.meri_etf),
+                                borderColor: '#B8860B',
+                                backgroundColor: 'rgba(184, 134, 11, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'NAV',
+                                data: rawPerformanceData.map(point => point.nav),
+                                borderColor: '#2563eb',
+                                backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'Morningstar US Market Index',
+                                data: rawPerformanceData.map(point => point.morningstar_us_market_index),
+                                borderColor: '#6b7280',
+                                backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                                borderWidth: 3,
+                                fill: false,
+                                tension: 0.4
+                            }
+                        ]
+                    },
+                    premium_data: {
+                        labels: rawPerformanceData.map(point => point.date),
+                        datasets: [{
+                            label: 'Premium/Discount',
+                            data: rawPerformanceData.map(point => point.premium_discount),
+                            borderColor: '#B8860B',
+                            backgroundColor: 'rgba(184, 134, 11, 0.05)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }]
+                    },
+                    returns: {
+                        '1M': { 'MERI_ETF': metrics.one_month, 'NAV': metrics.one_month, 'Morningstar': 2.2 },
+                        '3M': { 'MERI_ETF': metrics.three_month, 'NAV': metrics.three_month, 'Morningstar': 5.8 },
+                        '6M': { 'MERI_ETF': metrics.six_month, 'NAV': metrics.six_month, 'Morningstar': 10.1 },
+                        '1Y': { 'MERI_ETF': metrics.one_year, 'NAV': metrics.one_year, 'Morningstar': 21.1 },
+                        'YTD': { 'MERI_ETF': metrics.ytd, 'NAV': metrics.ytd, 'Morningstar': 21.1 },
+                        'SI': { 'MERI_ETF': metrics.since_inception, 'NAV': metrics.since_inception, 'Morningstar': 21.1 }
+                    },
+                    latest_values: {
+                        'MERI_ETF': metrics.latest_meri_etf,
+                        'NAV': metrics.latest_nav,
+                        'Morningstar': metrics.latest_morningstar_us_market_index,
+                        'Premium_Discount': 100.15,
+                        'Holdings': holdingsData.length,
+                        'Latest_Date': metrics.latest_date
+                    },
+                    annual_returns: calculateAnnualReturns(rawPerformanceData)
+                };
+
+                updateChart();
+                updatePremiumChart();
+                updatePerformanceMetrics();
+                updateFundPrices();
+                updatePremiumDiscount();
+                updateQuickDetails();
+                updateFundDetails();
+                updateHeroSection();
+                updateAnnualReturnsTable();
+                createAnnualReturnsChart();
+
+            } catch (error) {
+                console.error('Error loading performance data:', error);
+                updateChart();
+                updatePremiumChart();
+                updatePerformanceMetrics();
+                updateFundPrices();
+                updatePremiumDiscount();
+                updateQuickDetails();
+                updateFundDetails();
+                updateHeroSection();
+            }
+        }
+
+        function useSampleData() {
+            performanceData = {
+                chart_data: {
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
+                    datasets: [
+                        {
+                            label: 'MERI ETF',
+                            data: [100, 98.5, 103.8, 101.2, 107.5, 110.8, 108.4, 113.6, 116.2, 114.5, 119.8, 118.5],
+                            borderColor: '#B8860B',
+                            backgroundColor: 'rgba(184, 134, 11, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'NAV',
+                            data: [100, 98.6, 103.9, 101.3, 107.6, 110.9, 108.5, 113.7, 116.3, 114.6, 119.9, 118.6],
+                            borderColor: '#2563eb',
+                            backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Morningstar US Market Index',
+                            data: [100, 98.3, 102.5, 100.8, 106.8, 109.5, 107.2, 111.8, 114.6, 112.4, 118.2, 121.1],
+                            borderColor: '#6b7280',
+                            backgroundColor: 'rgba(107, 114, 128, 0.1)',
+                            borderWidth: 3,
+                            fill: false,
+                            tension: 0.4
+                        }
+                    ]
+                },
+                premium_data: {
+                    labels: ['2024-01-01', '2024-02-01', '2024-03-01', '2024-04-01', '2024-05-01', '2024-06-01', '2024-07-01', '2024-08-01', '2024-09-01', '2024-10-01', '2024-11-01', '2024-12-01'],
+                    datasets: [
+                        {
+                            label: 'Premium/Discount',
+                            data: [100.12, 99.87, 100.23, 99.95, 100.18, 99.76, 100.34, 99.89, 100.15, 99.92, 100.08, 99.98],
+                            borderColor: '#B8860B',
+                            backgroundColor: 'rgba(184, 134, 11, 0.05)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                returns: {
+                    '1M': {'MERI_ETF': 2.1, 'NAV': 2.2, 'Morningstar': 2.2},
+                    '3M': {'MERI_ETF': 5.8, 'NAV': 5.9, 'Morningstar': 5.8},
+                    '6M': {'MERI_ETF': 10.4, 'NAV': 10.5, 'Morningstar': 10.1},
+                    '1Y': {'MERI_ETF': 18.5, 'NAV': 18.6, 'Morningstar': 21.1},
+                    'YTD': {'MERI_ETF': 18.5, 'NAV': 18.6, 'Morningstar': 21.1}
+                },
+                latest_values: {
+                    'MERI_ETF': 118.5,
+                    'NAV': 118.6,
+                    'Morningstar': 121.1,
+                    'Premium_Discount': 99.98,
+                    'Holdings': 45,
+                    'Latest_Date': 'December 19, 2024'
+                },
+                annual_returns: {
+                    '2024': 18.5
+                },
+                morningstar_returns: {
+                    '2024': 21.1
+                }
+            };
+        }
+
+        function setupEventListeners() {
+            document.getElementById('1m-btn').addEventListener('click', () => setPeriod('1M'));
+            document.getElementById('3m-btn').addEventListener('click', () => setPeriod('3M'));
+            document.getElementById('6m-btn').addEventListener('click', () => setPeriod('6M'));
+            document.getElementById('1y-btn').addEventListener('click', () => setPeriod('1Y'));
+            document.getElementById('si-btn').addEventListener('click', () => setPeriod('SI'));
+            document.getElementById('ytd-btn').addEventListener('click', () => setPeriod('YTD'));
+        }
+
+        function setPeriod(period) {
+            currentPeriod = period;
+
+            document.querySelectorAll('[id$="-btn"]').forEach(btn => {
+                btn.classList.remove('cambria-button');
+                btn.classList.add('cambria-button-secondary');
+            });
+            document.getElementById(period.toLowerCase() + '-btn').classList.remove('cambria-button-secondary');
+            document.getElementById(period.toLowerCase() + '-btn').classList.add('cambria-button');
+
+            updateChart();
+            updatePremiumChart();
+            updatePerformanceMetrics();
+            updateFundPrices();
+            updateAnnualReturnsTable();
+            createAnnualReturnsChart();
+        }
+
+        function updateChart() {
+            if (!performanceData || !performanceData.chart_data) return;
+
+            const canvas = document.getElementById('performanceChart');
+            if (!canvas) return;
+
+            if (performanceChart) {
+                performanceChart.destroy();
+                performanceChart = null;
+            }
+
+            const chartData = getFilteredData(currentPeriod);
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            try {
+                performanceChart = new Chart(ctx, {
+                    type: 'line',
+                    data: chartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                                labels: { usePointStyle: true, padding: 20, font: { size: 12 } }
+                            },
+                            tooltip: {
+                                mode: 'index',
+                                intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleColor: '#fff',
+                                bodyColor: '#fff',
+                                borderColor: '#B8860B',
+                                borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        const value = context.parsed.y;
+                                        const returnValue = ((value / 100) - 1) * 100;
+                                        return context.dataset.label + ': ' + returnValue.toFixed(2) + '%';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { display: true, grid: { display: false }, ticks: { maxTicksLimit: 8, font: { size: 10 } } },
+                            y: {
+                                display: true,
+                                grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                                ticks: { font: { size: 10 }, callback: function(value) { return value.toFixed(0) + '%'; } }
+                            }
+                        },
+                        interaction: { mode: 'nearest', axis: 'x', intersect: false },
+                        elements: {
+                            point: { radius: 0, hoverRadius: 4, borderWidth: 0 },
+                            line: { borderWidth: 2, tension: 0.1 }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error creating chart:', error);
+            }
+        }
+
+        function getFilteredData(period) {
+            const allData = performanceData.chart_data;
+            const allLabels = allData.labels;
+            const allDatasets = allData.datasets;
+
+            if (!allLabels || allLabels.length === 0) return allData;
+
+            const lastDate = new Date(allLabels[allLabels.length - 1]);
+            let startDate;
+
+            switch(period) {
+                case '1M': startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 1, lastDate.getDate()); break;
+                case '3M': startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 3, lastDate.getDate()); break;
+                case '6M': startDate = new Date(lastDate.getFullYear(), lastDate.getMonth() - 6, lastDate.getDate()); break;
+                case '1Y': startDate = new Date(lastDate.getFullYear() - 1, lastDate.getMonth(), lastDate.getDate()); break;
+                case 'SI': startDate = new Date(allLabels[0]); break;
+                case 'YTD': startDate = new Date(lastDate.getFullYear(), 0, 1); break;
+                default: return allData;
+            }
+
+            const filteredLabels = [];
+            const filteredDatasets = allDatasets.map(dataset => ({ ...dataset, data: [] }));
+
+            allLabels.forEach((label, index) => {
+                const labelDate = new Date(label);
+                if (labelDate >= startDate) {
+                    filteredLabels.push(label);
+                    allDatasets.forEach((dataset, datasetIndex) => {
+                        if (dataset.data[index] !== undefined) {
+                            filteredDatasets[datasetIndex].data.push(dataset.data[index]);
+                        }
+                    });
+                }
+            });
+
+            if (filteredLabels.length < 2) {
+                return {
+                    labels: allLabels.slice(-2),
+                    datasets: allDatasets.map(dataset => ({ ...dataset, data: dataset.data.slice(-2) }))
+                };
+            }
+
+            const normalizedDatasets = filteredDatasets.map(dataset => {
+                const originalData = dataset.data;
+                const startValue = originalData[0];
+                if (startValue === 0) return { ...dataset, data: originalData };
+                const normalizedData = originalData.map(value => (value / startValue) * 100);
+                return { ...dataset, data: normalizedData };
+            });
+
+            return { labels: filteredLabels, datasets: normalizedDatasets };
+        }
+
+        function updatePerformanceMetrics() {
+            if (!performanceData || !performanceData.chart_data) return;
+
+            const filteredData = getFilteredData(currentPeriod);
+            if (!filteredData || filteredData.datasets.length < 3) return;
+
+            const meriEtfData = filteredData.datasets[0].data;
+            const navData = filteredData.datasets[1].data;
+            const morningstarData = filteredData.datasets[2].data;
+
+            if (meriEtfData.length < 2) return;
+
+            const meriEtfReturn = ((meriEtfData[meriEtfData.length - 1] - meriEtfData[0]) / meriEtfData[0]) * 100;
+            const navReturn = ((navData[navData.length - 1] - navData[0]) / navData[0]) * 100;
+            const morningstarReturn = ((morningstarData[morningstarData.length - 1] - morningstarData[0]) / morningstarData[0]) * 100;
+
+            const meriElement = document.getElementById('red-performance');
+            const navElement = document.getElementById('nav-performance');
+            const morningstarElement = document.getElementById('morningstar-performance');
+
+            if (meriElement) meriElement.textContent = meriEtfReturn.toFixed(1) + '%';
+            if (navElement) navElement.textContent = navReturn.toFixed(1) + '%';
+            if (morningstarElement) morningstarElement.textContent = morningstarReturn.toFixed(1) + '%';
+
+            updateCumulativeAndAnnualizedReturns();
+        }
+
+        function updateCumulativeAndAnnualizedReturns() {
+            if (!performanceData || !performanceData.chart_data) return;
+
+            const allData = performanceData.chart_data;
+            const allLabels = allData.labels;
+            const meriEtfData = allData.datasets[0].data;
+            const navData = allData.datasets[1].data;
+            const morningstarData = allData.datasets[2].data;
+
+            const periods = {
+                '1Y': 365,
+                'SI': allLabels.length > 0 ? calculateDaysFromInception(allLabels) : 365
+            };
+
+            const returns = {};
+            for (const [period, days] of Object.entries(periods)) {
+                const startDate = new Date(allLabels[allLabels.length - 1]);
+                startDate.setDate(startDate.getDate() - days);
+
+                const startIndex = allLabels.findIndex(label => new Date(label) >= startDate);
+                const actualStartIndex = Math.max(0, startIndex);
+
+                if (actualStartIndex < allLabels.length - 1) {
+                    const meriReturn = ((meriEtfData[meriEtfData.length - 1] / meriEtfData[actualStartIndex]) - 1) * 100;
+                    const navReturn = ((navData[navData.length - 1] / navData[actualStartIndex]) - 1) * 100;
+                    const morningstarReturn = ((morningstarData[morningstarData.length - 1] / morningstarData[actualStartIndex]) - 1) * 100;
+
+                    returns[period] = { MERI_ETF: meriReturn, NAV: navReturn, Morningstar: morningstarReturn };
+                } else {
+                    if (period !== 'SI') {
+                        returns[period] = { MERI_ETF: null, NAV: null, Morningstar: null };
+                    } else {
+                        const meriReturn = ((meriEtfData[meriEtfData.length - 1] / meriEtfData[0]) - 1) * 100;
+                        const navReturn = ((navData[navData.length - 1] / navData[0]) - 1) * 100;
+                        const morningstarReturn = ((morningstarData[morningstarData.length - 1] / morningstarData[0]) - 1) * 100;
+                        returns[period] = { MERI_ETF: meriReturn, NAV: navReturn, Morningstar: morningstarReturn };
+                    }
+                }
+            }
+
+            updateCumulativeTable(returns);
+            updateAnnualizedTable(returns);
+        }
+
+        function calculateDaysFromInception(labels) {
+            if (!labels || labels.length === 0) return 365;
+            const firstDate = new Date(labels[0]);
+            const lastDate = new Date(labels[labels.length - 1]);
+            const diffTime = Math.abs(lastDate - firstDate);
+            return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        }
+
+        function updateCumulativeTable(returns) {
+            const tableBody = document.querySelector('#cumulative-table tbody');
+            if (!tableBody) return;
+
+            tableBody.innerHTML = `
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Fund NAV</td>
+                    <td class="py-3 px-4 text-right ${returns['1Y']?.NAV >= 0 ? 'text-green-600' : 'text-gray-800'}">${returns['1Y']?.NAV?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${returns['SI']?.NAV >= 0 ? 'text-green-600' : 'text-gray-800'}">${returns['SI']?.NAV?.toFixed(1) || '0.0'}%</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Closing Price</td>
+                    <td class="py-3 px-4 text-right ${returns['1Y']?.MERI_ETF >= 0 ? 'text-green-600' : 'text-gray-800'}">${returns['1Y']?.MERI_ETF?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${returns['SI']?.MERI_ETF >= 0 ? 'text-green-600' : 'text-gray-800'}">${returns['SI']?.MERI_ETF?.toFixed(1) || '0.0'}%</td>
+                </tr>
+            `;
+        }
+
+        function updateAnnualizedTable(returns) {
+            const tableBody = document.querySelector('#annualized-table tbody');
+            if (!tableBody) return;
+
+            const annualizedReturns = {};
+            for (const [period, periodReturns] of Object.entries(returns)) {
+                const days = period === '1Y' ? 365 : calculateDaysFromInception(performanceData.chart_data.labels);
+                const years = days / 365;
+
+                annualizedReturns[period] = {
+                    MERI_ETF: years > 0 ? (Math.pow(1 + periodReturns.MERI_ETF / 100, 1 / years) - 1) * 100 : 0,
+                    NAV: years > 0 ? (Math.pow(1 + periodReturns.NAV / 100, 1 / years) - 1) * 100 : 0,
+                    Morningstar: years > 0 ? (Math.pow(1 + periodReturns.Morningstar / 100, 1 / years) - 1) * 100 : 0
+                };
+            }
+
+            tableBody.innerHTML = `
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Fund NAV</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['1Y']?.NAV >= 0 ? 'text-green-600' : 'text-gray-800'}">${annualizedReturns['1Y']?.NAV?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['SI']?.NAV >= 0 ? 'text-green-600' : 'text-gray-800'}">${annualizedReturns['SI']?.NAV?.toFixed(1) || '0.0'}%</td>
+                </tr>
+                <tr class="border-b border-gray-200">
+                    <td class="py-3 px-4 font-medium text-gray-900">Closing Price</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['1Y']?.MERI_ETF >= 0 ? 'text-green-600' : 'text-gray-800'}">${annualizedReturns['1Y']?.MERI_ETF?.toFixed(1) || '--'}</td>
+                    <td class="py-3 px-4 text-right ${annualizedReturns['SI']?.MERI_ETF >= 0 ? 'text-green-600' : 'text-gray-800'}">${annualizedReturns['SI']?.MERI_ETF?.toFixed(1) || '0.0'}%</td>
+                </tr>
+            `;
+        }
+
+        function updateFundPrices() {
+            if (!performanceData || !performanceData.chart_data) return;
+
+            const filteredData = getFilteredData(currentPeriod);
+            if (!filteredData || filteredData.labels.length < 2) return;
+
+            const meriEtfData = filteredData.datasets[0].data;
+            const navData = filteredData.datasets[1].data;
+
+            const latestMeri = meriEtfData[meriEtfData.length - 1];
+            const latestNav = navData[navData.length - 1];
+
+            const previousMeri = meriEtfData[meriEtfData.length - 2] || latestMeri;
+            const previousNav = navData[navData.length - 2] || latestNav;
+
+            const meriChange = ((latestMeri - previousMeri) / previousMeri * 100);
+            const navChange = ((latestNav - previousNav) / previousNav * 100);
+
+            const navPriceElement = document.getElementById('nav-price');
+            const etfPriceElement = document.getElementById('etf-price');
+
+            if (navPriceElement) navPriceElement.textContent = `$${latestNav.toFixed(2)}`;
+            if (etfPriceElement) etfPriceElement.textContent = `$${latestMeri.toFixed(2)}`;
+
+            const navChangeElement = document.getElementById('nav-change');
+            const etfChangeElement = document.getElementById('etf-change');
+
+            if (navChangeElement) {
+                navChangeElement.textContent = `${navChange >= 0 ? '+' : ''}${navChange.toFixed(2)}%`;
+                navChangeElement.className = `font-semibold ${navChange >= 0 ? 'text-green-600' : 'text-gray-800'}`;
+            }
+
+            if (etfChangeElement) {
+                etfChangeElement.textContent = `${meriChange >= 0 ? '+' : ''}${meriChange.toFixed(2)}%`;
+                etfChangeElement.className = `font-semibold ${meriChange >= 0 ? 'text-green-600' : 'text-gray-800'}`;
+            }
+        }
+
+        function updatePremiumChart() {
+            if (!performanceData || !performanceData.premium_data) return;
+
+            const canvas = document.getElementById('premiumChart');
+            if (!canvas) return;
+
+            if (premiumChart) { premiumChart.destroy(); premiumChart = null; }
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            try {
+                premiumChart = new Chart(ctx, {
+                    type: 'line',
+                    data: performanceData.premium_data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                mode: 'index', intersect: false,
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                borderColor: '#B8860B', borderWidth: 1,
+                                callbacks: {
+                                    label: function(context) {
+                                        const premDisc = (context.parsed.y - 100).toFixed(2);
+                                        return `Premium/Discount: ${premDisc >= 0 ? '+' : ''}${premDisc}%`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { display: true, grid: { display: false }, ticks: { maxTicksLimit: 6, font: { size: 10 } } },
+                            y: {
+                                display: true,
+                                grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                                ticks: { font: { size: 10 }, callback: function(value) { return (value - 100).toFixed(1) + '%'; } }
+                            }
+                        },
+                        elements: { point: { radius: 0, hoverRadius: 4 }, line: { borderWidth: 2, tension: 0.1 } }
+                    }
+                });
+            } catch (error) {
+                console.error('Error creating premium chart:', error);
+            }
+        }
+
+        function updatePremiumDiscount() {
+            if (!performanceData || !performanceData.premium_data) return;
+
+            const premiumData = performanceData.premium_data.datasets[0].data;
+            const latestPremium = premiumData[premiumData.length - 1];
+            const premiumPercentage = (latestPremium - 100).toFixed(2);
+
+            const premiumValueElement = document.getElementById('premium-value');
+            const currentPremiumElement = document.getElementById('current-premium');
+            const footerPremiumElement = document.getElementById('footer-premium');
+
+            if (premiumValueElement) {
+                premiumValueElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage}%`;
+                premiumValueElement.className = `text-2xl font-bold ${premiumPercentage >= 0 ? 'text-green-600' : 'text-gray-800'} mb-2`;
+            }
+
+            if (currentPremiumElement) {
+                currentPremiumElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage}%`;
+                currentPremiumElement.className = `font-semibold ${premiumPercentage >= 0 ? 'text-green-600' : 'text-gray-800'}`;
+            }
+
+            if (footerPremiumElement) {
+                footerPremiumElement.textContent = `${premiumPercentage >= 0 ? '+' : ''}${premiumPercentage}%`;
+            }
+
+            const footerDateElement = document.getElementById('footer-date');
+            if (footerDateElement && performanceData.latest_values?.Latest_Date) {
+                footerDateElement.textContent = performanceData.latest_values.Latest_Date;
+            }
+
+            createPremiumHistoryChart();
+        }
+
+        function createPremiumHistoryChart() {
+            if (!performanceData || !performanceData.premium_data) return;
+
+            const canvas = document.getElementById('premiumHistoryChart');
+            if (!canvas) return;
+
+            if (premiumHistoryChart) { premiumHistoryChart.destroy(); premiumHistoryChart = null; }
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            const labels = performanceData.premium_data.labels;
+            const data = performanceData.premium_data.datasets[0].data.map(v => v - 100);
+
+            try {
+                premiumHistoryChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Premium/Discount (%)',
+                            data: data,
+                            backgroundColor: data.map(v => v >= 0 ? 'rgba(184, 134, 11, 0.6)' : 'rgba(239, 68, 68, 0.6)'),
+                            borderColor: data.map(v => v >= 0 ? '#B8860B' : '#ef4444'),
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `Premium/Discount: ${context.parsed.y >= 0 ? '+' : ''}${context.parsed.y.toFixed(2)}%`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { display: true, grid: { display: false }, ticks: { maxTicksLimit: 6, font: { size: 10 } } },
+                            y: {
+                                display: true,
+                                grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                                ticks: { font: { size: 10 }, callback: function(value) { return value.toFixed(1) + '%'; } }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error creating premium history chart:', error);
+            }
+        }
+
+        function updateQuickDetails() {
+            if (!performanceData || !performanceData.latest_values) return;
+
+            const latest = performanceData.latest_values;
+            const ytdReturn = performanceData.returns?.YTD?.MERI_ETF || 0;
+
+            const quickNavElement = document.getElementById('quick-nav');
+            const quickPriceElement = document.getElementById('quick-price');
+            const quickYtdElement = document.getElementById('quick-ytd');
+
+            if (quickNavElement) quickNavElement.textContent = `$${latest.NAV?.toFixed(2) || '25.45'}`;
+            if (quickPriceElement) quickPriceElement.textContent = `$${latest.MERI_ETF?.toFixed(2) || '25.42'}`;
+            if (quickYtdElement) {
+                quickYtdElement.textContent = `${ytdReturn >= 0 ? '+' : ''}${ytdReturn.toFixed(1)}%`;
+                quickYtdElement.className = `text-lg font-bold ${ytdReturn >= 0 ? 'text-green-400' : 'text-red-400'}`;
+            }
+        }
+
+        function updateFundDetails() {
+            if (!performanceData || !performanceData.latest_values) return;
+
+            const latest = performanceData.latest_values;
+
+            const fundNavElement = document.getElementById('fund-nav');
+            if (fundNavElement) fundNavElement.textContent = `$${latest.NAV?.toFixed(2) || '25.45'}`;
+
+            const fundHoldingsElement = document.getElementById('fund-holdings');
+            if (fundHoldingsElement && latest.Holdings) fundHoldingsElement.textContent = latest.Holdings;
+
+            const fundDetailsDateElement = document.getElementById('fund-details-date');
+            if (fundDetailsDateElement && latest.Latest_Date) fundDetailsDateElement.textContent = latest.Latest_Date;
+        }
+
+        function updateHeroSection() {
+            if (!performanceData) return;
+
+            const expenseElement = document.getElementById('hero-expense-ratio');
+            if (expenseElement) expenseElement.textContent = '55 bps';
+
+            const holdingsElement = document.getElementById('hero-holdings-count');
+            if (holdingsElement) {
+                holdingsElement.textContent = performanceData.latest_values?.Holdings || 45;
+            }
+
+            const ytdReturn = performanceData.returns?.YTD?.MERI_ETF || 0;
+            const ytdElement = document.getElementById('hero-ytd-return');
+            if (ytdElement) {
+                ytdElement.textContent = `${ytdReturn >= 0 ? '+' : ''}${ytdReturn.toFixed(1)}%`;
+                ytdElement.className = `text-2xl font-bold ${ytdReturn >= 0 ? 'text-green-600' : 'text-red-600'}`;
+            }
+        }
+
+        function updateAnnualReturnsTable() {
+            if (!performanceData || !performanceData.returns) return;
+
+            const returns = performanceData.returns;
+
+            const update = (id, value) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                if (value === null || value === undefined) {
+                    el.textContent = '--';
+                    el.className = 'py-3 px-4 text-right font-semibold text-gray-500';
+                } else {
+                    el.textContent = `${value >= 0 ? '+' : ''}${value.toFixed(1)}%`;
+                    el.className = `py-3 px-4 text-right font-semibold ${value >= 0 ? 'text-green-600' : 'text-red-600'}`;
+                }
+            };
+
+            update('annual-1y-red', returns['1Y']?.MERI_ETF);
+            update('annual-1y-nav', returns['1Y']?.NAV);
+            update('annual-1y-morningstar', returns['1Y']?.Morningstar);
+            update('annual-si-red', returns['SI']?.MERI_ETF || returns['YTD']?.MERI_ETF);
+            update('annual-si-nav', returns['SI']?.NAV || returns['YTD']?.NAV);
+            update('annual-si-morningstar', returns['SI']?.Morningstar || returns['YTD']?.Morningstar);
+        }
+
+        function calculateAnnualReturns(rawData) {
+            const annualReturns = {};
+            const years = new Set();
+            rawData.forEach(point => {
+                const year = new Date(point.date).getFullYear();
+                years.add(year);
+            });
+
+            years.forEach(year => {
+                const yearData = rawData.filter(point => new Date(point.date).getFullYear() === year);
+                if (yearData.length >= 2) {
+                    const first = yearData[0].meri_etf;
+                    const last = yearData[yearData.length - 1].meri_etf;
+                    annualReturns[year] = ((last - first) / first) * 100;
+                }
+            });
+
+            return annualReturns;
+        }
+
+        function createAnnualReturnsChart() {
+            if (!performanceData || !performanceData.annual_returns) return;
+
+            const canvas = document.getElementById('annualReturnsChart');
+            if (!canvas) return;
+
+            if (annualReturnsChart) { annualReturnsChart.destroy(); annualReturnsChart = null; }
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) return;
+
+            const years = Object.keys(performanceData.annual_returns).sort();
+            const meriReturns = years.map(year => performanceData.annual_returns[year] || 0);
+            const morningstarReturns = years.map(year => performanceData.morningstar_returns?.[year] || 0);
+
+            try {
+                annualReturnsChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: years,
+                        datasets: [
+                            {
+                                label: 'MERI ETF',
+                                data: meriReturns,
+                                backgroundColor: '#B8860B',
+                                borderColor: '#8B6914',
+                                borderWidth: 1,
+                                borderRadius: 4
+                            },
+                            {
+                                label: 'Morningstar US Market Index',
+                                data: morningstarReturns,
+                                backgroundColor: '#6b7280',
+                                borderColor: '#4b5563',
+                                borderWidth: 1,
+                                borderRadius: 4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: true, position: 'top', labels: { usePointStyle: true, padding: 20, font: { size: 12 } } },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) { return context.dataset.label + ': ' + context.parsed.y.toFixed(1) + '%'; }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: { display: true, grid: { display: false }, ticks: { font: { size: 12, weight: 'bold' } } },
+                            y: {
+                                display: true,
+                                grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                                ticks: { font: { size: 10 }, callback: function(value) { return value.toFixed(0) + '%'; } }
+                            }
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error creating annual returns chart:', error);
+            }
+        }
+
+        async function loadDistributions() {
+            try {
+                const response = await fetch('../distributions.json');
+                if (!response.ok) throw new Error('Failed to load distributions');
+                const data = await response.json();
+
+                const tbody = document.getElementById('distributions-tbody');
+                if (!tbody) return;
+                tbody.innerHTML = '';
+
+                const distributions = data.distributions || data;
+                const distArray = Array.isArray(distributions) ? distributions : [];
+
+                distArray.forEach(dist => {
+                    const row = document.createElement('tr');
+                    row.className = 'border-b border-gray-200 hover:bg-gray-50';
+
+                    const formatDate = (dateStr) => {
+                        if (!dateStr) return '--';
+                        const date = new Date(dateStr);
+                        return date.toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' });
+                    };
+
+                    const formatCurrency = (value) => {
+                        if (value === null || value === undefined || value === 0) return '--';
+                        return '$' + value.toFixed(4);
+                    };
+
+                    row.innerHTML = `
+                        <td class="py-3 px-4 text-gray-900">${formatDate(dist.ex_date)}</td>
+                        <td class="py-3 px-4 text-gray-900">${formatDate(dist.record_date)}</td>
+                        <td class="py-3 px-4 text-gray-900">${formatDate(dist.payable_date)}</td>
+                        <td class="py-3 px-4 text-right font-medium text-gray-900">${formatCurrency(dist.income)}</td>
+                        <td class="py-3 px-4 text-right text-gray-600">${formatCurrency(dist.short_term_capital_gain)}</td>
+                        <td class="py-3 px-4 text-right text-gray-600">${formatCurrency(dist.long_term_capital_gain)}</td>
+                        <td class="py-3 px-4 text-right text-gray-600">${formatCurrency(dist.total_capital_gain)}</td>
+                        <td class="py-3 px-4 text-right font-semibold text-gray-900">${formatCurrency(dist.total_distribution)}</td>
+                    `;
+
+                    tbody.appendChild(row);
+                });
+
+                if (distArray.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="8" class="py-4 text-center text-gray-500">No distributions recorded yet.</td></tr>';
+                }
+            } catch (error) {
+                console.error('Error loading distributions:', error);
+                const tbody = document.getElementById('distributions-tbody');
+                if (tbody) {
+                    tbody.innerHTML = '<tr><td colspan="8" class="py-4 text-center text-gray-500">Distribution data unavailable.</td></tr>';
+                }
+            }
+        }
+
+        async function downloadHoldingsCSV() {
+            try {
+                const response = await fetch('data/holdings_data.json');
+                if (!response.ok) throw new Error('Failed to load holdings');
+                const holdings = await response.json();
+
+                let csv = 'Name,Ticker,Weight (%),Sector,Country\n';
+                holdings.forEach(h => {
+                    csv += `"${h.name}","${h.ticker}",${h.weight},"${h.sector}","${h.country}"\n`;
+                });
+
+                const blob = new Blob([csv], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'MERI_ETF_Holdings.csv';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            } catch (error) {
+                console.error('Error downloading holdings:', error);
+                alert('Failed to download holdings. Please try again.');
+            }
+        }
+
+        setInterval(() => {
+            loadPerformanceData();
+            loadDistributions();
+        }, 5 * 60 * 1000);
+    </script>
+    <script src="../../js/site-navigation-disclaimer.js"></script>
+    <script>document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear())</script>
+</body>
+</html>
