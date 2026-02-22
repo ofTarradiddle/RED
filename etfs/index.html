@@ -127,6 +127,32 @@
             background: linear-gradient(135deg, #4a0080 0%, #7c3aed 100%) !important;
             box-shadow: 0 4px 12px rgba(74, 0, 128, 0.4) !important;
         }
+        .etf-card-rose:hover {
+            border-color: #9B3A5C;
+            box-shadow: 0 8px 24px rgba(155, 58, 92, 0.25);
+            aspect-ratio: auto;
+        }
+        .etf-card-rose:hover .tagline-rose {
+            opacity: 1;
+            max-height: 3rem;
+            margin-top: 0.6rem;
+            padding-top: 0.5rem;
+        }
+        .tagline-rose {
+            border-top-color: #e8b4c8;
+            color: #9B3A5C;
+        }
+        .dif-rose {
+            color: #9B3A5C !important;
+            letter-spacing: 0.04em;
+        }
+        .dif-rose::after {
+            background: linear-gradient(90deg, #9B3A5C, transparent) !important;
+        }
+        .ticker-box-rose {
+            background: linear-gradient(135deg, #6B2540 0%, #9B3A5C 100%) !important;
+            box-shadow: 0 4px 12px rgba(107, 37, 64, 0.4) !important;
+        }
         .ticker-box {
             width: 80px;
             height: 80px;
@@ -168,7 +194,7 @@
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <!-- ETF Grid -->
-        <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="grid grid-cols-2 gap-6 max-w-2xl mx-auto">
             <!-- REDI ETF Card -->
             <a href="../etfs/redi/" class="etf-card">
                     <div class="flex flex-col items-center text-center">
@@ -191,6 +217,14 @@
                         <div class="ticker-box ticker-box-purple">AZTH</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Azoth ETF</h2>
                         <p class="tagline tagline-purple">Ad<span class="dif dif-purple">MIST</span> the sea of alpha</p>
+                    </div>
+            </a>
+            <!-- MPD ETF Card -->
+            <a href="../etfs/mpd/" class="etf-card etf-card-rose">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="ticker-box ticker-box-rose">MPD</div>
+                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Quality Compounders ETF</h2>
+                        <p class="tagline tagline-rose"><span class="dif dif-rose">Dr</span> Diamond <span class="dif dif-rose">Cr</span> Assets</p>
                     </div>
             </a>
         </div>

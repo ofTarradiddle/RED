@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPD ETF Holdings | Diamond Quality Compounders ETF</title>
+    <meta name="description" content="Complete holdings for Diamond Quality Compounders ETF (MPD) - View all portfolio positions and sector allocations.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .sticky-banner-wrapper {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        .mpd-header {
+            background: #2D0E1A;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .mpd-nav {
+            background: #4A1A2E;
+            border-bottom: 1px solid #6B2540;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        .mpd-card {
+            background: white;
+            border: 1px solid #e8dce0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(155, 58, 92, 0.08);
+        }
+        .mpd-button {
+            background: #9B3A5C;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .mpd-button:hover {
+            background: #6B2540;
+        }
+        .mpd-button-secondary {
+            background: white;
+            color: #9B3A5C;
+            border: 1px solid #9B3A5C;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .mpd-button-secondary:hover {
+            background: #fdf5f7;
+        }
+        .holdings-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .holdings-table th {
+            background: #fdf5f7;
+            border-bottom: 1px solid #e8dce0;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #6B2540;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .holdings-table td {
+            padding: 12px;
+            border-bottom: 1px solid #e8dce0;
+        }
+        .holdings-table tr:hover {
+            background: #fdf5f7;
+        }
+        .sector-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .sector-technology { background: #dbeafe; color: #1e40af; }
+        .sector-healthcare { background: #dcfce7; color: #166534; }
+        .sector-financials { background: #fef3c7; color: #92400e; }
+        .sector-consumerstaples { background: #fce7f3; color: #be185d; }
+        .sector-consumerdiscretionary { background: #fce7f3; color: #9B3A5C; }
+        .sector-energy { background: #fef2f2; color: #dc2626; }
+        .sector-utilities { background: #f3e8ff; color: #7c3aed; }
+        .sector-materials { background: #ecfdf5; color: #047857; }
+        .sector-realestate { background: #fff7ed; color: #ea580c; }
+        .sector-communication { background: #f0f9ff; color: #0369a1; }
+        .sector-communication-services { background: #f0f9ff; color: #0369a1; }
+        .sector-industrials { background: #e8e0f0; color: #4A1A2E; }
+        .logo-placeholder {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #9B3A5C 0%, #6B2540 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(155, 58, 92, 0.4);
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        .company-logo {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: white;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+        .product-name {
+            font-size: 0.75rem;
+            color: #C4587A;
+            margin-top: 4px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800" style="margin: 0; padding: 0;">
+    <!-- Sticky Banner Wrapper -->
+    <div class="sticky-banner-wrapper" style="position: -webkit-sticky; position: sticky; top: 0; z-index: 1000; width: 100%;">
+        <!-- Header -->
+        <div class="mpd-header py-2">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center text-sm">
+                    <div class="flex items-center space-x-6">
+                        <span class="text-gray-300">Email: info@ofnectar.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="mpd-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center gap-4">
+                    <div class="logo-placeholder" aria-label="MPD ETF Logo">MPD</div>
+                    <div class="flex flex-col">
+                        <div class="company-logo">Diamond</div>
+                        <div class="product-name">Quality Compounders ETF</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Fund Details</a>
+                    <a href="index.html#performance" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Performance</a>
+                    <a href="holdings.html" class="text-white px-3 py-2 text-sm font-medium border-b-2 border-[#C4587A]">Holdings</a>
+                    <a href="why-mpd.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Why MPD</a>
+                    <a href="blog/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium">Blog</a>
+                    <a href="../../" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium border-l border-gray-600 pl-6 ml-2">DAM</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu dropdown -->
+            <div id="mobile-menu" class="md:hidden hidden border-t" style="background: #4A1A2E; border-color: #6B2540;">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Fund Details</a>
+                    <a href="index.html#performance" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Performance</a>
+                    <a href="holdings.html" class="text-white block px-3 py-2 text-base font-medium">Holdings</a>
+                    <a href="why-mpd.html" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Why MPD</a>
+                    <a href="blog/" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Blog</a>
+                    <a href="../../" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium border-t border-gray-600 mt-2 pt-3">DAM</a>
+                </div>
+            </div>
+        </div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="py-8 bg-gradient-to-br from-[#fdf5f7] to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-[#2D0E1A] mb-4">Diamond Quality Compounders ETF Complete Holdings</h1>
+                <p class="text-lg text-gray-600 mb-6 max-w-3xl mx-auto">
+                    View all portfolio positions for the Diamond Quality Compounders ETF (MPD). 
+                    Holdings are updated regularly and reflect the fund's focus on high-quality compounders.
+                </p>
+                
+                <!-- Key Metrics -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div class="bg-white border border-[#e8dce0] rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-[#2D0E1A]" id="total-holdings">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Total Holdings</div>
+                    </div>
+                    <div class="bg-white border border-[#e8dce0] rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-[#9B3A5C]" id="top-sector">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Top Sector</div>
+                    </div>
+                    <div class="bg-white border border-[#e8dce0] rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-[#9B3A5C]" id="tech-allocation">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Technology</div>
+                    </div>
+                    <div class="bg-white border border-[#e8dce0] rounded-lg p-4 shadow-sm">
+                        <div class="text-2xl font-bold text-[#9B3A5C]" id="financials-allocation">--</div>
+                        <div class="text-xs text-gray-500 uppercase tracking-wide">Financials</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Controls Section -->
+    <section class="py-6 bg-white border-b border-[#e8dce0]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
+                <!-- Search and Filters -->
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
+                    <div class="relative">
+                        <i data-lucide="search" class="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400"></i>
+                        <input type="text" id="search-input" placeholder="Search by ticker or company name..." 
+                               class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9B3A5C] focus:border-[#9B3A5C]">
+                    </div>
+                    <select id="sector-filter" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9B3A5C] focus:border-[#9B3A5C]">
+                        <option value="">All Sectors</option>
+                    </select>
+                </div>
+                
+                <!-- Sort Options -->
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">Sort by:</span>
+                    <select id="sort-select" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#9B3A5C] focus:border-[#9B3A5C]">
+                        <option value="weight-desc">Weight (High to Low)</option>
+                        <option value="weight-asc">Weight (Low to High)</option>
+                        <option value="ticker-asc">Ticker (A-Z)</option>
+                        <option value="name-asc">Company Name (A-Z)</option>
+                        <option value="sector-asc">Sector (A-Z)</option>
+                        <option value="country-asc">Country (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Holdings Table Section -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mpd-card overflow-hidden">
+                <div class="p-6 border-b border-[#e8dce0]">
+                    <div class="flex justify-between items-center flex-wrap gap-4">
+                        <h2 class="text-xl font-semibold text-[#2D0E1A]">Complete Holdings</h2>
+                        <div class="flex items-center gap-4">
+                            <button onclick="downloadHoldingsCSV()" class="flex items-center px-4 py-2 bg-[#9B3A5C] hover:bg-[#6B2540] text-white rounded-lg transition-colors font-medium text-sm">
+                                <i data-lucide="download" class="h-4 w-4 mr-2"></i>
+                                Download CSV
+                            </button>
+                            <div class="text-sm text-gray-500">
+                                Data as of <span id="holdings-date">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="holdings-table" id="holdings-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th class="cursor-pointer hover:bg-[#fdf5f7]" onclick="sortTable('name')">
+                                    Name <i data-lucide="chevron-down" class="h-4 w-4 inline ml-1"></i>
+                                </th>
+                                <th class="cursor-pointer hover:bg-[#fdf5f7]" onclick="sortTable('ticker')">
+                                    Ticker <i data-lucide="chevron-down" class="h-4 w-4 inline ml-1"></i>
+                                </th>
+                                <th class="cursor-pointer hover:bg-[#fdf5f7]" onclick="sortTable('weight')">
+                                    Weight (%) <i data-lucide="chevron-down" class="h-4 w-4 inline ml-1"></i>
+                                </th>
+                                <th>Sector</th>
+                                <th>Country</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdings-tbody">
+                            <!-- Holdings will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Loading State -->
+                <div id="loading-state" class="p-8 text-center">
+                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-[#9B3A5C] mx-auto mb-4"></div>
+                    <p class="text-gray-600">Loading holdings data...</p>
+                </div>
+                
+                <!-- No Results State -->
+                <div id="no-results" class="p-8 text-center hidden">
+                    <i data-lucide="search-x" class="h-12 w-12 text-gray-400 mx-auto mb-4"></i>
+                    <p class="text-gray-600">No holdings match your search criteria</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sector Breakdown Section -->
+    <section class="py-8 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-[#2D0E1A] mb-6">Sector Allocation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="sector-breakdown">
+                <!-- Sector cards will be populated here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2D0E1A] text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm text-gray-300">
+                    © <span class="current-year"></span> Diamond Asset Management. All rights reserved.
+                </p>
+                <p class="text-xs text-gray-400 mt-2">
+                    Holdings are subject to change. Data is provided for informational purposes only.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/site-navigation-disclaimer.js"></script>
+    <script>
+        // Global variables
+        let holdingsData = [];
+        let filteredData = [];
+        let currentSort = { field: 'weight', direction: 'desc' };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            loadHoldingsData();
+            setupEventListeners();
+        });
+
+        // Load holdings data from JSON file
+        async function loadHoldingsData() {
+            try {
+                const response = await fetch('data/holdings_data.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const jsonData = await response.json();
+                
+                holdingsData = jsonData.map((row, idx) => ({
+                    rank: idx + 1,
+                    ticker: row.ticker || '',
+                    name: row.name || row['Company Name'] || row.Name || '',
+                    weight: parseFloat(row.weight || row['Weight (%)'] || row.allocation || 0),
+                    sector: row.sector || row.Sector || '',
+                    country: row.country || row.Country || ''
+                }));
+                
+                filteredData = [...holdingsData];
+                
+                updateHoldingsTable();
+                updateMetrics();
+                updateSectorBreakdown();
+                updateFilters();
+                
+                document.getElementById('holdings-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('loading-state').classList.add('hidden');
+                
+            } catch (error) {
+                console.error('Error loading holdings data:', error);
+                document.getElementById('loading-state').innerHTML = `
+                    <div class="text-center">
+                        <i data-lucide="alert-circle" class="h-12 w-12 text-[#9B3A5C] mx-auto mb-4"></i>
+                        <p class="text-gray-800 mb-2">Error loading holdings data</p>
+                        <p class="text-sm text-gray-600">Please try refreshing the page</p>
+                    </div>
+                `;
+                if (typeof lucide !== 'undefined') lucide.createIcons();
+            }
+        }
+
+        function setupEventListeners() {
+            document.getElementById('search-input').addEventListener('input', filterHoldings);
+            document.getElementById('sector-filter').addEventListener('change', filterHoldings);
+            document.getElementById('sort-select').addEventListener('change', function() {
+                const value = this.value;
+                const [field, direction] = value.split('-');
+                currentSort = { field, direction };
+                sortAndDisplayHoldings();
+            });
+        }
+
+        function filterHoldings() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const sectorFilter = document.getElementById('sector-filter').value;
+            
+            filteredData = holdingsData.filter(holding => {
+                const matchesSearch = !searchTerm || 
+                    holding.ticker.toLowerCase().includes(searchTerm) ||
+                    holding.name.toLowerCase().includes(searchTerm);
+                const matchesSector = !sectorFilter || holding.sector === sectorFilter;
+                return matchesSearch && matchesSector;
+            });
+            
+            sortAndDisplayHoldings();
+            updateMetrics();
+        }
+
+        function sortAndDisplayHoldings() {
+            const { field, direction } = currentSort;
+            
+            filteredData.sort((a, b) => {
+                let aVal = a[field];
+                let bVal = b[field];
+                if (typeof aVal === 'string') {
+                    aVal = aVal.toLowerCase();
+                    bVal = (bVal || '').toLowerCase();
+                }
+                if (direction === 'asc') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+            
+            updateHoldingsTable();
+        }
+
+        function updateHoldingsTable() {
+            const tbody = document.getElementById('holdings-tbody');
+            const noResults = document.getElementById('no-results');
+            
+            if (filteredData.length === 0) {
+                tbody.innerHTML = '';
+                noResults.classList.remove('hidden');
+                return;
+            }
+            
+            noResults.classList.add('hidden');
+            
+            const sectorClass = (s) => 'sector-' + (s || '').toLowerCase().replace(/\s+/g, '').replace('-', '');
+            
+            tbody.innerHTML = filteredData.map((holding, idx) => `
+                <tr class="hover:bg-[#fdf5f7]">
+                    <td class="font-medium text-gray-600">${idx + 1}</td>
+                    <td class="text-gray-900">${holding.name}</td>
+                    <td class="font-mono text-gray-900">${holding.ticker}</td>
+                    <td class="font-semibold text-[#2D0E1A]">${holding.weight.toFixed(2)}%</td>
+                    <td>
+                        <span class="sector-badge ${sectorClass(holding.sector)}">
+                            ${holding.sector}
+                        </span>
+                    </td>
+                    <td class="text-gray-700">${holding.country}</td>
+                </tr>
+            `).join('');
+        }
+
+        function updateMetrics() {
+            const totalHoldings = filteredData.length;
+            const sectorTotals = {};
+            filteredData.forEach(h => {
+                sectorTotals[h.sector] = (sectorTotals[h.sector] || 0) + h.weight;
+            });
+            const topSector = Object.entries(sectorTotals).sort((a, b) => b[1] - a[1])[0];
+            const techAllocation = sectorTotals['Technology'] || 0;
+            const financialsAllocation = sectorTotals['Financials'] || 0;
+            
+            document.getElementById('total-holdings').textContent = totalHoldings;
+            document.getElementById('top-sector').textContent = topSector ? topSector[0] : '--';
+            document.getElementById('tech-allocation').textContent = `${techAllocation.toFixed(1)}%`;
+            document.getElementById('financials-allocation').textContent = `${financialsAllocation.toFixed(1)}%`;
+        }
+
+        function updateSectorBreakdown() {
+            const sectorData = {};
+            
+            filteredData.forEach(holding => {
+                if (!sectorData[holding.sector]) {
+                    sectorData[holding.sector] = { count: 0, allocation: 0 };
+                }
+                sectorData[holding.sector].count++;
+                sectorData[holding.sector].allocation += holding.weight;
+            });
+            
+            const sectorClass = (s) => 'sector-' + (s || '').toLowerCase().replace(/\s+/g, '').replace('-', '');
+            const sectorBreakdown = document.getElementById('sector-breakdown');
+            sectorBreakdown.innerHTML = Object.entries(sectorData)
+                .sort(([,a], [,b]) => b.allocation - a.allocation)
+                .map(([sector, data]) => `
+                    <div class="mpd-card p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-lg font-semibold text-[#2D0E1A]">${sector}</h3>
+                            <span class="sector-badge ${sectorClass(sector)}">
+                                ${data.count} holdings
+                            </span>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Allocation:</span>
+                                <span class="font-semibold text-[#9B3A5C]">${data.allocation.toFixed(1)}%</span>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+        }
+
+        function updateFilters() {
+            const sectors = [...new Set(holdingsData.map(h => h.sector))].filter(Boolean).sort();
+            const sectorFilter = document.getElementById('sector-filter');
+            sectorFilter.innerHTML = '<option value="">All Sectors</option>' +
+                sectors.map(sector => `<option value="${sector}">${sector}</option>`).join('');
+        }
+
+        function downloadHoldingsCSV() {
+            if (!holdingsData || holdingsData.length === 0) {
+                alert('Holdings data not loaded yet. Please wait and try again.');
+                return;
+            }
+            
+            const date = new Date().toISOString().split('T')[0].replace(/-/g, '');
+            const headers = ['#', 'Name', 'Ticker', 'Weight (%)', 'Sector', 'Country'];
+            const csvRows = [headers.join(',')];
+            
+            filteredData.forEach((holding, idx) => {
+                const row = [
+                    idx + 1,
+                    `"${(holding.name || '').replace(/"/g, '""')}"`,
+                    holding.ticker || '',
+                    (holding.weight || 0).toFixed(2),
+                    holding.sector || '',
+                    holding.country || ''
+                ];
+                csvRows.push(row.join(','));
+            });
+            
+            const csvContent = csvRows.join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.setAttribute('href', URL.createObjectURL(blob));
+            link.setAttribute('download', `MPD_ETF_Holdings_${date}.csv`);
+            link.style.visibility = 'hidden';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+        }
+
+        function sortTable(field) {
+            if (currentSort.field === field) {
+                currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+            } else {
+                currentSort.field = field;
+                currentSort.direction = 'desc';
+            }
+            const sortSelect = document.getElementById('sort-select');
+            sortSelect.value = `${field}-${currentSort.direction}`;
+            sortAndDisplayHoldings();
+        }
+
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    </script>
+    <script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
+</body>
+</html>
