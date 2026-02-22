@@ -101,6 +101,32 @@
             background: linear-gradient(135deg, #111 0%, #333 100%) !important;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
         }
+        .etf-card-purple:hover {
+            border-color: #6b21a8;
+            box-shadow: 0 8px 24px rgba(107, 33, 168, 0.25);
+            aspect-ratio: auto;
+        }
+        .etf-card-purple:hover .tagline-purple {
+            opacity: 1;
+            max-height: 3rem;
+            margin-top: 0.6rem;
+            padding-top: 0.5rem;
+        }
+        .tagline-purple {
+            border-top-color: #d8b4fe;
+            color: #6b21a8;
+        }
+        .dif-purple {
+            color: #6b21a8 !important;
+            letter-spacing: 0.04em;
+        }
+        .dif-purple::after {
+            background: linear-gradient(90deg, #6b21a8, transparent) !important;
+        }
+        .ticker-box-purple {
+            background: linear-gradient(135deg, #4a0080 0%, #7c3aed 100%) !important;
+            box-shadow: 0 4px 12px rgba(74, 0, 128, 0.4) !important;
+        }
         .ticker-box {
             width: 80px;
             height: 80px;
@@ -142,7 +168,7 @@
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <!-- ETF Grid -->
-        <div class="grid grid-cols-2 gap-6 max-w-lg mx-auto">
+        <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
             <!-- REDI ETF Card -->
             <a href="../etfs/redi/" class="etf-card">
                     <div class="flex flex-col items-center text-center">
@@ -157,6 +183,14 @@
                         <div class="ticker-box ticker-box-dark">DAM1</div>
                         <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond World's Largest 111 ETF</h2>
                         <p class="tagline tagline-dark">When Many become <span class="dif dif-dark">1</span></p>
+                    </div>
+            </a>
+            <!-- AZTH ETF Card -->
+            <a href="../etfs/azth/" class="etf-card etf-card-purple">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="ticker-box ticker-box-purple">AZTH</div>
+                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Azoth ETF</h2>
+                        <p class="tagline tagline-purple">Seek the <span class="dif dif-purple">Azoth</span></p>
                     </div>
             </a>
         </div>

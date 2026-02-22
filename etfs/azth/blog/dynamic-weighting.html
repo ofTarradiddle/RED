@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Weighting: How AZTH Adapts | AZTH Blog</title>
+    <meta name="description" content="How the ensemble monitors multiple signals and adjusts factor exposures based on which signals have been most predictive recently.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+        .gradient-text {
+            background: linear-gradient(135deg, #4a0080, #6b21a8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .fade-in { animation: fadeIn 0.8s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <a href="../" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-[#4a0080] rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-sm">A</span>
+                        </div>
+                        <span class="text-xl font-bold gradient-text">AZTH</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="../" class="text-gray-600 hover:text-gray-900 transition-colors">Fund</a>
+                    <a href="../why-azth.html" class="text-gray-600 hover:text-gray-900 transition-colors">Investment Case</a>
+                    <a href="../holdings.html" class="text-gray-600 hover:text-gray-900 transition-colors">Holdings</a>
+                    <a href="./" class="text-gray-900 font-medium">Blog</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <article class="max-w-4xl mx-auto px-4 py-12">
+        <div class="fade-in">
+            <div class="mb-8">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="px-3 py-1 bg-gray-900 text-white text-sm font-medium rounded-full">Strategy</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                    Dynamic Weighting: How AZTH Adapts
+                </h1>
+                <p class="text-xl text-gray-600 leading-relaxed mb-8">
+                    How the ensemble monitors multiple signals and adjusts factor exposures based on which signals have been most predictive recently. Compares to ensemble methods in machine learning.
+                </p>
+                <div class="flex items-center space-x-6 text-sm text-gray-500">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="calendar" class="w-4 h-4"></i>
+                        <span>November 2025</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        <span>8 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-12">
+            <div class="relative h-48 md:h-64 bg-gradient-to-br from-[#6b21a8] to-[#4a0080] rounded-2xl overflow-hidden flex items-center justify-center">
+                <div class="text-center">
+                    <div class="text-6xl font-black text-white/90 mb-2">Adapt</div>
+                    <p class="text-gray-200 text-lg">Regime-aware weighting</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="prose prose-lg max-w-none">
+            <div class="fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Static Problem</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Most multi-factor funds combine factors, but they do it statically. They weight value at 30%, momentum at 30%, quality at 40%, and leave it there. The weights don't change. The factors don't adapt. The portfolio assumes all factors are equally predictive all the time.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    But factors aren't equally predictive all the time. Value works better in some regimes. Momentum works better in others. Quality shines in downturns, lags in bull markets. Static weighting ignores this reality.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Static multi-factor portfolios are better than single-factor portfolios. But they're not as good as they could be if they adapted to which factors are actually working.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">How Dynamic Weighting Works</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    AZTH doesn't weight factors statically. It monitors how predictive each factor has been recently. It tracks which signals have been working. It adjusts factor exposures based on what's actually happening, not what should happen in theory.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    When value has been predictive, value gets more weight. When momentum has been working, momentum gets more weight. When quality signals have been strong, quality gets more weight. The portfolio adapts to regimes, not assumptions.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    This isn't market timing. It's signal weighting. You're not betting on which factor will work next. You're adjusting weights based on which factors have been working. It's the difference between guessing and adapting.
+                </p>
+            </div>
+
+            <div class="fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">The Machine Learning Parallel</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Machine learning uses ensemble methods. It combines multiple models. But it doesn't weight them equally. It weights them based on performance. Models that have been accurate get more weight. Models that have been wrong get less. The ensemble adapts.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Dynamic factor weighting works the same way. Factors that have been predictive get more weight. Factors that have been less predictive get less. The portfolio adapts to what's actually happening, not what should happen in theory.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    This isn't about predicting regimes. It's about adapting to them. You don't need to know which factor will work next. You need to weight factors based on which have been working.
+                </p>
+            </div>
+
+            <div>
+                <div class="bg-gray-100 border-l-4 border-[#4a0080] p-6 my-8 rounded-r-lg">
+                    <div class="flex items-start">
+                        <i data-lucide="activity" class="w-6 h-6 text-[#4a0080] mt-1 mr-3 flex-shrink-0"></i>
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-2">The Process</h3>
+                            <p class="text-gray-800">
+                                AZTH continuously monitors factor performance. It tracks which signals have been predictive over recent periods. It adjusts factor weights based on this data. The portfolio doesn't assume all factors are equal. It adapts to which factors are actually working.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fade-in">
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Why This Matters</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                    Static multi-factor portfolios are better than single-factor portfolios. But they leave performance on the table. They weight factors equally even when factors aren't performing equally.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    Dynamic weighting captures more of the benefit of multi-factor investing. It adapts to regimes. It weights factors based on what's working, not what should work. It's the difference between a good approach and a better one.
+                </p>
+            </div>
+
+            <div>
+                <div class="bg-[#1a0033] text-white rounded-2xl p-8 my-12">
+                    <h3 class="text-2xl font-bold mb-4">Bottom Line</h3>
+                    <p class="text-gray-200 mb-6">
+                        Multi-factor investing beats single-factor investing. But dynamic multi-factor investing beats static multi-factor investing. AZTH doesn't just combine factors. It adapts their weights based on which factors have been working. It's the difference between combining signals and actually using them.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="../" class="bg-white hover:bg-gray-100 text-[#4a0080] px-6 py-3 rounded-lg font-medium transition-colors text-center">
+                            View Fund Details
+                        </a>
+                        <a href="./multi-factor-case.html" class="border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center">
+                            Read: The Case for Multi-Factor Investing
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 pt-8 border-t border-gray-200">
+            <div class="flex items-start space-x-4">
+                <div class="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="w-8 h-8 text-gray-600"></i>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900">Diamond & Diamond Research</h3>
+                    <p class="text-gray-600 mb-2">Quantitative Research & Strategy</p>
+                    <p class="text-gray-700">
+                        Research notes on dynamic signal weighting and regime-adaptive portfolio construction.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16">
+            <h3 class="text-2xl font-bold text-gray-900 mb-8">Related</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="multi-factor-case.html" class="group">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                        <h4 class="text-lg font-semibold text-gray-900 group-hover:text-[#4a0080] mb-2">
+                            The Case for Multi-Factor Investing
+                        </h4>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Why combining signals beats single-factor approaches.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span>February 2026</span>
+                            <span class="mx-2">&bull;</span>
+                            <span>10 min read</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="single-factor-failure.html" class="group">
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-lg transition-shadow">
+                        <h4 class="text-lg font-semibold text-gray-900 group-hover:text-[#4a0080] mb-2">
+                            Why Single Factors Fail
+                        </h4>
+                        <p class="text-gray-600 text-sm mb-3">
+                            Historical examples of factor droughts and timing risk.
+                        </p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <span>January 2026</span>
+                            <span class="mx-2">&bull;</span>
+                            <span>7 min read</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="bg-[#1a0033] text-white py-12 mt-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                        <span class="text-[#4a0080] font-bold text-sm">A</span>
+                    </div>
+                    <span class="text-xl font-bold">AZTH</span>
+                </div>
+                <p class="text-gray-300 mb-6">Diamond Azoth ETF | Diamond & Diamond</p>
+                <div class="flex justify-center space-x-6 text-sm text-gray-300">
+                    <a href="../" class="hover:text-white transition-colors">Fund</a>
+                    <a href="../why-azth.html" class="hover:text-white transition-colors">Investment Case</a>
+                    <a href="../holdings.html" class="hover:text-white transition-colors">Holdings</a>
+                    <a href="./" class="hover:text-white transition-colors">Blog</a>
+                </div>
+                <p class="text-gray-400 text-sm mt-6">&copy; <span class="current-year"></span> Diamond Asset Management. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../../js/site-navigation-disclaimer.js"></script>
+    <script>
+        lucide.createIcons();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+    <script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
+</body>
+</html>
