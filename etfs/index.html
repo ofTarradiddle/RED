@@ -492,18 +492,13 @@
                             <textarea id="interest-notes" rows="3" placeholder="Concentrated positions, estimated contribution size, questions..."
                                 class="w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-white placeholder-gray-500 text-sm focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-colors resize-none"></textarea>
                         </div>
+                        <div id="interest-validation" class="hidden text-amber-400 text-sm text-center"></div>
                         <button type="submit" id="interest-submit"
-                            class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 text-gray-900 font-bold text-sm rounded-xl hover:from-amber-400 hover:to-amber-500 transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 tracking-wide uppercase">
-                            Register Interest
+                            class="w-full py-3.5 bg-gradient-to-r from-amber-500 to-amber-600 text-gray-900 font-bold text-sm rounded-xl hover:from-amber-400 hover:to-amber-500 transition-all duration-200 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/30 tracking-wide uppercase flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            Send Interest via Email
                         </button>
                     </form>
-                    <div id="interest-success" class="hidden text-center py-8">
-                        <div class="w-16 h-16 bg-emerald-500/20 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2">You're on the list.</h4>
-                        <p class="text-gray-400 text-sm">We'll be in touch when the 351 exchange window opens. No spam — just the details you need.</p>
-                    </div>
                     <p class="text-xs text-gray-500 text-center mt-5 leading-relaxed">
                         By registering, you agree to receive communications about upcoming Diamond ETF launches. 
                         This is not a commitment to invest. Section 351 eligibility depends on individual circumstances.
@@ -558,32 +553,38 @@
 
     function handleInterestSubmit(e) {
         e.preventDefault();
-        const name = document.getElementById('interest-name').value;
-        const email = document.getElementById('interest-email').value;
+        const val = document.getElementById('interest-validation');
+        val.classList.add('hidden');
+
+        const name = document.getElementById('interest-name').value.trim();
+        const email = document.getElementById('interest-email').value.trim();
         const typeEl = document.getElementById('interest-type');
-        const type = typeEl.options[typeEl.selectedIndex].text;
         const fundEl = document.getElementById('interest-fund');
+        const notes = document.getElementById('interest-notes').value.trim();
+
+        if (!name || !email || !typeEl.value) {
+            val.textContent = 'Please fill in your name, email, and investor type.';
+            val.classList.remove('hidden');
+            return;
+        }
+
+        const type = typeEl.options[typeEl.selectedIndex].text;
         const fund = fundEl.options[fundEl.selectedIndex].text;
-        const notes = document.getElementById('interest-notes').value;
 
         const subject = encodeURIComponent('351 Exchange Interest — ' + fund);
         const body = encodeURIComponent(
+            'Hi Diamond Asset Management,\n\n' +
+            'I would like to register my interest in a Section 351 exchange opportunity.\n\n' +
             'Name: ' + name + '\n' +
             'Email: ' + email + '\n' +
             'Investor Type: ' + type + '\n' +
-            'Fund Interest: ' + fund + '\n' +
-            (notes ? 'Notes: ' + notes + '\n' : '') +
-            '\n---\nSubmitted from Diamond Asset Management ETFs page'
+            'Fund of Interest: ' + fund + '\n' +
+            (notes ? 'Additional Notes: ' + notes + '\n' : '') +
+            '\nPlease keep me informed about launch details, eligible securities, and contribution deadlines.\n\n' +
+            'Thank you.'
         );
 
         window.location.href = 'mailto:info@ofnectar.com?subject=' + subject + '&body=' + body;
-
-        const form = document.getElementById('interest-form');
-        const success = document.getElementById('interest-success');
-        setTimeout(() => {
-            form.classList.add('hidden');
-            success.classList.remove('hidden');
-        }, 500);
     }
     </script>
 </body>
