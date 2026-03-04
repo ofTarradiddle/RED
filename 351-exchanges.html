@@ -72,6 +72,7 @@
                         <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Services</a>
                         <a href="#fees" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Fees</a>
                         <a href="etfs/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">ETFs</a>
+                        <a href="#upcoming-launches" class="text-amber-400 hover:text-amber-300 px-3 py-2 text-sm font-medium transition-colors">351 Exchange</a>
                         <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Contact</a>
                     </nav>
                 </div>
@@ -524,6 +525,7 @@
             var fund = fundEl.options[fundEl.selectedIndex].text;
 
             var subject = encodeURIComponent('351 Exchange Interest — ' + fund);
+            var cc = encodeURIComponent(email);
             var body = encodeURIComponent(
                 'Hi Diamond Asset Management,\n\n' +
                 'I would like to register my interest in a Section 351 exchange opportunity.\n\n' +
@@ -536,7 +538,7 @@
                 'Thank you.'
             );
 
-            window.location.href = 'mailto:info@ofnectar.com?subject=' + subject + '&body=' + body;
+            window.location.href = 'mailto:info@ofnectar.com?cc=' + cc + '&subject=' + subject + '&body=' + body;
         }
     </script>
 </body>

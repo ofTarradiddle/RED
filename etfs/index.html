@@ -572,6 +572,7 @@
         const fund = fundEl.options[fundEl.selectedIndex].text;
 
         const subject = encodeURIComponent('351 Exchange Interest — ' + fund);
+        const cc = encodeURIComponent(email);
         const body = encodeURIComponent(
             'Hi Diamond Asset Management,\n\n' +
             'I would like to register my interest in a Section 351 exchange opportunity.\n\n' +
@@ -584,7 +585,7 @@
             'Thank you.'
         );
 
-        window.location.href = 'mailto:info@ofnectar.com?subject=' + subject + '&body=' + body;
+        window.location.href = 'mailto:info@ofnectar.com?cc=' + cc + '&subject=' + subject + '&body=' + body;
     }
     </script>
 </body>
