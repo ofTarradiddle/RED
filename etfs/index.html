@@ -558,15 +558,32 @@
 
     function handleInterestSubmit(e) {
         e.preventDefault();
+        const name = document.getElementById('interest-name').value;
+        const email = document.getElementById('interest-email').value;
+        const typeEl = document.getElementById('interest-type');
+        const type = typeEl.options[typeEl.selectedIndex].text;
+        const fundEl = document.getElementById('interest-fund');
+        const fund = fundEl.options[fundEl.selectedIndex].text;
+        const notes = document.getElementById('interest-notes').value;
+
+        const subject = encodeURIComponent('351 Exchange Interest — ' + fund);
+        const body = encodeURIComponent(
+            'Name: ' + name + '\n' +
+            'Email: ' + email + '\n' +
+            'Investor Type: ' + type + '\n' +
+            'Fund Interest: ' + fund + '\n' +
+            (notes ? 'Notes: ' + notes + '\n' : '') +
+            '\n---\nSubmitted from Diamond Asset Management ETFs page'
+        );
+
+        window.location.href = 'mailto:info@ofnectar.com?subject=' + subject + '&body=' + body;
+
         const form = document.getElementById('interest-form');
         const success = document.getElementById('interest-success');
-        const btn = document.getElementById('interest-submit');
-        btn.textContent = 'Submitting...';
-        btn.disabled = true;
         setTimeout(() => {
             form.classList.add('hidden');
             success.classList.remove('hidden');
-        }, 800);
+        }, 500);
     }
     </script>
 </body>
