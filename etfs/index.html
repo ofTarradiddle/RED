@@ -219,49 +219,8 @@
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <!-- ETF Grid -->
-        <div class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-            <!-- REDI ETF Card -->
-            <a href="../etfs/redi/" class="etf-card" style="width: 200px;">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="ticker-box">REDI</div>
-                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Innovation Factor ETF</h2>
-                        <p class="tagline">Innovation is the <span class="dif">DIF</span>erence</p>
-                    </div>
-            </a>
-            <!-- DAM1 ETF Card -->
-            <a href="../etfs/dam1/" class="etf-card etf-card-dark" style="width: 200px;">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="ticker-box ticker-box-dark">DAM1</div>
-                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond World's Largest 111 ETF</h2>
-                        <p class="tagline tagline-dark">When Many become <span class="dif dif-dark">1</span></p>
-                    </div>
-            </a>
-            <!-- AZOC ETF Card -->
-            <a href="../etfs/azoc/" class="etf-card etf-card-purple" style="width: 200px;">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="ticker-box ticker-box-purple">AZOC</div>
-                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Azoth ETF</h2>
-                        <p class="tagline tagline-purple">Ad<span class="dif dif-purple">MIST</span> the sea of alpha</p>
-                    </div>
-            </a>
-            <!-- MPD ETF Card -->
-            <a href="../etfs/mpd/" class="etf-card etf-card-rose" style="width: 200px;">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="ticker-box ticker-box-rose">MPD</div>
-                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Growthy Compounders ETF</h2>
-                        <p class="tagline tagline-rose"><span class="dif dif-rose">Dr</span> Diamond <span class="dif dif-rose">Cr</span> Assets</p>
-                    </div>
-            </a>
-            <!-- MERI ETF Card -->
-            <a href="../etfs/meri/" class="etf-card etf-card-amber" style="width: 200px;">
-                    <div class="flex flex-col items-center text-center">
-                        <div class="ticker-box ticker-box-amber">MERI</div>
-                        <h2 class="text-lg font-bold text-gray-900 mb-0">Diamond Merriment of F&Q ETF</h2>
-                        <p class="tagline tagline-amber">Eat, drink & be <span class="dif dif-amber">MERI</span></p>
-                    </div>
-            </a>
-        </div>
+        <!-- ETF Grid (populated from data/etfs.json) -->
+        <div id="etf-lineup-grid" class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto"></div>
     </main>
 
     <!-- 351 Exchange Opportunities Section -->
@@ -318,123 +277,9 @@
             <!-- Upcoming Launches -->
             <div class="mb-16">
                 <h3 class="text-2xl font-bold text-white mb-8 text-center" style="font-family: 'Playfair Display', serif;">Upcoming Launches</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Launch Card 1 -->
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300 group">
-                        <div class="flex items-start justify-between mb-5">
-                            <div>
-                                <div class="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wide uppercase">Accepting Interest</div>
-                                <h4 class="text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">DMVP</h4>
-                                <p class="text-gray-400 text-sm">Diamond Minimum Variance Portfolio ETF</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Target Launch</div>
-                                <div class="text-amber-400 font-semibold">Q3 2026</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-5">
-                            Minimum variance optimization across global equities. Designed for investors who want market exposure with 
-                            structurally lower volatility — not by avoiding equities, but by owning them more intelligently. 
-                            Low-correlation stock selection, constrained optimization, monthly rebalancing.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Min Variance</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Global Equity</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Risk-Managed</span>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <div class="text-xs text-gray-500">Estimated Expense Ratio: <span class="text-gray-300 font-medium">35 bps</span></div>
-                            <div class="text-xs text-gray-500">Target AUM: <span class="text-gray-300 font-medium">$50M+</span></div>
-                        </div>
-                    </div>
-
-                    <!-- Launch Card 2 -->
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300 group">
-                        <div class="flex items-start justify-between mb-5">
-                            <div>
-                                <div class="inline-block bg-gradient-to-r from-emerald-600 to-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wide uppercase">Accepting Interest</div>
-                                <h4 class="text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">DSCB</h4>
-                                <p class="text-gray-400 text-sm">Diamond Systematic Credit & Bond ETF</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Target Launch</div>
-                                <div class="text-amber-400 font-semibold">Q4 2026</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-5">
-                            Quantitative fixed income — systematic credit selection across investment grade and high yield corporates.
-                            Factor-driven bond selection using carry, value, momentum, and quality signals. 
-                            The same rigor we apply to equities, brought to credit markets.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Fixed Income</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Systematic</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Multi-Sector</span>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <div class="text-xs text-gray-500">Estimated Expense Ratio: <span class="text-gray-300 font-medium">40 bps</span></div>
-                            <div class="text-xs text-gray-500">Target AUM: <span class="text-gray-300 font-medium">$75M+</span></div>
-                        </div>
-                    </div>
-
-                    <!-- Launch Card 3 -->
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300 group">
-                        <div class="flex items-start justify-between mb-5">
-                            <div>
-                                <div class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wide uppercase">Early Stage</div>
-                                <h4 class="text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">DSHR</h4>
-                                <p class="text-gray-400 text-sm">Diamond Shareholder Yield ETF</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Target Launch</div>
-                                <div class="text-amber-400 font-semibold">Q1 2027</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-5">
-                            Total shareholder yield — dividends plus buybacks plus debt reduction. 
-                            Most dividend funds miss two-thirds of the picture. A CEO repurchasing shares at 8x earnings is returning 
-                            more capital than a 4% dividend yield, but dividend screens miss it entirely. DSHR captures all three channels.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Shareholder Yield</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Capital Return</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">US Equity</span>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <div class="text-xs text-gray-500">Estimated Expense Ratio: <span class="text-gray-300 font-medium">42 bps</span></div>
-                            <div class="text-xs text-gray-500">Target AUM: <span class="text-gray-300 font-medium">$40M+</span></div>
-                        </div>
-                    </div>
-
-                    <!-- Launch Card 4 -->
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300 group">
-                        <div class="flex items-start justify-between mb-5">
-                            <div>
-                                <div class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wide uppercase">Early Stage</div>
-                                <h4 class="text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">DCRR</h4>
-                                <p class="text-gray-400 text-sm">Diamond Carry & Roll ETF</p>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Target Launch</div>
-                                <div class="text-amber-400 font-semibold">Q1 2027</div>
-                            </div>
-                        </div>
-                        <p class="text-gray-300 text-sm leading-relaxed mb-5">
-                            Multi-asset carry strategy — harvesting yield differentials across rates, currencies, and commodities. 
-                            Carry is one of the oldest and most persistent risk premia in markets. 
-                            This isn't reaching for yield; it's systematically capturing the term premium, credit premium, and cross-currency basis.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-5">
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Multi-Asset</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Carry</span>
-                            <span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">Alternative</span>
-                        </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-white/10">
-                            <div class="text-xs text-gray-500">Estimated Expense Ratio: <span class="text-gray-300 font-medium">55 bps</span></div>
-                            <div class="text-xs text-gray-500">Target AUM: <span class="text-gray-300 font-medium">$60M+</span></div>
-                        </div>
-                    </div>
-                </div>
+            <div id="upcoming-launches-grid" class="flex justify-center gap-8 mb-20">
+                <!-- Cards populated from data/etfs.json via js/etf-config.js -->
+            </div>
             </div>
 
             <!-- Interest Sign-Up Form -->
@@ -480,10 +325,7 @@
                                 <select id="interest-fund"
                                     class="w-full px-4 py-3 bg-white/5 border border-white/15 rounded-xl text-white text-sm focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/30 transition-colors appearance-none" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%239ca3af%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: right 12px center;">
                                     <option value="all" style="color: #111;">All Upcoming Launches</option>
-                                    <option value="DMVP" style="color: #111;">DMVP — Minimum Variance</option>
-                                    <option value="DSCB" style="color: #111;">DSCB — Systematic Credit & Bond</option>
-                                    <option value="DSHR" style="color: #111;">DSHR — Shareholder Yield</option>
-                                    <option value="DCRR" style="color: #111;">DCRR — Carry & Roll</option>
+                                    <!-- Options populated from data/etfs.json -->
                                 </select>
                             </div>
                         </div>
@@ -506,31 +348,10 @@
                 </div>
             </div>
 
-            <!-- Past Successful Launches Banner -->
-            <div class="mt-16 text-center">
+            <!-- Live funds banner (only funds with status "live" in data/etfs.json) -->
+            <div id="live-funds-section" class="mt-16 text-center hidden">
                 <p class="text-gray-500 text-xs uppercase tracking-widest mb-4">Our Live Funds</p>
-                <div class="flex flex-wrap justify-center gap-8 text-gray-400">
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span class="text-sm font-medium">REDI</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span class="text-sm font-medium">DAM1</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span class="text-sm font-medium">AZOC</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span class="text-sm font-medium">MPD</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                        <span class="text-sm font-medium">MERI</span>
-                    </div>
-                </div>
+                <div id="live-funds-list" class="flex flex-wrap justify-center gap-8 text-gray-400"></div>
             </div>
         </div>
     </section>
@@ -548,23 +369,62 @@
         </div>
     </footer>
     <script src="../js/site-navigation-disclaimer.js"></script>
+    <script src="../js/etf-config.js"></script>
     <script>
     document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear());
+
+    function templateETFIndex(etf) {
+        return `
+            <!-- ${etf.ticker} Launch Card -->
+            <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-amber-500/40 transition-all duration-300 group w-full max-w-md">
+                <div class="flex items-start justify-between mb-5">
+                    <div>
+                        <div class="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 tracking-wide uppercase">${etf.status}</div>
+                        <h4 class="text-2xl font-bold text-white group-hover:text-amber-400 transition-colors">${etf.ticker}</h4>
+                        <p class="text-gray-400 text-sm">${etf.name}</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-gray-500 uppercase tracking-wide mb-1">Target Launch</div>
+                        <div class="text-amber-400 font-semibold">${etf.targetLaunch}</div>
+                    </div>
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-5">
+                    ${etf.description}
+                </p>
+                <div class="flex flex-wrap gap-2 mb-5">
+                    ${etf.tags.map(tag => `<span class="bg-white/5 border border-white/10 text-gray-300 text-xs px-3 py-1 rounded-full">${tag}</span>`).join('')}
+                </div>
+                <div class="flex items-center justify-between pt-4 border-t border-white/10">
+                    <div class="text-xs text-gray-500">Estimated Expense Ratio: <span class="text-gray-300 font-medium">${etf.expenseRatio}</span></div>
+                    <div class="text-xs text-gray-500">Target AUM: <span class="text-gray-300 font-medium">${etf.targetAUM}</span></div>
+                </div>
+            </div>
+        `;
+    }
+
+    onEtfConfigReady(() => {
+        renderLineupCards('etf-lineup-grid');
+        renderLiveFunds('live-funds-section', 'live-funds-list');
+        render351Cards('upcoming-launches-grid', templateETFIndex);
+        populate351Dropdown('interest-fund');
+    });
 
     function handleInterestSubmit(e) {
         e.preventDefault();
         const val = document.getElementById('interest-validation');
-        val.classList.add('hidden');
+        if (val) val.classList.add('hidden');
 
         const name = document.getElementById('interest-name').value.trim();
         const email = document.getElementById('interest-email').value.trim();
         const typeEl = document.getElementById('interest-type');
         const fundEl = document.getElementById('interest-fund');
-        const notes = document.getElementById('interest-notes').value.trim();
+        const notes = document.getElementById('interest-notes') ? document.getElementById('interest-notes').value.trim() : '';
 
         if (!name || !email || !typeEl.value) {
-            val.textContent = 'Please fill in your name, email, and investor type.';
-            val.classList.remove('hidden');
+            if (val) {
+                val.textContent = 'Please fill in your name, email, and investor type.';
+                val.classList.remove('hidden');
+            }
             return;
         }
 

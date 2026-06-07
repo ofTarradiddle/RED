@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Section 351 Exchanges | Diamond & Diamond</title>
-    <meta name="description" content="Understanding Section 351 tax-free exchanges for ETF creation and redemption units. View upcoming Diamond ETF launches with 351 exchange opportunities.">
+    <meta name="description"
+        content="Understanding Section 351 tax-free exchanges for ETF creation and redemption units. View upcoming Diamond ETF launches with 351 exchange opportunities.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
+
         .cambria-header {
             background: #1a0a0a;
             color: white;
         }
+
         .cambria-nav {
             background: #2d0f0f;
             border-bottom: 1px solid #4a1a1a;
         }
+
         .cambria-section {
             background: #faf8f8;
             border-top: 1px solid #e8e0e0;
             border-bottom: 1px solid #e8e0e0;
         }
+
         .cambria-card {
             background: white;
             border: 1px solid #e8e0e0;
@@ -32,20 +40,24 @@
             box-shadow: 0 4px 6px rgba(139, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
+
         .cambria-card:hover {
             box-shadow: 0 12px 24px rgba(139, 0, 0, 0.15);
             transform: translateY(-4px);
         }
+
         .elegant-heading {
             font-family: 'Playfair Display', serif;
             font-weight: 600;
         }
+
         .gradient-text {
             background: linear-gradient(135deg, #8b0000, #dc2626);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .disclosure-box {
             background: #fff3f3;
             border: 1px solid #ffd6d6;
@@ -55,6 +67,7 @@
             border-radius: 8px;
             font-size: 0.875rem;
         }
+
         .launch-card {
             background: white;
             border: 1px solid #e8e0e0;
@@ -64,6 +77,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .launch-card::before {
             content: '';
             position: absolute;
@@ -75,14 +89,17 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
+
         .launch-card:hover {
             box-shadow: 0 16px 40px rgba(139, 0, 0, 0.12);
             transform: translateY(-6px);
             border-color: #d4a843;
         }
+
         .launch-card:hover::before {
             opacity: 1;
         }
+
         .launch-ticker {
             font-size: 2rem;
             font-weight: 800;
@@ -92,12 +109,15 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
+
         .status-accepting {
             background: linear-gradient(135deg, #065f46, #047857);
         }
+
         .status-early {
             background: linear-gradient(135deg, #1e40af, #3730a3);
         }
+
         .tag-pill {
             background: #fef3f2;
             border: 1px solid #fecaca;
@@ -109,36 +129,52 @@
             text-transform: uppercase;
             letter-spacing: 0.05em;
         }
+
         .form-section {
             background: linear-gradient(135deg, #1a0a0a 0%, #2d0f0f 50%, #1a0a0a 100%);
         }
+
         .form-input {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.12);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 0.75rem;
             color: white;
             font-size: 0.875rem;
             padding: 0.75rem 1rem;
             transition: all 0.2s ease;
         }
+
         .form-input:focus {
             outline: none;
             border-color: rgba(212, 168, 67, 0.5);
             box-shadow: 0 0 0 3px rgba(212, 168, 67, 0.1);
         }
-        .form-input::placeholder { color: #6b7280; }
+
+        .form-input::placeholder {
+            color: #6b7280;
+        }
+
         .form-select {
             appearance: none;
             background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%239ca3af%22 stroke-width=%222%22%3E%3Cpath d=%22M6 9l6 6 6-6%22/%3E%3C/svg%3E');
             background-repeat: no-repeat;
             background-position: right 12px center;
         }
+
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
     </style>
 </head>
+
 <body class="bg-white">
     <!-- Header -->
     <header class="cambria-header">
@@ -150,11 +186,16 @@
                         <div class="text-sm text-gray-300 hidden sm:block">Diamond & Diamond</div>
                     </div>
                     <nav class="hidden md:flex space-x-6">
-                        <a href="./" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                        <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Services</a>
-                        <a href="#fees" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Fees</a>
-                        <a href="etfs/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">ETFs</a>
-                        <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        <a href="./"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="#services"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="#fees"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Fees</a>
+                        <a href="etfs/"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">ETFs</a>
+                        <a href="#contact"
+                            class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Contact</a>
                     </nav>
                 </div>
             </div>
@@ -178,19 +219,23 @@
     <!-- Main Content -->
     <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+
             <!-- Overview -->
             <div class="cambria-card p-8 mb-8">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">What is Section 351?</h2>
                 <p class="text-gray-700 leading-relaxed mb-4">
-                    Section 351 of the Internal Revenue Code provides for tax-free exchanges when property is transferred 
-                    to a corporation in exchange for stock, provided certain conditions are met. For ETFs, this provision 
-                    is critical to the creation and redemption process, allowing Authorized Participants (APs) to exchange 
+                    Section 351 of the Internal Revenue Code provides for tax-free exchanges when property is
+                    transferred
+                    to a corporation in exchange for stock, provided certain conditions are met. For ETFs, this
+                    provision
+                    is critical to the creation and redemption process, allowing Authorized Participants (APs) to
+                    exchange
                     baskets of securities for ETF shares (and vice versa) without triggering immediate tax consequences.
                 </p>
                 <p class="text-gray-700 leading-relaxed">
-                    This tax-efficient structure is one of the key advantages of ETFs over traditional mutual funds, 
-                    enabling investors to benefit from the creation/redemption mechanism while maintaining favorable tax treatment.
+                    This tax-efficient structure is one of the key advantages of ETFs over traditional mutual funds,
+                    enabling investors to benefit from the creation/redemption mechanism while maintaining favorable tax
+                    treatment.
                 </p>
             </div>
 
@@ -202,34 +247,43 @@
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div
+                            class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i data-lucide="check" class="w-4 h-4 text-red-700"></i>
                         </div>
                         <div>
                             <strong class="text-gray-900">Control Requirement:</strong>
-                            <span class="text-gray-700"> The transferors must be in "control" of the corporation immediately after the exchange. 
-                            Control is defined as owning at least 80% of the total combined voting power and at least 80% of the total number 
-                            of shares of all other classes of stock.</span>
+                            <span class="text-gray-700"> The transferors must be in "control" of the corporation
+                                immediately after the exchange.
+                                Control is defined as owning at least 80% of the total combined voting power and at
+                                least 80% of the total number
+                                of shares of all other classes of stock.</span>
                         </div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div
+                            class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i data-lucide="check" class="w-4 h-4 text-red-700"></i>
                         </div>
                         <div>
                             <strong class="text-gray-900">Property for Stock:</strong>
-                            <span class="text-gray-700"> The exchange must involve property (securities) transferred solely in exchange for stock 
-                            (ETF shares). Cash or other property received in addition to stock may disqualify the exchange.</span>
+                            <span class="text-gray-700"> The exchange must involve property (securities) transferred
+                                solely in exchange for stock
+                                (ETF shares). Cash or other property received in addition to stock may disqualify the
+                                exchange.</span>
                         </div>
                     </li>
                     <li class="flex items-start gap-3">
-                        <div class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div
+                            class="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i data-lucide="check" class="w-4 h-4 text-red-700"></i>
                         </div>
                         <div>
                             <strong class="text-gray-900">No Boot:</strong>
-                            <span class="text-gray-700"> The exchange must be solely for stock. If the transferor receives "boot" (cash or other property 
-                            in addition to stock), gain (but not loss) may be recognized to the extent of the boot received.</span>
+                            <span class="text-gray-700"> The exchange must be solely for stock. If the transferor
+                                receives "boot" (cash or other property
+                                in addition to stock), gain (but not loss) may be recognized to the extent of the boot
+                                received.</span>
                         </div>
                     </li>
                 </ul>
@@ -237,31 +291,38 @@
 
             <!-- ETF Application -->
             <div class="cambria-card p-8 mb-8">
-                <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">Application to ETF Creation/Redemption</h2>
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 elegant-heading">Application to ETF Creation/Redemption
+                </h2>
                 <div class="space-y-6">
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Creation Units</h3>
                         <p class="text-gray-700 leading-relaxed">
-                            When an AP creates ETF shares, they deliver a basket of securities (the "creation basket") to the ETF in exchange 
-                            for a specified number of ETF shares (typically 25,000 or 50,000 shares, known as a "Creation Unit"). This exchange 
+                            When an AP creates ETF shares, they deliver a basket of securities (the "creation basket")
+                            to the ETF in exchange
+                            for a specified number of ETF shares (typically 25,000 or 50,000 shares, known as a
+                            "Creation Unit"). This exchange
                             generally qualifies as a Section 351 exchange, meaning:
                         </p>
                         <ul class="list-disc list-inside mt-3 space-y-2 text-gray-700">
                             <li>The AP does not recognize gain or loss on the exchange</li>
                             <li>The AP's basis in the ETF shares equals their basis in the securities transferred</li>
-                            <li>The holding period of the ETF shares includes the holding period of the securities transferred</li>
+                            <li>The holding period of the ETF shares includes the holding period of the securities
+                                transferred</li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Redemption Units</h3>
                         <p class="text-gray-700 leading-relaxed">
-                            When an AP redeems ETF shares, they deliver a Creation Unit of ETF shares to the ETF in exchange for the redemption 
-                            basket of securities. This exchange also generally qualifies as a Section 351 exchange, with similar tax consequences:
+                            When an AP redeems ETF shares, they deliver a Creation Unit of ETF shares to the ETF in
+                            exchange for the redemption
+                            basket of securities. This exchange also generally qualifies as a Section 351 exchange, with
+                            similar tax consequences:
                         </p>
                         <ul class="list-disc list-inside mt-3 space-y-2 text-gray-700">
                             <li>The AP does not recognize gain or loss on the exchange</li>
                             <li>The AP's basis in the received securities equals their basis in the ETF shares</li>
-                            <li>The holding period of the received securities includes the holding period of the ETF shares</li>
+                            <li>The holding period of the received securities includes the holding period of the ETF
+                                shares</li>
                         </ul>
                     </div>
                 </div>
@@ -277,28 +338,32 @@
                     <div class="p-4 bg-red-50 rounded-lg">
                         <h4 class="font-bold text-gray-900 mb-2">Tax Efficiency</h4>
                         <p class="text-gray-700 text-sm">
-                            ETF shares can be created and redeemed without triggering taxable events at the fund level, 
-                            unlike traditional mutual funds which may realize capital gains when investors redeem shares.
+                            ETF shares can be created and redeemed without triggering taxable events at the fund level,
+                            unlike traditional mutual funds which may realize capital gains when investors redeem
+                            shares.
                         </p>
                     </div>
                     <div class="p-4 bg-red-50 rounded-lg">
                         <h4 class="font-bold text-gray-900 mb-2">In-Kind Redemptions</h4>
                         <p class="text-gray-700 text-sm">
-                            APs typically receive securities (not cash) when redeeming, which means the ETF doesn't need to 
+                            APs typically receive securities (not cash) when redeeming, which means the ETF doesn't need
+                            to
                             sell portfolio holdings to meet redemptions, avoiding capital gains distributions.
                         </p>
                     </div>
                     <div class="p-4 bg-red-50 rounded-lg">
                         <h4 class="font-bold text-gray-900 mb-2">Basis Preservation</h4>
                         <p class="text-gray-700 text-sm">
-                            The tax basis of securities is preserved through the exchange, allowing for proper tax treatment 
+                            The tax basis of securities is preserved through the exchange, allowing for proper tax
+                            treatment
                             when the securities are ultimately sold.
                         </p>
                     </div>
                     <div class="p-4 bg-red-50 rounded-lg">
                         <h4 class="font-bold text-gray-900 mb-2">Flexibility</h4>
                         <p class="text-gray-700 text-sm">
-                            The creation/redemption mechanism allows APs to arbitrage price differences between the ETF's 
+                            The creation/redemption mechanism allows APs to arbitrage price differences between the
+                            ETF's
                             market price and its NAV, keeping the ETF trading close to its intrinsic value.
                         </p>
                     </div>
@@ -312,25 +377,32 @@
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Custom Baskets</h3>
                         <p class="text-gray-700 leading-relaxed">
-                            Some ETFs allow for custom baskets (non-pro-rata slices of the portfolio) for creation/redemption. 
-                            While these may still qualify for Section 351 treatment, the specific terms and conditions should 
+                            Some ETFs allow for custom baskets (non-pro-rata slices of the portfolio) for
+                            creation/redemption.
+                            While these may still qualify for Section 351 treatment, the specific terms and conditions
+                            should
                             be carefully reviewed to ensure compliance.
                         </p>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Cash-in-Lieu</h3>
                         <p class="text-gray-700 leading-relaxed">
-                            When certain securities cannot be delivered (e.g., due to corporate actions or trading restrictions), 
-                            the ETF may provide cash-in-lieu. This cash component may be treated as "boot" and could result in 
+                            When certain securities cannot be delivered (e.g., due to corporate actions or trading
+                            restrictions),
+                            the ETF may provide cash-in-lieu. This cash component may be treated as "boot" and could
+                            result in
                             gain recognition to the extent of the cash received.
                         </p>
                     </div>
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Individual Investors</h3>
                         <p class="text-gray-700 leading-relaxed">
-                            Section 351 exchanges are primarily relevant to APs who create and redeem Creation Units. Individual 
-                            investors who buy and sell ETF shares on the secondary market are subject to normal capital gains 
-                            tax rules, not Section 351. However, they still benefit from the tax efficiency of the ETF structure.
+                            Section 351 exchanges are primarily relevant to APs who create and redeem Creation Units.
+                            Individual
+                            investors who buy and sell ETF shares on the secondary market are subject to normal capital
+                            gains
+                            tax rules, not Section 351. However, they still benefit from the tax efficiency of the ETF
+                            structure.
                         </p>
                     </div>
                 </div>
@@ -339,10 +411,12 @@
             <!-- Disclosure -->
             <div class="disclosure-box">
                 <p class="text-gray-800 leading-relaxed">
-                    <strong>Tax Disclaimer:</strong> This information is for educational purposes only and does not constitute 
-                    tax, legal, or investment advice. Tax laws and regulations are complex and subject to change. The tax 
-                    treatment of ETF creation and redemption transactions may vary based on individual circumstances. 
-                    Investors should consult with a qualified tax advisor regarding their specific situation and the tax 
+                    <strong>Tax Disclaimer:</strong> This information is for educational purposes only and does not
+                    constitute
+                    tax, legal, or investment advice. Tax laws and regulations are complex and subject to change. The
+                    tax
+                    treatment of ETF creation and redemption transactions may vary based on individual circumstances.
+                    Investors should consult with a qualified tax advisor regarding their specific situation and the tax
                     implications of investing in ETFs. Diamond & Diamond (D&D) does not provide tax advice.
                 </p>
             </div>
@@ -365,7 +439,7 @@
                     351 Exchange Opportunities
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                    Contribute appreciated securities into a new Diamond ETF at launch. 
+                    Contribute appreciated securities into a new Diamond ETF at launch.
                     Diversify without triggering capital gains. Tax-deferred under IRC §351.
                 </p>
             </div>
@@ -373,145 +447,42 @@
             <!-- How It Works — Horizontal Steps -->
             <div class="mb-20">
                 <div class="grid md:grid-cols-3 gap-0 relative">
-                    <div class="hidden md:block absolute top-10 left-[17%] right-[17%] h-[2px] bg-gradient-to-r from-red-200 via-red-300 to-red-200"></div>
+                    <div
+                        class="hidden md:block absolute top-10 left-[17%] right-[17%] h-[2px] bg-gradient-to-r from-red-200 via-red-300 to-red-200">
+                    </div>
                     <div class="text-center relative z-10 px-6 py-4">
-                        <div class="w-20 h-20 bg-white border-2 border-red-200 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-100/50" style="animation: float 4s ease-in-out infinite;">
+                        <div class="w-20 h-20 bg-white border-2 border-red-200 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-100/50"
+                            style="animation: float 4s ease-in-out infinite;">
                             <i data-lucide="trending-up" class="w-8 h-8 text-red-700"></i>
                         </div>
                         <h4 class="font-bold text-gray-900 mb-2">You Hold Appreciated Stock</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">Concentrated positions with large unrealized gains you'd rather not sell.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Concentrated positions with large unrealized
+                            gains you'd rather not sell.</p>
                     </div>
                     <div class="text-center relative z-10 px-6 py-4">
-                        <div class="w-20 h-20 bg-white border-2 border-red-200 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-100/50" style="animation: float 4s ease-in-out infinite 0.5s;">
+                        <div class="w-20 h-20 bg-white border-2 border-red-200 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-100/50"
+                            style="animation: float 4s ease-in-out infinite 0.5s;">
                             <i data-lucide="arrow-right-left" class="w-8 h-8 text-red-700"></i>
                         </div>
                         <h4 class="font-bold text-gray-900 mb-2">Contribute at ETF Launch</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">Transfer qualifying securities into a new Diamond ETF in exchange for shares.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Transfer qualifying securities into a new
+                            Diamond ETF in exchange for shares.</p>
                     </div>
                     <div class="text-center relative z-10 px-6 py-4">
-                        <div class="w-20 h-20 bg-white border-2 border-red-200 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-100/50" style="animation: float 4s ease-in-out infinite 1s;">
+                        <div class="w-20 h-20 bg-white border-2 border-red-200 rounded-full flex items-center justify-center mx-auto mb-5 shadow-lg shadow-red-100/50"
+                            style="animation: float 4s ease-in-out infinite 1s;">
                             <i data-lucide="shield-check" class="w-8 h-8 text-red-700"></i>
                         </div>
                         <h4 class="font-bold text-gray-900 mb-2">Diversified, Tax-Deferred</h4>
-                        <p class="text-gray-500 text-sm leading-relaxed">Own a diversified ETF instead of concentrated single-stock risk — no capital gains today.</p>
+                        <p class="text-gray-500 text-sm leading-relaxed">Own a diversified ETF instead of concentrated
+                            single-stock risk — no capital gains today.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Launch Cards -->
-            <div class="grid md:grid-cols-2 gap-8 mb-20">
-
-                <!-- DMVP -->
-                <div class="launch-card">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="status-accepting text-white text-[0.65rem] font-bold px-2.5 py-1 rounded-full tracking-wide uppercase">Accepting Interest</span>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[0.65rem] text-gray-400 uppercase tracking-widest">Target</div>
-                            <div class="text-sm font-bold text-red-800">Q3 2026</div>
-                        </div>
-                    </div>
-                    <div class="launch-ticker mb-1">DMVP</div>
-                    <p class="text-gray-500 text-sm font-medium mb-4">Diamond Minimum Variance Portfolio ETF</p>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        Minimum variance optimization across global equities. Market exposure with structurally lower volatility — 
-                        low-correlation stock selection, constrained optimization, monthly rebalancing.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 mb-5">
-                        <span class="tag-pill">Min Variance</span>
-                        <span class="tag-pill">Global Equity</span>
-                        <span class="tag-pill">Risk-Managed</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-100 text-xs text-gray-400">
-                        <span>Est. Expense: <strong class="text-gray-700">35 bps</strong></span>
-                        <span>Target AUM: <strong class="text-gray-700">$50M+</strong></span>
-                    </div>
-                </div>
-
-                <!-- DSCB -->
-                <div class="launch-card">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="status-accepting text-white text-[0.65rem] font-bold px-2.5 py-1 rounded-full tracking-wide uppercase">Accepting Interest</span>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[0.65rem] text-gray-400 uppercase tracking-widest">Target</div>
-                            <div class="text-sm font-bold text-red-800">Q4 2026</div>
-                        </div>
-                    </div>
-                    <div class="launch-ticker mb-1">DSCB</div>
-                    <p class="text-gray-500 text-sm font-medium mb-4">Diamond Systematic Credit & Bond ETF</p>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        Quantitative fixed income — systematic credit selection across IG and HY corporates. 
-                        Factor-driven bond selection using carry, value, momentum, and quality signals.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 mb-5">
-                        <span class="tag-pill">Fixed Income</span>
-                        <span class="tag-pill">Systematic</span>
-                        <span class="tag-pill">Multi-Sector</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-100 text-xs text-gray-400">
-                        <span>Est. Expense: <strong class="text-gray-700">40 bps</strong></span>
-                        <span>Target AUM: <strong class="text-gray-700">$75M+</strong></span>
-                    </div>
-                </div>
-
-                <!-- DSHR -->
-                <div class="launch-card">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="status-early text-white text-[0.65rem] font-bold px-2.5 py-1 rounded-full tracking-wide uppercase">Early Stage</span>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[0.65rem] text-gray-400 uppercase tracking-widest">Target</div>
-                            <div class="text-sm font-bold text-red-800">Q1 2027</div>
-                        </div>
-                    </div>
-                    <div class="launch-ticker mb-1">DSHR</div>
-                    <p class="text-gray-500 text-sm font-medium mb-4">Diamond Shareholder Yield ETF</p>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        Total shareholder yield — dividends plus buybacks plus debt reduction. Most dividend funds 
-                        miss two-thirds of the picture. DSHR captures all three capital return channels.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 mb-5">
-                        <span class="tag-pill">Shareholder Yield</span>
-                        <span class="tag-pill">Capital Return</span>
-                        <span class="tag-pill">US Equity</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-100 text-xs text-gray-400">
-                        <span>Est. Expense: <strong class="text-gray-700">42 bps</strong></span>
-                        <span>Target AUM: <strong class="text-gray-700">$40M+</strong></span>
-                    </div>
-                </div>
-
-                <!-- DCRR -->
-                <div class="launch-card">
-                    <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <span class="status-early text-white text-[0.65rem] font-bold px-2.5 py-1 rounded-full tracking-wide uppercase">Early Stage</span>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-[0.65rem] text-gray-400 uppercase tracking-widest">Target</div>
-                            <div class="text-sm font-bold text-red-800">Q1 2027</div>
-                        </div>
-                    </div>
-                    <div class="launch-ticker mb-1">DCRR</div>
-                    <p class="text-gray-500 text-sm font-medium mb-4">Diamond Carry & Roll ETF</p>
-                    <p class="text-gray-600 text-sm leading-relaxed mb-5">
-                        Multi-asset carry strategy — harvesting yield differentials across rates, currencies, and commodities. 
-                        Systematically capturing term premium, credit premium, and cross-currency basis.
-                    </p>
-                    <div class="flex flex-wrap gap-1.5 mb-5">
-                        <span class="tag-pill">Multi-Asset</span>
-                        <span class="tag-pill">Carry</span>
-                        <span class="tag-pill">Alternative</span>
-                    </div>
-                    <div class="flex items-center justify-between pt-4 border-t border-gray-100 text-xs text-gray-400">
-                        <span>Est. Expense: <strong class="text-gray-700">55 bps</strong></span>
-                        <span>Target AUM: <strong class="text-gray-700">$60M+</strong></span>
-                    </div>
-                </div>
+            <div id="upcoming-launches-grid" class="flex justify-center gap-8 mb-20">
+                <!-- Cards populated from data/etfs.json -->
             </div>
         </div>
     </section>
@@ -522,24 +493,29 @@
             <div class="text-center mb-10">
                 <h3 class="text-3xl font-bold text-white mb-3 elegant-heading">Register Your Interest</h3>
                 <p class="text-gray-400 text-sm leading-relaxed max-w-md mx-auto">
-                    Fill in your details and select the fund you're interested in. 
-                    We'll open your email client with a pre-composed message to <strong class="text-gray-300">info@ofnectar.com</strong> — just hit send.
+                    Fill in your details and select the fund you're interested in.
+                    We'll open your email client with a pre-composed message to <strong
+                        class="text-gray-300">info@ofnectar.com</strong> — just hit send.
                 </p>
             </div>
             <form id="interest-form-351" class="space-y-5" onsubmit="handleInterestSubmit351(event)">
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold" for="f-name">Full Name</label>
+                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold"
+                            for="f-name">Full Name</label>
                         <input type="text" id="f-name" required placeholder="Jane Smith" class="w-full form-input">
                     </div>
                     <div>
-                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold" for="f-email">Your Email</label>
-                        <input type="email" id="f-email" required placeholder="jane@example.com" class="w-full form-input">
+                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold"
+                            for="f-email">Your Email</label>
+                        <input type="email" id="f-email" required placeholder="jane@example.com"
+                            class="w-full form-input">
                     </div>
                 </div>
                 <div class="grid sm:grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold" for="f-type">I am a...</label>
+                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold"
+                            for="f-type">I am a...</label>
                         <select id="f-type" required class="w-full form-input form-select">
                             <option value="" disabled selected style="color: #6b7280;">Select one</option>
                             <option value="ria" style="color: #111;">Registered Investment Advisor</option>
@@ -550,30 +526,34 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold" for="f-fund">Interested Fund</label>
+                        <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold"
+                            for="f-fund">Interested Fund</label>
                         <select id="f-fund" class="w-full form-input form-select">
                             <option value="all" style="color: #111;">All Upcoming Launches</option>
-                            <option value="DMVP" style="color: #111;">DMVP — Minimum Variance</option>
-                            <option value="DSCB" style="color: #111;">DSCB — Systematic Credit & Bond</option>
-                            <option value="DSHR" style="color: #111;">DSHR — Shareholder Yield</option>
-                            <option value="DCRR" style="color: #111;">DCRR — Carry & Roll</option>
+                            <!-- Options populated from data/etfs.json -->
                         </select>
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold" for="f-notes">Notes <span class="normal-case text-gray-500 tracking-normal">(optional)</span></label>
-                    <textarea id="f-notes" rows="3" placeholder="Concentrated positions, estimated contribution size, questions..."
+                    <label class="block text-[0.65rem] text-gray-400 uppercase tracking-widest mb-1.5 font-semibold"
+                        for="f-notes">Notes <span
+                            class="normal-case text-gray-500 tracking-normal">(optional)</span></label>
+                    <textarea id="f-notes" rows="3"
+                        placeholder="Concentrated positions, estimated contribution size, questions..."
                         class="w-full form-input resize-none"></textarea>
                 </div>
                 <div id="f-validation" class="hidden text-amber-400 text-sm text-center"></div>
                 <button type="submit"
                     class="w-full py-4 bg-gradient-to-r from-red-700 to-red-800 text-white font-bold text-sm rounded-xl hover:from-red-600 hover:to-red-700 transition-all duration-200 shadow-lg shadow-red-900/30 tracking-wide uppercase flex items-center justify-center gap-2.5">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                     Send Interest via Email
                 </button>
             </form>
             <p class="text-[0.65rem] text-gray-500 text-center mt-6 leading-relaxed max-w-sm mx-auto">
-                This is not a commitment to invest. Section 351 eligibility depends on individual circumstances. 
+                This is not a commitment to invest. Section 351 eligibility depends on individual circumstances.
                 Consult a qualified tax advisor.
             </p>
         </div>
@@ -594,26 +574,60 @@
         </div>
     </footer>
 
+    <script src="js/etf-config.js"></script>
     <script>
         if (typeof lucide !== 'undefined') {
             lucide.createIcons();
         }
         document.querySelectorAll('.current-year').forEach(el => el.textContent = new Date().getFullYear());
 
+        function template351Exchanges(etf) {
+            return `
+                <!-- ${etf.ticker} Launch Card -->
+                <div class="launch-card p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 w-full max-w-md">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="status-early text-white text-[0.65rem] font-bold px-2.5 py-1 rounded-full tracking-wide uppercase">${etf.status}</span>
+                        <div class="text-right">
+                            <div class="text-[0.65rem] text-gray-400 uppercase tracking-widest">Target</div>
+                            <div class="text-sm font-bold text-red-800">${etf.targetLaunch}</div>
+                        </div>
+                    </div>
+                    <div class="launch-ticker mb-1">${etf.ticker}</div>
+                    <h3 class="text-2xl font-extrabold text-red-800 mb-1">${etf.ticker}</h3>
+                    <p class="text-gray-500 text-sm font-medium mb-3">${etf.name}</p>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-5">${etf.description}</p>
+                    <div class="flex flex-wrap gap-1.5 mb-5">
+                        ${etf.tags.map(tag => `<span class="tag-pill">${tag}</span>`).join('')}
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-gray-100 text-xs text-gray-400">
+                        <span>Est. Expense: <strong class="text-gray-700">${etf.expenseRatio}</strong></span>
+                        <span>Target AUM: <strong class="text-gray-700">${etf.targetAUM}</strong></span>
+                    </div>
+                </div>
+            `;
+        }
+
+        onEtfConfigReady(() => {
+            render351Cards('upcoming-launches-grid', template351Exchanges);
+            populate351Dropdown('f-fund');
+        });
+
         function handleInterestSubmit351(e) {
             e.preventDefault();
             var val = document.getElementById('f-validation');
-            val.classList.add('hidden');
+            if (val) val.classList.add('hidden');
 
             var name = document.getElementById('f-name').value.trim();
             var email = document.getElementById('f-email').value.trim();
             var typeEl = document.getElementById('f-type');
             var fundEl = document.getElementById('f-fund');
-            var notes = document.getElementById('f-notes').value.trim();
+            var notes = document.getElementById('f-notes') ? document.getElementById('f-notes').value.trim() : '';
 
             if (!name || !email || !typeEl.value) {
-                val.textContent = 'Please fill in your name, email, and investor type.';
-                val.classList.remove('hidden');
+                if (val) {
+                    val.textContent = 'Please fill in your name, email, and investor type.';
+                    val.classList.remove('hidden');
+                }
                 return;
             }
 
@@ -638,4 +652,5 @@
         }
     </script>
 </body>
+
 </html>
