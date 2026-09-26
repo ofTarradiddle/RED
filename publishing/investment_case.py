@@ -1,8 +1,9 @@
 """Deck-derived investment thesis, shared by the homepage and full case.
 
 Source: DBE Innovation Factor ETF.pptx, slides 4, 6–11, 18–24.
-Source images retain their original labels. Backtests are identified as research,
-not fund performance. Unfinished parameters and internal notes are not fund facts.
+Business-card labels are adapted for the site without changing plotted values.
+Backtests are identified as research, not fund performance. Unfinished parameters
+and internal notes are not fund facts.
 """
 from bs4 import BeautifulSoup
 from html import escape
@@ -17,18 +18,19 @@ VISUALS = {
         'caption': 'Conceptual illustration of strategy design. The paths and expected-return notation are not historical results, forecasts or a guarantee of positive returns or limited losses.',
     },
     'businesscard': {
-        'file': 'redi-business-card-chart.png', 'width': 2048, 'height': 1170,
-        'title': 'REDI research with Shin Chan', 'source': 'Opening business card · Slide 1',
-        'alt': 'Shin Chan flies along the Innovation Leaders series on a logarithmic growth-of-one-dollar chart, beside Innovation Laggards, Market, Market Equal Weight and Non-R&D Payers. The chart labels its April 2003 to August 2026 results as a backtest.',
-        'caption': 'Backtested strategy research from the opening business card, not actual ETF performance. Past performance does not guarantee future results.',
+        'file': 'redi-business-card-chart-labeled.svg', 'width': 2048, 'height': 1170,
+        'title': 'Log returns — REDI backtests', 'source': 'Opening business card · Slide 1',
+        'alt': 'Log returns — REDI backtests. Shin Chan flies along the red Innovation Leader series beside Laggard, Market Backtest, Market Equal Weight and Non-R&D Payers. The chart shows cumulative growth of one dollar on a logarithmic scale from April 2003 to August 2026; endpoint percentages show CAGR.',
+        'caption': 'The Log returns view shows cumulative growth of $1 on a logarithmic scale; endpoint percentages show compound annual growth rates (CAGR). Hypothetical backtested strategy research, not actual ETF performance. Fee and trading-cost treatment have not been independently verified. Past performance does not guarantee future results.',
     },
     'businesscard-dark': {
         # PDF page 1 chart panel, rendered at 432 dpi; the legacy contact strip
-        # is outside the extracted panel. Original chart pixels are unchanged.
-        'file': 'redi-business-card-dark.png', 'width': 1865, 'height': 1079,
-        'title': 'Innovation, in perspective', 'source': 'Opening business card · Page 1',
-        'alt': 'The dark business-card chart from the source PDF. Shin Chan follows the red Innovation Leaders series above Innovation Laggards, Market, Market Equal Weight and Non-R&D Payers, showing cumulative growth of one dollar on a logarithmic scale from 2003 to 2026.',
-        'caption': 'Hypothetical backtested strategy research, not actual ETF performance. Source artwork from the opening business card. Fee and trading-cost treatment have not been independently verified. Past performance does not guarantee future results.',
+        # is outside the extracted panel. The SVG updates labels around the
+        # original chart artwork without changing plotted values.
+        'file': 'redi-business-card-dark-labeled.svg', 'width': 1865, 'height': 1079,
+        'title': 'Log returns — REDI backtests', 'source': 'Opening business card · Page 1',
+        'alt': 'Log returns — REDI backtests. On the dark business-card chart, Shin Chan follows the red Innovation Leader series above Laggard, Market Backtest, Market Equal Weight and Non-R&D Payers. The chart shows cumulative growth of one dollar on a logarithmic scale from 2003 to 2026.',
+        'caption': 'The Log returns view shows cumulative growth of $1 on a logarithmic scale. Hypothetical backtested strategy research, not actual ETF performance. Source artwork from the opening business card, with updated labels. Fee and trading-cost treatment have not been independently verified. Past performance does not guarantee future results.',
     },
     'endogenous': {
         'file': 'endogenous-growth.png', 'width': 1472, 'height': 614,
@@ -115,7 +117,7 @@ def business_card():
 def etf_research_card():
     return f'''<section class="etf-research-card" id="strategy-research" aria-labelledby="etf-research-title">
       <div class="etf-research-inner">
-        <div class="etf-research-heading"><h3 id="etf-research-title">Backtested comparisons</h3><span>REDI</span></div>
+        <div class="etf-research-heading"><h3 id="etf-research-title">Log returns · Backtests</h3><span>REDI</span></div>
         {case_visual('businesscard-dark', prefix='etf-')}
       </div>
     </section>'''

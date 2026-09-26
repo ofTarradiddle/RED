@@ -124,7 +124,7 @@ def test_deck_visuals_follow_the_investment_case_journey(pages):
             sources.append(images[0]['src'])
         assert set(sources)==process_sources
 
-    assert home.find(id='innovation').find('img',src=asset+'redi-business-card-chart.png')
+    assert home.find(id='innovation').find('img',src=asset+'redi-business-card-chart-labeled.svg')
     assert not home.find(id='etfs').find('img',src=asset+'portfolio-to-redi-sticker.png')
     sticker = home.find(id='contact').find('img',src=asset+'portfolio-to-redi-sticker.png')
     assert sticker and not sticker.find_parent('a')

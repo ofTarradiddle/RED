@@ -1,6 +1,6 @@
 # Investment case source visuals
 
-Extracted from `DBE Innovation Factor ETF.pptx`, supplied by the user. The source attachment is a PowerPoint, referred to as a PDF in the request. All embedded visuals remain unchanged except the portfolio-to-REDI sticker, whose exterior background was removed for transparency.
+Extracted from `DBE Innovation Factor ETF.pptx`, supplied by the user. The source attachment is a PowerPoint, referred to as a PDF in the request. Original chart paths remain unchanged. The business cards use SVG label layers described below; the portfolio-to-REDI sticker has its exterior background removed for transparency.
 
 | Public asset under `assets/investment-case/` | Embedded source | Slide | Placement |
 | --- | --- | --- | --- |
@@ -18,7 +18,19 @@ Extracted from `DBE Innovation Factor ETF.pptx`, supplied by the user. The sourc
 
 These visuals use the original embedded artwork. The portfolio-to-REDI sticker has only its exterior background removed; the sticker artwork and its colors are retained. It remains a plain inline image, allowing the page background to show around its silhouette without a rectangular backdrop. The other embedded images are unchanged. They contain no Diamond or DBE text. The surrounding page and business-card header use Hetzerk branding.
 
-The chart and timeline retain the source's figures and labels. Their adjacent captions and expanded viewer identify them as backtested strategy research, not actual fund performance or REDI holdings. No figures were transferred into the public ETF performance data. Fee and cost treatment is not specified in the chart, and the supplied research has not been independently verified.
+The charts and timeline retain the source's figures. Their adjacent captions and expanded viewer identify them as backtested strategy research, not actual fund performance or REDI holdings. No figures were transferred into the public ETF performance data. Fee and cost treatment is not specified in the chart, and the supplied research has not been independently verified.
+
+The homepage and ETF backtest cards use `redi-business-card-chart-labeled.svg`
+and `redi-business-card-dark-labeled.svg`. Rebuild them with
+`python3 scripts/label_redi_backtests.py`. Each self-contained SVG embeds its
+unchanged original PNG, masks old text, and supplies native text labels:
+**Log returns**, **Innovation Leader**, **Laggard**, and **Market Backtest**.
+Market Equal Weight and Non-R&D Payers remain separate series. The heading's
+supporting text explicitly identifies the plotted measure as cumulative growth
+of $1 on a logarithmic scale; no period log-return data is implied or calculated.
+The light card's original CAGR values remain unchanged. The dark card now
+distinguishes the navy market series from the teal equal-weight market series.
+These SVGs are used in both inline and enlarged views.
 
 The source chart variants have different labels, periods and endpoints; they have not been combined into one data series. The 2026 annual observation is a partial year. The business-card bitmap labels its own date range and backtest status.
 
