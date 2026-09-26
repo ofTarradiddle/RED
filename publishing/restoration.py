@@ -155,7 +155,7 @@ def prepare(raw, route):
     for href in reversed(['/assets/fonts.css','/assets/original-utilities.css']):
         page.head.insert(0,page.new_tag('link',attrs={'rel':'stylesheet','href':href}))
     page.head.append(page.new_tag('link',attrs={'rel':'stylesheet','href':'/assets/restored.css'}))
-    page.head.append(page.new_tag('link',attrs={'rel':'icon','href':'/assets/favicon.svg','type':'image/svg+xml'}))
+    page.head.append(page.new_tag('link',attrs={'rel':'icon','href':'/assets/favicon.svg?v=wing-h-1','type':'image/svg+xml'}))
     for src in ('/assets/vendor/lucide.min.js','/assets/site.js','/assets/restored.js'):
         page.head.append(page.new_tag('script',attrs={'src':src,'defer':''}))
     if disclaimer:
