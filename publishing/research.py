@@ -8,6 +8,10 @@ from bs4 import BeautifulSoup
 from publishing.research_report_content import (
     REPORT_TITLE, REPORT_SUBTITLE, REPORT_DESCRIPTION, report_body,
 )
+from publishing.innovation_factor_content import (
+    ARTICLE_ROUTE, ARTICLE_TITLE, ARTICLE_SUBTITLE, ARTICLE_DESCRIPTION,
+    ARTICLE_SECTIONS, article_body,
+)
 
 REPORT_ROUTE = 'research/the-measure-of-fire.html'
 PDF_URL = '/assets/research/the-measure-of-fire.pdf'
@@ -19,7 +23,7 @@ SECTIONS = (
 )
 
 
-def _shell(home_html, disclaimer_html, title, description, *, report=False):
+def _shell(home_html, disclaimer_html, title, description, *, report=False, pdf_url=None):
     page = BeautifulSoup(home_html, 'html.parser')
     page.body['class'].extend(['research-page'] + (['report-page'] if report else []))
     page.title.string = title
@@ -41,7 +45,8 @@ def _shell(home_html, disclaimer_html, title, description, *, report=False):
             page.head.append(page.new_tag('script', src=asset, defer=''))
     if report:
         page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/research-print.css', media='print'))
-        page.head.append(page.new_tag('link', rel='alternate', type='application/pdf', href=PDF_URL, title='Download the research report'))
+    if pdf_url:
+        page.head.append(page.new_tag('link', rel='alternate', type='application/pdf', href=pdf_url, title='Download the research report'))
     dialog = BeautifulSoup(disclaimer_html, 'html.parser').find(id='disclaimerOverlay')
     if dialog:
         page.body.append(deepcopy(dialog))
@@ -58,6 +63,8 @@ def _append(page, html):
 def render_research_pages(home_html, existing_research):
     body = report_body()
     minutes = max(1, ceil(len(BeautifulSoup(body, 'html.parser').get_text(' ', strip=True).split()) / 220))
+    note_body = article_body()
+    note_minutes = max(1, ceil(len(BeautifulSoup(note_body, 'html.parser').get_text(' ', strip=True).split()) / 220))
     library = _shell(home_html, existing_research, 'Research | Hetzerk Asset Management',
                      'Research on innovation, valuation and systematic equity investing from Hetzerk Asset Management.')
     library_html = f'''
@@ -65,6 +72,17 @@ def render_research_pages(home_html, existing_research):
         <p class="home-eyebrow">Hetzerk / Research</p>
         <h1 id="research-title">The thinking<br><span>behind REDI.</span></h1>
         <p>Innovation, examined through the business, its valuation and the evidence.</p>
+      </section>
+      <section class="research-note" aria-labelledby="research-note-title">
+        <div class="research-note-heading">
+          <div class="research-meta"><span>Research perspective</span><span>{note_minutes} min read</span></div>
+          <h2 id="research-note-title"><a href="/{ARTICLE_ROUTE}">{escape(ARTICLE_TITLE)}</a></h2>
+          <p class="research-subtitle">{escape(ARTICLE_SUBTITLE)}</p>
+        </div>
+        <div class="research-note-copy">
+          <p>Research spending is a beginning. Commercial progress is the question. Why a focused innovation factor needs an economic reason to exist—and evidence that survives implementation.</p>
+          <a class="home-text-link" href="/{ARTICLE_ROUTE}">Read the perspective <span aria-hidden="true">→</span></a>
+        </div>
       </section>
       <section class="research-feature" aria-labelledby="featured-title">
         <div class="research-feature-copy">
@@ -89,7 +107,7 @@ def render_research_pages(home_html, existing_research):
     toc = ''.join(f'<li><a href="#{key}"><span>{i:02}</span>{label}</a></li>'
                   for i, (key, label) in enumerate(SECTIONS, 1))
     report = _shell(home_html, existing_research, f'{REPORT_TITLE}: {REPORT_SUBTITLE} | Hetzerk Asset Management',
-                    REPORT_DESCRIPTION, report=True)
+                    REPORT_DESCRIPTION, report=True, pdf_url=PDF_URL)
     report_html = f'''
       <header class="report-hero" aria-labelledby="report-title">
         <a class="research-back" href="/research/">← All research</a>
@@ -104,4 +122,26 @@ def render_research_pages(home_html, existing_research):
       </div>
       <div class="research-related report-end"><div><p class="home-eyebrow">Continue exploring</p><h2>The Hetzerk Innovation Factor ETF.</h2></div><a class="home-text-link" href="/etfs/redi/why-red.html">The investment case <span aria-hidden="true">→</span></a></div>
     '''
-    return {'research/index.html': _append(library, library_html), REPORT_ROUTE: _append(report, report_html)}
+    note_toc = ''.join(f'<li><a href="#{key}"><span>{i:02}</span>{label}</a></li>'
+                       for i, (key, label) in enumerate(ARTICLE_SECTIONS, 1))
+    note = _shell(home_html, existing_research, f'{ARTICLE_TITLE}: {ARTICLE_SUBTITLE} | Hetzerk Asset Management',
+                  ARTICLE_DESCRIPTION, report=True)
+    note_html = f'''
+      <header class="report-hero" aria-labelledby="report-title">
+        <a class="research-back" href="/research/">← All research</a>
+        <p class="home-eyebrow">Research perspective / Innovation factor</p>
+        <h1 id="report-title">{escape(ARTICLE_TITLE)}</h1>
+        <p class="report-subtitle">{escape(ARTICLE_SUBTITLE)}</p>
+        <div class="report-meta"><p class="report-byline">Hetzerk Asset Management <span>{note_minutes} min read</span></p></div>
+      </header>
+      <div class="report-layout">
+        <aside class="report-toc"><nav aria-label="Article contents"><p class="home-eyebrow">In this perspective</p><ol>{note_toc}</ol></nav><a class="report-fund-link" href="/etfs/redi/">Hetzerk Innovation Factor ETF <span aria-hidden="true">↗</span></a></aside>
+        <article class="report-body" aria-label="Conviction, Measured research perspective">{note_body}</article>
+      </div>
+      <div class="research-related report-end"><div><p class="home-eyebrow">Continue reading</p><h2>The Measure of Fire.</h2></div><a class="home-text-link" href="/{REPORT_ROUTE}">Innovation as an equity factor <span aria-hidden="true">→</span></a></div>
+    '''
+    return {
+        'research/index.html': _append(library, library_html),
+        REPORT_ROUTE: _append(report, report_html),
+        ARTICLE_ROUTE: _append(note, note_html),
+    }

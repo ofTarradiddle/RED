@@ -37,6 +37,8 @@ METADATA = {
                             'Explore Hetzerk Asset Management research on innovation, company characteristics and systematic equity portfolio construction.'),
     'research/the-measure-of-fire.html': ('The Measure of Fire: Innovation as an Equity Factor | Hetzerk Asset Management',
                                          'Read the Hetzerk research report on innovation value, innovation ability, long-term company characteristics and the REDI portfolio framework.'),
+    'research/on-innovation-factor-investing.html': ('Conviction, Measured: On Innovation Factor Investing | Hetzerk Asset Management',
+                                                   'A Hetzerk research perspective on commercially successful innovation, focused factor selection and the evidence an investment signal must earn.'),
     'disclosures/index.html': ('Investment Disclosures | Hetzerk Asset Management',
                                'Review investment risks, offering status, fund data qualifications and document information for the Hetzerk Innovation Factor ETF.'),
     'privacy/index.html': ('Privacy | Hetzerk Asset Management',
@@ -128,7 +130,7 @@ def apply_seo(pages, *, site_url=None, base_path='', indexable=False):
         _meta(page, 'description', description)
         eligible = target in METADATA and route not in MOVED
         _meta(page, 'robots', 'index,follow,max-image-preview:large' if indexable and eligible else 'noindex,follow')
-        is_research_report = target == 'research/the-measure-of-fire.html'
+        is_research_report = target in ('research/the-measure-of-fire.html', 'research/on-innovation-factor-investing.html')
         for key, value in (('og:title', title), ('og:description', description), ('og:type', 'article' if is_research_report else 'website'), ('og:site_name', BRAND), ('og:locale', 'en_US')):
             _meta(page, key, value, property=True)
         for key, value in (('twitter:card', 'summary_large_image'), ('twitter:title', title), ('twitter:description', description)):
@@ -159,17 +161,19 @@ def apply_seo(pages, *, site_url=None, base_path='', indexable=False):
                 graph[0]['mainEntity'] = {'@id': url + '#article'}
                 graph.append({
                     '@type': 'Article', '@id': url + '#article', 'url': url,
-                    'headline': 'The Measure of Fire: Innovation as an Equity Factor',
-                    'description': description, 'genre': 'Research report',
+                    'headline': title.removesuffix(' | ' + BRAND),
+                    'description': description,
+                    'genre': 'Research report' if target == 'research/the-measure-of-fire.html' else 'Research perspective',
                     'inLanguage': 'en-US',
                     'mainEntityOfPage': {'@id': url + '#webpage'},
                     'author': {'@type': 'Organization', '@id': site_url + '/#organization', 'name': BRAND, 'url': site_url + '/'},
                     'publisher': {'@id': site_url + '/#organization'},
-                    'encoding': {
+                })
+                if target == 'research/the-measure-of-fire.html':
+                    graph[-1]['encoding'] = {
                         '@type': 'MediaObject', 'encodingFormat': 'application/pdf',
                         'contentUrl': site_url + '/assets/research/the-measure-of-fire.pdf',
-                    },
-                })
+                    }
             script = page.new_tag('script', type='application/ld+json')
             script.string = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False).replace('<', '\\u003c')
             page.head.append(script)

@@ -72,7 +72,8 @@ def test_aliases_and_social_urls_follow_configured_repository_path(public):
 def test_current_research_is_indexable_with_truthful_report_metadata(public):
     locations = {node.text for node in ET.parse(public / 'sitemap.xml').findall('sm:url/sm:loc', NS)}
     root = 'https://oftarradiddle.github.io/RED'
-    for route, path in (('research/index.html', '/research/'), ('research/the-measure-of-fire.html', '/research/the-measure-of-fire.html')):
+    for route, path in (('research/index.html', '/research/'), ('research/the-measure-of-fire.html', '/research/the-measure-of-fire.html'),
+                        ('research/on-innovation-factor-investing.html', '/research/on-innovation-factor-investing.html')):
         page = parsed(public / route)
         assert root + path in locations
         assert page.title.string == METADATA[route][0]
@@ -93,6 +94,12 @@ def test_current_research_is_indexable_with_truthful_report_metadata(public):
     assert article['encoding']['contentUrl'] == root + '/assets/research/the-measure-of-fire.pdf'
     assert article['encoding']['encodingFormat'] == 'application/pdf'
     assert not {'datePublished', 'dateModified', 'aggregateRating', 'award'}.intersection(article)
+    perspective = parsed(public / 'research/on-innovation-factor-investing.html')
+    perspective_graph = json.loads(perspective.select_one('script[type="application/ld+json"]').string)['@graph']
+    perspective_article = next(node for node in perspective_graph if node['@type'] == 'Article')
+    assert perspective_article['headline'].startswith('Conviction, Measured')
+    assert 'encoding' not in perspective_article
+    assert not perspective.select('link[rel="alternate"][type="application/pdf"]')
     for route in ('research/sample-post-1.html', 'etfs/redi/blog/sample-post-1.html'):
         page = parsed(public / route)
         assert page.select_one('meta[name=robots]')['content'] == 'noindex,follow'

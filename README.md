@@ -17,7 +17,7 @@ Click the plain word **Perspective** in the footer to open the personal shadow N
 REDI's expense ratio is **0.45% (45 bps)** in the canonical workbook. `/documents/` contains the populated fact sheet, data downloads and SEC filing references. Fund-specific document URLs can be supplied through the Documents sheet; reference links are not represented as filed fund documents.
 
 The themed fact sheet is available at `/etfs/redi/fact-sheet.html`, with a matching
-two-page download at `/etfs/redi/fact-sheet.pdf`. Each build regenerates the PDF
+one-page download at `/etfs/redi/fact-sheet.pdf`. Each build regenerates the PDF
 from the same fund snapshot, so scheduled data refreshes update both formats.
 `publishing/fact_sheet.py` holds their shared investment narrative and intended
 terms; `publishing/fact_sheet_pdf.py` handles print layout. The 50–100 stock target

@@ -48,7 +48,8 @@ def test_shared_investor_navigation_preserves_direct_journeys(pages):
     expected = ['/etfs/redi/', '/#fees', '/etfs/redi/why-red.html', '/research/', '/#contact']
     for route in ('index.html', 'etfs/redi/index.html', 'etfs/redi/holdings.html',
                   'section-351.html', '351-exchanges.html', 'documents/index.html',
-                  'research/index.html', 'research/the-measure-of-fire.html'):
+                  'research/index.html', 'research/the-measure-of-fire.html',
+                  'research/on-innovation-factor-investing.html'):
         page = pages[route]
         assert [a['href'] for a in page.select('.home-header .home-nav a')] == expected
         assert len(page.select('.home-header')) == 1
@@ -88,8 +89,9 @@ def test_original_research_content_survives(pages):
         assert not any(ticker in text for ticker in ('DAM1','AZOC','MPD','MERI','DMVP','DSCB','DSHR','DCRR'))
 
 
-def test_research_disclaimer_survives_inline_script_removal(pages):
-    page = pages['research/index.html']
+@pytest.mark.parametrize('route', ['research/index.html', 'research/on-innovation-factor-investing.html'])
+def test_research_disclaimer_survives_inline_script_removal(pages, route):
+    page = pages[route]
     dialog = page.select_one('dialog#disclaimerOverlay')
     assert dialog and dialog.has_attr('open')
     assert dialog.find(id=dialog['aria-labelledby'])
