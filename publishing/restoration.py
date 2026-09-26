@@ -290,7 +290,7 @@ def table_returns(f, labels):
         r=f['returns'][label]
         values=[pct(r[k],True) if r else 'Unavailable' for k in ('nav_total_return','market_total_return','benchmark_index')]
         rows.append(f'<tr><th scope="row">{label}{" (annualized)" if r and r["annualized"] else ""}</th>'+''.join(f'<td>{v}</td>' for v in values)+'</tr>')
-    return '<div class="table-scroll"><table><thead><tr><th>Period</th><th>NAV total return</th><th>Market total return</th><th>Demo benchmark</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></div>'
+    return '<div class="table-scroll"><table><thead><tr><th>Period</th><th>NAV</th><th>Market Price</th><th>Benchmark</th></tr></thead><tbody>'+''.join(rows)+'</tbody></table></div>'
 
 
 def fund_performance(f):

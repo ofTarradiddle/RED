@@ -30,7 +30,7 @@ REPLACEMENTS = {
     'Fund Inception:': 'Data Start:',
     '(demo start)': '',
     'Since demo start': 'Since data start',
-    'Demo benchmark': 'Comparison series',
+    'Demo benchmark': 'Benchmark',
     'Illustrative equity benchmark': 'Equity comparison series',
     'Illustrative holdings.': 'Portfolio holdings.',
     'Illustrative conceptual comparison, not actual performance': 'Conceptual comparison of investment approaches',
