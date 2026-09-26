@@ -1,30 +1,16 @@
 {
-  "name": "red-etf-website",
-  "version": "1.0.0",
-  "description": "RED Active Innovation Factor ETF - Diamond & Diamond (D&D)",
+  "name": "hetzerk-demo-site",
+  "version": "2.0.0",
   "private": true,
+  "description": "Excel-backed Hetzerk Asset Management demo with restored original site templates",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "^14.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "framer-motion": "^10.16.0",
-    "lucide-react": "^0.292.0",
-    "tailwindcss": "^3.3.0",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31"
+    "dev": "python3 serve.py",
+    "build": "python3 -m publishing.build",
+    "start": "python3 serve.py",
+    "test": "python3 -m pytest tests/site tests/test_shadow_equity.py tests/test_daily_accruals.py tests/test_ledger_replay.py tests/test_dividend_receivables.py tests/test_accounting_cache.py tests/test_library_safety.py -q",
+    "styles": "tailwindcss -c tailwind.config.cjs -i assets/tailwind-input.css -o assets/original-utilities.css --minify"
   },
   "devDependencies": {
-    "@types/node": "^20.8.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "eslint": "^8.51.0",
-    "eslint-config-next": "^14.0.0",
-    "typescript": "^5.2.0"
+    "tailwindcss": "3.4.17"
   }
-} 
+}

@@ -56,9 +56,13 @@ data/research/
 node_modules/
 .next/
 out/
+.site-builds/
+dist
+*.xlsx.inspect.ndjson
+data/shadow_reports/
+data/shadow_spy/
 
 # Test coverage
 .coverage
 htmlcov/
 .pytest_cache/
-

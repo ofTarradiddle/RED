@@ -1,0 +1,91 @@
+{
+  "opening": {
+    "date": "2026-09-14",
+    "source": "Accounting walkthrough: assumed opening books",
+    "shares": 100,
+    "positions": [
+      {
+        "symbol": "EXAMPLE",
+        "quantity": 10,
+        "cost": 1000,
+        "carrying_value": 1000
+      }
+    ],
+    "balances": {
+      "cash": 1000,
+      "dividend_receivable": 0,
+      "trade_receivable": 0,
+      "trade_payable": 0,
+      "fee_payable": 0,
+      "distribution_payable": 0
+    }
+  },
+  "events": [
+    {
+      "id": "D1",
+      "date": "2026-09-15",
+      "type": "dividend",
+      "symbol": "EXAMPLE",
+      "per_share": 2,
+      "currency": "USD",
+      "entitlement_rule": "ordinary_ex_date",
+      "payable_date": "2026-09-17",
+      "source": "Assumed $2 ordinary dividend; 10 eligible shares"
+    },
+    {
+      "id": "T1",
+      "date": "2026-09-15",
+      "type": "trade",
+      "symbol": "EXAMPLE",
+      "side": "buy",
+      "quantity": 5,
+      "price": 98,
+      "commission": 0,
+      "settlement_date": "2026-09-16",
+      "source": "Assumed purchase on ex-date; these 5 shares do not earn D1"
+    },
+    {
+      "id": "S1",
+      "date": "2026-09-16",
+      "type": "settlement",
+      "trade_id": "T1",
+      "amount": 490,
+      "source": "Assumed settlement confirmation"
+    },
+    {
+      "id": "P1",
+      "date": "2026-09-17",
+      "type": "dividend_payment",
+      "action_id": "D1",
+      "amount": 20,
+      "source": "Assumed confirmed dividend cash receipt"
+    },
+    {
+      "id": "CA1",
+      "date": "2026-09-18",
+      "type": "split",
+      "symbol": "EXAMPLE",
+      "ratio": 2,
+      "source": "Assumed 2-for-1 split; total cost unchanged"
+    },
+    {
+      "id": "F1",
+      "date": "2026-09-18",
+      "type": "fee",
+      "fee_key": "advisory",
+      "base": 2000,
+      "annual_rate": ".0045",
+      "from_date": "2026-09-15",
+      "through_date": "2026-09-18",
+      "source": "45 bps ACT/365, 4 calendar days, fixed $2,000 base"
+    }
+  ],
+  "cutoff": "2026-09-18",
+  "prices": {
+    "EXAMPLE": {
+      "date": "2026-09-18",
+      "price": 49,
+      "basis": "as_of_share_units"
+    }
+  }
+}

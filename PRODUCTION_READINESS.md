@@ -1,3 +1,5 @@
+> Historical prototype documentation. Read `docs/review/ETF_LIBRARY_REVIEW.md` before use. Prior readiness assertions are not a certification; the legacy operational workflows have known unresolved gaps.
+
 # Production Readiness Checklist
 
 **LAST CHANCE - Final Production Readiness Review**

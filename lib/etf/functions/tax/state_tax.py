@@ -1,6 +1,6 @@
 """
 State Tax Return Preparation
-Production-ready implementation for state tax return preparation (Limited to two states)
+Prototype implementation for state tax return preparation (Limited to two states)
 
 This module handles:
 - State tax return preparation (Form 1120-RIC state equivalents)
@@ -37,7 +37,7 @@ class StateTaxReturn:
 
 class StateTaxReporting:
     """
-    Production-ready State Tax Return Preparation
+    Prototype State Tax Return Preparation
     
     Handles state tax return preparation for up to two states.
     Most RICs are exempt from state income tax, but may have filing requirements.

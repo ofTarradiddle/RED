@@ -1,5 +1,5 @@
 """
-Production-Ready Daily Operations Orchestrator
+Prototype Daily Operations Orchestrator
 Complete implementation for coordinating all ETF operational functions
 
 This orchestrator ties all modules together in an end-to-end daily workflow.
@@ -33,7 +33,7 @@ logger = logging.getLogger(__name__)
 
 class DailyOrchestrator:
     """
-    Production-ready Daily Operations Orchestrator.
+    Prototype Daily Operations Orchestrator.
     
     Coordinates all ETF operational functions in a daily workflow:
     - NAV calculation

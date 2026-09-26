@@ -1,0 +1,4558 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-24",
+  "source_fund": "SPY",
+  "source_url": "https://www.ssga.com/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+  "source_sha256": "1d825c7af324ff744b64e8da07ebc5618b6f803153544d4c6f69d1b948f995f8",
+  "nav_source_url": "https://www.ssga.com/library-content/products/fund-data/etfs/us/navhist-us-en-spy.xlsx",
+  "nav_source_sha256": "8e81fe3fa93317285d629ccdd140588ebfef948080dc4fe5ad2bbc5c505f822f",
+  "issuer_net_assets": "818687275737.58",
+  "holdings": [
+    {
+      "identifier": "67066G104",
+      "ticker": "NVDA",
+      "name": "NVIDIA CORP",
+      "sector": "Unclassified",
+      "quantity": "296315057.0",
+      "issuer_weight": "0.08185276",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "037833100",
+      "ticker": "AAPL",
+      "name": "APPLE INC",
+      "sector": "Unclassified",
+      "quantity": "178696860.0",
+      "issuer_weight": "0.07383483",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "594918104",
+      "ticker": "MSFT",
+      "name": "MICROSOFT CORP",
+      "sector": "Unclassified",
+      "quantity": "90920556.0",
+      "issuer_weight": "0.05568508",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "023135106",
+      "ticker": "AMZN",
+      "name": "AMAZON.COM INC",
+      "sector": "Unclassified",
+      "quantity": "120188562.0",
+      "issuer_weight": "0.03686662",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "02079K305",
+      "ticker": "GOOGL",
+      "name": "ALPHABET INC CL A",
+      "sector": "Unclassified",
+      "quantity": "71847625.0",
+      "issuer_weight": "0.03025547",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30303M102",
+      "ticker": "META",
+      "name": "META PLATFORMS INC CLASS A",
+      "sector": "Unclassified",
+      "quantity": "27000903.0",
+      "issuer_weight": "0.02582483",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "11135F101",
+      "ticker": "AVGO",
+      "name": "BROADCOM INC",
+      "sector": "Unclassified",
+      "quantity": "58255409.0",
+      "issuer_weight": "0.02510495",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "02079K107",
+      "ticker": "GOOG",
+      "name": "ALPHABET INC CL C",
+      "sector": "Unclassified",
+      "quantity": "58201721.0",
+      "issuer_weight": "0.02426928",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "595112103",
+      "ticker": "MU",
+      "name": "MICRON TECHNOLOGY INC",
+      "sector": "Unclassified",
+      "quantity": "13829234.0",
+      "issuer_weight": "0.01837991",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "88160R101",
+      "ticker": "TSLA",
+      "name": "TESLA INC",
+      "sector": "Unclassified",
+      "quantity": "34504556.0",
+      "issuer_weight": "0.01604013",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "007903107",
+      "ticker": "AMD",
+      "name": "ADVANCED MICRO DEVICES",
+      "sector": "Unclassified",
+      "quantity": "19986421.0",
+      "issuer_weight": "0.01546941",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "532457108",
+      "ticker": "LLY",
+      "name": "ELI LILLY + CO",
+      "sector": "Unclassified",
+      "quantity": "9797366.0",
+      "issuer_weight": "0.01424278",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "084670702",
+      "ticker": "BRK.B",
+      "name": "BERKSHIRE HATHAWAY INC CL B",
+      "sector": "Unclassified",
+      "quantity": "22804526.0",
+      "issuer_weight": "0.01417019",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "46625H100",
+      "ticker": "JPM",
+      "name": "JPMORGAN CHASE + CO",
+      "sector": "Unclassified",
+      "quantity": "32544049.0",
+      "issuer_weight": "0.01355239",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30233Q108",
+      "ticker": "XOM",
+      "name": "EXXONMOBIL HOLDINGS CORP",
+      "sector": "Unclassified",
+      "quantity": "50339751.0",
+      "issuer_weight": "0.01003945",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "478160104",
+      "ticker": "JNJ",
+      "name": "JOHNSON + JOHNSON",
+      "sector": "Unclassified",
+      "quantity": "29502869.0",
+      "issuer_weight": "0.00982266",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "458140100",
+      "ticker": "INTC",
+      "name": "INTEL CORP",
+      "sector": "Unclassified",
+      "quantity": "60843318.0",
+      "issuer_weight": "0.0095336",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92826C839",
+      "ticker": "V",
+      "name": "VISA INC CLASS A SHARES",
+      "sector": "Unclassified",
+      "quantity": "20866442.0",
+      "issuer_weight": "0.00944455",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "931142103",
+      "ticker": "WMT",
+      "name": "WALMART INC",
+      "sector": "Unclassified",
+      "quantity": "54569071.0",
+      "issuer_weight": "0.00722149",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "00287Y109",
+      "ticker": "ABBV",
+      "name": "ABBVIE INC",
+      "sector": "Unclassified",
+      "quantity": "21631715.0",
+      "issuer_weight": "0.00705411",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "57636Q104",
+      "ticker": "MA",
+      "name": "MASTERCARD INC   A",
+      "sector": "Unclassified",
+      "quantity": "9900879.0",
+      "issuer_weight": "0.00689382",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "69608A108",
+      "ticker": "PLTR",
+      "name": "PALANTIR TECHNOLOGIES INC A",
+      "sector": "Unclassified",
+      "quantity": "28171632.0",
+      "issuer_weight": "0.00667351",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "17275R102",
+      "ticker": "CSCO",
+      "name": "CISCO SYSTEMS INC",
+      "sector": "Unclassified",
+      "quantity": "48247495.0",
+      "issuer_weight": "0.00634812",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "166764100",
+      "ticker": "CVX",
+      "name": "CHEVRON CORP",
+      "sector": "Unclassified",
+      "quantity": "24192793.0",
+      "issuer_weight": "0.0061196",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "22160K105",
+      "ticker": "COST",
+      "name": "COSTCO WHOLESALE CORP",
+      "sector": "Unclassified",
+      "quantity": "5428352.0",
+      "issuer_weight": "0.00598573",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "512807306",
+      "ticker": "LRCX",
+      "name": "LAM RESEARCH CORP",
+      "sector": "Unclassified",
+      "quantity": "15321880.0",
+      "issuer_weight": "0.00578876",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "038222105",
+      "ticker": "AMAT",
+      "name": "APPLIED MATERIALS INC",
+      "sector": "Unclassified",
+      "quantity": "9718109.0",
+      "issuer_weight": "0.00566888",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "149123101",
+      "ticker": "CAT",
+      "name": "CATERPILLAR INC",
+      "sector": "Unclassified",
+      "quantity": "5626823.0",
+      "issuer_weight": "0.00557317",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "58933Y105",
+      "ticker": "MRK",
+      "name": "MERCK + CO. INC.",
+      "sector": "Unclassified",
+      "quantity": "30199166.0",
+      "issuer_weight": "0.00549676",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "060505104",
+      "ticker": "BAC",
+      "name": "BANK OF AMERICA CORP",
+      "sector": "Unclassified",
+      "quantity": "79603600.0",
+      "issuer_weight": "0.00548608",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "191216100",
+      "ticker": "KO",
+      "name": "COCA COLA CO/THE",
+      "sector": "Unclassified",
+      "quantity": "47397305.0",
+      "issuer_weight": "0.00513615",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "742718109",
+      "ticker": "PG",
+      "name": "PROCTER + GAMBLE CO/THE",
+      "sector": "Unclassified",
+      "quantity": "28451132.0",
+      "issuer_weight": "0.0050981",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "91324P102",
+      "ticker": "UNH",
+      "name": "UNITEDHEALTH GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "10986736.0",
+      "issuer_weight": "0.00506781",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "369604301",
+      "ticker": "GE",
+      "name": "GENERAL ELECTRIC",
+      "sector": "Unclassified",
+      "quantity": "12699868.0",
+      "issuer_weight": "0.00499527",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "697435105",
+      "ticker": "PANW",
+      "name": "PALO ALTO NETWORKS INC",
+      "sector": "Unclassified",
+      "quantity": "9979421.0",
+      "issuer_weight": "0.00478618",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "64110L106",
+      "ticker": "NFLX",
+      "name": "NETFLIX INC",
+      "sector": "Unclassified",
+      "quantity": "50965531.0",
+      "issuer_weight": "0.00449599",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "718172109",
+      "ticker": "PM",
+      "name": "PHILIP MORRIS INTERNATIONAL",
+      "sector": "Unclassified",
+      "quantity": "19076679.0",
+      "issuer_weight": "0.00449345",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "437076102",
+      "ticker": "HD",
+      "name": "HOME DEPOT INC",
+      "sector": "Unclassified",
+      "quantity": "12212557.0",
+      "issuer_weight": "0.004389",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "38141G104",
+      "ticker": "GS",
+      "name": "GOLDMAN SACHS GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "3565119.0",
+      "issuer_weight": "0.00404875",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "22788C105",
+      "ticker": "CRWD",
+      "name": "CROWDSTRIKE HOLDINGS INC   A",
+      "sector": "Unclassified",
+      "quantity": "12462950.0",
+      "issuer_weight": "0.00398062",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "80004C200",
+      "ticker": "SNDK",
+      "name": "SANDISK CORP",
+      "sector": "Unclassified",
+      "quantity": "1787489.0",
+      "issuer_weight": "0.00385556",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "36828A101",
+      "ticker": "GEV",
+      "name": "GE VERNOVA INC",
+      "sector": "Unclassified",
+      "quantity": "3259531.0",
+      "issuer_weight": "0.003829",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "75513E101",
+      "ticker": "RTX",
+      "name": "RTX CORP",
+      "sector": "Unclassified",
+      "quantity": "16502929.0",
+      "issuer_weight": "0.00382855",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "883556102",
+      "ticker": "TMO",
+      "name": "THERMO FISHER SCIENTIFIC INC",
+      "sector": "Unclassified",
+      "quantity": "4525261.0",
+      "issuer_weight": "0.003776",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "949746101",
+      "ticker": "WFC",
+      "name": "WELLS FARGO + CO",
+      "sector": "Unclassified",
+      "quantity": "37010103.0",
+      "issuer_weight": "0.00374106",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "882508104",
+      "ticker": "TXN",
+      "name": "TEXAS INSTRUMENTS INC",
+      "sector": "Unclassified",
+      "quantity": "11182616.0",
+      "issuer_weight": "0.00372272",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "482480100",
+      "ticker": "KLAC",
+      "name": "KLA CORP",
+      "sector": "Unclassified",
+      "quantity": "15998191.0",
+      "issuer_weight": "0.00368194",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "68389X105",
+      "ticker": "ORCL",
+      "name": "ORACLE CORP",
+      "sector": "Unclassified",
+      "quantity": "21162420.0",
+      "issuer_weight": "0.00363222",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "617446448",
+      "ticker": "MS",
+      "name": "MORGAN STANLEY",
+      "sector": "Unclassified",
+      "quantity": "14608071.0",
+      "issuer_weight": "0.00352749",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "573874104",
+      "ticker": "MRVL",
+      "name": "MARVELL TECHNOLOGY INC",
+      "sector": "Unclassified",
+      "quantity": "10732921.0",
+      "issuer_weight": "0.00341855",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "172967424",
+      "ticker": "C",
+      "name": "CITIGROUP INC",
+      "sector": "Unclassified",
+      "quantity": "20528039.0",
+      "issuer_weight": "0.00333548",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "031162100",
+      "ticker": "AMGN",
+      "name": "AMGEN INC",
+      "sector": "Unclassified",
+      "quantity": "6620758.0",
+      "issuer_weight": "0.00330663",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G54950103",
+      "ticker": "LIN",
+      "name": "LINDE PLC",
+      "sector": "Unclassified",
+      "quantity": "5640912.0",
+      "issuer_weight": "0.00324813",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "040413205",
+      "ticker": "ANET",
+      "name": "ARISTA NETWORKS INC",
+      "sector": "Unclassified",
+      "quantity": "12817965.0",
+      "issuer_weight": "0.00324311",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "459200101",
+      "ticker": "IBM",
+      "name": "INTL BUSINESS MACHINES CORP",
+      "sector": "Unclassified",
+      "quantity": "11536234.0",
+      "issuer_weight": "0.00322191",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "747525103",
+      "ticker": "QCOM",
+      "name": "QUALCOMM INC",
+      "sector": "Unclassified",
+      "quantity": "13077942.0",
+      "issuer_weight": "0.00312487",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G7997R103",
+      "ticker": "STX",
+      "name": "SEAGATE TECHNOLOGY HOLDINGS",
+      "sector": "Unclassified",
+      "quantity": "2775227.0",
+      "issuer_weight": "0.00309241",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "032095101",
+      "ticker": "APH",
+      "name": "AMPHENOL CORP CL A",
+      "sector": "Unclassified",
+      "quantity": "30175392.0",
+      "issuer_weight": "0.0030836",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92343V104",
+      "ticker": "VZ",
+      "name": "VERIZON COMMUNICATIONS INC",
+      "sector": "Unclassified",
+      "quantity": "50841408.0",
+      "issuer_weight": "0.00295918",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "79466L302",
+      "ticker": "CRM",
+      "name": "SALESFORCE INC",
+      "sector": "Unclassified",
+      "quantity": "10030243.0",
+      "issuer_weight": "0.00293899",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "032654105",
+      "ticker": "ADI",
+      "name": "ANALOG DEVICES INC",
+      "sector": "Unclassified",
+      "quantity": "5960031.0",
+      "issuer_weight": "0.00280487",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "375558103",
+      "ticker": "GILD",
+      "name": "GILEAD SCIENCES INC",
+      "sector": "Unclassified",
+      "quantity": "15172687.0",
+      "issuer_weight": "0.0027936",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "254687106",
+      "ticker": "DIS",
+      "name": "WALT DISNEY CO/THE",
+      "sector": "Unclassified",
+      "quantity": "21127964.0",
+      "issuer_weight": "0.00274325",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "002824100",
+      "ticker": "ABT",
+      "name": "ABBOTT LABORATORIES",
+      "sector": "Unclassified",
+      "quantity": "21187918.0",
+      "issuer_weight": "0.00263402",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "713448108",
+      "ticker": "PEP",
+      "name": "PEPSICO INC",
+      "sector": "Unclassified",
+      "quantity": "16701115.0",
+      "issuer_weight": "0.00263253",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "244199105",
+      "ticker": "DE",
+      "name": "DEERE + CO",
+      "sector": "Unclassified",
+      "quantity": "3071596.0",
+      "issuer_weight": "0.00262555",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "00206R102",
+      "ticker": "T",
+      "name": "AT+T INC",
+      "sector": "Unclassified",
+      "quantity": "83843546.0",
+      "issuer_weight": "0.00262462",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G29183103",
+      "ticker": "ETN",
+      "name": "EATON CORP PLC",
+      "sector": "Unclassified",
+      "quantity": "4761072.0",
+      "issuer_weight": "0.00257671",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "95040Q104",
+      "ticker": "WELL",
+      "name": "WELLTOWER INC",
+      "sector": "Unclassified",
+      "quantity": "8825563.0",
+      "issuer_weight": "0.00253596",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "580135101",
+      "ticker": "MCD",
+      "name": "MCDONALD S CORP",
+      "sector": "Unclassified",
+      "quantity": "8658574.0",
+      "issuer_weight": "0.00252429",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "907818108",
+      "ticker": "UNP",
+      "name": "UNION PACIFIC CORP",
+      "sector": "Unclassified",
+      "quantity": "7279905.0",
+      "issuer_weight": "0.00245412",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "958102105",
+      "ticker": "WDC",
+      "name": "WESTERN DIGITAL CORP",
+      "sector": "Unclassified",
+      "quantity": "4414518.0",
+      "issuer_weight": "0.00244514",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "717081103",
+      "ticker": "PFE",
+      "name": "PFIZER INC",
+      "sector": "Unclassified",
+      "quantity": "69853637.0",
+      "issuer_weight": "0.00244101",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "24703L202",
+      "ticker": "DELL",
+      "name": "DELL TECHNOLOGIES  C",
+      "sector": "Unclassified",
+      "quantity": "3701631.0",
+      "issuer_weight": "0.00244052",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "808513105",
+      "ticker": "SCHW",
+      "name": "SCHWAB (CHARLES) CORP",
+      "sector": "Unclassified",
+      "quantity": "19889885.0",
+      "issuer_weight": "0.002434",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "025816109",
+      "ticker": "AXP",
+      "name": "AMERICAN EXPRESS CO",
+      "sector": "Unclassified",
+      "quantity": "6449540.0",
+      "issuer_weight": "0.0024248",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "65339F101",
+      "ticker": "NEE",
+      "name": "NEXTERA ENERGY INC",
+      "sector": "Unclassified",
+      "quantity": "25571583.0",
+      "issuer_weight": "0.0023785",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "097023105",
+      "ticker": "BA",
+      "name": "BOEING CO/THE",
+      "sector": "Unclassified",
+      "quantity": "9677989.0",
+      "issuer_weight": "0.00234271",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "20825C104",
+      "ticker": "COP",
+      "name": "CONOCOPHILLIPS",
+      "sector": "Unclassified",
+      "quantity": "14709839.0",
+      "issuer_weight": "0.00234018",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "09290D101",
+      "ticker": "BLK",
+      "name": "BLACKROCK INC",
+      "sector": "Unclassified",
+      "quantity": "1763429.0",
+      "issuer_weight": "0.00232835",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "999USDZ92",
+      "ticker": "CASH",
+      "name": "US DOLLAR",
+      "sector": "Unclassified",
+      "quantity": "1801584048.33",
+      "issuer_weight": "0.00221597",
+      "security_type": "cash"
+    },
+    {
+      "identifier": "872540109",
+      "ticker": "TJX",
+      "name": "TJX COMPANIES INC",
+      "sector": "Unclassified",
+      "quantity": "13526480.0",
+      "issuer_weight": "0.00219002",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "81762P102",
+      "ticker": "NOW",
+      "name": "SERVICENOW INC",
+      "sector": "Unclassified",
+      "quantity": "12659441.0",
+      "issuer_weight": "0.0021454",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "90353T100",
+      "ticker": "UBER",
+      "name": "UBER TECHNOLOGIES INC",
+      "sector": "Unclassified",
+      "quantity": "25010650.0",
+      "issuer_weight": "0.00212944",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "46120E602",
+      "ticker": "ISRG",
+      "name": "INTUITIVE SURGICAL INC",
+      "sector": "Unclassified",
+      "quantity": "4325662.0",
+      "issuer_weight": "0.00212569",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "235851102",
+      "ticker": "DHR",
+      "name": "DANAHER CORP",
+      "sector": "Unclassified",
+      "quantity": "7661204.0",
+      "issuer_weight": "0.00210866",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92532F100",
+      "ticker": "VRTX",
+      "name": "VERTEX PHARMACEUTICALS INC",
+      "sector": "Unclassified",
+      "quantity": "3103271.0",
+      "issuer_weight": "0.00199395",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "651639106",
+      "ticker": "NEM",
+      "name": "NEWMONT CORP",
+      "sector": "Unclassified",
+      "quantity": "12889609.0",
+      "issuer_weight": "0.00192313",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74340W103",
+      "ticker": "PLD",
+      "name": "PROLOGIS INC",
+      "sector": "Unclassified",
+      "quantity": "11636373.0",
+      "issuer_weight": "0.00191535",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "110122108",
+      "ticker": "BMY",
+      "name": "BRISTOL MYERS SQUIBB CO",
+      "sector": "Unclassified",
+      "quantity": "25025033.0",
+      "issuer_weight": "0.00189303",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "701094104",
+      "ticker": "PH",
+      "name": "PARKER HANNIFIN CORP",
+      "sector": "Unclassified",
+      "quantity": "1545201.0",
+      "issuer_weight": "0.00185306",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "219350105",
+      "ticker": "GLW",
+      "name": "CORNING INC",
+      "sector": "Unclassified",
+      "quantity": "9703654.0",
+      "issuer_weight": "0.00183987",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "78409V104",
+      "ticker": "SPGI",
+      "name": "S+P GLOBAL INC",
+      "sector": "Unclassified",
+      "quantity": "3698162.0",
+      "issuer_weight": "0.00183429",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "14040H105",
+      "ticker": "COF",
+      "name": "CAPITAL ONE FINANCIAL CORP",
+      "sector": "Unclassified",
+      "quantity": "7504482.0",
+      "issuer_weight": "0.00181483",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "09857L108",
+      "ticker": "BKNG",
+      "name": "BOOKING HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "9191097.0",
+      "issuer_weight": "0.00177954",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "743315103",
+      "ticker": "PGR",
+      "name": "PROGRESSIVE CORP",
+      "sector": "Unclassified",
+      "quantity": "7118738.0",
+      "issuer_weight": "0.00177022",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "H1467J104",
+      "ticker": "CB",
+      "name": "CHUBB LTD",
+      "sector": "Unclassified",
+      "quantity": "4294311.0",
+      "issuer_weight": "0.00176864",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "02209S103",
+      "ticker": "MO",
+      "name": "ALTRIA GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "20459387.0",
+      "issuer_weight": "0.00173338",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G5960L103",
+      "ticker": "MDT",
+      "name": "MEDTRONIC PLC",
+      "sector": "Unclassified",
+      "quantity": "15657042.0",
+      "issuer_weight": "0.00169069",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "91913Y100",
+      "ticker": "VLO",
+      "name": "VALERO ENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "3525302.0",
+      "issuer_weight": "0.00166014",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "34959E109",
+      "ticker": "FTNT",
+      "name": "FORTINET INC",
+      "sector": "Unclassified",
+      "quantity": "7546535.0",
+      "issuer_weight": "0.00165847",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "56585A102",
+      "ticker": "MPC",
+      "name": "MARATHON PETROLEUM CORP",
+      "sector": "Unclassified",
+      "quantity": "3434763.0",
+      "issuer_weight": "0.00165168",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "126650100",
+      "ticker": "CVS",
+      "name": "CVS HEALTH CORP",
+      "sector": "Unclassified",
+      "quantity": "15660430.0",
+      "issuer_weight": "0.00163827",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G1151C101",
+      "ticker": "ACN",
+      "name": "ACCENTURE PLC CL A",
+      "sector": "Unclassified",
+      "quantity": "7485009.0",
+      "issuer_weight": "0.00163335",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "855244109",
+      "ticker": "SBUX",
+      "name": "STARBUCKS CORP",
+      "sector": "Unclassified",
+      "quantity": "13965566.0",
+      "issuer_weight": "0.0016087",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "539830109",
+      "ticker": "LMT",
+      "name": "LOCKHEED MARTIN CORP",
+      "sector": "Unclassified",
+      "quantity": "2487833.0",
+      "issuer_weight": "0.00160255",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "548661107",
+      "ticker": "LOW",
+      "name": "LOWE S COS INC",
+      "sector": "Unclassified",
+      "quantity": "6863081.0",
+      "issuer_weight": "0.00159117",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "053015103",
+      "ticker": "ADP",
+      "name": "AUTOMATIC DATA PROCESSING",
+      "sector": "Unclassified",
+      "quantity": "4864634.0",
+      "issuer_weight": "0.00157433",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "35671D857",
+      "ticker": "FCX",
+      "name": "FREEPORT MCMORAN INC",
+      "sector": "Unclassified",
+      "quantity": "17561548.0",
+      "issuer_weight": "0.00155699",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "29444U700",
+      "ticker": "EQIX",
+      "name": "EQUINIX INC",
+      "sector": "Unclassified",
+      "quantity": "1209828.0",
+      "issuer_weight": "0.00153983",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "718546104",
+      "ticker": "PSX",
+      "name": "PHILLIPS 66",
+      "sector": "Unclassified",
+      "quantity": "4880403.0",
+      "issuer_weight": "0.00153597",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "064058100",
+      "ticker": "BNY",
+      "name": "BANK OF NEW YORK MELLON CORP",
+      "sector": "Unclassified",
+      "quantity": "8297793.0",
+      "issuer_weight": "0.00153289",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "58155Q103",
+      "ticker": "MCK",
+      "name": "MCKESSON CORP",
+      "sector": "Unclassified",
+      "quantity": "1425604.0",
+      "issuer_weight": "0.00152443",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74762E102",
+      "ticker": "PWR",
+      "name": "QUANTA SERVICES INC",
+      "sector": "Unclassified",
+      "quantity": "1838478.0",
+      "issuer_weight": "0.00145518",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "12572Q105",
+      "ticker": "CME",
+      "name": "CME GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "4397244.0",
+      "issuer_weight": "0.00145444",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G8994E103",
+      "ticker": "TT",
+      "name": "TRANE TECHNOLOGIES PLC",
+      "sector": "Unclassified",
+      "quantity": "2690326.0",
+      "issuer_weight": "0.00145118",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "770700102",
+      "ticker": "HOOD",
+      "name": "ROBINHOOD MARKETS INC   A",
+      "sector": "Unclassified",
+      "quantity": "9691479.0",
+      "issuer_weight": "0.00144025",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "842587107",
+      "ticker": "SO",
+      "name": "SOUTHERN CO/THE",
+      "sector": "Unclassified",
+      "quantity": "14085959.0",
+      "issuer_weight": "0.00143614",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "00724F101",
+      "ticker": "ADBE",
+      "name": "ADOBE INC",
+      "sector": "Unclassified",
+      "quantity": "4861227.0",
+      "issuer_weight": "0.00142865",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92537N108",
+      "ticker": "VRT",
+      "name": "VERTIV HOLDINGS CO A",
+      "sector": "Unclassified",
+      "quantity": "4714213.0",
+      "issuer_weight": "0.00142238",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "863667101",
+      "ticker": "SYK",
+      "name": "STRYKER CORP",
+      "sector": "Unclassified",
+      "quantity": "4274199.0",
+      "issuer_weight": "0.00141816",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "443201108",
+      "ticker": "HWM",
+      "name": "HOWMET AEROSPACE INC",
+      "sector": "Unclassified",
+      "quantity": "4875996.0",
+      "issuer_weight": "0.00137571",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "902973304",
+      "ticker": "USB",
+      "name": "US BANCORP",
+      "sector": "Unclassified",
+      "quantity": "19078010.0",
+      "issuer_weight": "0.00137042",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "693475105",
+      "ticker": "PNC",
+      "name": "PNC FINANCIAL SERVICES GROUP",
+      "sector": "Unclassified",
+      "quantity": "4885225.0",
+      "issuer_weight": "0.00134202",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "127387108",
+      "ticker": "CDNS",
+      "name": "CADENCE DESIGN SYS INC",
+      "sector": "Unclassified",
+      "quantity": "3371997.0",
+      "issuer_weight": "0.00133552",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "26441C204",
+      "ticker": "DUK",
+      "name": "DUKE ENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "9549969.0",
+      "issuer_weight": "0.00133006",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "45866F104",
+      "ticker": "ICE",
+      "name": "INTERCONTINENTAL EXCHANGE IN",
+      "sector": "Unclassified",
+      "quantity": "6873790.0",
+      "issuer_weight": "0.00132682",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "09260D107",
+      "ticker": "BX",
+      "name": "BLACKSTONE INC",
+      "sector": "Unclassified",
+      "quantity": "9191294.0",
+      "issuer_weight": "0.0013251",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G51502105",
+      "ticker": "JCI",
+      "name": "JOHNSON CONTROLS INTERNATION",
+      "sector": "Unclassified",
+      "quantity": "7406000.0",
+      "issuer_weight": "0.00132415",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "291011104",
+      "ticker": "EMR",
+      "name": "EMERSON ELECTRIC CO",
+      "sector": "Unclassified",
+      "quantity": "6819282.0",
+      "issuer_weight": "0.00130967",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "126408103",
+      "ticker": "CSX",
+      "name": "CSX CORP",
+      "sector": "Unclassified",
+      "quantity": "22650470.0",
+      "issuer_weight": "0.00130804",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "969457100",
+      "ticker": "WMB",
+      "name": "WILLIAMS COS INC",
+      "sector": "Unclassified",
+      "quantity": "14991227.0",
+      "issuer_weight": "0.00130145",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "88579Y101",
+      "ticker": "MMM",
+      "name": "3M CO",
+      "sector": "Unclassified",
+      "quantity": "6305363.0",
+      "issuer_weight": "0.00129923",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "036752103",
+      "ticker": "ELV",
+      "name": "ELEVANCE HEALTH INC",
+      "sector": "Unclassified",
+      "quantity": "2651517.0",
+      "issuer_weight": "0.00129885",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "21037T109",
+      "ticker": "CEG",
+      "name": "CONSTELLATION ENERGY",
+      "sector": "Unclassified",
+      "quantity": "4034463.0",
+      "issuer_weight": "0.00129827",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "23804L103",
+      "ticker": "DDOG",
+      "name": "DATADOG INC   CLASS A",
+      "sector": "Unclassified",
+      "quantity": "4101022.0",
+      "issuer_weight": "0.00129598",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "369550108",
+      "ticker": "GD",
+      "name": "GENERAL DYNAMICS CORP",
+      "sector": "Unclassified",
+      "quantity": "3116633.0",
+      "issuer_weight": "0.00128916",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "03831W108",
+      "ticker": "APP",
+      "name": "APPLOVIN CORP CLASS A",
+      "sector": "Unclassified",
+      "quantity": "3317996.0",
+      "issuer_weight": "0.00127524",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "42824C109",
+      "ticker": "HPE",
+      "name": "HEWLETT PACKARD ENTERPRISE",
+      "sector": "Unclassified",
+      "quantity": "16188642.0",
+      "issuer_weight": "0.00126482",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "55024U109",
+      "ticker": "LITE",
+      "name": "LUMENTUM HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "1084767.0",
+      "issuer_weight": "0.00123959",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "871607107",
+      "ticker": "SNPS",
+      "name": "SYNOPSYS INC",
+      "sector": "Unclassified",
+      "quantity": "2344782.0",
+      "issuer_weight": "0.00122548",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "571748102",
+      "ticker": "MRSH",
+      "name": "MARSH + MCLENNAN COS",
+      "sector": "Unclassified",
+      "quantity": "5843412.0",
+      "issuer_weight": "0.00122136",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "872590104",
+      "ticker": "TMUS",
+      "name": "T MOBILE US INC",
+      "sector": "Unclassified",
+      "quantity": "5910545.0",
+      "issuer_weight": "0.0012021",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "093712107",
+      "ticker": "BE",
+      "name": "BLOOM ENERGY CORP  A",
+      "sector": "Unclassified",
+      "quantity": "3606310.0",
+      "issuer_weight": "0.0011828",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "20030N101",
+      "ticker": "CMCSA",
+      "name": "COMCAST CORP CLASS A",
+      "sector": "Unclassified",
+      "quantity": "43268076.0",
+      "issuer_weight": "0.00117776",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "03027X100",
+      "ticker": "AMT",
+      "name": "AMERICAN TOWER CORP",
+      "sector": "Unclassified",
+      "quantity": "5720246.0",
+      "issuer_weight": "0.00117683",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "75886F107",
+      "ticker": "REGN",
+      "name": "REGENERON PHARMACEUTICALS",
+      "sector": "Unclassified",
+      "quantity": "1198666.0",
+      "issuer_weight": "0.00117363",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "609207105",
+      "ticker": "MDLZ",
+      "name": "MONDELEZ INTERNATIONAL INC A",
+      "sector": "Unclassified",
+      "quantity": "15602944.0",
+      "issuer_weight": "0.00116801",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "934423104",
+      "ticker": "WBD",
+      "name": "WARNER BROS DISCOVERY INC",
+      "sector": "Unclassified",
+      "quantity": "30742813.0",
+      "issuer_weight": "0.00116618",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "94106L109",
+      "ticker": "WM",
+      "name": "WASTE MANAGEMENT INC",
+      "sector": "Unclassified",
+      "quantity": "4551869.0",
+      "issuer_weight": "0.00116434",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "806857108",
+      "ticker": "SLB",
+      "name": "SLB LTD",
+      "sector": "Unclassified",
+      "quantity": "18142960.0",
+      "issuer_weight": "0.00114771",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "461202103",
+      "ticker": "INTU",
+      "name": "INTUIT INC",
+      "sector": "Unclassified",
+      "quantity": "3344331.0",
+      "issuer_weight": "0.00113999",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "89417E109",
+      "ticker": "TRV",
+      "name": "TRAVELERS COS INC/THE",
+      "sector": "Unclassified",
+      "quantity": "2550092.0",
+      "issuer_weight": "0.00113669",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "778296103",
+      "ticker": "ROST",
+      "name": "ROSS STORES INC",
+      "sector": "Unclassified",
+      "quantity": "3920814.0",
+      "issuer_weight": "0.00113525",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "620076307",
+      "ticker": "MSI",
+      "name": "MOTOROLA SOLUTIONS INC",
+      "sector": "Unclassified",
+      "quantity": "2023221.0",
+      "issuer_weight": "0.00113208",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "571903202",
+      "ticker": "MAR",
+      "name": "MARRIOTT INTERNATIONAL  CL A",
+      "sector": "Unclassified",
+      "quantity": "2613833.0",
+      "issuer_weight": "0.00113012",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "26875P101",
+      "ticker": "EOG",
+      "name": "EOG RESOURCES INC",
+      "sector": "Unclassified",
+      "quantity": "6422624.0",
+      "issuer_weight": "0.00112858",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "824348106",
+      "ticker": "SHW",
+      "name": "SHERWIN WILLIAMS CO/THE",
+      "sector": "Unclassified",
+      "quantity": "2789349.0",
+      "issuer_weight": "0.00109927",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "60770K107",
+      "ticker": "MRNA",
+      "name": "MODERNA INC",
+      "sector": "Unclassified",
+      "quantity": "4546538.0",
+      "issuer_weight": "0.00108949",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "231021106",
+      "ticker": "CMI",
+      "name": "CUMMINS INC",
+      "sector": "Unclassified",
+      "quantity": "1682930.0",
+      "issuer_weight": "0.00107863",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "87612E106",
+      "ticker": "TGT",
+      "name": "TARGET CORP",
+      "sector": "Unclassified",
+      "quantity": "5566697.0",
+      "issuer_weight": "0.00106917",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "37045V100",
+      "ticker": "GM",
+      "name": "GENERAL MOTORS CO",
+      "sector": "Unclassified",
+      "quantity": "10725977.0",
+      "issuer_weight": "0.00106296",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "25809K105",
+      "ticker": "DASH",
+      "name": "DOORDASH INC   A",
+      "sector": "Unclassified",
+      "quantity": "4607096.0",
+      "issuer_weight": "0.00106269",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "452308109",
+      "ticker": "ITW",
+      "name": "ILLINOIS TOOL WORKS",
+      "sector": "Unclassified",
+      "quantity": "3173565.0",
+      "issuer_weight": "0.00106176",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "655844108",
+      "ticker": "NSC",
+      "name": "NORFOLK SOUTHERN CORP",
+      "sector": "Unclassified",
+      "quantity": "2751322.0",
+      "issuer_weight": "0.00105982",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "125523100",
+      "ticker": "CI",
+      "name": "THE CIGNA GROUP",
+      "sector": "Unclassified",
+      "quantity": "3235705.0",
+      "issuer_weight": "0.00105668",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "43300A203",
+      "ticker": "HLT",
+      "name": "HILTON WORLDWIDE HOLDINGS IN",
+      "sector": "Unclassified",
+      "quantity": "2750648.0",
+      "issuer_weight": "0.00105604",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "67103H107",
+      "ticker": "ORLY",
+      "name": "O REILLY AUTOMOTIVE INC",
+      "sector": "Unclassified",
+      "quantity": "9905776.0",
+      "issuer_weight": "0.00105077",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "615369105",
+      "ticker": "MCO",
+      "name": "MOODY S CORP",
+      "sector": "Unclassified",
+      "quantity": "1823621.0",
+      "issuer_weight": "0.0010483",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "278865100",
+      "ticker": "ECL",
+      "name": "ECOLAB INC",
+      "sector": "Unclassified",
+      "quantity": "3083651.0",
+      "issuer_weight": "0.00104446",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "911312106",
+      "ticker": "UPS",
+      "name": "UNITED PARCEL SERVICE CL B",
+      "sector": "Unclassified",
+      "quantity": "9168267.0",
+      "issuer_weight": "0.00103805",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "666807102",
+      "ticker": "NOC",
+      "name": "NORTHROP GRUMMAN CORP",
+      "sector": "Unclassified",
+      "quantity": "1639099.0",
+      "issuer_weight": "0.00102616",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "172908105",
+      "ticker": "CTAS",
+      "name": "CINTAS CORP",
+      "sector": "Unclassified",
+      "quantity": "4214069.0",
+      "issuer_weight": "0.00102464",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "194162103",
+      "ticker": "CL",
+      "name": "COLGATE PALMOLIVE CO",
+      "sector": "Unclassified",
+      "quantity": "9761315.0",
+      "issuer_weight": "0.0010244",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "438516205",
+      "ticker": "HON",
+      "name": "HONEYWELL INTERNATIONAL INC",
+      "sector": "Unclassified",
+      "quantity": "3890378.0",
+      "issuer_weight": "0.00101346",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "48251W104",
+      "ticker": "KKR",
+      "name": "KKR + CO INC",
+      "sector": "Unclassified",
+      "quantity": "8488983.0",
+      "issuer_weight": "0.00099863",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "828806109",
+      "ticker": "SPG",
+      "name": "SIMON PROPERTY GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "3961761.0",
+      "issuer_weight": "0.0009975",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "609839105",
+      "ticker": "MPWR",
+      "name": "MONOLITHIC POWER SYSTEMS INC",
+      "sector": "Unclassified",
+      "quantity": "602864.0",
+      "issuer_weight": "0.00099035",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "101137107",
+      "ticker": "BSX",
+      "name": "BOSTON SCIENTIFIC CORP",
+      "sector": "Unclassified",
+      "quantity": "17709666.0",
+      "issuer_weight": "0.00097327",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "025537101",
+      "ticker": "AEP",
+      "name": "AMERICAN ELECTRIC POWER",
+      "sector": "Unclassified",
+      "quantity": "6680911.0",
+      "issuer_weight": "0.00096614",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "253868103",
+      "ticker": "DLR",
+      "name": "DIGITAL REALTY TRUST INC",
+      "sector": "Unclassified",
+      "quantity": "4304340.0",
+      "issuer_weight": "0.00095828",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "911363109",
+      "ticker": "URI",
+      "name": "UNITED RENTALS INC",
+      "sector": "Unclassified",
+      "quantity": "762144.0",
+      "issuer_weight": "0.00095776",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "009158106",
+      "ticker": "APD",
+      "name": "AIR PRODUCTS + CHEMICALS INC",
+      "sector": "Unclassified",
+      "quantity": "2735241.0",
+      "issuer_weight": "0.00095713",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "009066101",
+      "ticker": "ABNB",
+      "name": "AIRBNB INC CLASS A",
+      "sector": "Unclassified",
+      "quantity": "5131662.0",
+      "issuer_weight": "0.00095557",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "40412C101",
+      "ticker": "HCA",
+      "name": "HCA HEALTHCARE INC",
+      "sector": "Unclassified",
+      "quantity": "1802615.0",
+      "issuer_weight": "0.00093895",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G87052109",
+      "ticker": "TEL",
+      "name": "TE CONNECTIVITY PLC",
+      "sector": "Unclassified",
+      "quantity": "3544778.0",
+      "issuer_weight": "0.00093162",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "31428X106",
+      "ticker": "FDX",
+      "name": "FEDEX CORP",
+      "sector": "Unclassified",
+      "quantity": "2695311.0",
+      "issuer_weight": "0.00092675",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "49456B101",
+      "ticker": "KMI",
+      "name": "KINDER MORGAN INC",
+      "sector": "Unclassified",
+      "quantity": "24040083.0",
+      "issuer_weight": "0.00092405",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "49338L103",
+      "ticker": "KEYS",
+      "name": "KEYSIGHT TECHNOLOGIES IN",
+      "sector": "Unclassified",
+      "quantity": "2100841.0",
+      "issuer_weight": "0.0009239",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "61174X109",
+      "ticker": "MNST",
+      "name": "MONSTER BEVERAGE CORP",
+      "sector": "Unclassified",
+      "quantity": "17524044.0",
+      "issuer_weight": "0.00091974",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "893641100",
+      "ticker": "TDG",
+      "name": "TRANSDIGM GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "675426.0",
+      "issuer_weight": "0.00091824",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "880770102",
+      "ticker": "TER",
+      "name": "TERADYNE INC",
+      "sector": "Unclassified",
+      "quantity": "1920984.0",
+      "issuer_weight": "0.00091607",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "87612G101",
+      "ticker": "TRGP",
+      "name": "TARGA RESOURCES CORP",
+      "sector": "Unclassified",
+      "quantity": "2625634.0",
+      "issuer_weight": "0.00091445",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "V7780T103",
+      "ticker": "RCL",
+      "name": "ROYAL CARIBBEAN CRUISES LTD",
+      "sector": "Unclassified",
+      "quantity": "3039503.0",
+      "issuer_weight": "0.00089345",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "03073E105",
+      "ticker": "COR",
+      "name": "CENCORA INC",
+      "sector": "Unclassified",
+      "quantity": "2336456.0",
+      "issuer_weight": "0.00089052",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G0403H108",
+      "ticker": "AON",
+      "name": "AON PLC CLASS A",
+      "sector": "Unclassified",
+      "quantity": "2592364.0",
+      "issuer_weight": "0.00088035",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "693718108",
+      "ticker": "PCAR",
+      "name": "PACCAR INC",
+      "sector": "Unclassified",
+      "quantity": "6461777.0",
+      "issuer_weight": "0.00087961",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "311900104",
+      "ticker": "FAST",
+      "name": "FASTENAL CO",
+      "sector": "Unclassified",
+      "quantity": "14095537.0",
+      "issuer_weight": "0.00087954",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "363576109",
+      "ticker": "AJG",
+      "name": "ARTHUR J GALLAGHER + CO",
+      "sector": "Unclassified",
+      "quantity": "3138282.0",
+      "issuer_weight": "0.00087675",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "N6596X109",
+      "ticker": "NXPI",
+      "name": "NXP SEMICONDUCTORS NV",
+      "sector": "Unclassified",
+      "quantity": "3087870.0",
+      "issuer_weight": "0.00087417",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "199908104",
+      "ticker": "FIX",
+      "name": "COMFORT SYSTEMS USA INC",
+      "sector": "Unclassified",
+      "quantity": "431224.0",
+      "issuer_weight": "0.00087167",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30609A109",
+      "ticker": "OKE",
+      "name": "ONEOK INC",
+      "sector": "Unclassified",
+      "quantity": "7735567.0",
+      "issuer_weight": "0.00086756",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "89832Q109",
+      "ticker": "TFC",
+      "name": "TRUIST FINANCIAL CORP",
+      "sector": "Unclassified",
+      "quantity": "14926062.0",
+      "issuer_weight": "0.00086619",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "020002101",
+      "ticker": "ALL",
+      "name": "ALLSTATE CORP",
+      "sector": "Unclassified",
+      "quantity": "3089897.0",
+      "issuer_weight": "0.00086338",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "03769M106",
+      "ticker": "APO",
+      "name": "APOLLO GLOBAL MANAGEMENT INC",
+      "sector": "Unclassified",
+      "quantity": "5784788.0",
+      "issuer_weight": "0.00085875",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "19247G107",
+      "ticker": "COHR",
+      "name": "COHERENT CORP",
+      "sector": "Unclassified",
+      "quantity": "2401938.0",
+      "issuer_weight": "0.00085858",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "05722G100",
+      "ticker": "BKR",
+      "name": "BAKER HUGHES CO",
+      "sector": "Unclassified",
+      "quantity": "12183776.0",
+      "issuer_weight": "0.00085856",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "031100100",
+      "ticker": "AME",
+      "name": "AMETEK INC",
+      "sector": "Unclassified",
+      "quantity": "2814454.0",
+      "issuer_weight": "0.00085763",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "670346105",
+      "ticker": "NUE",
+      "name": "NUCOR CORP",
+      "sector": "Unclassified",
+      "quantity": "2772053.0",
+      "issuer_weight": "0.00084546",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G25508105",
+      "ticker": "CRH",
+      "name": "CRH PLC",
+      "sector": "Unclassified",
+      "quantity": "8128287.0",
+      "issuer_weight": "0.00083942",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "384802104",
+      "ticker": "GWW",
+      "name": "WW GRAINGER INC",
+      "sector": "Unclassified",
+      "quantity": "530571.0",
+      "issuer_weight": "0.00083499",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "25179M103",
+      "ticker": "DVN",
+      "name": "DEVON ENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "13437139.0",
+      "issuer_weight": "0.00080821",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "25746U109",
+      "ticker": "D",
+      "name": "DOMINION ENERGY INC",
+      "sector": "Unclassified",
+      "quantity": "10798891.0",
+      "issuer_weight": "0.00080228",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "22052L104",
+      "ticker": "CTVA",
+      "name": "CORTEVA INC",
+      "sector": "Unclassified",
+      "quantity": "8169864.0",
+      "issuer_weight": "0.00079839",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "756109104",
+      "ticker": "O",
+      "name": "REALTY INCOME CORP",
+      "sector": "Unclassified",
+      "quantity": "11586253.0",
+      "issuer_weight": "0.00078966",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "59156R108",
+      "ticker": "MET",
+      "name": "METLIFE INC",
+      "sector": "Unclassified",
+      "quantity": "6520293.0",
+      "issuer_weight": "0.00077995",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "14149Y108",
+      "ticker": "CAH",
+      "name": "CARDINAL HEALTH INC",
+      "sector": "Unclassified",
+      "quantity": "2840656.0",
+      "issuer_weight": "0.00077784",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "816851109",
+      "ticker": "SRE",
+      "name": "SEMPRA",
+      "sector": "Unclassified",
+      "quantity": "8026968.0",
+      "issuer_weight": "0.00076755",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "001055102",
+      "ticker": "AFL",
+      "name": "AFLAC INC",
+      "sector": "Unclassified",
+      "quantity": "5463636.0",
+      "issuer_weight": "0.00076618",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "171779309",
+      "ticker": "CIEN",
+      "name": "CIENA CORP",
+      "sector": "Unclassified",
+      "quantity": "1732362.0",
+      "issuer_weight": "0.00076375",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "43849R105",
+      "ticker": "HONA",
+      "name": "HONEYWELL AEROSPACE INC",
+      "sector": "Unclassified",
+      "quantity": "3890378.0",
+      "issuer_weight": "0.00075826",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "857477103",
+      "ticker": "STT",
+      "name": "STATE STREET CORP",
+      "sector": "Unclassified",
+      "quantity": "3355253.0",
+      "issuer_weight": "0.00074736",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "28176E108",
+      "ticker": "EW",
+      "name": "EDWARDS LIFESCIENCES CORP",
+      "sector": "Unclassified",
+      "quantity": "7070522.0",
+      "issuer_weight": "0.00074558",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "345370860",
+      "ticker": "F",
+      "name": "FORD MOTOR CO",
+      "sector": "Unclassified",
+      "quantity": "48057624.0",
+      "issuer_weight": "0.0007448",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "247361702",
+      "ticker": "DAL",
+      "name": "DELTA AIR LINES INC",
+      "sector": "Unclassified",
+      "quantity": "7268413.0",
+      "issuer_weight": "0.00073989",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "00846U101",
+      "ticker": "A",
+      "name": "AGILENT TECHNOLOGIES INC",
+      "sector": "Unclassified",
+      "quantity": "3469810.0",
+      "issuer_weight": "0.00073766",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "929740108",
+      "ticker": "WAB",
+      "name": "WABTEC CORP",
+      "sector": "Unclassified",
+      "quantity": "2062875.0",
+      "issuer_weight": "0.00073642",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "H2906T109",
+      "ticker": "GRMN",
+      "name": "GARMIN LTD",
+      "sector": "Unclassified",
+      "quantity": "2030930.0",
+      "issuer_weight": "0.00073441",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "075887109",
+      "ticker": "BDX",
+      "name": "BECTON DICKINSON AND CO",
+      "sector": "Unclassified",
+      "quantity": "3326420.0",
+      "issuer_weight": "0.00073332",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "773903109",
+      "ticker": "ROK",
+      "name": "ROCKWELL AUTOMATION INC",
+      "sector": "Unclassified",
+      "quantity": "1365918.0",
+      "issuer_weight": "0.00072736",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74460D109",
+      "ticker": "PSA",
+      "name": "PUBLIC STORAGE",
+      "sector": "Unclassified",
+      "quantity": "2059373.0",
+      "issuer_weight": "0.0007208",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "053332102",
+      "ticker": "AZO",
+      "name": "AUTOZONE INC",
+      "sector": "Unclassified",
+      "quantity": "199638.0",
+      "issuer_weight": "0.00070272",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "316773100",
+      "ticker": "FITB",
+      "name": "FIFTH THIRD BANCORP",
+      "sector": "Unclassified",
+      "quantity": "11101461.0",
+      "issuer_weight": "0.00070268",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "146869102",
+      "ticker": "CVNA",
+      "name": "CARVANA CO",
+      "sector": "Unclassified",
+      "quantity": "8795930.0",
+      "issuer_weight": "0.00069437",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "29364G103",
+      "ticker": "ETR",
+      "name": "ENTERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "5713990.0",
+      "issuer_weight": "0.00068989",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "444859102",
+      "ticker": "HUM",
+      "name": "HUMANA INC",
+      "sector": "Unclassified",
+      "quantity": "1474088.0",
+      "issuer_weight": "0.00068957",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "14448C104",
+      "ticker": "CARR",
+      "name": "CARRIER GLOBAL CORP",
+      "sector": "Unclassified",
+      "quantity": "10093370.0",
+      "issuer_weight": "0.00068121",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "46266C105",
+      "ticker": "IQV",
+      "name": "IQVIA HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "2009583.0",
+      "issuer_weight": "0.0006798",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "70450Y103",
+      "ticker": "PYPL",
+      "name": "PAYPAL HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "10445011.0",
+      "issuer_weight": "0.00067578",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "052769106",
+      "ticker": "ADSK",
+      "name": "AUTODESK INC",
+      "sector": "Unclassified",
+      "quantity": "2592405.0",
+      "issuer_weight": "0.00067393",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92276F100",
+      "ticker": "VTR",
+      "name": "VENTAS INC",
+      "sector": "Unclassified",
+      "quantity": "6280610.0",
+      "issuer_weight": "0.00067078",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "502431109",
+      "ticker": "LHX",
+      "name": "L3HARRIS TECHNOLOGIES INC",
+      "sector": "Unclassified",
+      "quantity": "2287600.0",
+      "issuer_weight": "0.00066979",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "19260Q107",
+      "ticker": "COIN",
+      "name": "COINBASE GLOBAL INC  CLASS A",
+      "sector": "Unclassified",
+      "quantity": "2731260.0",
+      "issuer_weight": "0.00066924",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "29476L107",
+      "ticker": "VMRK",
+      "name": "VIVMARK RESIDENTIAL",
+      "sector": "Unclassified",
+      "quantity": "8786685.0",
+      "issuer_weight": "0.00065981",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "98389B100",
+      "ticker": "XEL",
+      "name": "XCEL ENERGY INC",
+      "sector": "Unclassified",
+      "quantity": "7665750.0",
+      "issuer_weight": "0.00065588",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92840M102",
+      "ticker": "VST",
+      "name": "VISTRA CORP",
+      "sector": "Unclassified",
+      "quantity": "3862944.0",
+      "issuer_weight": "0.00065542",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "654106103",
+      "ticker": "NKE",
+      "name": "NIKE INC  CL B",
+      "sector": "Unclassified",
+      "quantity": "14729604.0",
+      "issuer_weight": "0.00065205",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "278642103",
+      "ticker": "EBAY",
+      "name": "EBAY INC",
+      "sector": "Unclassified",
+      "quantity": "4903725.0",
+      "issuer_weight": "0.00065039",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "03076C106",
+      "ticker": "AMP",
+      "name": "AMERIPRISE FINANCIAL INC",
+      "sector": "Unclassified",
+      "quantity": "1078713.0",
+      "issuer_weight": "0.00064371",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "31488V107",
+      "ticker": "FERG",
+      "name": "FERGUSON ENTERPRISES INC",
+      "sector": "Unclassified",
+      "quantity": "2368764.0",
+      "issuer_weight": "0.00064149",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "941848103",
+      "ticker": "WAT",
+      "name": "WATERS CORP",
+      "sector": "Unclassified",
+      "quantity": "1204105.0",
+      "issuer_weight": "0.0006373",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "674599105",
+      "ticker": "OXY",
+      "name": "OCCIDENTAL PETROLEUM CORP",
+      "sector": "Unclassified",
+      "quantity": "8917093.0",
+      "issuer_weight": "0.0006367",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "49271V100",
+      "ticker": "KDP",
+      "name": "KEURIG DR PEPPER INC",
+      "sector": "Unclassified",
+      "quantity": "16705854.0",
+      "issuer_weight": "0.00063453",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "631103108",
+      "ticker": "NDAQ",
+      "name": "NASDAQ INC",
+      "sector": "Unclassified",
+      "quantity": "5407024.0",
+      "issuer_weight": "0.00062882",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "760759100",
+      "ticker": "RSG",
+      "name": "REPUBLIC SERVICES INC",
+      "sector": "Unclassified",
+      "quantity": "2392404.0",
+      "issuer_weight": "0.00062597",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "852234103",
+      "ticker": "XYZ",
+      "name": "BLOCK INC",
+      "sector": "Unclassified",
+      "quantity": "6622407.0",
+      "issuer_weight": "0.0006251",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30161N101",
+      "ticker": "EXC",
+      "name": "EXELON CORP",
+      "sector": "Unclassified",
+      "quantity": "12639913.0",
+      "issuer_weight": "0.000625",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "Y2573F102",
+      "ticker": "FLEX",
+      "name": "FLEX LTD",
+      "sector": "Unclassified",
+      "quantity": "4515051.0",
+      "issuer_weight": "0.00062422",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "452327109",
+      "ticker": "ILMN",
+      "name": "ILLUMINA INC",
+      "sector": "Unclassified",
+      "quantity": "1848821.0",
+      "issuer_weight": "0.00062287",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "922475108",
+      "ticker": "VEEV",
+      "name": "VEEVA SYSTEMS INC CLASS A",
+      "sector": "Unclassified",
+      "quantity": "1829701.0",
+      "issuer_weight": "0.00061854",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "744320102",
+      "ticker": "PRU",
+      "name": "PRUDENTIAL FINANCIAL INC",
+      "sector": "Unclassified",
+      "quantity": "4210901.0",
+      "issuer_weight": "0.00061506",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "45841N107",
+      "ticker": "IBKR",
+      "name": "INTERACTIVE BROKERS GRO CL A",
+      "sector": "Unclassified",
+      "quantity": "5547930.0",
+      "issuer_weight": "0.00061293",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "45168D104",
+      "ticker": "IDXX",
+      "name": "IDEXX LABORATORIES INC",
+      "sector": "Unclassified",
+      "quantity": "968863.0",
+      "issuer_weight": "0.00061181",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "55354G100",
+      "ticker": "MSCI",
+      "name": "MSCI INC",
+      "sector": "Unclassified",
+      "quantity": "893768.0",
+      "issuer_weight": "0.00061132",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "595017104",
+      "ticker": "MCHP",
+      "name": "MICROCHIP TECHNOLOGY INC",
+      "sector": "Unclassified",
+      "quantity": "6645750.0",
+      "issuer_weight": "0.00061054",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74624M102",
+      "ticker": "P",
+      "name": "EVERPURE INC A",
+      "sector": "Unclassified",
+      "quantity": "4070136.0",
+      "issuer_weight": "0.00061017",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "169656105",
+      "ticker": "CMG",
+      "name": "CHIPOTLE MEXICAN GRILL INC",
+      "sector": "Unclassified",
+      "quantity": "15447683.0",
+      "issuer_weight": "0.00060822",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "039483102",
+      "ticker": "ADM",
+      "name": "ARCHER DANIELS MIDLAND CO",
+      "sector": "Unclassified",
+      "quantity": "5917529.0",
+      "issuer_weight": "0.00059597",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "026874784",
+      "ticker": "AIG",
+      "name": "AMERICAN INTERNATIONAL GROUP",
+      "sector": "Unclassified",
+      "quantity": "6402532.0",
+      "issuer_weight": "0.00058922",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "12504L109",
+      "ticker": "CBRE",
+      "name": "CBRE GROUP INC   A",
+      "sector": "Unclassified",
+      "quantity": "3478455.0",
+      "issuer_weight": "0.00058415",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "64110D104",
+      "ticker": "NTAP",
+      "name": "NETAPP INC",
+      "sector": "Unclassified",
+      "quantity": "2402586.0",
+      "issuer_weight": "0.00058288",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "25278X109",
+      "ticker": "FANG",
+      "name": "DIAMONDBACK ENERGY INC",
+      "sector": "Unclassified",
+      "quantity": "2502976.0",
+      "issuer_weight": "0.0005819",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "98138H101",
+      "ticker": "WDAY",
+      "name": "WORKDAY INC CLASS A",
+      "sector": "Unclassified",
+      "quantity": "2453259.0",
+      "issuer_weight": "0.00057632",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "209115104",
+      "ticker": "ED",
+      "name": "CONSOLIDATED EDISON INC",
+      "sector": "Unclassified",
+      "quantity": "4526371.0",
+      "issuer_weight": "0.00057184",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "871829107",
+      "ticker": "SYY",
+      "name": "SYSCO CORP",
+      "sector": "Unclassified",
+      "quantity": "5871560.0",
+      "issuer_weight": "0.00056469",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "988498101",
+      "ticker": "YUM",
+      "name": "YUM  BRANDS INC",
+      "sector": "Unclassified",
+      "quantity": "3341701.0",
+      "issuer_weight": "0.00056451",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "910047109",
+      "ticker": "UAL",
+      "name": "UNITED AIRLINES HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "3985385.0",
+      "issuer_weight": "0.00054506",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "05464C101",
+      "ticker": "AXON",
+      "name": "AXON ENTERPRISE INC",
+      "sector": "Unclassified",
+      "quantity": "994766.0",
+      "issuer_weight": "0.00054449",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "776696106",
+      "ticker": "ROP",
+      "name": "ROPER TECHNOLOGIES INC",
+      "sector": "Unclassified",
+      "quantity": "1210934.0",
+      "issuer_weight": "0.00054219",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "874054109",
+      "ticker": "TTWO",
+      "name": "TAKE TWO INTERACTIVE SOFTWRE",
+      "sector": "Unclassified",
+      "quantity": "2152373.0",
+      "issuer_weight": "0.00053738",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "23331A109",
+      "ticker": "DHI",
+      "name": "DR HORTON INC",
+      "sector": "Unclassified",
+      "quantity": "3105425.0",
+      "issuer_weight": "0.0005361",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "46284V101",
+      "ticker": "IRM",
+      "name": "IRON MOUNTAIN INC",
+      "sector": "Unclassified",
+      "quantity": "3652998.0",
+      "issuer_weight": "0.00051263",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "416515104",
+      "ticker": "HIG",
+      "name": "HARTFORD INSURANCE GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "3305254.0",
+      "issuer_weight": "0.00051099",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "49177J102",
+      "ticker": "KVUE",
+      "name": "KENVUE INC",
+      "sector": "Unclassified",
+      "quantity": "23575232.0",
+      "issuer_weight": "0.00051065",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "09062X103",
+      "ticker": "BIIB",
+      "name": "BIOGEN INC",
+      "sector": "Unclassified",
+      "quantity": "1815545.0",
+      "issuer_weight": "0.00050549",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "501044101",
+      "ticker": "KR",
+      "name": "KROGER CO",
+      "sector": "Unclassified",
+      "quantity": "6966105.0",
+      "issuer_weight": "0.00050485",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "744573106",
+      "ticker": "PEG",
+      "name": "PUBLIC SERVICE ENTERPRISE GP",
+      "sector": "Unclassified",
+      "quantity": "6118583.0",
+      "issuer_weight": "0.00050092",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "29084Q100",
+      "ticker": "EME",
+      "name": "EMCOR GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "539845.0",
+      "issuer_weight": "0.00049931",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92939U106",
+      "ticker": "WEC",
+      "name": "WEC ENERGY GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "3999291.0",
+      "issuer_weight": "0.00049634",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "252131107",
+      "ticker": "DXCM",
+      "name": "DEXCOM INC",
+      "sector": "Unclassified",
+      "quantity": "4602796.0",
+      "issuer_weight": "0.00049521",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "679580100",
+      "ticker": "ODFL",
+      "name": "OLD DOMINION FREIGHT LINE",
+      "sector": "Unclassified",
+      "quantity": "2285242.0",
+      "issuer_weight": "0.00049171",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "466313103",
+      "ticker": "JBL",
+      "name": "JABIL INC",
+      "sector": "Unclassified",
+      "quantity": "1283334.0",
+      "issuer_weight": "0.00049043",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "26884L109",
+      "ticker": "EQT",
+      "name": "EQT CORP",
+      "sector": "Unclassified",
+      "quantity": "7679932.0",
+      "issuer_weight": "0.00048998",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "704326107",
+      "ticker": "PAYX",
+      "name": "PAYCHEX INC",
+      "sector": "Unclassified",
+      "quantity": "3906283.0",
+      "issuer_weight": "0.00048812",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "494368103",
+      "ticker": "KMB",
+      "name": "KIMBERLY CLARK CORP",
+      "sector": "Unclassified",
+      "quantity": "4075592.0",
+      "issuer_weight": "0.00048737",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G0450A105",
+      "ticker": "ACGL",
+      "name": "ARCH CAPITAL GROUP LTD",
+      "sector": "Unclassified",
+      "quantity": "4144559.0",
+      "issuer_weight": "0.0004844",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "761152107",
+      "ticker": "RMD",
+      "name": "RESMED INC",
+      "sector": "Unclassified",
+      "quantity": "1766110.0",
+      "issuer_weight": "0.00048202",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "665859104",
+      "ticker": "NTRS",
+      "name": "NORTHERN TRUST CORP",
+      "sector": "Unclassified",
+      "quantity": "2240411.0",
+      "issuer_weight": "0.00048087",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "858119100",
+      "ticker": "STLD",
+      "name": "STEEL DYNAMICS INC",
+      "sector": "Unclassified",
+      "quantity": "1649748.0",
+      "issuer_weight": "0.00047727",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "55261F104",
+      "ticker": "MTB",
+      "name": "M + T BANK CORP",
+      "sector": "Unclassified",
+      "quantity": "1761172.0",
+      "issuer_weight": "0.00047367",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "929160109",
+      "ticker": "VMC",
+      "name": "VULCAN MATERIALS CO",
+      "sector": "Unclassified",
+      "quantity": "1593114.0",
+      "issuer_weight": "0.00047362",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "446150104",
+      "ticker": "HBAN",
+      "name": "HUNTINGTON BANCSHARES INC",
+      "sector": "Unclassified",
+      "quantity": "24888031.0",
+      "issuer_weight": "0.00046868",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "592688105",
+      "ticker": "MTD",
+      "name": "METTLER TOLEDO INTERNATIONAL",
+      "sector": "Unclassified",
+      "quantity": "246829.0",
+      "issuer_weight": "0.00046122",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "15135B101",
+      "ticker": "CNC",
+      "name": "CENTENE CORP",
+      "sector": "Unclassified",
+      "quantity": "6048988.0",
+      "issuer_weight": "0.0004607",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30212P303",
+      "ticker": "EXPE",
+      "name": "EXPEDIA GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "1405644.0",
+      "issuer_weight": "0.00045255",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "36266G107",
+      "ticker": "GEHC",
+      "name": "GE HEALTHCARE TECHNOLOGY",
+      "sector": "Unclassified",
+      "quantity": "5530706.0",
+      "issuer_weight": "0.00045157",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "98978V103",
+      "ticker": "ZTS",
+      "name": "ZOETIS INC",
+      "sector": "Unclassified",
+      "quantity": "5059928.0",
+      "issuer_weight": "0.00043734",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "573284106",
+      "ticker": "MLM",
+      "name": "MARTIN MARIETTA MATERIALS",
+      "sector": "Unclassified",
+      "quantity": "737474.0",
+      "issuer_weight": "0.0004355",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "22822V101",
+      "ticker": "CCI",
+      "name": "CROWN CASTLE INC",
+      "sector": "Unclassified",
+      "quantity": "5209638.0",
+      "issuer_weight": "0.00043337",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "40434L105",
+      "ticker": "HPQ",
+      "name": "HP INC",
+      "sector": "Unclassified",
+      "quantity": "11236986.0",
+      "issuer_weight": "0.0004304",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "682189105",
+      "ticker": "ON",
+      "name": "ON SEMICONDUCTOR",
+      "sector": "Unclassified",
+      "quantity": "4766989.0",
+      "issuer_weight": "0.00042891",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "879360105",
+      "ticker": "TDY",
+      "name": "TELEDYNE TECHNOLOGIES INC",
+      "sector": "Unclassified",
+      "quantity": "569003.0",
+      "issuer_weight": "0.00042834",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "12503M108",
+      "ticker": "CBOE",
+      "name": "CBOE GLOBAL MARKETS INC",
+      "sector": "Unclassified",
+      "quantity": "1287041.0",
+      "issuer_weight": "0.00042358",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30225T102",
+      "ticker": "EXR",
+      "name": "EXTRA SPACE STORAGE INC",
+      "sector": "Unclassified",
+      "quantity": "2593779.0",
+      "issuer_weight": "0.00042186",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G2004J103",
+      "ticker": "CCL",
+      "name": "CARNIVAL CORP LTD",
+      "sector": "Unclassified",
+      "quantity": "15596882.0",
+      "issuer_weight": "0.00041803",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "754730109",
+      "ticker": "RJF",
+      "name": "RAYMOND JAMES FINANCIAL INC",
+      "sector": "Unclassified",
+      "quantity": "2130083.0",
+      "issuer_weight": "0.00041595",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "023608102",
+      "ticker": "AEE",
+      "name": "AMEREN CORPORATION",
+      "sector": "Unclassified",
+      "quantity": "3397162.0",
+      "issuer_weight": "0.00041451",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "174610105",
+      "ticker": "CFG",
+      "name": "CITIZENS FINANCIAL GROUP",
+      "sector": "Unclassified",
+      "quantity": "5191392.0",
+      "issuer_weight": "0.00041333",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "406216101",
+      "ticker": "HAL",
+      "name": "HALLIBURTON CO",
+      "sector": "Unclassified",
+      "quantity": "10253298.0",
+      "issuer_weight": "0.00041316",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G96629103",
+      "ticker": "WTW",
+      "name": "WILLIS TOWERS WATSON PLC",
+      "sector": "Unclassified",
+      "quantity": "1137363.0",
+      "issuer_weight": "0.00041078",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "69331C108",
+      "ticker": "PCG",
+      "name": "P G + E CORP",
+      "sector": "Unclassified",
+      "quantity": "27040163.0",
+      "issuer_weight": "0.00040976",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "538034109",
+      "ticker": "LYV",
+      "name": "LIVE NATION ENTERTAINMENT IN",
+      "sector": "Unclassified",
+      "quantity": "1943367.0",
+      "issuer_weight": "0.0004089",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "256677105",
+      "ticker": "DG",
+      "name": "DOLLAR GENERAL CORP",
+      "sector": "Unclassified",
+      "quantity": "2706956.0",
+      "issuer_weight": "0.00040797",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "969904101",
+      "ticker": "WSM",
+      "name": "WILLIAMS SONOMA INC",
+      "sector": "Unclassified",
+      "quantity": "1445610.0",
+      "issuer_weight": "0.00040658",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "03990B101",
+      "ticker": "ARES",
+      "name": "ARES MANAGEMENT CORP   A",
+      "sector": "Unclassified",
+      "quantity": "2742045.0",
+      "issuer_weight": "0.0004051",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "955306105",
+      "ticker": "WST",
+      "name": "WEST PHARMACEUTICAL SERVICES",
+      "sector": "Unclassified",
+      "quantity": "867504.0",
+      "issuer_weight": "0.00039865",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "049560105",
+      "ticker": "ATO",
+      "name": "ATMOS ENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "2069441.0",
+      "issuer_weight": "0.00039816",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74834L100",
+      "ticker": "DGX",
+      "name": "QUEST DIAGNOSTICS INC",
+      "sector": "Unclassified",
+      "quantity": "1359123.0",
+      "issuer_weight": "0.00039552",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "219948106",
+      "ticker": "CPAY",
+      "name": "CORPAY INC",
+      "sector": "Unclassified",
+      "quantity": "802705.0",
+      "issuer_weight": "0.00039525",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "030420103",
+      "ticker": "AWK",
+      "name": "AMERICAN WATER WORKS CO INC",
+      "sector": "Unclassified",
+      "quantity": "2433460.0",
+      "issuer_weight": "0.00039369",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "192446102",
+      "ticker": "CTSH",
+      "name": "COGNIZANT TECH SOLUTIONS A",
+      "sector": "Unclassified",
+      "quantity": "5515316.0",
+      "issuer_weight": "0.00038784",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "45687V106",
+      "ticker": "IR",
+      "name": "INGERSOLL RAND INC",
+      "sector": "Unclassified",
+      "quantity": "4207012.0",
+      "issuer_weight": "0.00038696",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74743L100",
+      "ticker": "Q",
+      "name": "QNITY ELECTRONICS INC",
+      "sector": "Unclassified",
+      "quantity": "2568803.0",
+      "issuer_weight": "0.00038646",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "925652109",
+      "ticker": "VICI",
+      "name": "VICI PROPERTIES INC",
+      "sector": "Unclassified",
+      "quantity": "13482181.0",
+      "issuer_weight": "0.00038589",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "260003108",
+      "ticker": "DOV",
+      "name": "DOVER CORP",
+      "sector": "Unclassified",
+      "quantity": "1654828.0",
+      "issuer_weight": "0.00038244",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "68902V107",
+      "ticker": "OTIS",
+      "name": "OTIS WORLDWIDE CORP",
+      "sector": "Unclassified",
+      "quantity": "4661199.0",
+      "issuer_weight": "0.0003823",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "233331107",
+      "ticker": "DTE",
+      "name": "DTE ENERGY COMPANY",
+      "sector": "Unclassified",
+      "quantity": "2554561.0",
+      "issuer_weight": "0.00038076",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "315616102",
+      "ticker": "FFIV",
+      "name": "F5 INC",
+      "sector": "Unclassified",
+      "quantity": "692011.0",
+      "issuer_weight": "0.00038009",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "504922105",
+      "ticker": "LH",
+      "name": "LABCORP HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "988274.0",
+      "issuer_weight": "0.00037556",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "172062101",
+      "ticker": "CINF",
+      "name": "CINCINNATI FINANCIAL CORP",
+      "sector": "Unclassified",
+      "quantity": "1879466.0",
+      "issuer_weight": "0.00037527",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "443510607",
+      "ticker": "HUBB",
+      "name": "HUBBELL INC",
+      "sector": "Unclassified",
+      "quantity": "649200.0",
+      "issuer_weight": "0.00037202",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "337738108",
+      "ticker": "FISV",
+      "name": "FISERV INC",
+      "sector": "Unclassified",
+      "quantity": "6546693.0",
+      "issuer_weight": "0.00037025",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "427866108",
+      "ticker": "HSY",
+      "name": "HERSHEY CO/THE",
+      "sector": "Unclassified",
+      "quantity": "1782509.0",
+      "issuer_weight": "0.00036588",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G8267P108",
+      "ticker": "SW",
+      "name": "SMURFIT WESTROCK PLC",
+      "sector": "Unclassified",
+      "quantity": "6443911.0",
+      "issuer_weight": "0.0003646",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "15189T107",
+      "ticker": "CNP",
+      "name": "CENTERPOINT ENERGY INC",
+      "sector": "Unclassified",
+      "quantity": "8030807.0",
+      "issuer_weight": "0.00036371",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "69351T106",
+      "ticker": "PPL",
+      "name": "PPL CORP",
+      "sector": "Unclassified",
+      "quantity": "9237697.0",
+      "issuer_weight": "0.00036326",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "302130109",
+      "ticker": "EXPD",
+      "name": "EXPEDITORS INTL WASH INC",
+      "sector": "Unclassified",
+      "quantity": "1605565.0",
+      "issuer_weight": "0.0003627",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30040W108",
+      "ticker": "ES",
+      "name": "EVERSOURCE ENERGY",
+      "sector": "Unclassified",
+      "quantity": "4611362.0",
+      "issuer_weight": "0.00036187",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "98419M100",
+      "ticker": "XYL",
+      "name": "XYLEM INC",
+      "sector": "Unclassified",
+      "quantity": "2859008.0",
+      "issuer_weight": "0.00036101",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "693506107",
+      "ticker": "PPG",
+      "name": "PPG INDUSTRIES INC",
+      "sector": "Unclassified",
+      "quantity": "2736268.0",
+      "issuer_weight": "0.00035783",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92343E102",
+      "ticker": "VRSN",
+      "name": "VERISIGN INC",
+      "sector": "Unclassified",
+      "quantity": "995116.0",
+      "issuer_weight": "0.00035726",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "518439104",
+      "ticker": "EL",
+      "name": "ESTEE LAUDER COMPANIES CL A",
+      "sector": "Unclassified",
+      "quantity": "3026995.0",
+      "issuer_weight": "0.00035508",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "237194105",
+      "ticker": "DRI",
+      "name": "DARDEN RESTAURANTS INC",
+      "sector": "Unclassified",
+      "quantity": "1390485.0",
+      "issuer_weight": "0.00035444",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "217204106",
+      "ticker": "CPRT",
+      "name": "COPART INC",
+      "sector": "Unclassified",
+      "quantity": "10263265.0",
+      "issuer_weight": "0.00035397",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "90384S303",
+      "ticker": "ULTA",
+      "name": "ULTA BEAUTY INC",
+      "sector": "Unclassified",
+      "quantity": "523598.0",
+      "issuer_weight": "0.00035343",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92338C103",
+      "ticker": "VLTO",
+      "name": "VERALTO CORP",
+      "sector": "Unclassified",
+      "quantity": "2985259.0",
+      "issuer_weight": "0.00035324",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "86800U302",
+      "ticker": "SMCI",
+      "name": "SUPER MICRO COMPUTER INC",
+      "sector": "Unclassified",
+      "quantity": "6909394.0",
+      "issuer_weight": "0.00035278",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "7591EP100",
+      "ticker": "RF",
+      "name": "REGIONS FINANCIAL CORP",
+      "sector": "Unclassified",
+      "quantity": "10477771.0",
+      "issuer_weight": "0.00035132",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "87165B103",
+      "ticker": "SYF",
+      "name": "SYNCHRONY FINANCIAL",
+      "sector": "Unclassified",
+      "quantity": "3962994.0",
+      "issuer_weight": "0.00034877",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "171340102",
+      "ticker": "CHD",
+      "name": "CHURCH + DWIGHT CO INC",
+      "sector": "Unclassified",
+      "quantity": "2901999.0",
+      "issuer_weight": "0.00034028",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "337932107",
+      "ticker": "FE",
+      "name": "FIRSTENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "6392265.0",
+      "issuer_weight": "0.00033958",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74144T108",
+      "ticker": "TROW",
+      "name": "T ROWE PRICE GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "2630305.0",
+      "issuer_weight": "0.00033734",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "75734B100",
+      "ticker": "RDDT",
+      "name": "REDDIT INC CL A",
+      "sector": "Unclassified",
+      "quantity": "1788716.0",
+      "issuer_weight": "0.00033601",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "74251V102",
+      "ticker": "PFG",
+      "name": "PRINCIPAL FINANCIAL GROUP",
+      "sector": "Unclassified",
+      "quantity": "2385923.0",
+      "issuer_weight": "0.000335",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "876030107",
+      "ticker": "TPR",
+      "name": "TAPESTRY INC",
+      "sector": "Unclassified",
+      "quantity": "2427899.0",
+      "issuer_weight": "0.00033483",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "147528103",
+      "ticker": "CASY",
+      "name": "CASEY S GENERAL STORES INC",
+      "sector": "Unclassified",
+      "quantity": "454430.0",
+      "issuer_weight": "0.00033473",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92345Y106",
+      "ticker": "VRSK",
+      "name": "VERISK ANALYTICS INC",
+      "sector": "Unclassified",
+      "quantity": "1608330.0",
+      "issuer_weight": "0.00033363",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "745867101",
+      "ticker": "PHM",
+      "name": "PULTEGROUP INC",
+      "sector": "Unclassified",
+      "quantity": "2295079.0",
+      "issuer_weight": "0.00033362",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "459506101",
+      "ticker": "IFF",
+      "name": "INTL FLAVORS + FRAGRANCES",
+      "sector": "Unclassified",
+      "quantity": "3141726.0",
+      "issuer_weight": "0.00033175",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "256746108",
+      "ticker": "DLTR",
+      "name": "DOLLAR TREE INC",
+      "sector": "Unclassified",
+      "quantity": "2353114.0",
+      "issuer_weight": "0.00032851",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "45337C102",
+      "ticker": "INCY",
+      "name": "INCYTE CORP",
+      "sector": "Unclassified",
+      "quantity": "2084652.0",
+      "issuer_weight": "0.00031908",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "695156109",
+      "ticker": "PKG",
+      "name": "PACKAGING CORP OF AMERICA",
+      "sector": "Unclassified",
+      "quantity": "1086938.0",
+      "issuer_weight": "0.00031834",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "629377508",
+      "ticker": "NRG",
+      "name": "NRG ENERGY INC",
+      "sector": "Unclassified",
+      "quantity": "2589899.0",
+      "issuer_weight": "0.00031171",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "500754106",
+      "ticker": "KHC",
+      "name": "KRAFT HEINZ CO/THE",
+      "sector": "Unclassified",
+      "quantity": "10599413.0",
+      "issuer_weight": "0.00031107",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "260557103",
+      "ticker": "DOW",
+      "name": "DOW INC",
+      "sector": "Unclassified",
+      "quantity": "8819237.0",
+      "issuer_weight": "0.00030981",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G8473T100",
+      "ticker": "STE",
+      "name": "STERIS PLC",
+      "sector": "Unclassified",
+      "quantity": "1203809.0",
+      "issuer_weight": "0.00030912",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "681919106",
+      "ticker": "OMC",
+      "name": "OMNICOM GROUP",
+      "sector": "Unclassified",
+      "quantity": "3359566.0",
+      "issuer_weight": "0.00030868",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "165167735",
+      "ticker": "EXE",
+      "name": "EXPAND ENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "2817102.0",
+      "issuer_weight": "0.00030707",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "844741108",
+      "ticker": "LUV",
+      "name": "SOUTHWEST AIRLINES CO",
+      "sector": "Unclassified",
+      "quantity": "5999823.0",
+      "issuer_weight": "0.00030663",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "281020107",
+      "ticker": "EIX",
+      "name": "EDISON INTERNATIONAL",
+      "sector": "Unclassified",
+      "quantity": "4724392.0",
+      "issuer_weight": "0.00030531",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "92556V106",
+      "ticker": "VTRS",
+      "name": "VIATRIS INC",
+      "sector": "Unclassified",
+      "quantity": "14064278.0",
+      "issuer_weight": "0.00030135",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "88262P102",
+      "ticker": "TPL",
+      "name": "TEXAS PACIFIC LAND CORP",
+      "sector": "Unclassified",
+      "quantity": "717962.0",
+      "issuer_weight": "0.00029871",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "125896100",
+      "ticker": "CMS",
+      "name": "CMS ENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "3839504.0",
+      "issuer_weight": "0.00029644",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G0250X149",
+      "ticker": "AMCR",
+      "name": "AMCOR PLC",
+      "sector": "Unclassified",
+      "quantity": "5637211.0",
+      "issuer_weight": "0.00029191",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "833034101",
+      "ticker": "SNA",
+      "name": "SNAP ON INC",
+      "sector": "Unclassified",
+      "quantity": "636069.0",
+      "issuer_weight": "0.00028769",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "37940X102",
+      "ticker": "GPN",
+      "name": "GLOBAL PAYMENTS INC",
+      "sector": "Unclassified",
+      "quantity": "2721478.0",
+      "issuer_weight": "0.00028557",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "65473P105",
+      "ticker": "NI",
+      "name": "NISOURCE INC",
+      "sector": "Unclassified",
+      "quantity": "5870180.0",
+      "issuer_weight": "0.00028246",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "370334104",
+      "ticker": "GIS",
+      "name": "GENERAL MILLS INC",
+      "sector": "Unclassified",
+      "quantity": "6552925.0",
+      "issuer_weight": "0.00028074",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "11133T103",
+      "ticker": "BR",
+      "name": "BROADRIDGE FINANCIAL SOLUTIO",
+      "sector": "Unclassified",
+      "quantity": "1396244.0",
+      "issuer_weight": "0.00027935",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "336433107",
+      "ticker": "FSLR",
+      "name": "FIRST SOLAR INC",
+      "sector": "Unclassified",
+      "quantity": "1318236.0",
+      "issuer_weight": "0.00027915",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "460146103",
+      "ticker": "IP",
+      "name": "INTERNATIONAL PAPER CO",
+      "sector": "Unclassified",
+      "quantity": "6487562.0",
+      "issuer_weight": "0.00027833",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "303250104",
+      "ticker": "FICO",
+      "name": "FAIR ISAAC CORP",
+      "sector": "Unclassified",
+      "quantity": "264176.0",
+      "issuer_weight": "0.0002783",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "493267108",
+      "ticker": "KEY",
+      "name": "KEYCORP",
+      "sector": "Unclassified",
+      "quantity": "11106506.0",
+      "issuer_weight": "0.00027664",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "31620M106",
+      "ticker": "FIS",
+      "name": "FIDELITY NATIONAL INFO SERV",
+      "sector": "Unclassified",
+      "quantity": "6346526.0",
+      "issuer_weight": "0.00027314",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "30034W106",
+      "ticker": "EVRG",
+      "name": "EVERGY INC",
+      "sector": "Unclassified",
+      "quantity": "2830968.0",
+      "issuer_weight": "0.00027042",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "086516101",
+      "ticker": "BBY",
+      "name": "BEST BUY CO INC",
+      "sector": "Unclassified",
+      "quantity": "2415364.0",
+      "issuer_weight": "0.00027035",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "125269100",
+      "ticker": "CF",
+      "name": "CF INDUSTRIES HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "1852864.0",
+      "issuer_weight": "0.00026993",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "372460105",
+      "ticker": "GPC",
+      "name": "GENUINE PARTS CO",
+      "sector": "Unclassified",
+      "quantity": "1690111.0",
+      "issuer_weight": "0.00026871",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "26614N201",
+      "ticker": "DD",
+      "name": "DUPONT DE NEMOURS INC",
+      "sector": "Unclassified",
+      "quantity": "1665030.0",
+      "issuer_weight": "0.00026669",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "78410G104",
+      "ticker": "SBAC",
+      "name": "SBA COMMUNICATIONS CORP",
+      "sector": "Unclassified",
+      "quantity": "1301933.0",
+      "issuer_weight": "0.00026602",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "297178105",
+      "ticker": "ESS",
+      "name": "ESSEX PROPERTY TRUST INC",
+      "sector": "Unclassified",
+      "quantity": "788753.0",
+      "issuer_weight": "0.00026355",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "294429105",
+      "ticker": "EFX",
+      "name": "EQUIFAX INC",
+      "sector": "Unclassified",
+      "quantity": "1438603.0",
+      "issuer_weight": "0.0002633",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "989207105",
+      "ticker": "ZBRA",
+      "name": "ZEBRA TECHNOLOGIES CORP CL A",
+      "sector": "Unclassified",
+      "quantity": "584647.0",
+      "issuer_weight": "0.00026255",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "H11356104",
+      "ticker": "BG",
+      "name": "BUNGE GLOBAL SA",
+      "sector": "Unclassified",
+      "quantity": "1928978.0",
+      "issuer_weight": "0.00026149",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "115236101",
+      "ticker": "BRO",
+      "name": "BROWN + BROWN INC",
+      "sector": "Unclassified",
+      "quantity": "3523388.0",
+      "issuer_weight": "0.00026146",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "12514G108",
+      "ticker": "CDW",
+      "name": "CDW CORP/DE",
+      "sector": "Unclassified",
+      "quantity": "1520184.0",
+      "issuer_weight": "0.00026077",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "12541W209",
+      "ticker": "CHRW",
+      "name": "C.H. ROBINSON WORLDWIDE INC",
+      "sector": "Unclassified",
+      "quantity": "1447131.0",
+      "issuer_weight": "0.00026023",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "540424108",
+      "ticker": "L",
+      "name": "LOEWS CORP",
+      "sector": "Unclassified",
+      "quantity": "2013294.0",
+      "issuer_weight": "0.00026019",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "655663102",
+      "ticker": "NDSN",
+      "name": "NORDSON CORP",
+      "sector": "Unclassified",
+      "quantity": "650972.0",
+      "issuer_weight": "0.00025883",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "21036P108",
+      "ticker": "STZ",
+      "name": "CONSTELLATION BRANDS INC A",
+      "sector": "Unclassified",
+      "quantity": "1839978.0",
+      "issuer_weight": "0.00025848",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "445658107",
+      "ticker": "JBHT",
+      "name": "HUNT (JB) TRANSPRT SVCS INC",
+      "sector": "Unclassified",
+      "quantity": "914238.0",
+      "issuer_weight": "0.00025768",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "98956P102",
+      "ticker": "ZBH",
+      "name": "ZIMMER BIOMET HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "2335384.0",
+      "issuer_weight": "0.00025764",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "45167R104",
+      "ticker": "IEX",
+      "name": "IDEX CORP",
+      "sector": "Unclassified",
+      "quantity": "908887.0",
+      "issuer_weight": "0.00025545",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "34959J108",
+      "ticker": "FTV",
+      "name": "FORTIVE CORP",
+      "sector": "Unclassified",
+      "quantity": "3742612.0",
+      "issuer_weight": "0.00025522",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "714046109",
+      "ticker": "RVTY",
+      "name": "REVVITY INC",
+      "sector": "Unclassified",
+      "quantity": "1369597.0",
+      "issuer_weight": "0.00025384",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "892356106",
+      "ticker": "TSCO",
+      "name": "TRACTOR SUPPLY COMPANY",
+      "sector": "Unclassified",
+      "quantity": "6438127.0",
+      "issuer_weight": "0.00024897",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "018802108",
+      "ticker": "LNT",
+      "name": "ALLIANT ENERGY CORP",
+      "sector": "Unclassified",
+      "quantity": "3153800.0",
+      "issuer_weight": "0.00024559",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "00971T101",
+      "ticker": "AKAM",
+      "name": "AKAMAI TECHNOLOGIES INC",
+      "sector": "Unclassified",
+      "quantity": "1784432.0",
+      "issuer_weight": "0.00024234",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "46982L108",
+      "ticker": "J",
+      "name": "JACOBS SOLUTIONS INC",
+      "sector": "Unclassified",
+      "quantity": "1449542.0",
+      "issuer_weight": "0.00024129",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "526057104",
+      "ticker": "LEN",
+      "name": "LENNAR CORP A",
+      "sector": "Unclassified",
+      "quantity": "2351790.0",
+      "issuer_weight": "0.00023567",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "N53745100",
+      "ticker": "LYB",
+      "name": "LYONDELLBASELL INDU CL A",
+      "sector": "Unclassified",
+      "quantity": "3181700.0",
+      "issuer_weight": "0.00023552",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "525327102",
+      "ticker": "LDOS",
+      "name": "LEIDOS HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "1544632.0",
+      "issuer_weight": "0.00023435",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "62944T105",
+      "ticker": "NVR",
+      "name": "NVR INC",
+      "sector": "Unclassified",
+      "quantity": "30482.0",
+      "issuer_weight": "0.00023379",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "03743Q108",
+      "ticker": "APA",
+      "name": "APA CORP",
+      "sector": "Unclassified",
+      "quantity": "4338676.0",
+      "issuer_weight": "0.0002331",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "084423102",
+      "ticker": "WRB",
+      "name": "WR BERKLEY CORP",
+      "sector": "Unclassified",
+      "quantity": "2772883.0",
+      "issuer_weight": "0.0002295",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "44107P104",
+      "ticker": "HST",
+      "name": "HOST HOTELS + RESORTS INC",
+      "sector": "Unclassified",
+      "quantity": "8389117.0",
+      "issuer_weight": "0.00022918",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "058498106",
+      "ticker": "BALL",
+      "name": "BALL CORP",
+      "sector": "Unclassified",
+      "quantity": "3268428.0",
+      "issuer_weight": "0.00022778",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "49446R109",
+      "ticker": "KIM",
+      "name": "KIMCO REALTY CORP",
+      "sector": "Unclassified",
+      "quantity": "8280037.0",
+      "issuer_weight": "0.00022661",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "69370C100",
+      "ticker": "PTC",
+      "name": "PTC INC",
+      "sector": "Unclassified",
+      "quantity": "1317163.0",
+      "issuer_weight": "0.00022262",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "902494103",
+      "ticker": "TSN",
+      "name": "TYSON FOODS INC CL A",
+      "sector": "Unclassified",
+      "quantity": "3464216.0",
+      "issuer_weight": "0.00021791",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "962166104",
+      "ticker": "WY",
+      "name": "WEYERHAEUSER CO",
+      "sector": "Unclassified",
+      "quantity": "8787448.0",
+      "issuer_weight": "0.00021769",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "46187W107",
+      "ticker": "INVH",
+      "name": "INVITATION HOMES INC",
+      "sector": "Unclassified",
+      "quantity": "6581300.0",
+      "issuer_weight": "0.00021452",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "159864107",
+      "ticker": "CRL",
+      "name": "CHARLES RIVER LABORATORIES",
+      "sector": "Unclassified",
+      "quantity": "591490.0",
+      "issuer_weight": "0.00021422",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "42250P103",
+      "ticker": "DOC",
+      "name": "HEALTHPEAK PROPERTIES INC",
+      "sector": "Unclassified",
+      "quantity": "8498364.0",
+      "issuer_weight": "0.00021188",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "59522J103",
+      "ticker": "MAA",
+      "name": "MID AMERICA APARTMENT COMM",
+      "sector": "Unclassified",
+      "quantity": "1428680.0",
+      "issuer_weight": "0.00020606",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G491BT108",
+      "ticker": "IVZ",
+      "name": "INVESCO LTD",
+      "sector": "Unclassified",
+      "quantity": "5453934.0",
+      "issuer_weight": "0.00020581",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "314352105",
+      "ticker": "FDXF",
+      "name": "FEDEX FREIGHT HOLDING CO",
+      "sector": "Unclassified",
+      "quantity": "1464617.0",
+      "issuer_weight": "0.00020503",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "854502101",
+      "ticker": "SWK",
+      "name": "STANLEY BLACK + DECKER INC",
+      "sector": "Unclassified",
+      "quantity": "1831423.0",
+      "issuer_weight": "0.00020312",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "896239100",
+      "ticker": "TRMB",
+      "name": "TRIMBLE INC",
+      "sector": "Unclassified",
+      "quantity": "2862323.0",
+      "issuer_weight": "0.00020311",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G3223R108",
+      "ticker": "EG",
+      "name": "EVEREST GROUP LTD",
+      "sector": "Unclassified",
+      "quantity": "436842.0",
+      "issuer_weight": "0.00019986",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "83088M102",
+      "ticker": "SWKS",
+      "name": "SKYWORKS SOLUTIONS INC",
+      "sector": "Unclassified",
+      "quantity": "1846671.0",
+      "issuer_weight": "0.00019945",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "751212101",
+      "ticker": "RL",
+      "name": "RALPH LAUREN CORP",
+      "sector": "Unclassified",
+      "quantity": "461755.0",
+      "issuer_weight": "0.00019928",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "883203101",
+      "ticker": "TXT",
+      "name": "TEXTRON INC",
+      "sector": "Unclassified",
+      "quantity": "2129505.0",
+      "issuer_weight": "0.00019912",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "574599106",
+      "ticker": "MAS",
+      "name": "MASCO CORP",
+      "sector": "Unclassified",
+      "quantity": "2391573.0",
+      "issuer_weight": "0.000198",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "16119P108",
+      "ticker": "CHTR",
+      "name": "CHARTER COMMUNICATIONS INC A",
+      "sector": "Unclassified",
+      "quantity": "1369133.0",
+      "issuer_weight": "0.00019796",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "37959E102",
+      "ticker": "GL",
+      "name": "GLOBE LIFE INC",
+      "sector": "Unclassified",
+      "quantity": "952854.0",
+      "issuer_weight": "0.0001961",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "04621X108",
+      "ticker": "AIZ",
+      "name": "ASSURANT INC",
+      "sector": "Unclassified",
+      "quantity": "608700.0",
+      "issuer_weight": "0.00019606",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "832696405",
+      "ticker": "SJM",
+      "name": "JM SMUCKER CO/THE",
+      "sector": "Unclassified",
+      "quantity": "1309759.0",
+      "issuer_weight": "0.000196",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G0176J109",
+      "ticker": "ALLE",
+      "name": "ALLEGION PLC",
+      "sector": "Unclassified",
+      "quantity": "1042826.0",
+      "issuer_weight": "0.00019558",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "053611109",
+      "ticker": "AVY",
+      "name": "AVERY DENNISON CORP",
+      "sector": "Unclassified",
+      "quantity": "938955.0",
+      "issuer_weight": "0.00019519",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "83444M101",
+      "ticker": "SOLV",
+      "name": "SOLVENTUM CORP",
+      "sector": "Unclassified",
+      "quantity": "1771925.0",
+      "issuer_weight": "0.00019308",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "012653101",
+      "ticker": "ALB",
+      "name": "ALBEMARLE CORP",
+      "sector": "Unclassified",
+      "quantity": "1446095.0",
+      "issuer_weight": "0.00019255",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "35137L105",
+      "ticker": "FOXA",
+      "name": "FOX CORP   CLASS A",
+      "sector": "Unclassified",
+      "quantity": "2449703.0",
+      "issuer_weight": "0.00019236",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "380237107",
+      "ticker": "GDDY",
+      "name": "GODADDY INC   CLASS A",
+      "sector": "Unclassified",
+      "quantity": "1550682.0",
+      "issuer_weight": "0.00019228",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "278768106",
+      "ticker": "ECHO",
+      "name": "ECHOSTAR CORP A",
+      "sector": "Unclassified",
+      "quantity": "1695275.0",
+      "issuer_weight": "0.00018846",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "902252105",
+      "ticker": "TYL",
+      "name": "TYLER TECHNOLOGIES INC",
+      "sector": "Unclassified",
+      "quantity": "466346.0",
+      "issuer_weight": "0.00018748",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "668771108",
+      "ticker": "GEN",
+      "name": "GEN DIGITAL INC",
+      "sector": "Unclassified",
+      "quantity": "6596308.0",
+      "issuer_weight": "0.00018718",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "418056107",
+      "ticker": "HAS",
+      "name": "HASBRO INC",
+      "sector": "Unclassified",
+      "quantity": "1727357.0",
+      "issuer_weight": "0.00018444",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "579780206",
+      "ticker": "MKC",
+      "name": "MCCORMICK + CO NON VTG SHRS",
+      "sector": "Unclassified",
+      "quantity": "3128206.0",
+      "issuer_weight": "0.000184",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "071813109",
+      "ticker": "BAX",
+      "name": "BAXTER INTERNATIONAL INC",
+      "sector": "Unclassified",
+      "quantity": "6370793.0",
+      "issuer_weight": "0.00018399",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "758849103",
+      "ticker": "REG",
+      "name": "REGENCY CENTERS CORP",
+      "sector": "Unclassified",
+      "quantity": "2024033.0",
+      "issuer_weight": "0.00018154",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "526107107",
+      "ticker": "LII",
+      "name": "LENNOX INTERNATIONAL INC",
+      "sector": "Unclassified",
+      "quantity": "388534.0",
+      "issuer_weight": "0.00017576",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "368736104",
+      "ticker": "GNRC",
+      "name": "GENERAC HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "716147.0",
+      "issuer_weight": "0.00017446",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "09073M104",
+      "ticker": "TECH",
+      "name": "BIO TECHNE CORP",
+      "sector": "Unclassified",
+      "quantity": "1925220.0",
+      "issuer_weight": "0.00017185",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "22160N109",
+      "ticker": "CSGP",
+      "name": "COSTAR GROUP INC",
+      "sector": "Unclassified",
+      "quantity": "5013509.0",
+      "issuer_weight": "0.00017177",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "366651107",
+      "ticker": "IT",
+      "name": "GARTNER INC",
+      "sector": "Unclassified",
+      "quantity": "764645.0",
+      "issuer_weight": "0.00016865",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "723484101",
+      "ticker": "PNW",
+      "name": "PINNACLE WEST CAPITAL",
+      "sector": "Unclassified",
+      "quantity": "1488909.0",
+      "issuer_weight": "0.0001668",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "87256C101",
+      "ticker": "TKO",
+      "name": "TKO GROUP HOLDINGS INC",
+      "sector": "Unclassified",
+      "quantity": "726052.0",
+      "issuer_weight": "0.00016527",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "216648501",
+      "ticker": "COO",
+      "name": "COOPER COS INC/THE",
+      "sector": "Unclassified",
+      "quantity": "2395261.0",
+      "issuer_weight": "0.00016316",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "550021109",
+      "ticker": "LULU",
+      "name": "LULULEMON ATHLETICA INC",
+      "sector": "Unclassified",
+      "quantity": "1285484.0",
+      "issuer_weight": "0.00016071",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "00130H105",
+      "ticker": "AES",
+      "name": "AES CORP",
+      "sector": "Unclassified",
+      "quantity": "8756152.0",
+      "issuer_weight": "0.00015994",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "243537107",
+      "ticker": "DECK",
+      "name": "DECKERS OUTDOOR CORP",
+      "sector": "Unclassified",
+      "quantity": "1648034.0",
+      "issuer_weight": "0.00015949",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "426281101",
+      "ticker": "JKHY",
+      "name": "JACK HENRY + ASSOCIATES INC",
+      "sector": "Unclassified",
+      "quantity": "872248.0",
+      "issuer_weight": "0.00015852",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "446413106",
+      "ticker": "HII",
+      "name": "HUNTINGTON INGALLS INDUSTRIE",
+      "sector": "Unclassified",
+      "quantity": "481625.0",
+      "issuer_weight": "0.00015758",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "65249B109",
+      "ticker": "NWSA",
+      "name": "NEWS CORP   CLASS A",
+      "sector": "Unclassified",
+      "quantity": "4478488.0",
+      "issuer_weight": "0.00015666",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "189054109",
+      "ticker": "CLX",
+      "name": "CLOROX COMPANY",
+      "sector": "Unclassified",
+      "quantity": "1492745.0",
+      "issuer_weight": "0.00015019",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "902653104",
+      "ticker": "UDR",
+      "name": "UDR INC",
+      "sector": "Unclassified",
+      "quantity": "3629122.0",
+      "issuer_weight": "0.00014976",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "101121101",
+      "ticker": "BXP",
+      "name": "BXP INC",
+      "sector": "Unclassified",
+      "quantity": "1954892.0",
+      "issuer_weight": "0.00014973",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "517834107",
+      "ticker": "LVS",
+      "name": "LAS VEGAS SANDS CORP",
+      "sector": "Unclassified",
+      "quantity": "3133841.0",
+      "issuer_weight": "0.00014898",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "133131102",
+      "ticker": "CPT",
+      "name": "CAMDEN PROPERTY TRUST",
+      "sector": "Unclassified",
+      "quantity": "1234047.0",
+      "issuer_weight": "0.00014786",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "25754A201",
+      "ticker": "DPZ",
+      "name": "DOMINO S PIZZA INC",
+      "sector": "Unclassified",
+      "quantity": "405004.0",
+      "issuer_weight": "0.00014598",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "303075105",
+      "ticker": "FDS",
+      "name": "FACTSET RESEARCH SYSTEMS INC",
+      "sector": "Unclassified",
+      "quantity": "435760.0",
+      "issuer_weight": "0.00014539",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "016255101",
+      "ticker": "ALGN",
+      "name": "ALIGN TECHNOLOGY INC",
+      "sector": "Unclassified",
+      "quantity": "808659.0",
+      "issuer_weight": "0.00014485",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "354613101",
+      "ticker": "BEN",
+      "name": "FRANKLIN TEMPLETON INC",
+      "sector": "Unclassified",
+      "quantity": "3560759.0",
+      "issuer_weight": "0.00014256",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "45784P101",
+      "ticker": "PODD",
+      "name": "INSULET CORP",
+      "sector": "Unclassified",
+      "quantity": "850418.0",
+      "issuer_weight": "0.00014203",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G3265R107",
+      "ticker": "APTV",
+      "name": "APTIV PLC",
+      "sector": "Unclassified",
+      "quantity": "2600033.0",
+      "issuer_weight": "0.00013937",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "913903100",
+      "ticker": "UHS",
+      "name": "UNIVERSAL HEALTH SERVICES B",
+      "sector": "Unclassified",
+      "quantity": "632992.0",
+      "issuer_weight": "0.0001378",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "775711104",
+      "ticker": "ROL",
+      "name": "ROLLINS INC",
+      "sector": "Unclassified",
+      "quantity": "3607724.0",
+      "issuer_weight": "0.0001349",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "313745101",
+      "ticker": "FRT",
+      "name": "FEDERAL REALTY INVS TRUST",
+      "sector": "Unclassified",
+      "quantity": "968612.0",
+      "issuer_weight": "0.00013147",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G7S00T104",
+      "ticker": "PNR",
+      "name": "PENTAIR PLC",
+      "sector": "Unclassified",
+      "quantity": "1983492.0",
+      "issuer_weight": "0.00012938",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "806407102",
+      "ticker": "HSIC",
+      "name": "HENRY SCHEIN INC",
+      "sector": "Unclassified",
+      "quantity": "1188272.0",
+      "issuer_weight": "0.00012501",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "015271109",
+      "ticker": "ARE",
+      "name": "ALEXANDRIA REAL ESTATE EQUIT",
+      "sector": "Unclassified",
+      "quantity": "1918861.0",
+      "issuer_weight": "0.00011914",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "35137L204",
+      "ticker": "FOX",
+      "name": "FOX CORP   CLASS B",
+      "sector": "Unclassified",
+      "quantity": "1645277.0",
+      "issuer_weight": "0.00011576",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "61945C103",
+      "ticker": "MOS",
+      "name": "MOSAIC CO/THE",
+      "sector": "Unclassified",
+      "quantity": "3930934.0",
+      "issuer_weight": "0.00011454",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "G66721104",
+      "ticker": "NCLH",
+      "name": "NORWEGIAN CRUISE LINE HOLDIN",
+      "sector": "Unclassified",
+      "quantity": "5675705.0",
+      "issuer_weight": "0.00009906",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "831865209",
+      "ticker": "AOS",
+      "name": "SMITH (A.O.) CORP",
+      "sector": "Unclassified",
+      "quantity": "1373772.0",
+      "issuer_weight": "0.0000975",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "552953101",
+      "ticker": "MGM",
+      "name": "MGM RESORTS INTERNATIONAL",
+      "sector": "Unclassified",
+      "quantity": "2156565.0",
+      "issuer_weight": "0.00008937",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "23918K108",
+      "ticker": "DVA",
+      "name": "DAVITA INC",
+      "sector": "Unclassified",
+      "quantity": "414349.0",
+      "issuer_weight": "0.00008902",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "440452100",
+      "ticker": "HRL",
+      "name": "HORMEL FOODS CORP",
+      "sector": "Unclassified",
+      "quantity": "3581241.0",
+      "issuer_weight": "0.00008739",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "983134107",
+      "ticker": "WYNN",
+      "name": "WYNN RESORTS LTD",
+      "sector": "Unclassified",
+      "quantity": "875479.0",
+      "issuer_weight": "0.00008635",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "29530P102",
+      "ticker": "ERIE",
+      "name": "ERIE INDEMNITY COMPANY CL A",
+      "sector": "Unclassified",
+      "quantity": "311810.0",
+      "issuer_weight": "0.00008398",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "69932A204",
+      "ticker": "PSKY",
+      "name": "PARAMOUNT SKYDANCE CL B",
+      "sector": "Unclassified",
+      "quantity": "6676029.0",
+      "issuer_weight": "0.00008359",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "115637209",
+      "ticker": "BF.B",
+      "name": "BROWN FORMAN CORP CLASS B",
+      "sector": "Unclassified",
+      "quantity": "2168715.0",
+      "issuer_weight": "0.00006936",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "65249B208",
+      "ticker": "NWS",
+      "name": "NEWS CORP   CLASS B",
+      "sector": "Unclassified",
+      "quantity": "1497000.0",
+      "issuer_weight": "0.00005811",
+      "security_type": "equity"
+    },
+    {
+      "identifier": "436CVR021",
+      "ticker": "2602335D",
+      "name": "TPG INC",
+      "sector": "Unclassified",
+      "quantity": "2578626.0",
+      "issuer_weight": "3E-8",
+      "security_type": "corporate_action_right"
+    }
+  ],
+  "methodology": "Common-stock weights normalized to the workbook equity allocation; workbook cash allocation retained. Prices inferred from rounded issuer weights and net assets, not executable quotes. Quantities rescaled to workbook net assets. The CVR is excluded from the public equity-only allocation. Workbook NAV, market-price and performance history remain illustrative and retain their own dates."
+}

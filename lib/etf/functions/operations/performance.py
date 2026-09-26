@@ -1,5 +1,5 @@
 """
-Production-Ready Performance Calculation Function
+Prototype Performance Calculation Function
 Complete implementation for pre-tax and post-tax performance tracking
 
 This module tracks the fund's NAV history and computes performance metrics, including
@@ -41,7 +41,7 @@ logger = logging.getLogger(__name__)
 
 class PerformanceCalculator:
     """
-    Production-ready Performance Calculator implementation.
+    Prototype Performance Calculator implementation.
     
     Computes pre-tax and after-tax total returns for the fund over any period,
     and compares to a benchmark's total return.
@@ -100,18 +100,24 @@ class PerformanceCalculator:
             raise
         
         # Load distribution history if provided
-        dist_df = None
         if dist_history_path:
-            try:
-                dist_df = pd.read_csv(dist_history_path, parse_dates=['date'])
-            except FileNotFoundError:
-                logger.warning(f"Distribution history file not found: {dist_history_path}")
-                dist_df = pd.DataFrame(columns=['date', 'distribution_per_share'])
-            except Exception as e:
-                logger.warning(f"Error loading distribution history: {e}")
-                dist_df = pd.DataFrame(columns=['date', 'distribution_per_share'])
+            # An explicitly requested feed must exist and be readable.
+            dist_df = pd.read_csv(dist_history_path, parse_dates=['date'])
         else:
             dist_df = pd.DataFrame(columns=['date', 'distribution_per_share'])
+        nav_df['date'] = pd.to_datetime(nav_df['date'], errors='raise')
+        dist_df['date'] = pd.to_datetime(dist_df['date'], errors='raise')
+        if dist_df['date'].isna().any():
+            raise ValueError('Distribution dates must be valid')
+        distributions = []
+        for value in dist_df['distribution_per_share']:
+            amount = Decimal(str(value))
+            if not amount.is_finite() or amount < 0:
+                raise ValueError('Distributions must be finite and nonnegative')
+            distributions.append(amount)
+        dist_df['distribution_per_share'] = distributions
+        # Multiple character components on one ex-date create one reinvestment.
+        dist_df = dist_df.groupby('date', as_index=False)['distribution_per_share'].sum()
         
         # Sort and filter by date range
         nav_df.sort_values('date', inplace=True)
@@ -130,19 +136,33 @@ class PerformanceCalculator:
         
         if nav_df.empty:
             raise ValueError("No NAV data available for the specified period")
+        if nav_df['date'].duplicated().any() or nav_df['date'].isna().any():
+            raise ValueError("NAV dates must be unique and valid")
+        for value in nav_df['nav']:
+            if not Decimal(str(value)).is_finite() or Decimal(str(value)) <= 0:
+                raise ValueError("NAV must be positive and finite")
+        for value in tax_rates.values():
+            if not Decimal(str(value)).is_finite() or not 0 <= Decimal(str(value)) <= 1:
+                raise ValueError("Tax assumptions must be finite decimal fractions between zero and one")
         
         start_nav = Decimal(str(nav_df['nav'].iloc[0]))
         end_nav = Decimal(str(nav_df['nav'].iloc[-1]))
         start_date_actual = nav_df['date'].iloc[0].date()
         end_date_actual = nav_df['date'].iloc[-1].date()
+        in_period = dist_df[(dist_df['date'] > nav_df['date'].iloc[0]) &
+                            (dist_df['date'] <= nav_df['date'].iloc[-1])]
+        if not in_period['date'].isin(nav_df['date']).all():
+            raise ValueError('In-period distribution ex-dates require matching NAV observations')
         
         # Calculate total growth factor for fund pre-tax and after-tax
         pre_tax_index = Decimal('1.0')
         after_tax_index = Decimal('1.0')
+        after_tax_units = Decimal('1.0')
+        after_tax_basis = start_nav
         
         # Merge NAV and distribution data for iteration
-        data = pd.merge(nav_df, dist_df, on='date', how='left')
-        data.fillna({'distribution_per_share': 0.0}, inplace=True)
+        data = pd.merge(nav_df, dist_df, on='date', how='left', validate='one_to_one')
+        data['distribution_per_share'] = data['distribution_per_share'].map(lambda v: Decimal(0) if pd.isna(v) else v)
         data.sort_values('date', inplace=True)
         
         prev_nav = start_nav
@@ -179,6 +199,10 @@ class PerformanceCalculator:
                 # After-tax total return = (NAV_curr + after_tax_distribution) / NAV_prev
                 after_tax_growth_factor = (nav_curr + after_tax_dist) / nav_prev
                 after_tax_index *= after_tax_growth_factor
+                # Reinvested after-tax distributions increase both units and basis.
+                reinvested_cash = after_tax_units * after_tax_dist
+                after_tax_units += reinvested_cash / nav_curr
+                after_tax_basis += reinvested_cash
             
             prev_nav = nav_curr
         
@@ -187,13 +211,12 @@ class PerformanceCalculator:
         
         # Include tax on final sale for after-tax return
         # The investor sells at end_date, any gain from initial to final NAV is taxed
-        overall_gain = end_nav - start_nav
+        overall_gain = after_tax_units * end_nav - after_tax_basis
         if overall_gain > 0 and start_nav > 0:
             # Assume long-term for full period
             sell_tax_rate = Decimal(str(tax_rates.get('lt_capital_gains_tax_rate', 0.20)))
-            gain_ratio = overall_gain / start_nav
-            after_tax_return = float((Decimal('1.0') + Decimal(str(after_tax_return))) * 
-                                     (Decimal('1.0') - sell_tax_rate * Decimal(str(gain_ratio))) - Decimal('1.0'))
+            sale_tax = sell_tax_rate * overall_gain
+            after_tax_return = float((after_tax_units * end_nav - sale_tax) / start_nav - Decimal('1.0'))
         
         # Compute benchmark total return for same period (pre-tax)
         bench_return = None
@@ -211,6 +234,7 @@ class PerformanceCalculator:
                 hist_unadj = bench_ticker.history(
                     start=start_date_actual,
                     end=end_date_actual + timedelta(days=1),
+                    auto_adjust=False,
                     actions=True  # Get dividends to check if adjustment is needed
                 )
                 
@@ -299,6 +323,7 @@ class PerformanceCalculator:
                     hist = bench_ticker.history(
                         start=start_date_actual,
                         end=end_date_actual + timedelta(days=1),
+                        auto_adjust=False,
                         actions=True
                     )
                     
@@ -348,10 +373,11 @@ class PerformanceCalculator:
             "end_nav": float(end_nav),
             "pre_tax_total_return": pre_tax_return,
             "after_tax_total_return": after_tax_return,
+            "after_tax_methodology": "Simplified hypothetical illustration: uniform distribution tax, reinvested basis, uniform final-sale capital-gains rate, no loss benefit. Not standardized N-1A after-tax performance.",
             "tax_drag": pre_tax_return - after_tax_return,
             "tax_efficiency_ratio": after_tax_return / pre_tax_return if pre_tax_return != 0 else 0,
             "benchmark": bench_data,
-            "fund_vs_benchmark": bench_return - pre_tax_return if bench_return is not None else None
+            "fund_vs_benchmark": pre_tax_return - bench_return if bench_return is not None else None
         }
         
         # Save results to JSON
@@ -417,4 +443,3 @@ class PerformanceCalculator:
         except Exception as e:
             logger.error(f"Error calculating annual returns: {e}")
             return {"annual_returns": {}, "years": []}
-

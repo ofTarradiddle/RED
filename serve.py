@@ -1,160 +1,108 @@
 #!/usr/bin/env python3
-"""
-Simple HTTP server to serve the RED ETF website locally
-"""
-
-import http.server
-import socketserver
-import os
-import webbrowser
+"""Serve only the validated public release, never source files or ledgers."""
+import argparse
+from functools import partial
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from io import BytesIO
 import json
+import subprocess
+import sys
+import threading
 from pathlib import Path
-from datetime import datetime
+from urllib.parse import parse_qs, urlsplit
 
-def serve_website():
-    """Start a local HTTP server to serve the website"""
-    
-    # Set the port
-    PORT = 8080
-    
-    # Change to the website directory
-    os.chdir(os.path.dirname(os.path.abspath(__file__)))
-    
-    # Newsletter subscriptions file
-    NEWSLETTER_FILE = Path(__file__).parent / 'data' / 'newsletter_subscriptions.json'
-    
-    def ensure_data_dir():
-        """Ensure the data directory exists."""
-        NEWSLETTER_FILE.parent.mkdir(parents=True, exist_ok=True)
-    
-    def load_subscriptions():
-        """Load existing subscriptions from file."""
-        ensure_data_dir()
-        if NEWSLETTER_FILE.exists():
+from publishing.private_nav import PRIVATE_ROUTE, render_dashboard
+from publishing.private_spy import render as render_spy
+
+ROOT = Path(__file__).resolve().parent
+REFRESH_STATE={'running':False,'message':'Ready. Refresh updates dated holdings, prices, dividend accruals and the daily unitary expense.'}
+REFRESH_LOCK=threading.Lock()
+
+
+class Handler(SimpleHTTPRequestHandler):
+    def send_head(self):
+        request=urlsplit(self.path)
+        if request.path == PRIVATE_ROUTE:
+            if self.headers.get('Host','') not in (f'localhost:{self.server.server_port}',f'127.0.0.1:{self.server.server_port}'):
+                self.send_error(403,'Local host required');return None
             try:
-                with open(NEWSLETTER_FILE, 'r') as f:
-                    return json.load(f)
-            except (json.JSONDecodeError, IOError):
-                return []
-        return []
-    
-    def save_subscription(email):
-        """Save a new subscription to the file."""
-        subscriptions = load_subscriptions()
-        
-        # Check if email already exists
-        if any(sub.get('email') == email for sub in subscriptions):
-            return False
-        
-        # Add new subscription
-        subscriptions.append({
-            'email': email,
-            'subscribed_at': datetime.now().isoformat(),
-            'source': 'blog'
-        })
-        
-        # Save to file
-        ensure_data_dir()
-        with open(NEWSLETTER_FILE, 'w') as f:
-            json.dump(subscriptions, f, indent=2)
-        
-        return True
-    
-    # Create a custom handler that serves .tsx files as JavaScript
-    class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
-        def end_headers(self):
-            # Add CORS headers for development
-            self.send_header('Access-Control-Allow-Origin', '*')
-            self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-            self.send_header('Access-Control-Allow-Headers', 'Content-Type')
-            super().end_headers()
-        
-        def do_OPTIONS(self):
-            """Handle OPTIONS requests for CORS"""
-            self.send_response(200)
-            self.end_headers()
-        
-        def do_POST(self):
-            """Handle POST requests for newsletter subscription"""
-            if self.path == '/api/newsletter-subscribe':
-                content_length = int(self.headers.get('Content-Length', 0))
-                body = self.rfile.read(content_length).decode('utf-8')
-                
-                try:
-                    data = json.loads(body) if body else {}
-                    email = data.get('email', '').strip()
-                    
-                    if not email or '@' not in email:
-                        self.send_response(400)
-                        self.send_header('Content-Type', 'application/json')
-                        self.end_headers()
-                        self.wfile.write(json.dumps({'error': 'Invalid email address'}).encode())
-                        return
-                    
-                    if save_subscription(email):
-                        self.send_response(200)
-                        self.send_header('Content-Type', 'application/json')
-                        self.end_headers()
-                        self.wfile.write(json.dumps({'message': 'Successfully subscribed', 'email': email}).encode())
-                    else:
-                        self.send_response(200)
-                        self.send_header('Content-Type', 'application/json')
-                        self.end_headers()
-                        self.wfile.write(json.dumps({'message': 'Already subscribed', 'email': email}).encode())
-                except json.JSONDecodeError:
-                    self.send_response(400)
-                    self.send_header('Content-Type', 'application/json')
-                    self.end_headers()
-                    self.wfile.write(json.dumps({'error': 'Invalid JSON'}).encode())
-            else:
-                self.send_response(404)
-                self.end_headers()
-        
-        def guess_type(self, path):
-            """Override MIME type guessing for better file serving"""
-            # Get parent result first to see format
-            parent_result = super().guess_type(path)
-            
-            # Handle TypeScript/JSX files
-            if path.endswith(('.tsx', '.ts')):
-                if isinstance(parent_result, tuple):
-                    return ('application/javascript',) + parent_result[1:]
-                return 'application/javascript'
-            
-            # Handle JSON files
-            if path.endswith('.json'):
-                if isinstance(parent_result, tuple):
-                    return ('application/json',) + parent_result[1:]
-                return 'application/json'
-            
-            # Return parent result as-is
-            return parent_result
-    
-    # Create the server
-    with socketserver.TCPServer(("", PORT), CustomHTTPRequestHandler) as httpd:
-        print(f"🚀 RED ETF Website Server Starting...")
-        print(f"📁 Serving from: {os.getcwd()}")
-        print(f"🌐 Local URL: http://localhost:{PORT}")
-        print(f"📄 Main page: http://localhost:{PORT}/index.html")
-        print(f"📊 Test data: http://localhost:{PORT}/test-data.html")
-        print(f"📝 Blog: http://localhost:{PORT}/blog/index.html")
-        print(f"")
-        print(f"Press Ctrl+C to stop the server")
-        print(f"=" * 50)
-        
-        # Try to open the browser automatically
-        try:
-            webbrowser.open(f'http://localhost:{PORT}')
-            print(f"🌐 Browser opened automatically")
-        except:
-            print(f"🌐 Please open http://localhost:{PORT} in your browser")
-        
-        # Start serving
-        try:
-            httpd.serve_forever()
-        except KeyboardInterrupt:
-            print(f"\n🛑 Server stopped by user")
-            print(f"👋 Thanks for using RED ETF Website!")
+                if parse_qs(request.query).get('view')!=['scenario']:
+                    path=ROOT/'data/shadow_spy/latest.json'
+                    report=json.loads(path.read_text()) if path.exists() else None
+                    return self.html_response(render_spy(report,REFRESH_STATE.copy()))
+                from publishing.workbook import import_workbook
+                snapshot=import_workbook(ROOT/'workbooks/hetzerk-demo.xlsx')
+                fund=next(f for f in snapshot['funds'] if f['fund_id']=='redi')
+                return self.html_response(render_dashboard(fund,parse_qs(request.query,keep_blank_values=True)))
+            except ValueError as exc:
+                self.send_error(400,str(exc))
+                return None
+        path=Path(self.translate_path(self.path))
+        if path.is_dir(): path=path/'index.html'
+        if path.is_file() and path.suffix=='.html':
+            html=path.read_text()
+            # Only the localhost server activates this otherwise ordinary word.
+            html=html.replace('<span data-perspective-word="">Perspective</span>',f'<a class="perspective-word" href="{PRIVATE_ROUTE}" aria-label="Open personal review">Perspective</a>')
+            return self.html_response(html)
+        return super().send_head()
 
-if __name__ == "__main__":
-    serve_website()
+    def do_POST(self):
+        if urlsplit(self.path).path != PRIVATE_ROUTE+'refresh':
+            self.send_error(404);return
+        # A browser cannot trigger this localhost mutation cross-origin.
+        host=self.headers.get('Host','')
+        origin=self.headers.get('Origin','')
+        if host not in (f'localhost:{self.server.server_port}',f'127.0.0.1:{self.server.server_port}') or origin not in (f'http://{host}',):
+            self.send_error(403,'Same-origin local form required');return
+        with REFRESH_LOCK:
+            if not REFRESH_STATE['running']:
+                REFRESH_STATE.update(running=True,message='Refresh running. Reload results in a few minutes; the previous release remains available.')
+                def run():
+                    try:
+                        log=ROOT/'data/shadow_spy/refresh.log';log.parent.mkdir(parents=True,exist_ok=True)
+                        with log.open('w') as out:
+                            result=subprocess.run([sys.executable,'-m','scripts.refresh_spy','--build'],cwd=ROOT,stdout=out,stderr=subprocess.STDOUT,timeout=1800)
+                        message='Refresh complete. Latest dated results are below.' if result.returncode==0 else 'Refresh failed. Previous public release retained; see data/shadow_spy/refresh.log.'
+                    except Exception as exc: message=f'Refresh failed: {exc}'
+                    with REFRESH_LOCK: REFRESH_STATE.update(running=False,message=message)
+                threading.Thread(target=run,daemon=True).start()
+        self.send_response(303);self.send_header('Location',PRIVATE_ROUTE);self.end_headers()
+
+    def html_response(self, html):
+        body=html.encode('utf-8')
+        self.send_response(200)
+        self.send_header('Content-Type','text/html; charset=utf-8')
+        self.send_header('Content-Length',str(len(body)))
+        self.end_headers()
+        return BytesIO(body)
+
+    def end_headers(self):
+        self.send_header('Cache-Control', 'no-store')
+        self.send_header('X-Content-Type-Options', 'nosniff')
+        self.send_header('Referrer-Policy', 'strict-origin-when-cross-origin')
+        self.send_header('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'")
+        super().end_headers()
+
+    def list_directory(self, path):
+        self.send_error(404, 'Page not found')
+        return None
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--port', type=int, default=8080)
+    args = parser.parse_args()
+    if not (ROOT/'dist/index.html').exists():
+        from publishing.build import build
+        build(ROOT/'workbooks/hetzerk-demo.xlsx')
+    handler = partial(Handler, directory=str(ROOT/'dist'))
+    with ThreadingHTTPServer(('127.0.0.1', args.port), handler) as server:
+        print(f'Hetzerk local review: http://localhost:{args.port}', flush=True)
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            pass
+
+
+if __name__ == '__main__':
+    main()

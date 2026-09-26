@@ -1,6 +1,6 @@
 """
 Capital Gain Dividend Estimates
-Production-ready implementation for capital gain dividend estimates (Limited to two per year)
+Prototype implementation for capital gain dividend estimates (Limited to two per year)
 
 This module handles:
 - Capital gain dividend estimates
@@ -38,7 +38,7 @@ class CapitalGainEstimate:
 
 class CapitalGainEstimates:
     """
-    Production-ready Capital Gain Dividend Estimates
+    Prototype Capital Gain Dividend Estimates
     
     Handles capital gain dividend estimates (limited to two per year).
     Typically provided mid-year and year-end to help shareholders plan.

@@ -1,7 +1,7 @@
 """
 ETF Self-Service Functions Package
 
-Production-ready implementations for all ETF operational functions:
+Prototype implementations for all ETF operational functions:
 - Accounting
 - Administration
 - Transfer Agent

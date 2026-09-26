@@ -1,0 +1,42 @@
+{
+  "fund_id": "demo-equity",
+  "as_of": "2026-09-18",
+  "base_currency": "USD",
+  "positions_source": "Synthetic provider positions",
+  "balances_source": "Synthetic provider accounting",
+  "corporate_actions_reviewed": true,
+  "shares_outstanding": "1000",
+  "positions": [
+    {
+      "security_id": "DEMO:AAPL",
+      "symbol": "AAPL",
+      "currency": "USD",
+      "security_type": "equity",
+      "quantity": "100",
+      "price": "200",
+      "fx_to_usd": "1"
+    },
+    {
+      "security_id": "DEMO:MSFT",
+      "symbol": "MSFT",
+      "currency": "USD",
+      "security_type": "equity",
+      "quantity": "50",
+      "price": "400",
+      "fx_to_usd": "1"
+    }
+  ],
+  "balances": {
+    "cash": "2500",
+    "dividends_receivable": "50",
+    "trade_receivables": "0",
+    "other_receivables": "0",
+    "accrued_fees": "25",
+    "trade_payables": "100",
+    "other_liabilities": "0"
+  },
+  "provider_name": "Synthetic provider for offline demonstration",
+  "official_nav": "42.425",
+  "official_nav_decimals": 3,
+  "net_assets": "42425"
+}

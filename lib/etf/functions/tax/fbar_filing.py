@@ -1,6 +1,6 @@
 """
 TDF FBAR Filing (Foreign Bank Account Report)
-Production-ready implementation for Annual TDF FBAR filing
+Prototype implementation for Annual TDF FBAR filing
 
 This module handles:
 - FBAR filing requirements for foreign accounts
@@ -47,7 +47,7 @@ class FBARFiling:
 
 class FBARFilingSystem:
     """
-    Production-ready TDF FBAR Filing System
+    Prototype TDF FBAR Filing System
     
     Handles annual FBAR (Foreign Bank Account Report) filing with Treasury Department.
     Required if fund has foreign accounts with aggregate maximum value > $10,000 USD.

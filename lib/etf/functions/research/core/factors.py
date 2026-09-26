@@ -1,6 +1,6 @@
 """
 Factor Analysis Module for ETF Strategy Research
-Production-ready implementation for factor estimation and analysis.
+Prototype implementation for factor estimation and analysis.
 
 This module provides:
 - estimate_rq_mixedlm: Estimate Research Quotient (RQ) using mixed linear models

@@ -1,6 +1,6 @@
 """
-Production-Ready Fund Administration Function
-Complete implementation with all business logic
+Prototype Fund Administration Function
+Snapshot valuation and checks; provider validation required
 """
 
 import logging
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 class FundAdministration:
-    """Production-ready Fund Administration implementation"""
+    """Prototype Fund Administration implementation"""
     
     def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/admin",
                  audit_trail=None):
@@ -43,6 +43,37 @@ class FundAdministration:
             
             # Get custodian data for cash
             custodian_data = self.data_adapter.get_custodian_statements(nav_date)
+
+            # Explicit zero is valid; an absent financial input is unknown, not zero.
+            for source, required in (
+                (custodian_data, ("cash_balance", "shares_outstanding")),
+                (expense_data, ("accrued_income", "accrued_expenses", "payables")),
+            ):
+                for field_name in required:
+                    if field_name not in source:
+                        raise ValueError(f"Missing NAV input: {field_name}")
+                    value = Decimal(str(source[field_name]))
+                    if not value.is_finite():
+                        raise ValueError(f"NAV input {field_name} must be finite")
+            if Decimal(str(custodian_data['shares_outstanding'])) <= 0:
+                raise ValueError("Shares outstanding must be positive")
+            if not isinstance(holdings, list) or not isinstance(prices, dict):
+                raise ValueError("Holdings and prices must be explicit collections")
+            for holding in holdings:
+                if not holding.get('cusip') or 'quantity' not in holding:
+                    raise ValueError("Holding requires an identifier and quantity")
+                quantity = Decimal(str(holding['quantity']))
+                if not quantity.is_finite() or quantity < 0:
+                    raise ValueError("Equity holding quantity must be nonnegative and finite")
+                if holding['cusip'] in prices:
+                    price = Decimal(str(prices[holding['cusip']]))
+                    if not price.is_finite() or price <= 0:
+                        raise ValueError(f"Invalid market price for {holding['cusip']}")
+                    prices[holding['cusip']] = price
+                if 'previous_price' in holding:
+                    previous_price = Decimal(str(holding['previous_price']))
+                    if not previous_price.is_finite() or previous_price < 0:
+                        raise ValueError("Previous price must be nonnegative and finite")
             
         except Exception as e:
             logger.error(f"Error fetching data for NAV calculation: {e}")
@@ -84,20 +115,9 @@ class FundAdministration:
         # Get cash position from custodian
         cash = Decimal(str(custodian_data.get('cash_balance', 0)))
         
-        # Also check holdings for cash/money market positions (Cash&Other, money market funds)
-        # These may be in holdings but not have prices from FMP
-        for holding in holdings:
-            ticker = holding.get('ticker', '').upper()
-            # Check if it's a cash or money market position
-            if 'CASH' in ticker or 'FGXXX' in ticker or holding.get('market_value'):
-                # If no price found but has market_value, use that
-                cusip = holding.get('cusip', '')
-                if cusip not in prices and holding.get('market_value'):
-                    market_value = Decimal(str(holding.get('market_value', 0)))
-                    if market_value > 0:
-                        cash += market_value
-                        logger.debug(f"Added cash/money market from holdings: {ticker} = ${market_value}")
-        
+        # Cash comes from the explicit cash balance only. Missing equity prices
+        # remain exceptions; supplied market values are not silently reclassified.
+
         # Calculate accrued income
         accrued_income = Decimal(str(expense_data.get('accrued_income', 0)))
         
@@ -115,8 +135,8 @@ class FundAdministration:
         # Get shares outstanding from custodian or TA
         shares_outstanding = Decimal(str(custodian_data.get('shares_outstanding', 0)))
         
-        if shares_outstanding == 0:
-            pricing_exceptions.append("Shares outstanding is zero - cannot calculate NAV")
+        if shares_outstanding <= 0:
+            pricing_exceptions.append("Shares outstanding must be positive - cannot calculate NAV")
             validation_passed = False
             nav_per_share = Decimal('0')
         else:

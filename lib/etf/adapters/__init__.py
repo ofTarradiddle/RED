@@ -823,7 +823,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
         if file_path.exists():
             with open(file_path, 'r') as f:
                 return json.load(f)
-        return {"settled_shares": 0, "creation_orders": [], "redemption_orders": []}
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_dtc_position_file(self, date: date) -> Dict[str, Any]:
         """Read DTC position from file"""
@@ -832,7 +832,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
         if file_path.exists():
             with open(file_path, 'r') as f:
                 return json.load(f)
-        return {"cede_position": 0, "participant_positions": []}
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_custodian_statements(self, date: date) -> Dict[str, Any]:
         """Read custodian data from file"""
@@ -841,7 +841,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
         if file_path.exists():
             with open(file_path, 'r') as f:
                 return json.load(f)
-        return {"total_shares": 0, "cash_balance": 0, "holdings": []}
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_portfolio_holdings(self, date: date) -> List[Dict[str, Any]]:
         """Read portfolio holdings from file"""
@@ -850,7 +850,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
         if file_path.exists():
             with open(file_path, 'r') as f:
                 return json.load(f)
-        return []
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_market_prices(self, date: date, cusips: List[str]) -> Dict[str, Decimal]:
         """Read market prices from file"""
@@ -860,7 +860,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
             with open(file_path, 'r') as f:
                 prices = json.load(f)
                 return {k: Decimal(str(v)) for k, v in prices.items()}
-        return {}
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_corporate_actions(self, date: date) -> List[Dict[str, Any]]:
         """Read corporate actions from file"""
@@ -869,7 +869,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
         if file_path.exists():
             with open(file_path, 'r') as f:
                 return json.load(f)
-        return []
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_expense_data(self, date: date) -> Dict[str, Any]:
         """Read expense data from file"""
@@ -880,7 +880,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
                 data = json.load(f)
                 return {k: Decimal(str(v)) if isinstance(v, (int, float, str)) else v 
                        for k, v in data.items()}
-        return {"accrued_expenses": Decimal("0"), "accrued_income": Decimal("0"), "payables": Decimal("0")}
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_ap_orders(self, date: date) -> List[APOrder]:
         """Read AP orders from file"""
@@ -904,7 +904,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
                         order.settlement_date = datetime.fromisoformat(order_data["settlement_date"]).date()
                     orders.append(order)
                 return orders
-        return []
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_accounting_data(self, date: date) -> Dict[str, Any]:
         """Read accounting data from file"""
@@ -913,7 +913,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
         if file_path.exists():
             with open(file_path, 'r') as f:
                 return json.load(f)
-        return {"expenses": {}, "income": {}}
+        raise FileNotFoundError(f"Required input not received: {file_path}")
     
     def get_distribution_data(self, date: date) -> Dict[str, Any]:
         """Read distribution data from file"""
@@ -922,7 +922,7 @@ class FileBasedDataSourceAdapter(DataSourceAdapter):
         if file_path.exists():
             with open(file_path, 'r') as f:
                 return json.load(f)
-        return {"dividend_per_share": 0, "capital_gains_per_share": 0, "roc_per_share": 0}
+        raise FileNotFoundError(f"Required input not received: {file_path}")
 
 
 # Import FMP adapter

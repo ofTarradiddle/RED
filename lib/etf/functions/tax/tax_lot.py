@@ -1,5 +1,5 @@
 """
-Production-Ready Tax Lot Accounting Function
+Prototype Tax Lot Accounting Function
 Complete implementation for tracking cost basis and realized/unrealized gains
 
 This module handles tax lot accounting for the fund's portfolio. Every purchase of a security
@@ -10,8 +10,8 @@ FIFO by default (first-in, first-out method).
 Tax Optimization Methods:
 - FIFO: Default IRS method, oldest lots first
 - LIFO: Newest lots first
-- LOWEST_COST: Lowest cost basis first (minimizes realized gains, tax-efficient)
-- HIGHEST_COST: Highest cost basis first (maximizes gains/losses, useful for tax-loss harvesting)
+- LOWEST_COST: Lowest cost basis first (maximizes realized gains at a fixed sale price)
+- HIGHEST_COST: Highest cost basis first (minimizes realized gains at a fixed sale price)
 
 References:
 - Investopedia: Tax Lot Accounting
@@ -234,8 +234,8 @@ class TaxLotManager:
         HIGHEST_COST (highest cost basis first), or specific lot identification.
         
         Tax Optimization Strategies:
-        - LOWEST_COST: Sell lowest cost basis first to minimize realized gains (tax-efficient)
-        - HIGHEST_COST: Sell highest cost basis first to maximize realized gains (useful for tax-loss harvesting)
+        - LOWEST_COST: Sell lowest cost basis first to maximize realized gains
+        - HIGHEST_COST: Sell highest cost basis first to minimize realized gains
         - FIFO: Default IRS method, oldest lots first
         - LIFO: Newest lots first
         
@@ -247,8 +247,8 @@ class TaxLotManager:
             method: Tax lot relief method:
                 - 'FIFO' (default): First-in, first-out (oldest lots first)
                 - 'LIFO': Last-in, first-out (newest lots first)
-                - 'LOWEST_COST': Lowest cost basis first (tax-efficient, minimizes gains)
-                - 'HIGHEST_COST': Highest cost basis first (maximizes gains, useful for losses)
+                - 'LOWEST_COST': Lowest cost basis first (maximizes gains)
+                - 'HIGHEST_COST': Highest cost basis first (minimizes gains)
             
         Returns:
             Total realized gain (or loss) from this sale
@@ -256,18 +256,29 @@ class TaxLotManager:
         Raises:
             ValueError: If not enough lots are available to sell the requested quantity
         """
-        # Get all open lots for this ticker
-        lots = [lot for lot in self.open_lots if lot.ticker == ticker]
+        # Reject invalid requests before touching lots or realized-gain records.
+        quantity = Decimal(str(quantity))
+        price = Decimal(str(price))
+        if not quantity.is_finite() or quantity <= 0:
+            raise ValueError("Sale quantity must be positive and finite")
+        if not price.is_finite() or price < 0:
+            raise ValueError("Sale price must be nonnegative and finite")
+        if method.upper() not in {"FIFO", "LIFO", "LOWEST_COST", "HIGHEST_COST"}:
+            raise ValueError(f"Unknown tax lot method: {method}")
+        lots = [lot for lot in self.open_lots
+                if lot.ticker == ticker and lot.purchase_date <= sale_date]
+        if sum((lot.quantity for lot in lots), Decimal('0')) < quantity:
+            raise ValueError(f"Not enough lots to sell {quantity} shares of {ticker}")
         
         # Sort lots according to method
         method_upper = method.upper()
         if method_upper == 'LIFO':
             lots.sort(key=lambda lot: lot.purchase_date, reverse=True)  # Newest first
         elif method_upper == 'LOWEST_COST':
-            # Sort by cost basis ascending (lowest first) - minimizes realized gains
+            # Sort by cost basis ascending (lowest first) - maximizes realized gains
             lots.sort(key=lambda lot: lot.cost_basis)
         elif method_upper == 'HIGHEST_COST':
-            # Sort by cost basis descending (highest first) - maximizes realized gains/losses
+            # Sort by cost basis descending (highest first) - minimizes realized gains
             # Useful for tax-loss harvesting (selling losses first)
             lots.sort(key=lambda lot: lot.cost_basis, reverse=True)
         else:  # FIFO (default)

@@ -1,0 +1,25 @@
+{
+  "description": "Illustrative input contract only. Do not copy assumed quantities or receipts into SPY books. Replace every value with your documented entitlement and cash evidence.",
+  "entitlements": [
+    {
+      "id": "EXAMPLE-ID:2026-09-23:USD:cash",
+      "security_id": "EXAMPLE-ID",
+      "ex_date": "2026-09-23",
+      "eligible_quantity": "1000",
+      "withholding_amount": "0",
+      "recoverable_tax": "0",
+      "source": "Replace with documented pre-ex entitlement, trade/corporate-action reconciliation and tax treatment"
+    }
+  ],
+  "receipts": [
+    {
+      "id": "EXAMPLE-CASH-RECEIPT-1",
+      "action_id": "EXAMPLE-ID:2026-09-23:USD:cash",
+      "date": "2026-10-14",
+      "amount": "330.00",
+      "currency": "USD",
+      "kind": "confirmed",
+      "source": "Replace with actual custodian/bank transaction reference"
+    }
+  ]
+}

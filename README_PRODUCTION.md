@@ -1,3 +1,5 @@
+> Historical prototype documentation. Read `docs/review/ETF_LIBRARY_REVIEW.md` before use. Prior readiness assertions are not a certification; the legacy operational workflows have known unresolved gaps.
+
 # ETF Self-Service Functions - Production Ready
 
 **Complete production-ready implementation of all ETF operational functions.**

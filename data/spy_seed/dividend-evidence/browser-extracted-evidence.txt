@@ -1,0 +1,365 @@
+gpc-20260811 (https://www.sec.gov/Archives/edgar/data/40987/000004098726000035/gpc-20260811.htm)
+citeturn145view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.sec.gov/Archives/edgar/data/40987/000004098726000035/gpc-20260811.htm","lineno":null}); Total lines: 77
+L0: 0000040987false00000409872026-08-112026-08-11
+L1: 
+L2: UNITED STATES
+L3: 
+L4: SECURITIES AND EXCHANGE COMMISSION
+L5: 
+L6: Washington, D.C. 20549
+L7: 
+L8: FORM 8-K
+L9: 
+L10: CURRENT REPORT
+L11: 
+L12: Pursuant to Section 13 OR 15(d) of The Securities Exchange Act of 1934
+L13: 
+L14: August 11, 2026
+L15: 
+L16: Date of Report (date of earliest event reported)
+L17: 
+L18: GENUINE PARTS COMPANY
+L19: 
+L20: (Exact name of registrant as specified in its charter)
+L21:  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+L22: GA  |  | 001-05690  |  | 58-0254510
+L23: (State or other jurisdiction of incorporation or organization)  |  | (Commission File Number)  |  | (I.R.S. Employer Identification No.)
+L24:  |  |  |  |  |
+L25: 2999 WILDWOOD PARKWAY,  |  |  |  |
+L26: ATLANTA,  | GA  |  |  |  | 30339
+L27: (Address of principal executive offices)  |  |  |  | (Zip Code)
+L28: 
+L29: (678) 934-5000
+L30: 
+L31: Registrant's telephone number, including area code
+L32: Check the appropriate box below if the Form 8-K filing is intended to simultaneously satisfy the filing obligation of the registrant under any of the following provisions (see General Instruction A.2. below):
+L33: 
+L34: ☐ Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230.425)
+L35: 
+L36: ☐ Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CF.14a-12)
+L37: 
+L38: ☐ Pre-commencement communications pursuant to Rule 14d-2(b) under the Exchange Act (17 CFR 240.14d-2(b))
+L39: ☐ Pre-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c))
+L40: 
+L41: Securities registered pursuant to Section 12(b) of the Act:
+L42:  |  |  |  |  |  |  |  |
+L43: Title of each class  | Trading Symbol(s)  | Name of each exchange on which registered
+L44: Common Stock, $1.00 par value per share  | GPC  | New York Stock Exchange
+L45: Indicate by check mark whether the registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (§230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (§240.12b-2 of this chapter).
+L46: 
+L47: Emerging growth company ☐
+L48: If an emerging growth company, indicate by check mark if the registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐
+L49: 
+L50: * * *
+L51: 
+L52: Item 8.01 Other Events
+L53: On August 11, 2026, the Board of Directors of the company declared a regular quarterly cash dividend of one dollar and six and one quarter cents ($1.0625) per share on the Company’s common stock. The dividend is payable on October 2, 2026 to shareholders of record on September 4, 2026.
+L54: 
+L55: A copy of the press release is furnished with this Current Report on Form 8-K as Exhibit 99.1.
+L56: 
+L57: Item 9.01 Financial Statements and Exhibits.
+L58: (d) Exhibits
+L59:  |  |  |  |  |  |  |  |
+L60: Exhibit Number  |  | Description
+L61:  |  |
+L62: 99.1  |  | cite0†Press Release dated August 11, 2026 L63: 104  |  | The cover page from this current report on Form 8-K, formatted in inline XBRL
+L64: 
+L65: * * *
+L66: 
+L67: SIGNATURES
+L68: Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.
+L69:  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+L70:  |  |  |  |
+L71:  |  | Genuine Parts Company
+L72:     |  |  |  |
+L73: Date: August 11, 2026  |  | By:  |  | /s/ Bert Nappier
+L74:  |  |  |  |
+L75:  |  |  |  | Name: Bert Nappier
+L76:  |  |  |  | Executive Vice President and Chief Financial Officer
+--------------------------------------------------------------------------------
+vrt-20260902 (https://www.sec.gov/Archives/edgar/data/1674101/000162828026059961/vrt-20260902.htm)
+citeturn145view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.sec.gov/Archives/edgar/data/1674101/000162828026059961/vrt-20260902.htm","lineno":null}); Total lines: 73
+L0: 0001674101FALSE00016741012026-09-022026-09-02
+L1:  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+L2:  |  |  |  |
+L3: UNITED STATES
+L4: SECURITIES AND EXCHANGE COMMISSION
+L5: Washington, D.C. 20549
+L6:  |  |  |  |
+L7:  |  |  |  |
+L8: FORM 8-K
+L9:  |  |  |  |
+L10:  |  |  |  |
+L11: CURRENT REPORT
+L12: PURSUANT TO SECTION 13 OR 15(d) OF THE
+L13: SECURITIES EXCHANGE ACT OF 1934
+L14:  |  |  |  |
+L15: Date of Report (Date of earliest event reported): September 2, 2026
+L16:  |  |  |  |
+L17:  |  |  |  |
+L18: VERTIV HOLDINGS CO
+L19: Exact name of registrant as specified in its charter
+L20:  |  |  |  |
+L21:  |  |  |  |
+L22:  |  |  |  |
+L23: Delaware  |  | 001-38518  |  | 81-2376902
+L24: (State or other Jurisdiction of incorporation)  |  | (Commission File Number)  |  | (IRS Employer Identification Number)
+L25:  |  |  |  |
+L26: 505 N. Cleveland Ave, Westerville, Ohio 43082
+L27: (Address of principal executive offices, including zip code)
+L28:  |  |  |  |
+L29: Registrant's telephone number, including area code: 614-888-0246
+L30:  |  |  |  |
+L31:  |  |  |  |
+L32:  |  |  |  |
+L33: Check the appropriate box below if the Form 8-K is intended to simultaneously satisfy the filing obligation of the registrant under any of the following provisions:
+L34:  |  |  |  |
+L35: ☐  | Written communications pursuant to Rule 425 under the Securities Act (17 CFR 230.425)
+L36: ☐  | Soliciting material pursuant to Rule 14a-12 under the Exchange Act (17 CFR 240.14a-12)
+L37: ☐  | Pre-commencement communications pursuant to Rule 14d-2(b) under the Exchange Act (17 CFR 240.14d-2(b))
+L38: ☐  | Pre-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c))
+L39:  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+L40: Securities registered pursuant to Section 12(b) of the Act:
+L41:  |  |  |  |
+L42: Title of each class  |  | Trading Symbol(s)  |  | Name of each exchange on which registered
+L43: Class A common stock, $0.0001 par value per share  |  | VRT  |  | New York Stock Exchange
+L44:  |  |  |  |
+L45: Indicate by check mark whether the Registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (§230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (§240.12b-2 of this chapter).
+L46:  |  |  |  | Emerging growth company  | ☐
+L47:  |  |  |  |  |
+L48: If an emerging growth company, indicate by check mark if the Registrant has elected not to use the extended transition period for complying with any new or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. ☐
+L49:  |  |  |  |
+L50: * * *
+L51: 
+L52: Item 8.01 Other Events
+L53: 
+L54: On September 2, 2026, Vertiv Holdings Co, a Delaware corporation (the “Company”), issued a press release announcing that its Board of Directors has declared a quarterly cash dividend of $0.0625 per share of Class A common stock. The dividend is payable to the Company’s stockholders of record as of the close of business on September 14, 2026, and is expected to be paid on September 24, 2026. A copy of the press release is attached to this report on Exhibit 99.1.
+L55: Item 9.01 (d) Financial Statements and Exhibits
+L56: 
+L57:  |  |  |  |  |  |  |  |
+L58: Exhibit No.  |  | Exhibit Description
+L59: 99.1  |  | cite0†Press release of Vertiv Holdings Co, dated cite0†September 2 cite0†, 2026 L60:  |  |
+L61: 104  |  | Cover Page Interactive Data File (embedded within the Inline XBRL document)
+L62: 
+L63: * * *
+L64: 
+L65: SIGNATURE
+L66: 
+L67: Pursuant to the requirements of the Securities Exchange Act of 1934, the registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.
+L68:  |  |  |  |  |
+L69: Date: September 2, 2026  | Vertiv Holdings Co
+L70:  | /s/ Craig Chamberlin
+L71:  | Name: Craig Chamberlin
+L72:  | Title: Chief Financial Officer
+--------------------------------------------------------------------------------
+Ex 99.1 - 2Q 2026 Press Release - Final.pdf (https://www.sec.gov/Archives/edgar/data/74208/000007420826000070/udr-20260727xex99d1.pdf)
+citeturn145view2 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 5; Source: open({"ref_id":"https://www.sec.gov/Archives/edgar/data/74208/000007420826000070/udr-20260727xex99d1.pdf","lineno":null}); Total lines: 269
+L0@P0: 1
+L1@P0: Press Release
+L2@P0: DENVER, CO – July 27, 2026 Contact: Trent Trujillo
+L3@P0:  Email: ttrujillo@udr.com
+L4@P0: UDR, INC. ANNOUNCES SECOND QUARTER 2026 RESULTS
+L5@P0: AND RAISES FULL-YEAR 2026 GUIDANCE RANGES
+L6@P0: UDR, Inc. (the “Company”) (NYSE: UDR), announced today its second quarter 2026 results. Net Income, Funds from
+L7@P0: Operations (“FFO”), and FFO as Adjusted (“FFOA”) per diluted share for the quarter and year-to-date periods ended
+L8@P0: June 30, 2026, are detailed below.
+L9@P0: Metric
+L10@P0: Quarter Ended June 30 Year-to-Date Ended June 30
+L11@P0: 2026 2025 2026 2025
+L12@P0: Net Income per diluted share $0.21 $0.11 $0.79 $0.34
+L13@P0: FFO per diluted share $0.60 $0.61 $1.23 $1.19
+L14@P0: FFOA per diluted share $0.64 $0.64 $1.25 $1.25
+L15@P0: Same-Store (“SS”) results for the second quarter 2026 versus the second quarter 2025 and the first quarter 2026 as
+L16@P0: well as year-to-date 2026 versus year-to-date 2025 are summarized below.
+L17@P0: SS Growth / (Decline)
+L18@P0: Year-Over-Year (“YOY”):
+L19@P0: 2Q 2026 vs. 2Q 2025
+L20@P0: Sequential:
+L21@P0: 2Q 2026 vs. 1Q 2026
+L22@P0: Year-to-Date (YTD) YOY:
+L23@P0: 2026 vs. 2025
+L24@P0: Revenue 1.8% 1.4% 1.3%
+L25@P0: Expense 2.6% (3.9)% 3.5%
+L26@P0: Net Operating Income (“NOI”) 1.4% 4.0% 0.3%
+L27@P0: “Leasing strength in 2026 is tracking ahead of our initial expectations, resulting in second quarter results that exceeded
+L28@P0: our prior guidance. As a result, we have raised our full-year guidance ranges for Same-Store growth and FFOA per
+L29@P0: diluted share,” said Tom Toomey, UDR’s Chairman, President, and CEO. “The resiliency of the economy, waning
+L30@P0: supply, and attractive relative affordability of apartments position UDR for continued success. Following 50+ years of
+L31@P0: dividend growth and stability totaling $9 billion of payments, we look forward to paying our first monthly dividend this
+L32@P0: week.”
+L33@P0: Outlook(1)
+L34@P0: As shown in the table below, the Company has established the following guidance ranges for the third quarter of 2026,
+L35@P0: raised its previously provided full-year 2026 guidance ranges for Net Income, FFOA per diluted share, and Same-Store
+L36@P0: Growth, and updated its previously provided full-year 2026 guidance range for FFO per diluted share.
+L37@P0: Metric, per
+L38@P0: diluted share
+L39@P0: 2Q 2026
+L40@P0: Actual
+L41@P0: YTD 2026
+L42@P0: Actual
+L43@P0: 3Q 2026
+L44@P0: Outlook
+L45@P0: Prior
+L46@P0: Full-Year 2026
+L47@P0: Outlook
+L48@P0: Updated
+L49@P0: Full-Year 2026
+L50@P0: Outlook
+L51@P0: Full-Year 2026
+L52@P0: Midpoint
+L53@P0: (Change)
+L54@P0:  Net Income $0.21 $0.79 $0.13 to $0.15 $0.91 to $1.01 $1.03 to $1.11 $1.07 (+$0.11)
+L55@P0:  FFO $0.60 $1.23 $0.63 to $0.65 $2.48 to $2.58 $2.47 to $2.55 $2.51 (-$0.02)
+L56@P0:  FFOA $0.64 $1.25 $0.63 to $0.65 $2.47 to $2.57 $2.49 to $2.57 $2.53 (+$0.01)
+L57@P0: YOY Growth:
+L58@P0:  SS Revenue 1.8% 1.3% N/A 0.25% to 2.25% 0.75% to 2.00% 1.375% (+12.5bps)
+L59@P0:  SS Expense 2.6% 3.5% N/A 3.00% to 4.50% 2.75% to 3.75% 3.25% (-50bps)
+L60@P0:  SS NOI 1.4% 0.3% N/A (1.00)% to 1.25% 0.00% to 1.25% 0.625% (+50bps)
+L61@P0: (1) Additional assumptions for the Company’s third quarter and full-year 2026 outlook can be found on Attachment 13 of the Company’s related quarterly Supplemental
+L62@P0: Financial Information (“Supplement”). A reconciliation of GAAP Net Income per diluted share to FFO per diluted share and FFOA per diluted share can be found
+L63@P0: on Attachment 14(D) of the Company’s related quarterly Supplement. Non-GAAP financial measures and other terms, as used in this earnings release, are defined
+L64@P0: and further explained on Attachments 14(A) through 14(D), “Definitions and Reconciliations,” of the Company’s related quarterly Supplement.
+L65@P0: 7DEOHRI&RQWHQWV
+L66@P0: ([KLELW
+L67@P0: 
+L68@P0-1: 2
+L69@P1: Capital Allocation Activity
+L70@P1: Leveraging the Company’s collaborative and data-driven approach to capital allocation, during the quarter and
+L71@P1: subsequent to quarter-end, the Company,
+L72@P1: x As previously reported, expanded its share repurchase program to approximately 30 million shares and
+L73@P1: repurchased approximately 5.5 million shares of its common stock at a weighted average share price of $36.49
+L74@P1: for total consideration of approximately $200.3 million. Following this share repurchase activity, the Company
+L75@P1: has approximately 25.5 million shares remaining for repurchase under its program. Since recommencing share
+L76@P1: repurchases in September 2025, the Company has repurchased approximately 11.5 million shares of its
+L77@P1: common stock at a weighted average share price of $36.32 for total consideration of approximately $418.0
+L78@P1: million.
+L79@P1: x Sold a 206-apartment home community in Nashville, TN, that was originally constructed in 1977 for gross
+L80@P1: proceeds of $41.5 million. Additionally, the Company is under contract to sell three apartment communities
+L81@P1: with a combined 808 apartment homes for gross proceeds totaling approximately $252.5 million. These
+L82@P1: transactions are expected to close in the third and fourth quarters of 2026. Should these pending sales close
+L83@P1: as anticipated, the Company’s 2026 disposition activity would total approximately $656.0 million.
+L84@P1: x Acquired three apartment home communities with a combined 584 apartment homes upon the liquidation of
+L85@P1: the Company’s interests in previous Debt and Preferred Equity joint ventures; two of these communities are
+L86@P1: located in Portland, OR, and a third is located in Los Angeles, CA.
+L87@P1: x Commenced development of 4848 at Alex West, a 385-apartment home community in Northern Virginia, with
+L88@P1: an expected total development cost of $181.3 million, or $471,000 per apartment home. This second phase
+L89@P1: development is located adjacent to an existing UDR apartment community, which the Company expects should
+L90@P1: drive unique operating efficiencies.
+L91@P1: x Formed a joint venture with a new partner in conjunction with MetLife’s sale of its 50 percent joint venture
+L92@P1: interest in Columbus Square, an assemblage of apartment communities in New York, NY, totaling 710
+L93@P1: apartment homes. UDR’s 50% joint venture interest in Columbus Square is unchanged, as are its joint venture
+L94@P1: economics. Concurrent with the transaction, the Company fully funded a $50.0 million mezzanine loan
+L95@P1: investment to the new joint venture partner at an effective return rate of 8.0 percent.
+L96@P1: Operating Results
+L97@P1: In the second quarter, total revenue was flat YOY, as revenue increases attributable to growth from Same-Store and
+L98@P1: acquired communities was offset by the removal of revenue from properties that were sold.
+L99@P1: “Second quarter Same-Store revenue, expense, and NOI growth exceeded our expectations, driven by blended lease
+L100@P1: rate growth above the high-end of our previously provided guidance range of 1.5 percent to 2.0 percent, occupancy
+L101@P1: remaining in the mid-96 percent range with annualized resident retention achieving a seasonally adjusted all-time high
+L102@P1: of 60 percent, and mid-single-digit year-over-year innovation income growth,” said Mike Lacy, UDR’s Chief Operating
+L103@P1: Officer.
+L104@P1-2: 7DEOHRI&RQWHQWV3
+L105@P2: In the tables below, the Company has presented YOY, sequential, and YTD Same-Store results by region.
+L106@P2: Summary of Same-Store Results in the Second Quarter 2026 versus the Second Quarter 2025
+L107@P2: Region
+L108@P2: Revenue
+L109@P2: Growth /
+L110@P2: (Decline)
+L111@P2: Expense
+L112@P2: Growth /
+L113@P2: (Decline)
+L114@P2: NOI
+L115@P2: Growth /
+L116@P2: (Decline)
+L117@P2: % of Same-Store
+L118@P2: Portfolio(1)
+L119@P2: Physical
+L120@P2: Occupancy(2)
+L121@P2: YOY Change
+L122@P2: in Occupancy
+L123@P2: West 3.7% 3.7% 3.7% 32.4% 96.8% (0.2)%
+L124@P2: Northeast 3.0% 2.3% 3.4% 20.2% 97.0% (0.2)%
+L125@P2: Mid-Atlantic 1.6% 3.5% 0.6% 19.0% 96.6% (0.3)%
+L126@P2: Southeast (1.0)% 1.0% (2.0)% 12.5% 96.3% (0.1)%
+L127@P2: Southwest (1.0)% 1.1% (2.2)% 10.9% 96.7% (0.3)%
+L128@P2: Other Markets 0.2% 4.7% (1.4)% 5.0% 96.1% (0.5)%
+L129@P2: Total / Weighted Average 1.8% 2.6% 1.4% 100.0% 96.6% (0.2)% (1) Based on 2Q 2026 Same-Store NOI. For definitions of terms, please refer to the “Definitions and Reconciliations” section of the Company’s related quarterly
+L130@P2: Supplement. (2) Weighted average Same-Store physical occupancy for the quarter.
+L131@P2: Summary of Same-Store Results in the Second Quarter 2026 versus the First Quarter 2026
+L132@P2: Region
+L133@P2: Revenue
+L134@P2: Growth /
+L135@P2: (Decline)
+L136@P2: Expense
+L137@P2: Growth /
+L138@P2: (Decline)
+L139@P2: NOI
+L140@P2: Growth /
+L141@P2: (Decline)
+L142@P2: % of Same-Store
+L143@P2: Portfolio(1)
+L144@P2: Physical
+L145@P2: Occupancy(2)
+L146@P2: Sequential
+L147@P2: Change in
+L148@P2: Occupancy
+L149@P2: West 1.7% (8.4)% 5.7% 32.4% 96.8% (0.1)%
+L150@P2: Northeast 1.8% (4.8)% 5.7% 20.2% 97.0% 0.2%
+L151@P2: Mid-Atlantic 1.2% (1.6)% 2.6% 19.0% 96.6% 0.3%
+L152@P2: Southeast 0.8% (1.3)% 1.9% 12.5% 96.3% 0.1%
+L153@P2: Southwest 0.8% (0.4)% 1.5% 10.9% 96.7% (0.2)%
+L154@P2: Other Markets 1.8% (0.8)% 2.9% 5.0% 96.1% 0.3%
+L155@P2: Total / Weighted Average 1.4% (3.9)% 4.0% 100.0% 96.6% 0.0% (1) Based on 2Q 2026 Same-Store NOI. For definitions of terms, please refer to the “Definitions and Reconciliations” section of the Company’s related quarterly
+L156@P2: Supplement. (2) Weighted average Same-Store physical occupancy for the quarter.
+L157@P2: Summary of Same-Store Results for YTD 2026 versus YTD 2025
+L158@P2: Region
+L159@P2: Revenue
+L160@P2: Growth /
+L161@P2: (Decline)
+L162@P2: Expense
+L163@P2: Growth /
+L164@P2: (Decline)
+L165@P2: NOI
+L166@P2: Growth /
+L167@P2: (Decline)
+L168@P2: % of Same-Store
+L169@P2: Portfolio(1)
+L170@P2: Physical
+L171@P2: Occupancy(2)
+L172@P2: YTD YOY
+L173@P2: Change in
+L174@P2: Occupancy
+L175@P2: West 3.2% 5.8% 2.2% 32.3% 96.8% (0.3)%
+L176@P2: Northeast 2.5% 3.5% 2.0% 20.1% 96.9% (0.4)%
+L177@P2: Mid-Atlantic 1.1% 4.2% (0.4)% 19.1% 96.4% (0.8)%
+L178@P2: Southeast (1.4)% 1.8% (2.9)% 12.6% 96.3% (0.4)%
+L179@P2: Southwest (1.4)% 0.1% (2.3)% 10.8% 96.8% (0.4)%
+L180@P2: Other Markets (0.1)% 3.9% (1.6)% 5.1% 96.0% (0.5)%
+L181@P2: Total / Weighted Average 1.3% 3.5% 0.3% 100.0% 96.6% (0.5)% (1) Based on YTD 2026 Same-Store NOI. For definitions of terms, please refer to the “Definitions and Reconciliations” section of the Company’s related quarterly
+L182@P2: Supplement. (2) Weighted average Same-Store physical occupancy for YTD 2026.
+L183@P2-3: 7DEOHRI&RQWHQWV4
+L184@P3: Balance Sheet Update
+L185@P3: The Company’s total indebtedness as of June 30, 2026, was $5.8 billion at a weighted average interest rate of 3.4
+L186@P3: percent, with $328.4 million, or 6.2 percent of total consolidated debt, maturing through the rest of 2026, including
+L187@P3: principal amortization and excluding amounts on the Company’s line of credit, commercial paper program, and working
+--------------------------------------------------------------------------------
+Iron Mountain Incorporated - Iron Mountain Reports Second Quarter 2026 Results (https://investors.ironmountain.com/news/news-details/2026/Iron-Mountain-Reports-Second-Quarter-2026-Results/default.aspx)
+citeturn145view3 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://investors.ironmountain.com/news/news-details/2026/Iron-Mountain-Reports-Second-Quarter-2026-Results/default.aspx","lineno":null}); Total lines: 431
+--------------------------------------------------------------------------------
+Altria Increases Quarterly Dividend to $1.11 Per Share - Altria Group, Inc. (https://investor.altria.com/press-releases/news-details/2026/Altria-Increases-Quarterly-Dividend-to-1-11-Per-Share/default.aspx)
+citeturn145view4 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://investor.altria.com/press-releases/news-details/2026/Altria-Increases-Quarterly-Dividend-to-1-11-Per-Share/default.aspx","lineno":null}); Total lines: 37
+--------------------------------------------------------------------------------
+Meta - Meta Announces Quarterly Cash Dividend (https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Announces-Quarterly-Cash-Dividend-bf2dec2b8/default.aspx)
+citeturn145view5 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Announces-Quarterly-Cash-Dividend-bf2dec2b8/default.aspx","lineno":null}); Total lines: 118
+--------------------------------------------------------------------------------
+Freeport-McMoRan Inc. - Freeport Declares Quarterly Cash Dividends on Common Stock (https://investors.fcx.com/investors/news-releases/news-release-details/2026/Freeport-Declares-Quarterly-Cash-Dividends-on-Common-Stock-e5dfbd3fd/default.aspx)
+citeturn145view6 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://investors.fcx.com/investors/news-releases/news-release-details/2026/Freeport-Declares-Quarterly-Cash-Dividends-on-Common-Stock-e5dfbd3fd/default.aspx","lineno":null}); Total lines: 189
+--------------------------------------------------------------------------------
+www.goldmansachs.com (https://www.goldmansachs.com/investor-relations/financials/8k/2026/8k-07-14-26.pdf)
+citeturn145view7 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.goldmansachs.com/investor-relations/financials/8k/2026/8k-07-14-26.pdf","lineno":null}); Redirected to URL: https://www.goldmansachs.com/static-libs/pdf-redirect/prod/index.html?path=/investor-relations/financials/8k/2026/8k-07-14-26.pdf&originalQuery=&referrer=; Total lines: 0
+--------------------------------------------------------------------------------
+Form 10-Q for Broadcom INC filed 09/10/2026 (https://investors.broadcom.com/static-files/96641754-401f-4090-a4ab-210728c83a28)
+citeturn145view8 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 69; Source: open({"ref_id":"https://investors.broadcom.com/static-files/96641754-401f-4090-a4ab-210728c83a28","lineno":null}); Total lines: 2834
+--------------------------------------------------------------------------------
+Pentair Announces Quarterly Cash Dividend of $0.27 | 09.21.2026 (https://investors.pentair.com/news-releases/news-release-details/pentair-announces-quarterly-cash-dividend-027-1)
+citeturn145view9 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://investors.pentair.com/news-releases/news-release-details/pentair-announces-quarterly-cash-dividend-027-1","lineno":null}); Total lines: 133

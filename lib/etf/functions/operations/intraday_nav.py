@@ -1,5 +1,5 @@
 """
-Production-Ready Intraday NAV Monitoring and Spread Management
+Prototype Intraday NAV Monitoring and Spread Management
 Real-time NAV calculation and bid-ask spread monitoring during trading hours
 """
 
@@ -44,7 +44,7 @@ class SpreadAlert:
 
 class IntradayNAVMonitor:
     """
-    Production-ready Intraday NAV Monitoring and Spread Management
+    Prototype Intraday NAV Monitoring and Spread Management
     
     Monitors:
     - Real-time NAV calculation during trading hours

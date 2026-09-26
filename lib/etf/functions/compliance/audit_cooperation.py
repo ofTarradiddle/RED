@@ -1,6 +1,6 @@
 """
 Audit Cooperation Functions
-Production-ready implementation for cooperation with fund auditors
+Prototype implementation for cooperation with fund auditors
 
 This module provides:
 - Audit trail maintenance
@@ -36,7 +36,7 @@ class AuditPackage:
 
 class AuditCooperation:
     """
-    Production-ready Audit Cooperation System
+    Prototype Audit Cooperation System
     
     Provides comprehensive support for fund auditors:
     - Financial statement preparation

@@ -1,6 +1,6 @@
 """
 Security Master File and Portfolio Records Management
-Production-ready implementation for maintaining security master file and portfolio records
+Prototype implementation for maintaining security master file and portfolio records
 
 This module handles:
 - Security master file (CUSIP, ticker, description, security type, etc.)
@@ -62,7 +62,7 @@ class PortfolioRecord:
 
 class SecurityMasterFile:
     """
-    Production-ready Security Master File management
+    Prototype Security Master File management
     
     Maintains comprehensive security master file with:
     - Security identifiers (CUSIP, ticker, ISIN, SEDOL)
@@ -219,7 +219,7 @@ class SecurityMasterFile:
 
 class PortfolioRecords:
     """
-    Production-ready Portfolio Records management
+    Prototype Portfolio Records management
     
     Maintains portfolio position records with:
     - Security positions (quantity, cost basis, market value)

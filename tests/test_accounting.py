@@ -64,8 +64,9 @@ class TestAccounting:
         
         entries = accounting.record_nav_entries(date(2024, 12, 31), nav_calculation)
         
-        assert len(entries) > 0
-        assert all(hasattr(e, 'date') for e in entries)
+        assert entries == []
+        assert accounting.journal_entries == []
+        assert (accounting.storage_path / "nav_snapshot_2024-12-31.json").exists()
     
     def test_record_expense_accrual(self, mock_adapter, temp_storage):
         """Test recording expense accrual"""

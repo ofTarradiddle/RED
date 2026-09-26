@@ -267,9 +267,15 @@ class FMPDataSourceAdapter(DataSourceAdapter):
                         # Get EOD price for the date
                         price_data = self.fmp_client.get_historical_price_eod(ticker, date_str)
                         if price_data:
-                            # Use adjusted close if available, otherwise close
-                            price = price_data.get('adjClose') or price_data.get('close')
-                            if price:
+                            # NAV values current holdings at a closing price, not a
+                            # dividend-adjusted total-return series.
+                            price = price_data.get('close')
+                            if price is not None:
+                                price = Decimal(str(price))
+                                if not price.is_finite() or price <= 0:
+                                    raise ValueError(f"Invalid close for {ticker}")
+                                if price_data.get('date') not in (None, date_str):
+                                    raise ValueError(f"Price date mismatch for {ticker}")
                                 # Find corresponding CUSIP
                                 for cusip, mapped_ticker in cusip_to_ticker.items():
                                     if mapped_ticker == ticker and cusip in cusips:
@@ -415,7 +421,11 @@ class FMPDataSourceAdapter(DataSourceAdapter):
             for div in dividend_calendar:
                 symbol = div.get('symbol') or div.get('ticker')
                 if symbol in tickers:
-                    ex_date = div.get('exDate') or div.get('ex_date')
+                    ex_date = div.get('exDate') or div.get('ex_date') or div.get('date')
+                    # Recognition belongs to the ex-date, not every day within
+                    # the search window. Payment later clears the receivable.
+                    if ex_date is None or str(ex_date)[:10] != date.isoformat():
+                        continue
                     pay_date = div.get('paymentDate') or div.get('pay_date')
                     amount = div.get('dividend') or div.get('amount', 0)
                     

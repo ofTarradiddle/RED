@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hetzerk social preview artwork</title>
+  <link rel="stylesheet" href="../assets/fonts.css">
+  <link rel="stylesheet" href="../assets/branding.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; width: 1200px; height: 630px; padding: 57px 68px; background: #faf8f8; color: #241a1b; font-family: Inter, Arial, sans-serif; border-top: 9px solid #8b0000; }
+    header { display: flex; align-items: center; gap: 15px; }
+    .hetzerk-logo { box-shadow: none; background: transparent; border-color: #dcc9c9; }
+    .hetzerk-logo::before, .hetzerk-initial::after { display: none; }
+    .hetzerk-logo svg { position: absolute; inset: -9px; width: 64px; height: 64px; fill: #8b0000; }
+    .hetzerk-initial svg { position: absolute; left: -55%; bottom: -.02em; width: 210%; height: 1.08em; fill: currentColor; }
+    .hetzerk-masthead-name { color: #560e19; font-size: 32px; }
+    .hetzerk-masthead-subtitle { color: #78676b; }
+    main { display: grid; grid-template-columns: 1fr 260px; align-items: center; gap: 48px; margin-top: 73px; }
+    h1 { font-weight: 400; font-size: 62px; line-height: 1.08; letter-spacing: -.065em; margin: 0; }
+    h1 span { display: block; color: #8b0000; }
+    .fund { padding: 28px; border: 1px solid #ddcece; border-radius: 16px; background: #fff; }
+    .eyebrow { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .16em; color: #7e6f72; }
+    .ticker { margin: 18px 0 14px; font-size: 67px; letter-spacing: -.065em; line-height: 1; font-weight: 600; color: #8b0000; }
+    .fund p { margin: 0; line-height: 1.5; font-size: 16px; }
+    footer { margin-top: 66px; padding-top: 22px; border-top: 1px solid #e5dcdc; font-size: 14px; color: #716467; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="hetzerk-logo" aria-hidden="true"><svg viewBox="0 0 480 480"><path d="M150 122Q143 113 142 126L140 363Q140 378 149 364L215 245Q219 238 215 232Z M334 122Q341 113 342 126L340 363Q340 378 331 364L266 245Q262 238 266 232Z"/></svg></span>
+    <div class="hetzerk-lockup">
+      <div class="hetzerk-masthead-name"><span class="hetzerk-name"><span class="hetzerk-initial">H<svg aria-hidden="true" viewBox="0 0 480 480"><path d="M150 122Q143 113 142 126L140 363Q140 378 149 364L215 245Q219 238 215 232Z M334 122Q341 113 342 126L340 363Q340 378 331 364L266 245Q262 238 266 232Z"/></svg></span>etzerk</span></div>
+      <div class="hetzerk-masthead-subtitle">Asset Management</div>
+    </div>
+  </header>
+  <main>
+    <h1>Investing in<br>Innovation,<span>REDI for tomorrow</span></h1>
+    <div class="fund">
+      <div class="eyebrow">Equity ETF</div>
+      <div class="ticker">REDI</div>
+      <p>Innovation Factor ETF</p>
+    </div>
+  </main>
+  <footer>Innovation value · Innovation ability · Portfolio construction</footer>
+</body>
+</html>

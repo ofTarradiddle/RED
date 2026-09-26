@@ -1,6 +1,6 @@
 """
-Production-Ready Order Management Function
-Complete implementation with all business logic
+Prototype Order Management Function
+Experimental implementation; operational validation remains necessary
 """
 
 import logging
@@ -43,7 +43,7 @@ class RedemptionBasket:
 
 class OrderManagement:
     """
-    Production-ready Order Management implementation
+    Prototype Order Management implementation
     
     Handles:
     - PCF (Portfolio Composition File) generation and publication

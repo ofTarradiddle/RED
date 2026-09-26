@@ -1,0 +1,16 @@
+[
+  {
+    "date": "2026-09-09",
+    "source": "Dated search-index copy of State Street issuer top holdings; current direct page has advanced",
+    "source_url": "https://www.ssga.com/us/en/intermediary/etfs/state-street-spdr-sp-500-etf-trust-spy",
+    "sha256": "8e6c87428c81f8435d9d082610e05d2ce318afe5de16790c9183cd5a30d98743",
+    "evidence_file": "dividend-evidence/sep09-search-snapshot.json",
+    "positions": [
+      {
+        "identifier": "67066G104",
+        "ticker": "NVDA",
+        "quantity": "295823720"
+      }
+    ]
+  }
+]

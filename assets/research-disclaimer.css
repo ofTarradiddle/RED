@@ -1,0 +1,12 @@
+.research-agreement-open{overflow:hidden}
+.restored-site dialog.disclaimer-overlay{display:none;position:fixed;inset:0;width:calc(100% - 40px);max-width:800px;max-height:90vh;max-height:90dvh;margin:auto;padding:0;border:0;border-radius:12px;background:#fff;color:#241a1b;overflow:auto;overscroll-behavior:contain;box-shadow:0 20px 60px #0005}
+.restored-site dialog.disclaimer-overlay[open]{display:block}
+.restored-site dialog.disclaimer-overlay::backdrop{background:#000c}
+/* The native form remains usable if JavaScript is disabled. */
+.restored-site dialog.disclaimer-overlay[open]:not(:modal){box-shadow:0 0 0 100vmax #000c}
+.restored-site dialog.disclaimer-overlay .disclaimer-modal{max-height:none;max-width:none;overflow:visible;box-shadow:none}
+.restored-site dialog.disclaimer-overlay form{flex-wrap:wrap;margin:0}
+.restored-site dialog.disclaimer-overlay form a{display:inline-flex;align-items:center;text-decoration:none}
+.restored-site dialog.disclaimer-overlay [data-research-agree]{background:#8b0000}
+.restored-site dialog.disclaimer-overlay [data-research-agree]:hover{background:#690000}
+@media(max-width:600px){.restored-site dialog.disclaimer-overlay{width:calc(100% - 24px);max-height:94vh;max-height:94dvh}.restored-site dialog.disclaimer-overlay .disclaimer-modal{padding:24px 20px}.restored-site dialog.disclaimer-overlay h2{font-size:21px;line-height:1.3}.restored-site dialog.disclaimer-overlay form{gap:12px}.restored-site dialog.disclaimer-overlay form a,.restored-site dialog.disclaimer-overlay form button{min-height:44px}}

@@ -2,7 +2,8 @@
 T+1/T+2 Settlement Reconciliation
 
 Implements reconciliation logic for trade settlement dates (T+1 and T+2).
-For ETFs, trades typically settle T+2 (trade date + 2 business days).
+Most applicable US securities transactions use T+1 from 2024-05-28.
+Actual provider settlement dates and an approved settlement calendar take precedence.
 
 This module handles:
 - T+1 reconciliation (next-day settlement checks)
@@ -52,8 +53,8 @@ class SettlementReconciliationManager:
     Manages T+1 and T+2 settlement reconciliation for ETF trades.
     
     For ETFs:
-    - Most trades settle T+2 (trade date + 2 business days)
-    - Some trades may settle T+1 (next-day settlement)
+    - Most applicable US securities trades settle T+1
+    - Contractual exceptions and foreign markets require their own calendar/convention
     - Settlement reconciliation verifies trades settled correctly
     
     Example:
@@ -64,11 +65,17 @@ class SettlementReconciliationManager:
         >>> result = settlement_mgr.reconcile_t2_settlement(date(2024, 1, 5))  # Reconciles trades from Jan 3
     """
     
-    def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/settlement"):
+    def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/settlement", is_settlement_day=None):
         self.data_adapter = data_adapter
         self.storage_path = Path(storage_path)
         self.storage_path.mkdir(parents=True, exist_ok=True)
-        self.default_settlement_days = 2  # T+2 for ETFs
+        self.default_settlement_days = 1
+        self.is_settlement_day = is_settlement_day
+
+    def _is_business_day(self, value):
+        if self.is_settlement_day is None:
+            raise ValueError("An approved settlement calendar is required; weekends alone are insufficient")
+        return bool(self.is_settlement_day(value))
     
     def calculate_settlement_date(self, trade_date: date, settlement_days: int = None) -> date:
         """
@@ -76,13 +83,16 @@ class SettlementReconciliationManager:
         
         Args:
             trade_date: Date of the trade
-            settlement_days: Number of business days to settlement (default: 2 for T+2)
+            settlement_days: Override contractual lag; default T+1 from 2024-05-28, T+2 before
             
         Returns:
             Settlement date (trade date + settlement_days business days)
         """
         if settlement_days is None:
-            settlement_days = self.default_settlement_days
+            settlement_days = 1 if trade_date >= date(2024, 5, 28) else 2
+        if not isinstance(settlement_days, int) or settlement_days < 0:
+            raise ValueError("Settlement lag must be a nonnegative integer")
+        self._is_business_day(trade_date)
         
         settlement_date = trade_date
         days_added = 0
@@ -90,7 +100,7 @@ class SettlementReconciliationManager:
         while days_added < settlement_days:
             settlement_date += timedelta(days=1)
             # Skip weekends (Saturday=5, Sunday=6)
-            if settlement_date.weekday() < 5:  # Monday=0 to Friday=4
+            if self._is_business_day(settlement_date):
                 days_added += 1
         
         return settlement_date
@@ -111,7 +121,7 @@ class SettlementReconciliationManager:
         trade_date = reconciliation_date - timedelta(days=1)
         
         # Skip weekends
-        while trade_date.weekday() >= 5:  # Saturday or Sunday
+        while not self._is_business_day(trade_date):
             trade_date -= timedelta(days=1)
         
         return self._reconcile_settlement(reconciliation_date, trade_date, "T+1")
@@ -135,7 +145,7 @@ class SettlementReconciliationManager:
         while days_back < 2:
             trade_date -= timedelta(days=1)
             # Skip weekends
-            if trade_date.weekday() < 5:  # Monday to Friday
+            if self._is_business_day(trade_date):
                 days_back += 1
         
         return self._reconcile_settlement(reconciliation_date, trade_date, "T+2")
@@ -261,10 +271,9 @@ class SettlementReconciliationManager:
     
     def _get_trades_for_date(self, trade_date: date) -> List[Dict[str, Any]]:
         """Get all trades for a specific trade date"""
-        # TODO: Implement actual trade retrieval from data adapter
-        # For now, return empty list (placeholder)
-        # In production, this would query trade records from custodian or internal system
-        return []
+        # The existing matching code is a prototype: neither an empty placeholder
+        # nor aggregated holdings establish settlement of individual trades.
+        raise NotImplementedError("Provider trade-level settlement evidence is not integrated; reconciliation unavailable")
     
     def _get_cash_settlements(self, custodian_data: Dict[str, Any], trade_date: date) -> List[Dict[str, Any]]:
         """Extract cash settlement information from custodian data"""
@@ -377,4 +386,3 @@ class SettlementReconciliationManager:
             },
             "overall_status": "complete" if (t1_result.status == "complete" and t2_result.status == "complete") else "partial"
         }
-

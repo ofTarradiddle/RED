@@ -1,6 +1,6 @@
 """
 Adviser Information Source (Online Portal)
-Production-ready implementation for online access to portfolio management and compliance information
+Prototype implementation for online access to portfolio management and compliance information
 
 This module provides:
 - Online access to portfolio management information
@@ -46,7 +46,7 @@ class ComplianceStatus:
 
 class AdviserPortal:
     """
-    Production-ready Adviser Information Source (Online Portal)
+    Prototype Adviser Information Source (Online Portal)
     
     Provides online access to:
     - Portfolio management information (holdings, NAV, performance)

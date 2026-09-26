@@ -1,0 +1,53 @@
+{
+  "fund_id": "REDI",
+  "cutoff": "2026-09-17",
+  "opening": {
+    "date": "2026-09-14",
+    "source": "Illustrative input format; replace with documented opening records",
+    "shares": "100",
+    "positions": [
+      {"symbol": "EXAMPLE", "quantity": "10", "cost": "1000", "carrying_value": "1000"}
+    ],
+    "dividend_items": [],
+    "balances": {
+      "cash": "1000",
+      "dividend_receivable": "0",
+      "trade_receivable": "0",
+      "trade_payable": "0",
+      "fee_payable": "0",
+      "distribution_payable": "0"
+    }
+  },
+  "policy": {
+    "annual_rate": "0.0045",
+    "day_count": "ACT/365F",
+    "base": "closing_net_assets_after_fee",
+    "payment_mode": "confirmed"
+  },
+  "events": [
+    {
+      "id": "EXAMPLE-DIV-2026-09-15",
+      "date": "2026-09-15",
+      "type": "dividend",
+      "symbol": "EXAMPLE",
+      "per_share": "2",
+      "payable_date": "2026-09-17",
+      "currency": "USD",
+      "entitlement_rule": "ordinary_ex_date",
+      "source": "Replace with a sourced dividend declaration"
+    },
+    {
+      "id": "EXAMPLE-RECEIPT-2026-09-17",
+      "date": "2026-09-17",
+      "type": "dividend_payment",
+      "action_id": "EXAMPLE-DIV-2026-09-15",
+      "amount": "20",
+      "source": "Replace with a documented cash receipt"
+    }
+  ],
+  "price_history": {
+    "2026-09-15": {"EXAMPLE": {"date": "2026-09-15", "price": "98", "basis": "as_of_share_units"}},
+    "2026-09-16": {"EXAMPLE": {"date": "2026-09-16", "price": "98", "basis": "as_of_share_units"}},
+    "2026-09-17": {"EXAMPLE": {"date": "2026-09-17", "price": "98", "basis": "as_of_share_units"}}
+  }
+}

@@ -1,5 +1,5 @@
 """
-Production-Ready Liquidity Risk Management Program
+Prototype Liquidity Risk Management Program
 Daily monitoring and management of ETF liquidity risk
 """
 
@@ -29,7 +29,7 @@ class LiquidityRiskAssessment:
 
 class LiquidityRiskManager:
     """
-    Production-ready Liquidity Risk Management Program
+    Prototype Liquidity Risk Management Program
     
     Implements comprehensive liquidity risk monitoring per SEC requirements:
     - Daily liquidity assessment

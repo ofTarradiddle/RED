@@ -227,7 +227,7 @@ RESEARCH_DATABASE = {
     'CVH': {'category': 'Acquired', 'notes': 'Coventry Health Care acquired by Aetna (AET) in 2013', 'date': '2013'},
     'ASO': {'category': 'Acquired', 'notes': 'AlliedSignal merged with Honeywell (HON) in 1999', 'date': '1999'},
     'AMH': {'category': 'Acquired', 'notes': 'American Medical Holdings - need to verify acquisition details', 'date': '1997'},
-    'DO': {'category': 'Ticker Change', 'notes': 'Diamond Offshore ticker DO is active, may have had temporary issues', 'date': '2016'},
+    'DO': {'category': 'Ticker Change', 'notes': 'Offshore issuer ticker DO is active, may have had temporary issues', 'date': '2016'},
     'NAE': {'category': 'Acquired', 'notes': 'National American Energy - need to verify company and acquisition details', 'date': '1997'},
     'NYN': {'category': 'Acquired', 'notes': 'NYNEX acquired by Bell Atlantic (now Verizon VZ) in 1997', 'date': '1997'},
     'TDM': {'category': 'Acquired', 'notes': 'TDM - need to verify company and acquisition details', 'date': '1997'},

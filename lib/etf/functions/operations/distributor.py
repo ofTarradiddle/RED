@@ -1,6 +1,6 @@
 """
-Production-Ready Distributor Function
-Complete implementation with all business logic
+Prototype Distributor Function
+Experimental implementation; operational validation remains necessary
 """
 
 import logging
@@ -32,7 +32,7 @@ class DistributionRecord:
 
 
 class Distributor:
-    """Production-ready Distributor implementation"""
+    """Prototype Distributor implementation"""
     
     def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/distributor"):
         self.data_adapter = data_adapter

@@ -1,5 +1,5 @@
 """
-Production-Ready Tax Reporting Function
+Prototype Tax Reporting Function
 Complete implementation for 1099 form generation and tax reporting
 """
 
@@ -36,7 +36,7 @@ class TaxForm1099:
 
 class TaxReporting:
     """
-    Production-ready Tax Reporting implementation
+    Prototype Tax Reporting implementation
     
     Handles:
     - 1099-DIV (Dividend distributions)

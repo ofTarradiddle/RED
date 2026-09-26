@@ -1,6 +1,6 @@
 """
-Production-Ready Transfer Agent Function
-Complete implementation with all business logic
+Prototype Transfer Agent Function
+Experimental implementation; operational validation remains necessary
 """
 
 import logging
@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 
 class TransferAgent:
-    """Production-ready Transfer Agent implementation - Non-Paying Agent"""
+    """Prototype Transfer Agent implementation - Non-Paying Agent"""
     
     def __init__(self, data_adapter: DataSourceAdapter, storage_path: str = "./data/ta"):
         self.data_adapter = data_adapter

@@ -1,0 +1,13 @@
+/* Original hetzerk.com animation, colored by the surrounding type. */
+.hetzerk-name{display:inline-block;white-space:nowrap;font:inherit;letter-spacing:inherit;text-transform:inherit}
+.hetzerk-initial{position:relative;display:inline-block;line-height:1;color:inherit;-webkit-text-fill-color:transparent}
+.hetzerk-initial::after{content:"";position:absolute;left:-55%;bottom:-.02em;width:210%;height:1.08em;background:currentColor;pointer-events:none;-webkit-mask:url(./hetzerk-bounce.gif) center/100% 100% no-repeat;mask:url(./hetzerk-bounce.gif) center/100% 100% no-repeat}
+.hetzerk-logo{position:relative;display:block;flex:0 0 48px;width:48px;height:48px;overflow:hidden;border:1px solid #e9c9c5;border-radius:9px;background:#fff8f5;box-shadow:0 2px 8px #00000024;text-decoration:none}
+.hetzerk-logo::before{content:"";position:absolute;inset:-9px;width:64px;height:64px;background:#8b0000;pointer-events:none;-webkit-mask:url(./hetzerk-bounce.gif) center/contain no-repeat;mask:url(./hetzerk-bounce.gif) center/contain no-repeat}
+.hetzerk-lockup{display:block;line-height:1.1;flex-shrink:0}
+.hetzerk-masthead-name{font-family:Inter,Arial,sans-serif;font-size:28px;font-weight:600;letter-spacing:-.055em;color:#fff;line-height:1.05}
+.hetzerk-masthead-subtitle{margin-top:7px;font-family:Inter,Arial,sans-serif;font-size:9px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#d4bdb8;line-height:1.15}
+.company-logo .hetzerk-name{font-family:Inter,Arial,sans-serif;font-weight:600;letter-spacing:-.04em}
+@media(max-width:380px){.hetzerk-masthead-name{font-size:25px}.hetzerk-masthead-subtitle{font-size:8px;letter-spacing:.13em}}
+@media(prefers-reduced-motion:reduce){.hetzerk-initial::after,.hetzerk-logo::before{-webkit-mask-image:url(./hetzerk-mark-still.svg);mask-image:url(./hetzerk-mark-still.svg)}}
+@media print{.hetzerk-initial::after,.hetzerk-logo::before{-webkit-mask-image:url(./hetzerk-mark-still.svg);mask-image:url(./hetzerk-mark-still.svg)}}

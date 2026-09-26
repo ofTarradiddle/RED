@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAM | Investment Advisory Services</title>
+    <meta name="description" content="DAM - Registered Investment Advisor providing personalized investment management and advisory services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        .cambria-header {
+            background: #1a0a0a;
+            color: white;
+        }
+        .cambria-nav {
+            background: #2d0f0f;
+            border-bottom: 1px solid #4a1a1a;
+        }
+        .cambria-section {
+            background: #faf8f8;
+            border-top: 1px solid #e8e0e0;
+            border-bottom: 1px solid #e8e0e0;
+        }
+        .cambria-card {
+            background: white;
+            border: 1px solid #e8e0e0;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(139, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .cambria-card:hover {
+            box-shadow: 0 12px 24px rgba(139, 0, 0, 0.15);
+            transform: translateY(-4px);
+        }
+        .cambria-button {
+            background: #8b0000;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+        .cambria-button:hover {
+            background: #a00000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(139, 0, 0, 0.4);
+        }
+        .cambria-button-secondary {
+            background: white;
+            color: #8b0000;
+            border: 2px solid #8b0000;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+        .cambria-button-secondary:hover {
+            background: #faf8f8;
+            border-color: #a00000;
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #8b0000, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .fee-highlight {
+            background: linear-gradient(135deg, #fff3f3 0%, #ffe8e8 100%);
+            border-left: 5px solid #8b0000;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(139, 0, 0, 0.1);
+        }
+        .disclosure-box {
+            background: #fff3f3;
+            border: 1px solid #ffd6d6;
+            border-left: 4px solid #8b0000;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            font-size: 0.875rem;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #faf8f8 100%);
+            border: 1px solid #e8e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.15);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #8b0000, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        .elegant-heading {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="cambria-header sticky top-0 z-50" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+        <div class="cambria-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center py-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-lg flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-lg elegant-heading">DAM</span>
+                </div>
+                        <div class="hidden sm:block">
+                            <div class="text-lg font-bold text-white elegant-heading tracking-tight leading-tight">Hetzerk</div>
+                            <div class="text-sm font-medium text-gray-300 tracking-tight">Asset Management</div>
+                </div>
+            </div>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#innovation" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Innovation</a>
+                        <a href="#services" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Services</a>
+                        <a href="#fees" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Fees</a>
+                        <a href="research" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Research</a>
+                        <a href="section-351.html" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">Section 351</a>
+                        <a href="#about" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">About</a>
+                        <a href="etfs/" class="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors">ETFs</a>
+                        <a href="#contact" class="cambria-button text-sm">Contact</a>
+                    </nav>
+                <!-- Mobile menu button -->
+                    <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+                </div>
+            </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-[#2d0f0f] border-t border-[#4a1a1a]">
+            <div class="px-4 py-2 space-y-1">
+                <a href="#innovation" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Innovation</a>
+                <a href="#services" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Services</a>
+                <a href="#fees" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Fees</a>
+                <a href="research" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Research</a>
+                <a href="section-351.html" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Section 351</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">About</a>
+                <a href="etfs/" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">ETFs</a>
+                <a href="#contact" class="text-gray-300 hover:text-white block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="cambria-section py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight elegant-heading">
+                    Innovation-Driven, Research-Grounded
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-6 leading-relaxed">
+                    Hetzerk is a registered investment advisor.
+                </p>
+                <p class="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-10 leading-relaxed font-medium">
+                    Our philosophy centers on innovation and its role in wealth creation. We draw on endogenous growth theory and academic research showing that innovative firms have, in many studies, outpaced traditional peers over long horizons, and non-peers. We execute with a disciplined, rules-based process that marries quantitative and fundamental research.
+                </p>
+                <div class="fee-highlight max-w-3xl mx-auto">
+                    <div class="flex items-center justify-center gap-3 mb-4">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-[#8b0000]"></i>
+                        <h3 class="text-3xl font-bold text-gray-900 elegant-heading">No Additional Advisory Fees</h3>
+                    </div>
+                    <p class="text-xl text-gray-700 leading-relaxed">
+                        <strong>We charge nothing beyond the ETF management fee</strong> (33.3 basis points / 0.333%) 
+                        unless you request additional advisory services such as financial planning, tax optimization, 
+                        or estate planning.
+                    </p>
+                    </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+                    <a href="#contact" class="cambria-button inline-block text-center">
+                        Get Started
+                    </a>
+                    <a href="etfs/" class="cambria-button-secondary inline-block text-center">
+                        View Our ETFs
+                </a>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fees Section with Charts -->
+    <section id="fees" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 elegant-heading">Transparent Fee Structure</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Simple, straightforward pricing with no hidden costs
+                </p>
+                </div>
+
+            <!-- Fee Comparison Chart (Illustrative) -->
+            <div class="cambria-card p-10 mb-12">
+                <h3 class="text-3xl font-bold text-gray-900 mb-2 text-center elegant-heading">Annual Cost Comparison (Illustrative)</h3>
+                <p class="text-center text-gray-500 mb-8 text-sm">Stacked fees by category; illustrative, not a guarantee</p>
+                <style>
+                    .fee-chart {
+                        position: relative;
+                        max-width: 820px;
+                        height: 300px;
+                        margin: 0 auto;
+                        padding: 10px 20px 10px 60px;
+                    }
+                    .fee-axis {
+                        position: absolute;
+                        left: 48px;
+                        top: 0;
+                        bottom: 40px;
+                        width: 2px;
+                        background: #e5e7eb;
+                    }
+                    .fee-axis-x {
+                        position: absolute;
+                        left: 48px;
+                        right: 0;
+                        bottom: 40px;
+                        height: 2px;
+                        background: #e5e7eb;
+                    }
+                    .fee-ticks {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        bottom: 40px;
+                        width: 48px;
+                        display: grid;
+                        grid-template-rows: repeat(6, 1fr);
+                        align-items: end;
+                        justify-items: end;
+                        font-size: 12px;
+                        color: #6b7280;
+                        padding-bottom: 0;
+                    }
+                    .fee-bars {
+                        position: absolute;
+                        left: 60px;
+                        right: 0;
+                        bottom: 40px;
+                        height: 260px;
+                        display: flex;
+                        align-items: flex-end;
+                        gap: 22px;
+                        justify-content: center;
+                    }
+                    .fee-bar-wrap {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 4px;
+                        width: 110px;
+                        justify-content: flex-end;
+                    }
+                    .fee-bar {
+                        width: 70%;
+                        background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+                        border-radius: 12px 12px 0 0;
+                        position: relative;
+                        overflow: hidden;
+                        box-shadow: 0 6px 18px rgba(0,0,0,0.08), inset 0 1px 2px rgba(255,255,255,0.8);
+                        border: 1px solid #e5e7eb;
+                    }
+                    .fee-seg { width: 100%; }
+                    .seg-underlying { background: #3256a8; }
+                    .seg-platform { background: #26a269; }
+                    .seg-management { background: #d03232; }
+                    .fee-label {
+                        text-align: center;
+                        font-weight: 700;
+                        color: #111827;
+                        font-size: 12.5px;
+                        line-height: 1.3;
+                        padding: 0 4px;
+                        word-break: break-word;
+                    }
+                    .fee-legend {
+                        margin-top: 16px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 12px;
+                        justify-content: center;
+                        font-size: 13px;
+                        color: #374151;
+                    }
+                    .fee-note { font-size: 12px; color: #6b7280; margin-top: 12px; text-align: center; }
+                </style>
+                <div class="fee-chart">
+                    <div class="fee-axis"></div>
+                    <div class="fee-axis-x"></div>
+                    <div class="fee-ticks">
+                        <span>2.5%</span>
+                        <span>2.0%</span>
+                        <span>1.5%</span>
+                        <span>1.0%</span>
+                        <span>0.5%</span>
+                        <span>0%</span>
+                                </div>
+                    <div class="fee-bars">
+                        <div class="fee-bar-wrap">
+                            <div style="text-align: center; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 4px; height: 20px;">0.33%</div>
+                            <div class="fee-bar" style="height: 34px;">
+                                <div class="fee-seg seg-underlying" style="height: 100%;"></div>
+                            </div>
+                                </div>
+                        <div class="fee-bar-wrap">
+                            <div style="text-align: center; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 4px; height: 20px;">0.69%</div>
+                            <div class="fee-bar" style="height: 72px;">
+                                <div class="fee-seg seg-underlying" style="height: 78.3%;"></div>
+                                <div class="fee-seg seg-platform" style="height: 21.7%;"></div>
+                            </div>
+                                </div>
+                        <div class="fee-bar-wrap">
+                            <div style="text-align: center; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 4px; height: 20px;">1.25%</div>
+                            <div class="fee-bar" style="height: 130px;">
+                                <div class="fee-seg seg-underlying" style="height: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="fee-bar-wrap">
+                            <div style="text-align: center; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 4px; height: 20px;">1.75%</div>
+                            <div class="fee-bar" style="height: 182px;">
+                                <div class="fee-seg seg-underlying" style="height: 42.9%;"></div>
+                                <div class="fee-seg seg-management" style="height: 57.1%;"></div>
+                    </div>
+                                    </div>
+                        <div class="fee-bar-wrap">
+                            <div style="text-align: center; font-size: 12px; font-weight: 600; color: #374151; margin-bottom: 4px; height: 20px;">2.40%</div>
+                            <div class="fee-bar" style="height: 250px;">
+                                <div class="fee-seg seg-underlying" style="height: 58.3%;"></div>
+                                <div class="fee-seg seg-management" style="height: 41.7%;"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                <div class="flex flex-wrap items-start justify-center gap-6 mt-3 text-sm text-gray-700" style="padding-left: 60px;">
+                    <div class="fee-label" style="width:110px;">DAM</div>
+                    <div class="fee-label" style="width:110px;">Low-Cost<br>Platform + ETFs</div>
+                    <div class="fee-label" style="width:110px;">DIY Mutual<br>Funds</div>
+                    <div class="fee-label" style="width:110px;">Advisor +<br>ETFs</div>
+                    <div class="fee-label" style="width:110px;">Advisor +<br>Mutual Funds</div>
+                                    </div>
+                <div class="fee-legend">
+                    <div class="flex items-center gap-2"><span class="w-4 h-4 seg-underlying rounded-sm inline-block"></span><span>Underlying Fund Fees</span></div>
+                    <div class="flex items-center gap-2"><span class="w-4 h-4 seg-platform rounded-sm inline-block"></span><span>Platform Fees</span></div>
+                    <div class="flex items-center gap-2"><span class="w-4 h-4 seg-management rounded-sm inline-block"></span><span>Management Fees</span></div>
+                                    </div>
+                <div class="fee-note">
+                    Illustrative and approximate. “Low-Cost Platform + ETFs” reflects a 0% advisory component with ~54 bps underlying and ~15 bps platform. Advisor categories use common industry ranges (175 bps, 240 bps). Actual fees vary by provider, vehicle, and account size. No guarantee of costs or outcomes.
+                                    </div>
+                                </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+                <div class="cambria-card p-8 border-2 border-green-200 bg-gradient-to-br from-green-50 to-white">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="check-circle" class="w-7 h-7 text-green-600"></i>
+                            </div>
+                        <h3 class="text-2xl font-bold text-gray-900 elegant-heading">Standard Advisory</h3>
+                        </div>
+                    <div class="mb-6">
+                        <div class="text-5xl font-bold text-gray-900 mb-2">$0</div>
+                        <div class="text-xl text-gray-600">Additional Advisory Fee</div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        When you invest in our ETFs, you pay <strong>only the ETF expense ratio</strong> 
+                        (currently 33.3 basis points / 0.333% for REDI ETF). <strong>We charge no additional advisory fees</strong> 
+                        for standard investment management services - the ETF fee is the only fee you pay.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0"></i>
+                            <span>Portfolio allocation guidance</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0"></i>
+                            <span>Regular portfolio reviews</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0"></i>
+                            <span>Investment strategy consultation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check" class="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0"></i>
+                            <span>Access to our research and insights</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="cambria-card p-8">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                            <i data-lucide="briefcase" class="w-7 h-7 text-[#8b0000]"></i>
+                                    </div>
+                        <h3 class="text-2xl font-bold text-gray-900 elegant-heading">Additional Services</h3>
+                                    </div>
+                    <div class="mb-6">
+                        <div class="text-5xl font-bold text-gray-900 mb-2">Custom</div>
+                        <div class="text-xl text-gray-600">Fee Structure</div>
+                                </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        For clients who require additional services beyond standard ETF management, 
+                        we offer customized advisory services with transparent, competitive pricing.
+                    </p>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="file-text" class="w-6 h-6 text-[#8b0000] mt-0.5 flex-shrink-0"></i>
+                            <span>Comprehensive financial planning</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="calculator" class="w-6 h-6 text-[#8b0000] mt-0.5 flex-shrink-0"></i>
+                            <span>Tax optimization strategies</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="layers" class="w-6 h-6 text-[#8b0000] mt-0.5 flex-shrink-0"></i>
+                            <span>Custom portfolio construction</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="trending-up" class="w-6 h-6 text-[#8b0000] mt-0.5 flex-shrink-0"></i>
+                            <span>Estate planning coordination</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6">
+                        <a href="#contact" class="text-[#8b0000] hover:underline font-semibold text-lg">
+                            Contact us for pricing →
+                        </a>
+                            </div>
+                        </div>
+                    </div>
+
+            <div class="disclosure-box max-w-4xl mx-auto">
+                <p class="text-gray-800 leading-relaxed">
+                    <strong>Fee Disclosure:</strong> Hetzerk (DAM) charges no separate advisory fees 
+                    for clients who invest in our ETFs. The only fee charged is the ETF's expense ratio, which 
+                    is disclosed in the ETF's prospectus. Additional advisory services, if requested, are subject 
+                    to a separate fee agreement. All fees are disclosed in advance and detailed in our Form ADV, 
+                    Part 2A, which is available upon request.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Investing Section -->
+    <section id="innovation" class="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 elegant-heading">The Investment Case for Innovation</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A systematic, research-driven approach to capturing innovation while managing risk
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <div class="cambria-card p-8">
+                    <div class="mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                            <i data-lucide="line-chart" class="w-10 h-10 text-[#8b0000]"></i>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 elegant-heading">Innovation Exposure, Systematically</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        We pursue innovation exposure through a disciplined, rules-based process—seeking companies that
+                        invest in creating the next wave of products, services, and markets—without relying on single-name
+                        conviction or forecasts.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0"></i>
+                            <span>Signals grounded in observable company data and market microstructure</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0"></i>
+                            <span>Systematic portfolio construction with liquidity and capacity screens</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-green-600 mt-0.5 flex-shrink-0"></i>
+                            <span>Risk-managed implementation to avoid concentration and style drift</span>
+                        </li>
+                    </ul>
+                    </div>
+                    
+                <div class="cambria-card p-8">
+                    <div class="mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                            <i data-lucide="book-open" class="w-10 h-10 text-[#8b0000]"></i>
+                            </div>
+                            </div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 elegant-heading">Endogenous Growth Lens</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Endogenous growth theory links innovation, human capital, and productivity gains. Academic studies
+                        have found that firms leading in innovation have, in many periods, outperformed traditional peers.
+                        We draw on this research while preserving our proprietary quantitative edge.
+                    </p>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="arrow-right" class="w-6 h-6 text-[#8b0000] mt-0.5 flex-shrink-0"></i>
+                            <span>Grounded in peer-reviewed literature on innovation and productivity diffusion</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="arrow-right" class="w-6 h-6 text-[#8b0000] mt-0.5 flex-shrink-0"></i>
+                            <span>Focus on reinvestment, knowledge spillovers, and scalable business models</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="arrow-right" class="w-6 h-6 text-[#8b0000] mt-0.5 flex-shrink-0"></i>
+                            <span>Respectful of uncertainty: no promises, just disciplined process and measurement</span>
+                        </li>
+                    </ul>
+                            </div>
+                        </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="cambria-card p-8">
+                    <div class="text-xl font-bold text-gray-900 mb-2 gradient-text">Systematic Signals</div>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        Quantitative measures of innovation and growth potential, balanced
+                        against profitability, balance sheet strength, and liquidity.
+                    </p>
+            </div>
+
+                <div class="cambria-card p-8">
+                    <div class="text-xl font-bold text-gray-900 mb-2 gradient-text">Risk & Implementation</div>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        Position sizing, diversification limits, liquidity screens, and rebalancing discipline to reduce
+                        single-name and concentration risk while keeping turnover efficient.
+                    </p>
+            </div>
+
+                <div class="cambria-card p-8">
+                    <div class="text-xl font-bold text-gray-900 mb-2 gradient-text">Research Rigor</div>
+                    <p class="text-gray-700 text-sm leading-relaxed">
+                        Informed by academic research and practitioner studies, with in-house empirical testing and
+                        model validation. We maintain proprietary enhancements we believe add practical edge.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 cambria-card p-10 bg-gradient-to-br from-red-50 to-white">
+                <h3 class="text-3xl font-bold text-gray-900 mb-6 elegant-heading text-center">Innovation with Humility and Discipline</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">Process Over Prediction</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            We do not forecast outcomes or promise returns. We focus on systematically capturing
+                            innovation exposure with clear rules, transparent data inputs, and repeatable execution.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">Proprietary Quantitative Edge</h4>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            Our proprietary signals and risk controls build on academic foundations while preserving
+                            differentiated implementation. The objective is resilient exposure to innovation themes,
+                            mindful of drawdowns and real-world constraints.
+                        </p>
+                    </div>
+                </div>
+            </div>
+                </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="cambria-section py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 elegant-heading">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive investment advisory services tailored to your unique financial goals
+                </p>
+                </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="cambria-card p-8">
+                    <div class="mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                            <i data-lucide="trending-up" class="w-10 h-10 text-[#8b0000]"></i>
+                        </div>
+                        </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 elegant-heading">Portfolio Management</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Customized portfolio construction and ongoing management based on your 
+                        risk tolerance, time horizon, and investment objectives. Our systematic 
+                        approach combines rigorous research with disciplined execution.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Asset allocation strategies</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Risk management</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Rebalancing guidance</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Performance monitoring</span>
+                        </li>
+                    </ul>
+            </div>
+
+                <div class="cambria-card p-8">
+            <div class="mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                            <i data-lucide="target" class="w-10 h-10 text-[#8b0000]"></i>
+                    </div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 elegant-heading">Financial Planning</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Comprehensive financial planning services including retirement planning, 
+                        estate planning, and tax optimization strategies. We help you navigate 
+                        complex financial decisions with clarity and confidence.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Retirement planning</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Estate planning coordination</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Tax optimization</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Goal-based planning</span>
+                        </li>
+                    </ul>
+            </div>
+                
+                <div class="cambria-card p-8">
+                    <div class="mb-6">
+                        <div class="w-20 h-20 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center mb-4 shadow-lg">
+                            <i data-lucide="bar-chart-3" class="w-10 h-10 text-[#8b0000]"></i>
+            </div>
+            </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4 elegant-heading">Investment Research</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        In-depth research and analysis to identify investment opportunities 
+                        and manage risk across various asset classes. Our quantitative approach 
+                        leverages data-driven insights for better outcomes.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Systematic strategies</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Market analysis</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Risk assessment</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="arrow-right" class="w-4 h-4 text-[#8b0000]"></i>
+                            <span>Performance attribution</span>
+                        </li>
+                    </ul>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 elegant-heading">About Hetzerk</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Hetzerk is a registered investment advisor committed to delivering 
+                    exceptional investment management services and innovative investment solutions.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="cambria-card p-10">
+                    <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                        Our firm combines rigorous quantitative research with disciplined investment 
+                        management to help clients achieve their financial goals. We specialize in 
+                        systematic investment strategies and innovation-focused portfolio construction.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                        <strong>Innovation is central to our process.</strong> We emphasize measurable, quantitative signals
+                        that capture innovation and growth potential—rather than narrative-driven bets.
+                        We implement these signals with clear rules, liquidity awareness, and diversification.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6 text-lg">
+                        Our approach is grounded in endogenous growth theory and informed by academic research on innovation and productivity,
+                        while preserving proprietary quantitative techniques we believe add practical edge. We do not promise outcomes; we focus on
+                        repeatable, evidence-based implementation.
+                    </p>
+                    <div class="mt-8 cambria-card p-8 bg-gradient-to-br from-white to-red-50 border border-red-100">
+                        <h4 class="text-2xl font-bold text-gray-900 mb-4 elegant-heading">About the Founder</h4>
+                        <ul class="space-y-3 text-gray-700 leading-relaxed">
+                            <li><strong>Corning Inc:</strong> Saw firm-level innovation and commercialization of advanced materials firsthand.</li>
+                            <li><strong>Morningstar:</strong> Evaluated fund research and quantitative methodologies across equity styles.</li>
+                            <li><strong>S&P Dow Jones Indices:</strong> Developed and assessed factor research and multi-asset (MAS) index methodologies.</li>
+                            <li><strong>Goldman Sachs Asset Management (GSAM):</strong> Quant in fundamental equities, integrating systematic signals with bottom-up research.</li>
+                        </ul>
+                        <p class="text-gray-700 mt-4">
+                            These experiences shape our systematic, innovation-focused process—grounded in data, respectful of uncertainty, and executed with institutional discipline.
+                        </p>
+                        </div>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        In addition to our advisory services, we manage exchange-traded funds (ETFs) 
+                        that implement our proprietary investment strategies. 
+                        <a href="etfs/" class="text-[#8b0000] hover:underline font-medium">Learn more about our ETFs</a>.
+                    </p>
+                        </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="cambria-section py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4 elegant-heading">Contact Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Get in touch to learn more about our investment advisory services
+                </p>
+                        </div>
+
+            <div class="max-w-2xl mx-auto">
+                <div class="cambria-card p-10">
+            <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2 elegant-heading">DAM</h3>
+                        <p class="text-gray-600 mb-2">Registered Investment Advisor</p>
+                        <p class="text-sm text-gray-500">Also known as DAM</p>
+                        </div>
+            
+                    <div class="space-y-6 text-center">
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center shadow-md">
+                                <i data-lucide="mail" class="w-7 h-7 text-[#8b0000]"></i>
+                        </div>
+                            <a href="mailto:info@hetzerk.example" class="text-lg text-gray-700 hover:text-[#8b0000] font-medium">
+                                info@hetzerk.example
+                            </a>
+                        </div>
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center shadow-md">
+                                <i data-lucide="phone" class="w-7 h-7 text-[#8b0000]"></i>
+                        </div>
+                            <a href="tel:+15551234567" class="text-lg text-gray-700 hover:text-[#8b0000] font-medium">
+                                (555) 123-4567
+                    </a>
+                        </div>
+                        <div class="flex items-center justify-center gap-4">
+                            <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center shadow-md">
+                                <i data-lucide="map-pin" class="w-7 h-7 text-[#8b0000]"></i>
+                        </div>
+                            <div class="text-lg text-gray-700">
+                                123 Main Street, Suite 1000<br>New York, NY 10001
+                        </div>
+                        </div>
+                        </div>
+
+                    <div class="mt-10 pt-8 border-t border-gray-200 space-y-6">
+                        <div class="disclosure-box">
+                            <p class="text-sm text-gray-800 leading-relaxed">
+                                <strong>Regulatory Disclosure:</strong> Hetzerk (DAM) is registered with 
+                                the Securities and Exchange Commission (SEC) as an investment adviser under the 
+                                Investment Advisers Act of 1940. Registration with the SEC does not imply a certain 
+                                level of skill or training. For more information about our advisory services, 
+                                please request a copy of our Form ADV, Part 2A (Brochure).
+                            </p>
+                        </div>
+                        <div class="disclosure-box">
+                            <p class="text-sm text-gray-800 leading-relaxed">
+                                <strong>Form CRS (Customer Relationship Summary):</strong> Hetzerk (DAM) 
+                                provides investment advisory services. Our advisory services are provided for a fee, 
+                                which is disclosed in our Form ADV, Part 2A. When you invest in our ETFs, you pay 
+                                only the ETF expense ratio (33.3 basis points / 0.333%). We do not charge additional 
+                                advisory fees for standard investment management services. 
+                                <a href="form-crs.html" class="text-[#8b0000] hover:underline font-semibold">View our Form CRS</a> 
+                                or contact us at info@hetzerk.example. You can also view our Form CRS on the SEC's Investment Adviser Public 
+                                Disclosure website (IAPD).
+                            </p>
+                        </div>
+                </div>
+            </div>
+                            </div>
+                            </div>
+    </section>
+
+    <!-- Section 351 & Form CRS Fraction-Style Links -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="space-y-6">
+                <!-- Section 351 Card (Top) -->
+                <a href="section-351.html" class="block cambria-card p-8 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-2 elegant-heading group-hover:text-[#8b0000] transition-colors">Section 351 Exchanges</h2>
+                            <p class="text-gray-600 mb-4">Tax-free exchanges for ETF creation and redemption</p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Learn about Section 351 of the Internal Revenue Code and how it enables tax-efficient 
+                                ETF creation and redemption processes for Authorized Participants.
+                            </p>
+                            </div>
+                        <div class="ml-6">
+                            <svg class="w-8 h-8 text-[#8b0000] group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            </div>
+                            </div>
+                        </a>
+                        
+                <!-- Form CRS Card (Bottom) -->
+                <a href="form-crs.html" class="block cambria-card p-8 hover:shadow-xl transition-all duration-300 group">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-2 elegant-heading group-hover:text-[#8b0000] transition-colors">Customer Relationship Summary</h2>
+                            <p class="text-gray-600 mb-4">Form CRS - DAM</p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Review our Customer Relationship Summary (Form CRS) to understand our services, 
+                                fees, legal obligations, and how we make money as your investment adviser.
+                            </p>
+                            </div>
+                        <div class="ml-6">
+                            <svg class="w-8 h-8 text-[#8b0000] group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                            </div>
+                        </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="cambria-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                    <div>
+                    <h4 class="text-white font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-white text-sm transition-colors">Portfolio Management</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white text-sm transition-colors">Financial Planning</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white text-sm transition-colors">Investment Research</a></li>
+                    </ul>
+                    </div>
+
+                    <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white text-sm transition-colors">About DAM</a></li>
+                        <li><a href="etfs/" class="text-gray-400 hover:text-white text-sm transition-colors">Our ETFs</a></li>
+                        <li><a href="section-351.html" class="text-gray-400 hover:text-white text-sm transition-colors">Section 351</a></li>
+                        <li><a href="form-crs.html" class="text-gray-400 hover:text-white text-sm transition-colors">Form CRS</a></li>
+                        <li><a href="#fees" class="text-gray-400 hover:text-white text-sm transition-colors">Fees</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                    </ul>
+                    </div>
+
+                    <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                        <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors"><strong>Privacy Policy</strong></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors"><strong>Terms of Service</strong></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors"><strong>Disclosures</strong></a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors"><strong>Form ADV</strong></a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                    <h4 class="text-white font-semibold mb-4">Connect</h4>
+                        <ul class="space-y-2">
+                        <li><a href="mailto:info@hetzerk.example" class="text-gray-400 hover:text-white text-sm transition-colors">Email</a></li>
+                        <li><a href="tel:+15551234567" class="text-gray-400 hover:text-white text-sm transition-colors">Phone</a></li>
+                        </ul>
+                    </div>
+                    </div>
+
+            <div class="border-t border-gray-700 pt-8">
+                <div class="disclosure-box bg-gray-900 border-gray-700 mb-6">
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        <strong>Important Disclosures:</strong> Hetzerk (DAM) is a registered investment 
+                        adviser. Past performance does not guarantee future results. Investment returns and principal 
+                        value will fluctuate, and investors may lose money. Advisory services are provided only to 
+                        clients who have entered into an investment advisory agreement with DAM. This website is for 
+                        informational purposes only and does not constitute an offer to sell or a solicitation to buy 
+                        securities. For more information, please review our Form ADV, Part 2A, available upon request.
+                        </p>
+                    </div>
+                <div class="mb-6">
+                    <p class="text-sm text-gray-400 text-center leading-relaxed">
+                        <strong>Minimum Investment:</strong> The minimum investment for advisory services is $100,000, which is waivable at our own discretion.
+                        </p>
+                    </div>
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; <span class="current-year"></span> Hetzerk (DAM). All rights reserved.
+                    </p>
+                    <p class="text-gray-500 text-xs text-center md:text-right">
+                        Hetzerk is a registered investment advisor. Past performance does not guarantee future results.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/site-navigation-disclaimer.js"></script>
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+        
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('mobileMenu').classList.add('hidden');
+                }
+            });
+        });
+
+    </script>
+<script>document.querySelectorAll('.current-year').forEach(el=>el.textContent=new Date().getFullYear())</script>
+</body>
+</html> 

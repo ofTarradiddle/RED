@@ -1,6 +1,6 @@
 """
 M-1 Book-to-Tax Adjustments and Tax Footnotes
-Production-ready implementation for book-to-tax reconciliation and audit support
+Prototype implementation for book-to-tax reconciliation and audit support
 
 This module handles:
 - M-1 reconciliation (book income vs taxable income)
@@ -56,7 +56,7 @@ class TaxFootnote:
 
 class BookToTaxAdjustments:
     """
-    Production-ready M-1 Book-to-Tax Adjustments
+    Prototype M-1 Book-to-Tax Adjustments
     
     Handles reconciliation between book accounting and tax accounting,
     including permanent and temporary differences.

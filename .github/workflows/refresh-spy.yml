@@ -1,0 +1,181 @@
+name: Refresh SPY holdings, accounting cache and Pages
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: spy-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      pages_ready: ${{ steps.pages.outcome == 'success' }}
+    permissions:
+      contents: read
+      actions: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements-shadow.txt
+      - name: Check accounting and publishing
+        run: python -m pytest tests/site tests/test_shadow_equity.py tests/test_daily_spy.py tests/test_spy_reconcile.py tests/test_dividend_calendar.py tests/test_dividend_receivables.py tests/test_daily_accruals.py tests/test_ledger_replay.py tests/test_accounting_cache.py tests/test_library_safety.py -q
+      - name: Restore dated public market evidence
+        id: market
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            data/shadow_spy/holdings_archive
+            data/shadow_spy/quote_archive
+            data/shadow_spy/dividend-research
+            data/shadow_spy/dividend-actions
+          key: spy-market-v2-${{ runner.os }}-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: spy-market-v2-${{ runner.os }}-${{ github.ref_name }}-
+      - name: Restore modeled accounting books
+        id: books
+        uses: actions/cache/restore@v4
+        with:
+          path: data/shadow_spy/accounting-cache
+          key: shadow-books-v1-${{ runner.os }}-${{ github.ref_name }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: shadow-books-v1-${{ runner.os }}-${{ github.ref_name }}-
+      - name: Find snapshot backup when cache was evicted
+        id: backup
+        if: steps.books.outputs.cache-matched-key == ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const branch = context.ref.replace('refs/heads/', '');
+            const artifacts = await github.paginate(github.rest.actions.listArtifactsForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              name: 'shadow-accounting-snapshot', per_page: 100
+            });
+            const candidates = artifacts.filter(a => !a.expired && a.workflow_run?.head_branch === branch);
+            candidates.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+            if (candidates.length) core.setOutput('run_id', String(candidates[0].workflow_run.id));
+      - name: Recover accounting snapshot backup
+        if: steps.backup.outputs.run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: shadow-accounting-snapshot
+          path: data/shadow_spy/accounting-cache
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.backup.outputs.run_id }}
+      - name: Validate and restore the saved books
+        id: restore_books
+        run: python -m scripts.accounting_cache restore
+      - name: Detect Pages path
+        id: pages
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+      - name: Refresh and build
+        id: refresh
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          if [ -n "$PAGES_SITE_URL" ]; then
+            python -m scripts.refresh_spy --build --base-path "$PAGES_BASE_PATH" --site-url "$PAGES_SITE_URL" --indexable
+          else
+            python -m scripts.refresh_spy --build
+          fi
+      - name: Prepare modeled accounting checkpoint
+        id: checkpoint
+        if: always() && steps.restore_books.outcome == 'success' && steps.refresh.outcome != 'skipped'
+        run: python -m scripts.accounting_cache export
+      - name: Preserve market inputs for the next run
+        if: always() && steps.refresh.outcome != 'skipped'
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            data/shadow_spy/holdings_archive
+            data/shadow_spy/quote_archive
+            data/shadow_spy/dividend-research
+            data/shadow_spy/dividend-actions
+          key: ${{ steps.market.outputs.cache-primary-key }}
+      - name: Persist modeled journal and accrual history
+        if: always() && steps.checkpoint.outputs.ready == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: data/shadow_spy/accounting-cache
+          key: ${{ steps.books.outputs.cache-primary-key }}
+      - name: Retain downloadable accounting snapshot
+        if: always() && steps.checkpoint.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: shadow-accounting-snapshot
+          path: data/shadow_spy/accounting-cache
+          retention-days: 90
+          if-no-files-found: error
+      - name: Report accounting dates
+        if: always() && steps.checkpoint.outputs.ready == 'true'
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          folder = Path('data/shadow_spy/accounting-cache')
+          manifest = json.loads((folder/'manifest.json').read_text())
+          report = json.loads((folder/'daily/latest.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('### Shadow accounting saved\n\n')
+              summary.write(f"Latest attempt: {manifest['latest_attempt_as_of']}\n\n")
+              summary.write(f"Last successful daily book: {manifest.get('last_successful_as_of') or 'Not established'}\n\n")
+              summary.write('Download the **shadow-accounting-snapshot** artifact to inspect daily balances, journal entries and inputs.\n\n')
+              summary.write(f"Status: {report['status']}\n")
+          PY
+      - name: Require a complete daily replay
+        if: steps.checkpoint.outputs.ready == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          book = json.loads(Path('data/shadow_spy/accounting-cache/daily/latest.json').read_text())
+          if not book.get('model_complete') or not book.get('daily') or book.get('error'):
+              raise SystemExit('Accounting checkpoint retained for retry; daily replay needs data: '+book.get('error',book['status']))
+          PY
+      - name: Materialize public output
+        run: python -c "import shutil; shutil.copytree('dist', '.pages', symlinks=False)"
+      - name: Retain public market input evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-market-inputs-${{ github.run_id }}
+          retention-days: 30
+          path: |
+            data/shadow_spy/runs/*/holdings.xlsx
+            data/shadow_spy/runs/*/nav.xlsx
+            data/shadow_spy/runs/*/distributions.xlsx
+            data/shadow_spy/runs/*/yahoo.json
+            data/shadow_spy/runs/*/valuation-holdings.xlsx
+            data/shadow_spy/runs/*/issuer.html
+            data/shadow_spy/runs/*/peer.xlsx
+            data/shadow_spy/runs/*/quote_sources/*.json
+            data/shadow_spy/runs/*/quote_sources/*.xlsx
+          # No supplied operating records or private dashboard HTML.
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.pages.outcome == 'success'
+        with:
+          path: .pages
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && needs.build.outputs.pages_ready == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy public site
+        id: deployment
+        uses: actions/deploy-pages@v4

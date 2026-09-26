@@ -1,5 +1,5 @@
 """
-Production-Ready Tax Efficiency Optimization Module
+Prototype Tax Efficiency Optimization Module
 Portfolio-level tax optimization for ETF operations
 """
 
@@ -28,7 +28,7 @@ class TaxOptimizationStrategy:
 
 class TaxEfficiencyOptimizer:
     """
-    Production-ready Tax Efficiency Optimizer
+    Prototype Tax Efficiency Optimizer
     
     Handles:
     - Tax lot selection (FIFO vs LIFO vs specific identification)

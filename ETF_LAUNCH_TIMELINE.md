@@ -2,7 +2,7 @@
 
 **Standalone Trust (Active ETF, Self-Admin Start)**
 
-**Sponsor**: Diamond Brothers ETF Trust  
+**Sponsor**: Hetzerk ETF Trust
 **Generated**: 2025-01-05  
 **Purpose**: Definitive, step-by-step checklist with costs, contacts, rules, and website obligations
 
@@ -716,4 +716,3 @@ Based on Sparklines ITAN ETF achieving <$15k all-in for service providers, here'
 
 **Last Updated**: 2025-01-05  
 **Version**: 1.0
-

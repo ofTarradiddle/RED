@@ -30,7 +30,7 @@ class AuditRecord:
 
 class AuditTrailManager:
     """
-    Production-ready Audit Trail Manager
+    Prototype Audit Trail Manager
     
     Ensures all operations are logged for audit purposes.
     SEC Rule 31a-2 requires maintaining complete books and records.

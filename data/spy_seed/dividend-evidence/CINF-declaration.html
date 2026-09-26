@@ -1,0 +1,1763 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- begin spin_special_output(head_start) -->
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ=="></script>
+<style type="text/css" wd_script_id="search_form_style" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ==">
+		.wd_search_form .wd_input_datepicker {
+			margin-right: 2px;
+		}
+		.wd_search_type_checkbox {
+			margin-left: 20px;
+		}
+		</style>
+<script type="text/javascript" wd_script_id="search_form_script" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ==">
+			function wd_toggle_search_form(link, advanced) {
+				var $ = webDriver.jQuery;
+				var $container = $(link).closest(".wd_search_form_container");
+				var basic_form = $container.find(".wd_search_form_basic");
+				var basic_query = basic_form.find('input[name="query"]');
+				var advanced_form = $container.find(".wd_search_form_advanced");
+				var advanced_query = advanced_form.find('input[name="query"]');
+
+				if (advanced) {
+					advanced_query.val(basic_query.val());
+					advanced_form.show();
+					basic_form.hide();
+				} else {
+					basic_query.val(advanced_query.val());
+					basic_form.show();
+					advanced_form.hide();
+				}
+
+				var target_form = advanced ? advanced_form : basic_form;
+				var focus_target = target_form.find('input[name="query"]').filter(":visible:not(:disabled)").get(0);
+				if (!focus_target)
+					focus_target = target_form.find(":input").filter(":visible:not(:disabled)").get(0);
+				if (focus_target)
+					setTimeout(function() { focus_target.focus(); }, 0);
+			}
+
+			function wd_toggle_search_type_checkboxes(radio) {
+				var $ = webDriver.jQuery;
+				var $radio = $(radio);
+				var all = $radio.val() == "All" ? $radio.is(":checked") : !$radio.is(":checked");
+				var $checkboxes = $radio.closest(".wd_form_field").find(".wd_search_type_checkbox");
+				$checkboxes.find('input[type="checkbox"]').prop("disabled", all);
+				$checkboxes.toggle(!all);
+			}
+
+			webDriver.jQuery(function ($) {
+				$('.wd_search_type_radio input[type="radio"]').each(function() {wd_toggle_search_type_checkboxes(this);});
+			});
+		</script>
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<style type="text/css" wd_script_id="toolbar_style" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<link href="css/wd_wcag.css" type="text/css" rel="stylesheet" wd_script_id="wd_wcag.css">
+<script type="text/javascript" src="js/wd_resize.js" wd_script_id="wd_resize.js" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ=="></script>
+<script type="text/javascript" wd_script_id="format_news_script" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ==">
+(function($) {
+	webDriver.formatNews = function() {
+		var $news = $(this);
+		var print_url = $news.attr("wd_print_url");
+		$news.find("table").each(function() {
+			var $table = $(this);
+			var $parent = $table.parent();
+			if ($parent.innerWidth() < $table.outerWidth()) {
+				if ($parent.hasClass("wd_news_table")) {
+					$parent.find(".fullscreen-button").show();
+				} else {
+					var $btn = $("<button>View News Release Full Screen</button>")
+						.addClass("fullscreen-button")
+						.on("click", function() {
+							if (print_url)
+								window.open(print_url, "_blank", "");
+							else
+								view_printable();
+						})
+					;
+
+					var $div = $("<div></div>)")
+						.addClass("wd_news_table")
+						.css("overflow-x", "auto")
+						.append($btn)
+					;
+
+					$table.replaceWith($div);
+					$div.append($table);
+				}
+			} else {
+				if ($parent.hasClass("wd_news_table"))
+					$parent.find(".fullscreen-button").hide();
+			}
+		});
+	}
+})(webDriver.jQuery);
+</script>
+<style type="text/css" wd_script_id="template detail:newsfeed_releases:system style" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ==">
+.wd_title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.wd_subtitle {
+	font-weight: bold;
+}
+table.wd_extimagetable {
+	border-style: none; 
+	border-spacing:0px;
+	clear: right; 
+	float: right; 
+}
+td.wd_extimagecell {
+	text-align: right; 
+	margin: 0px 0px 5px 5px;
+	padding:0px;
+}
+td.wd_extimagecell img {
+	padding-left:10px;
+	padding-bottom:10px;
+	border-style: none; 
+}
+blockquote.wd_pullquote {
+	font-style: italic;
+	width:200px;
+	margin:0 0 20px 20px;
+	line-height: 1.8em;
+	float: right;
+	clear: right;
+}
+blockquote.wd_pullquote:before {
+	content: "“ ";
+	font-size: xx-large;
+}
+blockquote.wd_pullquote:after {
+	content: " ”";
+	font-size: xx-large;
+	float: right;
+}
+.fullscreen-button {
+	border: 1px solid #d1d1d1;
+	background: #e3e3e3 url(images/webdriver/view_full_screen_button_background.png) no-repeat;
+	padding: 3px 3px 3px 30px;
+	margin: 5px 0px 5px 0px;
+	color: #727272;
+	width: 220px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.wd_contact {
+	margin: 1em 0;
+}
+.wd_release_data {
+	margin: 1em 0;
+}
+.wd_caption {
+	text-align: center;
+	font-size: 0.72em;
+	font-style: italic;
+	margin: 1em 0 0 0;
+}
+</style>
+<script type="text/javascript" wd_script_id="download_page_as_pdf_script" nonce="NmVmODk2MjY2ZjhiY2RmMDFkZDc0MDcyMzdmYjZlZmUyNmRmYThmOQ==">
+	function download_page_as_pdf(el) {
+
+		function load_script(src) {
+			return new Promise(function(resolve, reject) {
+				var s = document.createElement("script");
+				s.src = src;
+				s.onload = resolve;
+				s.onerror = function () { reject(new Error("failed to load " + src)); };
+				document.head.appendChild(s);
+			});
+		}
+
+		function ensure_libs() {
+			var need = [];
+			if (typeof window.html2canvas === "undefined")
+				need.push(load_script("https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"));
+			if (typeof window.jspdf === "undefined")
+				need.push(load_script("https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"));
+			return Promise.all(need);
+		}
+
+		function fallback_to_server(err) {
+			if (window.console && console.error)
+				console.error("Client-side PDF generation failed, falling back to server download:", err);
+			window.location.href = el.href;
+		}
+
+		function safe_filename() {
+			var title = (document.title || "page").replace(/[\/:*?"<>|]+/g, "").trim();
+			return (title || "page") + ".pdf";
+		}
+
+		// Known third-party widgets (cookie/consent banners, social embeds, iframes)
+		// that are (a) not meaningful in a static PDF and (b) commonly served
+		// without CORS headers, which taints the canvas and breaks export.
+		var known_widget_selector = [
+			"iframe",
+			"[id*='trustarc' i]", "[class*='trustarc' i]", "[id*='teconsent' i]",
+			"[id*='consent_blackbar' i]", "[class*='truste' i]", "[id^='pop-frame']",
+			"[id*='onetrust' i]", "[class*='onetrust' i]", "[class*='ot-sdk' i]",
+			"[id*='cookiebot' i]", "[class*='cookie-consent' i]", "[class*='cookiebanner' i]"
+		].join(",");
+
+		function is_cross_origin_url(url) {
+			try {
+				return new URL(url, document.baseURI).origin !== window.location.origin;
+			} catch (e) {
+				return false;
+			}
+		}
+
+		// strict = also skip any element whose image/background is cross-origin,
+		// used as a fallback retry when a first, lighter-touch capture gets tainted.
+		function build_ignore_elements(strict) {
+			return function (node) {
+				if (node.matches && node.matches(known_widget_selector))
+					return true;
+				if (!strict)
+					return false;
+				if (node.tagName === "IMG" && node.src && is_cross_origin_url(node.src))
+					return true;
+				var bg = window.getComputedStyle ? window.getComputedStyle(node).backgroundImage : "";
+				var m = bg && /url\((['"]?)(.*?)\1\)/.exec(bg);
+				if (m && is_cross_origin_url(m[2]))
+					return true;
+				return false;
+			};
+		}
+
+		function capture_canvas(strict) {
+			var exclude_selector = ".wd_toolbar, [data-pdf-exclude]";
+
+			return window.html2canvas(document.body, {
+				useCORS: true,
+				allowTaint: false,
+				scale: window.devicePixelRatio > 1 ? 2 : 1.5,
+				windowWidth: document.documentElement.scrollWidth,
+				windowHeight: document.documentElement.scrollHeight,
+				ignoreElements: build_ignore_elements(strict),
+				onclone: function (cloned_doc) {
+					var nodes = cloned_doc.querySelectorAll(exclude_selector);
+					for (var i = 0; i < nodes.length; i++)
+						nodes[i].style.display = "none";
+				}
+			}).then(function (canvas) {
+				// Force the taint check now (rather than later, at save time) so
+				// we can retry with a stricter capture before giving up.
+				var data_url = canvas.toDataURL("image/jpeg", 0.95);
+				return { canvas: canvas, data_url: data_url };
+			});
+		}
+
+		var original_cursor = document.body.style.cursor;
+		document.body.style.cursor = "wait";
+
+		ensure_libs().then(function () {
+
+			return capture_canvas(false).catch(function (err) {
+				if (window.console && console.warn)
+					console.warn("PDF capture tainted, retrying without cross-origin images:", err);
+				return capture_canvas(true);
+			});
+
+		}).then(function (result) {
+
+			var canvas = result.canvas;
+			var jsPDF = window.jspdf.jsPDF;
+			var pdf = new jsPDF("p", "pt", "a4");
+
+			var page_width = pdf.internal.pageSize.getWidth();
+			var page_height = pdf.internal.pageSize.getHeight();
+			var img_width = page_width;
+			var img_height = (canvas.height * img_width) / canvas.width;
+			var height_left = img_height;
+			var position = 0;
+
+			pdf.addImage(result.data_url, "JPEG", 0, position, img_width, img_height);
+			height_left -= page_height;
+
+			while (height_left > 0) {
+				position = height_left - img_height;
+				pdf.addPage();
+				pdf.addImage(result.data_url, "JPEG", 0, position, img_width, img_height);
+				height_left -= page_height;
+			}
+
+			pdf.save(safe_filename());
+
+		}).catch(fallback_to_server).finally(function () {
+			document.body.style.cursor = original_cursor;
+		});
+
+		return false;
+	}
+</script>
+
+<!-- end spin_special_output(head_start) -->
+
+  
+<!-- OneTrust Cookies Consent Notice start for cinfin.com -->
+<script src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" data-document-language="true" type="text/javascript" charset="UTF-8" data-domain-script="a618e134-742c-4de3-b2f9-4886602e5990" ></script>
+<script type="text/javascript">
+function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end for cinfin.com -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cincinnati Financial Corporation Declares Regular Quarterly Cash Dividend - Aug 21, 2026</title>
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+      <!-- End Favicon -->
+
+      
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Cincinnati Financial Corporation Declares Regular Quarterly Cash Dividend" />
+ <meta name="twitter:description" content="Cincinnati Financial Corporation (Nasdaq: CINF) announced that at today's regular meeting, the board of directors declared a 94 cents-per-share regular quarterly cash dividend. The dividend is..." />
+ <meta name="twitter:image" content="https://mmx.prnewswire.com/media/MS262662/CINCINNATI-FINANCIAL-CORPORATION-LOGO.jpg?id=OA2902126&amp;p=twitter" />
+ <meta property="og:site_name" content="Cincinnati Financial" />
+ <meta property="og:url" content="https://investors.cinfin.com/2026-08-21-Cincinnati-Financial-Corporation-Declares-Regular-Quarterly-Cash-Dividend" />
+ <meta property="og:title" content="Cincinnati Financial Corporation Declares Regular Quarterly Cash Dividend" />
+ <meta property="og:description" content="Cincinnati Financial Corporation (Nasdaq: CINF) announced that at today's regular meeting, the board of directors declared a 94 cents-per-share regular quarterly cash dividend. The dividend is..." />
+ <meta name="image" property="og:image" content="https://mmx.prnewswire.com/media/MS262662/CINCINNATI-FINANCIAL-CORPORATION-LOGO.jpg?id=OA2902126&amp;p=facebook" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/css1.css">
+    <link rel="stylesheet" href="css/css2.css">
+    <link rel="stylesheet" href="css/wdcontent.css">
+        
+<!-- begin spin_special_output(head_end) -->
+<!-- OneTrust Cookies Consent Notice start -->
+<script src="" type="text/javascript" charset="UTF-8"></script>
+<script type="text/javascript">
+	function OptanonWrapper() { }
+</script>
+<!-- OneTrust Cookies Consent Notice end -->
+
+<link rel="canonical" href="https://investors.cinfin.com/2026-08-21-Cincinnati-Financial-Corporation-Declares-Regular-Quarterly-Cash-Dividend" />
+<!-- end spin_special_output(head_end) -->
+</head>
+<body class="wd_pageid_43 wd_item_page wd_item_318">
+<div id="wd_wrapper">
+    <a class="skip-to-main-content-link wd_sr-only" href="#maincontent">Skip to content</a>
+    <header>
+        <div id="header">
+          <div class="header header"><!-- removed class has-header-overlay -->
+            <section class="component alert-blue-banner-header-section"></section>
+            <section class="component alert-yellow-banner-header-section"></section>
+            <section class="component alert-orange-banner-header-section"></section>
+            <div class="component col-12">
+              <div class="component-content">
+                <div class="row">
+                  <div class="row-splitter col-12">
+                    <div class="component d-none d-lg-block top-bar-main">
+                      <div class="component-content d-none d-lg-block">
+                        <div
+                          class="component container d-md-flex justify-content-md-end"
+                        >
+                          <div class="component-content">
+                          </div>
+                          <div class="row column-splitter list-wrapper">
+                            <div class="component col-auto">
+                              <nav class="component-content">
+                                <ul class="top-bar-main__list">
+                                  <li>
+                                    <div class="component link">
+                                      <div class="component-content">
+                                        <div class="field-link">
+                                          <a
+                                            title=""
+                                            target=""
+                                            class=""
+                                            href="https://www.cinfin.com/cincinnati-insurance-agents"
+                                            >Agents</a
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="component link">
+                                      <div class="component-content">
+                                        <div class="field-link">
+                                          <a
+                                            href="https://investors.cinfin.com/"
+                                            target=""
+                                            >Investors</a
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="component link">
+                                      <div class="component-content">
+                                        <div class="field-link">
+                                          <a
+                                            title=""
+                                            target=""
+                                            class=""
+                                            href="https://www.cinfin.com/cincinnati-insurance-careers"
+                                            >Careers</a
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                  <li>
+                                    <div class="component link">
+                                      <div class="component-content">
+                                        <div class="field-link">
+                                          <a
+                                            title=""
+                                            target=""
+                                            class=""
+                                            href="https://www.cinfin.com/contact-us"
+                                            >Contact</a
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </li>
+                                </ul>
+                              </nav>
+                            </div>
+                            <div
+                              class="component col-auto d-none d-md-block no-padding"
+                            >
+                              <div class="component-content">
+                                <div class="component link">
+                                  <div class="component-content">
+                                    <div class="field-link">
+                                      <button
+                                        aria-label="Search"
+                                        class="search-opener"
+                                        data-search-opener="true"
+                                      >
+                                        <span
+                                          class="theme--icon"
+                                          style="
+                                            color: var(--theme-color-white);
+                                            width: 14px;
+                                            display: inline-block;
+                                            vertical-align: top;
+                                          "
+                                          ><svg id="svg-search-opener"
+                                            viewBox="0 0 12 12"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <circle
+                                              cx="4.58543"
+                                              cy="4.58543"
+                                              r="3.83543"
+                                              stroke="currentColor"
+                                              stroke-width="1.5"
+                                            ></circle>
+                                            <path
+                                              d="M8.05908 7.50342L11.116 10.3657"
+                                              stroke="currentColor"
+                                              stroke-width="1.5"
+                                              stroke-linecap="round"
+                                            ></path></svg                                    ></span>
+                                      </button>
+                                    </div>
+                                    <div class="component search-section">
+                                      <span class="fas fa-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Pro 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"/></svg></span>
+                                      <div class="component-content">
+                                        <div class="container search-main">
+                                          <div class="search-form-box">
+                                          <div class="wd_search_form_container"><form name="basic_search" method="get" action="https://investors.cinfin.com/search-results" class="wd_search_form wd_search_form_basic"><input type="hidden" name="s" value="search_results" /><input type="text" name="query" value="" size="32" placeholder="Search Investor Relations" title="Search Investor Relations" /> <input type="submit" name="submit" value="Submit"></form>
+</div><!-- END SITE SEARCH -->
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="component header-holder">
+                      <div class="component-content container">
+                        <div class="row column-splitter col-12 nav-cols">
+                          <div class="col-12 col-md-2">
+                            <div class="component image logo-holder">
+                              <div class="component-content">
+                                <div class="logo logo--dark">
+                                  <div class="component image undefined">
+                                    <div class="component-content">
+                                      <a
+                                        title=""
+                                        target=""
+                                        class=""
+                                        aria-label="Logo Image"
+                                        tabindex="-1"
+                                        href="https://www.cinfin.com/"
+                                        ><img src="images/cic-logo.svg" alt="CIC Logo"></a
+                                      >
+                                    </div>
+                                  </div>
+                                </div><!--
+                                <div class="logo logo-white">
+                                  <div class="component image">
+                                    <div class="component-content">
+                                      <a
+                                        title=""
+                                        target=""
+                                        class=""
+                                        aria-label="Logo Image"
+                                        tabindex="0"
+                                        href="https://www.cinfin.com/"
+                                        >/</a
+                                      >
+                                    </div>
+                                  </div>
+                                </div>-->                                
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-10">
+                            <div class="component">
+                              <div class="component-content">
+                                <div class="main-nav">
+                                  <div class="row column-splitter">
+                                    <div class="col-auto d-lg-none">
+                                      <div class="component link">
+                                        <div class="component-content">
+                                          <div class="field-link">
+                                            <a
+                                              role="button"
+                                              data-search-opener="true"
+                                              class="search-opener"
+                                              aria-label="Search"
+                                              href="https://www.cinfin.com/#"
+                                              ><span
+                                                class="theme--icon"
+                                                style="
+                                                  color: inherit;
+                                                  width: 30px;
+                                                  display: inline-block;
+                                                  vertical-align: top;
+                                                "
+                                                ><svg id="svg-opener"
+                                                  viewBox="0 0 32 29"
+                                                  fill="none"
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <circle
+                                                    cx="12.3862"
+                                                    cy="12.3862"
+                                                    r="11.3862"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                  ></circle>
+                                                  <path
+                                                    d="M21.7695 20.2686L30.027 28.0002"
+                                                    stroke="currentColor"
+                                                    stroke-width="2"
+                                                    stroke-linecap="round"
+                                                  ></path></svg></span
+                                            ></a>
+                                          </div>
+                                          <div class="component search-section">
+                                            <div class="component-content">
+                                              <div class="container search-main">
+                                                <span class="fas fa-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Pro 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z"/></svg></span>
+                                                <div class="search-form-box">
+                                                    <div class="wd_search_form_container"><form name="basic_search" method="get" action="https://investors.cinfin.com/search-results" class="wd_search_form wd_search_form_basic"><input type="hidden" name="s" value="search_results" /><input type="text" name="query" value="" size="32" placeholder="Search Investor Relations" title="Search Investor Relations" /> <input type="submit" name="submit" value="Submit"></form>
+</div><!-- END SITE SEARCH -->
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>                                     
+                                    <div class="col-auto d-lg-none">
+                                      <div class="component">
+                                        <div class="component-content">
+                                          <div class="component link">
+                                            <div class="component-content">
+                                              <div class="field-link">
+                                                <a
+                                                  role="button"
+                                                  class="d-lg-none nav-opener"
+                                                  href="#"
+                                                  ><span>Nav Opener</span></a
+                                                >
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="col-auto col-md-12">
+                                      <div class="component main-nav__drop">
+                                        <div class="component-content main-nav__hold">
+                                          <div class="row-splitter">
+                                            <div class="component col-12">
+                                              <nav class="component-content">
+                                                <ul class="main-nav__list">
+                                                   
+
+<li class="main-nav__item">
+    <div class="component link">
+        <div class="component-content">
+            <div class="field-link">
+                <a class="main-nav__link" href="https://investors.cinfin.com/news-releases">News</a>                
+            </div>
+        </div>
+    </div>
+</li>
+
+
+
+
+<li class="main-nav__item has-dropdown">
+    <div class="component link">
+        <div class="component-content">
+            <div class="field-link">
+                <a class="main-nav__link" href="#">Financial Information<strong class="d-lg-none ico-arrow"><span class="theme--icon" style="color: inherit;width: 30px;display: inline-block;vertical-align: top;background: #0165fc;  border-radius: 20px;"><svg viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26.125 18.7915L21 23.9165L15.875 18.7915" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path></svg></span></strong> </a>              
+            </div>
+        </div>
+    </div>
+    <div data-key="0" class="main-nav__dropdown">
+        <div class="dropdown-inner">
+            <div class="component row-splitter mega-dropdown dropdown-hold">
+                <div class="component-content col-12 dropdown-top">
+                    <div class="component container dropdown-tab-wrapper">
+                        <div class="component-content">
+                            <div class="row column-splitter">
+                                <nav class="col-md-3 npml">
+                                </nav>
+								<div class="col-md-9 npmr">
+									<div class="component">
+										<div class="component-content">
+											<div class="row component column-splitter info-columns">
+												<div class="col-md-6 col-lg-4 col-xl-4 ul-structure-links">
+												<div class="">
+													<nav>
+													<ul class="list-unstyled dropdown-list">
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/annual-reports-and-proxy-statements?cat=67" target="_self" class="">Annual Financial Documents</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/quarterly-results?cat=68" target="_self" class="">Quarterly Results</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/sec-filings" target="_self" class="">SEC Filings</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/2026-statutory-information" target="_self" class="">Statutory Information</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/key-ratios" target="_self" class="">Key Ratios</a>
+										</div>
+			</div>
+		</div>
+	</li>
+												</ul>
+											</nav>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</li>
+
+
+
+
+<li class="main-nav__item has-dropdown">
+    <div class="component link">
+        <div class="component-content">
+            <div class="field-link">
+                <a class="main-nav__link" href="#">Stock Information<strong class="d-lg-none ico-arrow"><span class="theme--icon" style="color: inherit;width: 30px;display: inline-block;vertical-align: top;background: #0165fc;  border-radius: 20px;"><svg viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26.125 18.7915L21 23.9165L15.875 18.7915" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path></svg></span></strong> </a>              
+            </div>
+        </div>
+    </div>
+    <div data-key="0" class="main-nav__dropdown">
+        <div class="dropdown-inner">
+            <div class="component row-splitter mega-dropdown dropdown-hold">
+                <div class="component-content col-12 dropdown-top">
+                    <div class="component container dropdown-tab-wrapper">
+                        <div class="component-content">
+                            <div class="row column-splitter">
+                                <nav class="col-md-3 npml">
+                                </nav>
+								<div class="col-md-9 npmr">
+									<div class="component">
+										<div class="component-content">
+											<div class="row component column-splitter info-columns">
+												<div class="col-md-6 col-lg-4 col-xl-4 ul-structure-links">
+												<div class="">
+													<nav>
+													<ul class="list-unstyled dropdown-list">
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a data-nav-element="64" data-bs-toggle="modal" data-bs-target="#externalLinksModal" data-href="https://www.shareowneronline.com/" href="#" target="_self" class="external-link">Shareholder Account Access</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/transfer-agent" target="_self" class="">Transfer Agent</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/electronic-delivery" target="_self" class="">Electronic Delivery</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/shareholder-investment-plan" target="_self" class="">Shareholder Investment Plan</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/stock-quote-interactive-chart" target="_self" class="">Stock Quote & Interactive Chart</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/historical-stock-price" target="_self" class="">Historical Stock Price</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/dividends" target="_self" class="">Dividends</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/investment-calculator" target="_self" class="">Investment Calculator</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/analyst-coverage" target="_self" class="">Analyst Coverage</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/investor-faqs" target="_self" class="">FAQ</a>
+										</div>
+			</div>
+		</div>
+	</li>
+												</ul>
+											</nav>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</li>
+
+
+
+
+<li class="main-nav__item has-dropdown">
+    <div class="component link">
+        <div class="component-content">
+            <div class="field-link">
+                <a class="main-nav__link" href="#">Corporate Governance<strong class="d-lg-none ico-arrow"><span class="theme--icon" style="color: inherit;width: 30px;display: inline-block;vertical-align: top;background: #0165fc;  border-radius: 20px;"><svg viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26.125 18.7915L21 23.9165L15.875 18.7915" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path></svg></span></strong> </a>              
+            </div>
+        </div>
+    </div>
+    <div data-key="0" class="main-nav__dropdown">
+        <div class="dropdown-inner">
+            <div class="component row-splitter mega-dropdown dropdown-hold">
+                <div class="component-content col-12 dropdown-top">
+                    <div class="component container dropdown-tab-wrapper">
+                        <div class="component-content">
+                            <div class="row column-splitter">
+                                <nav class="col-md-3 npml">
+                                </nav>
+								<div class="col-md-9 npmr">
+									<div class="component">
+										<div class="component-content">
+											<div class="row component column-splitter info-columns">
+												<div class="col-md-6 col-lg-4 col-xl-4 ul-structure-links">
+												<div class="">
+													<nav>
+													<ul class="list-unstyled dropdown-list">
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/guidelines-codes-and-committee-charters" target="_self" class="">Guidelines, Codes and Committee Charters</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/committee-composition" target="_self" class="">Board Committee Composition</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/board-of-directors" target="_self" class="">Board of Directors</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/management" target="_self" class="">Corporate Officers</a>
+										</div>
+			</div>
+		</div>
+	</li>
+												</ul>
+											</nav>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</li>
+
+
+
+
+<li class="main-nav__item">
+    <div class="component link">
+        <div class="component-content">
+            <div class="field-link">
+                <a class="main-nav__link" href="https://investors.cinfin.com/sustainability">Sustainability</a>                
+            </div>
+        </div>
+    </div>
+</li>
+
+
+
+
+<li class="main-nav__item has-dropdown">
+    <div class="component link">
+        <div class="component-content">
+            <div class="field-link">
+                <a class="main-nav__link" href="#">Events & Presentations<strong class="d-lg-none ico-arrow"><span class="theme--icon" style="color: inherit;width: 30px;display: inline-block;vertical-align: top;background: #0165fc;  border-radius: 20px;"><svg viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26.125 18.7915L21 23.9165L15.875 18.7915" stroke="white" stroke-width="1.5" stroke-linecap="square" stroke-linejoin="round"></path></svg></span></strong> </a>              
+            </div>
+        </div>
+    </div>
+    <div data-key="0" class="main-nav__dropdown">
+        <div class="dropdown-inner">
+            <div class="component row-splitter mega-dropdown dropdown-hold">
+                <div class="component-content col-12 dropdown-top">
+                    <div class="component container dropdown-tab-wrapper">
+                        <div class="component-content">
+                            <div class="row column-splitter">
+                                <nav class="col-md-3 npml">
+                                </nav>
+								<div class="col-md-9 npmr">
+									<div class="component">
+										<div class="component-content">
+											<div class="row component column-splitter info-columns">
+												<div class="col-md-6 col-lg-4 col-xl-4 ul-structure-links">
+												<div class="">
+													<nav>
+													<ul class="list-unstyled dropdown-list">
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/events" target="_self" class="">Events</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/presentations" target="_self" class="">Presentations</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/contact-ir" target="_self" class="">Investor Contacts</a>
+										</div>
+			</div>
+		</div>
+	</li>
+	<li>
+		<div class="component link">
+			<div class="component-content">
+				<div class="field-link">
+										<a href="https://investors.cinfin.com/email-alerts" target="_self" class="">Email Alerts</a>
+										</div>
+			</div>
+		</div>
+	</li>
+												</ul>
+											</nav>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</li>
+
+
+
+
+
+                                                </ul>
+                                              </nav>
+                                            </div>
+                                          </div>
+                                          <div
+                                            class="row-splitter d-lg-none is-mobile-nav-bottom main-bar-global-nav"
+                                          >
+                                            <div class="component col-12">
+                                              <div class="component-content">
+                                                <div class="top-bar-inner">
+                                                  <nav class="container">
+                                                    <ul class="inner-list">
+                                                      <li>
+                                                        <div class="component link">
+                                                          <div
+                                                            class="component-content"
+                                                          >
+                                                            <div class="field-link">
+                                                              <a
+                                                                title=""
+                                                                target=""
+                                                                class=""
+                                                                href="https://www.cinfin.com/cincinnati-insurance-agents"
+                                                                >Agents</a
+                                                              >
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </li>
+                                                      <li>
+                                                        <div class="component link">
+                                                          <div
+                                                            class="component-content"
+                                                          >
+                                                            <div class="field-link">
+                                                              <a
+                                                                title=""
+                                                                target=""
+                                                                class=""
+                                                                href="https://www.cinfin.com/cincinnati-insurance-careers"
+                                                                >Careers</a
+                                                              >
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </li>
+                                                      <li>
+                                                        <div class="component link">
+                                                          <div
+                                                            class="component-content"
+                                                          >
+                                                            <div class="field-link">
+                                                              <a
+                                                                title=""
+                                                                target=""
+                                                                class=""
+                                                                href="https://www.cinfin.com/contact-us"
+                                                                >Contact</a
+                                                              >
+                                                            </div>
+                                                          </div>
+                                                        </div>
+                                                      </li>
+                                                    </ul>
+                                                  </nav>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>                            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="drop--overlay"></div>
+          <div class="search-drop--overlay"></div>
+        </div>
+      </header>
+      <main id="maincontent">
+<div class="container">  
+   <div class="row">
+      <div class="col-12">
+            <nav class="wd_custom_breadcrumb">
+               <ol vocab="https://schema.org/" typeof="BreadcrumbList">
+                  <li property="itemListElement" typeof="ListItem">
+                     <a property="item" typeof="WebPage" href="https://www.cinfin.com">
+                        <span property="name">Home</span>
+                     </a>
+                     <meta property="position" content="1">
+                  </li>
+                  <li property="itemListElement" typeof="ListItem">
+                     <a href="https://investors.cinfin.com/overview">
+                        <span property="name">Investor Overview</span>
+                     </a>
+                     <meta property="position" content="2">
+                  </li>
+                  <li class="wd-breadcrumb-item hide-breadcrumb-item" property="itemListElement" typeof="ListItem">  
+    <a href="https://investors.cinfin.com/news-releases" target="_self" class=nav><span property="name">News</span>
+                  </a>
+                  <meta property="position" content="3">
+               </li>
+
+                                        <li property="itemListElement" typeof="ListItem">
+                        <span property="name">News Release</span>
+                     <meta property="position" content="3">
+                  </li>
+                                                      </ol>
+            </nav>
+         </div>
+      </div>
+   <div class="row">
+      <div class="wd_content col-12">
+            <h1 class="page_header">News Releases</h1><div id="wd_printable_content" class="fr-view">
+<div class="wd_newsfeed_releases-detail">
+<div class="wd_title wd_language_left">Cincinnati Financial Corporation Declares Regular Quarterly Cash Dividend</div>
+
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" href="#print" title="Open a printable version of this page"><span class="fa fa-print"></span><span class="wd_sr-only wd_sr-only-focusable">Open a printable version of this page</span></a></span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=Cincinnati%20Financial%20Corporation%20Declares%20Regular%20Quarterly%20Cash%20Dividend%20-%20Aug%2021%2C%202026&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="Email the URL of this page to a friend"><span class="fa fa-envelope"></span><span class="wd_sr-only wd_sr-only-focusable">Email the URL of this page to a friend</span></a></span></li><li class="wd_tool wd_tool-rss"><span class="wd_tool_icon"><a href="https://investors.cinfin.com/rss-feeds?rsspage=43" title="Get the RSS feed for this page"><span class="fa fa-rss"></span><span class="wd_sr-only wd_sr-only-focusable">Get the RSS feed for this page</span></a></span></li><li class="wd_tool wd_tool-pdf"><span class="wd_tool_icon"><a href="https://investors.cinfin.com/2026-08-21-Cincinnati-Financial-Corporation-Declares-Regular-Quarterly-Cash-Dividend?asPDF=1" rel="nofollow" onclick="return download_page_as_pdf(this);" title="Download a PDF version of this page"><span class="fa fa-file-pdf-o"></span><span class="wd_sr-only wd_sr-only-focusable">Download a PDF version of this page</span></a></span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Finvestors.cinfin.com%2Findex.php%3Fs%3D43%26item%3D318" target="_blank" title="Twitter Share" style="background-color:#000;">
+                    <span class="fa fa-twitter"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable">Share this page on Twitter</span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Finvestors.cinfin.com%2Findex.php%3Fs%3D43%26item%3D318" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable">Share this page on LinkedIn</span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Finvestors.cinfin.com%2Findex.php%3Fs%3D43%26item%3D318" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable">Share this page on Facebook</span>
+                    </a>
+                </span></li></ul></div>
+
+
+
+			
+		
+
+			
+		
+
+<style type="text/css">
+
+
+/* Style Definitions */
+span.prnews_span
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+a.prnews_a
+{
+color:blue;
+}
+li.prnews_li
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+p.prnews_p
+{
+font-size:0.62em;
+font-family:"Arial";
+color:black;
+margin:0in;
+}
+.prngen2{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prnml4{
+MARGIN-TOP:0em; MARGIN-RIGHT:0em; MARGIN-BOTTOM:0em; MARGIN-LEFT:0.33em !IMPORTANT
+}
+.prnbcc{
+BORDER-COLLAPSE: COLLAPSE
+}
+
+
+					span.prnews_span{
+						font-size:inherit;
+						font-family:inherit;
+					}
+					li.prnews_li{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+					p.prnews_p{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+				
+					div.PRN_ImbeddedAssetReference{
+						display: none;
+					}
+					div[id^="prni_dvprne"]{
+						display: none;
+					}
+				</style>
+
+<div class="wd_body wd_news_body fr-view" wd_resize="formatNews" wd_print_url="https://investors.cinfin.com/2026-08-21-Cincinnati-Financial-Corporation-Declares-Regular-Quarterly-Cash-Dividend?printable=1">
+<p><span class="legendSpanClass">CINCINNATI</span>, <span class="legendSpanClass">Aug. 21, 2026</span> /<a href="http://www.prnewswire.com/" target="_blank">PRNewswire</a>/ -- <b>Cincinnati Financial Corporation (Nasdaq: CINF)</b> announced that at today's regular meeting, the board of directors declared a 94 cents-per-share regular quarterly cash dividend. The dividend is payable October 15, 2026, to shareholders of record as of September 23, 2026.</p><p>Stephen M. Spray, president and chief executive officer, commented, "Our financial strength remains in excellent shape, giving us the confidence and ability to continue executing on our plans to achieve profitable growth in our insurance operations. Our strong operations, in turn, create the basis for rewarding shareholders now and into the future. This October dividend payment completes 66 consecutive years of increasing annual cash dividends – a record we believe is matched by only seven other publicly traded U.S. companies."</p><p><b>About Cincinnati Financial<br/></b>Cincinnati Financial Corporation offers primarily business, home and auto insurance through The Cincinnati Insurance Company and its two standard market property casualty companies. The same local independent insurance agencies that market those policies may offer products of our other subsidiaries, including life insurance, fixed annuities and surplus lines property and casualty insurance. For additional information about the company, please visit <i>cinfin.com</i>.</p><div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prngen2" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Mailing Address:</span></p></td><td class="prngen2" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Street Address:</span></p></td></tr><tr><td class="prngen2" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">P.O. Box 145496</span></p></td><td class="prngen2" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">6200 South Gilmore Road</span></p></td></tr><tr><td class="prngen2" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Cincinnati, Ohio 45250-5496</span></p></td><td class="prngen2" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Fairfield, Ohio 45014-5141</span></p></td></tr></table></div><p><b>Safe Harbor Statement<br/></b>Our business is subject to certain risks and uncertainties that may cause actual results to differ materially from those suggested by forward-looking statements. Any forward-looking statements contained herein, are based upon our current estimates, assumptions and plans that are subject to uncertainty. These statements are made subject to the safe-harbor provisions of the Private Securities Litigation Reform Act of 1995. Forward-looking statements can be identified by words like "seek," "expect," "will," "should," "could," "might," "anticipate," "believe," "estimate," "intend," "likely," "future," or other similar expressions. Forward-looking statements speak only as of the date they were made; we assume no obligation to update such statements. Factors that could cause actual results to differ materially from those expressed in, or implied by, the forward-looking statements include, but are not limited to:</p><p><b>Insurance-Related Risks</b></p><ul type="disc"><li>Risks and uncertainties associated with our loss reserves or actual claim costs exceeding reserves</li><li>Increased frequency and/or severity of claims or development of claims that are unforeseen at the time of policy issuance</li><li>Unusually high levels of catastrophe losses due to risk concentrations or changes in weather patterns, environmental events, war or political unrest, terrorism incidents, cyberattacks, civil unrest or other causes; and our ability to manage catastrophe risk</li><li>Risks associated with analytical models in key areas such as underwriting, pricing, capital management, reserving, investments, reinsurance, and catastrophe risk management</li><li>Inadequate estimates or assumptions, or reliance on third-party data used for critical accounting estimates</li><li>Events or conditions that could weaken or harm our relationships with our independent agencies and hamper opportunities to add new agencies, resulting in limitations on our opportunities for growth</li><li>Mergers, acquisitions, and other consolidations of agencies that result in a concentration of a significant amount of premium in one agency or agency group and/or alter our competitive advantages</li><li>Our inability to manage business opportunities, growth prospects, and expenses for our ongoing operations</li><li>Changing consumer insurance-buying habits</li><li>The inability to obtain adequate ceded reinsurance on acceptable terms, for acceptable amounts, and from financially strong reinsurers; and the potential for nonpayment or delay in payment by reinsurers</li><li>Domestic and global events, such as the wars in Ukraine and in the Middle East, future pandemics, inflationary trends, changes in U.S. trade and tariff policy, and disruptions in the banking and financial services industry, resulting in insurance losses, capital market or credit market uncertainty, followed by prolonged periods of economic instability or recession, that lead to:<ul type="circle"><li>Securities market disruption or volatility and related effects such as decreased economic activity and continued supply chain disruptions that affect our investment portfolio and book value</li><li>Significant or prolonged decline in the fair value of securities and impairment of the assets</li><li>Significant decline in investment income due to reduced or eliminated dividend payouts from securities</li><li>Significant rise in losses from surety or director and officer policies written for financial institutions or other insured entities or in losses from policies written by Cincinnati Re or Cincinnati Global</li><li>An unusually high level of claims in our insurance or reinsurance operations that increase litigation-related expenses</li><li>Decreased premium revenue and cash flow from disruption to our distribution channel of independent agents, consumer self-isolation, travel limitations, business restrictions and decreased economic activity</li><li>The inability of our workforce, agencies, or vendors to perform necessary business functions</li></ul></li></ul><p><b>Financial, Economic, and Investment Risks</b></p><ul type="disc"><li>Declines in overall stock market values negatively affecting our equity portfolio and book value</li><li>Downgrades in our financial strength ratings</li><li>Interest rate fluctuations or other factors that could significantly affect:<ul type="circle"><li>Our ability to generate growth in investment income</li><li>Values of our fixed-maturity investments and accounts in which we hold bank-owned life insurance contract assets</li><li>Our traditional life policy reserves</li></ul></li><li>Economic volatility and illiquidity associated with our alternative investments in private equity, private credit, real property, and limited partnerships</li><li>Failure to comply with covenants and other requirements under our credit facilities, senior debt, and other debt obligations</li><li>Recession, prolonged elevated inflation, or other economic conditions resulting in lower demand for insurance products or increased payment delinquencies</li><li>The inability of our subsidiaries to pay dividends consistent with current or past levels impacting our ability to pay shareholder dividends or repurchase shares</li></ul><p><b>General Business, Technology, and Operational Risks</b></p><ul type="disc"><li>Ineffective information technology systems or failing to develop and implement improvements in technology</li><li>Difficulties with technology or data security breaches, including cyberattacks, could negatively affect our, or our agents', ability to conduct business; disrupt our relationships with agents, policyholders, and others; cause reputational damage, mitigation expenses, data loss, and expose us to liability</li><li>Difficulties with our operations and technology that may negatively impact our ability to conduct business, including cloud-based data information storage, data security, remote working capabilities, and/or outsourcing relationships and third-party operations and data security</li><li>Disruption of the insurance market caused by technology innovations – such as driverless cars – that could decrease consumer demand for insurance products</li><li>Delays, inadequate data developed internally or from third parties, or performance inadequacies from ongoing development and implementation of underwriting and pricing models and methods, including usage-based insurance methods, automation, artificial intelligence, or technology projects and enhancements expected to increase our efficiency, pricing accuracy, underwriting profit, and competitiveness</li><li>Intense competition, and the impact of innovation, emerging technologies, artificial intelligence and changing customer preferences on the insurance industry and the markets in which we operate, could harm our ability to maintain or increase our business volumes and profitability</li><li>Inability to defer policy acquisition costs for any business segment if pricing and loss trends would lead management to conclude that the segment could not achieve sustainable profitability</li><li>Unforeseen departure of certain executive officers or other key employees that could interrupt progress toward important strategic goals or diminish the effectiveness of certain longstanding relationships with insurance agents and others</li><li>Our inability, or the inability of our independent agents, to attract and retain personnel</li><li>Events, such as a pandemic, an epidemic, natural catastrophe, or terrorism, which could hamper our ability to assemble our workforce, work effectively in a remote environment, or other failures of business continuity or disaster recovery programs</li></ul><p><b>Regulatory, Compliance, and Legal Risks</b></p><ul type="disc"><li>Actions of insurance departments, state attorneys general or other regulatory agencies, including a change to a federal system of regulation from a state-based system, that:<ul type="circle"><li>Impose new obligations on us that increase our expenses or change the assumptions underlying our critical accounting estimates</li><li>Place the insurance industry under greater regulatory scrutiny or result in new statutes, rules, and regulations</li><li>Restrict our ability to exit or reduce writings of unprofitable coverages or lines of business</li><li>Increase assessments for guaranty funds, other insurance‑related assessments, or mandatory reinsurance arrangements; or that impair our ability to recover such assessments through future surcharges or other rate changes</li><li>Increase our provision for federal income taxes due to changes in tax laws, regulations, or interpretations</li><li>Increase other expenses</li><li>Limit our ability to set fair, adequate, and reasonable rates</li><li>Restrict our ability to cancel policies</li><li>Impose new underwriting standards</li><li>Place us at a disadvantage in the marketplace</li><li>Restrict our ability to execute our business model, including the way we compensate agents</li></ul></li><li>Adverse outcomes from litigation, environmental claims, mass torts or administrative proceedings, including effects of social inflation and third-party litigation funding on the size and frequency of litigation awards</li><li>Events or actions, including unauthorized intentional circumvention of controls, which reduce our future ability to maintain effective internal control over financial reporting under the Sarbanes-Oxley Act of 2002</li><li>Effects of changing social, global, economic, and regulatory environments</li><li>Additional measures affecting corporate financial reporting and governance that can affect the market value of our common stock</li></ul><p>Risks and uncertainties are further discussed in other filings with the Securities and Exchange Commission, including our 2025 Annual Report on Form 10-K, Item 1A, Risk Factors, Page 30.</p><div class="PRN_ImbeddedAssetReference" id="DivAssetPlaceHolder6126"><p><img src="https://mmx.prnewswire.com/media/MS262662/CINCINNATI-FINANCIAL-CORPORATION-LOGO.jpg?id=OA2902126" title="Cincinnati Financial Corporation logo. (PRNewsFoto/Cincinnati Financial Corporation) (PRNewsFoto/CINCINNATI FINANCIAL CORPORATION)" alt="Cincinnati Financial Corporation logo. (PRNewsFoto/Cincinnati Financial Corporation) (PRNewsFoto/CINCINNATI FINANCIAL CORPORATION)"/></p></div>
+<div class="PRN_ImbeddedAssetReference" id="DivAssetPlaceHolder0">
+</div>
+
+
+
+<p>SOURCE Cincinnati Financial Corporation</p></div>
+
+<div class="wd_contact">For further information: Investor Contact, Andrew F. Gossard, 513-870-2768, CINF-IR@cinfin.com; Media Contact: Betsy E. Ertel, 513-603-5323, Media_Inquiries@cinfin.com</div>
+
+
+ 
+				
+			
+
+<!-- ITEMDATE: 2026-08-21 16:05:00 EDT -->
+
+</div>
+</div>         </div>
+      </div>
+   </div>
+   
+</main>
+
+      <footer>
+        <div id="footer">
+          <section class="component footer-section_content-cards__JDtlH">
+            <div class="component footer-section_cards-columns__tzWQx">
+              <div
+                class="component-content footer-section_cards-columns__content__m3K7c"
+              >
+                <div class="component link footer_footer__EEuLH">
+                  <div class="footer_footer-container__BNEbL container">
+                    <div class="footer_footer-header__17z6f">
+                      <div>
+                        <img alt="Everything Insurance Should Be®" src="images/cic_tagline-wt.svg" style="max-width: 350px;">
+                      </div>
+                    </div>
+                    <div class="footer_footer-5columns-container__lU15V">
+                      <div class="footer_footer-5column__hLY4g footer-drop-down-area">
+                        <div class="footer_footer-5column-header__f7_zs">
+                          CONTACT<svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="10"
+                            viewBox="0 0 15 10"
+                            fill="none"
+                          >
+                            <path
+                              d="M13.3809 1.97663L7.19038 8.02295L0.999907 1.97663"
+                              stroke="#E6F2FF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <div class="footer_footer-5column-links__HSmGY">
+                          <div class="field-link">
+                            <a class="footer_footer-link__1CvM6" href="https://www.cinfin.com/contact-us"
+                              >Contact Us</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://www.cinfin.com/contact-us/general-inquiries"
+                              >Email Us</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="tel:888-242-8811"
+                              >888-242-8811</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="footer_footer-5column__hLY4g footer-drop-down-area">
+                        <div class="footer_footer-5column-header__f7_zs">
+                          INSURANCE<svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="10"
+                            viewBox="0 0 15 10"
+                            fill="none"
+                          >
+                            <path
+                              d="M13.3809 1.97663L7.19038 8.02295L0.999907 1.97663"
+                              stroke="#E6F2FF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <div class="footer_footer-5column-links__HSmGY">
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://www.cinfin.com/cincinnati-personal-insurance"
+                              >Individuals &amp; Families</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://www.cinfin.com/cincinnati-business-insurance"
+                              >Business</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="footer_footer-5column__hLY4g footer-drop-down-area">
+                        <div class="footer_footer-5column-header__f7_zs">
+                          CLAIMS<svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="10"
+                            viewBox="0 0 15 10"
+                            fill="none"
+                          >
+                            <path
+                              d="M13.3809 1.97663L7.19038 8.02295L0.999907 1.97663"
+                              stroke="#E6F2FF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <div class="footer_footer-5column-links__HSmGY">
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://onlineservice.cinfin.com/b2c/Account_Self_Service/Login.aspx?redirect=REPORT_CLAIM"
+                              >Report a Claim</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://www.cinfin.com/cincinnati-insurance-claims/"
+                              >Claim Process &amp; FAQ</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="footer_footer-5column__hLY4g footer-drop-down-area">
+                        <div class="footer_footer-5column-header__f7_zs">
+                          SIGN IN<svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="10"
+                            viewBox="0 0 15 10"
+                            fill="none"
+                          >
+                            <path
+                              d="M13.3809 1.97663L7.19038 8.02295L0.999907 1.97663"
+                              stroke="#E6F2FF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <div class="footer_footer-5column-links__HSmGY">
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://onlineservice.cinfin.com/b2c/Account_Self_Service/QuickPayment.aspx"
+                              >Make a Payment</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://onlineservice.cinfin.com/b2c/Account_Self_Service/Login.aspx"
+                              >Policyholders</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://www.cinfin.com/cincinnati-insurance-agents"
+                              >Agents</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="footer_footer-5column__hLY4g footer-drop-down-area">
+                        <div class="footer_footer-5column-header__f7_zs">
+                          OUR COMPANY<svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="15"
+                            height="10"
+                            viewBox="0 0 15 10"
+                            fill="none"
+                          >
+                            <path
+                              d="M13.3809 1.97663L7.19038 8.02295L0.999907 1.97663"
+                              stroke="#E6F2FF"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                            ></path>
+                          </svg>
+                        </div>
+                        <div class="footer_footer-5column-links__HSmGY">
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://www.cinfin.com/about-cincinnati-insurance"
+                              >About Us</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://www.cinfin.com/cincinnati-insurance-careers"
+                              >Careers</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://investors.cinfin.com"
+                              >Investors</a
+                            >
+                          </div>
+                          <div class="field-link">
+                            <a
+                              class="footer_footer-link__1CvM6"
+                              href="https://investors.cinfin.com/news-releases"
+                              >News</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer_footer-icons-container__BaqaT">
+                      <div class="footer_footer-icons__qvp5Z">
+                        <div class="field-link">
+                          <a
+                            aria-label="Read more LinkedIn"
+                            class="footer_footer-icon-link__VlndB"
+                            href="https://www.linkedin.com/company/the-cincinnati-insurance-companies/"
+                            target="_blank"
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="21"
+                              height="21"
+                              viewBox="0 0 21 21"
+                              fill="none"
+                            >
+                              <path
+                                d="M19.0886 0H1.46379C1.07329 0.00291117 0.699883 0.160582 0.425476 0.438429C0.151069 0.716277 -0.00193639 1.09162 1.85048e-05 1.48212V19.0749C-0.00193639 19.4654 0.151069 19.8407 0.425476 20.1185C0.699883 20.3964 1.07329 20.5541 1.46379 20.557H19.0886C19.4796 20.5543 19.8536 20.3969 20.1288 20.1191C20.404 19.8413 20.558 19.4659 20.557 19.0749V1.48212C20.558 1.09112 20.404 0.71565 20.1288 0.437882C19.8536 0.160115 19.4796 0.00266856 19.0886 0ZM6.213 17.6203H3.16616V7.80981H6.21759V17.6203H6.213ZM4.68958 6.46994C4.34017 6.46994 3.99862 6.36633 3.7081 6.17221C3.41758 5.97809 3.19115 5.70219 3.05744 5.37938C2.92373 5.05657 2.88874 4.70137 2.95691 4.35868C3.02507 4.01599 3.19333 3.70121 3.44039 3.45414C3.68746 3.20707 4.00224 3.03882 4.34493 2.97066C4.68762 2.90249 5.04283 2.93748 5.36563 3.07119C5.68844 3.2049 5.96435 3.43133 6.15846 3.72185C6.35258 4.01236 6.45619 4.35392 6.45619 4.70333C6.45619 5.17186 6.27007 5.62121 5.93876 5.95251C5.60746 6.28382 5.15811 6.46994 4.68958 6.46994ZM17.634 17.6203H14.5872V12.8481C14.5872 11.7101 14.5643 10.2464 13.0041 10.2464C11.4165 10.2464 11.1733 11.4853 11.1733 12.7655V17.6203H8.12645V7.80981H11.0494V9.14969H11.0907C11.4991 8.3788 12.4948 7.56662 13.9769 7.56662C17.0605 7.56662 17.634 9.59937 17.634 12.2424V17.6203Z"
+                                fill="#E6F2FF"
+                              ></path></svg></a>
+                        </div>
+                        <div class="field-link">
+                          <a
+                            aria-label="Read more Instagram"
+                            class="footer_footer-icon-link__VlndB"
+                            href="https://www.instagram.com/cincinnati_insurance/?hl=en"
+                            target="_blank"
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="21"
+                              height="21"
+                              viewBox="0 0 21 21"
+                              fill="none"
+                            >
+                              <path
+                                d="M10.5109 7.83092C10.0269 7.8311 9.55374 7.9748 9.15136 8.24386C8.74899 8.51291 8.43542 8.89523 8.25031 9.34248C8.0652 9.78973 8.01686 10.2818 8.1114 10.7565C8.20595 11.2313 8.43913 11.6673 8.78146 12.0095C9.1238 12.3517 9.55991 12.5847 10.0347 12.6791C10.5094 12.7735 11.0015 12.7249 11.4487 12.5397C11.8959 12.3544 12.2781 12.0407 12.547 11.6382C12.8159 11.2357 12.9594 10.7625 12.9594 10.2785C12.9594 9.95699 12.8961 9.63864 12.773 9.34163C12.6499 9.04462 12.4696 8.77476 12.2422 8.54747C12.0148 8.32018 11.7449 8.13992 11.4478 8.01697C11.1508 7.89402 10.8324 7.8308 10.5109 7.83092ZM16.2334 5.94959C16.1088 5.63382 15.9206 5.34702 15.6806 5.10699C15.4405 4.86695 15.1537 4.6788 14.838 4.5542C13.8744 4.1738 11.5801 4.25915 10.5109 4.25915C9.44176 4.25915 7.14975 4.17059 6.18339 4.5542C5.86762 4.6788 5.58082 4.86695 5.34079 5.10699C5.10075 5.34702 4.91259 5.63382 4.78799 5.94959C4.40806 6.9132 4.49295 9.2098 4.49295 10.278C4.49295 11.3463 4.40806 13.6401 4.78983 14.6069C4.91443 14.9227 5.10258 15.2095 5.34262 15.4495C5.58266 15.6896 5.86946 15.8777 6.18523 16.0023C7.14883 16.3827 9.44314 16.2974 10.5127 16.2974C11.5823 16.2974 13.8734 16.3859 14.8398 16.0023C15.1556 15.8777 15.4424 15.6896 15.6824 15.4495C15.9224 15.2095 16.1106 14.9227 16.2352 14.6069C16.6183 13.6433 16.5302 11.349 16.5302 10.2785C16.5302 9.20796 16.6183 6.91687 16.2352 5.95005L16.2334 5.94959ZM10.5109 14.0411C9.5146 14.0399 8.55956 13.6431 7.85571 12.938C7.15186 12.2329 6.75682 11.2771 6.75743 10.2808C6.75803 9.28448 7.15424 8.32919 7.85895 7.62491C8.56366 6.92063 9.51919 6.52501 10.5155 6.52501C11.5118 6.52501 12.4673 6.92063 13.172 7.62491C13.8768 8.32919 14.273 9.28448 14.2736 10.2808C14.2742 11.2771 13.8791 12.2329 13.1753 12.938C12.4714 13.6431 11.5164 14.0399 10.5201 14.0411H10.5109ZM14.4287 7.23624C14.255 7.23633 14.0851 7.18491 13.9406 7.08848C13.7962 6.99205 13.6835 6.85494 13.617 6.6945C13.5504 6.53405 13.5329 6.35747 13.5667 6.18709C13.6005 6.01671 13.6841 5.86017 13.8069 5.73728C13.9296 5.61439 14.0861 5.53066 14.2564 5.49668C14.4268 5.46271 14.6034 5.48001 14.7639 5.5464C14.9244 5.61279 15.0616 5.72528 15.1582 5.86966C15.2548 6.01404 15.3064 6.18382 15.3065 6.35752C15.3073 6.58977 15.216 6.81287 15.0526 6.97787C14.8891 7.14286 14.6669 7.23628 14.4346 7.23761H14.4314L14.4287 7.23624ZM18.5869 0H2.43495C1.85081 0 1.29058 0.232052 0.877529 0.645107C0.464474 1.05816 0.232422 1.61838 0.232422 2.20253L0.232422 18.3544C0.232422 18.9386 0.464474 19.4988 0.877529 19.9119C1.29058 20.3249 1.85081 20.557 2.43495 20.557H18.5869C19.171 20.557 19.7312 20.3249 20.1443 19.9119C20.5573 19.4988 20.7894 18.9386 20.7894 18.3544V2.20253C20.7894 1.61838 20.5573 1.05816 20.1443 0.645107C19.7312 0.232052 19.171 0 18.5869 0ZM17.8013 13.307C17.7421 14.483 17.4737 15.5251 16.6151 16.3813C15.7566 17.2376 14.7155 17.5115 13.5408 17.5675C12.3289 17.6359 8.69565 17.6359 7.4838 17.5675C6.30774 17.5083 5.26934 17.2394 4.40943 16.3813C3.54953 15.5233 3.27926 14.4807 3.22328 13.307C3.15491 12.0947 3.15491 8.46094 3.22328 7.25C3.28247 6.07394 3.54769 5.03187 4.40943 4.17563C5.27117 3.3194 6.31233 3.04867 7.4838 2.99269C8.69565 2.92432 12.3289 2.92432 13.5408 2.99269C14.7168 3.05188 15.7584 3.32078 16.6151 4.17885C17.4718 5.03692 17.7453 6.07945 17.8013 7.25551C17.8697 8.46323 17.8697 12.0937 17.8013 13.307Z"
+                                fill="#E6F2FF"
+                              ></path></svg></a>
+                        </div>
+                        <div class="field-link">
+                          <a
+                            aria-label="Read more Facebook"
+                            class="footer_footer-icon-link__VlndB"
+                            href="https://www.facebook.com/CincinnatiInsurance/"
+                            target="_blank"
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="22"
+                              height="21"
+                              viewBox="0 0 22 21"
+                              fill="none"
+                            >
+                              <path
+                                d="M18.8183 0H2.6664C2.08225 0 1.52203 0.232052 1.10897 0.645107C0.695919 1.05816 0.463867 1.61838 0.463867 2.20253L0.463867 18.3544C0.463867 18.9386 0.695919 19.4988 1.10897 19.9119C1.52203 20.3249 2.08225 20.557 2.6664 20.557H8.96427V13.5681H6.07344V10.2785H8.96427V7.77127C8.96427 4.91945 10.6621 3.34418 13.2624 3.34418C14.5078 3.34418 15.81 3.56627 15.81 3.56627V6.36532H14.3752C12.9614 6.36532 12.5204 7.24266 12.5204 8.14249V10.2785H15.6765L15.1717 13.5681H12.5204V20.557H18.8183C19.4025 20.557 19.9627 20.3249 20.3757 19.9119C20.7888 19.4988 21.0208 18.9386 21.0208 18.3544V2.20253C21.0208 1.61838 20.7888 1.05816 20.3757 0.645107C19.9627 0.232052 19.4025 0 18.8183 0Z"
+                                fill="#E6F2FF"
+                              ></path></svg                    ></a>
+                        </div>
+                        <div class="field-link">
+                          <a
+                            aria-label="Read more Youtube"
+                            class="footer_footer-icon-link__VlndB"
+                            href="https://www.youtube.com/c/TheCincinnatiInsuranceCompanies"
+                            target="_blank"
+                            ><svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="22"
+                              height="21"
+                              viewBox="0 0 22 21"
+                              fill="none"
+                            >
+                              <path
+                                d="M9.26781 7.80523L13.6362 10.2877L9.26781 12.7701V7.80523ZM21.2533 2.20253V18.3544C21.2533 18.9386 21.0212 19.4988 20.6082 19.9119C20.1951 20.3249 19.6349 20.557 19.0507 20.557H2.89882C2.31467 20.557 1.75445 20.3249 1.3414 19.9119C0.928341 19.4988 0.696289 18.9386 0.696289 18.3544L0.696289 2.20253C0.696289 1.61838 0.928341 1.05816 1.3414 0.645107C1.75445 0.232052 2.31467 0 2.89882 0L19.0507 0C19.6349 0 20.1951 0.232052 20.6082 0.645107C21.0212 1.05816 21.2533 1.61838 21.2533 2.20253ZM19.326 10.2923C19.326 10.2923 19.326 7.55744 18.9773 6.2451C18.8833 5.88937 18.6972 5.56468 18.4378 5.30369C18.1784 5.04271 17.8549 4.85463 17.4998 4.75839C16.2012 4.40507 10.9748 4.40507 10.9748 4.40507C10.9748 4.40507 5.74835 4.40507 4.44977 4.75839C4.09463 4.85463 3.7711 5.04271 3.51173 5.30369C3.25235 5.56468 3.06628 5.88937 2.97224 6.2451C2.62351 7.55285 2.62351 10.2923 2.62351 10.2923C2.62351 10.2923 2.62351 13.0271 2.97224 14.3394C3.06698 14.6923 3.25368 15.0137 3.51325 15.2709C3.77283 15.5281 4.096 15.7117 4.44977 15.8032C5.74835 16.1519 10.9748 16.1519 10.9748 16.1519C10.9748 16.1519 16.2012 16.1519 17.4998 15.7986C17.8535 15.7071 18.1767 15.5235 18.4363 15.2663C18.6959 15.0092 18.8826 14.6877 18.9773 14.3348C19.326 13.0271 19.326 10.2923 19.326 10.2923Z"
+                                fill="#E6F2FF"
+                              ></path></svg                    ></a>
+                        </div>
+                      </div>
+                      <div
+                        class="footer-social-links footer_footer-link-icons__JckPF"
+                      >
+                        <div class="field-link">
+                          <a
+                            title=""
+                            target=""
+                            class="footer_footer-icon-link-text__4C3T9"
+                            href="https://www.cinfin.com/sitemap"
+                            >Sitemap</a
+                          >
+                        </div>
+                        <div
+                          class="pipe-delimeter footer_footer-icon-link-separator__RQ28H"
+                        >
+                          |
+                        </div>
+                        <div class="field-link">
+                          <a
+                            title=""
+                            target=""
+                            class="footer_footer-icon-link-text__4C3T9"
+                            href="https://www.cinfin.com/legal-footer/terms-conditions"
+                            >Terms &amp; Conditions</a
+                          >
+                        </div>
+                        <div
+                          class="pipe-delimeter footer_footer-icon-link-separator__RQ28H"
+                        >
+                          |
+                        </div>
+                        <div class="field-link">
+                          <a
+                            title=""
+                            target=""
+                            class="footer_footer-icon-link-text__4C3T9"
+                            href="https://www.cinfin.com/legal-footer/privacy-policy"
+                            >Privacy Policy</a
+                          >
+                        </div>
+                        <div
+                          class="pipe-delimeter footer_footer-icon-link-separator__RQ28H"
+                        >
+                          |
+                        </div>
+                        <div class="field-link">
+                          <a
+                            title=""
+                            target=""
+                            class="footer_footer-icon-link-text__4C3T9"
+                            href="https://www.cinfin.com/fraud-protection-center"
+                            >Report Fraud</a
+                          >
+                        </div>
+                        <div
+                          class="pipe-delimeter footer_footer-icon-link-separator__RQ28H"
+                        >
+                          |
+                        </div>
+                        <div class="field-link">
+                          <a
+                            title=""
+                            target=""
+                            class="footer_footer-icon-link-text__4C3T9"
+                            href="https://www.cinfin.com/legal-footer/accessibility"
+                            >Accessibility</a
+                          >
+                        </div>
+                        <div
+                          class="pipe-delimeter footer_footer-icon-link-separator__RQ28H"
+                        >
+                          |
+                        </div>
+                        <div class="field-link">
+                          <a
+                            class="footer_footer-icon-link-text__4C3T9 ot-sdk-show-settings"
+                            tabindex="0"
+                            >Cookie Settings</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <div class="footer_footer-information-container__fDhWO">
+                    <div>For information, coverage availability in your state, quotes or policy service, please contact your local <a href="https://www.cinfin.com/find-an-agent">independent agent</a>&nbsp;representing Cincinnati Insurance. For policy service, please contact your           <a href="https://www.cinfin.com/find-an-agent">independent agent</a>&nbsp;or           <a class="footer_footer-information-link__Whtbm" href="mailto:policyservice@cinfin.com">send us an email</a>. Property and casualty coverages may be provided by The Cincinnati Insurance Company or one of its wholly owned subsidiaries, The Cincinnati Indemnity Company, The Cincinnati Casualty Company or The Cincinnati Specialty Underwriters Insurance Company. The Cincinnati Life Insurance Company provides life insurance and fixed annuities. Each insurer has sole financial responsibility for its own products. Not all subsidiaries operate in all states. Location: 6200 S. Gilmore Road, Fairfield, OH 45014-5141 Mailing address: P.O. Box 145496, Cincinnati, OH 45250-5496. &copy; 2026 Cincinnati Financial Corporation.</div>
+		    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </footer>
+      <div class="external-link" title="Third Party Website Link">
+         <div class="modal fade" id="externalLinksModal" tabindex="-1" aria-hidden="true" role="dialog" aria-labelledby="externalLinks_externalLinkPopupWarningText">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-bs-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                  </div>
+                  <div class="modal-body">
+                     <span id="externalLinks_externalLinkPopupWarningText">
+                        <p><strong>YOU'RE LEAVING CINFIN.COM</strong></p>
+                        <p>You are now leaving cinfin.com for a third party website. Please be aware that Cincinnati Financial Corporation is not responsible&nbsp;<span style="text-indent: 0.5in;">for the content on any of these linked third party websites.</span>
+                        </p>
+                     </span>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">
+                     <span id="externalLinks_externalLinkPopupCancelText">Cancel</span>
+                     </button>
+                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal" data-url="" autofocus="">
+                     <span id="externalLinks_externalLinkPopupOkText">Continue</span>
+                     </button>
+                  </div>
+               </div>
+               <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+         </div>
+         <!-- /.modal -->
+      </div>      
+</div><!--wd_wrapper-->
+      <script src="js/bootstrap.min.js"></script>      
+      <script src="js/wdscripts.js"></script>
+   
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/plain" class="optanon-category-2">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 4, "News Release Feed ID", "202608211605PR_NEWS_USPR_____CL31317", "page"]);
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "News Releases Feed", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "News", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 7193]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=7193&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		
+<!-- end spin_special_output(body_end) -->
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a40614d5bc9fd8a1',t:'MTc5MDI5NzkxNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

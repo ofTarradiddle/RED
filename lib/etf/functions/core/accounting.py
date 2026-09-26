@@ -1,6 +1,6 @@
 """
-Production-Ready Accounting Function
-Complete implementation with all business logic
+Prototype Accounting Function
+Event-based journals and separate valuation snapshots; provider validation required
 """
 
 import logging
@@ -9,6 +9,7 @@ from typing import Dict, List, Optional, Any
 from dataclasses import dataclass, field
 from decimal import Decimal, ROUND_HALF_UP
 from pathlib import Path
+from uuid import uuid4
 import json
 
 from lib.etf.shared import DataSourceAdapter
@@ -61,7 +62,7 @@ class FinancialStatement:
 
 class Accounting:
     """
-    Production-ready Accounting implementation with full double-entry bookkeeping.
+    Prototype accounting implementation with double-entry journal validation.
     
     This class provides complete accounting functionality for ETF operations including:
     - General ledger management
@@ -117,15 +118,19 @@ class Accounting:
                             account_name=v['account_name'],
                             account_type=v['account_type'],
                             balance=Decimal(str(v['balance'])),
-                            entries=[AccountingEntry(**e) for e in v.get('entries', [])]
+                            entries=[AccountingEntry(
+                                **{**e, "date": date.fromisoformat(e["date"]),
+                                   "debit": Decimal(str(e["debit"])),
+                                   "credit": Decimal(str(e["credit"]))}
+                            ) for e in v.get('entries', [])]
                         )
                         for k, v in data.items()
                     }
+                self.journal_entries = [entry for gl in self.general_ledger.values() for entry in gl.entries]
                 logger.info(f"Loaded {len(self.general_ledger)} general ledger accounts")
             except Exception as e:
                 logger.error(f"Error loading general ledger: {e}")
-                self.general_ledger = {}
-                self._initialize_chart_of_accounts()
+                raise ValueError(f"Cannot load ledger {ledger_file}; refusing to reset books") from e
         else:
             self._initialize_chart_of_accounts()
     
@@ -246,26 +251,30 @@ class Accounting:
         """
         logger.info(f"Creating journal entry for {entry_date}: {description}")
         
-        # Validate debits = credits
-        total_debits = sum(Decimal(str(e.get('debit', 0))) for e in entries)
-        total_credits = sum(Decimal(str(e.get('credit', 0))) for e in entries)
-        
-        if total_debits != total_credits:
-            raise ValueError(f"Journal entry unbalanced: Debits={total_debits}, Credits={total_credits}")
-        
-        # Create entries
-        journal_entries = []
-        entry_id_base = f"JE_{entry_date.isoformat()}_{len(self.journal_entries)}"
-        
-        for i, entry_data in enumerate(entries):
-            entry_id = f"{entry_id_base}_{i}"
-            account_code = entry_data['account']
-            debit = Decimal(str(entry_data.get('debit', 0)))
-            credit = Decimal(str(entry_data.get('credit', 0)))
-            
+        # Validate every line before mutating any account.
+        if not entries:
+            raise ValueError("Journal entry must contain line items")
+        normalized = []
+        for entry_data in entries:
+            account_code = entry_data.get('account')
             if account_code not in self.general_ledger:
                 raise ValueError(f"Account {account_code} not found in chart of accounts")
-            
+            debit = Decimal(str(entry_data.get('debit', 0)))
+            credit = Decimal(str(entry_data.get('credit', 0)))
+            if not debit.is_finite() or not credit.is_finite() or debit < 0 or credit < 0:
+                raise ValueError("Journal amounts must be nonnegative finite numbers")
+            if debit > 0 and credit > 0:
+                raise ValueError("A journal line cannot contain both a debit and a credit")
+            normalized.append((account_code, debit, credit))
+        total_debits = sum((line[1] for line in normalized), Decimal('0'))
+        total_credits = sum((line[2] for line in normalized), Decimal('0'))
+        if total_debits != total_credits:
+            raise ValueError(f"Journal entry unbalanced: Debits={total_debits}, Credits={total_credits}")
+
+        journal_entries = []
+        entry_id_base = f"JE_{entry_date.isoformat()}_{uuid4().hex}"
+        for i, (account_code, debit, credit) in enumerate(normalized):
+            entry_id = f"{entry_id_base}_{i}"
             # Create accounting entry
             acc_entry = AccountingEntry(
                 entry_id=entry_id,
@@ -323,52 +332,43 @@ class Accounting:
         return journal_entries
     
     def record_nav_entries(self, nav_date: date, nav_calculation: Dict[str, Any]) -> List[AccountingEntry]:
+        """Archive a valuation snapshot without posting total balances as new activity.
+
+        Kept under the historical method name for callers. Returns no journal lines.
+        Opening balances, trades, income, expenses, capital flows and valuation changes
+        require their own event entries; a daily NAV snapshot is not a transaction.
         """
-        Record NAV calculation as accounting entries in the general ledger.
-        
-        Creates journal entries to reflect the fund's net asset value:
-        - Debit: Investments (Assets)
-        - Credit: Liabilities
-        - Credit: Net Assets (Equity)
-        
-        Args:
-            nav_date: Date of NAV calculation
-            nav_calculation: Dictionary containing:
-                {
-                    "total_assets": Decimal or str,  # Total fund assets
-                    "total_liabilities": Decimal or str,  # Total fund liabilities
-                    "net_assets": Decimal or str  # Net assets (assets - liabilities)
-                }
-                
-        Returns:
-            List of AccountingEntry objects created
-            
-        Raises:
-            ValueError: If journal entry is unbalanced
-            
-        Note:
-            This should be called daily after NAV calculation to maintain
-            accurate accounting records.
-        """
-        logger.info(f"Recording NAV entries for {nav_date}")
-        
-        total_assets = Decimal(str(nav_calculation.get('total_assets', 0)))
-        total_liabilities = Decimal(str(nav_calculation.get('total_liabilities', 0)))
-        net_assets = Decimal(str(nav_calculation.get('net_assets', 0)))
-        
-        entries = [
-            {"account": "1100", "debit": total_assets, "credit": Decimal('0')},  # Investments
-            {"account": "2000", "debit": Decimal('0'), "credit": total_liabilities},  # Liabilities
-            {"account": "3200", "debit": Decimal('0'), "credit": net_assets},  # Net Assets
-        ]
-        
-        return self.create_journal_entry(
-            nav_date,
-            entries,
-            f"NAV calculation for {nav_date}",
-            reference=f"NAV_{nav_date.isoformat()}"
-        )
-    
+        fields = ("total_assets", "total_liabilities", "net_assets")
+        values = {}
+        for field_name in fields:
+            if field_name not in nav_calculation:
+                raise ValueError(f"NAV snapshot missing {field_name}")
+            value = Decimal(str(nav_calculation[field_name]))
+            if not value.is_finite():
+                raise ValueError(f"NAV snapshot {field_name} must be finite")
+            values[field_name] = value
+        if values["total_assets"] - values["total_liabilities"] != values["net_assets"]:
+            raise ValueError("NAV snapshot assets less liabilities must equal net assets")
+        if nav_calculation.get("validation_passed") is False:
+            raise ValueError("Cannot archive a validated NAV snapshot from failed valuation")
+        snapshot = {
+            "date": nav_date.isoformat(),
+            "record_type": "valuation_snapshot",
+            "posted_to_ledger": False,
+            **{key: str(value) for key, value in values.items()},
+        }
+        for field_name in ("shares_outstanding", "nav_per_share"):
+            if field_name in nav_calculation:
+                snapshot[field_name] = str(nav_calculation[field_name])
+        path = self.storage_path / f"nav_snapshot_{nav_date.isoformat()}.json"
+        temporary = path.with_name(f".{path.name}.{uuid4().hex}.tmp")
+        try:
+            temporary.write_text(json.dumps(snapshot, indent=2) + "\n")
+            temporary.replace(path)
+        finally:
+            temporary.unlink(missing_ok=True)
+        return []
+
     def record_expense_accrual(self, expense_date: date, expense_data: Dict[str, Any]) -> List[AccountingEntry]:
         """Record expense accruals"""
         logger.info(f"Recording expense accruals for {expense_date}")
@@ -442,7 +442,7 @@ class Accounting:
             
         Note:
             The trial balance is automatically saved to storage.
-            A balanced trial balance (balanced=True) indicates the books are correct.
+            A balanced trial balance verifies debit/credit equality, not economic correctness.
         """
         logger.info(f"Generating trial balance for {tb_date}")
         
@@ -597,14 +597,15 @@ class Accounting:
             # Get accounting data
             accounting_data = self.data_adapter.get_accounting_data(operation_date)
             
-            # Record NAV entries
+            # Archive the NAV snapshot separately from journal activity.
             # Handle both dict and NAVCalculation dataclass
             if hasattr(nav_calculation, 'total_assets'):
                 # It's a NAVCalculation dataclass
                 nav_data = {
                     "total_assets": str(nav_calculation.total_assets),
                     "total_liabilities": str(nav_calculation.total_liabilities),
-                    "net_assets": str(nav_calculation.net_assets)
+                    "net_assets": str(nav_calculation.net_assets),
+                    "validation_passed": nav_calculation.validation_passed
                 }
             else:
                 # It's a dict

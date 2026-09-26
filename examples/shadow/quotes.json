@@ -1,0 +1,21 @@
+{
+  "as_of": "2026-09-18",
+  "source": "Synthetic demonstration quotes \u2014 not Yahoo observations",
+  "fetched_at": "2026-09-18T22:00:00Z",
+  "prices": {
+    "AAPL": {
+      "close": "200.10",
+      "date": "2026-09-18",
+      "currency": "USD",
+      "fx_to_usd": "1",
+      "price_basis": "as_of_share_units"
+    },
+    "MSFT": {
+      "close": "400",
+      "date": "2026-09-18",
+      "currency": "USD",
+      "fx_to_usd": "1",
+      "price_basis": "as_of_share_units"
+    }
+  }
+}

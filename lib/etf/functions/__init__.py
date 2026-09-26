@@ -1,6 +1,6 @@
 """
 ETF Operational Functions
-Production-ready implementations of all ETF operational functions.
+Prototype implementations of all ETF operational functions.
 
 Organized into logical modules:
 - core: Daily operations (NAV, accounting, workflow)

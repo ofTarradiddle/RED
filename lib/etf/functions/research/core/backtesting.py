@@ -1,6 +1,6 @@
 """
 Backtesting Module for Factor-Based ETF Strategy Research
-Production-ready implementation for backtesting factor-based investment strategies.
+Prototype implementation for backtesting factor-based investment strategies.
 
 This module provides:
 - FMPClient: API interface to Financial Modeling Prep for market data

@@ -1,5 +1,5 @@
 """
-Production-Ready Daily Fund Trading & Execution Module
+Prototype Daily Fund Trading & Execution Module
 Complete implementation for trade routing, execution, and settlement coordination
 """
 
@@ -51,7 +51,7 @@ class TradeExecution:
 
 class TradingExecution:
     """
-    Production-ready Trading & Execution implementation
+    Prototype Trading & Execution implementation
     
     Handles:
     - Daily fund trading (rebalancing, creation/redemption settlements)
