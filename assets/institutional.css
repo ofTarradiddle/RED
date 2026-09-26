@@ -1,0 +1,158 @@
+/* One restrained visual language across the public Hetzerk site. */
+.hetzerk-site{--home-muted:#665b5e;--home-line:#e1dada;--home-ink:#241a1b;--home-red:#8b0000}
+.hetzerk-site .home-header-row{min-height:96px}
+.hetzerk-site .home-header{background:#291112}
+.hetzerk-site .home-brand{gap:14px}
+.hetzerk-site .hetzerk-logo{border-radius:4px}
+.hetzerk-site .home-nav{gap:27px;font-size:12px}
+.hetzerk-site .home-nav a{border-bottom:1px solid transparent;line-height:1.5}
+.hetzerk-site .home-nav a:hover,.hetzerk-site .home-nav a[aria-current=page]{color:#fff5ed;border-bottom-color:#b99e9a}
+.hetzerk-site .home-footer{background:#241011;padding:36px 0 24px}
+.hetzerk-site .home-footer nav{font-size:11px;gap:26px}
+.hetzerk-site .home-footer .home-risk{font-size:11px;line-height:1.8;color:#d3bbb5;max-width:760px}
+.hetzerk-site .home-footer-base{font-size:10px;color:#c7aaa4}
+.hetzerk-site :is(a,button):focus-visible{outline-color:#8b0000}
+.hetzerk-site .home-header :is(a,button):focus-visible,.hetzerk-site .home-footer :is(a,button):focus-visible{outline-color:#fff5ed}
+
+/* An editorial opening, with the fund and its research given equal footing. */
+.home-minimal .home-hero{grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:32px 40px;padding:58px 0 55px;align-items:stretch}
+.home-minimal .home-intro{grid-column:1/-1}
+.home-minimal .home-intro h1{font-size:clamp(40px,4.25vw,60px);line-height:1.13;letter-spacing:-.04em;margin:0 0 5px}
+.home-minimal .home-hero .case-business-card{margin:0;max-width:none;border-radius:4px;border-top:1px solid var(--home-line);box-shadow:none;align-self:start}
+.home-minimal .case-business-brand{padding:16px 21px;gap:20px}
+.home-minimal .case-business-brand>strong{font-size:25px}
+.home-minimal .case-business-brand>span{font-size:11px;color:var(--home-muted)}
+.home-minimal .case-business-card figcaption p{font-size:10px;line-height:1.6}
+.home-minimal .home-fund-card{min-height:100%!important;height:100%;padding:29px 31px;border-radius:4px;border-top:2px solid var(--home-red);box-shadow:none}
+.home-minimal .home-fund-card:hover,.home-minimal .home-fund-card:focus-visible{transform:translateY(-2px);box-shadow:0 6px 18px #3e13130a;background:#fff}
+.home-minimal .home-card-top{font-size:10px;letter-spacing:.08em}
+.home-minimal .home-ticker{font-size:66px;letter-spacing:-.05em;margin:24px 0 12px}
+.home-minimal .home-fund-card h2{font-size:19px;line-height:1.45;margin:0 0 15px;max-width:300px}
+.home-minimal .home-fund-description{font-size:13px;line-height:1.8;max-width:290px;margin:0 0 24px;color:var(--home-muted)}
+.home-minimal .home-fund-facts{margin:0 0 26px;font-size:11px;line-height:1.6}
+.home-minimal .home-fund-facts>div{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:12px 0;border-top:1px solid var(--home-line)}
+.home-minimal .home-fund-facts dt{color:var(--home-muted)}
+.home-minimal .home-fund-facts dd{margin:0;font-size:12px;color:var(--home-ink);font-variant-numeric:tabular-nums;text-align:right}
+.home-minimal .home-card-link{font-size:12px;padding-top:17px}
+.home-minimal .home-solicitation{gap:52px;padding:46px 0;align-items:center}
+.home-minimal .home-solicitation h2{font-size:34px;margin-bottom:18px}
+.home-minimal .home-solicitation-copy>p:not(.home-eyebrow){max-width:430px;font-size:14px;line-height:1.8}
+.home-minimal .home-solicitation-copy>p.home-fine-print{font-size:11px;max-width:430px}
+.home-minimal .home-solicitation .exchange-sticker{width:100%;max-width:430px;margin-top:22px}
+.home-minimal .home-interest-form{padding:28px;border-radius:4px;box-shadow:none;gap:19px}
+.home-minimal .home-form-heading h3{font-family:'Playfair Display',Georgia,serif;font-size:25px;font-weight:400;line-height:1.3;letter-spacing:-.025em;margin:0 0 9px}
+.home-minimal .home-form-heading p{font-size:12px;line-height:1.7;color:var(--home-muted);margin:0 0 5px}
+.home-minimal .home-interest-form label{font-size:11px;letter-spacing:0}
+.home-minimal .home-interest-form :is(input,select,textarea){background:#fff;border-radius:3px;font-size:13px;border-color:#d9cece}
+.home-minimal .home-interest-submit{border-radius:3px;min-height:46px;font-weight:500}
+.home-minimal .home-351-actions{gap:10px 26px}
+.home-minimal .home-secondary-link{font-size:12px}
+.home-minimal .home-expenses{padding:34px 0;gap:52px}
+.home-minimal .home-fee{font-size:48px}
+.home-minimal .home-fee-copy>p{font-size:13px;max-width:430px}
+.home-minimal .home-investment{padding:51px 0}
+.home-minimal .case-explorer,.case-page .case-capital{border-radius:4px}
+.home-minimal .case-tabs button{padding:19px 22px}
+.home-minimal .case-tabs button[aria-selected=true]{background:#faf8f8}
+.home-minimal .case-panel{padding:32px;min-height:420px;gap:36px}
+.home-minimal .case-panel-copy>p{font-size:14px;line-height:1.8}
+.home-minimal .case-lenses dd,.home-minimal .case-panel .case-lenses dd{font-size:12px}
+.hetzerk-site .case-visual-link{border-radius:4px}
+.hetzerk-site .case-source-heading{border-radius:4px 4px 0 0}
+.hetzerk-site .case-source-heading+.case-visual-link{border-radius:0 0 4px 4px}
+.case-page .case-hero h1{font-size:clamp(42px,4.8vw,64px)}
+.case-page .case-back{margin-bottom:32px}
+.case-page .case-hero-bottom>p{font-size:15px;max-width:590px}
+.case-page .case-hero{padding-bottom:43px}
+.case-page .case-section-heading>p{font-size:14px}
+.case-page .case-capital{border-top-width:2px}
+
+/* Research remains a reading experience, with figures at their original aspect ratio. */
+.research-page .research-hero{padding:48px 0 39px}
+.research-page .research-hero h1{font-size:clamp(42px,4.6vw,62px);margin-bottom:20px}
+.research-page .research-feature{padding:45px 0;gap:52px}
+.research-page .research-cover a{border-radius:4px}
+.research-page .research-feature p{font-size:14px}
+.research-page .research-feature .research-subtitle{font-size:17px}
+.research-page .research-topics{padding:45px 0;gap:52px}
+.research-page .research-topic-list p{font-size:13px}
+.research-page .report-hero h1{font-size:clamp(42px,5.2vw,68px)}
+.research-page .report-body p{font-size:15px;line-height:1.85}
+.research-page .report-body h2{font-size:32px}
+.research-page .report-body .report-lead{font-size:23px;line-height:1.6}
+.research-page .report-toc li a{font-size:12px}
+.research-page .report-body .report-source-note{font-size:12px}
+.research-page .report-body .case-visual figcaption p{font-size:11px}
+.research-page .report-table-wrap{border-radius:4px}
+
+/* Supporting pages use the same width, typography and document-card treatment. */
+.institutional-reference{background:#faf8f8;color:#241a1b}
+.institutional-reference main{padding:48px 0 58px}
+.institutional-reference main>.max-w-7xl{max-width:1160px;width:calc(100% - 112px);padding-left:0;padding-right:0}
+.institutional-reference h1{font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:clamp(32px,3.3vw,46px);letter-spacing:-.03em;line-height:1.2;max-width:850px;margin-bottom:24px;color:#241a1b}
+.institutional-reference .institutional-eyebrow{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#8b0000;margin:0 0 20px}
+.institutional-reference .cambria-card{border-radius:4px;box-shadow:none;border-color:#e1dada}
+.institutional-reference .document-card{padding:23px;min-height:195px}
+.institutional-reference .document-card h3{font-size:16px;font-weight:500;color:#241a1b}
+.institutional-reference .document-form{font-size:10px;color:#665b5e}
+.institutional-reference .document-links{font-size:12px;font-weight:500}
+.institutional-reference .cambria-button,.institutional-reference .cambria-button-secondary{border-radius:3px;font-size:12px;font-weight:500;border-width:1px;box-shadow:none;transform:none}
+.institutional-reference .review-article h1{font-weight:400;color:#241a1b}
+.institutional-reference .review-article p{font-size:15px;line-height:1.85;color:#665b5e}
+
+@media(max-width:1050px){
+ .hetzerk-site .home-nav{gap:18px;font-size:11px}
+ .home-minimal .home-hero{gap:28px;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}
+ .home-minimal .home-fund-card{padding:23px}
+ .home-minimal .home-ticker{font-size:58px;margin:20px 0 10px}
+ .home-minimal .home-fund-description{margin-bottom:18px}
+ .home-minimal .home-solicitation{gap:34px}
+ .home-minimal .home-interest-form{padding:24px}
+ .institutional-reference main>.max-w-7xl{width:calc(100% - 72px)}
+}
+@media(max-width:850px){
+ .hetzerk-site .home-header-row{min-height:86px}
+ .hetzerk-site .home-nav{display:none}
+ .hetzerk-site .restored-menu-toggle{display:inline-flex!important;font-size:12px;border:1px solid #ffffff40;border-radius:3px;padding:10px 14px;min-height:42px}
+ .hetzerk-site .restored-mobile-menu.is-open{background:#291112;padding:16px 36px;border-top:1px solid #ffffff20;font-size:13px}
+ .hetzerk-site .home-header:not(.has-mobile-menu) .home-header-row{flex-wrap:wrap;padding-top:18px;padding-bottom:18px}
+ .hetzerk-site .home-header:not(.has-mobile-menu) .home-nav{display:flex;width:100%;flex-wrap:wrap;gap:4px 22px}
+}
+@media(max-width:760px){
+ .home-minimal .home-hero{grid-template-columns:1fr;gap:24px;padding:38px 0}
+ .home-minimal .home-intro h1{font-size:clamp(33px,7.6vw,48px);margin:0 0 4px}
+ .home-minimal .home-fund{grid-row:2}
+ .home-minimal .home-fund-card{min-height:0!important;padding:25px;height:auto}
+ .home-minimal .home-ticker{font-size:57px;margin:20px 0 10px}
+ .home-minimal .home-fund-card h2{font-size:18px}
+ .home-minimal .home-fund-description{max-width:none;font-size:13px}
+ .home-minimal .home-fund-facts{margin-bottom:20px}
+ .home-minimal .home-solicitation{padding:35px 0;gap:28px}
+ .home-minimal .home-solicitation h2{font-size:30px}
+ .home-minimal .home-solicitation .exchange-sticker{max-width:390px}
+ .home-minimal .home-interest-form{padding:23px 20px}
+ .home-minimal .home-interest-form :is(input,select,textarea){font-size:16px}
+ .home-minimal .home-form-heading h3{font-size:24px}
+ .home-minimal .home-expenses{gap:20px;padding:29px 0}
+ .home-minimal .home-investment{padding:35px 0}
+ .home-minimal .case-panel{min-height:0;padding:23px 20px;gap:25px}
+ .home-minimal .case-tabs button{padding:15px 12px}
+ .home-minimal .case-panel-copy>p{font-size:13px}
+ .home-minimal .case-panel .case-lenses dd{font-size:11px}
+ .hetzerk-site .home-header-row{min-height:85px}
+ .hetzerk-site .restored-mobile-menu.is-open{padding:15px 20px}
+ .hetzerk-site .home-footer nav{gap:16px 22px}
+ .hetzerk-site .home-footer-base{font-size:9px}
+ .case-page .case-hero h1{font-size:clamp(37px,8.1vw,56px)}
+ .research-page .research-hero{padding:37px 0 30px}
+ .research-page .research-hero h1{font-size:46px}
+ .research-page .research-feature{padding:33px 0;gap:28px}
+ .research-page .research-topics{padding:34px 0;gap:27px}
+ .research-page .report-hero h1{font-size:clamp(42px,11vw,58px)}
+ .research-page .report-body p{font-size:14px}
+ .research-page .report-body h2{font-size:28px}
+ .research-page .report-body .report-lead{font-size:21px}
+ .research-page .report-toc li a{font-size:11px}
+ .institutional-reference main{padding:34px 0 42px}
+ .institutional-reference main>.max-w-7xl{width:calc(100% - 40px)}
+}

@@ -1,20 +1,20 @@
 /* Homepage only: warm light surfaces, blood-red accents and a short fund journey. */
-.home-minimal{--home-red:#8b0000;--home-ink:#241a1b;--home-muted:#6e6163;--home-line:#e5dcdc;background:#faf8f8;color:var(--home-ink);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-.home-minimal ::selection{background:#8b0000;color:#fff5ed}
-.home-minimal .home-width{width:calc(100% - 112px);max-width:1160px;margin:0 auto}
-.home-minimal .demo-strip{background:var(--home-red);color:#fff5ed;font-size:10px;letter-spacing:.025em;padding:9px 24px;line-height:1.6}
-.home-minimal .home-header,.home-minimal .home-footer{--home-ink:#fff5ed;--home-muted:#d9c1bb;--home-line:#fff5ed26}
-.home-minimal .home-header{border-bottom:1px solid var(--home-line);background:#2d0f0f}
-.home-minimal .home-header-row{display:flex;align-items:center;justify-content:space-between;gap:32px;min-height:112px}
-.home-minimal .home-brand{display:flex;align-items:center;gap:15px}
-.home-minimal .hetzerk-logo{border:0;border-radius:8px;box-shadow:none;background:#fff5ed}
-.home-minimal .hetzerk-logo::before{background:var(--home-red)}
-.home-minimal .hetzerk-masthead-name{font-size:29px;font-weight:500;color:var(--home-ink)}
-.home-minimal .hetzerk-masthead-subtitle{color:var(--home-muted);font-size:8px;letter-spacing:.2em}
-.home-minimal .home-nav{display:flex;align-items:center;gap:28px;font-size:12px}
-.home-minimal .home-nav a{padding:12px 0;color:var(--home-muted);text-decoration:none;transition:color .2s}
-.home-minimal .home-nav a:hover{color:var(--home-ink)}
-.home-minimal .restored-menu-toggle{display:none!important}
+.hetzerk-site{--home-red:#8b0000;--home-ink:#241a1b;--home-muted:#6e6163;--home-line:#e5dcdc;background:#faf8f8;color:var(--home-ink);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+.hetzerk-site ::selection{background:#8b0000;color:#fff5ed}
+.hetzerk-site .home-width{width:calc(100% - 112px);max-width:1160px;margin:0 auto}
+.hetzerk-site .demo-strip{background:var(--home-red);color:#fff5ed;font-size:10px;letter-spacing:.025em;padding:9px 24px;line-height:1.6}
+.hetzerk-site .home-header,.hetzerk-site .home-footer{--home-ink:#fff5ed;--home-muted:#d9c1bb;--home-line:#fff5ed26}
+.hetzerk-site .home-header{border-bottom:1px solid var(--home-line);background:#2d0f0f}
+.hetzerk-site .home-header-row{display:flex;align-items:center;justify-content:space-between;gap:32px;min-height:112px}
+.hetzerk-site .home-brand{display:flex;align-items:center;gap:15px}
+.hetzerk-site .hetzerk-logo{border:0;border-radius:8px;box-shadow:none;background:#fff5ed}
+.hetzerk-site .hetzerk-logo::before{background:var(--home-red)}
+.hetzerk-site .hetzerk-masthead-name{font-size:29px;font-weight:500;color:var(--home-ink)}
+.hetzerk-site .hetzerk-masthead-subtitle{color:var(--home-muted);font-size:8px;letter-spacing:.2em}
+.hetzerk-site .home-nav{display:flex;align-items:center;gap:28px;font-size:12px}
+.hetzerk-site .home-nav a{padding:12px 0;color:var(--home-muted);text-decoration:none;transition:color .2s}
+.hetzerk-site .home-nav a:hover{color:var(--home-ink)}
+.hetzerk-site .restored-menu-toggle{display:none!important}
 .home-minimal .home-hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:64px;align-items:center;padding:76px 0 64px}
 .home-minimal .home-eyebrow{margin:0 0 27px;font-size:10px;line-height:1.5;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--home-red)}
 .home-minimal h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,4.3vw,62px);font-weight:400;letter-spacing:-.045em;line-height:1.16;margin:0 0 28px}
@@ -67,17 +67,17 @@
 .home-minimal .interest-status:empty{display:none}
 .home-minimal .home-case-copy>p{max-width:405px;font-size:13px;line-height:1.85;color:var(--home-muted);margin:0 0 16px}
 .home-minimal .home-paths .home-fine-print{font-size:10px;line-height:1.7;max-width:355px;margin:17px 0 0;color:var(--home-muted)}
-.home-minimal .home-footer{border-top:1px solid var(--home-line);background:#211010;padding:33px 0 22px;color:var(--home-muted)}
-.home-minimal .home-footer-top{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px}
-.home-minimal .home-footer-top>p{font-size:13px;letter-spacing:-.025em;margin:0;color:var(--home-ink)}
-.home-minimal .home-footer nav{display:flex;gap:24px;flex-wrap:wrap;font-size:10px}
-.home-minimal .home-footer nav a:hover{text-decoration:underline;text-underline-offset:4px}
-.home-minimal .home-risk{font-size:10px;line-height:1.8;max-width:680px;margin:0 0 24px;color:#d1a59b}
-.home-minimal .home-footer-base{display:flex;justify-content:space-between;align-items:center;gap:20px;border-color:var(--home-line);padding-top:17px;font-size:9px;color:#cf9f94}
-.home-minimal .home-footer .perspective-word,.home-minimal .home-footer .perspective-word:hover{color:inherit;text-decoration:none;cursor:text}
-.home-minimal :is(a,button):focus-visible{outline:2px solid var(--home-ink);outline-offset:5px}
-@media(max-width:1050px){.home-minimal .home-width{width:calc(100% - 72px)}.home-minimal .home-hero{grid-template-columns:minmax(0,1fr) 260px;gap:35px;padding:80px 0}.home-minimal h1{font-size:clamp(35px,4.4vw,48px)}.home-minimal .home-nav{gap:20px}.home-minimal .home-fund-card{padding:24px;min-height:300px!important}.home-minimal .home-expenses,.home-minimal .home-paths{gap:36px}}
-@media(max-width:760px){.home-minimal .home-width{width:calc(100% - 40px)}.home-minimal .demo-strip{font-size:9px;padding:8px 20px}.home-minimal .home-header-row{min-height:94px;gap:15px}.home-minimal .home-brand{gap:12px}.home-minimal .hetzerk-masthead-name{font-size:27px}.home-minimal .hetzerk-masthead-subtitle{font-size:7px;letter-spacing:.15em}.home-minimal .home-nav{display:none}.home-minimal .restored-menu-toggle{display:inline-flex!important;font-size:11px;border:1px solid var(--home-line);border-radius:2px;padding:9px 12px}.home-minimal .restored-mobile-menu.is-open{background:#251010;padding:15px 20px;border-top:1px solid var(--home-line);font-size:13px}.home-minimal .home-hero{grid-template-columns:1fr;gap:34px;padding:52px 0 40px}.home-minimal .home-eyebrow{font-size:9px;margin-bottom:20px}.home-minimal h1{font-size:clamp(32px,6.9vw,48px);letter-spacing:-.04em;margin-bottom:20px}.home-minimal .home-lede{max-width:400px;font-size:13px;line-height:1.8}.home-minimal .home-fund-card{min-height:245px!important;padding:22px 24px}.home-minimal .home-ticker{font-size:60px;margin:18px 0 7px}.home-minimal .home-fund-card h2{font-size:14px;margin-bottom:18px}.home-minimal .home-expenses{grid-template-columns:1fr;gap:20px;padding:30px 0}.home-minimal .home-fee{font-size:48px}.home-minimal .home-fee-copy>p{max-width:none}.home-minimal .home-paths{grid-template-columns:1fr;gap:0;padding:0}.home-minimal .home-paths section{padding:35px 0}.home-minimal .home-case{border-bottom:1px solid var(--home-line)}.home-minimal .home-paths h2{font-size:29px}.home-minimal .home-paths section>p:not(.home-eyebrow){max-width:none}.home-minimal .home-footer{padding:30px 0 20px}.home-minimal .home-footer-top{align-items:flex-start;flex-direction:column;gap:18px}.home-minimal .home-footer nav{gap:20px}.home-minimal .home-footer-base{font-size:8px;gap:12px}.home-minimal .home-risk{max-width:none}}
+.hetzerk-site .home-footer{border-top:1px solid var(--home-line);background:#211010;padding:33px 0 22px;color:var(--home-muted)}
+.hetzerk-site .home-footer-top{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px}
+.hetzerk-site .home-footer-top>p{font-size:13px;letter-spacing:-.025em;margin:0;color:var(--home-ink)}
+.hetzerk-site .home-footer nav{display:flex;gap:24px;flex-wrap:wrap;font-size:10px}
+.hetzerk-site .home-footer nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.hetzerk-site .home-risk{font-size:10px;line-height:1.8;max-width:680px;margin:0 0 24px;color:#d1a59b}
+.hetzerk-site .home-footer-base{display:flex;justify-content:space-between;align-items:center;gap:20px;border-color:var(--home-line);padding-top:17px;font-size:9px;color:#cf9f94}
+.hetzerk-site .home-footer .perspective-word,.hetzerk-site .home-footer .perspective-word:hover{color:inherit;text-decoration:none;cursor:text}
+.hetzerk-site :is(a,button):focus-visible{outline:2px solid var(--home-ink);outline-offset:5px}
+@media(max-width:1050px){.hetzerk-site .home-width{width:calc(100% - 72px)}.home-minimal .home-hero{grid-template-columns:minmax(0,1fr) 260px;gap:35px;padding:80px 0}.home-minimal h1{font-size:clamp(35px,4.4vw,48px)}.hetzerk-site .home-nav{gap:20px}.home-minimal .home-fund-card{padding:24px;min-height:300px!important}.home-minimal .home-expenses,.home-minimal .home-paths{gap:36px}}
+@media(max-width:760px){.hetzerk-site .home-width{width:calc(100% - 40px)}.hetzerk-site .demo-strip{font-size:9px;padding:8px 20px}.hetzerk-site .home-header-row{min-height:94px;gap:15px}.hetzerk-site .home-brand{gap:12px}.hetzerk-site .hetzerk-masthead-name{font-size:27px}.hetzerk-site .hetzerk-masthead-subtitle{font-size:7px;letter-spacing:.15em}.hetzerk-site .home-nav{display:none}.hetzerk-site .restored-menu-toggle{display:inline-flex!important;font-size:11px;border:1px solid var(--home-line);border-radius:2px;padding:9px 12px}.hetzerk-site .restored-mobile-menu.is-open{background:#251010;padding:15px 20px;border-top:1px solid var(--home-line);font-size:13px}.home-minimal .home-hero{grid-template-columns:1fr;gap:34px;padding:52px 0 40px}.home-minimal .home-eyebrow{font-size:9px;margin-bottom:20px}.home-minimal h1{font-size:clamp(32px,6.9vw,48px);letter-spacing:-.04em;margin-bottom:20px}.home-minimal .home-lede{max-width:400px;font-size:13px;line-height:1.8}.home-minimal .home-fund-card{min-height:245px!important;padding:22px 24px}.home-minimal .home-ticker{font-size:60px;margin:18px 0 7px}.home-minimal .home-fund-card h2{font-size:14px;margin-bottom:18px}.home-minimal .home-expenses{grid-template-columns:1fr;gap:20px;padding:30px 0}.home-minimal .home-fee{font-size:48px}.home-minimal .home-fee-copy>p{max-width:none}.home-minimal .home-paths{grid-template-columns:1fr;gap:0;padding:0}.home-minimal .home-paths section{padding:35px 0}.home-minimal .home-case{border-bottom:1px solid var(--home-line)}.home-minimal .home-paths h2{font-size:29px}.home-minimal .home-paths section>p:not(.home-eyebrow){max-width:none}.hetzerk-site .home-footer{padding:30px 0 20px}.hetzerk-site .home-footer-top{align-items:flex-start;flex-direction:column;gap:18px}.hetzerk-site .home-footer nav{gap:20px}.hetzerk-site .home-footer-base{font-size:8px;gap:12px}.hetzerk-site .home-risk{max-width:none}}
 @media(max-width:1050px){.home-minimal .home-solicitation,.home-minimal .home-case{gap:36px}.home-minimal .home-solicitation h2{font-size:32px}}
 @media(max-width:760px){.home-minimal .home-solicitation{grid-template-columns:1fr;gap:26px;padding:34px 0}.home-minimal .home-solicitation h2{font-size:30px}.home-minimal .home-solicitation-copy>p:not(.home-eyebrow){max-width:none;font-size:13px}.home-minimal .home-solicitation-copy>p.home-fine-print{font-size:10px;margin-bottom:10px}.home-minimal .home-interest-form{gap:15px;padding:18px}.home-minimal .home-form-row{gap:12px}.home-minimal .home-interest-form :is(input,select,textarea){font-size:16px;padding:10px}.home-minimal .home-interest-form select{padding-right:18px}.home-minimal .home-paths .home-case{grid-template-columns:1fr;gap:4px;border-bottom:0}.home-minimal .home-case-copy>p{max-width:none}.home-minimal .home-paths .home-eyebrow{margin-bottom:14px}}
 @media(max-width:600px){.home-minimal .home-form-row{grid-template-columns:1fr}}

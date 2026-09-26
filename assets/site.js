@@ -27,11 +27,11 @@
     if (text !== undefined) el.textContent = text;
     return el;
   };
-  function chart(container, rows, series, mode, title, compact = false) {
+  function chart(container, rows, series, mode, title) {
     if (!container) return;
     container.replaceChildren();
     if (rows.length < 2) { container.textContent = 'Chart unavailable: insufficient observations.'; return; }
-    const width = compact ? 400 : 1000, height = 295, left = mode === 'premium' ? 62 : 54, right = 12, top = 15, bottom = 42;
+    const width = 1000, height = 295, left = mode === 'premium' ? 62 : 54, right = 12, top = 15, bottom = 42;
     const values = series.map(s => rows.map(r => mode === 'indexed' ? r[s.key] / rows[0][s.key] * 100 : mode === 'price' ? r[s.key] : r[s.key] * 100));
     const all = values.flat();
     const min = Math.min(...all), max = Math.max(...all), span = Math.max(max-min, .01);
@@ -85,9 +85,7 @@
   document.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>selectPeriod(b.dataset.period)));
   const minPeriod = fund.disclosure_periods[0]?.start || fund.daily[0].date;
   const premiumRows = fund.daily.filter(r=>r.date>=minPeriod);
-  for (const id of ['premium-overview-chart','premium-chart']) {
-    chart(document.getElementById(id),premiumRows,[{key:'premium_discount',color:accent}],'premium','Daily closing premium and discount history',id==='premium-overview-chart');
-  }
+  chart(document.getElementById('premium-chart'),premiumRows,[{key:'premium_discount',color:accent}],'premium','Daily closing premium and discount history');
   const tbody=document.querySelector('#holdings-table tbody');
   if(!tbody) return;
   let sortKey='weight', sortDirection=-1;

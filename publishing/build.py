@@ -26,11 +26,13 @@ def build(workbook, output=ROOT / "dist", proxy_path=None, base_path='', *, site
     pages = generate_pages(snapshot)
     if proxy_path:
         from bs4 import BeautifulSoup
+        from publishing.masthead import refine_masthead
         for route,html in pages.items():
             page=BeautifulSoup(html,'html.parser')
             banner=page.select_one('.demo-strip')
             if banner:
                 banner.string='Illustrative demo · SPY-based stock allocation, rescaled quantities and inferred prices · NAV and performance remain fictional · Not an investment offering'
+                refine_masthead(page)
             pages[route]=str(page)
     pages = apply_seo(pages, site_url=site_url, base_path=base_path, indexable=indexable)
     if base_path:

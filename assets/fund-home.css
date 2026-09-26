@@ -1,0 +1,50 @@
+/* Fund information leads; supporting research follows the investor journeys. */
+.fund-home .home-hero {grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:39px 62px;align-items:center;padding:43px 0 50px}
+.fund-home .home-fund-premise {grid-column:auto;max-width:630px}
+.fund-home .home-fund-premise .home-eyebrow {margin-bottom:23px}
+.fund-home .home-fund-premise h1 {font-size:clamp(42px,4.1vw,60px);line-height:1.12;letter-spacing:-.045em;margin:0 0 23px}
+.fund-home .home-fund-premise h1>span {display:block;color:#8b0000}
+.fund-home .home-fund-premise h1>.hetzerk-name {display:inline-block;color:inherit}
+.fund-home .home-fund-objective {max-width:555px;color:#66575a;font-size:15px;line-height:1.85;margin:0 0 28px}
+.fund-home .home-factor-lenses {margin:0 0 28px;border-top:1px solid #deccc3}
+.fund-home .home-factor-lenses>div {display:grid;grid-template-columns:130px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid #deccc3;align-items:baseline}
+.fund-home .home-factor-lenses dt {font-size:12px;color:#7d1221;font-weight:500}
+.fund-home .home-factor-lenses dd {margin:0;color:#68595d;font-size:12px;line-height:1.8;max-width:335px}
+.fund-home .home-fund-links {display:flex;flex-wrap:wrap;align-items:center;gap:13px 28px}
+.fund-home .home-fund-links a {display:inline-flex;gap:14px;align-items:center;padding:5px 0;border-bottom:1px solid #cbb2a8;font-size:11px;color:#7d1221;text-decoration:none}
+.fund-home .home-fund-links a:hover {border-color:#8b0000}
+.fund-home .home-fund {align-self:stretch;min-width:0}
+.fund-home .home-fund-card {padding:25px 28px;min-height:0!important}
+.fund-home .home-ticker {font-size:58px;margin:16px 0 7px}
+.fund-home .home-fund-card h2 {font-size:17px;line-height:1.4;margin-bottom:17px}
+.fund-home .home-fund-description {margin-bottom:21px;max-width:315px}
+.fund-home .home-fund-facts {display:grid;grid-template-columns:1fr 1fr;gap:0 17px;margin-bottom:18px}
+.fund-home .home-fund-facts>div {display:block;padding:10px 0}
+.fund-home .home-fund-facts dt,.fund-home .home-fund-facts dd {font-size:9px}
+.fund-home .home-fund-facts dd {text-align:left;margin-top:3px;font-size:10px}
+.fund-home .home-fund-card:before {top:50px;width:145px;height:145px}
+.fund-home .home-research-proof {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.55fr);gap:60px;align-items:center;padding-top:44px;margin-top:42px;border-top:1px solid #deccc3}
+.fund-home .home-research-proof h3 {font-family:'Playfair Display',Georgia,serif;font-size:36px;line-height:1.2;letter-spacing:-.035em;font-weight:400;margin:0 0 20px}
+.fund-home .home-research-proof>div>p:not(.home-eyebrow) {font-size:13px;line-height:1.8;color:#68595d;max-width:320px;margin:0 0 21px}
+.fund-home .home-research-proof .case-business-card {max-width:none;margin:0;border:1px solid #d8c9c0;border-radius:21px;background:linear-gradient(145deg,#fffdf9,#eee6e0);padding:9px;box-shadow:var(--tactile-shadow)}
+.fund-home .home-research-proof .case-business-card figcaption p {font-size:10px}
+@media(max-width:1050px){
+ .fund-home .home-hero{gap:34px;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
+ .fund-home .home-fund-premise h1{font-size:47px}.fund-home .home-fund-objective{font-size:14px}
+ .fund-home .home-factor-lenses>div{grid-template-columns:115px minmax(0,1fr);gap:13px}
+ .fund-home .home-fund-card{padding:24px}.fund-home .home-ticker{font-size:54px}
+ .fund-home .home-fund-card h2{font-size:18px}.fund-home .home-fund-facts>div{gap:12px}
+ .fund-home .home-research-proof{gap:34px}.fund-home .home-research-proof h3{font-size:32px}
+}
+@media(max-width:760px){
+ .fund-home .home-hero{grid-template-columns:1fr;gap:30px;padding:37px 0 43px}
+ .fund-home .home-fund-premise h1{font-size:clamp(37px,9vw,57px);margin-bottom:23px}
+ .fund-home .home-fund-premise .home-eyebrow{margin-bottom:20px}.fund-home .home-fund-objective{font-size:14px;margin-bottom:23px}
+ .fund-home .home-factor-lenses{margin-bottom:21px}.fund-home .home-factor-lenses>div{grid-template-columns:113px minmax(0,1fr);padding:13px 0}
+ .fund-home .home-factor-lenses dt,.fund-home .home-factor-lenses dd{font-size:11px}.fund-home .home-fund-links{gap:12px 20px}
+ .fund-home .home-fund-links a{font-size:11px;gap:10px}.fund-home .home-fund-card{padding:28px}
+ .fund-home .home-ticker{font-size:62px}.fund-home .home-fund-card h2{font-size:19px}
+ .fund-home .home-fund-facts>div{padding:12px 0}.fund-home .home-fund-facts dt{font-size:9px}.fund-home .home-fund-facts dd{font-size:10px}
+ .fund-home .home-research-proof{grid-template-columns:1fr;gap:27px;padding-top:31px;margin-top:29px}
+ .fund-home .home-research-proof h3{font-size:31px}.fund-home .home-research-proof>div>p:not(.home-eyebrow){max-width:none}
+}

@@ -1,0 +1,453 @@
+/* Sculpted REDI surfaces: warm ceramic, oxblood, and readable fund data. */
+.institutional-etf {
+  --etf-ink: #241c1c;
+  --etf-muted: #746868;
+  --etf-line: #ded2d0;
+  --etf-ceramic: #f6f0ee;
+  --etf-shadow: 0 18px 38px -24px #39100f55, 0 3px 7px #39100f0a, inset 0 1px 0 #fff;
+  background: #faf8f8;
+  color: var(--etf-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.institutional-etf > section > .max-w-7xl { max-width: 1200px; }
+.institutional-etf :is(#overview, #about, #performance, #holdings, #documents) {
+  padding-top: 58px;
+  padding-bottom: 58px;
+  border-top: 1px solid var(--etf-line);
+  border-bottom: 0;
+  background-image: none;
+}
+.institutional-etf :is(#overview, #performance, #documents) { background-color: #faf8f8; }
+.institutional-etf :is(#about, #holdings) { background-color: #fff; }
+.institutional-etf :is(#about, #performance, #holdings, #documents) h2 {
+  color: var(--etf-ink);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(30px, 3.4vw, 44px);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.025em;
+}
+.institutional-etf :is(#overview, #about, #performance, #holdings, #documents) h3 {
+  color: var(--etf-ink);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -.01em;
+}
+.institutional-etf :is(#main, #overview, #about) p { line-height: 1.85; }
+.institutional-etf :is(#main, #overview, #about, #performance, #holdings, #documents) .text-gray-600 {
+  color: var(--etf-muted);
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) .cambria-button,
+.institutional-etf :is(#main, #performance, #holdings, #documents) .cambria-button-secondary {
+  min-height: 42px;
+  padding: 11px 18px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+  box-shadow: none;
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) .cambria-button-secondary {
+  border-width: 1px;
+  border-color: #cdbbbb;
+  background: transparent;
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) :is(.cambria-button, .cambria-button-secondary):hover {
+  transform: none;
+  box-shadow: none;
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) .cambria-button-secondary:hover {
+  background: #f4eded;
+  border-color: #8b0000;
+}
+
+/* An enamel REDI tile anchors the introduction; the figures sit on ceramic. */
+.institutional-etf #main { padding: 62px 0 24px; background: #faf8f8; }
+.institutional-etf #main .max-w-4xl { max-width: 960px; }
+.institutional-etf #main .max-w-4xl > .tracking-tight {
+  color: #8b0000;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .17em;
+  margin-bottom: 16px;
+}
+.institutional-etf #main h1 {
+  max-width: 940px;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(32px, 4.4vw, 54px);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -.035em;
+  color: var(--etf-ink);
+  margin-bottom: 22px;
+}
+.institutional-etf #main .max-w-4xl > p {
+  max-width: 850px;
+  font-size: 14px;
+  color: #645959;
+  margin-bottom: 26px;
+}
+.institutional-etf #main .grid-cols-3 {
+  max-width: 680px;
+  gap: 0;
+  margin-top: 32px;
+  margin-bottom: 18px;
+  border-top: 1px solid var(--etf-line);
+  border-bottom: 1px solid var(--etf-line);
+}
+.institutional-etf #main .grid-cols-3 > div {
+  padding: 19px 24px 19px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.institutional-etf #main .grid-cols-3 > div + div { padding-left: 24px; }
+.institutional-etf #main .grid-cols-3 .text-2xl { font-size: 25px; font-weight: 500; letter-spacing: -.035em; }
+.institutional-etf #main .grid-cols-3 .text-xs { margin-top: 5px; font-size: 10px; letter-spacing: .06em; color: var(--etf-muted); }
+.institutional-etf #main > p { font-size: 11px; color: var(--etf-muted); padding-bottom: 0; }
+
+/* The original risk notice, snapshot strip, and two resource/navigation rows. */
+.institutional-etf #main + section {
+  padding: 18px 0;
+  background: #f1eceb;
+  border: 0;
+  color: #5c5050;
+}
+.institutional-etf #main + section > div { display: flex; gap: 24px; align-items: baseline; font-size: 12px; }
+.institutional-etf #main + section strong { font-weight: 600; white-space: nowrap; }
+.institutional-etf #main + section p { margin: 0; }
+.institutional-etf #main + section + section { padding: 21px 0; background: #fff; color: var(--etf-ink); border-bottom: 1px solid var(--etf-line); }
+.institutional-etf #main + section + section .grid { gap: 0; }
+.institutional-etf #main + section + section .grid > div { padding: 8px 14px; border-radius: 0; background: transparent; }
+.institutional-etf #main + section + section .grid > div + div { border-left: 1px solid var(--etf-line); }
+.institutional-etf #main + section + section .text-lg { font-size: 18px; font-weight: 500; }
+.institutional-etf #main + section + section .text-xs { margin-top: 4px; font-size: 9px; letter-spacing: .09em; color: var(--etf-muted); }
+.institutional-etf #quick-ytd { color: #315f49 !important; }
+.institutional-etf #main + section + section + section { padding: 17px 0; background: #faf8f8; border-color: var(--etf-line); }
+.institutional-etf #main + section + section + section a {
+  padding: 8px 12px;
+  color: #8b0000;
+  background: transparent;
+  border: 1px solid var(--etf-line);
+  border-radius: 3px;
+}
+.institutional-etf #main + section + section + section a:hover { background: #f1e9e9; border-color: #cbbbbb; }
+.institutional-etf #main + section + section + section a :is(i, svg, span) { color: inherit; }
+.institutional-etf #main + section + section + section .text-sm { font-size: 11px; color: var(--etf-muted); }
+.institutional-etf #main + section + section + section + section { padding: 19px 0; background: #faf8f8; border-color: var(--etf-line); }
+.institutional-etf #main + section + section + section + section .flex { gap: 24px; }
+.institutional-etf #main + section + section + section + section a { font-size: 12px; font-weight: 500; }
+
+/* Each original overview panel becomes a sculpted, readable surface. */
+.institutional-etf #overview > div > .grid { gap: 24px; }
+.institutional-etf #overview > div > .grid > div { min-width: 0; }
+.institutional-etf #overview .rounded-xl,
+.institutional-etf :is(#about, #performance, #documents) .cambria-card {
+  border: 1px solid var(--etf-line);
+  border-radius: 4px;
+  box-shadow: none;
+}
+.institutional-etf #overview .rounded-xl { padding: 24px; }
+.institutional-etf #overview .rounded-lg { border-radius: 3px; }
+.institutional-etf #overview :is(.bg-red-50, .bg-green-50, .bg-gray-50) { background: #f6f2f1; }
+.institutional-etf #overview .bg-gradient-to-r { background: #f6f2f1; border-color: #8b0000; border-left-width: 2px; border-radius: 0; }
+.institutional-etf #overview .bg-green-500 { background: #8b0000; }
+.institutional-etf #overview .text-green-600 { color: #52665a; }
+.institutional-etf #overview .text-red-600 { color: #8b0000; }
+.institutional-etf #overview .text-sm { font-size: 12px; }
+.institutional-etf #overview .grid-cols-2 { gap: 12px; }
+.institutional-etf #overview .grid-cols-2 > .p-4 { padding: 15px; }
+.institutional-etf #overview .space-y-3 > .flex { align-items: baseline; gap: 18px; padding: 9px 0; }
+.institutional-etf #overview .space-y-3 > .flex > span:first-child { flex: 1 1 45%; }
+.institutional-etf #overview .space-y-3 > .flex > span:last-child { flex: 1 1 55%; text-align: right; font-weight: 500; }
+.institutional-etf #overview .space-y-3 > * + * { margin-top: 0; }
+.institutional-etf #overview .grid-cols-2 .space-y-2.text-sm .flex { flex-wrap: wrap; gap: 3px 10px; }
+.institutional-etf #overview .grid-cols-2 .space-y-2.text-sm .flex > span:last-child { margin-left: auto; }
+.institutional-etf #about > div > .text-center { text-align: left; max-width: 760px; margin-bottom: 32px; }
+.institutional-etf #about > div > .text-center > p { margin-left: 0; font-size: 14px; }
+.institutional-etf #about .grid { gap: 48px; }
+.institutional-etf #about .grid > div > p { font-size: 13px; }
+.institutional-etf #about .cambria-disclosure { background: #faf8f8; border-left: 2px solid #8b0000; padding: 18px 20px; }
+.institutional-etf #about .cambria-card { align-self: start; padding: 25px; }
+
+/* Dense financial information gets consistent, tabular alignment and contrast. */
+.institutional-etf .restored-data .metric-note { color: var(--etf-muted); font-size: 11px; line-height: 1.8; }
+.institutional-etf .restored-data .cambria-card { padding: 27px; }
+.institutional-etf .restored-data .cambria-card > h3 { margin-bottom: 22px; }
+.institutional-etf .restored-data .table-scroll { border-radius: 3px; border-color: var(--etf-line); background: #fff; }
+.institutional-etf .restored-data table { font-size: 12px; }
+.institutional-etf .restored-data :is(th, td) { padding: 13px 15px; border-bottom-color: #eee8e8; }
+.institutional-etf .restored-data thead th { padding-top: 15px; padding-bottom: 15px; background: #f5f1f0; color: #5f5353; font-size: 10px; font-weight: 600; letter-spacing: .015em; }
+.institutional-etf .restored-data tbody th { background: #fff; color: #3b3030; font-size: 12px; font-weight: 500; }
+.institutional-etf .restored-data tbody tr:last-child > * { border-bottom: 0; }
+.institutional-etf .restored-data tbody tr:hover > * { background: #faf7f6; }
+/* The common holdings rule left-aligns columns 2 and 3; return/distribution
+   tables contain numbers in those columns, so align those tables explicitly. */
+.institutional-etf #performance .restored-data :is(th, td):not(:first-child) { text-align: right; min-width: 0; white-space: nowrap; }
+.institutional-etf #performance .restored-data thead th { white-space: normal; }
+.institutional-etf #performance .restored-data th:first-child { max-width: 150px; white-space: normal; }
+.institutional-etf #holdings #top-holdings :is(th, td):nth-child(-n+4) { text-align: left; }
+.institutional-etf #holdings #top-holdings td:first-child { color: #8b0000; font-weight: 600; }
+.institutional-etf #holdings #top-holdings td:nth-child(2) { color: var(--etf-muted); font-size: 11px; }
+.institutional-etf #holdings #top-holdings td:nth-child(3) { min-width: 180px; font-size: 11px; }
+.institutional-etf .restored-data .chart-toolbar { color: var(--etf-muted); font-size: 11px; gap: 12px; }
+.institutional-etf .restored-data .periods { gap: 4px; }
+.institutional-etf .restored-data .periods button { border-radius: 3px; font-size: 10px; font-weight: 500; min-height: 34px; padding: 6px 11px; }
+.institutional-etf .restored-data .chart-legend { gap: 20px; color: #5f5353; font-size: 11px; }
+.institutional-etf .restored-data .return-bar-row { font-size: 12px; gap: 15px; margin: 18px 0; }
+.institutional-etf .restored-data .return-bar-row > div { height: 12px; border-radius: 0; background: #f0ebea; }
+.institutional-etf .restored-data .return-bar-row strong { font-weight: 500; }
+.institutional-etf .restored-data .data-pairs { gap: 18px 20px; font-size: 12px; }
+.institutional-etf .restored-data .data-pairs dd { font-weight: 500; }
+.institutional-etf .restored-data summary { color: #5f5353; font-size: 12px; font-weight: 500; }
+.institutional-etf .restored-data .data-download { font-size: 11px; font-weight: 500; }
+.institutional-etf #documents .document-grid { gap: 16px; }
+.institutional-etf #documents .document-card { min-height: 170px; padding: 23px; }
+.institutional-etf #documents .document-card h3 { font-size: 15px; margin: 12px 0 26px; }
+.institutional-etf #documents .document-form { font-size: 9px; color: var(--etf-muted); letter-spacing: .035em; }
+.institutional-etf #documents .document-links { gap: 16px; font-size: 10px; font-weight: 500; }
+.institutional-etf #documents .document-materials { gap: 10px; margin-top: 24px; margin-bottom: 30px; }
+.institutional-etf > div.bg-red-600:not(.demo-strip) { background: #f1eceb; color: #665b5e; border-top: 1px solid var(--etf-line); font-size: 11px; font-weight: 400; padding: 15px 22px; }
+
+/* Depth is carried by the surface edges, not by effects over financial data. */
+.institutional-etf #main {
+  padding-top: 72px;
+  padding-bottom: 28px;
+  background: radial-gradient(ellipse at 95% 5%, #e9d9d666, transparent 53%), linear-gradient(145deg, #fffdfb, #f4efed);
+}
+.institutional-etf #main .max-w-4xl { max-width: none; }
+.institutional-etf #main .max-w-4xl > .tracking-tight {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  min-width: 76px;
+  min-height: 76px;
+  padding: 16px;
+  margin-bottom: 26px;
+  border: 1px solid #b44844;
+  border-radius: 21px;
+  color: #fff9f5;
+  background: linear-gradient(145deg, #b7191a 3%, #8b0000 58%, #610909);
+  box-shadow: 0 18px 30px -16px #620c0b8c, 0 5px 0 #580f13, inset 0 2px 2px #f2827959, inset 0 -2px 4px #32050777;
+  font-size: 20px;
+  letter-spacing: -.035em;
+  isolation: isolate;
+}
+.institutional-etf #main .max-w-4xl > .tracking-tight::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid #ffffff29;
+  border-radius: 16px;
+  pointer-events: none;
+}
+.institutional-etf #main h1 { font-size: clamp(37px, 4.3vw, 58px); line-height: 1.13; }
+.institutional-etf #main .max-w-4xl > p { max-width: 780px; }
+.institutional-etf #main .grid-cols-3 {
+  max-width: 780px;
+  gap: 16px;
+  margin-top: 36px;
+  margin-bottom: 28px;
+  border: 0;
+}
+.institutional-etf #main .grid-cols-3 > div,
+.institutional-etf #main .grid-cols-3 > div + div {
+  position: relative;
+  padding: 24px;
+  border: 1px solid #fff9f5;
+  border-bottom-color: #daccc8;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fffdfb, #f0e7e3);
+  box-shadow: 7px 9px 18px #c3afa526, -4px -4px 14px #ffffffc9, inset 0 1px 0 #fff;
+}
+.institutional-etf #main .grid-cols-3 .text-2xl { font-size: 34px; letter-spacing: -.045em; }
+.institutional-etf #main .grid-cols-3 .text-xs { margin-top: 10px; font-size: 9px; letter-spacing: .075em; }
+.institutional-etf :is(#main, #performance, #holdings, #documents) .cambria-button {
+  border: 1px solid #a82626;
+  border-bottom-color: #620909;
+  background: linear-gradient(170deg, #b0181b, #8b0000 62%, #760a0a);
+  box-shadow: 0 3px 0 #630d10, 0 9px 18px -8px #650b0b66, inset 0 1px 0 #fba49a4d;
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) .cambria-button-secondary {
+  border-color: #fffcf8;
+  border-bottom-color: #d7c6c2;
+  background: linear-gradient(150deg, #fffefc, #eee4e0);
+  box-shadow: 0 3px 0 #d9c9c5, 0 7px 14px -8px #5428203d, inset 0 1px 0 #fff;
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) :is(.cambria-button, .cambria-button-secondary) {
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) :is(.cambria-button, .cambria-button-secondary):is(:hover, :focus-visible) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 0 #d2beb955, 0 13px 22px -10px #58272266, inset 0 1px 0 #ffffff77;
+}
+.institutional-etf :is(#main, #performance, #holdings, #documents) :is(.cambria-button, .cambria-button-secondary):active { transform: translateY(1px); }
+.institutional-etf #main + section { background: #eee5e1; box-shadow: inset 0 1px 0 #ffffffa6, inset 0 -1px 0 #dbceca; }
+.institutional-etf #main + section + section { padding-top: 28px; padding-bottom: 28px; background: #f7f2ef; border-bottom: 0; }
+.institutional-etf #main + section + section .grid {
+  padding: 12px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background: #fdfaf7;
+  box-shadow: var(--etf-shadow);
+}
+.institutional-etf #main + section + section .grid > div { padding-top: 12px; padding-bottom: 12px; }
+.institutional-etf #main + section + section .text-lg { font-size: 21px; letter-spacing: -.03em; }
+.institutional-etf #main + section + section + section { padding-bottom: 20px; background: #f7f2ef; border: 0; }
+.institutional-etf #main + section + section + section a {
+  padding: 10px 14px;
+  border-color: #fffcf8;
+  border-bottom-color: #ddcfca;
+  border-radius: 9px;
+  background: linear-gradient(140deg, #fffefa, #eee5e0);
+  box-shadow: 0 2px 0 #ded0ca, 0 5px 10px #5827220a;
+}
+.institutional-etf #main + section + section + section a:is(:hover, :focus-visible) { transform: translateY(-2px); box-shadow: 0 4px 0 #dbc7c1, 0 8px 15px #58272212; }
+.institutional-etf #main + section + section + section + section { background: #f7f2ef; border-bottom-color: #ddd0ca; }
+.institutional-etf #main + section + section + section + section a { padding: 7px 0; border-bottom: 2px solid transparent; }
+.institutional-etf #main + section + section + section + section a:is(:hover, :focus-visible) { border-bottom-color: #8b0000; text-decoration: none; }
+.institutional-etf :is(#overview, #performance, #documents) { background: linear-gradient(115deg, #f6f0ec, #fbf8f5 66%, #f3ece8); }
+.institutional-etf :is(#about, #holdings) { background: #fffdfa; }
+.institutional-etf #overview .rounded-xl,
+.institutional-etf :is(#about, #performance, #documents) .cambria-card {
+  position: relative;
+  border: 1px solid #fffcf9;
+  border-right-color: #e4d8d2;
+  border-bottom-color: #d9c9c2;
+  border-radius: 22px;
+  background: linear-gradient(140deg, #fffefa, #fcf8f5);
+  box-shadow: var(--etf-shadow);
+}
+.institutional-etf #overview .rounded-xl { padding: 26px; }
+.institutional-etf #overview h3 { margin-bottom: 24px; }
+.institutional-etf #overview .rounded-lg {
+  border: 1px solid #e6dad4;
+  border-bottom-color: #fff;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #efe5de, #f7f1ed);
+  box-shadow: inset 2px 3px 6px #94715f14, 0 1px 0 #fff;
+}
+.institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) {
+  background: radial-gradient(ellipse at 100% 0, #8b34354a, transparent 75%), linear-gradient(150deg, #361818, #210e10);
+  border-color: #5c3334;
+  border-bottom-color: #190a0b;
+  box-shadow: 0 20px 35px -22px #2807088c, inset 0 1px 0 #b16b6045;
+}
+.institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) :is(h3, h4) { color: #fff7f1; }
+.institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) p { color: #d9c5bf; }
+.institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) .bg-gradient-to-r {
+  border: 1px solid #9c595447;
+  border-left: 2px solid #b75f54;
+  border-radius: 0 12px 12px 0;
+  background: #ffffff06;
+}
+.institutional-etf #overview .space-y-3 > .flex { border-bottom-color: #e7dcd5; }
+.institutional-etf #overview .space-y-3 > .flex > span:last-child { color: #412c28; }
+.institutional-etf #about .cambria-disclosure { border-radius: 0 14px 14px 0; background: linear-gradient(120deg, #f1e7e1, #faf5f0); box-shadow: inset 0 1px 3px #7b4e4310; }
+.institutional-etf #about .cambria-card { padding: 32px; }
+.institutional-etf .restored-data .cambria-card { padding: 30px; }
+.institutional-etf .restored-data .table-scroll {
+  border: 1px solid #dbccc5;
+  border-bottom-color: #fff;
+  border-radius: 13px;
+  background: #fffdfa;
+  box-shadow: inset 1px 2px 5px #724f3f0a, 0 1px 0 #fff;
+}
+.institutional-etf .restored-data thead th { color: #f0e0d7; background: #3c2020; border-bottom-color: #5e3935; }
+.institutional-etf .restored-data tbody th { background: #fffdfa; }
+.institutional-etf .restored-data tbody tr:nth-child(even) > * { background: #f8f1ec; }
+.institutional-etf .restored-data tbody tr:hover > * { background: #f0e1d9; }
+.institutional-etf .restored-data .periods { padding: 4px; border-radius: 11px; background: #ece1dc; box-shadow: inset 1px 2px 4px #62413618, 0 1px 0 #fff; }
+.institutional-etf .restored-data .periods button { border: 1px solid transparent; border-radius: 7px; background: transparent; }
+.institutional-etf .restored-data .periods button[aria-pressed=true] { border-top-color: #cb6d63; background: linear-gradient(145deg, #ac2525, #8b0000); box-shadow: 0 2px 3px #55171540, inset 0 1px 0 #ed989633; }
+.institutional-etf .restored-data .periods button[aria-pressed=false]:is(:hover, :focus-visible) { background: #fdf8f4; }
+.institutional-etf .restored-data .chart { border-bottom: 1px solid #e6d9d2; padding-bottom: 13px; }
+.institutional-etf .restored-data .return-bar-row > div { height: 14px; border-radius: 5px; background: #e9ddd6; box-shadow: inset 0 2px 3px #77503d1a, 0 1px 0 #fff; }
+.institutional-etf .restored-data .return-bar-row i { border-radius: 4px; background: linear-gradient(180deg, #c85549, #8b0000); box-shadow: inset 0 1px 0 #e7947959; }
+.institutional-etf #documents .document-grid { gap: 22px; }
+.institutional-etf #documents .document-card { overflow: hidden; min-height: 205px; padding: 27px; transition: transform .22s ease, box-shadow .22s ease; }
+.institutional-etf #documents .document-card::after { content: ''; position: absolute; top: 0; right: 0; width: 44px; height: 44px; border-radius: 0 0 0 12px; background: linear-gradient(225deg, #dcc8bd, #fff8f1 49%, #cfbcb347 50%, #f0e4db 58%); pointer-events: none; }
+.institutional-etf #documents .document-form { display: block; padding-right: 19px; color: #8b0000; font-size: 9px; }
+.institutional-etf #documents .document-card h3 { max-width: 245px; font-family: 'Playfair Display', Georgia, serif; font-size: 21px; font-weight: 500; line-height: 1.35; margin-top: 19px; }
+.institutional-etf #documents .document-links { padding-top: 18px; border-top: 1px solid #eadbd1; }
+.institutional-etf #documents .document-card:is(:hover, :focus-within) { transform: translateY(-4px); box-shadow: 0 24px 38px -24px #39100f77, 0 4px 8px #39100f0f, inset 0 1px 0 #fff; }
+@media (min-width: 1024px) {
+  /* Let the four existing panels share grid rows instead of leaving the
+     objective below the details while the other columns sit empty. */
+  .institutional-etf #overview > div > .grid { align-items: stretch; }
+  .institutional-etf #overview > div > .grid > div:first-child { display: contents; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:first-child { display: flex; flex-direction: column; grid-column: 1; grid-row: 1 / 3; min-width: 0; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:first-child > .space-y-3 { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) { grid-column: 2 / 4; grid-row: 2; margin-top: 0; min-width: 0; }
+  .institutional-etf #overview > div > .grid > div:nth-child(2) { grid-column: 2; grid-row: 1; }
+  .institutional-etf #overview > div > .grid > div:nth-child(3) { grid-column: 3; grid-row: 1; }
+  .institutional-etf #overview > div > .grid > div:not(:first-child) > .rounded-xl { height: 100%; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); column-gap: 26px; align-content: start; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) > h3 { grid-column: 1 / -1; margin-bottom: 18px; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) > p { grid-column: 1; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) > p:last-of-type { margin-bottom: 0; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) > .bg-gradient-to-r { grid-column: 2; grid-row: 2 / 4; align-self: start; }
+  .institutional-etf #main .max-w-4xl { display: grid; grid-template-columns: minmax(0, 1fr) 225px; column-gap: 70px; align-items: start; }
+  .institutional-etf #main .max-w-4xl > .tracking-tight { grid-column: 2; grid-row: 1 / 4; align-self: center; width: 216px; height: 216px; border-radius: 43px; font-size: 51px; transform: rotate(-7deg); box-shadow: 0 32px 40px -22px #620c0b8c, 0 8px 0 #580f13, inset 0 2px 2px #f2827959, inset 0 -2px 4px #32050777; }
+  .institutional-etf #main .max-w-4xl > .tracking-tight::before { inset: 12px; border-radius: 32px; }
+  .institutional-etf #main h1 { grid-column: 1; grid-row: 1; }
+  .institutional-etf #main .max-w-4xl > p { grid-column: 1; grid-row: 2; }
+  .institutional-etf #main .max-w-4xl > .flex { grid-column: 1; grid-row: 3; }
+  .institutional-etf #main .max-w-4xl > .grid-cols-3 { grid-column: 1 / -1; grid-row: 4; width: 100%; margin-top: 20px; }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .institutional-etf #overview > div > .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .institutional-etf #overview > div > .grid > div:nth-child(3) { grid-column: 2; grid-row: 2; }
+  .institutional-etf #overview > div > .grid > div:first-child > .rounded-xl:nth-child(2) { grid-column: 1 / -1; grid-row: 3; }
+  .institutional-etf #overview .rounded-xl { padding: 19px; }
+  .institutional-etf #overview .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 820px) {
+  .institutional-etf #main + section + section .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 16px; }
+  .institutional-etf #main + section + section .grid > div:nth-child(3n+1) { border-left: 0; }
+  .institutional-etf #about .grid { gap: 28px; }
+}
+@media (max-width: 640px) {
+  .institutional-etf > section > .max-w-7xl { padding-left: 22px; padding-right: 22px; }
+  .institutional-etf :is(#overview, #about, #performance, #holdings, #documents) { padding-top: 36px; padding-bottom: 36px; }
+  .institutional-etf #main { padding-top: 36px; padding-bottom: 20px; }
+  .institutional-etf #main .max-w-4xl > p { font-size: 13px; line-height: 1.8; }
+  .institutional-etf #main .max-w-4xl > .flex { gap: 10px; }
+  .institutional-etf #main :is(.cambria-button, .cambria-button-secondary) { padding-left: 12px; padding-right: 12px; font-size: 11px; }
+  .institutional-etf #main .grid-cols-3 > div { padding: 17px 12px; }
+  .institutional-etf #main .grid-cols-3 > div + div { padding-left: 12px; }
+  .institutional-etf #main .grid-cols-3 { gap: 10px; margin-top: 26px; }
+  .institutional-etf #main .grid-cols-3 > div { border-radius: 13px; }
+  .institutional-etf #main .grid-cols-3 .text-2xl { font-size: 22px; }
+  .institutional-etf #main .grid-cols-3 .text-xs { font-size: 8px; letter-spacing: .03em; }
+  .institutional-etf #main + section > div { flex-wrap: wrap; gap: 5px; font-size: 11px; }
+  .institutional-etf #main + section strong { flex-basis: 100%; }
+  .institutional-etf #main + section + section .grid > div { padding: 7px; }
+  .institutional-etf #main + section + section .text-lg { font-size: 16px; }
+  .institutional-etf #main + section + section .text-xs { font-size: 8px; letter-spacing: .025em; }
+  .institutional-etf #main + section + section + section .flex > span { flex-basis: 100%; margin-bottom: 5px; }
+  .institutional-etf #main + section + section + section + section .flex { gap: 12px 20px; }
+  .institutional-etf #overview .rounded-xl, .institutional-etf .restored-data .cambria-card { padding: 20px; }
+  .institutional-etf #overview .grid-cols-2 > .p-4 { padding: 12px; }
+  .institutional-etf .restored-data :is(th, td) { padding: 12px; }
+  .institutional-etf .restored-data .periods button { min-height: 38px; padding-left: 10px; padding-right: 10px; }
+  .institutional-etf .restored-data .chart-legend { gap: 12px 18px; font-size: 10px; }
+  .institutional-etf .restored-data .data-pairs { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+  .institutional-etf #trading > .cambria-card > p { font-size: 12px; }
+  .institutional-etf #documents .document-card { min-height: 175px; }
+}
+@media (max-width: 374px) {
+  .institutional-etf #overview .grid-cols-2 { grid-template-columns: 1fr; }
+  .institutional-etf .restored-data .cambria-card { padding: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .institutional-etf #documents .document-card,
+  .institutional-etf :is(#main, #performance, #holdings, #documents) :is(.cambria-button, .cambria-button-secondary) { transition: none; }
+  .institutional-etf #documents .document-card:is(:hover, :focus-within),
+  .institutional-etf :is(#main, #performance, #holdings, #documents) :is(.cambria-button, .cambria-button-secondary):is(:hover, :focus-visible, :active) { transform: none; }
+}

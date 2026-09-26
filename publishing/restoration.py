@@ -328,8 +328,7 @@ def bind_fund(page,f,full=False):
     names={'quick-nav':money(last['nav']),'fund-nav':money(last['nav']),'nav-price':money(last['nav']),
            'quick-price':money(last['market_price']),'etf-price':money(last['market_price']),
            'fund-holdings':len(equities),'nav-change':pct(last['nav']/previous['nav']-1,True),
-           'etf-change':pct(last['market_price']/previous['market_price']-1,True),
-           'premium-value':pct(last['premium_discount'],True),'current-premium':pct(last['premium_discount'],True)}
+           'etf-change':pct(last['market_price']/previous['market_price']-1,True)}
     ytd=f['returns']['YTD'];names.update({'hero-ytd-return':pct(ytd['nav_total_return'],True) if ytd else 'Unavailable','quick-ytd':pct(ytd['nav_total_return'],True) if ytd else 'Unavailable'})
     for key,value in names.items():text_at(page,'#'+key,value)
     for key in ('nav-change','etf-change','hero-ytd-return','quick-ytd'):
@@ -339,9 +338,6 @@ def bind_fund(page,f,full=False):
             negative=str(names[key]).startswith('-')
             color=('#fca5a5' if negative else '#86efac') if key=='quick-ytd' else ('#b91c1c' if negative else '#15803d')
             node['style']='color:'+color
-    for key in ('premium-value','current-premium'):
-        node=page.find(id=key)
-        if node:node['class']=[c for c in node.get('class',[]) if not c.startswith(('text-green-','text-red-'))]
     for key in ('fund-details-date','performance-date','holdings-date','holdings-disclosure-date','footer-date'):
         text_at(page,'#'+key,f.get('holdings_as_of',f['as_of']) if key.startswith('holdings') else f['as_of'])
     # Bind the original label/value cards and details grid, including fields without IDs.
@@ -370,14 +366,10 @@ def bind_fund(page,f,full=False):
         contents(parent,f'<h3 class="text-lg font-semibold text-gray-900 mb-4">Company Information</h3><p class="text-sm text-gray-600">{BRAND}</p><p class="text-sm text-gray-500 mt-4">Legal entity, registration and contact records remain to be supplied for this demo.</p><a href="/#contact" class="text-red-800 underline text-sm">Contact information</a>')
     perf=page.find(id='performance')
     if perf:contents(perf,fund_performance(f))
-    premium=page.find(id='premiumChart')
-    if premium:
-        premium.replace_with(fragment('<div id="premium-overview-chart" class="chart premium-overview-chart" role="img" aria-label="Daily closing premium and discount history">Chart unavailable. Daily observations are available in the CSV below.</div>').div)
-        note=page.find(id='premium-value')
-        if note:
-            for text in note.parent.find_all('p'):
-                if 'ETF vs NAV' in text.get_text():
-                    text.string='(Market Price ÷ NAV − 1) × 100 · Daily closes'
+    # Keep a single history beside the trading disclosures, with no empty
+    # overview chart shell or duplicate current-premium metric left behind.
+    premium_panel=page.select_one('#overview .rounded-xl:has(#premiumChart)')
+    if premium_panel:premium_panel.decompose()
     holding=page.find(id='holdings')
     if full:
         # Preserve original full-holdings header, navigation and page container.

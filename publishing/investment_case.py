@@ -6,6 +6,7 @@ not fund performance. Unfinished parameters and internal notes are not fund fact
 """
 from bs4 import BeautifulSoup
 from html import escape
+from publishing.innovation_journey import innovation_journey
 
 
 VISUALS = {
@@ -223,6 +224,7 @@ def home_case():
       <div class="case-section-heading"><div><p class="home-eyebrow">The investment case</p><h2 id="case-heading">Innovation at a<br>justifiable valuation.</h2></div><p>Seek the companies turning research into commercial progress. Bring a disciplined view of value to what comes next.</p></div>
       {case_explorer('home-case')}
       <div class="case-section-foot"><span>Fundamental insight. Systematic selection.</span><a class="home-text-link" href="/etfs/redi/why-red.html">Explore the investment case <span aria-hidden="true">↗</span></a></div>
+      <div class="home-research-proof"><div><p class="home-eyebrow">Strategy research</p><h3>The research<br>behind the process.</h3><p>Explore the historical comparisons and the reasoning behind REDI’s selection framework.</p><a class="home-text-link" href="/research/the-measure-of-fire.html">Read the research <span aria-hidden="true">↗</span></a></div>{business_card()}</div>
     </section>'''
 
 
@@ -256,7 +258,7 @@ def render_case(home_html):
         <p class="home-eyebrow">REDI / The investment case</p>
         <h1 id="investment-title">Innovation at a<br><span>justifiable valuation.</span></h1>
         <div class="case-hero-bottom"><p>Seek long-term capital appreciation through companies investing in innovation—and turning it into commercial progress.</p><span class="case-signature">Investing in Innovation,<br><strong>REDI for tomorrow</strong></span></div>
-        <nav class="case-jump-links" aria-label="Investment case sections"><a href="#why-now">Why now</a><a href="#process">The process</a><a href="#research">The research</a><a href="#long-term">Long-term characteristics</a><a href="#portfolio">The portfolio</a></nav>
+        <nav class="case-jump-links" aria-label="Investment case sections"><a href="#why-now">Why now</a><a href="#process">The process</a><a href="#research">The research</a><a href="#research-eras">Research eras</a><a href="#long-term">Long-term characteristics</a><a href="#portfolio">The portfolio</a></nav>
       </section>
       <section class="case-thesis investment-case" aria-labelledby="thesis-title">
         <div><p class="home-eyebrow">01 / The idea</p><h2 id="thesis-title">Research today.<br>Business potential tomorrow.</h2></div>
@@ -269,10 +271,11 @@ def render_case(home_html):
         {case_explorer('full-case')}
       </section>
       {research_charts()}
-      <section class="case-factor investment-case" aria-labelledby="factor-title">
+      <section class="case-factor investment-case" id="research-eras" aria-labelledby="factor-title">
         <div><p class="home-eyebrow">05 / The perspective</p><h2 id="factor-title">A factor approach<br>to a changing world.</h2><p>Technologies and industries evolve. The research focuses on company characteristics that can be assessed across those changes.</p></div>
         <dl class="case-contrast"><div><dt>Thematic lens</dt><dd>Starts with a particular technology, industry or structural trend.</dd></div><div><dt>REDI’s factor lens</dt><dd>Starts with a company’s innovation activity, commercial ability and valuation.</dd></div></dl>
-        {case_visual('timeline')}
+        {innovation_journey()}
+        <details class="case-timeline-source" id="timeline-source"><summary>Original research timeline <span aria-hidden="true">+</span></summary>{case_visual('timeline')}</details>
       </section>
       {long_term_section()}
       <section class="case-portfolio investment-case" id="portfolio" aria-labelledby="portfolio-title">

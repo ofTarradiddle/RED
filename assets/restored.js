@@ -22,9 +22,9 @@
     const seen=new Set();
     for(const a of links){if(seen.has(a.href))continue;seen.add(a.href);const link=document.createElement('a');link.href=a.getAttribute('href');link.append(...[...a.childNodes].map(node=>node.cloneNode(true)));menu.append(link);}
     const opportunities=document.querySelector('a[href$="/351-exchanges.html"]');
-    if(opportunities&&!seen.has(opportunities.href)){const link=document.createElement('a');link.href=opportunities.getAttribute('href');link.textContent='351 Opportunities';menu.append(link);}
+    if(opportunities&&!header.classList.contains('home-header')&&!seen.has(opportunities.href)){const link=document.createElement('a');link.href=opportunities.getAttribute('href');link.textContent='351 Opportunities';menu.append(link);}
     const toggle=document.createElement('button');toggle.type='button';toggle.className='restored-menu-toggle';toggle.textContent='Menu';toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls',menu.id);
-    const row=header.querySelector('.justify-between') || header;row.append(toggle);header.append(menu);
+    const row=header.querySelector('.justify-between') || header;row.append(toggle);header.append(menu);header.classList.add('has-mobile-menu');
     const close=()=>{menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');};
     toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';toggle.setAttribute('aria-expanded',String(open));menu.classList.toggle('is-open',open);});
     menu.addEventListener('click',event=>{if(event.target.closest('a'))close();});

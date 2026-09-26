@@ -1,0 +1,192 @@
+/* A deliberate brand masthead above the site's sculpted cream surfaces. */
+.hetzerk-site .demo-strip {
+  background: #ece3dc;
+  color: #5f4440;
+  border: 0;
+  border-bottom: 1px solid #dacec5;
+  box-shadow: inset 0 1px 0 #fff9;
+  padding: 0;
+  text-align: left;
+  font: 400 10px/1.6 Inter, Arial, sans-serif;
+  letter-spacing: 0;
+}
+.hetzerk-site .masthead-status-inner {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  width: calc(100% - 112px);
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+.hetzerk-site .masthead-status-label {
+  flex: 0 0 auto;
+  color: #7c1b20;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .065em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hetzerk-site .masthead-status-detail { min-width: 0; }
+.hetzerk-site .home-header {
+  background: #f4f0ed;
+  background: var(--tactile-base, #f4f0ed);
+  border: 0;
+  padding: 14px 0 0;
+}
+.hetzerk-site .home-header-row {
+  width: calc(100% - 112px);
+  max-width: 1160px;
+  min-height: 84px;
+  padding: 16px 24px;
+  gap: 35px;
+  box-sizing: border-box;
+  background: linear-gradient(110deg, #351719, #2b1114 70%);
+  border: 1px solid #624044;
+  border-bottom-color: #230b0e;
+  border-radius: 12px;
+  box-shadow: 0 6px 13px #36141618, inset 0 1px 0 #ffe5d719, inset 0 -1px 0 #19080b;
+}
+.hetzerk-site .home-header .home-brand { gap: 13px; min-width: 0; }
+.hetzerk-site .home-header .hetzerk-logo {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 1px solid #fff7ed;
+  border-radius: 7px;
+  background: linear-gradient(145deg, #fffdf7, #eee0d4);
+  box-shadow: 0 2px 3px #17080c66, inset 0 1px 0 #fff;
+}
+.hetzerk-site .home-header .hetzerk-logo::before { inset: -10px; }
+.hetzerk-site .home-header .hetzerk-masthead-name {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.045em;
+  color: #fff7ee;
+}
+.hetzerk-site .home-header .hetzerk-masthead-subtitle {
+  margin-top: 6px;
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: .17em;
+  color: #dfc8bd;
+}
+.hetzerk-site .home-header .home-nav { gap: 20px; font-size: 11px; }
+.hetzerk-site .home-header .home-nav a {
+  padding: 11px 0 10px;
+  color: #e2ccc3;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 400;
+  line-height: 1.5;
+  white-space: nowrap;
+  transition: color .15s ease, border-color .15s ease;
+}
+.hetzerk-site .home-header .home-nav a:hover,
+.hetzerk-site .home-header .home-nav a[aria-current="page"] {
+  color: #fff8ef;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #dfb7a8;
+  box-shadow: none;
+}
+.hetzerk-site .home-header :is(a, button):focus-visible {
+  outline: 2px solid #fff2df;
+  outline-offset: 4px;
+}
+.hetzerk-site .home-header .restored-menu-toggle {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 9px 12px;
+  color: #fff5eb;
+  background: linear-gradient(145deg, #4b2a2d, #361b1f);
+  border: 1px solid #7c5659;
+  border-radius: 7px;
+  box-shadow: 0 2px 3px #14050944, inset 0 1px 0 #fff1df15;
+  font: 400 11px/1.5 Inter, Arial, sans-serif;
+}
+.hetzerk-site .home-header .restored-menu-toggle[aria-expanded="true"] {
+  background: #2a1216;
+  box-shadow: inset 1px 2px 4px #14050966, inset -1px -1px 0 #fff1df10;
+}
+.hetzerk-site .home-header .restored-mobile-menu.is-open {
+  width: calc(100% - 112px);
+  max-width: 1160px;
+  margin: 8px auto 0;
+  padding: 9px 14px;
+  box-sizing: border-box;
+  gap: 0;
+  color: #fff5eb;
+  border: 1px solid #6f474c;
+  border-radius: 10px;
+  background: #32171b;
+  box-shadow: 0 5px 10px #36141615, inset 0 1px 0 #fff1df13;
+}
+.hetzerk-site .home-header .restored-mobile-menu a {
+  padding: 12px 9px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #ead4ca;
+  text-decoration: none;
+}
+.hetzerk-site .home-header .restored-mobile-menu a + a { border-top: 1px solid #ffffff10; }
+.hetzerk-site .home-header .restored-mobile-menu a:hover,
+.hetzerk-site .home-header .restored-mobile-menu a[aria-current="page"] { color: #fff7ed; background: #ffffff07; }
+@media (max-width: 1050px) {
+  .hetzerk-site .masthead-status-inner,
+  .hetzerk-site .home-header-row,
+  .hetzerk-site .home-header .restored-mobile-menu.is-open { width: calc(100% - 72px); }
+  .hetzerk-site .home-header-row { padding: 16px 21px; gap: 26px; }
+  .hetzerk-site .home-header .home-nav { gap: 18px; }
+}
+@media (max-width: 850px) {
+  .hetzerk-site .home-header-row { min-height: 80px; padding: 15px 20px; }
+  .hetzerk-site .home-header .home-nav { display: none; }
+  .hetzerk-site .home-header:not(.has-mobile-menu) .home-header-row {
+    flex-wrap: wrap;
+    gap: 13px;
+    padding-top: 17px;
+    padding-bottom: 14px;
+  }
+  .hetzerk-site .home-header:not(.has-mobile-menu) .home-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 20px;
+    width: 100%;
+    padding-top: 7px;
+    border-top: 1px solid #e5c7bb24;
+  }
+  .hetzerk-site .home-header:not(.has-mobile-menu) .home-nav a { padding: 9px 0; }
+}
+@media (max-width: 760px) {
+  .hetzerk-site .masthead-status-inner { width: calc(100% - 40px); gap: 7px; padding: 7px 0; }
+  .hetzerk-site .demo-strip { font-size: 9px; line-height: 1.6; }
+  .hetzerk-site .masthead-status-label { font-size: 8px; letter-spacing: .045em; padding-top: 1px; }
+  .hetzerk-site .home-header { padding-top: 10px; }
+  .hetzerk-site .home-header-row,
+  .hetzerk-site .home-header .restored-mobile-menu.is-open { width: calc(100% - 28px); }
+  .hetzerk-site .home-header-row { min-height: 77px; padding: 14px 17px; gap: 15px; border-radius: 10px; }
+  .hetzerk-site .home-header .home-brand { gap: 11px; }
+  .hetzerk-site .home-header .hetzerk-masthead-name { font-size: 26px; }
+  .hetzerk-site .home-header .hetzerk-masthead-subtitle { font-size: 7px; letter-spacing: .14em; }
+}
+@media (max-width: 380px) {
+  .hetzerk-site .masthead-status-inner { display: block; }
+  .hetzerk-site .masthead-status-label { margin-right: 5px; }
+  .hetzerk-site .home-header-row { padding: 13px 14px; gap: 11px; }
+  .hetzerk-site .home-header .home-brand { gap: 9px; }
+  .hetzerk-site .home-header .hetzerk-logo { width: 41px; height: 41px; flex-basis: 41px; }
+  .hetzerk-site .home-header .hetzerk-logo::before { inset: -11.5px; }
+  .hetzerk-site .home-header .hetzerk-masthead-name { font-size: 25px; }
+  .hetzerk-site .home-header .restored-menu-toggle { padding: 9px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hetzerk-site .home-header .home-nav a { transition: none; }
+}

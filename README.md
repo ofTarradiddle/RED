@@ -16,7 +16,24 @@ Click the plain word **Perspective** in the footer to open the personal shadow N
 
 REDI's expense ratio is **0.45% (45 bps)** in the canonical workbook. `/documents/` contains the populated fact sheet, data downloads and SEC filing references. Fund-specific document URLs can be supplied through the Documents sheet; reference links are not represented as filed fund documents.
 
-The corporate site offers REDI only. Its compact homepage uses warm light surfaces and blood-red accents, rendered by `publishing/minimal_home.py`, with scoped styles in `assets/minimal-home.css`. The Section 351 interest form follows the ETF introduction, ahead of expenses and the investment case; it prepares an email draft using the existing interest-form flow. The ETF page retains the original layout rendered by `publishing/restoration.py`, including its fund-detail panels, performance cards and document grid. The chart has NAV, Market Price and Morningstar US Market Index series, each indexed to 100 for the selected period, without reinvesting fund distributions. The workbook history remains fictional and covered by the illustrative banner. A verified actual Morningstar price-index history requires an authorized MSTAR data source; see `docs/SHADOW_NAV.md`.
+The corporate site offers REDI only. Shared public navigation and footer markup are applied by `publishing/institutional.py`; the scoped `assets/institutional*.css` styles give the fund, research and Section 351 pages a consistent presentation while preserving their content and data bindings. `assets/tactile.css` adds warm ceramic surfaces, raised burgundy cards and inset controls; `assets/tactile.js` progressively enhances selected clickable cards with pointer lighting and a subtle tilt, respecting reduced-motion and touch preferences. Its compact homepage uses warm light surfaces and blood-red accents, rendered by `publishing/minimal_home.py`, with scoped styles in `assets/minimal-home.css`. The Section 351 interest form follows the ETF introduction, ahead of expenses and the investment case; it prepares an email draft using the existing interest-form flow. The ETF page retains the original layout rendered by `publishing/restoration.py`, including its fund-detail panels, performance cards and document grid. The chart has NAV, Market Price and Morningstar US Market Index series, each indexed to 100 for the selected period, without reinvesting fund distributions. The workbook history remains fictional and covered by the illustrative banner. A verified actual Morningstar price-index history requires an authorized MSTAR data source; see `docs/SHADOW_NAV.md`.
+
+The homepage leads with REDI’s objective, innovation value and ability, fund
+details and investor resources; `assets/fund-home.css` styles this introduction.
+The homepage and ETF overview include three visual objective chapters: economic
+foundations, long-term investment principles and why now. These are rendered by
+`publishing/objective_journey.py` with the original source exhibits; the matching
+CSS and JavaScript provide responsive chapter navigation and accessible controls.
+Source images retain their captions and full-size viewer. The shared masthead and
+illustrative disclosure are refined by `publishing/masthead.py` and
+`assets/masthead.css`, including the SPY-data build variant.
+The investment case contains an interactive innovation journey derived from
+slide 19 of the source presentation. `publishing/innovation_journey.py` holds its six
+historical research eras, while `assets/innovation-journey.css` and
+`assets/innovation-journey.js` provide the responsive timeline, keyboard controls
+and optional touch navigation. Original SVG illustrations live in
+`assets/innovation-objects.svg`. All chapters remain readable without JavaScript;
+the eras are explicitly separated from live fund holdings and returns.
 
 ## Search metadata and public URLs
 

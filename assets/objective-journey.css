@@ -1,0 +1,126 @@
+/* Source-backed investment chapters, with a quiet exhibition-like rhythm. */
+.hetzerk-site .objective-journey {
+  --objective-width:min(1440px,calc(100vw - 48px));
+  display:flex;flex-direction:column;position:relative;grid-column:1/-1;
+  width:var(--objective-width);min-width:0;box-sizing:border-box;
+  margin:12px auto 0;padding:0;isolation:isolate;overflow:clip;
+  border:1px solid #d9c8bc;border-radius:22px;color:#342326;
+  background:radial-gradient(ellipse at 78% 30%,#e9d6c875,transparent 60%),linear-gradient(125deg,#fffcf7,#f2e9e1);
+  box-shadow:0 16px 40px #47211e09,inset 0 1px 0 #fff;
+  font-family:Inter,Arial,sans-serif;
+}
+.fund-home .objective-journey {margin-left:calc((100% - var(--objective-width))/2);margin-top:7px}
+.institutional-etf .objective-journey {margin-top:0;margin-bottom:58px}
+.objective-topline {order:0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 4% 0}
+.objective-journey .objective-topline h2 {font:500 10px/1.6 Inter,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#78605b;margin:0}
+.objective-topline a {display:flex;align-items:center;gap:23px;padding:3px 0;border-bottom:1px solid #c6a398;color:#742432;font-size:11px;line-height:1.5;text-decoration:none}
+.objective-topline a:hover {border-color:#8b0000}
+.objective-stage {order:1;min-width:0}
+.objective-journey .objective-panel {display:grid;position:relative;grid-template-columns:minmax(0,.83fr) minmax(0,1.55fr);gap:28px 5%;align-items:center;padding:36px 4% 22px;min-height:590px;box-sizing:border-box;scroll-margin-top:22px}
+.objective-journey .objective-panel[hidden] {display:none!important}
+.objective-panel:focus-visible {outline:2px solid #8b0000;outline-offset:-5px}
+.objective-copy {position:relative;min-width:0;isolation:isolate;align-self:center}
+.objective-watermark {position:absolute;z-index:-1;top:-40px;left:-13px;pointer-events:none;font:300 170px/1 Inter,Arial,sans-serif;letter-spacing:-.085em;color:#8b000005;-webkit-text-stroke:1px #ab87751a}
+.objective-journey .objective-kicker {display:flex;align-items:center;gap:9px;font-size:9px;line-height:1.7;letter-spacing:.09em;text-transform:uppercase;font-weight:500;color:#8b0000;margin:0 0 22px}
+.objective-kicker>span {width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:#8b0000;box-shadow:0 0 0 4px #8b000008}
+.objective-journey .objective-copy h3 {font-family:'Playfair Display',Georgia,serif;font-size:clamp(37px,3.6vw,55px);font-weight:400;line-height:1.1;letter-spacing:-.045em;color:#342326;margin:0 0 23px}
+.objective-copy h3 em {font-style:normal;color:#8b0000}
+.objective-journey .objective-body {font-size:13px;line-height:1.85;color:#6c595b;margin:0 0 26px;max-width:385px}
+.objective-points {margin:0;padding:0;border-top:1px solid #dac8ba}
+.objective-points>div {display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.25fr);gap:14px;padding:12px 0;border-bottom:1px solid #dac8ba}
+.objective-points dt {font-size:10px;font-weight:500;line-height:1.7;color:#763238}
+.objective-points dd {font-size:10px;font-weight:400;line-height:1.75;margin:0;color:#725f5f}
+.objective-exhibit {position:relative;min-width:0;align-self:center}
+.objective-journey .case-visual {margin:0}
+.objective-journey .case-source-heading {padding:17px 21px;border:1px solid #d6c6b9;border-bottom:0;border-radius:12px 12px 0 0;background:linear-gradient(115deg,#fffcf6,#f5ede4);box-shadow:inset 0 1px 0 #fff}
+.objective-journey .case-source-heading h4 {font:500 19px/1.4 'Playfair Display',Georgia,serif;letter-spacing:-.015em;color:#7d2027;margin:0 0 3px}
+.objective-journey .case-source-heading p {font:400 10px/1.6 Inter,Arial,sans-serif;letter-spacing:.01em;color:#75605f;margin:0}
+.objective-journey .case-visual-link {display:block;border:1px solid #d6c6b9;border-radius:12px;background:#fffcf8;padding:5px;box-shadow:0 12px 28px #512a2510,inset 0 1px 0 #fff;overflow:hidden}
+.objective-journey .case-source-heading+.case-visual-link {border-radius:0 0 12px 12px}
+.objective-journey .case-visual-link img {display:block;width:100%;height:auto;border-radius:8px}
+.objective-journey .case-source-heading+.case-visual-link img {border-radius:0}
+.objective-journey .case-visual-expand {padding:8px 11px;font:500 9px/1.5 Inter,Arial,sans-serif;gap:17px;background:#fffcf8;border-top:1px solid #e9ded4}
+.objective-journey .case-visual-expand>span {font-size:15px}
+.objective-journey .case-visual figcaption {padding:14px 2px 0}
+.objective-journey .case-visual-meta {gap:12px;align-items:baseline;flex-wrap:wrap}
+.objective-journey .case-visual-meta strong {font:500 10px/1.6 Inter,Arial,sans-serif;color:#614745}
+.objective-journey .case-visual-meta>span {font:400 9px/1.6 Inter,Arial,sans-serif;color:#7a6662;white-space:normal}
+.objective-journey .case-visual figcaption p {font:400 10px/1.7 Inter,Arial,sans-serif;color:#756461;margin:6px 0 0;max-width:none}
+.objective-chain {display:flex;gap:0;margin:19px 0 0;padding:0;align-items:stretch;border:1px solid #d9c8bb;border-radius:7px;background:#eaded244;box-shadow:inset 0 1px 3px #60352108}
+.objective-chain>span {position:relative;flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:11px 9px;font-size:9px;line-height:1.55;color:#765655}
+.objective-chain>span+span {border-left:1px solid #d9c8bb}
+.objective-chain>span:not(:last-child):after {content:'→';position:absolute;right:-7px;z-index:1;background:#f4eae0;color:#a4796c;font-size:11px;width:13px}
+.objective-choices>span:not(:last-child):after {content:none}
+.objective-choices>span {font-size:8px;padding:12px 6px}
+.objective-choices>.is-focus {color:#fff5e9;background:linear-gradient(125deg,#8c2228,#671521);border-radius:0 6px 6px 0;border-left-color:#681521;box-shadow:inset 0 1px 0 #f4bcaa33}
+.objective-journey .objective-note {grid-column:1/-1;border-top:1px solid #decbbc;padding:14px 0 0;margin:0;color:#786461;font-size:9px;line-height:1.7;letter-spacing:.005em}
+.objective-navigation {order:2;display:grid;grid-template-columns:minmax(0,1fr) 83px;gap:27px;padding:21px 4%;border-top:1px solid #d5bfb0;background:linear-gradient(115deg,#eee2d780,#fffaf3a6);box-shadow:inset 0 1px 0 #fff9}
+.objective-tabs {display:flex;gap:12px;min-width:0;padding:3px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#aa8275 transparent;overscroll-behavior-x:contain}
+.objective-tabs button {position:relative;display:flex;align-items:center;gap:13px;flex:1 0 0;min-width:0;padding:14px 15px;border:1px solid transparent;border-radius:9px;background:none;box-shadow:none;text-align:left;color:#77645f;cursor:pointer;font-family:Inter,Arial,sans-serif;transition:background .2s,border-color .2s,box-shadow .2s}
+.objective-tab-number {font-size:11px;font-weight:400;align-self:flex-start;padding-top:2px;color:#96776e;font-variant-numeric:tabular-nums}
+.objective-tabs button strong {display:block;font-size:11px;font-weight:500;line-height:1.55;letter-spacing:-.01em}
+.objective-tabs button small {display:block;font-size:9px;font-weight:400;line-height:1.5;margin-top:4px;color:#8c736b}
+.objective-tab-arrow {margin-left:auto;align-self:flex-start;font-size:15px;line-height:1.5;opacity:0}
+.objective-tabs button[aria-selected=true] {border-color:#d1b9a9;background:linear-gradient(135deg,#fffaf3,#f2e6dc);box-shadow:0 3px 6px #5d2c2110,inset 0 1px 0 #fff;color:#8b0000}
+.objective-tabs button[aria-selected=true] .objective-tab-number {color:#8b0000}
+.objective-tabs button[aria-selected=true] .objective-tab-arrow {opacity:1}
+.objective-tabs button:hover {border-color:#d9c4b6;color:#8b0000;background:#fff9f075}
+.objective-controls {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px}
+.objective-controls>span {font-size:9px;letter-spacing:.12em;color:#8a7169;font-variant-numeric:tabular-nums}
+.objective-controls>div {display:flex;gap:7px}
+.objective-controls button {display:grid;place-items:center;width:38px;height:36px;border-radius:8px;border:1px solid #ccb3a3;background:linear-gradient(145deg,#fffaf3,#e9dbce);box-shadow:0 2px 4px #623a2520,inset 0 1px 0 #fff;font:400 18px/1 Inter,Arial,sans-serif;color:#792530;cursor:pointer}
+.objective-controls button:hover:not(:disabled) {background:#fffaf5}
+.objective-controls button:active:not(:disabled) {box-shadow:inset 1px 2px 3px #623a2520}
+.objective-controls button:disabled {opacity:.35;cursor:default;box-shadow:none}
+.objective-journey :is(a,button):focus-visible {outline:2px solid #8b0000;outline-offset:2px}
+.objective-status {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.objective-journey:not(.is-enhanced) .objective-navigation {display:none}
+.objective-journey:not(.is-enhanced) .objective-panel+.objective-panel {border-top:1px solid #d9c8bc}
+@media(prefers-reduced-motion:no-preference){
+ .objective-journey.is-enhanced .objective-panel:not([hidden]) .objective-copy {animation:objective-copy-in .45s ease both}
+ .objective-journey.is-enhanced .objective-panel:not([hidden]) .objective-exhibit {animation:objective-exhibit-in .65s cubic-bezier(.2,.7,.3,1) both}
+}
+@keyframes objective-copy-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+@keyframes objective-exhibit-in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:1100px){
+ .objective-journey .objective-panel{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:24px 4%;min-height:590px}
+ .objective-journey .objective-copy h3{font-size:40px}.objective-journey .objective-kicker{font-size:8px}
+ .objective-journey .objective-body{font-size:12px}.objective-points>div{grid-template-columns:1fr;gap:3px;padding:10px 0}
+ .objective-points dt,.objective-points dd{font-size:10px}.objective-tabs{gap:7px}.objective-tabs button{padding:12px;gap:9px}
+ .objective-tabs button strong{font-size:10px}.objective-tabs button small{font-size:8px}.objective-tab-arrow{display:none}
+ .objective-navigation{gap:16px}.objective-journey .case-source-heading{padding:14px 17px}.objective-journey .case-source-heading h4{font-size:17px}
+}
+@media(max-width:760px){
+ .hetzerk-site .objective-journey{--objective-width:calc(100vw - 24px);border-radius:17px;margin-top:6px}
+ .objective-topline{padding:20px 22px 0;gap:14px}.objective-journey .objective-topline h2{font-size:8px;letter-spacing:.08em}
+ .objective-topline a{font-size:9px;gap:10px;white-space:nowrap}.objective-navigation{order:1;margin-top:18px;padding:13px 14px;gap:9px;border-bottom:1px solid #d5bfb0;grid-template-columns:minmax(0,1fr) 70px}
+ .objective-stage{order:2}.objective-tabs{gap:8px;padding:3px 3px 7px}.objective-tabs button{flex:0 0 180px;padding:11px 12px;gap:11px;min-height:64px}
+ .objective-tabs button strong{font-size:11px}.objective-tabs button small{font-size:8px}.objective-tab-number{font-size:10px}
+ .objective-controls{gap:7px}.objective-controls>div{gap:6px}.objective-controls>span{font-size:8px}.objective-controls button{width:32px;height:34px;font-size:16px}
+ .objective-journey .objective-panel{grid-template-columns:1fr;gap:26px;padding:31px 24px 20px;min-height:0}
+ .objective-watermark{font-size:140px;top:-22px;left:-5px}.objective-journey .objective-kicker{font-size:8px;margin-bottom:20px}
+ .objective-journey .objective-copy h3{font-size:clamp(36px,8.5vw,52px);margin-bottom:20px}
+ .objective-journey .objective-body{font-size:12px;max-width:530px;margin-bottom:22px}
+ .objective-points>div{grid-template-columns:minmax(0,.8fr) minmax(0,1.25fr);gap:15px;padding:12px 0}
+ .objective-points dt,.objective-points dd{font-size:9px}.objective-journey .case-source-heading{padding:13px 14px}
+ .objective-journey .case-source-heading h4{font-size:17px}.objective-journey .case-source-heading p{font-size:9px}
+ .objective-journey .case-visual-link{padding:3px}.objective-journey .case-visual figcaption{padding-top:12px}
+ .objective-journey .case-visual-meta{flex-direction:row;gap:4px 12px}.objective-journey .case-visual figcaption p{font-size:9px}
+ .objective-chain{margin-top:15px}.objective-chain>span{font-size:8px;padding:10px 7px}.objective-choices{flex-wrap:wrap}
+ .objective-choices>span{flex:1 1 25%;font-size:8px;padding:9px 7px}.objective-choices>.is-focus{border-radius:0 0 6px 6px;flex:1 0 100%;border-left:0}
+ .objective-journey .objective-note{font-size:8px;line-height:1.8;padding-top:13px}.institutional-etf .objective-journey{margin-bottom:37px}
+}
+@media(max-width:370px){
+ .objective-topline{padding-left:18px;padding-right:18px;gap:9px}.objective-journey .objective-topline h2{max-width:105px}
+ .objective-journey .objective-panel{padding-left:19px;padding-right:19px}.objective-journey .objective-copy h3{font-size:34px}
+ .objective-tabs button{flex-basis:155px;padding:10px;gap:8px}.objective-tabs button strong{font-size:10px}
+ .objective-points>div{gap:11px}.objective-points dt{font-size:9px}.objective-journey .case-source-heading h4{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+ .objective-journey *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+@media print{
+ .hetzerk-site .objective-journey{position:static;width:auto;margin:0;border:0;box-shadow:none;background:none}
+ .objective-journey .objective-panel[hidden]{display:grid!important}.objective-journey .objective-panel{break-inside:avoid;min-height:0;border-bottom:1px solid #ccc}
+ .objective-navigation,.objective-topline a,.objective-watermark{display:none!important}
+}

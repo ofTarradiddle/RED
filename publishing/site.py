@@ -156,6 +156,7 @@ def generate_pages(snapshot):
     from publishing.minimal_home import render_home
     from publishing.investment_case import decorate_exchange_page, render_case
     from publishing.research import render_research_pages
+    from publishing.institutional import refine_pages
     pages = polish_pages(visible_pages(restore_pages(snapshot, pages), snapshot))
     redi = next(f for f in snapshot['funds'] if f['fund_id'] == 'redi')
     pages['index.html'] = render_home(pages['index.html'], redi)
@@ -167,4 +168,4 @@ def generate_pages(snapshot):
     pages.update(render_research_pages(pages['index.html'], pages['research/index.html']))
     for route in ('etfs/redi/blog/index.html', 'red/blog/index.html', 'research/redi/index.html'):
         pages[route] = pages['research/index.html']
-    return brand_pages(pages)
+    return brand_pages(refine_pages(pages))

@@ -16,10 +16,16 @@ def pages():
 def test_original_home_sections_and_full_names_remain(pages):
     page=pages['index.html']
     assert 'Hetzerk Asset Management' in page.title.get_text()
-    assert ' '.join(page.h1.get_text(' ',strip=True).split()) == 'Investing in Innovation, REDI for tomorrow'
+    assert ' '.join(page.h1.get_text().split()) == 'Hetzerk Innovation Factor ETF'
     assert 'Hetzerk Innovation Factor ETF' in page.get_text()
     assert all(page.find(id=key) for key in ('fees','innovation','services','about','contact','etfs'))
     assert len(page.select('a.etf-card'))==1
+    assert page.select_one('.home-hero').find_next_sibling('section')['id'] == 'contact'
+    assert not page.select('[data-innovation-journey], script[src$="innovation-journey.js"]')
+    case = pages['etfs/redi/why-red.html']
+    assert len(case.select('h1')) == 1
+    assert case.select_one('#research-eras [data-innovation-journey]')
+    assert len(case.select('[data-journey-tab]')) == 7
 
 
 def test_original_etf_boxes_and_fund_specific_identity(pages):
@@ -32,10 +38,23 @@ def test_original_etf_boxes_and_fund_specific_identity(pages):
         assert box.select_one('.tagline')
         page=pages[f'etfs/{fid}/index.html']
         assert headings[fid] in page.get_text()
-        assert page.select_one('.company-logo').get_text()=='Hetzerk Asset Management'
+        assert page.select_one('.home-header a[aria-label="Hetzerk Asset Management home"]')
         assert all(page.find(id=key) for key in ('overview','about','performance','holdings','documents'))
         assert {'Identifier','Shares Held','Market Value (USD)'}.issubset({th.get_text(strip=True) for th in page.select('#top-holdings th')})
     assert '#8b0000' in pages['etfs/redi/index.html'].body['style']
+
+
+def test_shared_investor_navigation_preserves_direct_journeys(pages):
+    expected = ['/etfs/redi/', '/#fees', '/etfs/redi/why-red.html', '/research/', '/#contact']
+    for route in ('index.html', 'etfs/redi/index.html', 'etfs/redi/holdings.html',
+                  'section-351.html', '351-exchanges.html', 'documents/index.html',
+                  'research/index.html', 'research/the-measure-of-fire.html'):
+        page = pages[route]
+        assert [a['href'] for a in page.select('.home-header .home-nav a')] == expected
+        assert len(page.select('.home-header')) == 1
+        assert len(page.select('.home-footer [data-perspective-word]')) == 1
+        assert not page.select('.sticky-banner-wrapper')
+    assert pages['etfs/redi/index.html'].select_one('.home-nav a[aria-current="page"]')['href'] == '/etfs/redi/'
 
 
 def test_two_distinct_351_pages_keep_their_interest_journeys(pages):
@@ -105,8 +124,7 @@ def test_deck_visuals_follow_the_investment_case_journey(pages):
             sources.append(images[0]['src'])
         assert set(sources)==process_sources
 
-    hero=home.h1.find_parent('section')
-    assert hero.find('img',src=asset+'redi-business-card-chart.png')
+    assert home.find(id='innovation').find('img',src=asset+'redi-business-card-chart.png')
     assert not home.find(id='etfs').find('img',src=asset+'portfolio-to-redi-sticker.png')
     sticker = home.find(id='contact').find('img',src=asset+'portfolio-to-redi-sticker.png')
     assert sticker and not sticker.find_parent('a')

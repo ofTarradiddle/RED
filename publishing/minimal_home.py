@@ -2,7 +2,8 @@
 from bs4 import BeautifulSoup
 
 from publishing.site import pct
-from publishing.investment_case import attach_assets, business_card, exchange_sticker, home_case
+from publishing.investment_case import attach_assets, exchange_sticker, home_case
+from publishing.objective_journey import objective_journey
 
 
 def render_home(html, fund):
@@ -31,24 +32,28 @@ def render_home(html, fund):
           <div class="hetzerk-lockup"><div class="hetzerk-masthead-name">Hetzerk</div><div class="hetzerk-masthead-subtitle">Asset Management</div></div>
         </div>
         <nav class="home-nav" aria-label="Main navigation">
-          <a href="#etfs">The ETF</a><a href="#fees">Expenses</a><a href="#innovation">Investment case</a><a href="/research/">Research</a><a href="#contact">Section 351</a>
+          <a href="/etfs/redi/">The ETF</a><a href="/#fees">Expenses</a><a href="/etfs/redi/why-red.html">Investment case</a><a href="/research/">Research</a><a href="/#contact">Section 351</a>
         </nav>
       </div>
     </header>
     <main id="main" class="home-width">
       <section class="home-hero" aria-labelledby="home-title">
-        <div class="home-intro" id="about">
-          <h1 id="home-title">Investing in Innovation, <span>REDI for tomorrow</span></h1>
-          {business_card()}
+        <div class="home-intro home-fund-premise" id="about">
+          <p class="home-eyebrow">REDI / Systematic U.S. equities</p>
+          <h1 id="home-title">Hetzerk Innovation <span>Factor ETF</span></h1>
+          <p class="home-fund-objective">Seeks long-term capital appreciation through U.S. mid- and large-cap companies, selected using innovation value and innovation ability.</p>
+          <nav class="home-fund-links" aria-label="REDI fund information"><a href="/etfs/redi/holdings.html">Holdings <span aria-hidden="true">↗</span></a><a href="/etfs/redi/#documents">Fund documents <span aria-hidden="true">↗</span></a><a href="/etfs/redi/why-red.html">Investment case <span aria-hidden="true">↗</span></a></nav>
         </div>
         <div id="etfs" class="home-fund">
           <a class="etf-card home-fund-card" href="/etfs/redi/" aria-label="Explore the Hetzerk Innovation Factor ETF, REDI">
             <span class="home-card-top"><span>U.S. equities</span><span aria-hidden="true">↗</span></span>
             <strong class="home-ticker">REDI</strong>
             <h2>Hetzerk Innovation <br>Factor ETF</h2>
+            <dl class="home-fund-facts"><div><dt>Annual expense ratio</dt><dd>{pct(fund['expense_ratio'])}</dd></div><div><dt>Investment universe</dt><dd>U.S. mid- &amp; large-cap</dd></div><div><dt>Portfolio approach</dt><dd>Equal weighting</dd></div><div><dt>Exposure</dt><dd>Long-only equities</dd></div></dl>
             <span class="home-card-link">Explore the ETF <span aria-hidden="true">→</span></span>
           </a>
         </div>
+        {objective_journey('home')}
       </section>
       <section id="contact" class="home-solicitation" aria-labelledby="contribution-heading">
         <div class="home-solicitation-copy">
@@ -60,6 +65,7 @@ def render_home(html, fund):
           {exchange_sticker()}
         </div>
         <form id="register" class="home-interest-form" data-interest-form="" data-recipient="info@ofnectar.com" action="#register" method="post" aria-label="Section 351 interest">
+          <div class="home-form-heading"><h3>Register your interest</h3><p>Tell us about the portfolio you have in mind.</p></div>
           <div class="home-form-row">
             <div><label for="home-name">Full name</label><input id="home-name" name="name" type="text" autocomplete="name" required placeholder="Azabov Solov"></div>
             <div><label for="home-email">Email address</label><input id="home-email" name="email" type="email" autocomplete="email" required placeholder="azabov@example.com"></div>
