@@ -3,4 +3,5 @@ pandas>=2.1.1,<3
 numpy>=1.24,<3
 yfinance==1.1.0
 requests>=2.31,<3
+PyYAML>=6,<7
 exchange-calendars==4.13.2
