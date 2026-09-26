@@ -58,6 +58,7 @@ node_modules/
 out/
 .site-builds/
 dist
+/output/pdf/
 *.xlsx.inspect.ndjson
 data/shadow_reports/
 data/shadow_spy/

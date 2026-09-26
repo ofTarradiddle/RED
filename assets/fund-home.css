@@ -19,7 +19,12 @@
 .fund-home .home-fund-card:hover,.fund-home .home-fund-card:focus-visible {background:radial-gradient(ellipse at 100% 0,#98565838,transparent 65%),linear-gradient(140deg,#482730,#23191e 85%);border-color:#c29383;box-shadow:0 22px 60px #0004;transform:translateY(-3px)}
 .fund-home .home-card-top {font-size:9px;letter-spacing:.15em;color:#caa79c}
 .fund-home .home-ticker {font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:80px;letter-spacing:-.06em;line-height:1.05;color:#f3eee5;margin:28px 0 14px}
-.fund-home .home-fund-card h2 {font-size:15px;line-height:1.65;font-weight:400;margin-bottom:28px;color:#d9c9bf}
+.fund-home .home-fund-card h2 {font-size:15px;line-height:1.65;font-weight:400;margin-bottom:7px;color:#d9c9bf}
+.fund-home .home-card-slogan {display:block;min-height:26px;margin:0 0 21px;color:#e7bbaa;font-family:'Playfair Display',Georgia,serif;font-size:16px;font-style:italic;line-height:1.6;opacity:0;transform:translateY(6px);transition:opacity .3s ease,transform .3s ease}
+.fund-home .home-slogan-accent {font-style:normal;font-weight:600;letter-spacing:.06em;color:#fff0dd;text-decoration:underline;text-decoration-color:#c88e86;text-underline-offset:4px;text-decoration-thickness:1px}
+.fund-home .home-fund-card:focus-visible .home-card-slogan {opacity:1;transform:translateY(0)}
+@media(hover:hover) {.fund-home .home-fund-card:hover .home-card-slogan {opacity:1;transform:translateY(0)}}
+@media(hover:none) {.fund-home .home-card-slogan {opacity:1;transform:none}}
 .fund-home .home-fund-facts {display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin:0 0 26px}
 .fund-home .home-fund-facts>div {display:block;border-top:1px solid #ba97802b;padding:13px 0}
 .fund-home .home-fund-facts dt {font-size:8px;color:#baaba2;line-height:1.7}
@@ -101,4 +106,4 @@
  .fund-home .home-method-details>summary>span:first-child {flex:1}
  .fund-home .home-method-details>summary>span:nth-child(2) {order:3;flex:0 0 90%;margin:0;font-size:9px}
 }
-@media(prefers-reduced-motion:reduce) {.fund-home .home-fund-card {transition:none}.fund-home .home-fund-card:hover {transform:none}}
+@media(prefers-reduced-motion:reduce) {.fund-home .home-fund-card,.fund-home .home-card-slogan {transition:none}.fund-home .home-card-slogan,.fund-home .home-fund-card:hover,.fund-home .home-fund-card:focus-visible {transform:none}}

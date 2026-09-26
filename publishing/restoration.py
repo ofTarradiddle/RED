@@ -192,6 +192,22 @@ def paragraph_under(page, name, paragraphs):
             p=page.new_tag('p',attrs={'class':'text-gray-600 leading-relaxed mb-4'});p.string=value;h.parent.append(p)
 
 
+def contribution_diversification():
+    return fragment('''<aside id="contribution-diversification" class="exchange-eligibility" aria-labelledby="contribution-diversification-title">
+      <p class="exchange-eligibility-kicker">Before proposing assets</p>
+      <h2 id="contribution-diversification-title">Diversification starts with your contribution.</h2>
+      <p>For the usual already-diversified-portfolio route, assess <strong>each contributor’s proposed portfolio</strong> separately. The combined ETF portfolio and other investors’ holdings do not establish your eligibility.</p>
+      <dl class="exchange-eligibility-limits">
+        <div><dt>One issuer</dt><dd><span>25%</span> maximum</dd></div>
+        <div><dt>Any five or fewer issuers</dt><dd><span>50%</span> maximum</dd></div>
+      </dl>
+      <p>These are fair-market-value tests with prescribed exclusions, issuer grouping and look-through rules. Cash and cash items are excluded, so adding cash does not cure a concentration. Assets acquired to satisfy the tests are also excluded.</p>
+      <p>An appreciated single-stock position does not automatically qualify. Meeting these limits alone does not establish Section 351 qualification. Proposed holdings also require review against REDI’s equity-only investment approach and operational requirements; acceptance is not assured.</p>
+      <div class="exchange-eligibility-links"><a class="exchange-guide-link" href="/assets/guides/section-351-contributions.pdf" type="application/pdf"><span>Read the Hetzerk Section 351 guide (PDF)</span><span aria-hidden="true">↗</span></a><a class="exchange-rule-link" href="https://www.ecfr.gov/current/title-26/section-1.351-1#p-1.351-1(c)(6)">Diversified-portfolio rule · 26 CFR § 1.351-1(c)(6)</a></div>
+      <p class="exchange-eligibility-note">Educational information, not tax advice. Review the full transaction with your tax adviser before contributing assets.</p>
+    </aside>''').aside
+
+
 def restore_tax(page, route):
     for h in page.find_all('h1'):
         p=h.find_next_sibling('p')
@@ -199,6 +215,9 @@ def restore_tax(page, route):
     paragraph_under(page,'What is Section 351?',[
         'Section 351 can defer recognition of gain when qualifying property is contributed to a corporation for stock and the statutory conditions are met. A proposed ETF contribution requires review of the transferors, contributed portfolio, control requirements, and investment-company exception.',
         'A qualifying contribution can provide a way to transition an eligible portfolio into ETF shares. Eligibility and tax treatment depend on the complete transaction and each investor’s circumstances.'])
+    overview=heading(page,'What is Section 351?')
+    if overview:
+        overview.parent.insert_after(contribution_diversification())
     statements={
         'Control Requirement:':'Transferors generally must control the corporation immediately after the exchange. The statutory voting-power and nonvoting-stock tests are one part of qualification; meeting the control test alone is insufficient.',
         'Property for Stock:':'Qualifying property is contributed for stock. Cash or other property received can cause gain recognition and requires separate analysis.',

@@ -165,6 +165,37 @@
 }
 .institutional-351 .disclosure-box p { font-size: 12px !important; line-height: 1.85 !important; color: var(--exchange-copy); }
 
+/* The contribution screen sits beside the explanation, before solicitation. */
+.institutional-351 #contribution-diversification.exchange-eligibility {
+  margin: 30px 0 10px;
+  padding: 30px 32px 25px;
+  background: #eae3d9;
+  border: 1px solid var(--exchange-rule);
+  border-left: 3px solid var(--exchange-red);
+  border-radius: 2px;
+  scroll-margin-top: 32px;
+}
+.institutional-351 #contribution-diversification.exchange-eligibility .exchange-eligibility-kicker {
+  margin: 0 0 13px;
+  color: var(--exchange-red);
+  font: 500 10px/1.6 Inter, Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.institutional-351 #contribution-diversification.exchange-eligibility h2 { max-width: 640px; margin: 0 0 18px; font-size: 29px; }
+.institutional-351 #contribution-diversification.exchange-eligibility p { margin: 0 0 15px; }
+.institutional-351 .exchange-eligibility-limits { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 25px 0; }
+.institutional-351 .exchange-eligibility-limits > div { padding: 18px 0 0; border-top: 1px solid #cbbcaf; }
+.institutional-351 .exchange-eligibility-limits dt { color: var(--exchange-copy); font-size: 12px; line-height: 1.6; }
+.institutional-351 .exchange-eligibility-limits dd { margin: 5px 0 0; color: var(--exchange-copy); font-size: 12px; }
+.institutional-351 .exchange-eligibility-limits dd span { margin-right: 8px; color: var(--exchange-red); font: 400 43px/1.2 'Playfair Display', Georgia, serif; letter-spacing: -.03em; }
+.institutional-351 .exchange-eligibility-links { display: flex; flex-wrap: wrap; align-items: center; gap: 17px 24px; margin: 23px 0 18px; }
+.institutional-351 .exchange-guide-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 22px; padding: 12px 16px; color: #fff5ea; background: var(--exchange-red); border: 1px solid var(--exchange-red); border-radius: 1px; font-size: 12px; line-height: 1.6; text-decoration: none; }
+.institutional-351 .exchange-guide-link:hover { color: #fff5ea; background: #60202b; border-color: #60202b; }
+.institutional-351 .exchange-rule-link { color: var(--exchange-red); font-size: 11px; line-height: 1.7; text-decoration: underline; text-underline-offset: 4px; }
+.institutional-351 .exchange-eligibility-links a:focus-visible { outline: 2px solid var(--exchange-red); outline-offset: 4px; }
+.institutional-351 #contribution-diversification.exchange-eligibility .exchange-eligibility-note { margin: 0; color: #73655e; font-size: 11px; line-height: 1.8; }
+
 /* A second dark chapter introduces the opportunity, with the form on paper. */
 .institutional-351 #opportunities { padding: 62px 0 68px; border: 0; background: var(--exchange-surface); box-shadow: none; }
 .institutional-351 #opportunities > div > .text-center { text-align: left; max-width: 740px; margin-bottom: 42px; }
@@ -303,6 +334,12 @@
   .institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) h2 { font-size: 28px; }
   .institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) :is(p, li) { font-size: 13px; line-height: 1.9; }
   .institutional-351 .disclosure-box { padding: 21px 22px; }
+  .institutional-351 #contribution-diversification.exchange-eligibility { margin: 23px 0 8px; padding: 25px 21px 22px; }
+  .institutional-351 #contribution-diversification.exchange-eligibility h2 { font-size: 26px; }
+  .institutional-351 .exchange-eligibility-limits { gap: 16px; margin: 21px 0; }
+  .institutional-351 .exchange-eligibility-limits dt { min-height: 38px; }
+  .institutional-351 .exchange-eligibility-limits dd span { display: block; margin: 0 0 3px; font-size: 39px; }
+  .institutional-351 .exchange-guide-link { width: 100%; padding: 12px 13px; gap: 13px; }
   .institutional-351 #opportunities { padding: 40px 0 44px; }
   .institutional-351 #opportunities h2 { font-size: 34px; }
   .institutional-351 #opportunities > div > .text-center { margin-bottom: 30px; }

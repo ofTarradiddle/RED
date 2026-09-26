@@ -48,6 +48,7 @@ def library_body(fund, compact=False):
       <p class="metric-note">Fund-specific filings have not been supplied. The SEC links below open official references and search tools.</p>
       <div class="document-materials">
         <a class="cambria-button" href="/etfs/{fid}/fact-sheet.html">Fund Fact Sheet</a>
+        <a class="cambria-button-secondary" href="/assets/guides/section-351-contributions.pdf" type="application/pdf">Section 351 Guide (PDF)</a>
         <a class="cambria-button-secondary" href="/etfs/{fid}/data/holdings.csv" download>Daily Holdings ↓</a>
         <a class="cambria-button-secondary" href="/etfs/{fid}/data/distributions.csv" download>Distributions ↓</a>
         <a class="cambria-button-secondary" href="{FUND_SEARCH}" target="_blank" rel="noopener noreferrer">SEC Fund Search ↗</a>

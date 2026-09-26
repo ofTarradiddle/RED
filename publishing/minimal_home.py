@@ -45,10 +45,11 @@ def render_home(html, fund):
           <nav class="home-fund-links" aria-label="REDI fund information"><a href="/etfs/redi/holdings.html">Holdings <span aria-hidden="true">↗</span></a><a href="/etfs/redi/#documents">Fund documents <span aria-hidden="true">↗</span></a><a href="/etfs/redi/why-red.html">Investment case <span aria-hidden="true">↗</span></a></nav>
         </div>
         <div id="etfs" class="home-fund">
-          <a class="etf-card home-fund-card" href="/etfs/redi/" aria-label="Explore the Hetzerk Innovation Factor ETF, REDI">
+          <a class="etf-card home-fund-card" href="/etfs/redi/" aria-label="Explore the Hetzerk Innovation Factor ETF, REDI" aria-describedby="home-card-slogan">
             <span class="home-card-top"><span>U.S. equities</span><span aria-hidden="true">↗</span></span>
             <strong class="home-ticker">REDI</strong>
             <h2>Hetzerk Innovation <br>Factor ETF</h2>
+            <span class="home-card-slogan" id="home-card-slogan">Innovation is the <span class="home-slogan-accent">DIF</span>erence</span>
             <dl class="home-fund-facts"><div><dt>Annual expense ratio</dt><dd>{pct(fund['expense_ratio'])}</dd></div><div><dt>Investment universe</dt><dd>U.S. mid- &amp; large-cap</dd></div><div><dt>Portfolio approach</dt><dd>Equal weighting</dd></div><div><dt>Exposure</dt><dd>Long-only equities</dd></div></dl>
             <span class="home-card-link">Explore the ETF <span aria-hidden="true">→</span></span>
           </a>
@@ -59,8 +60,10 @@ def render_home(html, fund):
           <p class="home-eyebrow">Section 351 interest</p>
           <h2 id="contribution-heading">Start with what you own.</h2>
           <p>Explore contributing an eligible portfolio to an ETF in a potentially tax-deferred exchange.</p>
+          <p class="home-fine-print">Under the usual diversified-portfolio route, each contributor’s proposed portfolio can have no more than 25% in one issuer and no more than 50% in any five or fewer issuers. Exclusions and look-through rules apply; these limits alone do not establish eligibility.</p>
           <p class="home-fine-print">Eligibility and tax treatment depend on the transaction and your circumstances. Registering interest does not create an investment commitment.</p>
           <div class="home-351-actions"><a class="home-secondary-link" href="/section-351.html">How Section 351 works <span aria-hidden="true">↗</span></a><a class="home-secondary-link" href="/351-exchanges.html">351 opportunities <span aria-hidden="true">→</span></a></div>
+          <p class="home-fine-print"><a class="home-secondary-link" href="/assets/guides/section-351-contributions.pdf" type="application/pdf">Read the Hetzerk Section 351 guide (PDF) <span aria-hidden="true">↗</span></a></p>
           {exchange_sticker()}
         </div>
         <form id="register" class="home-interest-form" data-interest-form="" data-recipient="info@ofnectar.com" action="#register" method="post" aria-label="Section 351 interest">
