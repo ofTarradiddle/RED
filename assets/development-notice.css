@@ -1,0 +1,185 @@
+/* A small development notice: yellow paper, an ink stamp and quiet wave lines. */
+.development-notice {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 0;
+  border-bottom: 1px solid #b89c43;
+  background: #f0d772;
+  color: #272318;
+  font-family: Inter, Arial, sans-serif;
+  text-align: left;
+}
+
+.development-notice[hidden],
+.development-notice [hidden] {
+  display: none !important;
+}
+
+.development-notice::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 0 auto;
+  width: min(36%, 420px);
+  background-image: repeating-radial-gradient(
+    circle at 50% 100%,
+    transparent 0 8px,
+    #5e4b2426 8px 9px,
+    transparent 9px 16px
+  );
+  background-position: 0 3px;
+  background-size: 64px 32px;
+  opacity: .5;
+  content: "";
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000);
+  mask-image: linear-gradient(90deg, transparent, #000);
+}
+
+.development-notice .development-notice-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 22px;
+  box-sizing: border-box;
+  width: calc(100% - 112px);
+  max-width: 1200px;
+  min-height: 74px;
+  margin: 0 auto;
+  padding: 12px 0;
+}
+
+.development-notice .development-notice-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 34px;
+  padding: 5px 9px;
+  border: 1px solid #7e342b;
+  outline: 1px solid #7e342b50;
+  outline-offset: -4px;
+  border-radius: 1px;
+  color: #7e342b;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .12em;
+  white-space: nowrap;
+}
+
+.development-notice .development-notice-copy {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  color: #272318;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+.development-notice .development-notice-copy strong {
+  color: inherit;
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.development-notice .development-notice-copy span {
+  display: inline-block;
+  margin-left: 12px;
+  color: #52462a;
+  font-size: 11px;
+}
+
+.development-notice .development-notice-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 0;
+  padding: 10px;
+  appearance: none;
+  border: 1px solid #6b57283b;
+  border-radius: 2px;
+  background: #f0d772;
+  color: #272318;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.development-notice .development-notice-close:hover {
+  border-color: #6b5728;
+  background: #e7c85b;
+  color: #272318;
+}
+
+.development-notice .development-notice-close:focus-visible {
+  outline: 2px solid #272318;
+  outline-offset: 3px;
+}
+
+.development-notice .development-notice-close svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+@media (max-width: 1050px) {
+  .development-notice .development-notice-inner {
+    width: calc(100% - 72px);
+  }
+
+  .development-notice .development-notice-copy span {
+    display: block;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .development-notice .development-notice-inner {
+    width: calc(100% - 40px);
+    gap: 12px;
+    min-height: 90px;
+    padding: 13px 0;
+  }
+
+  .development-notice .development-notice-stamp {
+    padding: 7px 6px;
+    font-size: 12px;
+    letter-spacing: .04em;
+  }
+
+  .development-notice .development-notice-copy {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .development-notice .development-notice-copy span {
+    margin-top: 3px;
+    font-size: 10px;
+  }
+}
+
+@media print {
+  .development-notice .development-notice-inner {
+    width: 100%;
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .development-notice .development-notice-close {
+    display: none !important;
+  }
+}

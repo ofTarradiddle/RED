@@ -3,6 +3,8 @@ import re
 
 from bs4 import BeautifulSoup, Comment, NavigableString
 
+from publishing.development_notice import add_development_notice
+
 # Permit sentence punctuation and prose such as "Hetzerk-based", while leaving
 # domains, email addresses, paths and workbook filenames as literal references.
 NAME = re.compile(r'(?<![\w@./-])hetzerk(?![\w@/])(?!(?:\.[A-Za-z0-9]|-[\w-]+\.[A-Za-z0-9]))', re.I)
@@ -13,6 +15,7 @@ def apply_branding(html):
     page = BeautifulSoup(html, 'html.parser')
     if not page.body or not page.head:
         return html
+    add_development_notice(page)
     if not page.select_one('link[href="/assets/branding.css"]'):
         page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/branding.css'))
     if not page.select_one('script[data-favicon-motion]'):
