@@ -16,6 +16,14 @@ Click the plain word **Perspective** in the footer to open the personal shadow N
 
 REDI's expense ratio is **0.45% (45 bps)** in the canonical workbook. `/documents/` contains the populated fact sheet, data downloads and SEC filing references. Fund-specific document URLs can be supplied through the Documents sheet; reference links are not represented as filed fund documents.
 
+The themed fact sheet is available at `/etfs/redi/fact-sheet.html`, with a matching
+two-page download at `/etfs/redi/fact-sheet.pdf`. Each build regenerates the PDF
+from the same fund snapshot, so scheduled data refreshes update both formats.
+`publishing/fact_sheet.py` holds their shared investment narrative and intended
+terms; `publishing/fact_sheet_pdf.py` handles print layout. The 50–100 stock target
+is shown separately from current SPY-derived positions, and valuation and holdings
+carry their own dates. The PDF dependencies are included in `requirements-site.txt`.
+
 The corporate site offers REDI only. Shared public navigation and footer markup are applied by `publishing/institutional.py`; the scoped `assets/institutional*.css` styles give the fund, research and Section 351 pages a consistent presentation while preserving their content and data bindings. `assets/tactile.css` adds warm ceramic surfaces, raised burgundy cards and inset controls; `assets/tactile.js` progressively enhances selected clickable cards with pointer lighting and a subtle tilt, respecting reduced-motion and touch preferences. Its compact homepage uses warm light surfaces and blood-red accents, rendered by `publishing/minimal_home.py`, with scoped styles in `assets/minimal-home.css`. The Section 351 interest form follows the ETF introduction, ahead of expenses and the investment case; it prepares an email draft using the existing interest-form flow. The ETF page retains the original layout rendered by `publishing/restoration.py`, including its fund-detail panels, performance cards and document grid. The chart has NAV, Market Price and Morningstar US Market Index series, each indexed to 100 for the selected period, without reinvesting fund distributions. The workbook history remains fictional and covered by the illustrative banner. A verified actual Morningstar price-index history requires an authorized MSTAR data source; see `docs/SHADOW_NAV.md`.
 
 The homepage leads with REDI’s objective, innovation value and ability, fund

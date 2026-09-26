@@ -1,6 +1,7 @@
 """Fund materials and clearly identified official filing references."""
 from urllib.parse import parse_qs, urlsplit
-from publishing.site import esc, holdings_table, money, pct
+from publishing.site import esc
+from publishing.fact_sheet import fact_sheet_body
 
 EDGAR = 'https://www.sec.gov/edgar/search/'
 FUND_SEARCH = 'https://www.sec.gov/search-filings/mutual-funds-search'
@@ -48,6 +49,7 @@ def library_body(fund, compact=False):
       <p class="metric-note">Fund-specific filings have not been supplied. The SEC links below open official references and search tools.</p>
       <div class="document-materials">
         <a class="cambria-button" href="/etfs/{fid}/fact-sheet.html">Fund Fact Sheet</a>
+        <a class="cambria-button-secondary" href="/etfs/{fid}/fact-sheet.pdf" type="application/pdf" download>Fact Sheet (PDF) ↓</a>
         <a class="cambria-button-secondary" href="/assets/guides/section-351-contributions.pdf" type="application/pdf">Section 351 Guide (PDF)</a>
         <a class="cambria-button-secondary" href="/etfs/{fid}/data/holdings.csv" download>Daily Holdings ↓</a>
         <a class="cambria-button-secondary" href="/etfs/{fid}/data/distributions.csv" download>Distributions ↓</a>
@@ -55,18 +57,6 @@ def library_body(fund, compact=False):
       </div>{document_cards(fund)}
       <p class="metric-note">Fund materials: <a href="/etfs/{fid}/why-red.html">Investment case</a> · <a href="/etfs/{fid}/#performance">Performance</a> · <a href="/etfs/{fid}/#trading">Premium / discount</a> · <a href="/form-crs.html">Adviser relationship summary</a></p>
     </div>'''
-
-
-def fact_sheet_body(f):
-    last = f['daily'][-1]
-    equities = [h for h in f['holdings'] if h['security_type']=='equity']
-    rows = ''.join(f'<tr><th>{label}</th><td>{value}</td></tr>' for label,value in (
-        ('Ticker', f['ticker']), ('Expense ratio', pct(f['expense_ratio']) + f' · {f["expense_ratio"]*10000:g} basis points'),
-        ('NAV per share',money(last['nav'],4)),('Market price',money(last['market_price'],4)),
-        ('Net assets',money(last['net_assets'])),('Equity holdings',len(equities)),('Cash weight',pct(f['cash_weight'])),
-        ('Benchmark',esc(f['benchmark_label'])),
-        ('Closing premium / discount',pct(last['premium_discount'],True))))
-    return f'''<div class="max-w-5xl mx-auto px-4 py-12 restored-data"><p class="text-red-800 font-semibold mb-4">REDI · FUND FACT SHEET</p><h1 class="text-4xl elegant-heading font-bold mb-5">{esc(f['name'])}</h1><p>As of {f['as_of']}</p><p class="my-6">{esc(f['strategy'])} A systematic equity approach to innovation, business quality and reinvestment.</p><div class="table-scroll"><table><tbody>{rows}</tbody></table></div><h2 class="text-2xl font-semibold my-6">Top 10 Holdings</h2>{holdings_table(equities[:10],table_id='fact-holdings')}<p class="metric-note">Investing involves risk, including loss of principal. Concentration and active management can increase volatility and underperformance.</p><div class="document-materials"><a class="cambria-button-secondary" href="/etfs/redi/#performance">View Performance</a><a class="cambria-button-secondary" href="/etfs/redi/holdings.html">Full Holdings</a><a class="cambria-button-secondary" href="/documents/">Documents & Filings</a></div></div>'''
 
 
 def quick_document_url(href, fid):

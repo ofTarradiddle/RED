@@ -64,6 +64,9 @@ def build(workbook, output=ROOT / "dist", proxy_path=None, base_path='', *, site
             (target / 'snapshot.json').write_text(json.dumps(fund, indent=2, allow_nan=False))
             for key in ('holdings','daily','distributions'):
                 (target / f'{key}.csv').write_text(csv_text(fund[key]))
+            if fund['fund_id'] == 'redi':
+                from publishing.fact_sheet_pdf import render_fact_sheet_pdf
+                render_fact_sheet_pdf(fund, target.parent / 'fact-sheet.pdf', site_url=site_url)
         (stage / 'robots.txt').write_text(robots_text(site_url, indexable=indexable))
         (stage / 'sitemap.xml').write_text(sitemap_xml(pages, site_url, indexable=indexable))
         output = Path(output).absolute()

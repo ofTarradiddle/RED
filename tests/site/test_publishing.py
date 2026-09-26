@@ -89,6 +89,7 @@ def test_failed_build_preserves_previous_release(tmp_path,monkeypatch):
     build(BOOK,out)
     previous=out.resolve()
     content=(out/'index.html').read_bytes()
+    assert (out/'etfs/redi/fact-sheet.pdf').read_bytes().startswith(b'%PDF-')
     import publishing.build as builder
     monkeypatch.setattr(builder,'import_workbook',lambda _: (_ for _ in ()).throw(WorkbookError('bad input')))
     with pytest.raises(WorkbookError):builder.build(BOOK,out)
@@ -136,7 +137,7 @@ def test_all_generated_routes_assets_and_anchors(snapshot):
             elif route.startswith('assets/'):
                 assert (ROOT/route).exists(),(path,link)
             else:
-                assert route=='review/hetzerk-demo.xlsx' or route.endswith(('/holdings.csv','/daily.csv','/distributions.csv')),(path,link)
+                assert route in ('review/hetzerk-demo.xlsx', 'etfs/redi/fact-sheet.pdf') or route.endswith(('/holdings.csv','/daily.csv','/distributions.csv')),(path,link)
 
 
 def test_spread_and_data_labels_are_honest(snapshot):

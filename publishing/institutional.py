@@ -94,7 +94,7 @@ def refine_pages(pages):
         for link in nav.select('a[aria-current]'):
             del link['aria-current']
         current = None
-        if route in FUND_ROUTES or route.startswith('etfs/redi/holdings'):
+        if route in FUND_ROUTES or route.startswith(('etfs/redi/holdings', 'etfs/redi/fact-sheet')):
             current = '/etfs/redi/'
         elif 'case-page' in classes:
             current = '/etfs/redi/why-red.html'
@@ -122,7 +122,7 @@ def refine_pages(pages):
                     link.string = ('Explore contribution opportunities →' if route == 'section-351.html'
                                    else 'Read the Section 351 overview →')
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/institutional-351.css'))
-        elif not modern:
+        elif not modern and route != 'etfs/redi/fact-sheet.html':
             page.body['class'].append('institutional-reference')
             article = page.body.find('article', recursive=False)
             if article:
@@ -150,6 +150,9 @@ def refine_pages(pages):
             page.head.append(page.new_tag('script', src='/assets/objective-journey.js', defer=''))
         refine_masthead(page)
         page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/atmosphere.css'))
+        if route == 'etfs/redi/fact-sheet.html':
+            page.body['class'].append('fact-sheet-page')
+            page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/fact-sheet.css'))
         if route in FUND_ROUTES | EXCHANGE_ROUTES or not page.find('main'):
             # Legacy pages split content across sibling sections. Give every
             # investor journey a complete main landmark without changing its IDs.
