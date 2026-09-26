@@ -1,65 +1,139 @@
-"""The fund's three-part rationale, with unaltered source exhibits."""
+"""Native explanations of the deck's economic, durability and allocation arguments.
+
+The diagrams express relationships, not measured returns or forecasts. Original
+source exhibits remain available as supporting material rather than the stage.
+"""
+from html import escape
+
 from publishing.investment_case import case_visual
+from publishing.objective_scenes import objective_scene
 
 
 CHAPTERS = (
-    dict(key='economics', label='Economic foundations', subtitle='Theory, economics & evidence',
-         kicker='The economic & theoretical foundation',
-         title='The economics<br>of <em>innovation.</em>',
-         body='Investment in knowledge can expand a company’s productive possibilities. REDI examines that investment alongside commercial results and the valuation investors pay.',
-         points=(('Knowledge', 'Research can create products, processes and capabilities.'),
-                 ('Commercial ability', 'The company must turn those capabilities into business value.'),
-                 ('Valuation', 'An attractive business still needs a justifiable share price.')),
-         visual='endogenous',
-         chain=('Research investment', 'Knowledge creation', 'Potential cash flows'),
-         note='The economic rationale informs the selection process; it does not establish a guaranteed return.'),
-    dict(key='endurance', label='Investing for the long term', subtitle='Principles designed to endure',
-         kicker='What it takes to invest forever',
-         title='A process designed<br>to <em>endure.</em>',
-         body='A durable strategy needs repeatable decisions, an economic reason to invest and explicit portfolio constraints. Those principles guide the process as companies and valuations change.',
-         points=(('Systematic decisions', 'Apply consistent measures and selection rules.'),
-                 ('Economic rationale', 'Connect innovation with potential future cash flows.'),
-                 ('Portfolio discipline', 'Equally weighted, long-only equities without leverage.')),
-         visual='longterm',
-         chain=('Repeatable process', 'Economic rationale', 'Risk constraints'),
-         note='“Forever” describes the intended durability of the principles. Holdings can change, and portfolio constraints do not cap losses.'),
-    dict(key='why-now', label='Why now', subtitle='Where capital goes next',
-         kicker='Why now / Capital allocation',
-         title='Where the next<br><em>dollar goes.</em>',
-         body='Companies decide how much cash to return today and how much to invest in tomorrow. REDI studies reinvestment that can create future earning power, with a disciplined view of its value.',
-         points=(('Capital allocation', 'Examine where the business directs its next dollar.'),
-                 ('Value and ability', 'Assess both the price paid and the capacity to execute.'),
-                 ('Changing opportunity', 'Reassess companies as industries and technologies evolve.')),
-         visual='reinvestment',
-         chain=('Dividends', 'Repurchases', 'Debt repayment', 'Acquisitions', 'Reinvestment'),
-         note='The opportunity is assessed company by company. Reinvestment can fail to produce a commercial return.'),
+    dict(
+        key='economics', label='The intuition', subtitle='How innovation creates value',
+        kicker='Economic, theoretical & factor foundations',
+        title='The source<br>of <em>growth.</em>',
+        body='Research builds knowledge. Knowledge can raise productivity. The investment question is who turns it into value—and at what price.',
+        topics=(
+            ('theory', 'Theoretical', 'Growth beyond more inputs',
+             'Endogenous growth theory puts knowledge inside the growth process. Research can expand productive capacity even as growth in workers or physical capital slows.',
+             'Research → knowledge → productive capacity'),
+            ('economy', 'Economic', 'Private capital funds the possibility',
+             'The source’s 1953–2023 R&D exhibit traces a shift from government toward business funding. Owners commit capital, bear uncertainty and may participate in the value innovation creates.',
+             'Capital + expertise → uncertain innovation'),
+            ('factor', 'Factor', 'Spending is only the beginning',
+             'Commercial ability separates successful R&D from spending alone. REDI studies that characteristic across industries, distinguishing it from growth through acquisitions or pricing power.',
+             'Innovation value and innovation ability'),
+        ),
+        anatomy=('Research', 'Knowledge', 'Potential commercial value'),
+        takeaway_label='The investment implication',
+        takeaway='A consistent company characteristic.<br><strong>Across changing industries.</strong>',
+        note='Innovation may not produce commercial value. The economic argument and historical research do not establish a guaranteed return.',
+        source='endogenous', source_label='Economic rationale · Source slide 7',
+    ),
+    dict(
+        key='endurance', label='Investing forever', subtitle='What a lasting strategy requires',
+        kicker='What it takes to invest forever',
+        title='Built for<br><em>the long run.</em>',
+        body='An enduring strategy needs rules that stay consistent, a reason to expect a return, and a structure that can withstand uncertainty.',
+        topics=(
+            ('systematic', 'Systematic', 'Same object. Same measure. Same rules.',
+             'Holdings can change while the characteristic being measured and the decision rules stay consistent. The process should remain repeatable as managers, markets and narratives change.',
+             'Consistent measurement through time'),
+            ('mean', 'Positive mean', 'An expectation supported by reasons',
+             'A positive population mean needs economic intuition, theoretical justification and empirical evidence. A favorable historical sample alone is not enough.',
+             'Expected excess return: a hypothesis to test'),
+            ('tails', 'Tail discipline', 'Constrain avoidable paths to severe loss',
+             'Ordinary equities, equal weighting and no leverage keep the structure understandable. Mid- and large-cap businesses can offer funding access, distribution and liquidity as research succeeds or fails.',
+             'Constrained tail events ≠ eliminated losses'),
+        ),
+        anatomy=('Consistent rules', 'Expected return', 'Risk discipline'),
+        takeaway_label='The portfolio expression',
+        takeaway='U.S. mid- &amp; large-cap equities.<br><strong>Equal weight. Long only. No leverage.</strong>',
+        note='Conceptual paths show uncertainty, not fund performance or a forecast. “Forever” refers to the principles; holdings can change and losses remain possible.',
+        source='longterm', source_label='Characteristics of fire · Source slide 9',
+    ),
+    dict(
+        key='why-now', label='Why now', subtitle='Where the next dollar goes',
+        kicker='Why now / The reinvestment opportunity',
+        title='The business<br>of <em>tomorrow.</em>',
+        body='Every business chooses where its cash goes. We examine the reinvestment that can change what the business becomes.',
+        topics=(
+            ('reinvestment', 'Reinvestment', 'Build the next source of cash flow',
+             'Internal reinvestment can create products, capabilities and future earning power. REDI evaluates that possibility through the price paid and the company’s ability to execute.',
+             'Today’s research → tomorrow’s business potential'),
+            ('dividends', 'Dividends', 'Return cash to shareholders',
+             'Dividends distribute cash generated by the business. They are one use of capital; REDI’s research also asks what retained cash can create inside the company.',
+             'Business cash → shareholder distribution'),
+            ('repurchases', 'Repurchases', 'Buy back ownership in the business',
+             'Share repurchases return capital by buying the company’s own shares. Their economic value depends in part on the price paid and the alternatives available.',
+             'Business cash → repurchased shares'),
+            ('debt', 'Debt repayment', 'Strengthen the balance sheet',
+             'Repaying debt reduces borrowing obligations. The allocation decision weighs financial resilience against other opportunities for the next dollar.',
+             'Business cash → reduced borrowing'),
+            ('acquisitions', 'Acquisitions', 'Acquire a new capability',
+             'Acquisitions add businesses and capabilities from outside the firm. REDI distinguishes acquisition-driven growth from the ability to turn internal research into commercial progress.',
+             'Business cash → external capabilities'),
+        ),
+        anatomy=('Business cash', 'Internal reinvestment', 'Potential cash flows'),
+        takeaway_label='REDI’s selection discipline',
+        takeaway='A valuation test for what comes next.<br><strong>Innovation value and innovation ability.</strong>',
+        note='Opportunity is assessed company by company as industries evolve. Reinvestment can fail, and a compelling innovation story can still be overpriced.',
+        source='reinvestment', source_label='Why now · Source slide 6; reinvestment illustration · Slide 12',
+    ),
 )
+
+
+def _topics(chapter, stem):
+    buttons, panels = [], []
+    for index, (key, label, heading, body, principle) in enumerate(chapter['topics'], 1):
+        topic_id = f'{stem}-{key}'
+        buttons.append(f'''<button type="button" id="{topic_id}-tab" data-objective-topic="{key}" aria-controls="{topic_id}"><span class="objective-topic-index" aria-hidden="true">{index:02}</span><span>{escape(label)}</span></button>''')
+        panels.append(f'''<div class="objective-detail" id="{topic_id}" data-objective-detail aria-labelledby="{topic_id}-tab"><h4>{escape(heading)}</h4><p>{escape(body)}</p><div class="objective-principle"><span aria-hidden="true">↳</span>{escape(principle)}</div></div>''')
+    return ''.join(buttons), ''.join(panels)
+
+
+def _hotspots(chapter, stem):
+    anchors = {
+        'economics': (('theory', 'Knowledge', 49.4, 78.5), ('economy', 'Private capital', 15.4, 91), ('factor', 'Commercial ability', 80.7, 76)),
+        'endurance': (('systematic', 'Rules', 28.8, 89), ('mean', 'Expected edge', 52.5, 89), ('tails', 'Risk discipline', 76.3, 89)),
+        'why-now': (('reinvestment', 'Reinvestment', 50, 89.7), ('dividends', 'Dividends', 13.5, 40.3), ('repurchases', 'Repurchases', 84.5, 39.2), ('debt', 'Debt repayment', 85.6, 86.3), ('acquisitions', 'Acquisitions', 13, 86.8)),
+    }
+    return ''.join(f'''<button type="button" class="objective-hotspot" style="--hotspot-x:{x}%;--hotspot-y:{y}%" data-objective-hotspot="{key}" aria-controls="{stem}-{key}" aria-label="Explore {escape(label.lower())}"><span class="objective-hotspot-dot" aria-hidden="true">+</span><span>{label}</span></button>''' for key, label, x, y in anchors[chapter['key']])
 
 
 def objective_journey(prefix='home'):
     tabs, panels = [], []
     for index, chapter in enumerate(CHAPTERS, 1):
         stem = f'{prefix}-objective-{chapter["key"]}'
-        tabs.append(f'''<button type="button" id="{stem}-tab" data-objective-tab aria-controls="{stem}">
-          <span class="objective-tab-number" aria-hidden="true">0{index}</span><span><strong>{chapter['label']}</strong><small>{chapter['subtitle']}</small></span><span class="objective-tab-arrow" aria-hidden="true">↗</span>
-        </button>''')
-        points = ''.join(f'<div><dt>{title}</dt><dd>{text}</dd></div>' for title, text in chapter['points'])
-        chain = ''.join(f'<span class="{"is-focus" if chapter["key"] == "why-now" and i == 4 else ""}">{text}</span>' for i, text in enumerate(chapter['chain']))
+        topic_buttons, topic_panels = _topics(chapter, stem)
+        tabs.append(f'''<button type="button" id="{stem}-tab" data-objective-tab aria-controls="{stem}"><span class="objective-tab-number" aria-hidden="true">{index:02}</span><span><strong>{chapter['label']}</strong><small>{chapter['subtitle']}</small></span><span class="objective-tab-arrow" aria-hidden="true">↗</span></button>''')
+        anatomy = ''.join(f'<span><i aria-hidden="true">{i:02}</i>{label}</span>' for i, label in enumerate(chapter['anatomy'], 1))
+        source_extra = ('''<div class="objective-source-context"><h4>The opportunity in context</h4><p>The source frames innovation as a company characteristic that can be assessed as industries evolve. U.S. businesses may sell internationally, but that does not make the portfolio an international equity allocation. REDI is intended for consideration as a core or satellite equity holding.</p></div>''' if chapter['key'] == 'why-now' else '')
         panels.append(f'''<article class="objective-panel objective-{chapter['key']}" id="{stem}" data-objective-panel aria-labelledby="{stem}-tab">
-          <div class="objective-copy"><span class="objective-watermark" aria-hidden="true">0{index}</span>
-            <p class="objective-kicker"><span aria-hidden="true"></span>0{index} / {chapter['kicker']}</p>
-            <h3>{chapter['title']}</h3><p class="objective-body">{chapter['body']}</p>
-            <dl class="objective-points">{points}</dl>
+          <div class="objective-exploration" data-objective-exploration data-focus="{chapter['topics'][0][0]}">
+            <div class="objective-copy"><p class="objective-kicker"><span aria-hidden="true"></span>{chapter['kicker']}</p>
+              <h3>{chapter['title']}</h3><p class="objective-body">{chapter['body']}</p>
+              <div class="objective-facets" data-objective-topics aria-label="Explore {escape(chapter['label'].lower())}">{topic_buttons}</div>
+              <div class="objective-details">{topic_panels}</div>
+            </div>
+            <div class="objective-art"><span class="objective-scene-number" aria-hidden="true">{index:02}</span>
+              <div class="objective-scene" data-objective-scene>{objective_scene(chapter['key'], stem)}
+                <div class="objective-hotspots">{_hotspots(chapter, stem)}</div>
+                {'<span class="objective-cash-center">Business<br><strong>cash</strong></span>' if index == 3 else ''}
+                <div class="objective-scene-heading"><span>{'The knowledge engine' if index == 1 else 'A range of possible outcomes' if index == 2 else 'The allocation of corporate cash'}</span><small>{'Conceptual relationships' if index != 2 else 'Conceptual paths · not a forecast'}</small></div>
+              </div>
+              <div class="objective-anatomy" aria-label="{'Strategy principles' if index == 2 else 'Economic relationships'}">{anatomy}</div>
+              <p class="objective-art-hint"><span aria-hidden="true">↖</span> Select {'a use of cash' if index == 3 else 'a principle' if index == 2 else 'a perspective'} to explore the idea</p>
+            </div>
           </div>
-          <div class="objective-exhibit">
-            {case_visual(chapter['visual'], prefix=f'{prefix}-objective-', eager=index == 1)}
-            <div class="objective-chain{' objective-choices' if chapter['key'] == 'why-now' else ''}" aria-label="{'Five uses of corporate cash' if chapter['key'] == 'why-now' else 'Investment framework'}">{chain}</div>
-          </div>
-          <p class="objective-note">{chapter['note']}</p>
+          <div class="objective-conclusion"><p class="objective-takeaway-label">{chapter['takeaway_label']}</p><p class="objective-takeaway">{chapter['takeaway']}</p><p class="objective-note">{chapter['note']}</p></div>
+          <details class="objective-source"><summary><span>Source material <small>{chapter['source_label']}</small></span><span aria-hidden="true">+</span></summary><div class="objective-source-body">{source_extra}{case_visual(chapter['source'], prefix=f'{prefix}-objective-')}</div></details>
         </article>''')
     return f'''<section class="objective-journey" id="{prefix}-objective" data-objective-journey aria-labelledby="{prefix}-objective-title">
-      <div class="objective-topline"><h2 id="{prefix}-objective-title">The foundations of REDI</h2><a href="/etfs/redi/why-red.html">Full investment case <span aria-hidden="true">↗</span></a></div>
-      <div class="objective-navigation"><div class="objective-tabs" data-objective-tabs aria-label="REDI investment objective">{''.join(tabs)}</div>
+      <div class="objective-topline"><h2 id="{prefix}-objective-title">REDI / The investment rationale</h2><a href="/etfs/redi/why-red.html">Full investment case <span aria-hidden="true">↗</span></a></div>
+      <div class="objective-navigation"><div class="objective-tabs" data-objective-tabs aria-label="REDI investment rationale">{''.join(tabs)}</div>
         <div class="objective-controls"><span data-objective-count>01 / 03</span><div><button type="button" data-objective-prev aria-label="Previous objective chapter">←</button><button type="button" data-objective-next aria-label="Next objective chapter">→</button></div></div>
       </div>
       <div class="objective-stage" data-objective-stage>{''.join(panels)}</div>

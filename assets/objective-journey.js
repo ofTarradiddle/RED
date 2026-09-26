@@ -48,7 +48,6 @@
         });
         if (focus || focusWouldHide) tabs[target].focus({ preventScroll: true });
         panels.forEach((panel, i) => { panel.hidden = i !== target; });
-        panels[target].querySelectorAll('img[loading="lazy"]').forEach(image => { image.loading = 'eager'; });
         active = target;
         root.dataset.active = String(active);
         if (previous) previous.disabled = active === 0;
@@ -88,6 +87,68 @@
       });
       if (previous) previous.addEventListener('click', () => select(active - 1));
       if (next) next.addEventListener('click', () => select(active + 1));
+
+      root.querySelectorAll('[data-objective-exploration]').forEach(exploration => {
+        const topicRail = exploration.querySelector('[data-objective-topics]');
+        const topics = [...exploration.querySelectorAll('[data-objective-topic]')];
+        const details = topics.map(topic => document.getElementById(topic.getAttribute('aria-controls')));
+        const hotspots = [...exploration.querySelectorAll('[data-objective-hotspot]')];
+        if (!topicRail || !topics.length || details.some(detail => !detail)) return;
+        let selected = 0;
+        const choose = (index, focus = false, announce = true) => {
+          const changed = selected !== index;
+          const focusWouldHide = changed && details[selected].contains(document.activeElement);
+          selected = index;
+          const key = topics[index].dataset.objectiveTopic;
+          topics.forEach((topic, i) => {
+            topic.setAttribute('aria-selected', String(i === index));
+            topic.tabIndex = i === index ? 0 : -1;
+          });
+          if (focus || focusWouldHide) topics[index].focus({ preventScroll: true });
+          details.forEach((detail, i) => { detail.hidden = i !== index; });
+          hotspots.forEach(hotspot => hotspot.setAttribute('aria-pressed', String(hotspot.dataset.objectiveHotspot === key)));
+          exploration.dataset.focus = key;
+          exploration.querySelectorAll('[data-scene-part]').forEach(part => {
+            part.classList.toggle('is-selected', part.dataset.scenePart === key);
+          });
+          if (status && announce && changed) status.textContent = details[index].querySelector('h4').textContent;
+        };
+        topicRail.setAttribute('role', 'tablist');
+        topics.forEach((topic, index) => {
+          topic.setAttribute('role', 'tab');
+          details[index].setAttribute('role', 'tabpanel');
+          details[index].tabIndex = 0;
+          topic.addEventListener('click', () => choose(index));
+          topic.addEventListener('keydown', event => {
+            if (event.altKey || event.ctrlKey || event.metaKey) return;
+            let target;
+            if (event.key === 'ArrowRight') target = (index + 1) % topics.length;
+            else if (event.key === 'ArrowLeft') target = (index - 1 + topics.length) % topics.length;
+            else if (event.key === 'Home') target = 0;
+            else if (event.key === 'End') target = topics.length - 1;
+            else return;
+            event.preventDefault();
+            event.stopPropagation();
+            choose(target, true);
+          });
+        });
+        hotspots.forEach(hotspot => hotspot.addEventListener('click', () => {
+          const index = topics.findIndex(topic => topic.dataset.objectiveTopic === hotspot.dataset.objectiveHotspot);
+          if (index < 0) return;
+          choose(index);
+          // On a stacked layout, keep the explanation within reach of its object.
+          if (window.matchMedia('(max-width: 800px)').matches) {
+            const bounds = details[index].getBoundingClientRect();
+            if (bounds.top < 0 || bounds.bottom > window.innerHeight) {
+              details[index].scrollIntoView({
+                block: 'nearest',
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+              });
+            }
+          }
+        }));
+        choose(0, false, false);
+      });
 
       // Explicit chapter links may live outside the component, such as a fund introduction.
       document.querySelectorAll('a[data-objective-select]').forEach(link => {
@@ -134,16 +195,6 @@
       initialized = true;
       root.classList.add('is-enhanced');
 
-      // Prepare the original exhibits as their stage approaches the viewport.
-      // Data-saving connections still load just the selected chapter.
-      if ('IntersectionObserver' in window && !navigator.connection?.saveData) {
-        const prepare = new IntersectionObserver(entries => {
-          if (!entries.some(entry => entry.isIntersecting)) return;
-          panels.forEach(panel => panel.querySelectorAll('img').forEach(image => { image.loading = 'eager'; }));
-          prepare.disconnect();
-        }, { rootMargin: '300px 0px' });
-        prepare.observe(root);
-      }
     });
   };
 

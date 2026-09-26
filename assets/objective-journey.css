@@ -1,126 +1,187 @@
-/* Source-backed investment chapters, with a quiet exhibition-like rhythm. */
+/* A continuous, native investment story: three ideas, three sculpted diagrams. */
 .hetzerk-site .objective-journey {
-  --objective-width:min(1440px,calc(100vw - 48px));
+  --objective-width:min(1540px,calc(100vw - 40px));
+  --objective-ink:#352327;--objective-muted:#766360;--objective-red:#8b0000;
   display:flex;flex-direction:column;position:relative;grid-column:1/-1;
   width:var(--objective-width);min-width:0;box-sizing:border-box;
-  margin:12px auto 0;padding:0;isolation:isolate;overflow:clip;
-  border:1px solid #d9c8bc;border-radius:22px;color:#342326;
-  background:radial-gradient(ellipse at 78% 30%,#e9d6c875,transparent 60%),linear-gradient(125deg,#fffcf7,#f2e9e1);
-  box-shadow:0 16px 40px #47211e09,inset 0 1px 0 #fff;
+  margin:10px auto 0;padding:0;isolation:isolate;overflow:clip;
+  border:1px solid #ddcfc4;border-radius:20px;color:var(--objective-ink);
+  background:radial-gradient(ellipse at 78% 36%,#e8d7c996,transparent 51%),linear-gradient(115deg,#fcf9f3 15%,#f3ece3 75%,#eee3d9);
+  box-shadow:inset 0 1px 0 #fff,0 12px 35px #512b2006;
   font-family:Inter,Arial,sans-serif;
 }
-.fund-home .objective-journey {margin-left:calc((100% - var(--objective-width))/2);margin-top:7px}
-.institutional-etf .objective-journey {margin-top:0;margin-bottom:58px}
-.objective-topline {order:0;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:24px 4% 0}
-.objective-journey .objective-topline h2 {font:500 10px/1.6 Inter,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#78605b;margin:0}
-.objective-topline a {display:flex;align-items:center;gap:23px;padding:3px 0;border-bottom:1px solid #c6a398;color:#742432;font-size:11px;line-height:1.5;text-decoration:none}
+.fund-home .objective-journey {margin-left:calc((100% - var(--objective-width))/2);margin-top:8px}
+.institutional-etf .objective-journey {margin:0 auto 58px}
+.objective-topline {order:0;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:25px 4.4% 0}
+.objective-journey .objective-topline h2 {font:500 9px/1.6 Inter,Arial,sans-serif;text-transform:uppercase;letter-spacing:.17em;color:#786660;margin:0}
+.objective-topline a {display:flex;align-items:center;gap:22px;padding:4px 0;border-bottom:1px solid #c4a79b;color:#7f3038;font:400 11px/1.5 Inter,Arial,sans-serif;text-decoration:none}
 .objective-topline a:hover {border-color:#8b0000}
 .objective-stage {order:1;min-width:0}
-.objective-journey .objective-panel {display:grid;position:relative;grid-template-columns:minmax(0,.83fr) minmax(0,1.55fr);gap:28px 5%;align-items:center;padding:36px 4% 22px;min-height:590px;box-sizing:border-box;scroll-margin-top:22px}
-.objective-journey .objective-panel[hidden] {display:none!important}
+.objective-journey .objective-panel {display:block;position:relative;padding:0;scroll-margin-top:20px}
+.objective-journey .objective-panel[hidden],.objective-journey .objective-detail[hidden] {display:none!important}
 .objective-panel:focus-visible {outline:2px solid #8b0000;outline-offset:-5px}
-.objective-copy {position:relative;min-width:0;isolation:isolate;align-self:center}
-.objective-watermark {position:absolute;z-index:-1;top:-40px;left:-13px;pointer-events:none;font:300 170px/1 Inter,Arial,sans-serif;letter-spacing:-.085em;color:#8b000005;-webkit-text-stroke:1px #ab87751a}
-.objective-journey .objective-kicker {display:flex;align-items:center;gap:9px;font-size:9px;line-height:1.7;letter-spacing:.09em;text-transform:uppercase;font-weight:500;color:#8b0000;margin:0 0 22px}
-.objective-kicker>span {width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:#8b0000;box-shadow:0 0 0 4px #8b000008}
-.objective-journey .objective-copy h3 {font-family:'Playfair Display',Georgia,serif;font-size:clamp(37px,3.6vw,55px);font-weight:400;line-height:1.1;letter-spacing:-.045em;color:#342326;margin:0 0 23px}
+.objective-exploration {display:grid;grid-template-columns:minmax(0,.87fr) minmax(0,1.5fr);align-items:center;gap:0 2.3%;padding:42px 4.4% 28px;min-height:655px;box-sizing:border-box}
+.objective-copy {position:relative;z-index:2;min-width:0;align-self:center}
+.objective-journey .objective-kicker {display:flex;gap:9px;align-items:center;margin:0 0 27px;color:#8b0000;font-size:9px;font-weight:500;line-height:1.7;letter-spacing:.1em;text-transform:uppercase}
+.objective-kicker>span {flex:0 0 5px;width:5px;height:5px;border-radius:50%;background:#8b0000;box-shadow:0 0 0 4px #8b000008}
+.objective-journey .objective-copy h3 {font:400 clamp(46px,4.6vw,72px)/1.055 'Playfair Display',Georgia,serif;letter-spacing:-.05em;color:#352327;margin:0 0 27px;max-width:470px}
 .objective-copy h3 em {font-style:normal;color:#8b0000}
-.objective-journey .objective-body {font-size:13px;line-height:1.85;color:#6c595b;margin:0 0 26px;max-width:385px}
-.objective-points {margin:0;padding:0;border-top:1px solid #dac8ba}
-.objective-points>div {display:grid;grid-template-columns:minmax(0,.86fr) minmax(0,1.25fr);gap:14px;padding:12px 0;border-bottom:1px solid #dac8ba}
-.objective-points dt {font-size:10px;font-weight:500;line-height:1.7;color:#763238}
-.objective-points dd {font-size:10px;font-weight:400;line-height:1.75;margin:0;color:#725f5f}
-.objective-exhibit {position:relative;min-width:0;align-self:center}
-.objective-journey .case-visual {margin:0}
-.objective-journey .case-source-heading {padding:17px 21px;border:1px solid #d6c6b9;border-bottom:0;border-radius:12px 12px 0 0;background:linear-gradient(115deg,#fffcf6,#f5ede4);box-shadow:inset 0 1px 0 #fff}
-.objective-journey .case-source-heading h4 {font:500 19px/1.4 'Playfair Display',Georgia,serif;letter-spacing:-.015em;color:#7d2027;margin:0 0 3px}
-.objective-journey .case-source-heading p {font:400 10px/1.6 Inter,Arial,sans-serif;letter-spacing:.01em;color:#75605f;margin:0}
-.objective-journey .case-visual-link {display:block;border:1px solid #d6c6b9;border-radius:12px;background:#fffcf8;padding:5px;box-shadow:0 12px 28px #512a2510,inset 0 1px 0 #fff;overflow:hidden}
-.objective-journey .case-source-heading+.case-visual-link {border-radius:0 0 12px 12px}
-.objective-journey .case-visual-link img {display:block;width:100%;height:auto;border-radius:8px}
-.objective-journey .case-source-heading+.case-visual-link img {border-radius:0}
-.objective-journey .case-visual-expand {padding:8px 11px;font:500 9px/1.5 Inter,Arial,sans-serif;gap:17px;background:#fffcf8;border-top:1px solid #e9ded4}
-.objective-journey .case-visual-expand>span {font-size:15px}
-.objective-journey .case-visual figcaption {padding:14px 2px 0}
-.objective-journey .case-visual-meta {gap:12px;align-items:baseline;flex-wrap:wrap}
-.objective-journey .case-visual-meta strong {font:500 10px/1.6 Inter,Arial,sans-serif;color:#614745}
-.objective-journey .case-visual-meta>span {font:400 9px/1.6 Inter,Arial,sans-serif;color:#7a6662;white-space:normal}
-.objective-journey .case-visual figcaption p {font:400 10px/1.7 Inter,Arial,sans-serif;color:#756461;margin:6px 0 0;max-width:none}
-.objective-chain {display:flex;gap:0;margin:19px 0 0;padding:0;align-items:stretch;border:1px solid #d9c8bb;border-radius:7px;background:#eaded244;box-shadow:inset 0 1px 3px #60352108}
-.objective-chain>span {position:relative;flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:11px 9px;font-size:9px;line-height:1.55;color:#765655}
-.objective-chain>span+span {border-left:1px solid #d9c8bb}
-.objective-chain>span:not(:last-child):after {content:'→';position:absolute;right:-7px;z-index:1;background:#f4eae0;color:#a4796c;font-size:11px;width:13px}
-.objective-choices>span:not(:last-child):after {content:none}
-.objective-choices>span {font-size:8px;padding:12px 6px}
-.objective-choices>.is-focus {color:#fff5e9;background:linear-gradient(125deg,#8c2228,#671521);border-radius:0 6px 6px 0;border-left-color:#681521;box-shadow:inset 0 1px 0 #f4bcaa33}
-.objective-journey .objective-note {grid-column:1/-1;border-top:1px solid #decbbc;padding:14px 0 0;margin:0;color:#786461;font-size:9px;line-height:1.7;letter-spacing:.005em}
-.objective-navigation {order:2;display:grid;grid-template-columns:minmax(0,1fr) 83px;gap:27px;padding:21px 4%;border-top:1px solid #d5bfb0;background:linear-gradient(115deg,#eee2d780,#fffaf3a6);box-shadow:inset 0 1px 0 #fff9}
-.objective-tabs {display:flex;gap:12px;min-width:0;padding:3px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#aa8275 transparent;overscroll-behavior-x:contain}
-.objective-tabs button {position:relative;display:flex;align-items:center;gap:13px;flex:1 0 0;min-width:0;padding:14px 15px;border:1px solid transparent;border-radius:9px;background:none;box-shadow:none;text-align:left;color:#77645f;cursor:pointer;font-family:Inter,Arial,sans-serif;transition:background .2s,border-color .2s,box-shadow .2s}
-.objective-tab-number {font-size:11px;font-weight:400;align-self:flex-start;padding-top:2px;color:#96776e;font-variant-numeric:tabular-nums}
-.objective-tabs button strong {display:block;font-size:11px;font-weight:500;line-height:1.55;letter-spacing:-.01em}
-.objective-tabs button small {display:block;font-size:9px;font-weight:400;line-height:1.5;margin-top:4px;color:#8c736b}
-.objective-tab-arrow {margin-left:auto;align-self:flex-start;font-size:15px;line-height:1.5;opacity:0}
-.objective-tabs button[aria-selected=true] {border-color:#d1b9a9;background:linear-gradient(135deg,#fffaf3,#f2e6dc);box-shadow:0 3px 6px #5d2c2110,inset 0 1px 0 #fff;color:#8b0000}
+.objective-journey .objective-body {font:400 14px/1.85 Inter,Arial,sans-serif;color:#75615f;max-width:400px;margin:0 0 29px}
+.objective-facets {display:flex;gap:17px;border-bottom:1px solid #d6bdae;min-width:0;margin:0 0 22px}
+.objective-facets button {position:relative;display:flex;gap:7px;align-items:center;padding:12px 0 13px;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;background:none;color:#766360;font:400 11px/1.4 Inter,Arial,sans-serif;white-space:nowrap;cursor:pointer;text-align:left;box-shadow:none;transition:color .2s,border-color .2s}
+.objective-facets button[aria-selected=true] {color:#8b0000;border-bottom-color:#8b0000}
+.objective-facets button:hover {color:#8b0000}.objective-topic-index{font-size:8px;font-variant-numeric:tabular-nums;opacity:.7}
+.objective-details {min-height:173px;max-width:411px}
+.objective-journey .objective-detail h4 {font:500 15px/1.55 Inter,Arial,sans-serif;letter-spacing:-.02em;margin:0 0 10px;color:#553135}
+.objective-journey .objective-detail p {font:400 12px/1.9 Inter,Arial,sans-serif;color:#79635e;margin:0}
+.objective-principle {display:flex;align-items:baseline;gap:10px;border:0;margin-top:16px;color:#8b3938;font:400 10px/1.65 Inter,Arial,sans-serif;letter-spacing:.005em}
+.objective-principle>span {color:#b0826d;font-size:18px;line-height:1}
+.objective-art {position:relative;min-width:0;isolation:isolate;align-self:center;margin-left:-1%;margin-right:-2%}
+.objective-scene-number {position:absolute;z-index:-1;right:0;top:0;font:300 clamp(180px,23vw,335px)/.82 Inter,Arial,sans-serif;letter-spacing:-.085em;color:#9d705306;-webkit-text-stroke:1px #986e5117;pointer-events:none}
+.objective-scene {position:relative;aspect-ratio:4/3;width:100%;isolation:isolate}
+.objective-sculpture {display:block;width:100%;height:auto;overflow:visible;position:relative;z-index:0}
+.objective-sculpture [data-scene-part] {opacity:.65;transition:opacity .55s ease,filter .55s ease}
+.objective-sculpture [data-scene-part].is-selected {opacity:1;filter:drop-shadow(0 3px 5px #8b000012)}
+.objective-scene-heading {position:absolute;left:3%;top:1%;display:flex;flex-direction:column;gap:7px;color:#805e55;pointer-events:none}
+.objective-scene-heading>span {font:400 10px/1.5 Inter,Arial,sans-serif;letter-spacing:.04em}
+.objective-scene-heading>small {font:400 8px/1.5 Inter,Arial,sans-serif;letter-spacing:.04em;color:#78635b}
+.objective-hotspots {position:absolute;inset:0;pointer-events:none}
+.objective-hotspot {position:absolute;left:var(--hotspot-x);top:var(--hotspot-y);transform:translate(-50%,-50%);display:flex;align-items:center;gap:7px;min-height:44px;padding:5px 7px;border:0;background:#f5ece100;box-shadow:none;color:#765b53;font:400 9px/1.35 Inter,Arial,sans-serif;white-space:nowrap;cursor:pointer;pointer-events:auto;border-radius:5px;transition:color .2s,background .2s}
+.objective-hotspot-dot {display:grid;place-items:center;flex:0 0 19px;width:19px;height:19px;border:1px solid #b48d78;border-radius:50%;font:400 13px/1 Inter,Arial,sans-serif;background:linear-gradient(145deg,#fcf8f0,#e7d7c6);box-shadow:0 2px 4px #6c3e2312,inset 0 1px 0 #fff;color:#9a6550;transition:background .2s,color .2s,border-color .2s,box-shadow .2s}
+.objective-hotspot[aria-pressed=true] {color:#8b0000}
+.objective-hotspot[aria-pressed=true] .objective-hotspot-dot {color:#fff5e6;border-color:#8b0000;background:linear-gradient(135deg,#b1594d,#7e101c);box-shadow:0 0 0 4px #8b000009,0 3px 7px #71101c20,inset 0 1px 0 #e5a082}
+.objective-hotspot:hover {color:#8b0000;background:#fcf7ee99}
+.objective-cash-center {position:absolute;top:19%;left:50%;transform:translate(-50%,-50%);font:400 9px/1.5 Inter,Arial,sans-serif;text-align:center;letter-spacing:.02em;color:#9b6b60;pointer-events:none}
+.objective-cash-center strong {font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:27px;color:#78202b;letter-spacing:-.03em}
+.objective-anatomy {position:relative;display:flex;justify-content:space-between;gap:15px;border-top:1px solid #d8c0ad;border-bottom:1px solid #e2cebd;margin:12px 3% 0;padding:14px 0}
+.objective-anatomy>span {display:flex;align-items:baseline;gap:9px;position:relative;font:400 10px/1.6 Inter,Arial,sans-serif;color:#755248}
+.objective-anatomy i {font-size:8px;font-style:normal;letter-spacing:.05em;color:#b18a72}
+.objective-art-hint {font:400 9px/1.65 Inter,Arial,sans-serif;color:#78635b;letter-spacing:.01em;margin:13px 3% 0;text-align:right}
+.objective-art-hint>span {margin-right:7px;color:#ae7966}
+.objective-conclusion {display:grid;grid-template-columns:minmax(0,.45fr) minmax(0,1fr) minmax(0,.95fr);gap:30px;align-items:center;border-top:1px solid #d6c0b0;margin:0 4.4%;padding:25px 0}
+.objective-journey .objective-takeaway-label {font:500 9px/1.7 Inter,Arial,sans-serif;text-transform:uppercase;letter-spacing:.11em;color:#785a4f;margin:0;max-width:130px}
+.objective-journey .objective-takeaway {font:400 13px/1.9 Inter,Arial,sans-serif;color:#7b6159;margin:0}
+.objective-takeaway strong {font-weight:500;color:#6e242d}
+.objective-journey .objective-note {font:400 9px/1.85 Inter,Arial,sans-serif;color:#766360;margin:0;max-width:460px}
+.objective-source {position:relative;margin:0 4.4%;border-top:1px solid #dfcfc2}
+.objective-source summary {display:flex;justify-content:space-between;gap:15px;list-style:none;padding:14px 0;cursor:pointer;font:400 10px/1.6 Inter,Arial,sans-serif;color:#78635b}
+.objective-source summary::-webkit-details-marker {display:none}
+.objective-source summary>span:first-child {display:flex;align-items:baseline;gap:20px}
+.objective-source summary small {font-size:8px;color:#78635b}
+.objective-source summary>span:last-child {font-size:15px;line-height:1.2}
+.objective-source[open] summary>span:last-child {transform:rotate(45deg)}
+.objective-source-body {padding:12px 0 28px;max-width:960px;margin:0 auto}
+.objective-source-body .case-visual {max-width:900px;margin:0 auto}
+.objective-source-context {max-width:660px;margin:0 auto 25px}
+.objective-source-context h4 {font:500 15px/1.5 Inter,Arial,sans-serif;color:#6e3233;margin:0 0 10px}
+.objective-source-context p {font:400 12px/1.8 Inter,Arial,sans-serif;color:#796660;margin:0}
+.objective-navigation {order:2;display:grid;grid-template-columns:minmax(0,1fr) 87px;gap:38px;align-items:center;padding:26px 4.4% 25px;background:linear-gradient(115deg,#eee1d4a8,#f6ecdf9e);border-top:1px solid #d2b8a4;box-shadow:inset 0 1px 0 #fff9}
+.objective-tabs {display:flex;gap:0;padding:0 2px 4px;min-width:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#ab8472 transparent;overscroll-behavior-x:contain}
+.objective-tabs button {display:flex;align-items:flex-start;position:relative;flex:1 0 0;min-width:0;gap:14px;padding:23px 25px 2px 0;border:0;border-radius:0;background:none;box-shadow:none;color:#78635b;text-align:left;cursor:pointer}
+.objective-tabs button:before {content:'';position:absolute;top:3px;left:0;right:0;height:1px;background:#d0b5a1}
+.objective-tabs button:after {content:'';position:absolute;top:0;left:0;width:7px;height:7px;border-radius:50%;background:#ede0d1;border:1px solid #b78c73;box-shadow:0 0 0 3px #f3e7da;transition:background .2s,box-shadow .2s}
+.objective-tabs button:last-child:before {right:20px}
+.objective-tabs button[aria-selected=true] {color:#8b0000}
+.objective-tabs button[aria-selected=true]:after {background:#8b0000;border-color:#8b0000;box-shadow:0 0 0 4px #8b000009}
+.objective-tab-number {font:400 10px/1.6 Inter,Arial,sans-serif;font-variant-numeric:tabular-nums;color:#876b58}
 .objective-tabs button[aria-selected=true] .objective-tab-number {color:#8b0000}
+.objective-tabs button strong {display:block;font:500 13px/1.45 Inter,Arial,sans-serif;letter-spacing:-.01em}
+.objective-tabs button small {display:block;font:400 9px/1.6 Inter,Arial,sans-serif;margin-top:6px;color:#78635b}
+.objective-tab-arrow {font-size:17px;margin-left:auto;opacity:0}
 .objective-tabs button[aria-selected=true] .objective-tab-arrow {opacity:1}
-.objective-tabs button:hover {border-color:#d9c4b6;color:#8b0000;background:#fff9f075}
-.objective-controls {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px}
-.objective-controls>span {font-size:9px;letter-spacing:.12em;color:#8a7169;font-variant-numeric:tabular-nums}
-.objective-controls>div {display:flex;gap:7px}
-.objective-controls button {display:grid;place-items:center;width:38px;height:36px;border-radius:8px;border:1px solid #ccb3a3;background:linear-gradient(145deg,#fffaf3,#e9dbce);box-shadow:0 2px 4px #623a2520,inset 0 1px 0 #fff;font:400 18px/1 Inter,Arial,sans-serif;color:#792530;cursor:pointer}
-.objective-controls button:hover:not(:disabled) {background:#fffaf5}
-.objective-controls button:active:not(:disabled) {box-shadow:inset 1px 2px 3px #623a2520}
-.objective-controls button:disabled {opacity:.35;cursor:default;box-shadow:none}
-.objective-journey :is(a,button):focus-visible {outline:2px solid #8b0000;outline-offset:2px}
+.objective-tabs button:hover {color:#8b0000}
+.objective-controls {display:flex;flex-direction:column;align-items:center;gap:10px}
+.objective-controls>span {font:400 9px/1.5 Inter,Arial,sans-serif;letter-spacing:.12em;color:#78635b;font-variant-numeric:tabular-nums}
+.objective-controls>div {display:flex;gap:9px}
+.objective-controls button {display:grid;place-items:center;width:38px;height:38px;border:1px solid #c9aa92;border-radius:50%;background:linear-gradient(145deg,#fff9f0,#e3d1bd);box-shadow:0 2px 5px #58331515,inset 0 1px 0 #fff8;font:400 18px/1 Inter,Arial,sans-serif;color:#8b3437;cursor:pointer}
+.objective-controls button:hover:not(:disabled) {background:#fff9ed}
+.objective-controls button:disabled {opacity:.3;cursor:default;box-shadow:none}
+.objective-journey :is(a,button,summary):focus-visible {outline:2px solid #8b0000;outline-offset:4px}
+.objective-journey .objective-tabs button:focus-visible {outline-offset:-1px;border-radius:4px}
+.objective-detail:focus-visible {outline:2px solid #8b0000;outline-offset:8px}
 .objective-status {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.objective-journey:not(.is-enhanced) .objective-navigation {display:none}
-.objective-journey:not(.is-enhanced) .objective-panel+.objective-panel {border-top:1px solid #d9c8bc}
+.objective-journey:not(.is-enhanced) :is(.objective-navigation,.objective-facets,.objective-hotspots,.objective-art-hint) {display:none}
+.objective-journey:not(.is-enhanced) .objective-panel+.objective-panel {border-top:1px solid #cfb39d}
+.objective-journey:not(.is-enhanced) .objective-detail+.objective-detail {margin-top:25px;padding-top:25px;border-top:1px solid #dcc5b2}
+.objective-journey:not(.is-enhanced) .objective-sculpture [data-scene-part] {opacity:1}
+.objective-why-now .objective-facets {flex-wrap:wrap;gap:0 17px;padding-bottom:0;margin-bottom:22px}
+.objective-why-now .objective-facets button {padding-top:9px;padding-bottom:9px;font-size:10px}
+.objective-why-now .objective-facets button[aria-selected=true] {border-bottom-color:transparent}
+.objective-why-now .objective-facets button[aria-selected=true]:after {content:'';position:absolute;left:0;right:0;bottom:3px;height:1px;background:#8b0000}
+.objective-why-now .objective-details {min-height:173px}
 @media(prefers-reduced-motion:no-preference){
- .objective-journey.is-enhanced .objective-panel:not([hidden]) .objective-copy {animation:objective-copy-in .45s ease both}
- .objective-journey.is-enhanced .objective-panel:not([hidden]) .objective-exhibit {animation:objective-exhibit-in .65s cubic-bezier(.2,.7,.3,1) both}
+ .objective-journey.is-enhanced .objective-panel:not([hidden]) .objective-copy{animation:objective-copy-in .65s cubic-bezier(.2,.7,.3,1) both}
+ .objective-journey.is-enhanced .objective-panel:not([hidden]) .objective-art{animation:objective-object-in .95s cubic-bezier(.2,.7,.2,1) both}
+ .objective-journey.is-enhanced .objective-detail:not([hidden]){animation:objective-detail-in .35s ease both}
+ .objective-journey.is-enhanced [data-scene-part].is-selected .scene-flow{stroke-dasharray:1;animation:objective-flow-in .85s cubic-bezier(.2,.7,.3,1) both}
 }
-@keyframes objective-copy-in{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
-@keyframes objective-exhibit-in{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
-@media(max-width:1100px){
- .objective-journey .objective-panel{grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:24px 4%;min-height:590px}
- .objective-journey .objective-copy h3{font-size:40px}.objective-journey .objective-kicker{font-size:8px}
- .objective-journey .objective-body{font-size:12px}.objective-points>div{grid-template-columns:1fr;gap:3px;padding:10px 0}
- .objective-points dt,.objective-points dd{font-size:10px}.objective-tabs{gap:7px}.objective-tabs button{padding:12px;gap:9px}
- .objective-tabs button strong{font-size:10px}.objective-tabs button small{font-size:8px}.objective-tab-arrow{display:none}
- .objective-navigation{gap:16px}.objective-journey .case-source-heading{padding:14px 17px}.objective-journey .case-source-heading h4{font-size:17px}
+@keyframes objective-copy-in{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:translateY(0)}}
+@keyframes objective-object-in{from{opacity:0;transform:translateY(20px) scale(.975)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes objective-detail-in{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes objective-flow-in{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@media(min-width:1600px){.objective-exploration{min-height:710px}.objective-journey .objective-copy h3{font-size:76px}}
+@media(max-width:1150px){
+ .objective-exploration{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:0 1%;min-height:660px;padding-top:37px}
+ .objective-journey .objective-copy h3{font-size:53px}.objective-journey .objective-kicker{font-size:8px;margin-bottom:24px}
+ .objective-journey .objective-body{font-size:13px}.objective-facets{gap:11px}.objective-facets button{font-size:10px;gap:5px}
+ .objective-journey .objective-detail h4{font-size:14px}.objective-journey .objective-detail p{font-size:11px}.objective-principle{font-size:9px}
+ .objective-topic-index{display:none}.objective-details{min-height:185px}.objective-why-now .objective-details{min-height:173px}
+ .objective-art{margin-right:-4%;margin-left:-1%}.objective-hotspot{font-size:8px;gap:5px}.objective-hotspot-dot{width:17px;height:17px;flex-basis:17px;font-size:12px}
+ .objective-anatomy{gap:9px}.objective-anatomy>span{font-size:9px;gap:5px}.objective-art-hint{font-size:8px}
+ .objective-conclusion{gap:22px;grid-template-columns:minmax(0,.5fr) minmax(0,1fr) minmax(0,.9fr)}
+ .objective-journey .objective-takeaway{font-size:11px}.objective-journey .objective-note{font-size:8px}
+ .objective-tabs button strong{font-size:12px}.objective-tabs button small{font-size:8px}.objective-tab-arrow{display:none}
+ .objective-navigation{gap:23px}.objective-tabs button{gap:10px;padding-right:16px}
 }
-@media(max-width:760px){
- .hetzerk-site .objective-journey{--objective-width:calc(100vw - 24px);border-radius:17px;margin-top:6px}
- .objective-topline{padding:20px 22px 0;gap:14px}.objective-journey .objective-topline h2{font-size:8px;letter-spacing:.08em}
- .objective-topline a{font-size:9px;gap:10px;white-space:nowrap}.objective-navigation{order:1;margin-top:18px;padding:13px 14px;gap:9px;border-bottom:1px solid #d5bfb0;grid-template-columns:minmax(0,1fr) 70px}
- .objective-stage{order:2}.objective-tabs{gap:8px;padding:3px 3px 7px}.objective-tabs button{flex:0 0 180px;padding:11px 12px;gap:11px;min-height:64px}
- .objective-tabs button strong{font-size:11px}.objective-tabs button small{font-size:8px}.objective-tab-number{font-size:10px}
- .objective-controls{gap:7px}.objective-controls>div{gap:6px}.objective-controls>span{font-size:8px}.objective-controls button{width:32px;height:34px;font-size:16px}
- .objective-journey .objective-panel{grid-template-columns:1fr;gap:26px;padding:31px 24px 20px;min-height:0}
- .objective-watermark{font-size:140px;top:-22px;left:-5px}.objective-journey .objective-kicker{font-size:8px;margin-bottom:20px}
- .objective-journey .objective-copy h3{font-size:clamp(36px,8.5vw,52px);margin-bottom:20px}
- .objective-journey .objective-body{font-size:12px;max-width:530px;margin-bottom:22px}
- .objective-points>div{grid-template-columns:minmax(0,.8fr) minmax(0,1.25fr);gap:15px;padding:12px 0}
- .objective-points dt,.objective-points dd{font-size:9px}.objective-journey .case-source-heading{padding:13px 14px}
- .objective-journey .case-source-heading h4{font-size:17px}.objective-journey .case-source-heading p{font-size:9px}
- .objective-journey .case-visual-link{padding:3px}.objective-journey .case-visual figcaption{padding-top:12px}
- .objective-journey .case-visual-meta{flex-direction:row;gap:4px 12px}.objective-journey .case-visual figcaption p{font-size:9px}
- .objective-chain{margin-top:15px}.objective-chain>span{font-size:8px;padding:10px 7px}.objective-choices{flex-wrap:wrap}
- .objective-choices>span{flex:1 1 25%;font-size:8px;padding:9px 7px}.objective-choices>.is-focus{border-radius:0 0 6px 6px;flex:1 0 100%;border-left:0}
- .objective-journey .objective-note{font-size:8px;line-height:1.8;padding-top:13px}.institutional-etf .objective-journey{margin-bottom:37px}
+@media(max-width:800px){
+ .hetzerk-site .objective-journey{--objective-width:calc(100vw - 24px);border-radius:17px}
+ .objective-topline{padding:22px 24px 0;gap:14px}.objective-journey .objective-topline h2{font-size:8px;letter-spacing:.09em}.objective-topline a{font-size:9px;gap:11px;white-space:nowrap}
+ .objective-navigation{order:1;grid-template-columns:minmax(0,1fr) 73px;gap:12px;padding:20px 22px 19px;margin-top:20px;border-bottom:1px solid #d2b8a4}
+ .objective-stage{order:2}.objective-tabs button{flex:0 0 175px;gap:11px;padding-top:20px;padding-right:20px}
+ .objective-tabs button strong{font-size:12px}.objective-tabs button small{font-size:8px;max-width:120px}.objective-tab-number{font-size:9px}
+ .objective-controls{gap:9px}.objective-controls>span{font-size:8px}.objective-controls>div{gap:7px}.objective-controls button{width:33px;height:33px;font-size:17px}
+ .objective-exploration{grid-template-columns:1fr;gap:8px;padding:33px 28px 24px;min-height:0}
+ .objective-copy{max-width:580px;width:100%}.objective-journey .objective-kicker{font-size:8px;margin-bottom:22px;letter-spacing:.08em}
+ .objective-journey .objective-copy h3{font-size:clamp(47px,9.5vw,66px);line-height:1.055;margin-bottom:23px;max-width:none}
+ .objective-journey .objective-body{font-size:13px;max-width:530px;margin-bottom:20px;line-height:1.85}
+ .objective-facets{gap:20px;margin-bottom:20px}.objective-facets button{font-size:11px;gap:8px;padding-top:11px;padding-bottom:12px}.objective-topic-index{display:inline;font-size:8px}
+ .objective-details{min-height:164px;max-width:530px}.objective-why-now .objective-details{min-height:180px}
+ .objective-journey .objective-detail h4{font-size:14px}.objective-journey .objective-detail p{font-size:12px;line-height:1.8}.objective-principle{font-size:9px;line-height:1.8;margin-top:14px}
+ .objective-art{margin:4px -18px 0;width:calc(100% + 36px);max-width:680px;justify-self:center}
+ .objective-scene-number{font-size:clamp(180px,45vw,300px);top:5%;right:4%}.objective-scene-heading{left:5%;top:1%}
+ .objective-scene-heading>span{font-size:9px}.objective-scene-heading>small{font-size:7px}.objective-hotspot{font-size:8px;padding:4px;gap:4px}
+ .objective-hotspot-dot{width:17px;height:17px;flex-basis:17px}.objective-cash-center{font-size:8px}.objective-cash-center strong{font-size:22px}
+ .objective-anatomy{margin:13px 5% 0;padding:12px 0;gap:9px}.objective-anatomy>span{font-size:9px;gap:6px}.objective-anatomy i{font-size:7px}
+ .objective-art-hint{font-size:8px;margin:11px 5% 0}.objective-conclusion{grid-template-columns:1fr;gap:9px;margin:0 28px;padding:23px 0}
+ .objective-journey .objective-takeaway-label{font-size:8px;max-width:none}.objective-journey .objective-takeaway{font-size:12px;line-height:1.85}
+ .objective-journey .objective-note{font-size:9px;line-height:1.8;max-width:none;margin-top:6px}.objective-source{margin:0 28px}
+ .objective-source summary{padding:15px 0;font-size:10px}.objective-source summary>span:first-child{display:block}.objective-source summary small{display:block;font-size:8px;margin-top:4px;max-width:250px}
+ .objective-source-body{padding-top:7px;padding-bottom:23px}.objective-source-context p{font-size:11px}
+ .objective-why-now .objective-facets{gap:0 16px;margin-bottom:20px}.objective-why-now .objective-facets button{font-size:10px}
+ .institutional-etf .objective-journey{margin-bottom:37px}
 }
-@media(max-width:370px){
- .objective-topline{padding-left:18px;padding-right:18px;gap:9px}.objective-journey .objective-topline h2{max-width:105px}
- .objective-journey .objective-panel{padding-left:19px;padding-right:19px}.objective-journey .objective-copy h3{font-size:34px}
- .objective-tabs button{flex-basis:155px;padding:10px;gap:8px}.objective-tabs button strong{font-size:10px}
- .objective-points>div{gap:11px}.objective-points dt{font-size:9px}.objective-journey .case-source-heading h4{font-size:15px}
+@media(max-width:390px){
+ .objective-topline{padding-left:21px;padding-right:21px;gap:10px}.objective-journey .objective-topline h2{font-size:7px;max-width:145px}.objective-topline a{font-size:8px}
+ .objective-exploration{padding-left:23px;padding-right:23px}.objective-journey .objective-copy h3{font-size:47px}.objective-journey .objective-kicker{font-size:7px}
+ .objective-facets{gap:13px}.objective-facets button{font-size:10px;gap:6px}.objective-topic-index{font-size:7px}
+ .objective-details{min-height:191px}.objective-why-now .objective-details{min-height:197px}.objective-art{margin-left:-18px;margin-right:-18px}
+ .objective-hotspot{font-size:7px;gap:3px}.objective-hotspot-dot{width:15px;height:15px;flex-basis:15px;font-size:11px}
+ .objective-anatomy>span{font-size:8px;gap:4px}.objective-anatomy i{display:none}.objective-scene-heading>span{font-size:8px}
+ .objective-cash-center{font-size:7px}.objective-cash-center strong{font-size:19px}.objective-conclusion,.objective-source{margin-left:23px;margin-right:23px}
+}
+@media(max-width:520px){
+ .objective-navigation{grid-template-columns:1fr;padding-top:18px;padding-bottom:18px}
+ .objective-tabs{overflow:visible}.objective-tabs button{flex:1 0 0;flex-direction:column;gap:5px;padding:18px 10px 0 0}
+ .objective-tabs button strong{font-size:11px;line-height:1.5}.objective-tabs button small{display:none}
+ .objective-tab-number{font-size:8px}.objective-controls{display:none}
 }
 @media(prefers-reduced-motion:reduce){
  .objective-journey *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
 @media print{
  .hetzerk-site .objective-journey{position:static;width:auto;margin:0;border:0;box-shadow:none;background:none}
- .objective-journey .objective-panel[hidden]{display:grid!important}.objective-journey .objective-panel{break-inside:avoid;min-height:0;border-bottom:1px solid #ccc}
- .objective-navigation,.objective-topline a,.objective-watermark{display:none!important}
+ .objective-journey .objective-panel[hidden],.objective-journey .objective-detail[hidden]{display:block!important}
+ .objective-exploration{display:block;min-height:0}.objective-detail{margin:20px 0;break-inside:avoid}.objective-art{width:70%;margin:auto}
+ .objective-navigation,.objective-facets,.objective-hotspots,.objective-topline a,.objective-scene-number,.objective-art-hint{display:none!important}
+ .objective-sculpture [data-scene-part]{opacity:1!important}.objective-journey .objective-panel{border-bottom:1px solid #ccc}
 }

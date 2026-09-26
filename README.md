@@ -20,11 +20,16 @@ The corporate site offers REDI only. Shared public navigation and footer markup 
 
 The homepage leads with REDI’s objective, innovation value and ability, fund
 details and investor resources; `assets/fund-home.css` styles this introduction.
-The homepage and ETF overview include three visual objective chapters: economic
-foundations, long-term investment principles and why now. These are rendered by
-`publishing/objective_journey.py` with the original source exhibits; the matching
-CSS and JavaScript provide responsive chapter navigation and accessible controls.
-Source images retain their captions and full-size viewer. The shared masthead and
+The homepage and ETF overview include three interactive objective chapters:
+the intuition behind innovation, what a lasting strategy requires and why now.
+`publishing/objective_journey.py` translates the source arguments into native
+explanations, with conceptual SVG diagrams in `publishing/objective_scenes.py`.
+Selectable perspectives and diagram hotspots connect the explanation to the
+knowledge network, range of possible outcomes and corporate reinvestment loop.
+These diagrams do not encode measured returns or forecasts. Original slide images
+retain their captions and full-size viewer inside source-material disclosures.
+The matching CSS and JavaScript support keyboard controls, touch, reduced motion
+and readable content without JavaScript. The shared masthead and
 illustrative disclosure are refined by `publishing/masthead.py` and
 `assets/masthead.css`, including the SPY-data build variant.
 The investment case contains an interactive innovation journey derived from
