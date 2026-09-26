@@ -1,0 +1,192 @@
+/* Hetzerk: a quiet dark frame, with paper where information needs to be read. */
+body.hetzerk-site {
+  --hz-ink:#171617;--hz-paper:#f3eee5;--hz-surface:#211d1e;
+  --hz-muted:#a69b92;--hz-accent:#c88e86;--hz-line:#ffffff20;
+  --home-ink:#f3eee5;--home-muted:#b5aaa2;--home-red:#c88e86;--home-line:#ffffff20;
+  background:#171617;color:#f3eee5;font-family:Inter,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.hetzerk-site ::selection {background:#96545b;color:#fff8ed}
+.hetzerk-site .home-width {width:calc(100% - 112px);max-width:1200px}
+.hetzerk-site .demo-strip {padding:0;border:0;border-bottom:1px solid #ffffff12;background:#171617;color:#b3a69e;text-align:left;font:400 10px/1.6 Inter,Arial,sans-serif;letter-spacing:0}
+.hetzerk-site .masthead-status-inner {width:calc(100% - 112px);max-width:1200px;margin:0 auto;padding:9px 0;display:flex;gap:12px;align-items:baseline}
+.hetzerk-site .masthead-status-label {flex:0 0 auto;color:#d3a59c;text-transform:uppercase;font-size:8px;letter-spacing:.14em}
+.hetzerk-site .masthead-status-detail {min-width:0}
+.hetzerk-site .home-header {background:#171617;padding:0;border:0}
+.hetzerk-site .home-header-row {box-sizing:border-box;min-height:112px;gap:35px;padding:24px 0;border:0;border-bottom:1px solid var(--hz-line);border-radius:0;background:none;box-shadow:none}
+.hetzerk-site .home-header .home-brand {gap:15px}
+.hetzerk-site .home-header .hetzerk-logo {width:45px;height:45px;flex:0 0 45px;background:#f3eee5;border:0;border-radius:3px;box-shadow:none}
+.hetzerk-site .home-header .hetzerk-logo::before {inset:-9.5px;background:#8b0000}
+.hetzerk-site .home-header .hetzerk-masthead-name {color:#f3eee5;font-size:28px;font-weight:400;letter-spacing:-.04em}
+.hetzerk-site .home-header .hetzerk-masthead-subtitle {color:#b4a49a;font-size:8px;letter-spacing:.22em;margin-top:7px}
+.hetzerk-site .home-header .home-nav {gap:28px;font-size:11px}
+.hetzerk-site .home-header .home-nav a {color:#c6bbb3;padding:9px 0;border:0;border-bottom:1px solid transparent;border-radius:0;background:none;box-shadow:none;white-space:nowrap;transition:color .2s,border-color .2s}
+.hetzerk-site .home-header .home-nav a:hover,.hetzerk-site .home-header .home-nav a[aria-current=page] {color:#fff8ee;border-bottom-color:#bd817a;background:none;box-shadow:none}
+.hetzerk-site .home-header .restored-menu-toggle {min-height:42px;padding:10px 14px;border:1px solid #786563;border-radius:2px;background:transparent;color:#f3eee5;box-shadow:none;font-size:11px}
+.hetzerk-site .home-header .restored-mobile-menu.is-open {width:calc(100% - 112px);max-width:1200px;box-sizing:border-box;margin:0 auto;padding:12px 0 20px;background:#171617;border:0;border-bottom:1px solid var(--hz-line);border-radius:0;box-shadow:none}
+.hetzerk-site .home-header .restored-mobile-menu a {padding:12px 0;color:#e1d6cc;border-bottom:1px solid #ffffff10;border-radius:0;background:none}
+.hetzerk-site .home-footer {margin-top:0;padding:58px 0 25px;border-radius:0;border:0;border-top:1px solid #ffffff20;background:#121112;box-shadow:none}
+.hetzerk-site .home-footer-top>p {color:#ece0d5;font-size:19px;font-weight:400}
+.hetzerk-site .home-footer nav {gap:28px;font-size:11px}
+.hetzerk-site .home-footer nav a {color:#cabbb0;border:0;text-decoration:none}
+.hetzerk-site .home-footer nav a:hover {color:#fff5e9;text-decoration:underline;text-underline-offset:5px}
+.hetzerk-site .home-footer .home-risk {color:#b3a69e;font-size:11px;line-height:1.9;max-width:780px;margin-top:27px}
+.hetzerk-site .home-footer-base {border-color:#ffffff1c;color:#a69b92;font-size:10px;padding-top:22px;margin-top:29px}
+.hetzerk-site .home-eyebrow,.hetzerk-site .institutional-eyebrow {font:500 9px/1.7 Inter,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--home-red)}
+.hetzerk-site .home-text-link {border-radius:0;box-shadow:none;color:var(--home-red);font-size:11px;gap:22px}
+.hetzerk-site :is(a,button,input,select,textarea,summary):focus-visible {outline:2px solid #c17c73;outline-offset:5px}
+.hetzerk-site :is(button,a,input,select,textarea) {scroll-margin-top:28px}
+.hetzerk-site .home-header :is(a,button):focus-visible,.hetzerk-site .home-footer a:focus-visible {outline-color:#f3eee5}
+
+/* The investment chapters read as an illuminated instrument in a dark room. */
+.hetzerk-site .objective-journey {--objective-width:100%;--objective-ink:#f3eee5;--objective-muted:#b9a99f;--objective-red:#d19a8d;width:min(1200px,calc(100% - 112px));margin:0 auto 72px;border:1px solid #715052;border-radius:3px;background:radial-gradient(ellipse at 78% 44%,#47242b80,transparent 62%),#1e1a1c;color:#f3eee5;box-shadow:none}
+.hetzerk-site .objective-topline {padding:24px 4.5% 0}
+.hetzerk-site .objective-journey .objective-topline h2 {color:#c1aea1}
+.hetzerk-site .objective-topline a {color:#dba398;border-color:#805354}
+.hetzerk-site .objective-exploration {min-height:580px;padding:38px 4.5% 26px}
+.hetzerk-site .objective-journey .objective-copy h3 {color:#f3eee5;font-size:clamp(39px,4.2vw,64px);letter-spacing:-.045em}
+.hetzerk-site .objective-copy h3 em {color:#d5978c;font-style:italic}
+.hetzerk-site .objective-journey .objective-kicker {color:#dba398}
+.hetzerk-site .objective-kicker>span {background:#c58b80;box-shadow:0 0 12px #cc817961}
+.hetzerk-site .objective-journey .objective-body {color:#c1b2a8;font-size:13px}
+.hetzerk-site .objective-facets {border-color:#715052}
+.hetzerk-site .objective-facets button {color:#b5a59b;font-size:11px}
+.hetzerk-site .objective-facets button[aria-selected=true],.hetzerk-site .objective-facets button:hover {color:#f4d2c3;border-color:#bd817a}
+.hetzerk-site .objective-journey .objective-detail h4 {color:#e6c5b8}
+.hetzerk-site .objective-journey .objective-detail p {color:#b9aaa0}
+.hetzerk-site .objective-principle {color:#d7a99a}
+.hetzerk-site .objective-sculpture {filter:drop-shadow(0 8px 24px #0006)}
+.hetzerk-site .objective-sculpture [data-scene-part] {opacity:.55}
+.hetzerk-site .objective-sculpture [data-scene-part].is-selected {opacity:1;filter:drop-shadow(0 0 5px #c8906850)}
+.hetzerk-site .objective-scene-number {color:transparent;-webkit-text-stroke-color:#dc9b7b1c}
+.hetzerk-site .objective-scene-heading,.hetzerk-site .objective-scene-heading>small,.hetzerk-site .objective-hotspot,.hetzerk-site .objective-cash-center,.hetzerk-site .objective-art-hint {color:#c5afa2}
+.hetzerk-site .objective-hotspot {background:#201a1bba;border-radius:2px}
+.hetzerk-site .objective-hotspot[aria-pressed=true],.hetzerk-site .objective-hotspot:hover {color:#ffe5d2;background:#342125}
+.hetzerk-site .objective-hotspot-dot {background:#332226;border-color:#aa7167;color:#f0cdbb;box-shadow:none}
+.hetzerk-site .objective-hotspot[aria-pressed=true] .objective-hotspot-dot {background:#9a4f50;border-color:#d29983;color:#fff4dd;box-shadow:0 0 0 3px #dba78912}
+.hetzerk-site .objective-cash-center strong {color:#e7b7a6}
+.hetzerk-site .objective-anatomy,.hetzerk-site .objective-conclusion,.hetzerk-site .objective-source {border-color:#ffffff25}
+.hetzerk-site .objective-anatomy>span,.hetzerk-site .objective-journey .objective-takeaway-label,.hetzerk-site .objective-journey .objective-takeaway,.hetzerk-site .objective-journey .objective-note {color:#c0aca0}
+.hetzerk-site .objective-takeaway strong {color:#e5baaa}
+.hetzerk-site .objective-source summary,.hetzerk-site .objective-source summary small,.hetzerk-site .objective-source-context p {color:#b6a498}
+.hetzerk-site .objective-source-context h4 {color:#e7c4b5}
+.hetzerk-site .objective-source-body {--home-ink:#e5c9ba;--home-muted:#b6a89e}
+.hetzerk-site .objective-navigation {background:#191617;border-color:#715052;box-shadow:none;padding-top:20px;padding-bottom:24px}
+.hetzerk-site .objective-tabs button,.hetzerk-site .objective-tabs button small,.hetzerk-site .objective-tab-number,.hetzerk-site .objective-controls>span {color:#b6a59a}
+.hetzerk-site .objective-tabs button:before {background:#68434a}
+.hetzerk-site .objective-tabs button:after {background:#211c1d;border-color:#a27367;box-shadow:none}
+.hetzerk-site .objective-tabs button[aria-selected=true],.hetzerk-site .objective-tabs button[aria-selected=true] .objective-tab-number {color:#efc6b4}
+.hetzerk-site .objective-tabs button[aria-selected=true]:after {background:#d69787;border-color:#d69787;box-shadow:0 0 0 4px #cc8b7512}
+.hetzerk-site .objective-controls button {border-color:#805b55;color:#e1b0a0;background:none;box-shadow:none}
+.hetzerk-site .objective-controls button:hover:not(:disabled) {background:#59353b}
+.hetzerk-site .objective-journey :is(a,button,summary):focus-visible {outline-color:#f1ccb3}
+
+/* Evidence stays on paper; the narrative stays in the same dark frame. */
+.hetzerk-site .case-page {color:#f3eee5}
+.hetzerk-site.case-page .case-hero {padding:60px 0 65px}
+.hetzerk-site.case-page .case-hero h1 {font-size:clamp(43px,5.6vw,78px);font-weight:400;color:#f3eee5}
+.hetzerk-site.case-page .case-hero h1>span {color:#cc9185}
+.hetzerk-site.case-page .case-back {color:#b5aaa2;margin-bottom:42px}
+.hetzerk-site.case-page :is(.case-thesis,.case-factor,.case-method,.case-why-now,.case-long-term,.case-research,.case-portfolio) {padding-top:68px;padding-bottom:68px}
+.hetzerk-site.case-page :is(.case-jump-links,.case-risk,.case-thesis,.case-factor,.case-method,.case-why-now,.case-long-term,.case-research) {border-color:#ffffff20}
+.hetzerk-site :is(.case-explorer,.case-capital,.case-business-card) {--home-ink:#292326;--home-muted:#685a58;--home-red:#751e2a;--home-line:#d8cbc2;background:#f3eee5;color:#292326;border:1px solid #d7c8be;border-radius:3px;box-shadow:none}
+.hetzerk-site .case-explorer .case-panel {padding:36px;background:#f3eee5;box-shadow:none;border-radius:0}
+.hetzerk-site .case-panel h3,.hetzerk-site .case-capital>h3 {color:#292326}
+.hetzerk-site .case-tabs button {color:#685a58;box-shadow:none;border-radius:0}
+.hetzerk-site .case-tabs button[aria-selected=true] {color:#751e2a;background:#e9ddd2;border-bottom-color:#751e2a}
+.hetzerk-site .case-tabs button:hover {background:#eadfd5}
+.hetzerk-site .case-visual-link {border-radius:2px;border-color:#d8cbc2;box-shadow:none}
+.hetzerk-site .case-visual-expand {background:#f3eee5;color:#751e2a;border-color:#d8cbc2}
+.hetzerk-site .case-business-brand {border-color:#d8cbc2}
+.hetzerk-site .case-cash-uses>.case-cash-focus {background:#e9dbce;border-color:#c7a899;border-radius:2px}
+.hetzerk-site .case-image-dialog {border-radius:3px;border-color:#91766c;background:#f3eee5;color:#292326}
+.hetzerk-site .case-image-toolbar,.hetzerk-site #case-image-caption {background:#f3eee5;color:#5c4c4c}
+.hetzerk-site .case-image-toolbar h2 {color:#292326}
+.hetzerk-site .case-image-dialog::backdrop {background:#0c090bef;backdrop-filter:blur(8px)}
+
+/* Reference pages share the same reading surface as the fund's data. */
+.hetzerk-site.institutional-reference main {--home-ink:#292326;--home-muted:#685a58;--home-red:#751e2a;--home-line:#d8cbc2;background:#f3eee5;color:#292326;padding:62px max(28px,calc((100vw - 1200px)/2)) 80px;max-width:none;width:100%;box-sizing:border-box}
+.hetzerk-site.institutional-reference main> .max-w-7xl {width:100%;padding:0}
+.hetzerk-site.institutional-reference main :is(.card,.cambria-card,.document-card,.panel) {background:transparent;box-shadow:none;border-radius:3px;border-color:#d8cbc2}
+.hetzerk-site.institutional-reference main h1 {font-family:'Playfair Display',Georgia,serif;font-size:clamp(38px,4.8vw,62px);font-weight:400;color:#292326}
+.hetzerk-site.institutional-reference main :is(p,li) {color:#685a58}
+.hetzerk-site.institutional-reference main :is(th,td) {border-color:#d8cbc2}
+.hetzerk-site.institutional-reference main :is(.button,.cambria-btn) {border-radius:2px;border-color:#751e2a;background:#751e2a;color:#fff1e1;box-shadow:none}
+.hetzerk-site.institutional-reference main :is(.button.secondary,.cambria-btn-outline) {border-radius:2px;border-color:#bba69a;background:transparent;color:#751e2a;box-shadow:none}
+.hetzerk-site.institutional-reference main .document-card a {color:#751e2a}
+
+@media(max-width:1050px) {
+ .hetzerk-site .home-width,.hetzerk-site .masthead-status-inner,.hetzerk-site .home-header .restored-mobile-menu.is-open {width:calc(100% - 72px)}
+ .hetzerk-site .home-header .home-nav {gap:19px}
+ .hetzerk-site .objective-journey {width:calc(100% - 72px)}
+ .hetzerk-site .objective-exploration {min-height:530px}
+}
+@media(max-width:850px) {
+ .hetzerk-site .home-header .home-nav {display:none}
+ .hetzerk-site .home-header:not(.has-mobile-menu) .home-header-row {flex-wrap:wrap;gap:15px}
+ .hetzerk-site .home-header:not(.has-mobile-menu) .home-nav {display:flex;flex-wrap:wrap;gap:8px 20px}
+ .hetzerk-site .home-header-row {min-height:100px}
+}
+@media(max-width:760px) {
+ .hetzerk-site .home-width,.hetzerk-site .masthead-status-inner,.hetzerk-site .home-header .restored-mobile-menu.is-open {width:calc(100% - 40px)}
+ .hetzerk-site .demo-strip {font-size:8px;line-height:1.65}
+ .hetzerk-site .masthead-status-inner {padding:8px 0;gap:8px}
+ .hetzerk-site .masthead-status-label {font-size:7px;letter-spacing:.08em}
+ .hetzerk-site .home-header-row {min-height:91px;padding:19px 0;gap:20px}
+ .hetzerk-site .home-header .hetzerk-masthead-name {font-size:26px}
+ .hetzerk-site .home-header .hetzerk-masthead-subtitle {font-size:7px;letter-spacing:.15em}
+ .hetzerk-site .home-header .hetzerk-logo {width:40px;height:40px;flex-basis:40px}
+ .hetzerk-site .home-header .hetzerk-logo::before {inset:-12px}
+ .hetzerk-site .home-footer {padding:40px 0 24px}
+ .hetzerk-site .home-footer-top {gap:22px}
+ .hetzerk-site .home-footer nav {gap:18px 24px}
+ .hetzerk-site .home-footer-base {font-size:9px;gap:20px;line-height:1.7}
+ .hetzerk-site .objective-journey {width:calc(100% - 40px);margin-bottom:42px}
+ .hetzerk-site .objective-exploration {min-height:0;padding:29px 22px 24px;grid-template-columns:1fr}
+ .hetzerk-site .objective-journey .objective-copy h3 {font-size:42px;max-width:350px}
+ .hetzerk-site .objective-copy {padding:0}
+ .hetzerk-site .objective-navigation {padding:20px 22px;gap:15px}
+ .hetzerk-site .objective-conclusion {gap:18px;padding:23px 0}
+ .hetzerk-site .objective-topline {padding:23px 22px 0}
+ .hetzerk-site .objective-topline a {font-size:9px;gap:10px}
+ .hetzerk-site .objective-journey .objective-topline h2 {font-size:8px}
+ .hetzerk-site .objective-journey .objective-body {font-size:13px}
+ .hetzerk-site .case-explorer .case-panel {padding:24px 20px}
+ .hetzerk-site.case-page .case-hero {padding:34px 0 42px}
+ .hetzerk-site.case-page :is(.case-thesis,.case-factor,.case-method,.case-why-now,.case-long-term,.case-research,.case-portfolio) {padding-top:42px;padding-bottom:42px}
+ .hetzerk-site.institutional-reference main {padding:38px 20px 50px}
+}
+@media(prefers-reduced-motion:reduce) {
+ .hetzerk-site * {scroll-behavior:auto}
+}
+@media print {
+ body.hetzerk-site {background:white;color:#222;--home-ink:#222;--home-muted:#555;--home-red:#741d28;--home-line:#ccc}
+ .hetzerk-site .home-header,.hetzerk-site .home-footer,.hetzerk-site .demo-strip {display:none}
+}
+
+/* Older research URLs retain their content inside the same reading system. */
+.hetzerk-site.institutional-archive {--bg:#171617;--fg:#292326;--muted:#685a58;--accent:#751e2a;--accent-2:#98665e;--accent-3:#e5d6c8;--card:#faf6ee;--card-hover:#ede2d7;--line:#d8cbc2;--gradient-1:linear-gradient(120deg,#751e2a,#462129);--gradient-2:linear-gradient(120deg,#8b4e4e,#751e2a);--gradient-3:linear-gradient(120deg,#cab3a1,#ede0d3)}
+.hetzerk-site.institutional-archive main {max-width:980px;width:calc(100% - 40px);margin:45px auto 60px;padding:45px 55px;height:auto;overflow:visible;scroll-snap-type:none;border-radius:2px}
+.hetzerk-site.institutional-archive main :is(h2,h3,h4) {color:#292326;font-family:'Playfair Display',Georgia,serif;font-weight:400}
+.hetzerk-site.institutional-archive main p {line-height:1.9}
+.hetzerk-site.institutional-archive main section.slide {min-height:0;padding:40px 0;background:none;animation:none;overflow:visible;scroll-snap-align:none;border-color:#d8cbc2;gap:24px}
+.hetzerk-site.institutional-archive main section.slide::before {display:none}
+.hetzerk-site.institutional-archive main .card {box-shadow:none;border-color:#d8cbc2;border-radius:3px;background:#faf6ee}
+.hetzerk-site.institutional-archive > .pill {position:static;display:inline-flex;margin:24px max(20px,calc((100vw - 980px)/2)) 0;color:#d4afa0;background:transparent;border:0;box-shadow:none;border-radius:0}
+@media(max-width:760px) {.hetzerk-site.institutional-archive main {padding:28px 20px;margin:26px auto 38px}.hetzerk-site.institutional-archive main h1 {font-size:36px}.hetzerk-site.institutional-archive main section.slide {padding:29px 0}}
+.hetzerk-site.institutional-archive .floating-nav {position:static;justify-content:flex-start;padding:0 0 20px;margin:0;border:0;border-bottom:1px solid #d8cbc2;border-radius:0;background:none;box-shadow:none;backdrop-filter:none}
+.hetzerk-site.institutional-archive .floating-nav-btn,.hetzerk-site.institutional-archive .nav-btn {border:1px solid #b99e90;border-radius:2px;background:#751e2a;box-shadow:none;color:#fff3e3;transform:none}
+.hetzerk-site.institutional-archive .archive-contents {padding:17px 0;border-bottom:1px solid #d8cbc2}
+.hetzerk-site.institutional-archive .archive-contents summary {font-size:12px;color:#751e2a;cursor:pointer}
+.hetzerk-site.institutional-archive .archive-contents nav.toc {margin-top:20px;gap:8px}
+.hetzerk-site.institutional-archive .archive-contents nav.toc a {color:#5e4b4b;background:#faf6ee;border-color:#d8cbc2;border-radius:2px;box-shadow:none;font-weight:400;font-size:11px;transform:none}
+.hetzerk-site.institutional-reference main.site-content>section {background:transparent}
+.hetzerk-site.institutional-archive main .card {background:#faf6ee!important;border-color:#d8cbc2!important;box-shadow:none!important}
+.hetzerk-site.institutional-archive main :is(.grid-2,.grid-3,.figure,.card) {min-width:0;max-width:100%;box-sizing:border-box}
+.hetzerk-site.institutional-archive main table {display:block;max-width:100%;overflow-x:auto}
+.hetzerk-site.institutional-archive main .figure {overflow-x:auto}
+.hetzerk-site.institutional-archive main :is(img,svg,iframe) {max-width:100%}
+@media(max-width:760px) {.hetzerk-site.institutional-archive main :is(.grid-2,.grid-3) {grid-template-columns:minmax(0,1fr)!important}.hetzerk-site.institutional-archive main .card {padding:18px!important}}
+.hetzerk-site.institutional-archive main :is(.grid-2,.grid-3)>* {min-width:0;max-width:100%}
+.hetzerk-site.institutional-archive main .bg-gray-900 {background:#e9dfd3;color:#292326}
+.hetzerk-site.institutional-archive main .bg-gray-900 :is(h2,h3,p,li) {color:#413235}

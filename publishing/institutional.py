@@ -9,13 +9,6 @@ from publishing.masthead import refine_masthead
 
 FUND_ROUTES = {'etfs/redi/index.html', 'red/index.html'}
 EXCHANGE_ROUTES = {'section-351.html', '351-exchanges.html'}
-REFERENCE_ROUTES = {
-    'etfs/index.html', 'etfs/redi/holdings.html', 'holdings.html',
-    'etfs/redi/fact-sheet.html', 'documents/index.html',
-    'etfs/redi/document-placeholder.html', 'disclosures/index.html',
-    'privacy/index.html', 'about/index.html', 'review/index.html',
-    'form-crs.html', '404.html',
-}
 
 
 def _fund_copy(page):
@@ -75,16 +68,22 @@ def refine_pages(pages):
         page = BeautifulSoup(html, 'html.parser')
         classes = page.body.get('class', [])
         modern = 'home-minimal' in classes
-        selected = modern or route in FUND_ROUTES | EXCHANGE_ROUTES | REFERENCE_ROUTES
-        if not selected:
-            result[route] = html
-            continue
         page.body['class'] = classes + ['hetzerk-site']
         if not page.select_one('link[href="/assets/minimal-home.css"]'):
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/minimal-home.css'))
         if not modern:
             old_header = page.select_one('.sticky-banner-wrapper') or page.find('header')
             if old_header:
+                # The archived presentation has its own slide navigation.
+                # Retain it as a compact contents disclosure within the article.
+                contents = old_header.select_one('nav.toc')
+                if contents and page.find('main'):
+                    drawer = page.new_tag('details', attrs={'class': 'archive-contents'})
+                    summary = page.new_tag('summary')
+                    summary.string = 'Presentation contents'
+                    drawer.append(summary)
+                    drawer.append(contents.extract())
+                    page.find('main').insert(0, drawer)
                 old_header.replace_with(deepcopy(header))
             else:
                 page.select_one('.demo-strip').insert_after(deepcopy(header))
@@ -99,17 +98,13 @@ def refine_pages(pages):
             current = '/etfs/redi/'
         elif 'case-page' in classes:
             current = '/etfs/redi/why-red.html'
-        elif 'research-page' in classes:
+        elif 'research-page' in classes or route.startswith('research/') or '/blog/' in route:
             current = '/research/'
         elif route in EXCHANGE_ROUTES:
             current = '/#contact'
         if current:
             nav.find('a', href=current)['aria-current'] = 'page'
         page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/institutional.css'))
-        page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/tactile.css'))
-        page.head.append(page.new_tag('script', src='/assets/tactile.js', defer=''))
-        for card in page.select('.home-fund-card, .research-cover > a, .research-topic-list > a'):
-            card['data-tactile'] = ''
         if route in FUND_ROUTES:
             page.body['class'].append('institutional-etf')
             _fund_copy(page)
@@ -127,6 +122,15 @@ def refine_pages(pages):
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/institutional-351.css'))
         elif not modern:
             page.body['class'].append('institutional-reference')
+            article = page.body.find('article', recursive=False)
+            if article:
+                article.name = 'main'
+                page.body['class'].append('institutional-archive')
+            if page.select_one('main .slide'):
+                page.body['class'].append('institutional-archive')
+                floating_nav = page.find(id='floatingNav')
+                if floating_nav:
+                    page.find('main').insert(0, floating_nav.extract())
             if route in ('documents/index.html', 'etfs/redi/document-placeholder.html'):
                 heading = page.find('h1')
                 eyebrow = page.new_tag('p', attrs={'class': 'institutional-eyebrow'})
@@ -143,6 +147,25 @@ def refine_pages(pages):
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/objective-journey.css'))
             page.head.append(page.new_tag('script', src='/assets/objective-journey.js', defer=''))
         refine_masthead(page)
-        page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/masthead.css'))
+        page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/atmosphere.css'))
+        if route in FUND_ROUTES | EXCHANGE_ROUTES or not page.find('main'):
+            # Legacy pages split content across sibling sections. Give every
+            # investor journey a complete main landmark without changing its IDs.
+            content = page.new_tag('main', attrs={'class': 'site-content'})
+            first = page.body.find(['main', 'section'], recursive=False)
+            if first is None:
+                first = page.select_one('.home-header').find_next_sibling()
+            if first:
+                misplaced_target = page.select_one('.demo-strip#main')
+                if misplaced_target:
+                    del misplaced_target['id']
+                    content['id'] = 'main'
+                first.insert_before(content)
+                for node in list(content.next_siblings):
+                    if getattr(node, 'name', None) == 'footer':
+                        break
+                    if getattr(node, 'name', None) == 'main':
+                        node.name = 'section'
+                    content.append(node.extract())
         result[route] = str(page)
     return result

@@ -1,181 +1,329 @@
-/* Section 351: warm ceramic surfaces, sculpted panels, and inset controls.
-   Keep both educational journeys, the unframed sticker, and native forms intact. */
+/* Section 351: an ink-and-ivory editorial journey, with clear reading surfaces. */
 .institutional-351 {
-  --exchange-paper: var(--tactile-base, #f4f0ed);
-  --exchange-ink: #241a1b;
-  --exchange-muted: #6e6163;
-  --exchange-line: var(--tactile-line, #dfd4cf);
-  --exchange-red: #8b0000;
-  --exchange-surface: var(--tactile-surface, #fbf8f5);
-  --exchange-raised: var(--tactile-shadow, 9px 11px 24px #4d25251a, -7px -7px 19px #ffffff);
-  --exchange-inset: var(--tactile-inset, inset 3px 3px 7px #52302f16, inset -3px -3px 7px #ffffff);
+  --exchange-paper: var(--hz-paper, #f3eee5);
+  --exchange-ink: var(--hz-ink, #171617);
+  --exchange-surface: var(--hz-surface, #211d1e);
+  --exchange-dark-muted: var(--hz-muted, #a69b92);
+  --exchange-accent: var(--hz-accent, #b76b65);
+  --exchange-red: #751e2a;
+  --exchange-copy: #574d4d;
+  --exchange-rule: #d4c9bd;
   background: var(--exchange-paper);
   color: var(--exchange-ink);
   -webkit-font-smoothing: antialiased;
 }
-.institutional-351 :is(#main, #opportunities, .form-section) { scroll-margin-top: 32px; }
-.institutional-351 > :is(main, section) { background: var(--exchange-paper); background-image: none; }
+.institutional-351 :is(#main, #opportunities, #register) { scroll-margin-top: 32px; }
+.institutional-351 > :is(main, section),
+.institutional-351 .site-content > section { background: var(--exchange-paper); background-image: none; }
 .institutional-351 :is(#main, #opportunities) > [class*="max-w-"] {
   width: calc(100% - 112px);
   max-width: 1160px;
   padding-left: 0;
   padding-right: 0;
 }
-.institutional-351 :is(main#main, section#main) { padding: 65px 0 60px; border: 0; }
-.institutional-351 main#main > div > .cambria-card {
+.institutional-351 #main { padding: 0 0 62px; border: 0; }
+.institutional-351 #main:not(:has(.space-y-8)) { padding-bottom: 0; background: var(--exchange-ink); }
+.institutional-351 #main > div > .cambria-card {
   padding: 0;
   background: transparent;
   border: 0;
+  border-radius: 0;
   box-shadow: none;
 }
 .institutional-351 .exchange-hero-visual {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 430px);
-  gap: 44px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.07fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 0;
   margin: 0;
-  padding-bottom: 38px;
-  border-bottom: 0;
+  padding: 0;
+  background: var(--exchange-ink);
+  border: 0;
+  border-radius: 0;
+  /* Extend each editorial surface to the viewport edge without a framed image. */
+  box-shadow: -50vw 0 0 var(--exchange-ink), 50vw 0 0 var(--exchange-paper);
+  clip-path: inset(0 -100vmax);
 }
-.institutional-351 section#main .exchange-hero-visual { padding-bottom: 0; border-bottom: 0; }
+.institutional-351 .cambria-card > .exchange-hero-visual { margin-bottom: 0; }
 .institutional-351 .exchange-hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
   max-width: none;
-  padding: 39px 42px;
-  border: 1px solid #fff;
-  border-right-color: #e7dcda;
-  border-bottom-color: #e0d3d1;
-  border-radius: 28px;
-  background: linear-gradient(145deg, #fffdfb 0%, #f4efec 100%);
-  box-shadow: 12px 15px 30px #512d2517, -9px -9px 22px #ffffff, inset 0 1px 0 #ffffff;
+  margin: 0;
+  padding: 57px 45px 61px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  text-align: left;
 }
 .institutional-351 .exchange-hero-copy h1 {
-  font: 400 clamp(36px, 4.1vw, 54px)/1.14 'Playfair Display', Georgia, serif;
-  letter-spacing: -.04em;
-  color: var(--exchange-ink);
-  margin: 0 0 23px;
+  font: 400 clamp(41px, 4.3vw, 61px)/1.08 'Playfair Display', Georgia, serif;
+  color: var(--exchange-paper);
+  letter-spacing: -.045em;
+  margin: 0 0 25px;
+  max-width: 500px;
 }
-.institutional-351 .exchange-hero-copy > a { font-size: 11px; margin-bottom: 24px; }
-.institutional-351 .exchange-hero-copy > p { max-width: 490px; font-size: 15px; line-height: 1.85; color: var(--exchange-muted); margin: 0 0 24px; }
-.institutional-351 .exchange-hero-copy > p:last-child { font-size: 11px; margin: 0; }
-.institutional-351 .exchange-hero-copy a { color: var(--exchange-red); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-.institutional-351 .exchange-sticker { width: 100%; max-width: 430px; background: transparent; border: 0; border-radius: 0; box-shadow: none; }
-.institutional-351 .exchange-sticker img { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.institutional-351 .exchange-hero-copy > a {
+  font-size: 10px;
+  letter-spacing: .035em;
+  margin: 0 0 30px;
+}
+.institutional-351 .exchange-hero-copy > p {
+  max-width: 410px;
+  font-size: 15px;
+  line-height: 1.85;
+  color: #bdb2a9;
+  margin: 0 0 28px;
+}
+.institutional-351 .exchange-hero-copy > p:last-child { font-size: 12px; margin: 0; }
+.institutional-351 .exchange-hero-copy a {
+  color: #d7978e;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.institutional-351 .exchange-hero-copy a:hover { color: #f2c7b7; }
+.institutional-351 .exchange-hero-copy a:focus-visible { outline: 2px solid var(--exchange-paper); outline-offset: 5px; }
+.institutional-351 .exchange-hero-visual .exchange-sticker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  padding: 34px 28px;
+  box-sizing: border-box;
+  background: var(--exchange-paper);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.institutional-351 .exchange-sticker img {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
 .institutional-351 .cambria-card,
-.institutional-351 .cambria-card:hover { transform: none; box-shadow: var(--exchange-raised); border-radius: 23px; border-color: #fff; border-right-color: #e7ddda; border-bottom-color: #e2d5d2; }
-.institutional-351 main#main .space-y-8 { max-width: 900px; margin-top: 8px; }
-.institutional-351 main#main .space-y-8 > div:not(.disclosure-box) { margin-top: 25px; padding: 31px 34px; border: 1px solid #fff; border-right-color: #e7ddda; border-bottom-color: #e2d5d2; border-radius: 23px; background: linear-gradient(140deg, #fffdfb, var(--exchange-surface)); box-shadow: var(--exchange-raised); }
-.institutional-351 section#main + section { padding: 12px 0 62px; }
-.institutional-351 section#main + section > div { width: calc(100% - 112px); max-width: 1000px; padding: 0; }
-.institutional-351 section#main + section .cambria-card { padding: 32px 36px; margin: 0 0 27px; border: 1px solid #fff; border-right-color: #e7ddda; border-bottom-color: #e2d5d2; background: linear-gradient(140deg, #fffdfb, var(--exchange-surface)); }
-.institutional-351 :is(main#main, section#main + section) h2 {
-  font: 400 29px/1.3 'Playfair Display', Georgia, serif;
-  color: var(--exchange-ink);
-  letter-spacing: -.025em;
-  margin-bottom: 18px;
+.institutional-351 .cambria-card:hover { transform: none; box-shadow: none; border-radius: 0; border-color: var(--exchange-rule); }
+
+/* Readable paper, organised by typography and rules instead of repeated cards. */
+.institutional-351 #main .space-y-8 { max-width: 900px; margin-top: 27px; }
+.institutional-351 #main .space-y-8 > div:not(.disclosure-box) {
+  margin: 0;
+  padding: 35px 0;
+  border: 0;
+  border-bottom: 1px solid var(--exchange-rule);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
-.institutional-351 :is(main#main, section#main + section) :is(p, li) { font-size: 14px; line-height: 1.9; color: var(--exchange-muted); }
-.institutional-351 :is(main#main, section#main + section) :is(h3, h4, strong) { color: var(--exchange-ink); font-weight: 600; }
-.institutional-351 :is(main#main, section#main + section) h3 { font-size: 14px; line-height: 1.6; margin-bottom: 9px; }
-.institutional-351 :is(main#main, section#main + section) h4 { font-size: 13px; line-height: 1.6; }
-.institutional-351 :is(main#main, section#main + section) li { gap: 15px; }
-.institutional-351 :is(main#main, section#main + section) :is(.bg-red-50, .bg-gray-50) { background: #efe8e5; border: 1px solid #e9dedb; border-radius: 16px; box-shadow: var(--exchange-inset); }
-.institutional-351 section#main + section .bg-red-100 { background: #efe8e5; color: var(--exchange-red); border: 1px solid #fff; box-shadow: var(--exchange-inset); }
-.institutional-351 section#main + section .grid > .bg-red-50 { padding: 21px 23px; border: 1px solid #e9dedb; }
-.institutional-351 .disclosure-box { background: #eee5e1; border: 1px solid #e3d7d2; border-left: 3px solid var(--exchange-red); border-radius: 15px; padding: 24px 27px; margin: 32px 0 0; box-shadow: inset 3px 3px 8px #52302f10, inset -2px -2px 6px #ffffffba; }
-.institutional-351 .disclosure-box p { font-size: 12px !important; line-height: 1.85 !important; color: var(--exchange-muted); }
+.institutional-351 #main:not(:has(.space-y-8)) + section { padding: 28px 0 65px; }
+.institutional-351 #main:not(:has(.space-y-8)) + section > div { width: calc(100% - 112px); max-width: 960px; padding: 0; }
+.institutional-351 #main:not(:has(.space-y-8)) + section .cambria-card {
+  padding: 34px 0;
+  margin: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--exchange-rule);
+}
+.institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) h2 {
+  font: 400 31px/1.25 'Playfair Display', Georgia, serif;
+  color: var(--exchange-ink);
+  letter-spacing: -.028em;
+  margin-bottom: 20px;
+}
+.institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) :is(p, li) {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--exchange-copy);
+}
+.institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) :is(h3, h4, strong) { color: #2e2527; font-weight: 600; }
+.institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) h3 { font-size: 14px; line-height: 1.65; margin-bottom: 10px; }
+.institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) h4 { font-size: 13px; line-height: 1.65; }
+.institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) li { gap: 16px; }
+.institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) :is(.bg-red-50, .bg-gray-50) { background: #eae3d9; border: 0; border-radius: 2px; box-shadow: none; }
+.institutional-351 #main:not(:has(.space-y-8)) + section .bg-red-100 { color: var(--exchange-red); background: transparent; border: 0; box-shadow: none; }
+.institutional-351 #main:not(:has(.space-y-8)) + section .grid > .bg-red-50 { padding: 19px 0; background: transparent; border-top: 1px solid var(--exchange-rule); }
+.institutional-351 .disclosure-box {
+  padding: 24px 27px;
+  margin: 30px 0 0;
+  background: #e8e0d6;
+  border: 0;
+  border-left: 2px solid var(--exchange-red);
+  border-radius: 0;
+  box-shadow: none;
+}
+.institutional-351 .disclosure-box p { font-size: 12px !important; line-height: 1.85 !important; color: var(--exchange-copy); }
 
-/* Raised process tiles preserve a clear contribution journey. */
-.institutional-351 #opportunities { padding: 60px 0 68px; border-top: 1px solid #fff; background: #f3eeeb; box-shadow: inset 0 7px 12px #43201e06; }
-.institutional-351 #opportunities > div > .text-center { text-align: left; max-width: 740px; margin-bottom: 38px; }
-.institutional-351 #opportunities > div > .text-center > .inline-flex { margin-bottom: 19px; padding: 9px 15px; border: 1px solid #fdfaf9; border-radius: 999px; background: #efe8e5; box-shadow: var(--exchange-inset); }
+/* A second dark chapter introduces the opportunity, with the form on paper. */
+.institutional-351 #opportunities { padding: 62px 0 68px; border: 0; background: var(--exchange-surface); box-shadow: none; }
+.institutional-351 #opportunities > div > .text-center { text-align: left; max-width: 740px; margin-bottom: 42px; }
+.institutional-351 #opportunities > div > .text-center > .inline-flex { margin-bottom: 21px; padding: 0; background: none; border: 0; border-radius: 0; box-shadow: none; }
 .institutional-351 #opportunities > div > .text-center > .inline-flex > span:not(.uppercase) { display: none; }
-.institutional-351 #opportunities > div > .text-center > .inline-flex > .uppercase { font-size: 10px; font-weight: 600; letter-spacing: .13em; color: var(--exchange-red); }
-.institutional-351 #opportunities h2 { font: 400 37px/1.2 'Playfair Display', Georgia, serif; letter-spacing: -.035em; color: var(--exchange-ink); margin-bottom: 20px; }
-.institutional-351 #opportunities > div > .text-center > p { max-width: 660px; margin-left: 0; font-size: 13px; line-height: 1.9; color: var(--exchange-muted); }
-.institutional-351 #opportunities > div > .text-center > p.text-sm { font-size: 11px; }
-.institutional-351 #opportunities .grid.md\:grid-cols-3 { gap: 26px; }
+.institutional-351 #opportunities > div > .text-center > .inline-flex > .uppercase { color: #c9847d; font-size: 10px; font-weight: 500; letter-spacing: .16em; }
+.institutional-351 #opportunities h2 { font: 400 42px/1.16 'Playfair Display', Georgia, serif; letter-spacing: -.04em; color: var(--exchange-paper); margin-bottom: 22px; }
+.institutional-351 #opportunities > div > .text-center > p { max-width: 650px; margin-left: 0; color: #bcb0a6; font-size: 14px; line-height: 1.85; }
+.institutional-351 #opportunities > div > .text-center > p.text-sm { color: #a89b90; font-size: 12px; }
+.institutional-351 #opportunities .grid.md\:grid-cols-3 { gap: 34px; }
 .institutional-351 #opportunities .grid.md\:grid-cols-3 > .absolute { display: none; }
-.institutional-351 #opportunities .grid.md\:grid-cols-3 > div:not(.absolute) { text-align: left; padding: 27px 27px 28px; border: 1px solid #fff; border-right-color: #e1d5d0; border-bottom-color: #ddcfca; border-radius: 23px; background: linear-gradient(145deg, #fbf8f5, #f1ebe7); box-shadow: var(--exchange-raised); }
-.institutional-351 #opportunities .grid.md\:grid-cols-3 > div > .rounded-full { width: 51px; height: 51px; margin: 0 0 23px; border: 1px solid #fff8f5; border-radius: 15px; background: #eee5e0; box-shadow: var(--exchange-inset); animation: none !important; justify-content: center; }
-.institutional-351 #opportunities .grid.md\:grid-cols-3 :is(i, svg) { width: 25px; height: 25px; color: var(--exchange-red); }
-.institutional-351 #opportunities .grid.md\:grid-cols-3 h4 { font-size: 13px; font-weight: 600; color: var(--exchange-ink); margin-bottom: 10px; }
-.institutional-351 #opportunities .grid.md\:grid-cols-3 p { font-size: 12px; line-height: 1.85; color: var(--exchange-muted); max-width: 300px; }
-.institutional-351 #opportunities > div > .mb-20 { margin-bottom: 42px; }
+.institutional-351 #opportunities .grid.md\:grid-cols-3 > div:not(.absolute) {
+  text-align: left;
+  padding: 27px 0 0;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid #574448;
+  border-radius: 0;
+  box-shadow: none;
+}
+.institutional-351 #opportunities .grid.md\:grid-cols-3 > div > .rounded-full {
+  width: 33px;
+  height: 33px;
+  margin: 0 0 20px;
+  justify-content: flex-start;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  animation: none !important;
+}
+.institutional-351 #opportunities .grid.md\:grid-cols-3 :is(i, svg) { width: 25px; height: 25px; color: #c9847d; }
+.institutional-351 #opportunities .grid.md\:grid-cols-3 h4 { color: #eee4d8; font-size: 13px; font-weight: 500; margin-bottom: 11px; }
+.institutional-351 #opportunities .grid.md\:grid-cols-3 p { color: #afa296; font-size: 12px; line-height: 1.9; max-width: 305px; }
+.institutional-351 #opportunities > div > .mb-20 { margin-bottom: 0; }
 .institutional-351 #opportunities .grid.md\:grid-cols-2:not(:has(> *)) { display: none; }
-.institutional-351 #opportunities .launch-card { border-radius: 23px; background: #f7f2ef; box-shadow: var(--exchange-raised); }
-.institutional-351 #opportunities .launch-card:hover { transform: translateY(-2px); border-color: #b57f77; box-shadow: 12px 15px 26px #4d252521, -8px -8px 20px #ffffff; }
+.institutional-351 #opportunities .launch-card,
+.institutional-351 #opportunities .launch-card:hover { background: var(--exchange-paper); border-radius: 2px; border-color: #bfa9a0; box-shadow: none; transform: none; }
+.institutional-351 #opportunities > div > .max-w-xl { max-width: 720px; margin: 50px 0 0; }
 
-/* The form is a raised ceramic panel; each field sits in a recessed well. */
-.institutional-351 #opportunities > div > .max-w-xl { max-width: 680px; margin: 50px 0 0; }
-.institutional-351 #register.cambria-card { padding: 37px 38px 34px; border: 1px solid #fff; border-right-color: #e4d4cd; border-bottom-color: #dac7bf; border-radius: 27px; background: linear-gradient(140deg, #fffdfb, #f3ece7); box-shadow: 13px 16px 29px #50271f1b, -9px -9px 24px #ffffff; }
-.institutional-351 section.form-section { background: #f3eeeb; padding: 16px 0 74px; border: 0; }
-.institutional-351 section.form-section > div { width: calc(100% - 112px); max-width: 740px; padding: 38px 42px; border: 1px solid #fff; border-right-color: #e4d4cd; border-bottom-color: #dac7bf; border-radius: 27px; background: linear-gradient(140deg, #fffdfb, #f3ece7); box-shadow: 13px 16px 29px #50271f1b, -9px -9px 24px #ffffff; }
+/* The two existing interest forms share legible paper controls and quiet borders. */
+.institutional-351 #register.cambria-card {
+  padding: 38px 42px 35px;
+  background: var(--exchange-paper);
+  border: 1px solid #d9cfc2;
+  border-radius: 2px;
+  box-shadow: none;
+}
+.institutional-351 section.form-section { padding: 8px 0 76px; background: var(--exchange-surface); border: 0; }
+.institutional-351 section.form-section > div {
+  width: calc(100% - 112px);
+  max-width: 740px;
+  padding: 38px 42px;
+  background: var(--exchange-paper);
+  border: 1px solid #d9cfc2;
+  border-radius: 2px;
+  box-shadow: none;
+}
 .institutional-351 #register > .text-center,
-.institutional-351 #register > div > .text-center { text-align: left; margin-bottom: 27px; }
-.institutional-351 #register h3 { font: 400 31px/1.3 'Playfair Display', Georgia, serif; letter-spacing: -.025em; color: var(--exchange-ink); margin-bottom: 14px; }
-.institutional-351 #register p { color: var(--exchange-muted); font-size: 12px; line-height: 1.85; }
+.institutional-351 #register > div > .text-center { text-align: left; margin-bottom: 29px; }
+.institutional-351 #register h3 { font: 400 33px/1.2 'Playfair Display', Georgia, serif; letter-spacing: -.03em; color: var(--exchange-ink); margin-bottom: 16px; }
+.institutional-351 #register p { color: var(--exchange-copy); font-size: 12px; line-height: 1.85; }
 .institutional-351 #register .text-center > p { max-width: none; margin-left: 0; margin-right: 0; }
-.institutional-351 #register p strong { color: var(--exchange-ink); font-weight: 500; }
+.institutional-351 #register p strong { color: #392c2e; font-weight: 500; }
 .institutional-351 #register form { color: var(--exchange-ink); }
-.institutional-351 #register form .grid { gap: 20px; }
-.institutional-351 #register form label { font-size: 12px; color: #514548; font-weight: 500; text-transform: none; letter-spacing: 0; line-height: 1.6; margin-bottom: 7px; }
-.institutional-351 #register form label span { color: var(--exchange-muted); font-size: 11px; }
-.institutional-351 #register :is(input, select, textarea) { width: 100%; min-width: 0; background-color: #eee7e2; color: var(--exchange-ink); border: 1px solid #ddcfc9; border-right-color: #fffdfb; border-bottom-color: #fffdfb; border-radius: 12px; box-shadow: inset 3px 3px 7px #4a2a251a, inset -2px -2px 5px #ffffffd9; font: 400 13px/1.6 Inter, Arial, sans-serif; padding: 14px 16px; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.institutional-351 #register form .grid { gap: 21px; }
+.institutional-351 #register form label { color: #493b3d; font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; line-height: 1.65; margin-bottom: 8px; }
+.institutional-351 #register form label span { color: #746962; font-size: 11px; }
+.institutional-351 #register :is(input, select, textarea) {
+  width: 100%;
+  min-width: 0;
+  background-color: #faf6ef;
+  color: #292124;
+  border: 1px solid #cbbfb3;
+  border-radius: 1px;
+  box-shadow: none;
+  font: 400 13px/1.6 Inter, Arial, sans-serif;
+  padding: 13px 15px;
+  transition: border-color .15s ease;
+}
 .institutional-351 #register select { padding-right: 31px; }
 .institutional-351 #register textarea { min-height: 114px; resize: vertical; }
-.institutional-351 #register :is(input, textarea)::placeholder { color: #796c68; opacity: 1; }
-.institutional-351 #register :is(input, select, textarea):focus { outline: 2px solid var(--exchange-red); outline-offset: 3px; border-color: #b28e85; background-color: #f5eeea; box-shadow: inset 2px 2px 5px #4a2a2514, inset -2px -2px 4px #ffffff; }
-.institutional-351 #register button[type="submit"] { min-height: 51px; background: linear-gradient(160deg, #a52420, #8b0000 62%, #740000); color: #fff8f4; border: 1px solid #861211; border-top-color: #c8766d; border-radius: 12px; padding: 14px 20px; box-shadow: 0 4px 0 #600a09, 0 8px 15px #7c1d2229, inset 0 1px 0 #ffcec140; font: 500 12px/1.6 Inter, Arial, sans-serif; text-transform: none; letter-spacing: .01em; transform: none; transition: transform .15s, box-shadow .15s, background .15s; }
-.institutional-351 #register button[type="submit"]:hover { background: linear-gradient(160deg, #ad2925, #920606 62%, #790101); border-color: #861211; border-top-color: #ca8077; transform: translateY(-1px); box-shadow: 0 5px 0 #600a09, 0 10px 18px #7c1d2233, inset 0 1px 0 #ffcec140; }
-.institutional-351 #register button[type="submit"]:active { transform: translateY(3px); box-shadow: 0 1px 0 #600a09, 0 3px 6px #7c1d2229, inset 0 2px 4px #47040033; }
+.institutional-351 #register :is(input, textarea)::placeholder { color: #80736a; opacity: 1; }
+.institutional-351 #register :is(input, select, textarea):focus { background-color: #fffbf6; border-color: var(--exchange-red); outline: 2px solid var(--exchange-red); outline-offset: 3px; box-shadow: none; }
+.institutional-351 #register button[type="submit"] {
+  min-height: 49px;
+  padding: 13px 20px;
+  background: var(--exchange-red);
+  color: #f7f0e7;
+  border: 1px solid var(--exchange-red);
+  border-radius: 1px;
+  box-shadow: none;
+  font: 500 12px/1.6 Inter, Arial, sans-serif;
+  text-transform: none;
+  letter-spacing: .02em;
+  transform: none;
+  transition: background-color .15s ease, border-color .15s ease;
+}
+.institutional-351 #register button[type="submit"]:hover { background: #60202b; border-color: #60202b; transform: none; box-shadow: none; }
+.institutional-351 #register button[type="submit"]:active { background: #4f1722; border-color: #4f1722; transform: none; box-shadow: none; }
 .institutional-351 #register button[type="submit"]:focus-visible { outline: 2px solid var(--exchange-red); outline-offset: 4px; }
 .institutional-351 #register .interest-status { color: var(--exchange-red); font-size: 12px; text-align: left; }
-.institutional-351 #register form + p { font-size: 11px; text-align: left; max-width: none; margin-left: 0; margin-right: 0; margin-top: 19px; }
+.institutional-351 #register form + p { color: #74655e; font-size: 11px; text-align: left; max-width: none; margin: 21px 0 0; }
 
-@media (max-width: 900px) {
-  .institutional-351 .exchange-hero-visual { grid-template-columns: 1fr; gap: 30px; }
-  .institutional-351 .exchange-hero-copy { padding: 31px 29px; }
-  .institutional-351 .exchange-sticker { max-width: 400px; margin: 0; }
+@media (max-width: 1000px) {
   .institutional-351 :is(#main, #opportunities) > [class*="max-w-"],
-  .institutional-351 section#main + section > div,
+  .institutional-351 #main:not(:has(.space-y-8)) + section > div,
   .institutional-351 section.form-section > div { width: calc(100% - 64px); }
+  .institutional-351 .exchange-hero-copy { padding: 43px 30px 47px 0; }
+  .institutional-351 .exchange-hero-copy h1 { font-size: clamp(38px, 4.7vw, 50px); }
+  .institutional-351 .exchange-hero-visual .exchange-sticker { padding: 29px 19px; }
 }
 @media (max-width: 760px) {
-  .institutional-351 :is(main#main, section#main) { padding: 39px 0; }
   .institutional-351 :is(#main, #opportunities) > [class*="max-w-"],
-  .institutional-351 section#main + section > div,
+  .institutional-351 #main:not(:has(.space-y-8)) + section > div,
   .institutional-351 section.form-section > div { width: calc(100% - 40px); }
-  .institutional-351 .exchange-hero-visual { grid-template-columns: 1fr; gap: 26px; padding-bottom: 29px; }
-  .institutional-351 .exchange-hero-copy { padding: 27px 25px; border-radius: 23px; }
-  .institutional-351 .exchange-hero-copy h1 { font-size: 39px; max-width: 440px; margin-bottom: 18px; }
-  .institutional-351 .exchange-hero-copy > p { font-size: 14px; margin-bottom: 20px; }
-  .institutional-351 .exchange-hero-visual .exchange-sticker { max-width: 380px; margin: 0; }
-  .institutional-351 main#main .space-y-8 > div:not(.disclosure-box),
-  .institutional-351 section#main + section .cambria-card { padding: 26px 24px; border-radius: 20px; }
-  .institutional-351 :is(main#main, section#main + section) h2 { font-size: 26px; }
-  .institutional-351 :is(main#main, section#main + section) :is(p, li) { font-size: 13px; line-height: 1.85; }
-  .institutional-351 .disclosure-box { padding: 19px 20px; }
-  .institutional-351 #opportunities { padding: 39px 0 45px; }
-  .institutional-351 #opportunities h2 { font-size: 31px; }
-  .institutional-351 #opportunities > div > .text-center { margin-bottom: 28px; }
-  .institutional-351 #opportunities .grid.md\:grid-cols-3 { gap: 25px; }
-  .institutional-351 #opportunities .grid.md\:grid-cols-3 > div:not(.absolute) { padding: 24px; border-radius: 20px; }
-  .institutional-351 #opportunities .grid.md\:grid-cols-3 > div > .rounded-full { margin-bottom: 18px; }
+  .institutional-351 #main { padding: 0 0 38px; }
+  .institutional-351 #main:not(:has(.space-y-8)) { padding-bottom: 0; }
+  .institutional-351 .exchange-hero-visual { grid-template-columns: 1fr; box-shadow: 0 0 0 100vmax var(--exchange-ink); }
+  .institutional-351 .exchange-hero-copy { padding: 37px 0 35px; }
+  .institutional-351 .exchange-hero-copy h1 { font-size: 43px; max-width: 460px; margin-bottom: 21px; }
+  .institutional-351 .exchange-hero-copy > a { margin-bottom: 24px; }
+  .institutional-351 .exchange-hero-copy > p { font-size: 14px; margin-bottom: 25px; }
+  .institutional-351 .exchange-hero-visual .exchange-sticker {
+    width: calc(100% + 40px);
+    max-width: none;
+    margin-left: -20px;
+    padding: 30px 20px 32px;
+    border: 0;
+  }
+  .institutional-351 .exchange-sticker img { max-width: 390px; }
+  .institutional-351 #main .space-y-8 { margin-top: 8px; }
+  .institutional-351 #main .space-y-8 > div:not(.disclosure-box),
+  .institutional-351 #main:not(:has(.space-y-8)) + section .cambria-card { padding: 28px 0; }
+  .institutional-351 #main:not(:has(.space-y-8)) + section { padding: 8px 0 41px; }
+  .institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) h2 { font-size: 28px; }
+  .institutional-351 :is(#main .space-y-8, #main:not(:has(.space-y-8)) + section) :is(p, li) { font-size: 13px; line-height: 1.9; }
+  .institutional-351 .disclosure-box { padding: 21px 22px; }
+  .institutional-351 #opportunities { padding: 40px 0 44px; }
+  .institutional-351 #opportunities h2 { font-size: 34px; }
+  .institutional-351 #opportunities > div > .text-center { margin-bottom: 30px; }
+  .institutional-351 #opportunities > div > .text-center > p { font-size: 13px; }
+  .institutional-351 #opportunities .grid.md\:grid-cols-3 { gap: 27px; }
+  .institutional-351 #opportunities .grid.md\:grid-cols-3 > div:not(.absolute) { padding: 22px 0 0; }
+  .institutional-351 #opportunities .grid.md\:grid-cols-3 > div > .rounded-full { margin-bottom: 13px; }
   .institutional-351 #opportunities .grid.md\:grid-cols-3 p { max-width: none; }
-  .institutional-351 #opportunities > div > .max-w-xl { margin-top: 34px; }
-  .institutional-351 #register.cambria-card { padding: 25px 20px; }
-  .institutional-351 section.form-section { padding: 12px 0 49px; }
-  .institutional-351 section.form-section > div { padding: 27px 25px; border-radius: 23px; }
-  .institutional-351 #register h3 { font-size: 28px; }
-  .institutional-351 #register :is(input, select, textarea) { font-size: 16px; padding: 11px 12px; }
+  .institutional-351 #opportunities > div > .max-w-xl { margin-top: 37px; }
+  .institutional-351 #register.cambria-card { padding: 27px 21px; }
+  .institutional-351 section.form-section { padding: 0 0 45px; }
+  .institutional-351 section.form-section > div { padding: 28px 24px; }
+  .institutional-351 #register h3 { font-size: 29px; }
+  .institutional-351 #register :is(input, select, textarea) { font-size: 16px; padding: 12px; }
   .institutional-351 #register select { padding-right: 29px; }
 }
 @media (max-width: 380px) {
-  .institutional-351 .exchange-hero-copy { padding: 24px 20px; }
-  .institutional-351 .exchange-hero-copy h1 { font-size: 34px; }
-  .institutional-351 main#main .space-y-8 > div:not(.disclosure-box),
-  .institutional-351 section#main + section .cambria-card,
-  .institutional-351 section.form-section > div { padding: 23px 20px; }
+  .institutional-351 .exchange-hero-copy h1 { font-size: 38px; }
+  .institutional-351 section.form-section > div { padding: 26px 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .institutional-351 #register button[type="submit"],
-  .institutional-351 #opportunities .launch-card { transition: none; }
+  .institutional-351 #register :is(input, select, textarea),
+  .institutional-351 #register button[type="submit"] { transition: none; }
 }

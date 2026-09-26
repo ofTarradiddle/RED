@@ -219,11 +219,12 @@ def long_term_section():
 
 
 def home_case():
+    from publishing.objective_journey import objective_journey
     return f'''<section id="innovation" class="investment-case home-investment" aria-labelledby="case-heading">
       <span id="services" class="home-anchor" aria-hidden="true"></span>
-      <div class="case-section-heading"><div><p class="home-eyebrow">The investment case</p><h2 id="case-heading">Innovation at a<br>justifiable valuation.</h2></div><p>Seek the companies turning research into commercial progress. Bring a disciplined view of value to what comes next.</p></div>
-      {case_explorer('home-case')}
-      <div class="case-section-foot"><span>Fundamental insight. Systematic selection.</span><a class="home-text-link" href="/etfs/redi/why-red.html">Explore the investment case <span aria-hidden="true">↗</span></a></div>
+      <div class="case-section-heading"><div><p class="home-eyebrow">The investment case</p><h2 id="case-heading">Look beneath<br>the obvious.</h2></div><p>Innovation at a justifiable valuation. Explore the economic intuition, the conditions for enduring investment, and the case for reinvestment.</p></div>
+      {objective_journey('home')}
+      <details class="home-method-details"><summary><span>The selection process</span><span>Innovation value / Innovation ability / Portfolio construction</span><span aria-hidden="true">+</span></summary>{case_explorer('home-case')}</details>
       <div class="home-research-proof"><div><p class="home-eyebrow">Strategy research</p><h3>The research<br>behind the process.</h3><p>Explore the historical comparisons and the reasoning behind REDI’s selection framework.</p><a class="home-text-link" href="/research/the-measure-of-fire.html">Read the research <span aria-hidden="true">↗</span></a></div>{business_card()}</div>
     </section>'''
 

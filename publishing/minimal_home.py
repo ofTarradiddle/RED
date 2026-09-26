@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 
 from publishing.site import pct
 from publishing.investment_case import attach_assets, exchange_sticker, home_case
-from publishing.objective_journey import objective_journey
 
 
 def render_home(html, fund):
@@ -42,6 +41,7 @@ def render_home(html, fund):
           <p class="home-eyebrow">REDI / Systematic U.S. equities</p>
           <h1 id="home-title">Hetzerk Innovation <span>Factor ETF</span></h1>
           <p class="home-fund-objective">Seeks long-term capital appreciation through U.S. mid- and large-cap companies, selected using innovation value and innovation ability.</p>
+          <p class="home-signature">Investing in Innovation,<br><em>REDI for tomorrow.</em></p>
           <nav class="home-fund-links" aria-label="REDI fund information"><a href="/etfs/redi/holdings.html">Holdings <span aria-hidden="true">↗</span></a><a href="/etfs/redi/#documents">Fund documents <span aria-hidden="true">↗</span></a><a href="/etfs/redi/why-red.html">Investment case <span aria-hidden="true">↗</span></a></nav>
         </div>
         <div id="etfs" class="home-fund">
@@ -53,7 +53,6 @@ def render_home(html, fund):
             <span class="home-card-link">Explore the ETF <span aria-hidden="true">→</span></span>
           </a>
         </div>
-        {objective_journey('home')}
       </section>
       <section id="contact" class="home-solicitation" aria-labelledby="contribution-heading">
         <div class="home-solicitation-copy">
