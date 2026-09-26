@@ -115,7 +115,7 @@ def business_card():
 def etf_research_card():
     return f'''<section class="etf-research-card" id="strategy-research" aria-labelledby="etf-research-title">
       <div class="etf-research-inner">
-        <div class="etf-research-heading"><div><p>Strategy research</p><h2 id="etf-research-title">Backtested comparisons</h2></div><span>REDI</span></div>
+        <div class="etf-research-heading"><h3 id="etf-research-title">Backtested comparisons</h3><span>REDI</span></div>
         {case_visual('businesscard-dark', prefix='etf-')}
       </div>
     </section>'''

@@ -110,7 +110,8 @@ def refine_pages(pages):
             _fund_copy(page)
             objective = BeautifulSoup(objective_journey('etf'), 'html.parser').section
             page.select_one('#overview').insert_after(objective)
-            objective.insert_after(BeautifulSoup(etf_research_card(), 'html.parser').section)
+            comparison = page.select_one('#overview').find('h3', string='Thematics vs Factors')
+            comparison.parent.insert_after(BeautifulSoup(etf_research_card(), 'html.parser').section)
             if not page.select_one('link[href="/assets/investment-case.css"]'):
                 attach_assets(page)
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/institutional-etf.css'))
