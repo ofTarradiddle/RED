@@ -22,6 +22,14 @@ VISUALS = {
         'alt': 'Shin Chan flies along the Innovation Leaders series on a logarithmic growth-of-one-dollar chart, beside Innovation Laggards, Market, Market Equal Weight and Non-R&D Payers. The chart labels its April 2003 to August 2026 results as a backtest.',
         'caption': 'Backtested strategy research from the opening business card, not actual ETF performance. Past performance does not guarantee future results.',
     },
+    'businesscard-dark': {
+        # PDF page 1 chart panel, rendered at 432 dpi; the legacy contact strip
+        # is outside the extracted panel. Original chart pixels are unchanged.
+        'file': 'redi-business-card-dark.png', 'width': 1865, 'height': 1079,
+        'title': 'Innovation, in perspective', 'source': 'Opening business card · Page 1',
+        'alt': 'The dark business-card chart from the source PDF. Shin Chan follows the red Innovation Leaders series above Innovation Laggards, Market, Market Equal Weight and Non-R&D Payers, showing cumulative growth of one dollar on a logarithmic scale from 2003 to 2026.',
+        'caption': 'Hypothetical backtested strategy research, not actual ETF performance. Source artwork from the opening business card. Fee and trading-cost treatment have not been independently verified. Past performance does not guarantee future results.',
+    },
     'endogenous': {
         'file': 'endogenous-growth.png', 'width': 1472, 'height': 614,
         'title': 'Investing in Innovation', 'source': 'Economic rationale · Slide 7',
@@ -102,6 +110,15 @@ def business_card():
     return f'''<div class="case-business-card"><div class="case-business-brand"><strong>REDI</strong><span>Hetzerk Innovation Factor ETF</span></div>
       {case_visual('businesscard', eager=True)}
     </div>'''
+
+
+def etf_research_card():
+    return f'''<section class="etf-research-card" id="strategy-research" aria-labelledby="etf-research-title">
+      <div class="etf-research-inner">
+        <div class="etf-research-heading"><div><p>Strategy research</p><h2 id="etf-research-title">Backtested comparisons</h2></div><span>REDI</span></div>
+        {case_visual('businesscard-dark', prefix='etf-')}
+      </div>
+    </section>'''
 
 
 def exchange_sticker():

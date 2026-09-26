@@ -202,6 +202,31 @@
 .institutional-etf #about .cambria-disclosure { border-left: 1px solid #8a5458; border-radius: 0; padding: 5px 0 5px 20px; background: transparent; }
 .institutional-etf #about .cambria-card { align-self: start; padding: 27px; }
 
+/* Original dark business-card artwork accompanies the investment rationale. */
+.institutional-etf .etf-research-card {
+  --home-ink: #f3eee5;
+  --home-muted: #b5aaa2;
+  --home-line: #ffffff24;
+  padding: 64px 24px 72px;
+  border-top: 1px solid #ffffff17;
+  background: var(--etf-ink);
+  color: var(--etf-paper);
+}
+.institutional-etf .etf-research-inner { max-width: 1120px; margin: 0 auto; }
+.institutional-etf .etf-research-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+.institutional-etf .etf-research-heading p { margin: 0 0 13px; color: #c88e86; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; }
+.institutional-etf .etf-research-heading h2 { margin: 0; color: var(--etf-paper); font: 400 clamp(28px, 3.2vw, 42px)/1.2 'Playfair Display', Georgia, serif; letter-spacing: -.025em; }
+.institutional-etf .etf-research-heading > span { color: #c88e86; font: 400 22px/1 'Playfair Display', Georgia, serif; }
+.institutional-etf .etf-research-card .case-visual-link { background: #000; border-color: #ffffff24; border-radius: 3px; }
+.institutional-etf .etf-research-card .case-visual-expand { min-height: 44px; padding: 12px 18px; background: #211d1e; border-color: #ffffff24; color: #dfc5bd; }
+.institutional-etf .etf-research-card .case-visual-link:hover .case-visual-expand { background: #362125; color: #fff8ef; }
+.institutional-etf .etf-research-card .case-visual-link:focus-visible { outline: 2px solid #dfc5bd; outline-offset: 5px; }
+@media (max-width: 760px) {
+  .institutional-etf .etf-research-card { padding: 40px 20px 44px; }
+  .institutional-etf .etf-research-heading { gap: 12px; margin-bottom: 22px; }
+  .institutional-etf .etf-research-heading > span { font-size: 18px; }
+}
+
 /* All financial evidence remains high-contrast on an ivory surface. */
 .institutional-etf .restored-data .metric-note { color: var(--etf-copy); font-size: 11px; line-height: 1.8; }
 .institutional-etf .restored-data .cambria-card { padding: 29px; }
