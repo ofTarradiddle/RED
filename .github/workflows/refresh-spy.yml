@@ -167,8 +167,11 @@ jobs:
           path: .pages
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main' && needs.build.outputs.pages_ready == 'true'
+    if: github.ref == 'refs/heads/2026-sep-red' && needs.build.outputs.pages_ready == 'true'
     runs-on: ubuntu-latest
+    concurrency:
+      group: hetzerk-public-pages
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write

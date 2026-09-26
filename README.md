@@ -46,6 +46,15 @@ Local builds stay `noindex,follow`. They have current page titles, descriptions,
 social previews and semantic headings, but do not assert a production canonical
 URL. The local sitemap is empty. Crawlers are allowed to read the `noindex` tags.
 
+GitHub Pages uses **GitHub Actions**, with `2026-sep-red` as the publishing
+branch. `.github/workflows/pages.yml` checks and builds the website on each push
+to that branch, then publishes only the generated output. Its root `index.html`
+is the homepage; the repository README and source tree are not the website.
+The `dist` symlink is materialized into `.pages` before uploading. Publication
+uses the committed public data and does not wait for Yahoo or daily accounting
+replay. The separate refresh workflow retains its accounting cache and can
+publish refreshed public data when run on the same publishing branch.
+
 The Pages workflow uses the actual `actions/configure-pages` `base_url` and
 `base_path` outputs, and enables indexing for current public pages. It generates
 absolute canonical URLs, social-image URLs, Organization/WebSite/WebPage data,
@@ -164,4 +173,4 @@ python3 -m pytest tests/site tests/test_shadow_equity.py tests/test_library_safe
 
 Validated on 2026-09-22: 110 offline regression cases passed; the live benchmark test was excluded. The build completed for five funds, JavaScript syntax passed, 25 public URLs returned HTTP 200 and five internal paths returned 404. A scan of 691 text/workbook files found no remaining old-brand references. Workbook previews were visually inspected. Browser interaction/layout checks and live Yahoo/provider connectivity were not verified.
 
-The demo publisher intentionally rejects live-mode workbooks. A live release needs effective offering documents, verified identities, official data, licensed feeds, approved calculations, calendars, publication monitoring and provider/compliance review. Local builds do not deploy. The configured GitHub Pages workflow publishes the static site when run on `main` with Pages enabled.
+The demo publisher intentionally rejects live-mode workbooks. A live release needs effective offering documents, verified identities, official data, licensed feeds, approved calculations, calendars, publication monitoring and provider/compliance review. Local builds do not deploy. The configured GitHub Pages workflow publishes the static site from `2026-sep-red` with Pages set to GitHub Actions.

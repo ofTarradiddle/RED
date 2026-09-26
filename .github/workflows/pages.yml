@@ -1,0 +1,77 @@
+name: Publish Hetzerk website
+
+on:
+  push:
+    branches: [2026-sep-red]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hetzerk-public-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/2026-sep-red'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            requirements-site.txt
+            requirements-shadow.txt
+      - name: Install publisher and test dependencies
+        # The publication-boundary tests also import the local accounting library.
+        # No market refresh or accounting replay is run by this workflow.
+        run: python -m pip install -r requirements-shadow.txt
+      - name: Check public pages
+        run: python -m pytest tests/site -q
+      - name: Read Pages URL
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build the website
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: python -m publishing.build --base-path "$PAGES_BASE_PATH" --site-url "$PAGES_SITE_URL" --indexable
+      - name: Package only the generated website
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil
+          from bs4 import BeautifulSoup
+
+          release = Path('dist').resolve(strict=True)
+          page = BeautifulSoup((release / 'index.html').read_text(), 'html.parser')
+          if not page.select_one('.home-fund-card') or not page.select_one('[data-objective-journey]'):
+              raise SystemExit('The Pages entry point must be the generated Hetzerk homepage')
+          if any((release / path).exists() for path in ('README.md', 'lib', 'scripts', 'data/shadow_spy', 'perspective-7f3c9e', 'shadow-nav.html')):
+              raise SystemExit('Source or private accounting files must not enter the Pages artifact')
+          shutil.copytree(release, '.pages', symlinks=False)
+          Path('.pages/.nojekyll').touch()
+          PY
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .pages
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the website
+        id: deployment
+        uses: actions/deploy-pages@v4
