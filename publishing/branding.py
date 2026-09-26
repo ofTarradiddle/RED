@@ -15,6 +15,10 @@ def apply_branding(html):
         return html
     if not page.select_one('link[href="/assets/branding.css"]'):
         page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/branding.css'))
+    if not page.select_one('script[data-favicon-motion]'):
+        page.head.append(page.new_tag('script', attrs={
+            'src': '/assets/favicon-motion.js?v=1', 'defer': '', 'data-favicon-motion': '',
+        }))
 
     # One corporate lockup, including the compact headers used on Section 351 pages.
     for mark in page.select('header .w-12.h-12, header .hetzerk-logo'):
