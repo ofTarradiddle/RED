@@ -108,6 +108,11 @@ def refine_pages(pages):
         if route in FUND_ROUTES:
             page.body['class'].append('institutional-etf')
             _fund_copy(page)
+            performance = page.find(id='performance')
+            if performance:
+                comparison_link = page.new_tag('a', href='/compare/', attrs={'class': 'home-text-link'})
+                comparison_link.string = 'Open REDI Compare ↗'
+                performance.append(comparison_link)
             objective = BeautifulSoup(objective_journey('etf'), 'html.parser').section
             page.select_one('#overview').insert_after(objective)
             comparison = page.select_one('#overview').find('h3', string='Thematics vs Factors')

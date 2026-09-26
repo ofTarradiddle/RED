@@ -28,6 +28,9 @@ def build(workbook, output=ROOT / "dist", proxy_path=None, base_path='', *, site
         from bs4 import BeautifulSoup
         from publishing.masthead import refine_masthead
         for route,html in pages.items():
+            # The comparison app has its own, more specific prelaunch/data notice.
+            if route == 'compare/index.html':
+                continue
             page=BeautifulSoup(html,'html.parser')
             banner=page.select_one('.demo-strip')
             if banner:
@@ -51,6 +54,9 @@ def build(workbook, output=ROOT / "dist", proxy_path=None, base_path='', *, site
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(content)
         shutil.copytree(ROOT / 'assets', stage / 'assets')
+        from publishing.comparison_release import publish_comparison
+        publish_comparison(stage, snapshot, base_path=base_path,
+                           live_path=ROOT/'data/redi_live.json')
         shutil.copyfile(workbook, stage / 'review/hetzerk-demo.xlsx')
         if hashlib.sha256((stage / 'review/hetzerk-demo.xlsx').read_bytes()).hexdigest() != snapshot['source_sha256']:
             raise ValueError('Workbook changed during the build; save it and rebuild')

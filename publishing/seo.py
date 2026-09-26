@@ -45,6 +45,8 @@ METADATA = {
                            'Learn how this website handles contact requests, browser interactions and information you choose to provide.'),
 }
 UTILITY_METADATA = {
+    'compare/index.html': ('REDI Compare | Hetzerk Asset Management',
+                            'Explore REDI and selected equity ETFs in a mobile comparison workspace, with dated sources, return methods and risk measures.'),
     '404.html': ('Page Not Found | Hetzerk Asset Management', 'The requested page could not be found. Return to Hetzerk Asset Management or explore REDI.'),
     'review/index.html': ('Fund Data Guide | Hetzerk Asset Management', 'Review the source workbook, data fields and publishing methodology used by this website.'),
     'form-crs.html': ('Form CRS Status | Hetzerk Asset Management', 'Review the availability and status of the relationship summary for Hetzerk Asset Management.'),
@@ -113,7 +115,7 @@ def apply_seo(pages, *, site_url=None, base_path='', indexable=False):
         for tag in page.head.select('meta[charset],meta[name="viewport"],meta[name="description"],meta[name="robots"],meta[name^="twitter:"],meta[property^="og:"],link[rel="canonical"],script[type="application/ld+json"]'):
             tag.decompose()
         page.head.insert(0, page.new_tag('meta', charset='utf-8'))
-        _meta(page, 'viewport', 'width=device-width, initial-scale=1')
+        _meta(page, 'viewport', 'width=device-width, initial-scale=1' + (', viewport-fit=cover' if route == 'compare/index.html' else ''))
         target = canonical_route(route)
         default_title = page.title.get_text(' ', strip=True) if page.title else BRAND
         title, description = METADATA.get(target, UTILITY_METADATA.get(route, (default_title, default_description)))

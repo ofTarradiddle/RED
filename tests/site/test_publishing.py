@@ -137,7 +137,7 @@ def test_all_generated_routes_assets_and_anchors(snapshot):
             elif route.startswith('assets/'):
                 assert (ROOT/route).exists(),(path,link)
             else:
-                assert route in ('review/hetzerk-demo.xlsx', 'etfs/redi/fact-sheet.pdf') or route.endswith(('/holdings.csv','/daily.csv','/distributions.csv')),(path,link)
+                assert route in ('review/hetzerk-demo.xlsx', 'etfs/redi/fact-sheet.pdf', 'compare/data.json', 'compare/manifest.webmanifest') or route.endswith(('/holdings.csv','/daily.csv','/distributions.csv')),(path,link)
 
 
 def test_spread_and_data_labels_are_honest(snapshot):

@@ -1,0 +1,18 @@
+name: Daily REDI Compare updates
+
+on:
+  schedule:
+    # After the US regular-session close in both standard and daylight time.
+    - cron: '15 22 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  refresh:
+    # GitHub schedules run on the default branch. Keep the publisher on the
+    # active website branch and install this small scheduler on main as well.
+    uses: ofTarradiddle/RED/.github/workflows/refresh-comparison.yml@2026-sep-red

@@ -89,7 +89,7 @@ def render_home(html, fund):
     </main>
     <footer class="home-footer restored-footer">
       <div class="home-width">
-        <div class="home-footer-top"><p>Hetzerk Asset Management</p><nav aria-label="Footer navigation"><a href="/research/">Research</a><a href="/documents/">Fund documents</a><a href="/disclosures/">Disclosures</a><a href="/privacy/">Privacy</a></nav></div>
+        <div class="home-footer-top"><p>Hetzerk Asset Management</p><nav aria-label="Footer navigation"><a href="/compare/">REDI Compare</a><a href="/research/">Research</a><a href="/documents/">Fund documents</a><a href="/disclosures/">Disclosures</a><a href="/privacy/">Privacy</a></nav></div>
         <p class="home-risk">Investing involves risk, including possible loss of principal. Review the investment objective, risks, charges and expenses before investing.</p>
         <div class="home-footer-base border-t"><span>© <span class="current-year">2026</span> Hetzerk Asset Management</span><span data-perspective-word="">Perspective</span></div>
       </div>
