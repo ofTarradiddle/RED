@@ -159,7 +159,10 @@ final class ComparisonStore: ObservableObject {
         }
         let qualification = snapshot?.series.contains(where: { $0.id == "REDI" && $0.isIllustrative }) == true
             ? "\nREDI is illustrative prelaunch data, not an actual fund track record." : ""
-        return "REDI Compare · Hetzerk Asset Management\n\(result.start ?? "—") – \(result.end ?? "—")\n\(settings.basis.title) · \(settings.returnMode.title)\n\(lines.joined(separator: "\n"))\(qualification)\nDaily closing data. Past performance does not guarantee future results.\nhttps://oftarradiddle.github.io/RED/compare/"
+        let retained = snapshot?.series.filter { (["REDI"] + settings.peers).contains($0.id) && $0.status != "ok" }
+            .map { "\($0.id): source update unavailable; observations through \($0.asOf ?? "unavailable")." } ?? []
+        let sourceNote = retained.isEmpty ? "" : "\n" + retained.joined(separator: "\n")
+        return "REDI Compare · Hetzerk Asset Management\n\(result.start ?? "—") – \(result.end ?? "—")\n\(settings.basis.title) · \(settings.returnMode.title)\n\(lines.joined(separator: "\n"))\(qualification)\(sourceNote)\nDaily closing data. Past performance does not guarantee future results.\nhttps://oftarradiddle.github.io/RED/compare/"
     }
 
     private enum SnapshotError: Error { case unavailable, invalidResponse }

@@ -61,7 +61,6 @@ struct ContentView: View {
                 DevelopmentNotice { noticeDismissed = true }
             }
         }
-        .task { if store.snapshot == nil { await store.refresh() } }
     }
 }
 
@@ -160,7 +159,7 @@ private struct PublicationStatus: View {
         VStack(alignment: .leading, spacing: 10) {
             if let snapshot = store.snapshot {
                 Label {
-                    Text("Published \(Display.day(snapshot.marketRefreshAt ?? snapshot.generatedAt))")
+                    Text("Dataset published \(Display.day(snapshot.generatedAt))")
                 } icon: {
                     Image(systemName: store.isUsingCache ? "internaldrive" : "clock")
                 }
@@ -170,6 +169,15 @@ private struct PublicationStatus: View {
                     Text("Saved on this device · pull down to check for updates.")
                         .font(.caption)
                         .foregroundStyle(HetzerkTheme.muted)
+                }
+                ForEach(snapshot.series.filter { (["REDI"] + store.settings.peers).contains($0.id) && $0.status != "ok" }) { series in
+                    Label(series.observations.isEmpty
+                          ? "\(series.id): source history is unavailable."
+                          : "\(series.id): source update failed. Retained history through \(Display.day(series.asOf)).",
+                          systemImage: "exclamationmark.triangle")
+                        .font(.caption)
+                        .foregroundStyle(HetzerkTheme.yellow)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 if snapshot.series.contains(where: { $0.id == "REDI" && $0.isIllustrative }) {
                     Label("REDI is illustrative. Live fund performance will begin at inception.", systemImage: "exclamationmark.circle")
@@ -642,6 +650,10 @@ private struct MethodsView: View {
                                     Text("\(series.id) · \(series.source)").font(.subheadline.weight(.medium))
                                     Text("Observations through \(Display.day(series.asOf))")
                                         .font(.caption).foregroundStyle(HetzerkTheme.muted)
+                                    if series.status != "ok" {
+                                        Text(series.observations.isEmpty ? "Source unavailable" : "Source update failed · retained history")
+                                            .font(.caption).foregroundStyle(HetzerkTheme.yellow)
+                                    }
                                     if let sourceURL = series.sourceURL, let url = URL(string: sourceURL), ["https", "http"].contains(url.scheme ?? "") {
                                         Link("View source ↗", destination: url).font(.caption)
                                     }

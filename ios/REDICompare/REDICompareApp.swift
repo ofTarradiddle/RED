@@ -5,6 +5,7 @@ import REDICore
 @MainActor
 struct REDICompareApp: App {
     @StateObject private var store: ComparisonStore
+    @Environment(\.scenePhase) private var scenePhase
 
     init() {
         #if DEBUG
@@ -25,6 +26,9 @@ struct REDICompareApp: App {
                 .environmentObject(store)
                 .preferredColorScheme(.dark)
                 .task { await store.refresh() }
+                .onChange(of: scenePhase) { _, phase in
+                    if phase == .active { Task { await store.refresh() } }
+                }
         }
     }
 }
