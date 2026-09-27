@@ -56,6 +56,9 @@ project_settings = {
     'SDKROOT': 'iphoneos', 'CODE_SIGN_STYLE': 'Automatic', 'DEVELOPMENT_TEAM': '',
     'MARKETING_VERSION': '1.0', 'CURRENT_PROJECT_VERSION': '2', 'ENABLE_USER_SCRIPT_SANDBOXING': 'YES',
     'CLANG_WARN_DOCUMENTATION_COMMENTS': 'YES', 'GCC_C_LANGUAGE_STANDARD': 'gnu17',
+    # Xcode launched from Finder does not inherit a shell's Node path. Override
+    # this setting with an absolute installed Node executable when needed.
+    'ANNUAL_NODE_BINARY': '/opt/homebrew/bin/node',
 }
 project_configs = []
 app_configs = []
@@ -88,10 +91,14 @@ def configurations(key, configs):
 
 annual_resource = add('annual-resource-copy', 'PBXShellScriptBuildPhase', name='Bundle annual portfolio source',
                       buildActionMask=2147483647, files=[], runOnlyForDeploymentPostprocessing=0,
-                      inputPaths=['$(SRCROOT)/../data/annual-game/dataset.json'],
-                      outputPaths=['$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-game.json'],
+                      inputPaths=['$(SRCROOT)/../data/annual-game/dataset.json',
+                                  '$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-portfolio-engine.js',
+                                  '$(SRCROOT)/generate_annual_manifest.cjs', '$(ANNUAL_NODE_BINARY)'],
+                      outputPaths=['$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-game.json',
+                                   '$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-game-manifest.json'],
                       shellPath='/bin/sh',
-                      shellScript='/bin/cp "${SCRIPT_INPUT_FILE_0}" "${SCRIPT_OUTPUT_FILE_0}"\n')
+                      shellScript='set -eu\n/bin/cp "${SCRIPT_INPUT_FILE_0}" "${SCRIPT_OUTPUT_FILE_0}"\n'
+                                  '"${SCRIPT_INPUT_FILE_3}" "${SCRIPT_INPUT_FILE_2}" "${SCRIPT_INPUT_FILE_1}" "${SCRIPT_OUTPUT_FILE_0}" "${SCRIPT_OUTPUT_FILE_1}"\n')
 
 app_target = add('app-target', 'PBXNativeTarget', buildConfigurationList=configurations('app-configs', app_configs),
                  buildPhases=[phase('app-sources', 'PBXSourcesBuildPhase', source_builds),

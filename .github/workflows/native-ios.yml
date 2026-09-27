@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: '22'
       - name: Validate shared annual portfolio accounting
-        run: node --test tests/annual-portfolio.test.cjs
+        run: node --test tests/annual-portfolio.test.cjs ios/tests/annual-manifest.test.cjs
       - name: Validate native comparison calculations
         run: swift test --package-path ios/REDICore
       - name: Validate generated Xcode project
@@ -60,7 +60,7 @@ jobs:
           xcodebuild test -project ios/REDICompare.xcodeproj -scheme REDICompare \
             -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
             -derivedDataPath ios/DerivedData -resultBundlePath ios/build/NativeTests.xcresult \
-            CODE_SIGNING_ALLOWED=NO | tee native-build.log
+            CODE_SIGNING_ALLOWED=NO ANNUAL_NODE_BINARY="$(command -v node)" | tee native-build.log
       - name: Export simulator review screenshots
         if: always()
         run: |
@@ -73,7 +73,7 @@ jobs:
           set -o pipefail
           xcodebuild archive -project ios/REDICompare.xcodeproj -scheme REDICompare \
             -destination 'generic/platform=iOS' -archivePath ios/build/REDICompare-unsigned.xcarchive \
-            CODE_SIGNING_ALLOWED=NO | tee native-archive.log
+            CODE_SIGNING_ALLOWED=NO ANNUAL_NODE_BINARY="$(command -v node)" | tee native-archive.log
       - name: Retain native review build and test evidence
         if: always()
         uses: actions/upload-artifact@v4

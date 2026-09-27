@@ -262,6 +262,28 @@ test('save/load and deterministic replay reproduce every lot, exposure, attribut
   assert.deepEqual(Engine.score(data, Engine.restore(data, Engine.serialize(run))), Engine.score(data, run));
 });
 
+test('host-verified edition preparation preserves ordinary IDs, replay, and all source validation', () => {
+  const data = fixture(), ordinary = Engine.create(data), identical = clone(data);
+  const accelerated = Engine.createWithVerifiedEdition(identical, ordinary.datasetId);
+  assert.deepEqual(accelerated, ordinary);
+  let normal = ordinary, fast = accelerated;
+  for (const weights of [{A: 0.5, B: 0.25}, {B: 1}, {A: 0.5}]) {
+    normal = Engine.allocate(data, normal, weights); fast = Engine.allocate(identical, fast, weights);
+    assert.deepEqual(fast, normal);
+    assert.deepEqual(Engine.restore(identical, Engine.serialize(fast)), normal);
+  }
+  assert.deepEqual(Engine.score(identical, fast), Engine.score(data, normal));
+  for (const value of [undefined, null, '', 'annual-v1-incorrect']) {
+    assert.throws(() => Engine.createWithVerifiedEdition(clone(data), value), error => error.code === 'INVALID_VERIFIED_EDITION');
+  }
+  assert.throws(() => Engine.createWithVerifiedEdition(data, 'annual-v1-0000000000000000'), error => error.code === 'INVALID_VERIFIED_EDITION');
+  const invalid = clone(data); invalid.assets[0].points[1].adjustedClose = 0;
+  assert.throws(() => Engine.createWithVerifiedEdition(invalid, ordinary.datasetId), /positive/);
+  const missing = clone(data); missing.assets[0].points.splice(1, 1);
+  const blocked = Engine.createWithVerifiedEdition(missing, 'annual-v1-0000000000000000');
+  assert.throws(() => Engine.allocate(missing, blocked, {A: 1}), error => error.code === 'COVERAGE_GAP');
+});
+
 test('hundreds of fully allocated names retain exact canonical replay despite floating-point weight sums', () => {
   for (const count of [461, 473, 497, 503]) {
     const data = fixture();

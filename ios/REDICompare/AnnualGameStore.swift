@@ -1,6 +1,7 @@
 import Foundation
 import JavaScriptCore
 import SwiftUI
+import REDICore
 
 struct AnnualCoverage: Decodable {
     var complete: Bool
@@ -310,6 +311,11 @@ final class AnnualGameStore: ObservableObject {
         var errorDescription: String? { if case .message(let text) = self { return text }; return nil }
     }
     private nonisolated static func bootstrap(engineURL: URL, dataURL: URL, saved: String?) throws -> AnnualBootstrap {
+        let engineBytes = try Data(contentsOf: engineURL), datasetBytes = try Data(contentsOf: dataURL)
+        guard let engineText = String(data: engineBytes, encoding: .utf8),
+              let datasetText = String(data: datasetBytes, encoding: .utf8) else {
+            throw AnnualError.message("The bundled annual source is not valid UTF-8.")
+        }
         guard let runtime = JSContext() else { throw AnnualError.message("The annual game engine could not start.") }
         var message: String?
         runtime.exceptionHandler = { _, value in message = value?.toString() }
@@ -318,9 +324,20 @@ final class AnnualGameStore: ObservableObject {
             guard let value = runtime.evaluateScript(script), message == nil else { throw AnnualError.message(message ?? "The annual source could not load.") }
             return value
         }
-        _ = try evaluate(String(contentsOf: engineURL, encoding: .utf8))
-        runtime.setObject(try String(contentsOf: dataURL, encoding: .utf8), forKeyedSubscript: "annualText" as NSString)
-        _ = try evaluate("var annualData=JSON.parse(annualText); annualText=null; var annual=AnnualPortfolio; var annualRun=annual.create(annualData);")
+        _ = try evaluate(engineText)
+        let manifestURL = dataURL.deletingLastPathComponent().appendingPathComponent("annual-game-manifest.json")
+        let manifestBytes = try? Data(contentsOf: manifestURL)
+        let engineVersion = Int(try evaluate("AnnualPortfolio.VERSION").toInt32())
+        let verifiedID = AnnualBundleManifest.verifiedDatasetID(manifestData: manifestBytes,
+            engineData: engineBytes, datasetData: datasetBytes, engineVersion: engineVersion)
+        runtime.setObject(datasetText, forKeyedSubscript: "annualText" as NSString)
+        _ = try evaluate("var annualData=JSON.parse(annualText); annualText=null; var annual=AnnualPortfolio; var annualRun;")
+        if let verifiedID {
+            runtime.setObject(verifiedID, forKeyedSubscript: "annualVerifiedEdition" as NSString)
+            _ = try evaluate("annualRun=annual.createWithVerifiedEdition(annualData,annualVerifiedEdition); annualVerifiedEdition=null;")
+        } else {
+            _ = try evaluate("annualRun=annual.create(annualData)")
+        }
         var restored = false, warning: String?
         if let saved {
             runtime.setObject(saved, forKeyedSubscript: "annualSave" as NSString)

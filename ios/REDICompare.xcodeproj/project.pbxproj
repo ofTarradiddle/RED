@@ -252,6 +252,7 @@
 				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
 				"CLANG_WARN_DOCUMENTATION_COMMENTS" = "YES";
 				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"ANNUAL_NODE_BINARY" = "/opt/homebrew/bin/node";
 				"SWIFT_OPTIMIZATION_LEVEL" = "-Onone";
 				"ONLY_ACTIVE_ARCH" = "YES";
 				"DEBUG_INFORMATION_FORMAT" = "dwarf";
@@ -301,6 +302,7 @@
 				"ENABLE_USER_SCRIPT_SANDBOXING" = "YES";
 				"CLANG_WARN_DOCUMENTATION_COMMENTS" = "YES";
 				"GCC_C_LANGUAGE_STANDARD" = "gnu17";
+				"ANNUAL_NODE_BINARY" = "/opt/homebrew/bin/node";
 				"SWIFT_OPTIMIZATION_LEVEL" = "-O";
 				"ONLY_ACTIVE_ARCH" = "NO";
 				"DEBUG_INFORMATION_FORMAT" = "dwarf-with-dsym";
@@ -342,10 +344,10 @@
 			"buildActionMask" = 2147483647;
 			"files" = ();
 			"runOnlyForDeploymentPostprocessing" = 0;
-			"inputPaths" = ("$(SRCROOT)/../data/annual-game/dataset.json",);
-			"outputPaths" = ("$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-game.json",);
+			"inputPaths" = ("$(SRCROOT)/../data/annual-game/dataset.json", "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-portfolio-engine.js", "$(SRCROOT)/generate_annual_manifest.cjs", "$(ANNUAL_NODE_BINARY)",);
+			"outputPaths" = ("$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-game.json", "$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-game-manifest.json",);
 			"shellPath" = "/bin/sh";
-			"shellScript" = "/bin/cp \"${SCRIPT_INPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			"shellScript" = "set -eu\n/bin/cp \"${SCRIPT_INPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_0}\"\n\"${SCRIPT_INPUT_FILE_3}\" \"${SCRIPT_INPUT_FILE_2}\" \"${SCRIPT_INPUT_FILE_1}\" \"${SCRIPT_OUTPUT_FILE_0}\" \"${SCRIPT_OUTPUT_FILE_1}\"\n";
 		};
 		"4867F1BF372A84237FA0A5A7" = {
 			"isa" = "XCConfigurationList";

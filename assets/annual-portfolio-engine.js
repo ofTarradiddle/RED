@@ -66,9 +66,14 @@
     return (a >>> 0).toString(16).padStart(8, '0') + (b >>> 0).toString(16).padStart(8, '0');
   }
 
-  function prepare(data) {
+  function prepare(data, verifiedDatasetId) {
     if (!object(data)) fail('The annual portfolio dataset is unavailable.');
-    if (cache.has(data)) return cache.get(data);
+    if (verifiedDatasetId !== undefined && (typeof verifiedDatasetId !== 'string' || !/^annual-v1-[a-f0-9]{16}$/.test(verifiedDatasetId))) fail('Invalid verified annual edition identifier.', 'INVALID_VERIFIED_EDITION');
+    if (cache.has(data)) {
+      const prepared = cache.get(data);
+      if (verifiedDatasetId !== undefined && verifiedDatasetId !== prepared.datasetId) fail('The verified edition conflicts with the prepared source.', 'INVALID_VERIFIED_EDITION');
+      return prepared;
+    }
     if ((data.schema_version ?? data.schemaVersion) !== 1 || !date(data.asOf) || !Array.isArray(data.assets) || !Array.isArray(data.rounds) || !data.rounds.length) fail('A supported dated annual portfolio dataset is required.');
     if (data.rounds.length > 100 || data.assets.length > 5000) fail('This dataset exceeds the supported annual exercise size.');
     const assets = new Map();
@@ -128,7 +133,7 @@
       source: provenance(data.source || null), sources: provenance(data.sources || [])
     };
     const catalog = {assets, rounds, asOf: data.asOf, frequency: data.frequency || 'monthly', benchmarkAssetId,
-      datasetId: 'annual-v1-' + fingerprint(identity), coverage: new Map()};
+      datasetId: verifiedDatasetId === undefined ? 'annual-v1-' + fingerprint(identity) : verifiedDatasetId, coverage: new Map()};
     cache.set(data, catalog);
     return catalog;
   }
@@ -288,6 +293,14 @@
     return seal(rebuilt);
   }
   function create(data) { return seal(initial(prepare(data))); }
+  // Native bundles may skip only the expensive edition hash after their host
+  // verifies a build-generated manifest against SHA-256 of BOTH exact source
+  // and engine bytes. This is not a validation API for user-submitted IDs.
+  // All source/price/calendar validation and canonical replay remain enabled.
+  function createWithVerifiedEdition(data, verifiedDatasetId) {
+    if (verifiedDatasetId === undefined) fail('A host-verified edition is required.', 'INVALID_VERIFIED_EDITION');
+    return seal(initial(prepare(data, verifiedDatasetId)));
+  }
   function current(data, run) {
     const catalog = prepare(data), state = checked(catalog, run);
     if (state.status !== 'active') return null;
@@ -444,6 +457,6 @@
   }
   function replay(data, actions) { return seal(replayInternal(prepare(data), actions)); }
 
-  return Object.freeze({VERSION, DISCLOSURE, create, current, validateAllocation, allocate, portfolio, companyHistory, outcomes,
+  return Object.freeze({VERSION, DISCLOSURE, create, createWithVerifiedEdition, current, validateAllocation, allocate, portfolio, companyHistory, outcomes,
     score, serialize, restore, replay, validDate: date, datasetId: data => prepare(data).datasetId});
 });
