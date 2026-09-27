@@ -63,6 +63,7 @@ test_configs = []
 for name in ('Debug', 'Release'):
     debug = name == 'Debug'
     settings = dict(project_settings, SWIFT_OPTIMIZATION_LEVEL='-Onone' if debug else '-O',
+                    ONLY_ACTIVE_ARCH='YES' if debug else 'NO',
                     DEBUG_INFORMATION_FORMAT='dwarf' if debug else 'dwarf-with-dsym',
                     ENABLE_TESTABILITY='YES' if debug else 'NO',
                     SWIFT_ACTIVE_COMPILATION_CONDITIONS='DEBUG' if debug else '')
