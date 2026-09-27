@@ -67,3 +67,13 @@ data/shadow_spy/
 .coverage
 htmlcov/
 .pytest_cache/
+
+# Native Apple builds and personal signing settings
+ios/**/.build/
+ios/DerivedData/
+ios/build/
+ios/**/*.xcuserstate
+ios/**/xcuserdata/
+ios/**/*.xcarchive/
+ios/**/*.xcresult/
+ios/Signing.xcconfig

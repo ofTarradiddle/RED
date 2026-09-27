@@ -1,0 +1,82 @@
+name: Build native REDI iOS app
+
+on:
+  push:
+    branches: [2026-sep-red]
+    paths: ['ios/**', '.github/workflows/native-ios.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 35
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate native comparison calculations
+        run: swift test --package-path ios/REDICore
+      - name: Validate generated Xcode project
+        run: |
+          python3 ios/generate_project.py
+          git diff --exit-code -- ios/REDICompare.xcodeproj
+          xcodebuild -version
+      - name: Select available iPhone simulator
+        id: simulator
+        run: |
+          python3 - <<'PY'
+          import json, os, re, subprocess
+          devices = json.loads(subprocess.check_output(['xcrun', 'simctl', 'list', 'devices', 'available', '-j']))['devices']
+          for runtime in sorted(devices, key=lambda value: [int(n) for n in re.findall(r'\d+', value)], reverse=True):
+              if '.iOS-' not in runtime:
+                  continue
+              phones = [device for device in devices[runtime] if device['isAvailable'] and device['name'].startswith('iPhone')]
+              if phones:
+                  device = phones[0]
+                  with open(os.environ['GITHUB_OUTPUT'], 'a') as out:
+                      out.write('id=' + device['udid'] + '\n')
+                  print('Testing:', device['name'], runtime)
+                  break
+          else:
+              raise SystemExit('No available iPhone simulator')
+          PY
+      - name: Build and exercise native screens
+        env:
+          SIMULATOR_ID: ${{ steps.simulator.outputs.id }}
+        run: |
+          set -o pipefail
+          xcodebuild test -project ios/REDICompare.xcodeproj -scheme REDICompare \
+            -destination "platform=iOS Simulator,id=$SIMULATOR_ID" \
+            -derivedDataPath ios/DerivedData -resultBundlePath ios/build/NativeTests.xcresult \
+            CODE_SIGNING_ALLOWED=NO | tee native-build.log
+      - name: Export simulator review screenshots
+        if: always()
+        run: |
+          mkdir -p ios/build/screenshots
+          if [ -d ios/build/NativeTests.xcresult ]; then
+            xcrun xcresulttool export attachments --path ios/build/NativeTests.xcresult --output-path ios/build/screenshots
+          fi
+      - name: Verify unsigned device archive
+        run: |
+          set -o pipefail
+          xcodebuild archive -project ios/REDICompare.xcodeproj -scheme REDICompare \
+            -destination 'generic/platform=iOS' -archivePath ios/build/REDICompare-unsigned.xcarchive \
+            CODE_SIGNING_ALLOWED=NO | tee native-archive.log
+      - name: Retain native review build and test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: redi-native-review
+          retention-days: 14
+          path: |
+            ios/build/screenshots
+            ios/build/REDICompare-unsigned.xcarchive
+            native-build.log
+            native-archive.log
