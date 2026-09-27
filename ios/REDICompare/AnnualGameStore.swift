@@ -198,7 +198,7 @@ struct AnnualCompanyPoint: Decodable, Identifiable {
     var invested: Bool
     var id: String { date }
 }
-struct AnnualCompanyHistory: Decodable {
+struct AnnualCompanyHistory: Decodable, Identifiable {
     var id: String
     var name: String
     var ticker: String?

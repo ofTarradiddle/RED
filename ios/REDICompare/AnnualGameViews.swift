@@ -26,7 +26,6 @@ struct AnnualGameScreen: View {
     @State private var onlySelected = false
     @State private var company: AnnualCompany?
     @State private var ownedHistory: AnnualCompanyHistory?
-    @State private var showOwnedHistory = false
     @State private var showQuick = false
     @State private var showRules = false
     @State private var showScores = false
@@ -74,7 +73,7 @@ struct AnnualGameScreen: View {
                 }
             }
             .sheet(item: $company) { item in AnnualCompanySheet(company: item, game: game) }
-            .sheet(isPresented: $showOwnedHistory) { if let ownedHistory { AnnualOwnedHistorySheet(history: ownedHistory) } }
+            .sheet(item: $ownedHistory) { history in AnnualOwnedHistorySheet(history: history) }
             .sheet(isPresented: $showRules) { rules }
             .sheet(isPresented: $showScores) { scores }
             .sheet(isPresented: $showQuick) {
@@ -285,7 +284,7 @@ struct AnnualGameScreen: View {
             Button("View verified device scores") { showScores = true }.font(.subheadline)
         }
     }
-    private func openHistory(_ id: String) { ownedHistory = game.companyHistory(id); showOwnedHistory = ownedHistory != nil }
+    private func openHistory(_ id: String) { ownedHistory = game.companyHistory(id) }
     private func smallMetric(_ label: String, _ value: String) -> some View {
         VStack(alignment: .leading, spacing: 5) { Text(value).font(.caption.monospaced().weight(.semibold)); Text(label).font(.caption2).foregroundStyle(HetzerkTheme.muted) }.frame(maxWidth: .infinity, alignment: .leading)
     }
