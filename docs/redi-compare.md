@@ -36,6 +36,38 @@ there is no App Store binary or brokerage connection.
 
 ## Refresh and publication
 
+### Supplied research comparison
+
+Compare's research view uses `data/comparison_research.json`: nine supplied
+monthly cumulative level series from August 31, 2002 through August 31, 2026.
+Predicted innovation is selected by default. Every research series can be
+selected or removed, and any of the five observed ETF peers can be added.
+The chart and statistics use only common completed month-ends and rebase each
+selected series to 100 on the first shared date. ETF inception and stored
+history may shorten the comparison period.
+
+The exact uploaded table is retained at
+`data/research/comparison-monthly-levels.tsv` and published as
+`compare/research-source.tsv`. The importer pins all 2,601 two-decimal source
+levels, including the 0.99 starting values in the innovation variants. These
+are cumulative levels, not monthly return percentages or log-return increments.
+Strategy definitions and fee, trading-cost and distribution conventions were
+not supplied; no adjustment is inferred. ETF distributions continue to be
+reinvested using the existing daily market-price calculation before sampling.
+
+This upload does not replace the ETF page's PDF-based chart. That chart retains
+`data/strategy_research.json` and `compare/research.json`; the new comparison
+uses `compare/comparison-research.json`. Both public research datasets and the
+uploaded table are included in Compare's scoped offline cache.
+
+```sh
+python -m scripts.import_comparison_research
+python -m pytest tests/test_comparison_research_import.py -q
+node --test tests/strategy-research-math.test.cjs
+```
+
+### ETF observations
+
 ```sh
 python -m scripts.refresh_comparison --strict
 python -m publishing.build

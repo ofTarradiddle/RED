@@ -93,7 +93,7 @@ def render_comparison():
         'id': 'comparison-research', 'role': 'tabpanel', 'hidden': '',
         'aria-labelledby': 'comparison-research-tab', 'data-comparison-view-panel': 'research',
     })
-    research_view.append(BeautifulSoup(render_strategy_research('compare-research'), 'html.parser').section)
+    research_view.append(BeautifulSoup(render_strategy_research('compare-research', mode='comparison'), 'html.parser').section)
     main.append(research_view)
     research_link = page.select_one('.compare-dock a[href="#methodology"]')
     research_link['href'] = '#comparison-research'

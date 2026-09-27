@@ -8,7 +8,9 @@ const ALLOWED = new Set(FILES.map(path => new URL(path, self.location.origin).hr
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE);
-    await cache.addAll(FILES);
+    // A new revision must fetch its matching scripts/data instead of inheriting
+    // a still-fresh HTTP-cache copy from the preceding app edition.
+    await cache.addAll(FILES.map(url => new Request(url, {cache: 'reload'})));
     await self.skipWaiting();
   })());
 });

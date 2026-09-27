@@ -3,6 +3,7 @@
   const hosts = Array.from(document.querySelectorAll('[data-strategy-research]'));
   if (!hosts.length) return;
   const colors = {INNOVATION_LEADER:'#df7480', LAGGARD:'#d7b47c', MARKET_BACKTEST:'#aeb2b8', MARKET_EQUAL_WEIGHT:'#8fb0a5', NON_RD:'#9b9caa', SPY:'#94b7c9', VOO:'#a4b998', QQQ:'#dfab9b', ITAN:'#b8a0d8', SYLD:'#8fb7a9'};
+  const comparisonColors = {MARKET:'#d5b775', MARKET_CAP:'#d6d0ba', NON_RD:'#aeb2c8', RD_OTHER:'#80bca9', INNOVATION:'#e5a279', PREDICTED_INNOVATION:'#f07d8c', INNOVATION_150_75:'#91b9d8', INNOVATION_200_100:'#b99ae2', INNOVATION_250_125:'#d0a0be', SPY:'#85d1d3', VOO:'#bfd088', QQQ:'#e9c088', ITAN:'#c7b7ed', SYLD:'#a4cbb0'};
   const ETF_IDS = ['SPY','VOO','QQQ','ITAN','SYLD'];
   const defaults = ['INNOVATION_LEADER','LAGGARD','MARKET_BACKTEST'];
   const number = new Intl.NumberFormat('en-US', {maximumFractionDigits:2, minimumFractionDigits:2});
@@ -30,48 +31,58 @@
     Object.entries(attributes).forEach(([key, val]) => result.setAttribute(key, String(val)));
     if (value !== undefined) result.textContent = value; return result;
   }
-  function savedPreferences() {
-    try { const value = JSON.parse(localStorage.getItem('hetzerk-strategy-research-v1') || 'null'); return value && typeof value === 'object' ? value : null; } catch (_) { return null; }
+  function savedPreferences(key) {
+    try { const value = JSON.parse(localStorage.getItem(key) || 'null'); return value && typeof value === 'object' ? value : null; } catch (_) { return null; }
   }
 
   hosts.forEach(host => {
     const $ = name => host.querySelector('[data-sr-' + name + ']');
     const all = selector => Array.from(host.querySelectorAll(selector));
     const chart = $('chart'), cursor = $('cursor');
-    let research = null, market = null, result = null, ids = defaults.slice(), period = 'ALL', scale = 'log';
+    const comparisonMode = host.dataset.srMode === 'comparison';
+    const palette = comparisonMode ? comparisonColors : colors;
+    const storageKey = comparisonMode ? 'hetzerk-comparison-research-v1' : 'hetzerk-strategy-research-v1';
+    let referenceId = comparisonMode ? 'PREDICTED_INNOVATION' : 'INNOVATION_LEADER';
+    let research = null, market = null, result = null, ids = comparisonMode ? [referenceId, 'INNOVATION', 'MARKET'] : defaults.slice(), period = 'ALL', scale = 'log';
     let geometry = null, focusLine = null, focusDots = [], selectionIndex = null, missingMarket = false;
-    const saved = savedPreferences();
+    let emphasizedId = null;
+    const saved = savedPreferences(storageKey);
     if (saved) {
-      if (Array.isArray(saved.ids)) ids = ['INNOVATION_LEADER', ...Array.from(new Set(saved.ids.filter(id => typeof id === 'string' && id !== 'INNOVATION_LEADER'))).slice(0,3)];
+      if (Array.isArray(saved.ids)) ids = comparisonMode ? Array.from(new Set(saved.ids.filter(id => typeof id === 'string'))) : [referenceId, ...Array.from(new Set(saved.ids.filter(id => typeof id === 'string' && id !== referenceId))).slice(0,3)];
       if (['ALL','1Y','5Y','10Y'].includes(saved.period)) period = saved.period;
       if (['log','linear'].includes(saved.scale)) scale = saved.scale;
     }
     function write(name, value) { const target = $(name); if (target) target.textContent = value; }
-    function save() { try { localStorage.setItem('hetzerk-strategy-research-v1', JSON.stringify({ids, period, scale})); } catch (_) {} }
+    function save() { try { localStorage.setItem(storageKey, JSON.stringify({ids, period, scale})); } catch (_) {} }
     function warning(value) { write('warning', value); $('warning').hidden = !value; }
     function chip(series, isETF) {
       const label = element('label','sr-chip'), input = document.createElement('input');
+      if (comparisonMode && series.id === referenceId) label.classList.add('sr-preferred-chip');
       input.type = 'checkbox'; input.value = series.id; input.checked = ids.includes(series.id);
       input.setAttribute('data-sr-choice','');
-      const caption = element('span'), swatch = element('i'); swatch.style.backgroundColor = colors[series.id] || '#b4968e'; swatch.setAttribute('aria-hidden','true');
+      const caption = element('span'), swatch = element('i'); swatch.style.backgroundColor = palette[series.id] || '#b4968e'; swatch.setAttribute('aria-hidden','true');
       caption.append(swatch, document.createTextNode(isETF ? series.id : series.name));
+      if (comparisonMode && series.id === referenceId) caption.append(element('small', '', 'REFERENCE'));
+      if (comparisonMode && series.source_column) label.title = 'Source column: ' + series.source_column;
       if (isETF && (!series.observations || !series.observations.length || series.status === 'unavailable')) {
         input.disabled = true; label.title = series.id + ' historical data is unavailable.';
       }
       input.addEventListener('change', () => {
         const selection = all('[data-sr-choice]:checked').map(item => item.value);
-        if (selection.length > 3) { input.checked = false; warning('Choose up to three comparison series alongside Innovation Leader.'); return; }
-        ids = ['INNOVATION_LEADER', ...selection]; selectionIndex = null; save(); render();
+        if (!comparisonMode && selection.length > 3) { input.checked = false; warning('Choose up to three comparison series alongside Innovation Leader.'); return; }
+        ids = comparisonMode ? selection : [referenceId, ...selection]; selectionIndex = null; save(); render();
       });
       label.append(input,caption); return label;
     }
     function choices() {
       const validIDs = new Set([...research.series.map(series => series.id), ...ETF_IDS]);
       ids = ids.filter(id => validIDs.has(id));
-      if (!ids.includes('INNOVATION_LEADER')) ids.unshift('INNOVATION_LEADER');
+      if (!comparisonMode && !ids.includes(referenceId)) ids.unshift(referenceId);
       const group = $('research-chips');
       Array.from(group.children).forEach(child => { if (!child.classList.contains('sr-reference-chip')) child.remove(); });
-      research.series.filter(series => series.id !== 'INNOVATION_LEADER').forEach(series => group.append(chip(series,false)));
+      const cohorts = research.series.filter(series => comparisonMode || series.id !== referenceId);
+      if (comparisonMode) cohorts.sort((a,b) => Number(b.id === referenceId) - Number(a.id === referenceId));
+      cohorts.forEach(series => group.append(chip(series,false)));
       const peers = $('etf-chips'); peers.replaceChildren();
       ETF_IDS.forEach(id => {
         const item = market && market.series && market.series.find(series => series.id === id);
@@ -100,7 +111,16 @@
         const asOf = series.kind === 'etf' && point.observedDate !== day ? ' (close ' + date(point.observedDate) + ')' : '';
         return series.name + ' ' + number.format(point.value) + asOf;
       });
-      write('readout', month(day) + ' · ' + values.join(' · '));
+      if (comparisonMode) {
+        const readout = $('readout'); readout.replaceChildren(element('strong', 'sr-readout-date', month(day)));
+        result.series.forEach(series => {
+          const point = series.points[selectionIndex], item = element('span', 'sr-readout-series'), swatch = element('i');
+          swatch.style.backgroundColor = palette[series.id] || '#b4968e'; swatch.setAttribute('aria-hidden', 'true');
+          item.append(swatch, element('span', '', series.name), element('strong', '', number.format(point.value)));
+          if (series.kind === 'etf' && point.observedDate !== day) item.append(element('small', '', 'Close ' + date(point.observedDate)));
+          readout.append(item);
+        });
+      } else write('readout', month(day) + ' · ' + values.join(' · '));
       const x = geometry.x(selectionIndex);
       focusLine.setAttribute('x1',x); focusLine.setAttribute('x2',x);
       focusDots.forEach((dot,i) => { dot.setAttribute('cx',x); dot.setAttribute('cy',geometry.y(result.series[i].points[selectionIndex].value)); });
@@ -141,22 +161,25 @@
       }
       result.series.slice().reverse().forEach(series => {
         const path = series.points.map((point,index) => (index?'L':'M')+x(index).toFixed(2)+','+y(point.value).toFixed(2)).join(' ');
-        chart.append(vector('path',{d:path,class:'sr-series-line',stroke:colors[series.id]||'#b4968e','stroke-width':series.id==='INNOVATION_LEADER'?2.8:1.8,'vector-effect':'non-scaling-stroke'}));
+        const attributes = {d:path,class:'sr-series-line',stroke:palette[series.id]||'#b4968e','stroke-width':series.id===referenceId?2.8:1.8,'vector-effect':'non-scaling-stroke','data-sr-line':series.id};
+        if (comparisonMode && series.kind === 'etf') attributes['stroke-dasharray'] = '5 4';
+        chart.append(vector('path', attributes));
       });
       focusLine = vector('line',{x1:left,y1:top,x2:left,y2:height-bottom,class:'sr-focus-line','aria-hidden':'true'}); chart.append(focusLine);
       result.series.forEach(series => {
-        const dot = vector('circle',{cx:left,cy:y(100),r:series.id==='INNOVATION_LEADER'?4.5:3.5,fill:colors[series.id]||'#b4968e',class:'sr-focus-point','aria-hidden':'true'});
+        const dot = vector('circle',{cx:left,cy:y(100),r:series.id===referenceId?4.5:3.5,fill:palette[series.id]||'#b4968e',class:'sr-focus-point','aria-hidden':'true','data-sr-line':series.id});
         chart.append(dot); focusDots.push(dot);
       });
       cursor.min='0'; cursor.max=String(result.dates.length-1); cursor.step='1';
       inspect(selectionIndex === null ? result.dates.length-1 : selectionIndex);
+      emphasize();
     }
     function table() {
       const body = $('table'); body.replaceChildren();
       if (!result.series.length) { const row=element('tr'),cell=element('td','','No shared period is available for this selection.');cell.colSpan=4;row.append(cell);body.append(row);return; }
       result.series.forEach(series => {
         const row=element('tr'),label=element('th','',series.name);label.scope='row';
-        label.append(element('small','',series.kind==='research'?'RESEARCH BACKTEST':'ETF · DISTRIBUTIONS REINVESTED'));row.append(label);
+        label.append(element('small','',series.kind==='research'?(comparisonMode?'RESEARCH SERIES':'RESEARCH BACKTEST'):'ETF · DISTRIBUTIONS REINVESTED'));row.append(label);
         ['change','cagr','drawdown'].forEach(key => {
           const value=series.metrics[key],cell=element('td','',typeof value==='number'&&Number.isFinite(value)?percentage.format(value):'—');
           if (key==='cagr' && (value===null||value===undefined))cell.title='Annualized growth requires at least one year of shared observations.';
@@ -167,14 +190,33 @@
     }
     function legend() {
       const list=$('legend');list.replaceChildren();
-      result.series.forEach(series=>{const item=element('li'),swatch=element('span','sr-legend-swatch');swatch.style.backgroundColor=colors[series.id]||'#b4968e';swatch.setAttribute('aria-hidden','true');item.append(swatch,document.createTextNode(series.name));list.append(item);});
+      result.series.forEach(series=>{
+        const item=element('li'),swatch=element('span','sr-legend-swatch');swatch.style.backgroundColor=palette[series.id]||'#b4968e';swatch.setAttribute('aria-hidden','true');
+        if (comparisonMode) {
+          const button=element('button','sr-legend-button');button.type='button';button.dataset.srEmphasize=series.id;button.setAttribute('aria-label','Emphasize '+series.name);button.setAttribute('aria-pressed',String(emphasizedId===series.id));
+          if(series.kind==='etf')swatch.classList.add('is-dashed');
+          button.append(swatch,document.createTextNode(series.name));button.addEventListener('click',()=>{emphasizedId=emphasizedId===series.id?null:series.id;emphasize();});item.append(button);
+        } else item.append(swatch,document.createTextNode(series.name));
+        list.append(item);
+      });
+    }
+    function emphasize() {
+      if (!comparisonMode) return;
+      all('[data-sr-line]').forEach(item=>item.classList.toggle('is-muted',Boolean(emphasizedId && item.dataset.srLine!==emphasizedId)));
+      all('[data-sr-emphasize]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.srEmphasize===emphasizedId)));
     }
     function render() {
       all('[data-sr-period]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.srPeriod===period)));
       all('[data-sr-scale]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.srScale===scale)));
       if (!research) return;
+      all('[data-sr-choice]').forEach(input=>{input.checked=ids.includes(input.value);});
+      if (comparisonMode) {
+        const researchCount=research.series.filter(series=>ids.includes(series.id)).length,etfCount=ids.filter(id=>ETF_IDS.includes(id)).length;
+        write('selection-status',researchCount+' research series · '+etfCount+' ETF'+(etfCount===1?'':'s'));
+      }
       try {
         result=window.HetzerkResearchMath.compare(research,market||{series:[]},{ids,period});
+        if(emphasizedId && !result.series.some(series=>series.id===emphasizedId))emphasizedId=null;
         write('status',result.dates.length+' shared month-end observations');
         write('range',result.start?date(result.start)+' — '+date(result.end)+' · Starting value 100':'No shared monthly history');
         const messages=[...(result.warnings||[]),...(result.excluded||[]).map(item=>item.id+': '+item.reason)];
@@ -186,6 +228,18 @@
     }
     all('[data-sr-period]').forEach(button=>button.addEventListener('click',()=>{period=button.dataset.srPeriod;selectionIndex=null;save();render();}));
     all('[data-sr-scale]').forEach(button=>button.addEventListener('click',()=>{scale=button.dataset.srScale;save();render();}));
+    all('[data-sr-select]').forEach(button=>button.addEventListener('click',()=>{
+      if(!research)return;
+      const action=button.dataset.srSelect;
+      if(action==='none')ids=[];
+      else if(action==='reference')ids=[referenceId];
+      else {
+        const researchIDs=[referenceId,...research.series.map(series=>series.id).filter(id=>id!==referenceId)];
+        const etfIDs=action==='all'?all('[data-sr-choice]').filter(input=>ETF_IDS.includes(input.value)&&!input.disabled).map(input=>input.value):ids.filter(id=>ETF_IDS.includes(id));
+        ids=[...researchIDs,...etfIDs];
+      }
+      selectionIndex=null;emphasizedId=null;save();render();
+    }));
     cursor.addEventListener('input',()=>inspect(Number(cursor.value)));
     function pointer(event){if(!geometry||!result)return;const box=chart.getBoundingClientRect(),position=(event.clientX-box.left)/box.width*geometry.width,index=Math.round((position-geometry.left)/(geometry.width-geometry.left-geometry.right)*(result.dates.length-1));inspect(index);}
     chart.addEventListener('pointermove',pointer);chart.addEventListener('pointerdown',pointer);
@@ -198,6 +252,7 @@
         if(loaded[0].status!=='fulfilled')throw loaded[0].reason;
         research=loaded[0].value;
         window.HetzerkResearchMath.researchSeries(research);
+        if(comparisonMode && typeof research.reference_series_id==='string')referenceId=research.reference_series_id;
         if(loaded[1].status==='fulfilled')market=loaded[1].value;else missingMarket=true;
         choices();source();render();
       }catch(failure){write('status','Source observations unavailable');warning(failure.message+' No research observations have been estimated.');result=null;plot();write('empty','The monthly source record is unavailable. Please reconnect and reload this page.');}
@@ -229,6 +284,6 @@
     const params=new URL(location.href).searchParams;let initial=params.get('view');
     if(!initial&&location.hash==='#comparison-research')initial='research';
     if(!initial){try{initial=localStorage.getItem('hetzerk-comparison-view');}catch(_){}}
-    select(initial||'etf');
+    select(initial||'research');
   }
 })();

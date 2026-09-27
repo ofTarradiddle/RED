@@ -10,9 +10,22 @@
   'use strict';
   const DAY = 86400000;
   const RESEARCH_IDS = ['INNOVATION_LEADER', 'LAGGARD', 'MARKET_BACKTEST', 'MARKET_EQUAL_WEIGHT', 'NON_RD'];
+  const COMPARISON_IDS = ['MARKET', 'MARKET_CAP', 'NON_RD', 'RD_OTHER', 'INNOVATION', 'PREDICTED_INNOVATION',
+    'INNOVATION_150_75', 'INNOVATION_200_100', 'INNOVATION_250_125'];
   const ETF_IDS = ['SPY', 'VOO', 'QQQ', 'ITAN', 'SYLD'];
   const positive = value => typeof value === 'number' && Number.isFinite(value) && value > 0;
   const stamp = date => Date.parse(date + 'T00:00:00Z');
+
+  function configuration(payload) {
+    if (payload && payload.id === 'hetzerk-comparison-research') {
+      if (payload.reference_series_id !== 'PREDICTED_INNOVATION') throw new Error('The supplied comparison reference is invalid.');
+      return {ids: COMPARISON_IDS, referenceId: 'PREDICTED_INNOVATION', referenceName: 'Predicted innovation',
+        defaults: ['PREDICTED_INNOVATION', 'INNOVATION', 'MARKET'], requiredReference: false};
+    }
+    if (payload && payload.reference_series_id && payload.reference_series_id !== 'INNOVATION_LEADER') throw new Error('Unknown research reference.');
+    return {ids: RESEARCH_IDS, referenceId: 'INNOVATION_LEADER', referenceName: 'Innovation Leader',
+      defaults: ['INNOVATION_LEADER', 'LAGGARD', 'MARKET_BACKTEST'], requiredReference: true};
+  }
 
   function monthEnd(date) {
     if (!marketMath.validDate(date)) throw new Error('Invalid observation date.');
@@ -37,9 +50,9 @@
     if (!payload || payload.schema_version !== 1 || payload.frequency !== 'monthly' || !Array.isArray(payload.series)) {
       throw new Error('A supported monthly research dataset is required.');
     }
-    const seen = new Set();
+    const config = configuration(payload), seen = new Set();
     const output = payload.series.map(series => {
-      if (!RESEARCH_IDS.includes(series.id) || seen.has(series.id)) throw new Error('Unknown or repeated research series.');
+      if (!config.ids.includes(series.id) || seen.has(series.id)) throw new Error('Unknown or repeated research series.');
       seen.add(series.id);
       let previous = '';
       if (!Array.isArray(series.observations) || !series.observations.length) throw new Error('Research history is empty.');
@@ -89,18 +102,18 @@
     if (!marketMath) throw new Error('Comparison calculations are unavailable.');
     const period = options.period || 'ALL';
     if (!['ALL', '1Y', '5Y', '10Y'].includes(period)) throw new Error('Unsupported research period.');
-    const ids = options.ids || ['INNOVATION_LEADER', 'LAGGARD', 'MARKET_BACKTEST'];
-    if (!Array.isArray(ids) || new Set(ids).size !== ids.length || ids.some(id => ![...RESEARCH_IDS, ...ETF_IDS].includes(id))) {
+    const config = configuration(research), ids = options.ids || config.defaults;
+    if (!Array.isArray(ids) || new Set(ids).size !== ids.length || ids.some(id => ![...config.ids, ...ETF_IDS].includes(id))) {
       throw new Error('Unknown or repeated comparison selection.');
     }
-    const requested = ids.includes('INNOVATION_LEADER') ? ids : ['INNOVATION_LEADER', ...ids];
+    const requested = !config.requiredReference || ids.includes(config.referenceId) ? ids : [config.referenceId, ...ids];
     const sources = researchSeries(research), warnings = [], excluded = [], prepared = [];
     const peers = market && Array.isArray(market.series) ? market.series : [];
     const publishedDay = market && typeof market.generated_at === 'string' ? market.generated_at.slice(0, 10) : '';
     const completedThrough = marketMath.validDate(publishedDay) ? publishedDay : new Date().toISOString().slice(0, 10);
     for (const id of requested) {
       let series;
-      if (RESEARCH_IDS.includes(id)) series = sources.find(item => item.id === id);
+      if (config.ids.includes(id)) series = sources.find(item => item.id === id);
       else {
         const peer = peers.find(item => item.id === id);
         if (peer && peer.status !== 'unavailable') {
@@ -112,9 +125,11 @@
       if (!series || !series.points.length) excluded.push({id, reason: 'No usable month-end observations are available.'});
       else prepared.push({...series, index: new Map(series.points.map(point => [point.date, point]))});
     }
-    const empty = {series: [], dates: [], start: null, end: null, period, warnings, excluded, reason: null};
-    const reference = prepared.find(series => series.id === 'INNOVATION_LEADER');
-    if (!reference) return {...empty, reason: 'Innovation Leader research is unavailable.'};
+    const reference = prepared.find(series => series.id === config.referenceId) || (!config.requiredReference && prepared[0]);
+    const empty = {series: [], dates: [], start: null, end: null, period, warnings, excluded,
+      referenceId: reference ? reference.id : config.referenceId, reason: null};
+    if (!reference) return {...empty, reason: !requested.length ? 'Select at least one research series or ETF.'
+      : config.requiredReference ? config.referenceName + ' research is unavailable.' : 'The selected series have no usable month-end observations.'};
     let dates = reference.points.map(point => point.date).filter(date => prepared.every(series => series.index.has(date)));
     if (!dates.length) return {...empty, reason: 'The selected series do not share an observed closing month.'};
     const cutoff = cutoffDate(dates[dates.length - 1], period);

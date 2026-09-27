@@ -45,8 +45,9 @@ Thumbs.db
 *.log
 logs/
 
-# Data files - exclude research data files (too large for git)
-data/research/
+# Research inputs are private/large by default; retain the published comparison source.
+data/research/*
+!data/research/comparison-monthly-levels.tsv
 
 # Cache
 .cache/

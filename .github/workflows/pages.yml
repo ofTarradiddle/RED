@@ -39,7 +39,7 @@ jobs:
           node-version: '22'
       - name: Check public pages
         run: |
-          python -m pytest tests/site tests/test_comparison_data.py tests/test_strategy_research_import.py -q
+          python -m pytest tests/site tests/test_comparison_data.py tests/test_strategy_research_import.py tests/test_comparison_research_import.py -q
           python -m pytest tests/test_annual_universe.py tests/test_annual_filings.py tests/test_annual_release.py tests/test_annual_excerpt.py -q
           node --test tests/comparison-math.test.cjs tests/strategy-research-math.test.cjs
           node --test tests/innovation-game.test.cjs tests/innovation-arcade.test.cjs services/innovation-leaderboard/worker.test.mjs

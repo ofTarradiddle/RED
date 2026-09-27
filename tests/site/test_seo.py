@@ -126,6 +126,7 @@ def test_local_build_remains_noindex_without_fake_canonical(tmp_path):
 
 def test_strategy_research_is_separate_from_fund_data_and_cached_at_the_public_base_path(public):
     research = json.loads((public / 'compare/research.json').read_text())
+    comparison = json.loads((public / 'compare/comparison-research.json').read_text())
     market = json.loads((public / 'compare/data.json').read_text())
     assert research['frequency'] == 'monthly'
     assert research['source']['url'] == '/RED/research/the-measure-of-fire.html'
@@ -136,12 +137,23 @@ def test_strategy_research_is_separate_from_fund_data_and_cached_at_the_public_b
     assert market['series'][0]['is_illustrative'] is True
     worker = (public / 'compare/sw.js').read_text()
     assert '/RED/compare/research.json' in worker
+    assert '/RED/compare/comparison-research.json' in worker
+    assert '/RED/compare/research-source.tsv' in worker
+    assert comparison['reference_series_id'] == 'PREDICTED_INNOVATION'
+    assert comparison['source']['url'] == '/RED/compare/research-source.tsv'
+    assert len(comparison['series']) == 9
+    assert all(len(series['observations']) == 289 for series in comparison['series'])
+    predicted = next(series for series in comparison['series'] if series['id'] == 'PREDICTED_INNOVATION')
+    assert predicted['observations'][0] == {'date': '2002-08-31', 'level': 0.99}
+    assert predicted['observations'][-1] == {'date': '2026-08-31', 'level': 65.75}
+    assert (public / 'compare/research-source.tsv').read_bytes() == (ROOT / 'data/research/comparison-monthly-levels.tsv').read_bytes()
     for asset in ('strategy-research.css', 'strategy-research-math.js', 'strategy-research.js'):
         assert f'/RED/assets/{asset}' in worker
     for route in ('compare/index.html', 'etfs/redi/index.html'):
         page = parsed(public / route)
         assert len(page.select('[data-strategy-research]')) == 1
-        assert page.select_one('a[href="/RED/compare/research.json"]')
+        expected = 'comparison-research.json' if route == 'compare/index.html' else 'research.json'
+        assert page.select_one(f'a[href="/RED/compare/{expected}"]')
         scripts = [tag.get('src') for tag in page.select('script[src]')]
         assert scripts.index('/RED/assets/comparison-math.js') < scripts.index('/RED/assets/strategy-research-math.js')
 

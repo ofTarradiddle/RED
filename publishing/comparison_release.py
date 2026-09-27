@@ -116,6 +116,14 @@ def publish_comparison(stage, snapshot, *, base_path='', peer_path=None, live_pa
     research = validate_payload(json.loads((ROOT / 'data/strategy_research.json').read_text()))
     research['source']['url'] = base_path + research['source']['url']
     (folder / 'research.json').write_text(json.dumps(research, separators=(',', ':'), allow_nan=False))
+    from scripts.import_comparison_research import SOURCE_PATH, validate_payload as validate_comparison_research
+    comparison_research = validate_comparison_research(json.loads((ROOT / 'data/comparison_research.json').read_text()))
+    source_bytes = SOURCE_PATH.read_bytes()
+    if hashlib.sha256(source_bytes).hexdigest() != comparison_research['source']['sha256']:
+        raise ValueError('The downloadable comparison source does not match its reviewed dataset')
+    comparison_research['source']['url'] = base_path + comparison_research['source']['url']
+    (folder / 'comparison-research.json').write_text(json.dumps(comparison_research, separators=(',', ':'), allow_nan=False))
+    (folder / 'research-source.tsv').write_bytes(source_bytes)
     manifest = dict(id='./', name='REDI Compare · Hetzerk', short_name='REDI Compare',
                     description='Compare REDI with selected equity ETFs.', lang='en',
                     start_url='./', scope='./', display='standalone',
@@ -125,6 +133,7 @@ def publish_comparison(stage, snapshot, *, base_path='', peer_path=None, live_pa
     (folder / 'manifest.webmanifest').write_text(json.dumps(manifest, indent=2))
     files = [f'{base_path}/compare/', f'{base_path}/compare/index.html',
              f'{base_path}/compare/data.json', f'{base_path}/compare/research.json',
+             f'{base_path}/compare/comparison-research.json', f'{base_path}/compare/research-source.tsv',
              f'{base_path}/compare/manifest.webmanifest',
              *(f'{base_path}/assets/{name}' for name in APP_ASSETS)]
     digest = hashlib.sha256()

@@ -98,3 +98,51 @@ test('a near-month-end quote cannot create a closing month that had not complete
   assert.deepEqual(result.dates,['2024-08-31']);
   assert.equal(result.series[0].metrics.change,null);
 });
+
+const suppliedIds = ['MARKET','MARKET_CAP','NON_RD','RD_OTHER','INNOVATION','PREDICTED_INNOVATION',
+  'INNOVATION_150_75','INNOVATION_200_100','INNOVATION_250_125'];
+const uploaded = () => ({id:'hetzerk-comparison-research',schema_version:1,frequency:'monthly',
+  reference_series_id:'PREDICTED_INNOVATION',series:suppliedIds.map((id,index)=>({id,name:id,
+    observations:rows.map((row,i)=>({...row,level:i === 0 ? .99 : row.level*(index+1)}))}))});
+
+test('uploaded comparison defaults to Predicted innovation and retains its non-unit starting level',()=>{
+  const data=uploaded();
+  const result=math.compare(data,null);
+  assert.deepEqual(result.series.map(series=>series.id),['PREDICTED_INNOVATION','INNOVATION','MARKET']);
+  assert.equal(result.referenceId,'PREDICTED_INNOVATION');
+  near(result.series[0].points[0].value,100);
+  near(result.series[0].metrics.change,9/.99-1);
+  assert.throws(()=>math.compare({...data,reference_series_id:'INNOVATION_LEADER'},null),/reference/);
+  assert.throws(()=>math.compare(data,null,{ids:['LAGGARD']}),/Unknown/);
+});
+
+test('all nine supplied series and all five ETFs can share one comparison without a peer cap',()=>{
+  const data=uploaded(), etfs=['SPY','VOO','QQQ','ITAN','SYLD'];
+  const market={generated_at:'2024-04-01T00:00:00Z',series:etfs.map(id=>({...peer([
+    close('2023-12-29',100),close('2024-01-31',110),close('2024-02-29',120),close('2024-03-28',130)
+  ]).series[0],id}))};
+  const result=math.compare(data,market,{ids:[...suppliedIds,...etfs]});
+  assert.equal(result.series.length,14);
+  assert.equal(result.dates.length,4);
+  assert.equal(result.referenceId,'PREDICTED_INNOVATION');
+  result.series.forEach(series=>near(series.points[0].value,100));
+  const onlyETF=math.compare(data,market,{ids:['SPY']});
+  assert.deepEqual(onlyETF.series.map(series=>series.id),['SPY']);
+  near(onlyETF.series[0].metrics.change,.3);
+  assert.equal(onlyETF.referenceId,'SPY');
+  assert.match(math.compare(data,market,{ids:[]}).reason,/Select at least one/);
+  assert.deepEqual(math.compare(data,null,{ids:['INNOVATION_250_125']}).series.map(series=>series.id),['INNOVATION_250_125']);
+});
+
+test('the supplied file remains a distinct path from the PDF chart and is rebased rather than re-compounded',()=>{
+  const data=require('../data/comparison_research.json');
+  const result=math.compare(data,null,{ids:['PREDICTED_INNOVATION']});
+  assert.equal(result.dates.length,289);
+  assert.equal(result.start,'2002-08-31');
+  assert.equal(result.end,'2026-08-31');
+  near(result.series[0].metrics.change,65.75/.99-1);
+  const legacy=math.compare(require('../data/strategy_research.json'),null,{ids:[]});
+  assert.equal(legacy.series[0].id,'INNOVATION_LEADER');
+  assert.equal(legacy.start,'2003-04-30');
+  near(legacy.series[0].metrics.change,48.08-1);
+});
