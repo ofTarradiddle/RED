@@ -419,6 +419,7 @@ private struct ComparisonChartCard: View {
         .chartForegroundStyleScale(domain: result.series.map(\.id), range: result.series.map { HetzerkTheme.color(for: $0.id) })
         .chartLegend(.hidden)
         .chartYScale(domain: chartRange)
+        .chartXScale(range: .plotDimension(padding: 24))
         .chartXSelection(value: $selectedDate)
         .chartXAxis {
             AxisMarks(values: .automatic(desiredCount: 3)) {

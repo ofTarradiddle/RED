@@ -60,8 +60,9 @@ struct WingHMark: View {
             .fill(HetzerkTheme.red)
             .frame(width: size, height: size)
             .background(HetzerkTheme.ivory, in: RoundedRectangle(cornerRadius: size * 0.19))
-            .offset(y: lifted && !reduceMotion ? -2 : 0)
-            .animation(reduceMotion || !animated ? nil : .easeInOut(duration: 1.6).repeatForever(autoreverses: true), value: lifted)
+            .animation(reduceMotion || !animated ? nil : .easeInOut(duration: 1.6).repeatForever(autoreverses: true)) { content in
+                content.offset(y: lifted && !reduceMotion ? -2 : 0)
+            }
             .onAppear { lifted = animated && !reduceMotion }
             .onChange(of: reduceMotion) { _, value in lifted = animated && !value }
             .accessibilityHidden(true)
