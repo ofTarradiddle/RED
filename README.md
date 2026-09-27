@@ -182,3 +182,36 @@ python3 -m pytest tests/site tests/test_shadow_equity.py tests/test_library_safe
 Validated on 2026-09-22: 110 offline regression cases passed; the live benchmark test was excluded. The build completed for five funds, JavaScript syntax passed, 25 public URLs returned HTTP 200 and five internal paths returned 404. A scan of 691 text/workbook files found no remaining old-brand references. Workbook previews were visually inspected. Browser interaction/layout checks and live Yahoo/provider connectivity were not verified.
 
 The demo publisher intentionally rejects live-mode workbooks. A live release needs effective offering documents, verified identities, official data, licensed feeds, approved calculations, calendars, publication monitoring and provider/compliance review. Local builds do not deploy. The configured GitHub Pages workflow publishes the static site from `2026-sep-red` with Pages set to GitHub Actions.
+
+
+## Innovation Atlas and investing game
+
+Open **/innovation/** from the Research page or homepage footer. The page uses
+local Three.js assets for decorative animation, with a reduced-motion option,
+company timelines, return windows, and a $100 historical investing game. Progress
+and a replay-verified device leaderboard persist in browser local storage.
+
+The dated source snapshot and caches are versioned under `data/innovation/`.
+The initial edition contains 66 researched landmarks and 2,982 company-linked
+product/software discovery records. These are different evidence categories,
+not a claim to have audited every major invention. Yahoo adjusted closes are
+return proxies; missing security histories and historical financials remain
+unavailable. See [data methodology and refresh](docs/innovation-data.md).
+
+```sh
+python scripts/refresh_innovation.py --skip-catalog --skip-facts  # refresh prices
+python scripts/refresh_innovation.py --offline                  # rebuild from cache
+python -m publishing.build
+node --test tests/innovation-game.test.cjs services/innovation-leaderboard/worker.test.mjs
+```
+
+GitHub Pages serves the published snapshot; a visit does not refresh prices.
+After a reviewed refresh, commit the updated dataset and source caches to the
+website branch and push to publish. Refreshes are deliberately explicit because
+changed prices create a new game edition and separate its rankings. Do not update
+an active shared board without updating its trusted dataset digest as well.
+
+The [optional shared leaderboard](services/innovation-leaderboard/README.md)
+is implemented and tested but requires a Cloudflare account and D1 deployment.
+It verifies submitted decisions against a pinned dataset. No invented players are
+seeded, and the UI labels device and shared rankings separately.

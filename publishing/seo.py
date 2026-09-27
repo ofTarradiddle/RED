@@ -13,6 +13,8 @@ SOCIAL_IMAGE = '/assets/hetzerk-social.png'
 # Legacy research drafts, utility pages and aliases remain reachable but are
 # excluded from the sitemap of current search landing pages.
 METADATA = {
+    'innovation/index.html': ('Innovation Atlas & Investing Game | Hetzerk Asset Management',
+                              'Explore six decades of innovation, sourced company histories and historical stock returns. Start with $100 of fictional capital in the Hetzerk investing game.'),
     'index.html': ('Hetzerk Asset Management | Investing in Innovation, REDI for tomorrow',
                    'Explore the Hetzerk Innovation Factor ETF (REDI), its investment case, fund expenses and Section 351 contribution opportunities.'),
     'etfs/index.html': ('Our ETF — REDI | Hetzerk Asset Management',

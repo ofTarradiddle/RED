@@ -80,7 +80,15 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header('Cache-Control', 'no-store')
         self.send_header('X-Content-Type-Options', 'nosniff')
         self.send_header('Referrer-Policy', 'strict-origin-when-cross-origin')
-        self.send_header('Content-Security-Policy', "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'")
+        connect = "'self'"
+        try:
+            config = json.loads((ROOT / 'dist/innovation/config.json').read_text())
+            endpoint = urlsplit(config.get('leaderboardUrl') or '')
+            if endpoint.scheme == 'https' and endpoint.hostname and not endpoint.username and not endpoint.password:
+                connect += f' https://{endpoint.netloc}'
+        except (OSError, ValueError, TypeError):
+            pass
+        self.send_header('Content-Security-Policy', f"default-src 'self'; connect-src {connect}; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'")
         super().end_headers()
 
     def list_directory(self, path):

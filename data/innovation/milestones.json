@@ -1,0 +1,1721 @@
+[
+  {
+    "id": "ibm-1961-selectric-typewriter",
+    "assetId": "IBM",
+    "eventDate": "1961",
+    "datePrecision": "year",
+    "title": "Selectric typewriter",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A replaceable typing element changed office typing hardware.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/selectric"
+    ],
+    "decision": {
+      "marketOpportunity": "Can an improved interface earn a premium in a large installed office market? The commercial question is how much faster, more reliable typing is worth to an office replacing equipment it already owns.",
+      "investmentThesis": "IBM can reuse its office relationships, but engineering novelty still has to become a reliable product that customers choose to replace and maintain.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A premium machine can lose its advantage if service costs rise, rivals match the feature or customers postpone replacement."
+    },
+    "outcome": {
+      "spillovers": "A bridge between mechanical office tools and electronic text processing.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1962-shoebox-speech-recognition",
+    "assetId": "IBM",
+    "eventDate": "1962",
+    "datePrecision": "year",
+    "title": "Shoebox speech recognition",
+    "category": "Artificial intelligence",
+    "kind": "curated milestone",
+    "attributionRole": "Research demonstration",
+    "summary": "An experimental system recognized a small spoken vocabulary.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/voice-recognition"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a laboratory demonstration become a usable interface? The addressable use could extend to people who cannot easily operate a keyboard, but a demonstration is not yet a dependable business tool.",
+      "investmentThesis": "The next investment problem is moving from a small vocabulary in controlled conditions to useful recognition across speakers and environments.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Recognition errors and a narrow vocabulary could leave the technology without an economical application for years."
+    },
+    "outcome": {
+      "spillovers": "Voice interfaces demanded decades of further research before broad adoption.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1962-semiconductor-laser-demonstration",
+    "assetId": "IBM",
+    "eventDate": "1962",
+    "datePrecision": "year",
+    "title": "Semiconductor laser demonstration",
+    "category": "Networks",
+    "kind": "curated milestone",
+    "attributionRole": "One of several independent research teams",
+    "summary": "IBM demonstrated a semiconductor laser alongside independent work at GE and MIT.",
+    "sourceUrls": [
+      "https://research.ibm.com/blog/IEEE-semiconductor-laser-milestone"
+    ],
+    "decision": {
+      "marketOpportunity": "Could compact light sources create entirely new communication markets? Small light sources suggest new ways to move information, yet neither the practical system nor its eventual profit pool is settled.",
+      "investmentThesis": "The reinvestment path runs from a working device to reliable materials, production and complementary optical systems; research capability alone does not complete that path.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Reliability, operating conditions and complementary infrastructure may prevent a laboratory result from becoming a scalable product."
+    },
+    "outcome": {
+      "spillovers": "Optical communications depended on many later materials and reliability advances.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1964-system-360",
+    "assetId": "IBM",
+    "eventDate": "1964-04-07",
+    "datePrecision": "day",
+    "title": "System/360",
+    "category": "Computing",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A compatible mainframe family sought to preserve customers’ software investments.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/system-360"
+    ],
+    "decision": {
+      "marketOpportunity": "Will customers pay for compatibility rather than repeatedly rewriting software? A common architecture could let customers expand their computing needs without discarding software, turning a single purchase into a longer platform relationship.",
+      "investmentThesis": "IBM is committing to a family of compatible machines. The attraction is repeated demand across that family; the cost is coordinating an unusually large technical transition.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Delivery delays or compatibility failures could damage the installed base while the new family cannibalizes IBM’s existing product lines."
+    },
+    "outcome": {
+      "spillovers": "Compatibility helped expand software and peripheral ecosystems.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1966-single-transistor-dram-concept",
+    "assetId": "IBM",
+    "eventDate": "1966",
+    "datePrecision": "year",
+    "title": "Single-transistor DRAM concept",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Inventor research team",
+    "summary": "Robert Dennard developed a denser memory-cell concept at IBM.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/dram"
+    ],
+    "decision": {
+      "marketOpportunity": "Does greater memory density create demand beyond existing computers? Denser memory could reduce the cost of useful computing, but widespread adoption would also invite competing manufacturers into the same opportunity.",
+      "investmentThesis": "The economic test is whether device research can support manufacturable, reliable memory and whether IBM can retain value through products or intellectual property.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Manufacturing yields, alternative cell designs and falling component prices could separate industry adoption from inventor profits."
+    },
+    "outcome": {
+      "spillovers": "Memory manufacturing and competing architectures spread the economic benefits.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    },
+    "informationAvailableAt": "1968-12-31",
+    "informationAvailabilityNote": "The private 1966 idea was not public market information; the source dates the issued patent to 1968. The game conservatively waits until after that year."
+  },
+  {
+    "id": "ibm-1968-information-management-system",
+    "assetId": "IBM",
+    "eventDate": "1968",
+    "datePrecision": "year",
+    "title": "Information Management System",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Database and transaction software reached IBM mainframes.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/information-management-system"
+    ],
+    "decision": {
+      "marketOpportunity": "Can reusable information systems replace bespoke records and processing? Organizations managing many records need reliable retrieval and transactions, not just faster hardware. A reusable system could spread development cost across customers.",
+      "investmentThesis": "IBM can connect database software to its mainframe customer base. Continued investment must make the software dependable enough to become part of critical operations.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Complex installation, switching costs for customers and failures in critical transactions could slow adoption or raise support costs."
+    },
+    "outcome": {
+      "spillovers": "Persistent enterprise data and transaction processing became infrastructure.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1970-relational-database-model",
+    "assetId": "IBM",
+    "eventDate": "1970",
+    "datePrecision": "year",
+    "title": "Relational database model",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Research originator",
+    "summary": "Edgar Codd proposed organizing data through relations.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/relational-database"
+    ],
+    "decision": {
+      "marketOpportunity": "Will simpler data organization unlock uses beyond current hierarchical systems? Separating the way users ask questions from the way data is stored could reduce the effort required to build and change applications.",
+      "investmentThesis": "The research offers a reusable organizing principle. Capturing value still requires practical implementations, performance improvements and a product customers will pay to use.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A cleaner model may initially perform poorly on available hardware, and competitors can commercialize published ideas too."
+    },
+    "outcome": {
+      "spillovers": "Multiple firms commercialized the research in competing database products.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "intc-1971-4004-microprocessor",
+    "assetId": "INTC",
+    "eventDate": "1971-11-15",
+    "datePrecision": "day",
+    "title": "4004 microprocessor",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Intel commercialized a programmable processor originally developed for a calculator project.",
+    "sourceUrls": [
+      "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-intel-4004.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a reusable chip replace many purpose-built circuits? Programmability could spread the same underlying chip design across applications that previously required different circuits, improving the economics of reuse.",
+      "investmentThesis": "Intel’s opportunity is to connect processor design with production and customer tools, so each new application does not require rebuilding the whole system.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A versatile design is only useful if customers can program it economically; limited performance and alternative chip approaches could constrain demand."
+    },
+    "outcome": {
+      "spillovers": "Programmability lowered the barrier to building new electronic products.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1971-floppy-disk",
+    "assetId": "IBM",
+    "eventDate": "1971",
+    "datePrecision": "year",
+    "title": "Floppy disk",
+    "category": "Computing",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Removable magnetic media simplified loading and distributing data.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/floppy-disk"
+    ],
+    "decision": {
+      "marketOpportunity": "Does inexpensive removable storage expand software distribution? A removable medium could reduce the effort of installing instructions and moving files between machines, making more software use practical.",
+      "investmentThesis": "IBM can apply storage engineering to a small, repeatable product. Compatibility and dependable handling are as important to adoption as storage capacity.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Media reliability, competing storage formats and incompatible drives could keep customers from adopting a common distribution medium."
+    },
+    "outcome": {
+      "spillovers": "Packaged software became easier to distribute and install.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1973-universal-product-code",
+    "assetId": "IBM",
+    "eventDate": "1973",
+    "datePrecision": "year",
+    "title": "Universal Product Code",
+    "category": "Networks",
+    "kind": "curated milestone",
+    "attributionRole": "Standards contributor / engineering team",
+    "summary": "George Laurer’s IBM team helped create the adopted retail barcode.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/upc"
+    ],
+    "decision": {
+      "marketOpportunity": "Will retailers coordinate around a shared identification standard? The potential customer benefit comes from faster checkout and better inventory information, but it requires coordination beyond any single manufacturer.",
+      "investmentThesis": "IBM’s engineering must connect a readable symbol with scanners and retail systems. The value of a standard grows when other participants also commit to it.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Retailers and suppliers may not coordinate, and a widely adopted open standard may leave much of the economic benefit with customers or competitors."
+    },
+    "outcome": {
+      "spillovers": "Inventory, logistics and point-of-sale information became more connected.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "intc-1974-8080-processor",
+    "assetId": "INTC",
+    "eventDate": "1974",
+    "datePrecision": "year",
+    "title": "8080 processor",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "An eight-bit processor extended programmable computing.",
+    "sourceUrls": [
+      "https://www.intel.com/pressroom/kits/quickrefyr.htm"
+    ],
+    "decision": {
+      "marketOpportunity": "Can microprocessors move beyond embedded tasks into general computing? More capable programmable chips could give smaller firms a route into computing without designing a processor from scratch.",
+      "investmentThesis": "Intel must support the chip with usable tools and supply. The business opportunity depends on customers building enough successful systems around it.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A processor can be technically attractive yet lose designs to rivals with better cost, availability or supporting software."
+    },
+    "outcome": {
+      "spillovers": "Microcomputer makers built systems around increasingly capable chips.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "sony-1968-trinitron-television",
+    "assetId": "SONY",
+    "eventDate": "1968",
+    "datePrecision": "year",
+    "title": "Trinitron television",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A new color-picture architecture followed costly earlier manufacturing difficulties.",
+    "sourceUrls": [
+      "https://www.sony.com/SonyInfo/CorporateInfo/History/sonyhistory-c.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Can differentiated picture quality justify investment in a difficult production process? A visibly better picture might support a premium, provided buyers notice the difference and factories can reproduce it at acceptable cost.",
+      "investmentThesis": "Sony’s proposed advantage combines display design with production learning. Reinvestment must improve manufacturing economics as well as the viewing experience.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Low production yields or a premium that customers will not pay could overwhelm the value of superior picture quality."
+    },
+    "outcome": {
+      "spillovers": "Picture quality and manufacturing know-how influenced premium electronics competition.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "sony-1975-betamax",
+    "assetId": "SONY",
+    "eventDate": "1975",
+    "datePrecision": "year",
+    "title": "Betamax",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Sony entered home videocassette recording with Betamax.",
+    "sourceUrls": [
+      "https://www.sony.com/en/SonyInfo/CorporateInfo/History/SonyHistory/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will technical quality or ecosystem adoption determine the winning format? Home recording offers a new use for the television, but customers also need confidence that machines, tapes and available content will work together.",
+      "investmentThesis": "Sony must build more than a recorder: manufacturing, distribution and an appealing format ecosystem all affect the return on development spending.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Competing formats, content availability and partner adoption could outweigh technical advantages; a standard can lose even if the underlying product works well."
+    },
+    "outcome": {
+      "spillovers": "Format competition illustrates why a valuable technology need not win its market.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "intc-1978-8086-architecture",
+    "assetId": "INTC",
+    "eventDate": "1978",
+    "datePrecision": "year",
+    "title": "8086 architecture",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Intel introduced the processor that began the x86 family.",
+    "sourceUrls": [
+      "https://www.intel.com/content/www/us/en/history/virtual-vault/articles/the-8086-and-the-ibm-pc.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Can instruction-set compatibility create durable demand across hardware generations? Customers choosing a processor also make commitments to software and future product designs, creating the possibility of repeat demand across generations.",
+      "investmentThesis": "Intel’s investment must support both chip capability and the ecosystem around the instruction set. Compatibility has economic value only while the platform stays useful.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Rival architectures, weaker system-maker support or a costly transition from earlier designs could limit the benefits of compatibility."
+    },
+    "outcome": {
+      "spillovers": "A wider PC ecosystem helped amplify the architecture’s adoption.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "sony-1979-walkman",
+    "assetId": "SONY",
+    "eventDate": "1979",
+    "datePrecision": "year",
+    "title": "Walkman",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Portable stereo listening became a distinct consumer product.",
+    "sourceUrls": [
+      "https://www.sony.com/en/SonyInfo/CorporateInfo/History/SonyHistory/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will listeners pay to take private high-quality music outside the home? The product asks consumers to make listening a personal, portable activity, creating a use case distinct from a shared home stereo.",
+      "investmentThesis": "Sony can recombine existing audio engineering into a simpler portable experience. The opportunity is product design and distribution, not ownership of recorded music.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A fashionable device may be easy to imitate, while comfort, battery use and retail pricing determine whether early curiosity becomes sustained demand."
+    },
+    "outcome": {
+      "spillovers": "Portable listening expanded demand for media, headphones and later digital devices.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ibm-1981-ibm-personal-computer",
+    "assetId": "IBM",
+    "eventDate": "1981-08-12",
+    "datePrecision": "day",
+    "title": "IBM Personal Computer",
+    "category": "Computing",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "IBM entered personal computing using a broadly extensible architecture.",
+    "sourceUrls": [
+      "https://www.ibm.com/history/personal-computer"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a large enterprise brand help expand the personal-computer market? IBM’s name could reduce buyers’ uncertainty, while external components and software could accelerate the availability of useful applications.",
+      "investmentThesis": "The architecture draws on outside suppliers to reach market. That can expand adoption, but the investor must ask which participant retains the bargaining power.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Compatible alternatives could compete away hardware margins, and essential suppliers may capture more value than the company assembling the system."
+    },
+    "outcome": {
+      "spillovers": "Compatible hardware and software expanded the market while distributing profits across firms.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "phg-1982-compact-disc-commercialization",
+    "assetId": "PHG",
+    "eventDate": "1982",
+    "datePrecision": "year",
+    "title": "Compact Disc commercialization",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Co-developer with Sony",
+    "summary": "Philips and Sony jointly developed the compact-disc system.",
+    "sourceUrls": [
+      "https://www.documents.philips.com/assets/20231121/e8420b1113354a0a9c23b0c10048cea7.pdf"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a new digital format overcome an established analog installed base? Listeners must see enough benefit to buy new players and recordings rather than continue using collections and equipment they already own.",
+      "investmentThesis": "Philips and Sony are coordinating a format and playback system. The investment case requires compatible hardware and a sufficiently attractive recorded catalog.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Expensive players, limited titles and reluctance to replace existing collections could delay adoption; format success need not produce equal profits for its sponsors."
+    },
+    "outcome": {
+      "spillovers": "Digital optical media later supported software and data distribution.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-1984-macintosh",
+    "assetId": "AAPL",
+    "eventDate": "1984-01-24",
+    "datePrecision": "day",
+    "title": "Macintosh",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Commercializer building on prior graphical-interface research",
+    "summary": "Apple brought an integrated graphical personal computer to market.",
+    "sourceUrls": [
+      "https://support.apple.com/en-ca/112190"
+    ],
+    "decision": {
+      "marketOpportunity": "Will ease of use broaden demand enough to support a premium system? A graphical interface could make computing useful to people unwilling to learn command-based tools, but a premium device needs applications that justify its price.",
+      "investmentThesis": "Apple is integrating the user experience rather than selling a standalone component. The return depends on useful software, production execution and continued platform investment.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A small application catalog, limited system capability or a high purchase price could restrict demand despite an appealing interface."
+    },
+    "outcome": {
+      "spillovers": "Desktop publishing and graphical applications broadened personal computing.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "msft-1985-windows-1-0",
+    "assetId": "MSFT",
+    "eventDate": "1985",
+    "datePrecision": "year",
+    "title": "Windows 1.0",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A graphical operating environment extended Microsoft’s PC software.",
+    "sourceUrls": [
+      "https://news.microsoft.com/about/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a software layer make disparate computers easier to use? A common graphical layer could give users and application developers a more consistent experience across compatible PCs.",
+      "investmentThesis": "Microsoft must turn interface development into a platform that software makers want to support, while keeping hardware and application compatibility manageable.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Users may see too little benefit to change their workflows; a platform without compelling applications can struggle to attract either side of the market."
+    },
+    "outcome": {
+      "spillovers": "A platform can attract complementary applications without manufacturing the hardware.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "intc-1985-intel386",
+    "assetId": "INTC",
+    "eventDate": "1985",
+    "datePrecision": "year",
+    "title": "Intel386",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A 32-bit processor advanced the x86 product family.",
+    "sourceUrls": [
+      "https://www.intel.com/pressroom/kits/quickrefyr.htm"
+    ],
+    "decision": {
+      "marketOpportunity": "Will greater capability sustain upgrades while preserving compatibility? Higher capability can expand what a PC does, but business customers still need reasons to upgrade applications and equipment together.",
+      "investmentThesis": "Intel must deliver a more capable design while preserving a path for existing software. Reuse across product generations is the proposed source of repeat demand.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Software may lag the hardware, customers may defer upgrades, and rival suppliers may challenge the price premium."
+    },
+    "outcome": {
+      "spillovers": "More powerful PCs could serve workloads once reserved for larger systems.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ntdoy-1989-game-boy",
+    "assetId": "NTDOY",
+    "eventDate": "1989",
+    "datePrecision": "year",
+    "title": "Game Boy",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Portable gaming combined dedicated hardware with interchangeable games.",
+    "sourceUrls": [
+      "https://www.nintendo.com/en-gb/Corporate/Nintendo-History/Nintendo-History-625945.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Does affordable portability matter more than the most advanced display? Portable play creates value through convenience, price and time away from a television, rather than display performance alone.",
+      "investmentThesis": "Nintendo’s investment combines a practical handheld with games people want to keep buying. Battery life, manufacturing and software availability are connected economic decisions.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A limited game catalog or poor portability could reduce repeat use; competing devices can redirect both players and developers."
+    },
+    "outcome": {
+      "spillovers": "Software franchises and portable devices reinforced each other.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "msft-1989-microsoft-office",
+    "assetId": "MSFT",
+    "eventDate": "1989",
+    "datePrecision": "year",
+    "title": "Microsoft Office",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A productivity suite bundled related desktop applications.",
+    "sourceUrls": [
+      "https://news.microsoft.com/about/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can integrated applications earn a durable place in business workflows? A suite could reduce the friction of moving information between everyday business tasks and simplify purchasing decisions for employers.",
+      "investmentThesis": "Microsoft can reuse interface conventions and document workflows across applications. The economic case rests on continued usefulness and integration, not bundling alone.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Customers may prefer strong standalone alternatives, resist paying for unused applications or face compatibility problems that undermine integration."
+    },
+    "outcome": {
+      "spillovers": "Document compatibility and workflow habits became part of enterprise software economics.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nok-1992-nokia-1011-gsm-phone",
+    "assetId": "NOK",
+    "eventDate": "1992",
+    "datePrecision": "year",
+    "title": "Nokia 1011 GSM phone",
+    "category": "Networks",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Nokia launched an early mass-produced GSM handset.",
+    "sourceUrls": [
+      "https://www.nokia.com/blog/thirty-years-on-from-the-call-that-transformed-how-we-communicate/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will a common digital standard expand the addressable mobile market? A shared digital-network standard could make a larger handset market possible, but demand also depends on network coverage and service pricing.",
+      "investmentThesis": "Nokia’s role is to connect radio engineering and manufacturable handsets with an emerging operator ecosystem. Standardization can expand scale while attracting more rivals.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Network rollout delays, costly service plans and competing handset suppliers could keep volume or margins below expectations."
+    },
+    "outcome": {
+      "spillovers": "Digital mobile networks supported a broader devices and services ecosystem.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "intc-1993-pentium-processor",
+    "assetId": "INTC",
+    "eventDate": "1993",
+    "datePrecision": "year",
+    "title": "Pentium processor",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A new processor generation extended Intel’s PC platform.",
+    "sourceUrls": [
+      "https://www.intel.com/pressroom/kits/quickrefyr.htm"
+    ],
+    "decision": {
+      "marketOpportunity": "Can higher performance maintain upgrade demand and protect pricing? More performance could support new applications and repeat purchases, but the investor must distinguish useful capability from a specification race.",
+      "investmentThesis": "Intel must translate design and process improvements into reliable high-volume output, with enough customer benefit to justify the next purchase.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Design defects, manufacturing costs or applications that do not need the extra speed could weaken the expected upgrade cycle."
+    },
+    "outcome": {
+      "spillovers": "Processor advances supported increasingly demanding desktop applications.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "adbe-1993-portable-document-format",
+    "assetId": "ADBE",
+    "eventDate": "1993",
+    "datePrecision": "year",
+    "title": "Portable Document Format",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "PDF sought to preserve document appearance across systems.",
+    "sourceUrls": [
+      "https://www.adobe.com/acrobat/about-adobe-pdf.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a portable format solve a coordination problem across incompatible computers? Document portability could remove repeated reformatting and printing problems when organizations use different computers and software.",
+      "investmentThesis": "Adobe is investing in a document standard and the tools around it. The central economic question is which useful activities remain monetizable as distribution broadens.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A format may become valuable to users without generating strong paid demand; rival standards and interoperability problems can weaken adoption."
+    },
+    "outcome": {
+      "spillovers": "Portable documents enabled cross-platform digital publishing and archiving.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "sony-1994-playstation",
+    "assetId": "SONY",
+    "eventDate": "1994",
+    "datePrecision": "year",
+    "title": "PlayStation",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Sony entered console gaming with a disc-based platform.",
+    "sourceUrls": [
+      "https://www.sony.com/en/SonyInfo/CorporateInfo/History/SonyHistory/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can distribution and developer support establish a new gaming platform? A new console can succeed only if players expect worthwhile games and developers expect an audience large enough to support development costs.",
+      "investmentThesis": "Sony’s hardware investment has to be matched by developer relationships and distribution. Platform economics depend on participation on both sides, not hardware sales alone.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Weak early titles, expensive development or competing platforms could interrupt the feedback between console adoption and new games."
+    },
+    "outcome": {
+      "spillovers": "The platform connected hardware, software publishers and entertainment distribution.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "msft-1995-windows-95",
+    "assetId": "MSFT",
+    "eventDate": "1995-08-24",
+    "datePrecision": "day",
+    "title": "Windows 95",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A major consumer operating-system release unified a new desktop experience.",
+    "sourceUrls": [
+      "https://news.microsoft.com/about/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will a familiar interface and software compatibility sustain a broad upgrade cycle? A broad release can stimulate purchases by users and PC makers, but the durable question is whether the new environment makes existing work meaningfully better.",
+      "investmentThesis": "Microsoft must coordinate an operating-system transition with hardware and application partners. Familiarity and compatibility can reduce the cost of adoption.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Installation problems, incompatible applications and customers satisfied with older systems could slow upgrades or increase support burdens."
+    },
+    "outcome": {
+      "spillovers": "A common platform lowered distribution costs for complementary software.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "tm-1997-prius-hybrid-commercialization",
+    "assetId": "TM",
+    "eventDate": "1997",
+    "datePrecision": "year",
+    "title": "Prius hybrid commercialization",
+    "category": "Mobility",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Toyota introduced a mass-produced hybrid passenger car.",
+    "sourceUrls": [
+      "https://global.toyota/en/prius20th/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can fuel savings and a new powertrain attract buyers despite higher complexity? Fuel savings offer a practical benefit, but buyers must weigh them against vehicle price, reliability concerns and unfamiliar technology.",
+      "investmentThesis": "Toyota is combining existing automotive scale with new power electronics and battery integration. Manufacturing learning must make the more complex powertrain economical.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Battery cost, uncertain resale value, fuel-price changes and service requirements could leave customer savings too small to justify the purchase premium."
+    },
+    "outcome": {
+      "spillovers": "Hybrid engineering spread electrified vehicle capabilities through the automotive supply chain.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-1998-imac",
+    "assetId": "AAPL",
+    "eventDate": "1998-05-06",
+    "datePrecision": "day",
+    "title": "iMac",
+    "category": "Computing",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "An integrated consumer desktop emphasized design and internet use.",
+    "sourceUrls": [
+      "https://www.apple.com/ca/fr/press/1998/05/iMac.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a distinctive product rebuild a fragmented brand and product range? A simpler, distinctive desktop could attract households that find existing computers intimidating, while making Apple’s offering easier to understand.",
+      "investmentThesis": "Apple is concentrating design and integration around a recognizable product. The investor must judge whether the buying experience and useful applications support repeat demand.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Design appeal may not offset price, software availability or customers’ concerns about compatibility and expandability."
+    },
+    "outcome": {
+      "spillovers": "Integrated design and distribution can change the economics of familiar technology.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nvda-1999-geforce-gpu",
+    "assetId": "NVDA",
+    "eventDate": "1999",
+    "datePrecision": "year",
+    "title": "GeForce GPU",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A graphics processor integrated more of the rendering pipeline.",
+    "sourceUrls": [
+      "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will real-time graphics demand sustain specialized processor investment? Improved real-time graphics could make specialized processing valuable to game players and software creators, provided applications use the capability.",
+      "investmentThesis": "NVIDIA must pair parallel chip architecture with dependable software support. Continued investment is required to make the hardware useful across new graphics workloads.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Rapid product cycles, competing chips and uneven software support could erode pricing before development costs are recovered."
+    },
+    "outcome": {
+      "spillovers": "Graphics processors later served workloads beyond rendering.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "msft-2001-xbox",
+    "assetId": "MSFT",
+    "eventDate": "2001",
+    "datePrecision": "year",
+    "title": "Xbox",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Microsoft entered game-console hardware and software distribution.",
+    "sourceUrls": [
+      "https://news.microsoft.com/about/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a software company build a competitive consumer platform? A console market offers a new route into consumer entertainment, but an installed software business does not automatically bring a gaming audience.",
+      "investmentThesis": "Microsoft’s investment combines a device, games and supporting services. The economic challenge is building a platform people and developers repeatedly choose.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Upfront platform costs can be large, and an incumbent’s content or installed base may keep customers and developers from switching."
+    },
+    "outcome": {
+      "spillovers": "Gaming ecosystems joined devices, software sales and network services.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-2001-ipod",
+    "assetId": "AAPL",
+    "eventDate": "2001-10-23",
+    "datePrecision": "day",
+    "title": "iPod",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Apple introduced a portable digital music player integrated with its software.",
+    "sourceUrls": [
+      "https://www.apple.com/newsroom/2001/10/23Apple-Presents-iPod/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can simplicity and integration differentiate a crowded portable-music category? Portable music is already a market; the proposed opportunity is making the experience of organizing, carrying and playing it substantially easier.",
+      "investmentThesis": "Apple connects device design with desktop software. The investment case depends on the complete experience justifying demand beyond a standalone hardware feature.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Rival players may compete on price or compatibility, while a closed experience can limit the audience and raise dependence on a particular software ecosystem."
+    },
+    "outcome": {
+      "spillovers": "Portable media helped extend a computing company into consumer devices.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "amzn-2006-aws-infrastructure-services",
+    "assetId": "AMZN",
+    "eventDate": "2006",
+    "datePrecision": "year",
+    "title": "AWS infrastructure services",
+    "category": "Internet",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Amazon offered storage and computing infrastructure as services.",
+    "sourceUrls": [
+      "https://aws.amazon.com/about-aws/our-origins/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will developers rent capacity rather than build and operate their own infrastructure? Paying for capacity as needed could reduce customers’ upfront commitments and shorten the time required to start a software business.",
+      "investmentThesis": "Amazon is turning computing operations into reusable services. The commercial test is whether utilization and reliable delivery support attractive economics as demand grows.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Service failures, low utilization and price competition can damage a capital-intensive model; customers may keep sensitive workloads on their own systems."
+    },
+    "outcome": {
+      "spillovers": "On-demand infrastructure lowered upfront costs for many software businesses.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nvda-2006-cuda",
+    "assetId": "NVDA",
+    "eventDate": "2006",
+    "datePrecision": "year",
+    "title": "CUDA",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A programming platform exposed GPUs to general-purpose parallel work.",
+    "sourceUrls": [
+      "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will developers invest in a specialized platform outside graphics? A programmer’s time is part of the cost of using hardware. Easier access to parallel processing could make GPUs useful for more than their original graphics purpose.",
+      "investmentThesis": "NVIDIA must fund tools and developer support alongside processors, accepting that software adoption may take time to translate into hardware demand.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Developers may avoid a specialized platform, existing code may be costly to adapt, and competing programming approaches can dilute the advantage."
+    },
+    "outcome": {
+      "spillovers": "A developer ecosystem connected graphics hardware to scientific computing and AI.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-2007-iphone-announcement",
+    "assetId": "AAPL",
+    "eventDate": "2007-01-09",
+    "datePrecision": "day",
+    "title": "iPhone announcement",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Apple combined a touch interface, phone and internet functions.",
+    "sourceUrls": [
+      "https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will users accept a new interface and premium integrated device? Combining several functions could increase how often a device is used, but consumers must find the integrated experience worth a premium and a carrier commitment.",
+      "investmentThesis": "Apple is coordinating hardware, a touch interface and software rather than relying on a single component. The case depends on delivering the complete experience reliably.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Battery life, network performance, input preferences and incumbent responses could limit adoption; an ambitious launch can also create supply and quality risks."
+    },
+    "outcome": {
+      "spillovers": "The mobile-computing ecosystem expanded beyond voice communication.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "amzn-2007-kindle",
+    "assetId": "AMZN",
+    "eventDate": "2007",
+    "datePrecision": "year",
+    "title": "Kindle",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A dedicated reader connected digital books to online distribution.",
+    "sourceUrls": [
+      "https://www.aboutamazon.com/news/devices/a-look-back-at-10-years-of-the-amazon-kindle"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a convenient device and catalog change how people buy and read books? A connected reader could make obtaining books easier and support a portable library, but readers and publishers must both find the format attractive.",
+      "investmentThesis": "Amazon is joining a dedicated device with book distribution. Repeat content purchases could matter as much as the initial hardware sale.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Limited titles, publisher terms, device pricing and readers’ attachment to print may slow adoption or leave weak hardware economics."
+    },
+    "outcome": {
+      "spillovers": "Publishers, authors and readers gained a new route to digital distribution.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "googl-2008-android-commercial-devices",
+    "assetId": "GOOGL",
+    "eventDate": "2008",
+    "datePrecision": "year",
+    "title": "Android commercial devices",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Platform commercializer after acquiring Android",
+    "summary": "An open mobile platform reached consumer handsets.",
+    "sourceUrls": [
+      "https://blog.google/products-and-platforms/platforms/android/android-anniversary-tv-auto-wear/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a shared software platform coordinate competing device makers? A shared platform could lower the cost for different manufacturers to offer capable smartphones and create a larger audience for mobile software.",
+      "investmentThesis": "Google must coordinate software, developer tools and hardware partners. An open approach can encourage participation while making consistency harder to control.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Fragmented devices, inconsistent updates and conflicting partner incentives can reduce quality; a broad ecosystem does not guarantee direct revenue for its sponsor."
+    },
+    "outcome": {
+      "spillovers": "A common platform expanded mobile application distribution.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "googl-2008-chrome-browser",
+    "assetId": "GOOGL",
+    "eventDate": "2008",
+    "datePrecision": "year",
+    "title": "Chrome browser",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Google introduced a browser engineered for increasingly complex web applications.",
+    "sourceUrls": [
+      "https://blog.google/products-and-platforms/products/chrome/happy-10th-birthday-chrome-best-yet-come/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will investment in a free browser strengthen the broader web ecosystem? More capable web applications could increase the value of internet use, giving a free browser an economic purpose beyond selling browser licenses.",
+      "investmentThesis": "Google is investing in performance and a dependable execution environment. The investor must assess the indirect benefit to its wider services rather than assume a separate browser profit stream.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "A free product has no automatic payback, distribution may favor incumbents and security or compatibility failures can undermine user trust."
+    },
+    "outcome": {
+      "spillovers": "Faster web platforms enabled more capable browser-based software.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-2008-app-store",
+    "assetId": "AAPL",
+    "eventDate": "2008",
+    "datePrecision": "year",
+    "title": "App Store",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A centralized storefront distributed third-party mobile applications.",
+    "sourceUrls": [
+      "https://www.apple.com/newsroom/2018/07/app-store-turns-10/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can developer participation make a device more useful and differentiated? Developers could add uses Apple cannot build alone, increasing a device’s usefulness while reaching customers through one distribution point.",
+      "investmentThesis": "Apple must support development, discovery and transactions. The platform becomes more useful if creators can earn enough to continue making good applications.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Low developer earnings, weak discovery, quality problems and disputes over platform rules could damage participation on either side of the marketplace."
+    },
+    "outcome": {
+      "spillovers": "Mobile applications created complementary businesses around a device platform.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "msft-2010-azure-commercial-availability",
+    "assetId": "MSFT",
+    "eventDate": "2010",
+    "datePrecision": "year",
+    "title": "Azure commercial availability",
+    "category": "Internet",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Microsoft’s cloud platform became commercially available.",
+    "sourceUrls": [
+      "https://news.microsoft.com/about/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will existing enterprise relationships translate into demand for hosted infrastructure? Businesses considering cloud services may value a provider that understands their existing software, but moving critical workloads still requires confidence.",
+      "investmentThesis": "Microsoft must connect data-center operations with developer tools and enterprise integration. Recurring demand needs reliable service and a workable transition from existing deployments.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Migration complexity, service outages and competing cloud offerings may increase selling costs or force prices down before infrastructure is well utilized."
+    },
+    "outcome": {
+      "spillovers": "Enterprise workloads gained another route from owned servers to rented services.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-2010-ipad",
+    "assetId": "AAPL",
+    "eventDate": "2010-01-27",
+    "datePrecision": "day",
+    "title": "iPad",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A touch-first tablet extended Apple’s mobile platform.",
+    "sourceUrls": [
+      "https://www.apple.com/newsroom/2010/01/27Apple-Launches-iPad/"
+    ],
+    "decision": {
+      "marketOpportunity": "Is there a durable computing use between a phone and a notebook? A larger touch display could support reading, media and applications in situations where a phone is small and a notebook inconvenient.",
+      "investmentThesis": "Apple can reuse parts of its mobile platform while funding a new form factor. The commercial question is whether the tablet creates additional demand or mainly shifts existing purchases.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Customers may find it unnecessary beside devices they already own; limited applications or input constraints could narrow its useful role."
+    },
+    "outcome": {
+      "spillovers": "Tablet interfaces expanded mobile computing in media, education and work.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nvda-2012-alexnet-on-gpus",
+    "assetId": "NVDA",
+    "eventDate": "2012",
+    "datePrecision": "year",
+    "title": "AlexNet on GPUs",
+    "category": "Artificial intelligence",
+    "kind": "curated milestone",
+    "attributionRole": "Hardware enabler; AlexNet developed by academic researchers",
+    "summary": "Researchers used GPUs in a breakthrough image-recognition system.",
+    "sourceUrls": [
+      "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+    ],
+    "decision": {
+      "marketOpportunity": "Could parallel hardware serve a much larger machine-learning market? The research result suggests another use for parallel processors, but investors must separate an impressive benchmark from a repeatable market for systems.",
+      "investmentThesis": "NVIDIA supplies enabling hardware and tools rather than owning the academic model. Its investment case depends on other researchers and customers finding valuable workloads.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Research results may not translate into paid applications, and advances in algorithms or competing hardware could change the amount or type of compute required."
+    },
+    "outcome": {
+      "spillovers": "The result helped demonstrate the potential of larger deep neural networks.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "adbe-2013-creative-cloud-transition",
+    "assetId": "ADBE",
+    "eventDate": "2013",
+    "datePrecision": "year",
+    "title": "Creative Cloud transition",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Adobe accelerated a move from packaged licenses to cloud subscriptions.",
+    "sourceUrls": [
+      "https://www.adobe.com/content/dam/cc/en/investor-relations/pdfs/ADBE-10K-FY13-FINAL.pdf"
+    ],
+    "decision": {
+      "marketOpportunity": "Will recurring access offset customers’ resistance to changing payment models? A subscription could give customers ongoing access and updates while replacing irregular upgrade purchases with a different payment pattern.",
+      "investmentThesis": "Adobe must invest in continuous delivery and retention. The financial tradeoff is a transition in revenue timing and customer commitment, not simply a higher payment frequency.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Customers can resist recurring charges, cancel subscriptions or choose alternatives; the transition can strain reported results before retention is established."
+    },
+    "outcome": {
+      "spillovers": "Distribution and pricing innovation can change cash-flow timing without a new device.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-2014-apple-watch-announcement",
+    "assetId": "AAPL",
+    "eventDate": "2014-09-09",
+    "datePrecision": "day",
+    "title": "Apple Watch announcement",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Apple announced a wearable linked to its device ecosystem.",
+    "sourceUrls": [
+      "https://www.apple.com/newsroom/2014/09/09Apple-Unveils-Apple-Watch-Apples-Most-Personal-Device-Ever/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a wearable create useful interactions beyond those on a phone? A device worn throughout the day could make some interactions more convenient than reaching for a phone, but usefulness must recur after the novelty fades.",
+      "investmentThesis": "Apple is combining compact sensors, hardware and wearable software. The case rests on interactions that justify another device in a customer’s routine.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Battery life, comfort, style preferences and a shortage of indispensable uses could limit repeat engagement and replacement demand."
+    },
+    "outcome": {
+      "spillovers": "Wearable computing connected notifications, activity and health-related applications.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "amzn-2014-echo-and-alexa",
+    "assetId": "AMZN",
+    "eventDate": "2014",
+    "datePrecision": "year",
+    "title": "Echo and Alexa",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Amazon introduced a voice-operated connected speaker.",
+    "sourceUrls": [
+      "https://pay.amazon.com/blog/for-businesses/10in20-top-10-questions-in-2019"
+    ],
+    "decision": {
+      "marketOpportunity": "Can voice become a useful household interface rather than an occasional novelty? Hands-free access could make software convenient in shared household spaces, creating a different use case from a screen-based device.",
+      "investmentThesis": "Amazon’s investment joins speech processing with connected services. The hard economic question is whether useful recurring interactions can support the cost of the platform.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Recognition errors, privacy concerns and limited paid use cases could leave an often-used interface with uncertain monetization."
+    },
+    "outcome": {
+      "spillovers": "Voice interfaces became another route to software and connected services.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "tsla-2016-model-3-unveiling",
+    "assetId": "TSLA",
+    "eventDate": "2016-03-31",
+    "datePrecision": "day",
+    "title": "Model 3 unveiling",
+    "category": "Mobility",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Tesla introduced a plan for a more affordable electric sedan.",
+    "sourceUrls": [
+      "https://www.tesla.com/blog/model-3"
+    ],
+    "decision": {
+      "marketOpportunity": "Can manufacturing scale reduce cost enough to reach a broader vehicle market? A less expensive electric vehicle could reach a broader buyer base, but affordability depends on producing it economically rather than merely announcing a target market.",
+      "investmentThesis": "Tesla must translate powertrain and vehicle design into repeatable large-scale manufacturing. Capacity, quality and working-capital demands are central to the investment case.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Production ramp delays, manufacturing yield problems, battery costs and financing needs could overwhelm demand for an appealing vehicle."
+    },
+    "outcome": {
+      "spillovers": "Vehicle electrification depends on manufacturing execution as well as product appeal.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "amd-2017-ryzen-and-zen",
+    "assetId": "AMD",
+    "eventDate": "2017-03-02",
+    "datePrecision": "day",
+    "title": "Ryzen and Zen",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A new processor architecture re-entered high-performance desktop competition.",
+    "sourceUrls": [
+      "https://ir.amd.com/news-events/press-releases/detail/753/amd-ryzentm-7-desktop-processors-featuring-record-breaking-overclocking-performance-available-worldwide-today"
+    ],
+    "decision": {
+      "marketOpportunity": "Can an architecture reset win customers in an entrenched ecosystem? A competitive processor could give customers another choice within an established software ecosystem, making performance per dollar a practical purchasing issue.",
+      "investmentThesis": "AMD is rebuilding product competitiveness through architecture and execution. The return depends on sustained product delivery and customer adoption, not one favorable specification comparison.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Incumbent pricing responses, production constraints and weaker adoption by system makers could prevent technical gains from becoming durable margins."
+    },
+    "outcome": {
+      "spillovers": "Competition can redirect industry profits even when the overall market keeps growing.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "googl-2017-transformer-architecture",
+    "assetId": "GOOGL",
+    "eventDate": "2017",
+    "datePrecision": "year",
+    "title": "Transformer architecture",
+    "category": "Artificial intelligence",
+    "kind": "curated milestone",
+    "attributionRole": "Research contributor; not sole owner of downstream AI",
+    "summary": "Google-affiliated researchers published an attention-based neural-network architecture.",
+    "sourceUrls": [
+      "https://research.google/pubs/attention-is-all-you-need/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a new model design improve how machines process sequences? A different way to process sequences could improve machine-learning capability, but a published architecture is not yet a clearly bounded commercial market.",
+      "investmentThesis": "The research investment creates a reusable technique rather than an exclusive finished product. Google must find applications where its broader capabilities help capture value.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Other researchers can adopt or improve the published approach; better technical results may raise compute costs without establishing a profitable application."
+    },
+    "outcome": {
+      "spillovers": "The architecture became a building block used by many competing organizations.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nvda-2018-rtx-ray-tracing",
+    "assetId": "NVDA",
+    "eventDate": "2018",
+    "datePrecision": "year",
+    "title": "RTX ray tracing",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A graphics platform brought dedicated real-time ray-tracing capabilities.",
+    "sourceUrls": [
+      "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will more realistic rendering justify new hardware and developer investment? More realistic lighting could improve rendering experiences, but buyers and developers must see enough benefit to change hardware and software together.",
+      "investmentThesis": "NVIDIA is committing both specialized processing and graphics software. The reinvestment case depends on useful applications arriving alongside capable devices.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Limited supporting software, performance tradeoffs and high upgrade prices could leave the feature underused during the first product cycle."
+    },
+    "outcome": {
+      "spillovers": "Rendering, simulation and content creation gained a new hardware path.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "aapl-2020-apple-m1",
+    "assetId": "AAPL",
+    "eventDate": "2020-11-10",
+    "datePrecision": "day",
+    "title": "Apple M1",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Apple introduced its own processor architecture for the Mac product line.",
+    "sourceUrls": [
+      "https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can tighter chip and system integration improve the economics of a mature device? Controlling more of the system design could improve the user experience and alter how value is divided between Apple and external chip suppliers.",
+      "investmentThesis": "Apple must fund custom silicon and a software transition at the same time. Integration is economically attractive only if its benefits exceed design and migration costs.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Application compatibility, transition disruption and the continuing expense of competitive chip design could offset gains from tighter integration."
+    },
+    "outcome": {
+      "spillovers": "Vertical integration can move value between chip suppliers and device makers.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "googl-2020-alphafold-protein-structure-result",
+    "assetId": "GOOGL",
+    "eventDate": "2020-11-30",
+    "datePrecision": "day",
+    "title": "AlphaFold protein-structure result",
+    "category": "Artificial intelligence",
+    "kind": "curated milestone",
+    "attributionRole": "Research developer; downstream scientific use spans many organizations",
+    "summary": "DeepMind reported a major advance in protein-structure prediction.",
+    "sourceUrls": [
+      "https://deepmind.google/discover/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a research breakthrough create durable scientific tools before a clear revenue model? Useful structural predictions could reduce a scientific bottleneck, but social value and a commercial revenue model are separate questions.",
+      "investmentThesis": "DeepMind is applying AI research to a defined scientific task. The investor must ask how continued research and distribution costs relate to any capturable business value.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Predictions still need appropriate scientific validation, and broad researcher access can spread benefits without creating a direct profit stream for the developer."
+    },
+    "outcome": {
+      "spillovers": "Researchers could use predicted structures to accelerate further investigation.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nvda-2020-ampere-architecture",
+    "assetId": "NVDA",
+    "eventDate": "2020",
+    "datePrecision": "year",
+    "title": "Ampere architecture",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "NVIDIA introduced a new generation of accelerated computing architecture.",
+    "sourceUrls": [
+      "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can demand for larger models sustain investment in specialized computing systems? Larger accelerated workloads could increase demand for complete computing systems, provided customers obtain enough useful work per dollar.",
+      "investmentThesis": "NVIDIA’s reinvestment extends across processors and supporting software. Performance, utilization and system cost must improve together to support another purchasing cycle.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Demand can be uneven, competing designs can narrow performance advantages and customers may delay spending if workloads do not deliver economic value."
+    },
+    "outcome": {
+      "spillovers": "Larger compute systems connected processors with networking and software.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nvda-2022-hopper-architecture",
+    "assetId": "NVDA",
+    "eventDate": "2022",
+    "datePrecision": "year",
+    "title": "Hopper architecture",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A new architecture targeted growing accelerated-computing workloads.",
+    "sourceUrls": [
+      "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will customers earn enough from advanced computing to sustain rapid capital spending? Customers expanding accelerated computing need to weigh faster results against the cost of equipment, power and integration.",
+      "investmentThesis": "NVIDIA must deliver processor advances within systems that customers can operate efficiently. The opportunity rests on both technical performance and continued ecosystem usefulness.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Supply constraints, installation costs and uncertain customer payback can make infrastructure orders volatile even when the technology is capable."
+    },
+    "outcome": {
+      "spillovers": "AI infrastructure investment extends beyond a chip into a broader supply chain.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "nvda-2024-blackwell-platform",
+    "assetId": "NVDA",
+    "eventDate": "2024",
+    "datePrecision": "year",
+    "title": "Blackwell platform",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "NVIDIA announced a new generation of AI computing systems.",
+    "sourceUrls": [
+      "https://www.nvidia.com/en-us/about-nvidia/corporate-timeline/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can performance and operating efficiency justify another infrastructure replacement cycle? A new generation competes for customers’ next infrastructure budget; the relevant benefit is useful output relative to the complete system’s cost.",
+      "investmentThesis": "NVIDIA is investing across chips, packaging, networking and software. The economic case requires those components to work as an efficient deployable system.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Manufacturing complexity, power and cooling limits, transition delays and customer concentration could constrain adoption or pressure expected returns."
+    },
+    "outcome": {
+      "spillovers": "Whole-system economics become central as AI infrastructure grows.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "mmm-1980-post-it-notes",
+    "assetId": "MMM",
+    "eventDate": "1980",
+    "datePrecision": "year",
+    "title": "Post-it Notes",
+    "category": "Materials",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A repositionable adhesive became a widely distributed office product.",
+    "sourceUrls": [
+      "https://www.3m.com/3M/en_US/post-it/contact-us/about-us/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a material with an unusual property create an everyday use? A simple office use could turn an unusual material property into repeated small purchases, provided it solves a problem people notice often enough.",
+      "investmentThesis": "3M’s research must be connected to an intuitive product and accessible distribution. The commercial challenge is demonstrating usefulness, not merely possessing a novel adhesive.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Customers may see the product as unnecessary, competing versions may limit pricing and distribution costs can outweigh a low-value individual purchase."
+    },
+    "outcome": {
+      "spillovers": "A technical discovery may need a later application before it becomes commercially useful.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ntdoy-1983-family-computer",
+    "assetId": "NTDOY",
+    "eventDate": "1983",
+    "datePrecision": "year",
+    "title": "Family Computer",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Nintendo introduced a home console with interchangeable games.",
+    "sourceUrls": [
+      "https://www.nintendo.com/en-gb/Corporate/Nintendo-History/Nintendo-History-625945.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a tightly coordinated hardware and software system build repeat demand? A home console could become a recurring entertainment platform if households buy the hardware and continue finding games they want.",
+      "investmentThesis": "Nintendo must coordinate hardware quality with software worth returning to. Repeat game purchases are part of the platform economics, not an automatic consequence of installing a console.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "An unreliable device, weak game selection or a shift in consumer attention can quickly reduce both new hardware demand and software sales."
+    },
+    "outcome": {
+      "spillovers": "Content and hardware economics became interdependent.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ntdoy-2006-wii",
+    "assetId": "NTDOY",
+    "eventDate": "2006",
+    "datePrecision": "year",
+    "title": "Wii",
+    "category": "Interfaces",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Motion-oriented controls sought to broaden the audience for console gaming.",
+    "sourceUrls": [
+      "https://www.nintendo.com/en-gb/Corporate/Nintendo-History/Nintendo-History-625945.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Can a new interaction attract people underserved by existing products? Motion-based interaction could attract users who find conventional controllers inaccessible, expanding the audience rather than only competing for existing enthusiasts.",
+      "investmentThesis": "Nintendo is investing in the experience of play and software that makes the interface useful. The question is whether those new users develop durable engagement.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Initial novelty may not sustain usage, developers may struggle to make compelling applications and customers may resist buying additional games."
+    },
+    "outcome": {
+      "spillovers": "New interfaces can expand demand without maximizing raw processing power.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ntdoy-2017-nintendo-switch",
+    "assetId": "NTDOY",
+    "eventDate": "2017",
+    "datePrecision": "year",
+    "title": "Nintendo Switch",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A hybrid system connected portable and home-console use.",
+    "sourceUrls": [
+      "https://www.nintendo.com/en-gb/Corporate/Nintendo-History/Nintendo-History-625945.html"
+    ],
+    "decision": {
+      "marketOpportunity": "Will a flexible form factor consolidate two distinct customer use cases? A device serving both portable and television play could concentrate software development and make an existing library useful in more situations.",
+      "investmentThesis": "Nintendo must balance battery life, portability and home use while supporting a shared software platform. The benefit comes from a coherent experience rather than maximum specifications.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Hardware compromises may satisfy neither use case fully, and limited software or supply constraints could weaken the launch and repeat purchasing."
+    },
+    "outcome": {
+      "spillovers": "Product architecture can unify a developer ecosystem across contexts.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "sony-1985-handycam",
+    "assetId": "SONY",
+    "eventDate": "1985",
+    "datePrecision": "year",
+    "title": "Handycam",
+    "category": "Consumer technology",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Compact consumer camcorders extended portable video recording.",
+    "sourceUrls": [
+      "https://www.sony.com/en/SonyInfo/CorporateInfo/History/SonyHistory/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can smaller recording equipment expand the market for personal video? Making video easier to carry and operate could widen demand from specialized users to households recording everyday events.",
+      "investmentThesis": "Sony’s reinvestment combines optics, sensors and compact mechanisms. Smaller size has value only when image quality, reliability and usability remain acceptable.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Price, recording-media costs, battery limits and the complexity of handling video can prevent interested buyers from becoming regular users."
+    },
+    "outcome": {
+      "spillovers": "Portable recording changed the supply of personal audiovisual content.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "sony-1999-aibo",
+    "assetId": "SONY",
+    "eventDate": "1999",
+    "datePrecision": "year",
+    "title": "AIBO",
+    "category": "Artificial intelligence",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Sony commercialized a robotic companion.",
+    "sourceUrls": [
+      "https://www.sony.com/en/SonyInfo/CorporateInfo/History/SonyHistory/"
+    ],
+    "decision": {
+      "marketOpportunity": "Will users pay for an expressive robot before it performs practical work? A robotic companion tests whether interaction and character can create consumer value before a robot performs economically necessary tasks.",
+      "investmentThesis": "Sony is combining sensing, movement and behavior into a product people interact with. The investment also develops capabilities whose broader applications remain uncertain.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "High manufacturing cost, limited repeat usefulness and a small audience willing to pay for novelty could prevent scale."
+    },
+    "outcome": {
+      "spillovers": "Early products can develop capabilities even when the initial market remains limited.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "intc-1989-intel486",
+    "assetId": "INTC",
+    "eventDate": "1989",
+    "datePrecision": "year",
+    "title": "Intel486",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Processor integration advanced a compatible PC architecture.",
+    "sourceUrls": [
+      "https://www.intel.com/pressroom/kits/quickrefyr.htm"
+    ],
+    "decision": {
+      "marketOpportunity": "Can integration reduce system cost while increasing useful performance? Putting more capability into a processor could simplify system design and make more demanding applications practical on ordinary PCs.",
+      "investmentThesis": "Intel’s design and manufacturing work must convert integration into useful performance without losing compatibility. The commercial reward depends on customers upgrading whole systems.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Large or complex chips can be costly to manufacture, while applications and customer budgets may not keep pace with performance improvements."
+    },
+    "outcome": {
+      "spillovers": "More capability per chip changed the design possibilities of personal computers.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "intc-1997-pentium-ii",
+    "assetId": "INTC",
+    "eventDate": "1997",
+    "datePrecision": "year",
+    "title": "Pentium II",
+    "category": "Semiconductors",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "A processor generation targeted more demanding PC workloads.",
+    "sourceUrls": [
+      "https://www.intel.com/pressroom/kits/quickrefyr.htm"
+    ],
+    "decision": {
+      "marketOpportunity": "Will multimedia and business applications stimulate another upgrade cycle? More demanding multimedia and business software could create a reason to upgrade, but not every user benefits equally from faster hardware.",
+      "investmentThesis": "Intel must connect processor improvements to volume systems that customers can afford. Manufacturing economics and software demand determine whether the cycle is profitable.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Aggressive competition, high system prices or slower software adoption could reduce volume and shorten the period of premium pricing."
+    },
+    "outcome": {
+      "spillovers": "Application demand and hardware capability can reinforce one another.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "msft-2000-windows-2000",
+    "assetId": "MSFT",
+    "eventDate": "2000",
+    "datePrecision": "year",
+    "title": "Windows 2000",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "An enterprise operating-system release extended Microsoft’s networked platform.",
+    "sourceUrls": [
+      "https://news.microsoft.com/about/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can reliability and administration tools deepen business dependence on a platform? Business buyers may pay for systems that are easier to administer and depend on, even when the improvement is less visible than a new interface.",
+      "investmentThesis": "Microsoft must make enterprise integration and reliability repeatable across customers. Development and support spending need to reduce the complexity of critical business use.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Migration disruptions, incompatible applications and expensive support could cause customers to retain older systems or consider alternatives."
+    },
+    "outcome": {
+      "spillovers": "Enterprise software value includes managing complexity as well as adding features.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "msft-2011-office-365",
+    "assetId": "MSFT",
+    "eventDate": "2011",
+    "datePrecision": "year",
+    "title": "Office 365",
+    "category": "Software",
+    "kind": "curated milestone",
+    "attributionRole": "Developer / commercializer",
+    "summary": "Microsoft expanded productivity software through subscription services.",
+    "sourceUrls": [
+      "https://news.microsoft.com/about/"
+    ],
+    "decision": {
+      "marketOpportunity": "Can hosted collaboration support recurring revenue without losing existing customers? Hosted productivity could make collaboration and maintenance easier, but businesses must be comfortable moving recurring work into a managed service.",
+      "investmentThesis": "Microsoft is linking familiar applications to cloud delivery and recurring access. The investment case depends on retention, operational reliability and a manageable customer transition.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Outages, security concerns, subscription resistance and difficult migration can increase churn or keep customers on existing license models."
+    },
+    "outcome": {
+      "spillovers": "Subscription delivery changed software distribution and revenue recognition.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "ba-1969-747-first-flight",
+    "assetId": "BA",
+    "eventDate": "1969-02-09",
+    "datePrecision": "day",
+    "title": "747 first flight",
+    "category": "Industrial",
+    "kind": "curated milestone",
+    "attributionRole": "Aircraft developer / manufacturer",
+    "summary": "A large widebody aircraft entered flight testing.",
+    "sourceUrls": [
+      "https://www.boeing.com/content/dam/boeing/boeingdotcom/history/pdf/Boeing-Chronology.pdf"
+    ],
+    "decision": {
+      "marketOpportunity": "Can capacity and operating economics justify a major aircraft-development commitment? More seats per flight could improve airline economics on busy routes, but the plane is useful only if airlines can fill that capacity at sustainable fares.",
+      "investmentThesis": "Boeing must coordinate a large aircraft, engines, factories and suppliers before the development commitment can generate delivered aircraft and service relationships.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Development or engine problems, airline financing constraints and weaker travel demand could leave a capital-intensive program exposed before costs are recovered."
+    },
+    "outcome": {
+      "spillovers": "Long-haul air travel depends on both technological capability and financially viable operation.",
+      "causality": "Subsequent whole-company shareholder returns do not measure the causal return on this single innovation."
+    }
+  },
+  {
+    "id": "kodak-1975-digital-camera",
+    "assetId": "KODAK_OLD",
+    "eventDate": "1975",
+    "datePrecision": "year",
+    "title": "Digital-camera prototype",
+    "category": "Imaging",
+    "kind": "curated milestone",
+    "attributionRole": "Inventor research team: Steve Sasson at Kodak",
+    "summary": "Kodak built an early self-contained digital still-camera prototype.",
+    "sourceUrls": [
+      "https://www.kodak.com/en/company/page/milestones/",
+      "https://www.sec.gov/Archives/edgar/data/31235/000119312513355259/d592194dex991.htm"
+    ],
+    "decision": {
+      "marketOpportunity": "Can electronic image capture expand photography while undermining the economics of film? Electronic capture suggests a way to separate taking a picture from processing film, potentially changing both the user experience and the incumbent business model.",
+      "investmentThesis": "Kodak’s research combines sensors and storage with imaging expertise. The strategic question is how to develop a new capability when its economics may conflict with established activities.",
+      "valuation": null,
+      "investment": null,
+      "editorialPrompt": true,
+      "risks": "Image quality, storage cost and usability may delay adoption; a successful new method could also undermine profits from the existing film business."
+    },
+    "outcome": {
+      "spillovers": "Digital imaging spread widely, while Kodak’s old common shares were cancelled in its 2013 reorganization. The new KODK security is not a continuous return history for old shareholders.",
+      "causality": "A pioneering invention did not guarantee that the original common shareholders captured its economic value."
+    }
+  }
+]

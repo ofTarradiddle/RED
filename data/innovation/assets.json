@@ -1,0 +1,275 @@
+[
+  {
+    "id": "IBM",
+    "ticker": "IBM",
+    "name": "IBM",
+    "wikidataId": "Q37156",
+    "cik": 51143,
+    "category": "Computing",
+    "story": "A research laboratory, enterprise distribution and compatible systems turned hardware into long-lived business infrastructure.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "AAPL",
+    "ticker": "AAPL",
+    "name": "Apple",
+    "wikidataId": "Q312",
+    "cik": 320193,
+    "category": "Consumer technology",
+    "story": "Integrated hardware, software and distribution connected personal computing to a larger device and services ecosystem.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "MSFT",
+    "ticker": "MSFT",
+    "name": "Microsoft",
+    "wikidataId": "Q2283",
+    "cik": 789019,
+    "category": "Software",
+    "story": "Software licensing and developer tools established distribution that later extended into enterprise subscriptions and cloud infrastructure.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "INTC",
+    "ticker": "INTC",
+    "name": "Intel",
+    "wikidataId": "Q248",
+    "cik": 50863,
+    "category": "Semiconductors",
+    "story": "Process engineering and an instruction-set ecosystem helped scale microprocessors; later competition illustrates that technical leadership can change.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "NVDA",
+    "ticker": "NVDA",
+    "name": "NVIDIA",
+    "wikidataId": "Q182477",
+    "cik": 1045810,
+    "category": "Semiconductors",
+    "story": "Graphics processors and a programmable developer platform connected parallel computing to scientific work and machine learning.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "AMD",
+    "ticker": "AMD",
+    "name": "AMD",
+    "wikidataId": "Q128896",
+    "cik": 2488,
+    "category": "Semiconductors",
+    "story": "Competing processor designs, graphics acquisitions and a fabless model created repeated opportunities to challenge incumbents.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "SONY",
+    "ticker": "SONY",
+    "name": "Sony",
+    "wikidataId": "Q41187",
+    "cik": 313838,
+    "category": "Consumer technology",
+    "story": "Miniaturization, entertainment content and electronics engineering connected portable media to games, imaging and sensors.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "PHG",
+    "ticker": "PHG",
+    "name": "Philips",
+    "wikidataId": "Q170416",
+    "cik": 313216,
+    "category": "Consumer technology",
+    "story": "Industrial research and consumer electronics standards preceded a later concentration in health technology.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "PCRFY",
+    "ticker": "PCRFY",
+    "name": "Panasonic",
+    "wikidataId": "Q53247",
+    "cik": null,
+    "category": "Consumer technology",
+    "story": "Mass manufacturing and electronics engineering connected home appliances, audiovisual devices and batteries.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "TOSHIBA",
+    "ticker": null,
+    "name": "Toshiba",
+    "wikidataId": "Q49125",
+    "cik": null,
+    "category": "Computing",
+    "story": "A diversified electronics company helped commercialize memory and portable computing. Its delisting prevents a continuous current public-security comparison.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "SAMSUNG",
+    "ticker": null,
+    "name": "Samsung Electronics",
+    "wikidataId": "Q20718",
+    "cik": null,
+    "category": "Semiconductors",
+    "story": "Manufacturing scale across memory, displays and devices supported a broad electronics ecosystem. No USD share-class history is mapped here.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "NTDOY",
+    "ticker": "NTDOY",
+    "name": "Nintendo",
+    "wikidataId": "Q8093",
+    "cik": null,
+    "category": "Consumer technology",
+    "story": "Hardware design and owned game franchises developed a recurring interaction between devices, software and distribution.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "CAJPY",
+    "ticker": "CAJPY",
+    "name": "Canon",
+    "wikidataId": "Q62621",
+    "cik": null,
+    "category": "Imaging",
+    "story": "Precision optics and manufacturing capabilities connected cameras, copying and printing.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "HPQ",
+    "ticker": "HPQ",
+    "name": "HP / Hewlett-Packard lineage",
+    "wikidataId": "Q80978",
+    "cik": 47217,
+    "category": "Computing",
+    "story": "Electronic instruments expanded into computers and printing; the 2015 separation means today\u2019s HP equity is not the entire historical enterprise.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "NOK",
+    "ticker": "NOK",
+    "name": "Nokia",
+    "wikidataId": "Q1418",
+    "cik": 924613,
+    "category": "Networks",
+    "story": "Mobile-device scale gave way to a network-infrastructure business; product success and shareholder returns need not move together.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "GE",
+    "ticker": "GE",
+    "name": "GE / GE Aerospace lineage",
+    "wikidataId": "Q54173",
+    "cik": 40545,
+    "category": "Industrial",
+    "story": "A diversified industrial research organization evolved through major separations. Current equity history does not represent ownership of every former business.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "SIEGY",
+    "ticker": "SIEGY",
+    "name": "Siemens",
+    "wikidataId": "Q81230",
+    "cik": null,
+    "category": "Industrial",
+    "story": "Electrical engineering and industrial automation capabilities connected infrastructure, manufacturing and digital systems.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "BA",
+    "ticker": "BA",
+    "name": "Boeing",
+    "wikidataId": "Q66",
+    "cik": 12927,
+    "category": "Industrial",
+    "story": "Aircraft design, manufacturing and airline relationships scaled commercial aviation with substantial capital and execution risks.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "TM",
+    "ticker": "TM",
+    "name": "Toyota",
+    "wikidataId": "Q53268",
+    "cik": 1094517,
+    "category": "Mobility",
+    "story": "Production engineering and powertrain investment connected manufacturing discipline to hybrid vehicles.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "HMC",
+    "ticker": "HMC",
+    "name": "Honda",
+    "wikidataId": "Q9584",
+    "cik": 715153,
+    "category": "Mobility",
+    "story": "Engine engineering and manufacturing connected motorcycles, cars and other mobility applications.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "MMM",
+    "ticker": "MMM",
+    "name": "3M",
+    "wikidataId": "Q159433",
+    "cik": 66740,
+    "category": "Materials",
+    "story": "Materials research and manufacturing turned reusable technical capabilities into products across multiple industries.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "AMZN",
+    "ticker": "AMZN",
+    "name": "Amazon",
+    "wikidataId": "Q3884",
+    "cik": 1018724,
+    "category": "Internet",
+    "story": "Retail logistics and reusable computing infrastructure supported marketplaces, cloud services and connected devices.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "GOOGL",
+    "ticker": "GOOGL",
+    "name": "Alphabet / Google",
+    "wikidataId": "Q95",
+    "cik": 1652044,
+    "category": "Internet",
+    "story": "Search relevance and advertising distribution supported investment in browsers, mobile systems and machine learning.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "TSLA",
+    "ticker": "TSLA",
+    "name": "Tesla",
+    "wikidataId": "Q478214",
+    "cik": 1318605,
+    "category": "Mobility",
+    "story": "Battery integration, software and manufacturing investment connected electric vehicles to energy storage.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "ADBE",
+    "ticker": "ADBE",
+    "name": "Adobe",
+    "wikidataId": "Q11463",
+    "cik": 796343,
+    "category": "Software",
+    "story": "Publishing standards and creative software developed into recurring software subscriptions.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "SPY",
+    "ticker": "SPY",
+    "name": "SPDR S&P 500 ETF Trust",
+    "wikidataId": null,
+    "cik": null,
+    "category": "Benchmark",
+    "story": "An investable US large-cap comparison beginning at its actual 1993 inception; no synthetic pre-inception fund returns.",
+    "identityReviewedAt": "2026-09-26"
+  },
+  {
+    "id": "KODAK_OLD",
+    "ticker": null,
+    "name": "Eastman Kodak \u2014 former common shares",
+    "wikidataId": "Q486269",
+    "cik": 31235,
+    "category": "Imaging",
+    "story": "Imaging research and a film-based distribution system produced important technology. The old common shares were cancelled in September 2013; today\u2019s KODK is a different equity claim.",
+    "sourceUrls": [
+      "https://www.sec.gov/Archives/edgar/data/31235/000119312513355259/d592194dex991.htm"
+    ],
+    "identityReviewedAt": "2026-09-26"
+  }
+]

@@ -1,0 +1,24 @@
+name = "hetzerk-innovation-leaderboard"
+main = "worker.mjs"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[vars]
+ALLOWED_ORIGINS = "https://oftarradiddle.github.io,https://www.hetzerk.com,https://hetzerk.com"
+# Pin both the immutable commit URL AND the exact downloaded file's SHA-256.
+DATASET_URL = "https://raw.githubusercontent.com/ofTarradiddle/RED/REPLACE_WITH_COMMIT_SHA/data/innovation/dataset.json"
+DATASET_SHA256 = "REPLACE_WITH_64_CHARACTER_SHA256"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "hetzerk-innovation-leaderboard"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+# Choose a namespace not used by another rate limiter in your account.
+namespace_id = "3511960"
+
+[ratelimits.simple]
+limit = 20
+period = 60

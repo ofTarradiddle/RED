@@ -53,6 +53,7 @@ jobs:
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          INNOVATION_LEADERBOARD_URL: ${{ vars.INNOVATION_LEADERBOARD_URL }}
         run: python -m publishing.build --base-path "$PAGES_BASE_PATH" --site-url "$PAGES_SITE_URL" --indexable
       - name: Package only the generated public site
         run: |

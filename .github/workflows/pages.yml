@@ -40,6 +40,7 @@ jobs:
         run: |
           python -m pytest tests/site tests/test_comparison_data.py -q
           node --test tests/comparison-math.test.cjs
+          node --test tests/innovation-game.test.cjs services/innovation-leaderboard/worker.test.mjs
       - name: Restore latest ETF comparison observations
         uses: actions/cache/restore@v4
         with:
@@ -53,6 +54,7 @@ jobs:
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          INNOVATION_LEADERBOARD_URL: ${{ vars.INNOVATION_LEADERBOARD_URL }}
         run: python -m publishing.build --base-path "$PAGES_BASE_PATH" --site-url "$PAGES_SITE_URL" --indexable
       - name: Package only the generated website
         run: |

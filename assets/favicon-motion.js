@@ -17,7 +17,7 @@
   let lastFrame = -1;
   let cycle = 0;
 
-  const allowed = () => activePage && !document.hidden && !motion.matches && !failed;
+  const allowed = () => activePage && !document.hidden && !motion.matches && !document.body?.classList.contains('ia-motion-paused') && !failed;
   const stop = () => {
     if (animation !== null) cancelAnimationFrame(animation);
     animation = null;
@@ -95,6 +95,7 @@
   };
   motion.addEventListener('change', sync);
   document.addEventListener('visibilitychange', sync);
+  document.addEventListener('hetzerk:motion-change', sync);
   window.addEventListener('pagehide', () => { activePage = false; stop(); });
   window.addEventListener('pageshow', () => { activePage = true; sync(); });
   sync();

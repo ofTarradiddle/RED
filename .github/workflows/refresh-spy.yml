@@ -89,6 +89,7 @@ jobs:
         env:
           PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           PAGES_SITE_URL: ${{ steps.pages.outputs.base_url }}
+          INNOVATION_LEADERBOARD_URL: ${{ vars.INNOVATION_LEADERBOARD_URL }}
         run: |
           if [ -n "$PAGES_SITE_URL" ]; then
             python -m scripts.refresh_spy --build --base-path "$PAGES_BASE_PATH" --site-url "$PAGES_SITE_URL" --indexable
