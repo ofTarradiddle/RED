@@ -348,6 +348,15 @@ private struct ComparisonChartCard: View {
         let cushion = max((high - low) * 0.12, 1)
         return (low - cushion)...(high + cushion)
     }
+    private var axisDates: [Date] {
+        guard !result.dates.isEmpty else { return [] }
+        let indexes = Set([0.2, 0.5, 0.8].map { Int(Double(result.dates.count - 1) * $0) })
+        return indexes.sorted().map { Display.date(result.dates[$0]) }
+    }
+    private var shortWindow: Bool {
+        guard let start = result.start, let end = result.end else { return true }
+        return Display.date(end).timeIntervalSince(Display.date(start)) < 90 * 86_400
+    }
 
     var body: some View {
         SculptedCard(padding: 17) {
@@ -419,12 +428,18 @@ private struct ComparisonChartCard: View {
         .chartForegroundStyleScale(domain: result.series.map(\.id), range: result.series.map { HetzerkTheme.color(for: $0.id) })
         .chartLegend(.hidden)
         .chartYScale(domain: chartRange)
-        .chartXScale(range: .plotDimension(padding: 24))
         .chartXSelection(value: $selectedDate)
         .chartXAxis {
-            AxisMarks(values: .automatic(desiredCount: 3)) {
-                AxisValueLabel(format: .dateTime.month(.abbreviated).year(.twoDigits))
-                    .foregroundStyle(HetzerkTheme.muted)
+            AxisMarks(values: axisDates) { value in
+                AxisValueLabel {
+                    if let date = value.as(Date.self) {
+                        Text(shortWindow
+                             ? date.formatted(.dateTime.month(.abbreviated).day())
+                             : date.formatted(.dateTime.month(.abbreviated).year(.twoDigits)))
+                            .fixedSize()
+                            .foregroundStyle(HetzerkTheme.muted)
+                    }
+                }
             }
         }
         .chartYAxis {
