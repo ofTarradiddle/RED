@@ -34,6 +34,7 @@ final class ComparisonStore: ObservableObject {
     private let cacheURL: URL
     private let endpoint: URL
     private let usesFixture: Bool
+    private var snapshotPersisted = false
 
     init(defaults: UserDefaults = .standard, cacheURL: URL? = nil,
          endpoint: URL = ComparisonStore.dataEndpoint, fixtureURL: URL? = nil) {
@@ -64,6 +65,7 @@ final class ComparisonStore: ObservableObject {
            let valid = try? decoded.validated() {
             self.snapshot = valid
             self.isUsingCache = fixtureURL == nil
+            self.snapshotPersisted = fixtureURL == nil
         }
         recalculate()
     }
@@ -101,12 +103,14 @@ final class ComparisonStore: ObservableObject {
             // Validate completely before replacing a known-good offline snapshot.
             let comparison = try ComparisonEngine.compare(snapshot: decoded, settings: settings)
             snapshot = decoded
+            snapshotPersisted = false
             result = comparison
             isUsingCache = false
             errorMessage = nil
             do {
                 try FileManager.default.createDirectory(at: cacheURL.deletingLastPathComponent(), withIntermediateDirectories: true)
                 try data.write(to: cacheURL, options: .atomic)
+                snapshotPersisted = true
                 var file = cacheURL
                 var attributes = URLResourceValues()
                 attributes.isExcludedFromBackup = true
@@ -117,10 +121,10 @@ final class ComparisonStore: ObservableObject {
         } catch is CancellationError {
             return
         } catch {
-            isUsingCache = snapshot != nil
+            isUsingCache = snapshotPersisted
             errorMessage = snapshot == nil
                 ? "The daily snapshot could not be loaded. Connect to the internet and try again."
-                : "Could not check for updates. Your last saved snapshot remains available; check its source dates."
+                : "Could not check for updates. Your last loaded snapshot remains available; check its source dates."
         }
     }
 
