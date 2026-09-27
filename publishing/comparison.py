@@ -1,8 +1,10 @@
 """A focused, installable ETF comparison workspace in the Hetzerk visual language."""
+from bs4 import BeautifulSoup
+from publishing.strategy_research import render_strategy_research, attach_strategy_research_assets
 
 
 def render_comparison():
-    return '''<!doctype html>
+    html = '''<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -69,3 +71,31 @@ def render_comparison():
   <nav class="compare-dock" aria-label="Comparison sections"><a href="#compare"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4v16h16M7 15l4-5 4 3 5-7"/></svg><span>Compare</span></a><a href="#risk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17h3V9H4zm7 0h3V5h-3zm7 0h3V12h-3zM3 21h19"/></svg><span>Risk</span></a><a href="#fund"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5v14m14-14v14M5 12h14"/></svg><span>REDI</span></a><a href="#methodology"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><span>Method</span></a></nav>
   <dialog id="install-dialog" class="compare-install-dialog" aria-labelledby="install-heading"><div class="compare-install-topline"><p class="compare-eyebrow">Keep perspective close</p><button type="button" class="compare-icon-button" data-install-close aria-label="Close installation instructions">×</button></div><h2 id="install-heading">A place on your<br>Home Screen.</h2><p>Open REDI Compare like an app, with your selections remembered on this device.</p><ol><li><strong>On iPhone, open this page in Safari.</strong></li><li>Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</li><li>Turn on <strong>Open as Web App</strong>, if shown, and tap <strong>Add</strong>.</li></ol><button type="button" id="install-native" class="compare-install-native" hidden>Install REDI Compare</button><p class="compare-install-note">On Android or desktop, use your browser’s install option when available. The app uses the same published daily data as this page.</p></dialog>
 </body></html>'''
+
+    page = BeautifulSoup(html, 'html.parser')
+    attach_strategy_research_assets(page)
+    main = page.find('main')
+    chart = main.find(id='compare')
+    fund_view = page.new_tag('div', attrs={
+        'id': 'comparison-etf-view', 'role': 'tabpanel',
+        'aria-labelledby': 'comparison-etf-tab', 'data-comparison-view-panel': 'etf',
+    })
+    chart.insert_before(fund_view)
+    collecting = False
+    for child in list(main.contents):
+        if child is chart:
+            collecting = True
+        if collecting:
+            fund_view.append(child.extract())
+    tabs = BeautifulSoup('''<div class="comparison-view-tabs" role="tablist" aria-label="Comparison view"><button type="button" role="tab" id="comparison-etf-tab" data-comparison-view="etf" aria-selected="true" aria-controls="comparison-etf-view">ETF comparison<small>NAV &amp; MARKET PRICE</small></button><button type="button" role="tab" id="comparison-research-tab" data-comparison-view="research" aria-selected="false" aria-controls="comparison-research" tabindex="-1">Strategy research<small>MONTHLY HISTORICAL BACKTESTS</small></button></div>''', 'html.parser').div
+    fund_view.insert_before(tabs)
+    research_view = page.new_tag('div', attrs={
+        'id': 'comparison-research', 'role': 'tabpanel', 'hidden': '',
+        'aria-labelledby': 'comparison-research-tab', 'data-comparison-view-panel': 'research',
+    })
+    research_view.append(BeautifulSoup(render_strategy_research('compare-research'), 'html.parser').section)
+    main.append(research_view)
+    research_link = page.select_one('.compare-dock a[href="#methodology"]')
+    research_link['href'] = '#comparison-research'
+    research_link.find('span').string = 'Research'
+    return str(page)

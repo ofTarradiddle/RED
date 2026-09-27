@@ -18,6 +18,13 @@ final class REDICompareUITests: XCTestCase {
         add(attachment)
     }
 
+    private func reveal(_ element: XCUIElement, scrollingUp: Bool = true) {
+        for _ in 0..<5 where !element.isHittable {
+            if scrollingUp { app.swipeUp() } else { app.swipeDown() }
+        }
+        XCTAssertTrue(element.isHittable)
+    }
+
     func testNativeComparisonAndPeerLimit() {
         screenshot("01-compare")
         app.buttons["peer-VOO"].tap()
@@ -90,5 +97,41 @@ final class REDICompareUITests: XCTestCase {
         XCTAssertTrue(app.navigationBars["Device leaderboard"].waitForExistence(timeout: 8))
         XCTAssertTrue(app.staticTexts["$100.00"].exists)
         screenshot("10-play-scores")
+    }
+
+    func testResearchArchiveSelectionPeriodScaleAndFundEntry() {
+        reveal(app.buttons["research-open-compare"], scrollingUp: false)
+        app.buttons["research-open-compare"].tap()
+        XCTAssertTrue(app.navigationBars["Strategy research"].waitForExistence(timeout: 8))
+        XCTAssertTrue(app.staticTexts["research-disclaimer"].exists)
+        XCTAssertEqual(app.buttons["research-series-INNOVATION_LEADER"].value as? String, "Selected")
+        XCTAssertFalse(app.buttons["research-series-INNOVATION_LEADER"].isEnabled)
+        app.buttons["research-series-LAGGARD"].tap()
+        XCTAssertEqual(app.buttons["research-series-LAGGARD"].value as? String, "Not selected")
+        reveal(app.segmentedControls["research-period"])
+        app.segmentedControls["research-period"].buttons["5Y"].tap()
+        let chart = app.descendants(matching: .any)["research-chart"].firstMatch
+        XCTAssertTrue(chart.waitForExistence(timeout: 8))
+        reveal(chart)
+        XCTAssertEqual(app.staticTexts["research-window"].label, "2021-08-31 — 2026-08-31")
+        XCTAssertEqual(app.staticTexts["research-chart-title"].label, "Log returns")
+        let middle = chart.coordinate(withNormalizedOffset: CGVector(dx: 0.50, dy: 0.50))
+        middle.press(forDuration: 0.1, thenDragTo: chart.coordinate(withNormalizedOffset: CGVector(dx: 0.60, dy: 0.50)))
+        XCTAssertNotEqual(app.staticTexts["research-inspected-date"].label, "Month end · 2026-08-31")
+        screenshot("11-research-log")
+        reveal(app.segmentedControls["research-scale"], scrollingUp: false)
+        app.segmentedControls["research-scale"].buttons["Linear"].tap()
+        reveal(app.buttons["research-series-SPY"], scrollingUp: false)
+        app.buttons["research-series-SPY"].tap()
+        reveal(chart)
+        XCTAssertEqual(app.staticTexts["research-chart-title"].label, "Growth of $100")
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'ETF session · '")).firstMatch.exists)
+        screenshot("12-research-etf-overlay")
+        app.buttons["research-done"].tap()
+        XCTAssertTrue(app.buttons["peer-SPY"].waitForExistence(timeout: 8))
+        app.tabBars.buttons["REDI"].tap()
+        reveal(app.buttons["research-open-fund"])
+        app.buttons["research-open-fund"].tap()
+        XCTAssertTrue(app.navigationBars["Strategy research"].waitForExistence(timeout: 8))
     }
 }

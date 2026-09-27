@@ -82,8 +82,8 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: data/etf_comparison.json
-          key: comparison-yahoo-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: comparison-yahoo-v1-${{ runner.os }}-
+          key: comparison-yahoo-v2-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: comparison-yahoo-v2-${{ runner.os }}-
       - name: Refresh and build
         id: refresh
         env:

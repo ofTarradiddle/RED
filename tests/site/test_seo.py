@@ -124,6 +124,28 @@ def test_local_build_remains_noindex_without_fake_canonical(tmp_path):
     assert 'Disallow: /' not in (output / 'robots.txt').read_text()
 
 
+def test_strategy_research_is_separate_from_fund_data_and_cached_at_the_public_base_path(public):
+    research = json.loads((public / 'compare/research.json').read_text())
+    market = json.loads((public / 'compare/data.json').read_text())
+    assert research['frequency'] == 'monthly'
+    assert research['source']['url'] == '/RED/research/the-measure-of-fire.html'
+    assert len(research['series']) == 5
+    assert all(len(series['observations']) == 281 for series in research['series'])
+    assert research['series'][0]['observations'][-1] == {'date': '2026-08-31', 'level': 48.08}
+    assert {series['id'] for series in market['series']} == {'REDI', 'SPY', 'VOO', 'QQQ', 'ITAN', 'SYLD'}
+    assert market['series'][0]['is_illustrative'] is True
+    worker = (public / 'compare/sw.js').read_text()
+    assert '/RED/compare/research.json' in worker
+    for asset in ('strategy-research.css', 'strategy-research-math.js', 'strategy-research.js'):
+        assert f'/RED/assets/{asset}' in worker
+    for route in ('compare/index.html', 'etfs/redi/index.html'):
+        page = parsed(public / route)
+        assert len(page.select('[data-strategy-research]')) == 1
+        assert page.select_one('a[href="/RED/compare/research.json"]')
+        scripts = [tag.get('src') for tag in page.select('script[src]')]
+        assert scripts.index('/RED/assets/comparison-math.js') < scripts.index('/RED/assets/strategy-research-math.js')
+
+
 @pytest.mark.parametrize(('url', 'path', 'indexable'), [
     (None, '', True), ('http://example.com', '', True),
     ('https://localhost', '', False), ('https://example.com?x=1', '', True),

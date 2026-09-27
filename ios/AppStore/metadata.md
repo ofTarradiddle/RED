@@ -29,6 +29,14 @@ Explore native ETF comparison tools alongside the game: dated market-price
 history, NAV where available, drawdown, volatility and correlation. Save a
 comparison and inspect the source and calculation assumptions.
 
+Open the strategy research archive from Compare or REDI. Explore monthly
+Innovation Leader, Laggard and Market Backtest levels with logarithmic or linear
+charts, inspect individual months, and overlay available ETF histories over a
+shared period. The source archive is bundled for offline use. These hypothetical
+research levels are transcribed and rounded; source fee and dividend assumptions
+are unspecified, and the underlying backtest has not been independently verified.
+They are separate from REDI NAV and actual fund performance.
+
 The game uses selected historical companies and provider-adjusted returns. It is
 an educational exercise with hindsight and survivorship bias, not a test that
 predicts investing ability. All game money is fictional. There are no brokerage
@@ -48,6 +56,9 @@ not predict future results.
   controls and system Reduce Motion are respected. Haptic feedback is optional.
 - The Compare, Risk and REDI tabs use a dated public website feed. REDI remains
   marked as illustrative until its verified live feed is supplied.
+- Tap “The measure of fire” in Compare or REDI for offline strategy research.
+  It does not require a market refresh. Research methods and source limitations
+  are in the sheet; optional ETF overlays use the cached comparison feed.
 - The yellow development notice is intentional in this review build. Review
   final production wording and market-data redistribution rights before public
   submission; this draft is not a representation of App Review approval.
@@ -69,7 +80,7 @@ the UserDefaults required-reason API. Final App Store privacy answers must
 reflect the configured data host as well as the app.
 
 **Screenshots:** Use the actual iPhone captures exported by the native CI tests:
-Play home, decision, reveal, completed run, device board and comparison tools.
+Play home, decision, reveal, completed run, device board, comparison tools and research.
 Do not label simulator screenshots as an App Store release or promote fictional
 capital as a real investment outcome.
 

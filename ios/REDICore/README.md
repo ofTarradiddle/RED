@@ -34,6 +34,33 @@ no Yahoo credentials, network client, analytics, or external dependencies.
 `isIllustrative` travels from the source to every comparison result so the app
 can label the current workbook series independently of real peer observations.
 
+## Strategy research
+
+`ResearchEngine` reads the separate monthly `data/strategy_research.json` contract.
+The source is a rounded table transcribed from the opening backtest exhibit,
+not actual REDI fund history or an independently reproduced portfolio backtest.
+Source dividend and fee assumptions are unspecified, so the engine neither
+adds distributions nor deducts fees from those levels.
+
+- Research observations must be positive, ordered, unique calendar month ends
+  matching the stated source period. Innovation Leader anchors the comparison.
+- ETF overlays build their complete own-history reinvested wealth first, then
+  sample the last observed session in each calendar month only if it is within
+  four calendar days of month end. Each point preserves its actual session date.
+  An ETF month end must also be on or before the snapshot's publication day;
+  partial current months do not stand in for completed monthly observations.
+- All selected series intersect before applying the requested trailing calendar
+  period. No interpolation, daily backfill, pre-inception history, or splicing
+  into REDI NAV occurs. Unavailable peers are explicitly excluded.
+- Every displayed series rebases to $100 on the first shared observation. CAGR
+  uses actual elapsed days / 365.25 and is withheld below one calendar year.
+  Drawdown uses only matched month-end levels; no daily risk estimate is inferred.
+- A logarithmic axis transforms the display, not the underlying wealth levels.
+
+Research tests verify ex-date handling before calendar matching, actual session
+dates, freshness limits, shared inception, leap-day period boundaries, sub-year
+CAGR withholding, malformed inputs, and the audited 281-observation source.
+
 ## Validation
 
 With Xcode installed:

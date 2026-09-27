@@ -236,3 +236,31 @@ adjacent tabs. See [native build and review](ios/README.md) and the concrete
 Apple Developer membership, so TestFlight and App Store distribution are not yet
 available. A successful unsigned archive is build evidence, not a distributable
 App Store binary.
+
+## Strategy research in Compare and the ETF page
+
+The **Strategy research** view in `/compare/` and the research panel below
+Thematics vs Factors on `/etfs/redi/` use the opening exhibit's monthly levels.
+The native app provides the same research comparison from its Compare and REDI
+tabs, with a bundled offline source. These hypothetical backtests are separate
+from REDI NAV, Market Price, and the fund's Benchmark series.
+
+`data/strategy_research.json` preserves five research cohorts across 281 monthly
+observations, April 2003–August 2026. The reviewed workbook contains two-decimal
+transcriptions of source spreadsheet screenshots. The importer pins its SHA-256
+and maps the opening chart's `inno eb` variant to Innovation Leader; other deck
+variants are not silently combined. See [source provenance](docs/review/STRATEGY_RESEARCH_SOURCE.md).
+
+Research levels are normalized to 100 over common observed closing months.
+Yahoo ETF history is first compounded with each ex-date distribution and then
+sampled at the last observed session within four days of calendar month-end.
+The display preserves the actual observation date. Adding a younger ETF shortens
+the shared comparison; missing months are never filled. Monthly drawdown does
+not measure losses within a month. Annualized growth is withheld for windows
+shorter than a calendar year. Backtest fees and distribution conventions are
+unverified, and the 0.45% ETF expense ratio is not retroactively applied.
+
+The source data is published at `/compare/research.json` and included in the
+comparison app's offline cache. Yahoo refresh now requests history beginning
+December 31, 2002; its cache uses the `comparison-yahoo-v2` key. A Yahoo refresh
+does not update or extend the supplied strategy backtest.

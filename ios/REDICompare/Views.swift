@@ -215,6 +215,7 @@ private struct CompareScreen: View {
             PageHeading(eyebrow: "01 / A common starting point", title: "Perspective,\nin your pocket.",
                         subtitle: "Put REDI beside the market. Follow the differences.")
             PublicationStatus()
+            ResearchEntryCard(placement: "compare")
             ComparisonControls()
             if let result = store.result, !result.series.isEmpty {
                 ComparisonChartCard(result: result)
@@ -620,6 +621,7 @@ private struct FundScreen: View {
                         .font(.caption).foregroundStyle(HetzerkTheme.muted)
                 }
             }
+            ResearchEntryCard(placement: "fund")
             VStack(alignment: .leading, spacing: 4) {
                 FundLink(title: "Explore the ETF", path: "etfs/redi/")
                 FundLink(title: "Holdings", path: "etfs/redi/holdings.html")

@@ -18,7 +18,7 @@ from publishing.comparison_data import DEFAULT_START, read_cache, refresh_datase
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "data/etf_comparison.json")
-    parser.add_argument("--start", default=DEFAULT_START, help="First requested date, YYYY-MM-DD (default: 2022-01-01)")
+    parser.add_argument("--start", default=DEFAULT_START, help=f"First requested date, YYYY-MM-DD (default: {DEFAULT_START})")
     parser.add_argument("--strict", action="store_true", help="Exit 1 if no valid peer histories remain; stale validated cache is usable. Always persist status.")
     args = parser.parse_args(argv)
     try:

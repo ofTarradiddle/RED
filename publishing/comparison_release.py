@@ -10,6 +10,7 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 APP_ASSETS = (
     'comparison.css', 'comparison-math.js', 'comparison.js', 'comparison-install.js',
+    'strategy-research.css', 'strategy-research-math.js', 'strategy-research.js',
     'branding.css', 'development-notice.css', 'development-notice.js',
     'favicon.svg?v=wing-h-1', 'favicon-motion.js?v=1', 'hetzerk-bounce.gif', 'hetzerk-mark-still.svg',
     'compare-icon-180.png', 'compare-icon-192.png', 'compare-icon-512.png',
@@ -111,6 +112,10 @@ def publish_comparison(stage, snapshot, *, base_path='', peer_path=None, live_pa
         banner.append(' REDI uses approved provider observations. Peer series use historical Yahoo market data. Sources and dates are shown below. Not an investment offering.')
         path.write_text(str(page))
     (folder / 'data.json').write_text(json.dumps(payload, separators=(',', ':'), allow_nan=False))
+    from scripts.import_strategy_research import validate_payload
+    research = validate_payload(json.loads((ROOT / 'data/strategy_research.json').read_text()))
+    research['source']['url'] = base_path + research['source']['url']
+    (folder / 'research.json').write_text(json.dumps(research, separators=(',', ':'), allow_nan=False))
     manifest = dict(id='./', name='REDI Compare · Hetzerk', short_name='REDI Compare',
                     description='Compare REDI with selected equity ETFs.', lang='en',
                     start_url='./', scope='./', display='standalone',
@@ -119,7 +124,8 @@ def publish_comparison(stage, snapshot, *, base_path='', peer_path=None, live_pa
                                 type='image/png', purpose='any maskable') for size in (192, 512)])
     (folder / 'manifest.webmanifest').write_text(json.dumps(manifest, indent=2))
     files = [f'{base_path}/compare/', f'{base_path}/compare/index.html',
-             f'{base_path}/compare/data.json', f'{base_path}/compare/manifest.webmanifest',
+             f'{base_path}/compare/data.json', f'{base_path}/compare/research.json',
+             f'{base_path}/compare/manifest.webmanifest',
              *(f'{base_path}/assets/{name}' for name in APP_ASSETS)]
     digest = hashlib.sha256()
     for url in files:

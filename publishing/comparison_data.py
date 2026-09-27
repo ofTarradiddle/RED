@@ -28,7 +28,7 @@ PEERS = {
     "ITAN": "Sparkline Intangible Value ETF",
     "SYLD": "Cambria Shareholder Yield ETF",
 }
-DEFAULT_START = "2022-01-01"
+DEFAULT_START = "2002-12-31"
 
 
 def _timestamp(now: datetime) -> str:

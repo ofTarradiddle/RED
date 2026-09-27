@@ -38,15 +38,15 @@ jobs:
           node-version: '22'
       - name: Check public pages
         run: |
-          python -m pytest tests/site tests/test_comparison_data.py -q
-          node --test tests/comparison-math.test.cjs
+          python -m pytest tests/site tests/test_comparison_data.py tests/test_strategy_research_import.py -q
+          node --test tests/comparison-math.test.cjs tests/strategy-research-math.test.cjs
           node --test tests/innovation-game.test.cjs tests/innovation-arcade.test.cjs services/innovation-leaderboard/worker.test.mjs
       - name: Restore latest ETF comparison observations
         uses: actions/cache/restore@v4
         with:
           path: data/etf_comparison.json
-          key: comparison-yahoo-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
-          restore-keys: comparison-yahoo-v1-${{ runner.os }}-
+          key: comparison-yahoo-v2-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: comparison-yahoo-v2-${{ runner.os }}-
       - name: Read Pages URL
         id: pages
         uses: actions/configure-pages@v5

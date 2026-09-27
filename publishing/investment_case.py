@@ -8,6 +8,7 @@ and internal notes are not fund facts.
 from bs4 import BeautifulSoup
 from html import escape
 from publishing.innovation_journey import innovation_journey
+from publishing.strategy_research import render_strategy_research, attach_strategy_research_assets
 
 
 VISUALS = {
@@ -117,8 +118,10 @@ def business_card():
 def etf_research_card():
     return f'''<section class="etf-research-card" id="strategy-research" aria-labelledby="etf-research-title">
       <div class="etf-research-inner">
-        <div class="etf-research-heading"><h3 id="etf-research-title">Log returns · Backtests</h3><span>REDI</span></div>
-        {case_visual('businesscard-dark', prefix='etf-')}
+        {render_strategy_research('etf-research')}
+        <details class="sr-exhibit"><summary>From the opening business card <span aria-hidden="true">+</span></summary>
+          {case_visual('businesscard-dark', prefix='etf-')}
+        </details>
       </div>
     </section>'''
 
@@ -249,6 +252,7 @@ def home_case():
 
 
 def attach_assets(page):
+    attach_strategy_research_assets(page)
     page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/investment-case.css'))
     page.head.append(page.new_tag('script', src='/assets/investment-case.js', defer=''))
 

@@ -29,6 +29,20 @@ project references, so the sources cannot silently drift into a separate copy.
 Updating the app publishes a new game-data edition when economic inputs change.
 Only canonical allocation choices are saved; balances are replayed on restore.
 
+The Compare and REDI tabs also open an independent **Strategy research** sheet.
+It bundles the shared `data/strategy_research.json` archive, so its 281 monthly
+source observations remain available offline. Logarithmic and linear growth-of-$100
+charts, month inspection, All / 1Y / 5Y / 10Y windows, and source-level return
+statistics use a separate `ResearchEngine`; hypothetical strategy levels never
+enter REDI NAV or live fund performance. Optional published ETF overlays use
+reinvested daily wealth sampled at month end and shorten every selected series
+to a shared observed window. The source methodology and rounding limits are
+available inside the sheet. Updating the app updates this bundled source archive.
+ETF month ends later than the market snapshot's publication day are excluded;
+a recent quote cannot stand in for a month that has not ended yet. The research
+table is transcribed and rounded, with unspecified source fee and dividend
+assumptions; it is not an independently reproduced backtest or live fund record.
+
 The comparison tools download the daily public JSON snapshot at
 `https://oftarradiddle.github.io/RED/compare/data.json`. The existing GitHub
 Actions data publisher refreshes Yahoo peer observations on weekdays. Pull to

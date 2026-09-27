@@ -1,0 +1,133 @@
+/* Shared research instrument. Monthly strategy evidence is distinct from fund NAV. */
+.sr-panel{--sr-paper:#f0e7da;--sr-muted:#bea698;--sr-gold:#d9b27f;--sr-rose:#d2a091;--sr-red:#cb6976;color:var(--sr-paper);font-family:Inter,Arial,sans-serif;border:1px solid #745159;border-radius:11px;overflow:hidden;background:radial-gradient(ellipse at 100% 0,#60344055,transparent 62%),#221b20;box-shadow:inset 0 1px 0 #b5837322,0 18px 45px #0002;text-align:left;isolation:isolate;color-scheme:dark}
+.sr-panel *{box-sizing:border-box}
+.sr-panel [hidden],[data-comparison-view-panel][hidden]{display:none!important}
+.sr-panel button,.sr-panel input{font:inherit}
+.sr-panel button{cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.sr-panel :is(button,input,a,summary):focus-visible{outline:2px solid #f0c493;outline-offset:4px}
+.sr-panel a{color:#e9bbaa;text-underline-offset:4px}
+.sr-panel p{margin:0}
+.sr-heading{display:flex;justify-content:space-between;align-items:center;gap:35px;padding:34px 36px 27px}
+.sr-panel .sr-eyebrow{color:#ca9888;font:500 8px/1.6 Inter,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin:0 0 15px}
+.sr-panel .sr-title,.institutional-etf #overview .sr-panel .sr-title{font:400 43px/1.09 'Playfair Display',Georgia,serif;letter-spacing:-.04em;color:#f0d9c7;margin:0;max-width:560px}
+.sr-title em{font-weight:400;color:#d09b8b}
+.sr-panel .sr-intro{font-size:11px;line-height:1.8;color:#bfa396;margin:18px 0 0;max-width:470px}
+.sr-source-badge{border:1px solid #86555e;background:#41273166;border-radius:7px;padding:18px 21px;min-width:200px;box-shadow:inset 0 1px 0 #c3807722}
+.sr-source-badge>span{display:block;font-size:7px;letter-spacing:.15em;color:#c59585;line-height:1.7}
+.sr-source-badge>strong{display:block;font:400 29px/1.2 'Playfair Display',Georgia,serif;letter-spacing:-.025em;color:#eac5a4;margin:9px 0 8px}
+.sr-source-badge>small{display:block;font-size:8px;color:#b99280;line-height:1.6}
+.sr-disclosure{display:flex;gap:13px;align-items:center;margin:0 36px 25px;padding:13px 15px;border:1px solid #8b61564d;border-radius:5px;background:#9f715115}
+.sr-disclosure-mark{height:24px;width:24px;flex:0 0 24px;border:1px solid #a3796566;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#d4a885;font:400 13px/1 'Playfair Display',Georgia,serif}
+.sr-disclosure p{font-size:10px;line-height:1.8;color:#ccb19e}
+.sr-selection{padding:0 36px 24px;border-bottom:1px solid #bd928022}
+.sr-selection fieldset{border:0;padding:0;margin:0;min-width:0}
+.sr-selection legend{font-size:10px;color:#dfbca8;margin:0 0 11px;padding:0;line-height:1.6;max-width:100%}
+.sr-selection legend>span{font-size:8px;color:#b89a86;margin-left:9px}
+.sr-chips{display:flex;gap:8px;flex-wrap:wrap}
+.sr-reference-chip{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:500;color:#f8d9c6;background:linear-gradient(145deg,#713347,#4b2332);border:1px solid #b57079;border-radius:5px;padding:11px 13px;min-height:42px;box-shadow:inset 0 1px #d5958822}
+.sr-reference-chip>i{width:5px;height:5px;flex:0 0 5px;background:#ed919a;border-radius:50%}
+.sr-reference-chip>small{font-size:6px;font-weight:400;letter-spacing:.1em;margin-left:3px;color:#ca8e8d}
+.sr-chip{position:relative;display:flex;min-height:42px;max-width:100%;cursor:pointer;margin:0!important}
+.sr-chip input{position:absolute;inset:0;opacity:0;width:100%;height:100%;margin:0;cursor:pointer;z-index:1}
+.sr-chip>span{display:flex;align-items:center;gap:8px;border:1px solid #74565b;border-radius:5px;padding:11px 13px;background:#35272d;color:#bfa699;font-size:9px;font-weight:400;line-height:1.5;transition:background .18s,border-color .18s}
+.sr-chip>span>i{width:5px;height:5px;border-radius:50%;display:block;background:#967675;opacity:.7;flex:0 0 5px}
+.sr-chip input:checked+span{background:#60404a;border-color:#b9817e;color:#f2d9c5;box-shadow:inset 0 1px #dca48e22}
+.sr-chip input:checked+span>i{opacity:1}
+.sr-chip input:hover+span{border-color:#b68577;color:#efccb6}
+.sr-chip input:focus-visible+span{outline:2px solid #f0c493;outline-offset:3px}
+.sr-chip input:disabled{cursor:not-allowed}
+.sr-chip input:disabled+span{opacity:.45}
+.sr-loading{font-size:10px;color:#b59282;align-self:center}
+.sr-selection .sr-etf-fieldset{margin-top:20px}
+.sr-etf-chips .sr-chip>span{font-size:9px;min-width:69px;justify-content:center;padding:9px 12px;background:#2a2228}
+.sr-etf-chips .sr-chip input:checked+span{background:#4e3c46}
+.sr-chart-top{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:23px 36px 7px}
+.sr-chart-top>[data-sr-status],.sr-chart-top [data-sr-status]{font-size:11px;color:#e6c7b3;line-height:1.6}
+.sr-panel .sr-range{font-size:9px;color:#b69884;margin-top:5px;line-height:1.6}
+.sr-chart-controls{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.sr-periods,.sr-scales{display:flex;border:1px solid #81606a;border-radius:5px;padding:3px;background:#1e191e;gap:2px}
+.sr-periods button,.sr-scales button{font:400 9px/1 Inter,Arial,sans-serif;min-height:33px;min-width:36px;border:0;border-radius:3px;background:transparent;color:#b99d8c;padding:8px 9px;box-shadow:none}
+.sr-periods button[aria-pressed=true],.sr-scales button[aria-pressed=true]{background:#6b4050;color:#f3d3b9;box-shadow:inset 0 1px 0 #b0787044}
+.sr-periods button:hover,.sr-scales button:hover{background:#3f2e38;color:#ffe2c3}
+.sr-panel .sr-warning{border:1px solid #a67f5844;border-radius:4px;background:#7f583016;color:#d1ad88;font-size:10px;line-height:1.8;margin:16px 36px 0;padding:10px 13px}
+.sr-chart-wrap{min-height:225px;position:relative;padding:7px 19px 0}
+.sr-chart{width:100%;height:auto;display:block;overflow:visible;font-family:Inter,Arial,sans-serif}
+.sr-chart text{fill:#b08d79;font:10px Inter,Arial,sans-serif;font-variant-numeric:tabular-nums}
+.sr-chart .sr-grid-line{stroke:#ac84703d;stroke-width:1;stroke-dasharray:2 6}
+.sr-chart .sr-series-line{fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 1px 2px #0002)}
+.sr-chart .sr-focus-line{stroke:#c39b78;stroke-width:1;stroke-dasharray:3 5;opacity:.8}
+.sr-chart .sr-focus-point{stroke:#2a1e25;stroke-width:2}
+.sr-chart-empty{position:absolute;inset:0;background:#251c23ea;padding:35px;display:flex;align-items:center;justify-content:center;font-size:12px;line-height:1.8;color:#d7ab93;text-align:center}
+.sr-chart-bottom{padding:4px 36px 21px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.sr-legend{padding:0;margin:0;list-style:none;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sr-legend li{display:flex;align-items:center;gap:7px;font-size:9px;line-height:1.7;color:#d3b6a3}
+.sr-legend-swatch{display:block;width:18px;height:2px;border-radius:2px;flex:0 0 18px}
+.sr-chart-bottom>[data-sr-unit]{font-size:8px;color:#ad8c77;white-space:nowrap}
+.sr-inspector{padding:16px 36px 18px;background:#a9724710;border-block:1px solid #ba8f7033;display:grid;grid-template-columns:138px 1fr;column-gap:22px;align-items:center}
+.sr-inspector label{font-size:9px;font-weight:500;color:#d5b49b;line-height:1.5}
+.sr-inspector label>span{display:block;font-size:8px;color:#ac8b75;font-weight:400;margin-top:4px}
+.sr-inspector input{width:100%;min-height:33px;margin:0;accent-color:#c38474;cursor:ew-resize}
+.sr-inspector [data-sr-readout]{grid-column:2;font-size:9px;line-height:1.9;margin:1px 0 0;color:#be9d86;font-variant-numeric:tabular-nums}
+.sr-results{padding:27px 36px 23px}
+.sr-results-heading{display:flex;justify-content:space-between;align-items:baseline;gap:20px;margin-bottom:17px}
+.sr-panel .sr-results-heading h3,.institutional-etf #overview .sr-panel .sr-results-heading h3{font:400 23px/1.3 'Playfair Display',Georgia,serif;letter-spacing:-.02em;color:#e7c8b1;margin:0}
+.sr-results-heading>span{font-size:7px;letter-spacing:.1em;color:#a78a77}
+.sr-table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-color:#966875 #2a2228;scrollbar-width:thin}
+.sr-panel .sr-table-hint{display:none;font-size:7px;line-height:1.6;color:#b8947c;margin:-6px 0 12px;text-align:right}
+.sr-table-hint span{margin-left:8px}
+.sr-table{width:100%;border-collapse:collapse;color:#d6bca6;font-size:11px;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;margin:0;background:none}
+.sr-table thead th{font-size:8px;color:#b2947f;font-weight:400;line-height:1.7;padding:12px 11px;border-block:1px solid #b88c6f33;background:none}
+.sr-table th:first-child,.sr-table td:first-child{text-align:left;padding-left:0}
+.sr-table th:last-child,.sr-table td:last-child{padding-right:0}
+.sr-table tbody th,.sr-table tbody td{font-size:11px;font-weight:400;color:#ddc4ae;padding:16px 11px;border-bottom:1px solid #ad80651f;background:none}
+.sr-table tbody th{font-size:10px;color:#d3b09b;text-align:left}
+.sr-table tbody th>small{display:block;font-size:7px;color:#9e7e6d;font-weight:400;margin-top:4px;line-height:1.5;letter-spacing:.03em}
+.sr-table tbody tr:first-child th,.sr-table tbody tr:first-child td{color:#f0c5b5}
+.sr-panel .sr-risk-note{font-size:9px;color:#ab8c79;margin-top:13px;line-height:1.8}
+.sr-method{border-top:1px solid #b48c7233;padding:0 36px;background:#19161a44}
+.sr-method summary{display:flex;justify-content:space-between;gap:25px;align-items:center;cursor:pointer;list-style:none;padding:20px 0;font-size:11px;color:#d3aa90;line-height:1.6}
+.sr-method summary::-webkit-details-marker{display:none}
+.sr-method summary>span:last-child{font-size:23px;font-weight:300;line-height:1;color:#c3957c;transition:transform .2s}
+.sr-method[open] summary>span:last-child{transform:rotate(45deg)}
+.sr-method-grid{display:grid;grid-template-columns:1fr 1fr;gap:37px;padding-bottom:28px}
+.sr-panel .sr-method h3,.institutional-etf #overview .sr-panel .sr-method h3{font:500 11px/1.6 Inter,Arial,sans-serif;color:#dcc0a5;margin:19px 0 7px;letter-spacing:0}
+.sr-panel .sr-method h3:first-child{margin-top:0}
+.sr-method p,.sr-method li{font-size:10px;line-height:1.9;color:#b5967f}
+.sr-method-notes{padding-left:15px;margin:10px 0 0}
+.sr-method-notes li{margin-bottom:5px}
+.sr-source-links{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.sr-source-links a{font-size:10px;line-height:1.7;width:fit-content}
+.sr-source-links a span{margin-left:8px}
+.sr-visually-hidden{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.comparison-view-tabs{display:flex;align-items:stretch;gap:6px;padding:4px;margin:0 0 26px;width:fit-content;background:#211b1e;border:1px solid #735357;border-radius:7px;box-shadow:inset 0 1px 0 #ffffff07}
+.comparison-view-tabs button{background:transparent;border:0;color:#b89c90;font:400 11px/1.5 Inter,Arial,sans-serif;padding:11px 21px;min-height:44px;border-radius:4px;cursor:pointer;text-align:left}
+.comparison-view-tabs button small{display:block;font-size:7px;letter-spacing:.05em;color:#9d8074;margin-top:4px}
+.comparison-view-tabs button[aria-selected=true]{background:linear-gradient(125deg,#713b48,#552b3a);color:#f0d1bf;box-shadow:inset 0 1px 0 #b3776f4d,0 2px 5px #0002}
+.comparison-view-tabs button[aria-selected=true] small{color:#d2a98f}
+.comparison-view-tabs button:focus-visible{outline:2px solid #edc198;outline-offset:4px}
+.comparison-app [data-comparison-view-panel]{scroll-margin-top:20px}
+.comparison-app [data-comparison-view-panel="research"]{margin-bottom:32px}
+.comparison-app .compare-dock a.is-research-active{color:#ecc5ad}
+body.institutional-etf #overview .etf-research-card{grid-column:1/-1;padding:0;margin-top:0;min-width:0;border-color:#745159;border-radius:10px;background:#221b20;overflow:hidden}
+.institutional-etf .etf-research-card .sr-panel{border:0;border-radius:0;box-shadow:none}
+.institutional-etf .etf-research-card .sr-exhibit{margin:0;padding:0 36px;border-top:1px solid #a77d642f;background:#16131644}
+.sr-exhibit>summary{display:flex;align-items:center;justify-content:space-between;gap:20px;list-style:none;cursor:pointer;padding:20px 0;color:#cba48e;font:400 11px/1.6 Inter,Arial,sans-serif}
+.sr-exhibit>summary::-webkit-details-marker{display:none}
+.sr-exhibit>summary>span{font-size:18px;color:#b18b77}
+.sr-exhibit .case-visual{padding-bottom:25px;margin:0}
+.sr-exhibit .case-visual-link{max-width:930px;margin:0 auto}
+.institutional-etf #overview .sr-panel .sr-intro,.institutional-etf #overview .sr-panel .sr-risk-note{line-height:1.8}
+@media(max-width:1050px){.sr-heading{padding:28px}.sr-panel .sr-title,.institutional-etf #overview .sr-panel .sr-title{font-size:38px}.sr-source-badge{min-width:175px;padding:15px 17px}.sr-source-badge>strong{font-size:26px}.sr-disclosure{margin:0 28px 24px}.sr-selection{padding:0 28px 22px}.sr-chart-top{padding:22px 28px 6px;gap:18px}.sr-chart-controls{gap:7px}.sr-chart-bottom{padding-inline:28px}.sr-chart-bottom>[data-sr-unit]{white-space:normal;max-width:170px;text-align:right}.sr-inspector{padding-inline:28px}.sr-results{padding:25px 28px 22px}.sr-method{padding-inline:28px}.institutional-etf .etf-research-card .sr-exhibit{padding-inline:28px}}
+@media(max-width:760px){.sr-heading{padding:25px;gap:22px}.sr-panel .sr-title,.institutional-etf #overview .sr-panel .sr-title{font-size:35px}.sr-source-badge{min-width:154px;padding:13px}.sr-source-badge>span{font-size:6px}.sr-source-badge>strong{font-size:24px}.sr-source-badge>small{font-size:7px}.sr-panel .sr-intro{font-size:10px;line-height:1.8;margin-top:14px}.sr-disclosure{margin:0 25px 22px;padding:12px;font-size:9px}.sr-disclosure p{font-size:9px}.sr-selection{padding:0 25px 20px}.sr-selection legend{font-size:9px}.sr-selection legend>span{font-size:7px}.sr-reference-chip{font-size:9px;padding:10px 11px;min-height:39px}.sr-reference-chip>small{font-size:5px}.sr-chip{min-height:39px}.sr-chip>span{font-size:8px;padding:10px 11px}.sr-chart-top{padding:20px 25px 8px;align-items:flex-start;flex-direction:column;gap:16px}.sr-chart-controls{justify-content:space-between;width:100%}.sr-periods button,.sr-scales button{min-height:35px;min-width:41px}.sr-chart-wrap{padding:4px 12px 0}.sr-chart-bottom{padding:2px 25px 18px;flex-direction:column;align-items:flex-start;gap:10px}.sr-chart-bottom>[data-sr-unit]{max-width:none;text-align:left;font-size:7px}.sr-inspector{padding:14px 25px 16px;grid-template-columns:120px 1fr;gap:0 18px}.sr-inspector label{font-size:8px}.sr-inspector label>span{font-size:7px}.sr-inspector [data-sr-readout]{font-size:8px;line-height:1.9}.sr-results{padding:23px 25px 20px}.sr-panel .sr-results-heading h3,.institutional-etf #overview .sr-panel .sr-results-heading h3{font-size:23px}.sr-results-heading>span{font-size:6px;text-align:right;max-width:108px}.sr-table{min-width:535px}.sr-table tbody th,.sr-table tbody td{font-size:10px}.sr-table thead th{font-size:7px}.sr-risk-note{font-size:8px!important}.sr-method{padding:0 25px}.sr-method-grid{gap:25px}.sr-method summary{font-size:10px;padding:19px 0}.sr-panel .sr-warning{margin:12px 25px 0;font-size:9px}.institutional-etf .etf-research-card .sr-exhibit{padding:0 25px}.sr-exhibit>summary{font-size:10px;padding:18px 0}}
+@media(max-width:500px){.sr-heading{padding:23px 19px 20px;display:block}.sr-panel .sr-eyebrow{font-size:7px;margin-bottom:12px}.sr-panel .sr-title,.institutional-etf #overview .sr-panel .sr-title{font-size:34px;line-height:1.12}.sr-panel .sr-intro{font-size:10px;max-width:290px;margin-top:13px;line-height:1.8}.sr-source-badge{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-top:20px;padding:12px 13px;min-width:0;box-shadow:none;border-radius:4px}.sr-source-badge>span{font-size:5px;max-width:73px;line-height:1.6}.sr-source-badge>strong{font-size:21px;margin:0;line-height:1.1}.sr-source-badge>small{flex-basis:100%;font-size:6px;letter-spacing:.02em;border-top:1px solid #9d635338;padding-top:8px;color:#bca089}.sr-disclosure{margin:0 19px 20px;padding:11px;gap:10px;align-items:flex-start}.sr-disclosure p{font-size:8px;line-height:1.85}.sr-disclosure-mark{height:21px;width:21px;flex-basis:21px;font-size:11px;margin-top:2px}.sr-selection{padding:0 19px 18px}.sr-selection legend{font-size:9px;margin-bottom:10px}.sr-selection legend>span{display:block;margin:3px 0 0;font-size:6px}.sr-chips{gap:7px}.sr-reference-chip{flex-basis:100%;justify-content:center;min-height:40px;font-size:9px}.sr-reference-chip>small{font-size:5px;margin-left:10px}.sr-chip{flex:1 1 auto;min-height:40px}.sr-chip>span{width:100%;justify-content:center;font-size:8px;padding:10px}.sr-chip>span>i{width:4px;height:4px;flex-basis:4px}.sr-selection .sr-etf-fieldset{margin-top:17px}.sr-etf-chips{gap:6px}.sr-etf-chips .sr-chip{flex:1 1 46px;min-height:37px}.sr-etf-chips .sr-chip>span{min-width:0;font-size:8px;padding:8px}.sr-etf-chips .sr-chip>span>i{display:none}.sr-chart-top{padding:18px 19px 5px;gap:14px}.sr-chart-top [data-sr-status]{font-size:10px}.sr-panel .sr-range{font-size:8px;line-height:1.75}.sr-chart-controls{gap:10px}.sr-periods,.sr-scales{padding:3px;gap:2px}.sr-periods button,.sr-scales button{min-width:32px;min-height:33px;font-size:8px;padding:7px 9px}.sr-chart-wrap{padding:6px 4px 0;min-height:200px}.sr-chart-bottom{padding:3px 19px 17px;gap:10px}.sr-legend{gap:9px 13px}.sr-legend li{font-size:8px}.sr-legend-swatch{width:15px;flex-basis:15px}.sr-chart-bottom>[data-sr-unit]{font-size:7px}.sr-inspector{padding:14px 19px 16px;display:block}.sr-inspector label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:8px}.sr-inspector label>span{display:inline;margin:0;font-size:7px}.sr-inspector input{min-height:32px;margin-top:3px}.sr-inspector [data-sr-readout]{font-size:8px;line-height:1.85;margin-top:1px}.sr-results{padding:21px 19px 20px}.sr-panel .sr-results-heading h3,.institutional-etf #overview .sr-panel .sr-results-heading h3{font-size:21px;line-height:1.3}.sr-results-heading{gap:10px;margin-bottom:16px}.sr-results-heading>span{font-size:5px;max-width:82px;letter-spacing:.05em;line-height:1.65}.sr-table{min-width:470px}.sr-table thead th{font-size:7px;padding:12px 9px}.sr-table tbody th,.sr-table tbody td{font-size:10px;padding:14px 9px}.sr-table tbody th{font-size:9px}.sr-table tbody th>small{font-size:6px}.sr-method{padding-inline:19px}.sr-method-grid{display:block;padding-bottom:23px}.sr-method-grid>div+div{margin-top:22px}.sr-panel .sr-method h3,.institutional-etf #overview .sr-panel .sr-method h3{font-size:10px;margin-top:17px}.sr-method p,.sr-method li{font-size:9px;line-height:1.9}.sr-method summary{font-size:9px;padding:18px 0}.sr-source-links a{font-size:9px}.sr-panel .sr-warning{margin:12px 19px 0;font-size:8px;padding:10px 11px}.comparison-view-tabs{margin-bottom:21px;width:100%;gap:4px}.comparison-view-tabs button{flex:1;padding:10px 12px;font-size:10px}.comparison-view-tabs button small{font-size:6px;margin-top:4px}.institutional-etf .etf-research-card .sr-exhibit{padding-inline:19px}.sr-exhibit>summary{font-size:9px}.sr-chart text{font-size:10px}}
+@media(max-width:355px){.sr-heading{padding:21px 16px 18px}.sr-panel .sr-title,.institutional-etf #overview .sr-panel .sr-title{font-size:30px}.sr-selection{padding-inline:16px}.sr-disclosure{margin-inline:16px}.sr-chart-top,.sr-chart-bottom,.sr-inspector,.sr-results,.sr-method{padding-inline:16px}.sr-periods button,.sr-scales button{min-width:28px;padding:7px}.sr-chart-controls{gap:8px}.sr-chip>span{font-size:7px;padding-inline:8px}.sr-panel .sr-warning{margin-inline:16px}.sr-source-badge{gap:9px}.sr-source-badge>strong{font-size:19px}.sr-panel .sr-results-heading h3,.institutional-etf #overview .sr-panel .sr-results-heading h3{font-size:19px}.comparison-view-tabs button{font-size:9px;padding:9px 10px}.comparison-view-tabs button small{font-size:5px}}
+@media(prefers-reduced-motion:reduce){.sr-panel *{transition:none!important}}
+@media(max-width:760px){.sr-panel .sr-table-hint{display:block}}
+/* Let the research instrument use the overview's full grid, rather than the
+   narrow column that previously held the business-card image. */
+@media(min-width:1024px){
+  body.institutional-etf #overview>div>.grid>div:nth-child(2){display:contents}
+  body.institutional-etf #overview>div>.grid>div:nth-child(2)>.rounded-xl{grid-column:2;grid-row:1;margin-top:0;min-width:0}
+  body.institutional-etf #overview .etf-research-card{grid-column:1/-1;grid-row:4;margin-top:0}
+}
+@media(min-width:1200px){body.institutional-etf #overview .etf-research-card{grid-row:3}}

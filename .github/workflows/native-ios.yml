@@ -3,7 +3,7 @@ name: Build native REDI iOS app
 on:
   push:
     branches: [2026-sep-red]
-    paths: ['ios/**', 'assets/innovation-game-engine.js', 'assets/innovation-arcade-engine.js', 'data/innovation/dataset.json', '.github/workflows/native-ios.yml']
+    paths: ['ios/**', 'assets/innovation-game-engine.js', 'assets/innovation-arcade-engine.js', 'data/innovation/dataset.json', 'data/strategy_research.json', '.github/workflows/native-ios.yml']
   workflow_dispatch:
 
 permissions:
