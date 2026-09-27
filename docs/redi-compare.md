@@ -55,10 +55,12 @@ Strategy definitions and fee, trading-cost and distribution conventions were
 not supplied; no adjustment is inferred. ETF distributions continue to be
 reinvested using the existing daily market-price calculation before sampling.
 
-This upload does not replace the ETF page's PDF-based chart. That chart retains
-`data/strategy_research.json` and `compare/research.json`; the new comparison
-uses `compare/comparison-research.json`. Both public research datasets and the
-uploaded table are included in Compare's scoped offline cache.
+The ETF page does not display backtest results; Compare is available in the
+shared top navigation. The original PDF research remains in
+`data/strategy_research.json` and `compare/research.json` for the separate
+research/native views; this comparison uses `compare/comparison-research.json`.
+Both public research datasets and the uploaded table are included in Compare's
+scoped offline cache.
 
 ```sh
 python -m scripts.import_comparison_research

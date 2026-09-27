@@ -149,13 +149,18 @@ def test_strategy_research_is_separate_from_fund_data_and_cached_at_the_public_b
     assert (public / 'compare/research-source.tsv').read_bytes() == (ROOT / 'data/research/comparison-monthly-levels.tsv').read_bytes()
     for asset in ('strategy-research.css', 'strategy-research-math.js', 'strategy-research.js'):
         assert f'/RED/assets/{asset}' in worker
-    for route in ('compare/index.html', 'etfs/redi/index.html'):
+    page = parsed(public / 'compare/index.html')
+    assert len(page.select('[data-strategy-research]')) == 1
+    assert page.select_one('a[href="/RED/compare/comparison-research.json"]')
+    scripts = [tag.get('src') for tag in page.select('script[src]')]
+    assert scripts.index('/RED/assets/comparison-math.js') < scripts.index('/RED/assets/strategy-research-math.js')
+    for route in ('etfs/redi/index.html', 'red/index.html'):
         page = parsed(public / route)
-        assert len(page.select('[data-strategy-research]')) == 1
-        expected = 'comparison-research.json' if route == 'compare/index.html' else 'research.json'
-        assert page.select_one(f'a[href="/RED/compare/{expected}"]')
-        scripts = [tag.get('src') for tag in page.select('script[src]')]
-        assert scripts.index('/RED/assets/comparison-math.js') < scripts.index('/RED/assets/strategy-research-math.js')
+        assert not page.select('[data-strategy-research], #strategy-research')
+        assert not page.select('img[src*="business-card-dark"], img[src*="endogenous-growth"]')
+        assert not page.select('script[src*="strategy-research"], link[href*="strategy-research"]')
+        assert page.select_one('.home-header a[href="/RED/compare/"]')
+        assert page.select_one('#performance')
 
 
 @pytest.mark.parametrize(('url', 'path', 'indexable'), [

@@ -2,7 +2,7 @@
 from copy import deepcopy
 
 from bs4 import BeautifulSoup
-from publishing.investment_case import attach_assets, etf_research_card
+from publishing.investment_case import attach_assets
 from publishing.objective_journey import objective_journey
 from publishing.masthead import refine_masthead
 
@@ -114,9 +114,13 @@ def refine_pages(pages):
                 comparison_link.string = 'Open REDI Compare ↗'
                 performance.append(comparison_link)
             objective = BeautifulSoup(objective_journey('etf'), 'html.parser').section
+            # The original economics slide contains backtested return series.
+            # Keep the reconstructed rationale here, with performance research
+            # available in Compare instead of on the fund page.
+            economics_source = objective.select_one('.objective-economics .objective-source')
+            if economics_source:
+                economics_source.decompose()
             page.select_one('#overview').insert_after(objective)
-            comparison = page.select_one('#overview').find('h3', string='Thematics vs Factors')
-            comparison.parent.insert_after(BeautifulSoup(etf_research_card(), 'html.parser').section)
             if not page.select_one('link[href="/assets/investment-case.css"]'):
                 attach_assets(page)
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/institutional-etf.css'))

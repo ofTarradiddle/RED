@@ -45,7 +45,7 @@ def test_original_etf_boxes_and_fund_specific_identity(pages):
 
 
 def test_shared_investor_navigation_preserves_direct_journeys(pages):
-    expected = ['/etfs/redi/', '/#fees', '/etfs/redi/why-red.html', '/research/', '/#contact']
+    expected = ['/etfs/redi/', '/compare/', '/#fees', '/etfs/redi/why-red.html', '/research/', '/#contact']
     for route in ('index.html', 'etfs/redi/index.html', 'etfs/redi/holdings.html',
                   'section-351.html', '351-exchanges.html', 'documents/index.html',
                   'research/index.html', 'research/the-measure-of-fire.html',

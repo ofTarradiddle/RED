@@ -31,7 +31,7 @@ def render_home(html, fund):
           <div class="hetzerk-lockup"><div class="hetzerk-masthead-name">Hetzerk</div><div class="hetzerk-masthead-subtitle">Asset Management</div></div>
         </div>
         <nav class="home-nav" aria-label="Main navigation">
-          <a href="/etfs/redi/">The ETF</a><a href="/#fees">Expenses</a><a href="/etfs/redi/why-red.html">Investment case</a><a href="/research/">Research</a><a href="/#contact">Section 351</a>
+          <a href="/etfs/redi/">The ETF</a><a href="/compare/">Compare</a><a href="/#fees">Expenses</a><a href="/etfs/redi/why-red.html">Investment case</a><a href="/research/">Research</a><a href="/#contact">Section 351</a>
         </nav>
       </div>
     </header>
