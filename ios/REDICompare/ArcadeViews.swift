@@ -202,7 +202,6 @@ struct ArcadeScreen: View {
                 HStack { Text(game.snapshot?.status == "active" ? "NEXT OPPORTUNITY" : "SEE YOUR RUN"); Spacer(); Image(systemName: "arrow.right") }.font(.headline)
             }.buttonStyle(PlayButtonStyle(primary: true)).accessibilityIdentifier("play-next")
         }
-        .accessibilityIdentifier("play-reveal")
     }
 
     private var finish: some View {
@@ -212,7 +211,7 @@ struct ArcadeScreen: View {
             flight(height: 190, history: game.snapshot?.history ?? [])
             Text(PlayStyle.money(game.snapshot?.book.value ?? 100)).font(.system(size: 55, design: .serif)).tracking(-2).lineLimit(1).minimumScaleFactor(0.45)
                 .foregroundStyle(PlayStyle.gold).accessibilityIdentifier("play-finish-capital")
-            Text("From $100 · \(game.snapshot?.rounds ?? 12) decisions · \(game.snapshot?.mode.capitalized ?? "Classic")")
+            Text("From $100 · \(game.snapshot?.round ?? 0) decisions · \(game.snapshot?.mode.capitalized ?? "Classic")")
                 .font(.subheadline).foregroundStyle(HetzerkTheme.muted)
             Text(game.snapshot?.score?.comparable == true ? "Saved to your device leaderboard. Your score was recalculated from every decision." : "This result is not eligible for the standard board because its final valuation is incomplete.")
                 .font(.caption).foregroundStyle(HetzerkTheme.muted)
@@ -226,7 +225,7 @@ struct ArcadeScreen: View {
             }.font(.subheadline).tint(PlayStyle.gold)
             Text("Historical learning, not a forecast. These companies were selected with hindsight; surviving businesses are overrepresented.")
                 .font(.caption).foregroundStyle(HetzerkTheme.muted)
-        }.accessibilityIdentifier("play-finish")
+        }
     }
 
     private func runHeader(year: String, capital: Double, round: Int) -> some View {
@@ -242,7 +241,7 @@ struct ArcadeScreen: View {
             HStack(spacing: 5) {
                 ForEach(1...12, id: \.self) { step in Capsule().fill(step <= round ? PlayStyle.gold : HetzerkTheme.raised).frame(height: 3) }
             }
-            HStack { Text("\(game.snapshot?.mode.uppercased() ?? "CLASSIC") RUN"); Spacer(); Text("\(round) / 12").accessibilityIdentifier("play-round") }
+            HStack { Text("\(game.snapshot?.mode.uppercased() ?? "CLASSIC")\(game.snapshot?.day.map { " / " + $0 + " UTC" } ?? " RUN")"); Spacer(); Text("\(round) / 12").accessibilityIdentifier("play-round") }
                 .font(.system(size: 9, design: .monospaced)).tracking(1.2).foregroundStyle(HetzerkTheme.muted)
         }
     }
@@ -251,7 +250,7 @@ struct ArcadeScreen: View {
         PlayFlight(history: history, paused: motionPaused || reduceMotion || scenePhase != .active)
             .frame(height: height)
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(history.count > 1 ? "Capital at decision dates, ending \(PlayStyle.money(history.last?.value ?? 100))" : "The Hetzerk wing H in flight")
+            .accessibilityLabel(history.count > 1 ? "Logarithmic capital path at decision dates, ending \(PlayStyle.money(history.last?.value ?? 100)). Zero, if present, is drawn at the lower bound." : "The Hetzerk wing H in flight")
     }
 
     private var methods: some View {
@@ -280,7 +279,7 @@ struct ArcadeScreen: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
                     Text("Your personal bests.").font(.system(.largeTitle, design: .serif))
-                    Text("This device only. Different modes, UTC days and data editions have separate boards.")
+                    Text("This device only. The top ten runs per edition are kept, for Classic and the seven most recent Daily editions. Different modes, days and data editions have separate boards.")
                         .font(.caption).foregroundStyle(HetzerkTheme.muted)
                     if game.records.isEmpty {
                         ContentUnavailableView("Your first run awaits", systemImage: "trophy", description: Text("Finish a run to record a verified score."))

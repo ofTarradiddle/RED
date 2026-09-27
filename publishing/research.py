@@ -73,9 +73,12 @@ def render_research_pages(home_html, existing_research):
         <h1 id="research-title">The thinking<br><span>behind REDI.</span></h1>
         <p>Innovation, examined through the business, its valuation and the evidence.</p>
       </section>
+      <section class="research-note" aria-labelledby="play-feature-title">
+        <div class="research-note-heading"><div class="research-meta"><span>Play / Learn / Repeat</span><span>Twelve decisions</span></div><h2 id="play-feature-title"><a href="/play/">REDI Play.</a></h2><p class="research-subtitle">A little capital. A long way.</p></div><div class="research-note-copy"><p>Start with $100 of game capital. Make your call on twelve moments in innovation history, then watch the years test your conviction.</p><a class="home-text-link" href="/play/">Play a round <span aria-hidden="true">↗</span></a></div>
+      </section>
       <section class="research-note" aria-labelledby="atlas-feature-title">
         <div class="research-note-heading"><div class="research-meta"><span>Interactive history</span><span>1960—today</span></div><h2 id="atlas-feature-title"><a href="/innovation/">The Innovation Atlas.</a></h2><p class="research-subtitle">The idea. The company. The return.</p></div>
-        <div class="research-note-copy"><p>Travel through six decades of innovation and the companies that brought it to market. Explore the observed investor returns, then test your own decisions in the $100 investing game.</p><a class="home-text-link" href="/innovation/">Explore the atlas &amp; investing game <span aria-hidden="true">↗</span></a></div>
+        <div class="research-note-copy"><p>Travel through six decades of innovation and the companies that brought it to market. Explore the observed investor returns, then test your own decisions in the $100 investing game.</p><a class="home-text-link" href="/innovation/">Explore the atlas <span aria-hidden="true">↗</span></a></div>
       </section>
       <section class="research-note" aria-labelledby="research-note-title">
         <div class="research-note-heading">

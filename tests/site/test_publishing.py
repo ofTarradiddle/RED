@@ -120,9 +120,9 @@ def test_all_generated_routes_assets_and_anchors(snapshot):
     parsed={}
     for path,content in pages.items():
         parser=Links();parser.feed(content);parsed[path]=parser
-        if path == 'innovation/index.html':
+        if path in ('innovation/index.html', 'play/index.html', 'play/support.html'):
             assert 'Just for fun and development practice' in content
-            assert 'All game money is fictional' in content
+            assert 'fictional' in content.lower()
         else:
             assert 'Illustrative demo' in content
         assert '555-' not in content

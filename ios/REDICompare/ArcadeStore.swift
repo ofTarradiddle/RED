@@ -219,6 +219,7 @@ final class ArcadeStore: ObservableObject {
             screen = .reveal
             error = nil
             try persist(reveal: true)
+            if snapshot?.status != "active" { saveScore() }
         } catch { self.error = error.localizedDescription }
     }
 
@@ -246,7 +247,18 @@ final class ArcadeStore: ObservableObject {
             let identifier = score.editionId + ":" + score.replayId
             stored.removeAll { $0.id == identifier }
             stored.insert(PlayRecord(id: identifier, replay: replay, date: Date()), at: 0)
-            defaults.set(try JSONEncoder().encode(Array(stored.prefix(50))), forKey: scoresKey)
+            verifyRecords(stored)
+            let groups = Dictionary(grouping: records, by: { $0.editionId })
+            let editions = groups.keys.sorted { a, b in
+                let left = groups[a]!, right = groups[b]!
+                if (left.first?.mode == "classic") != (right.first?.mode == "classic") { return left.first?.mode == "classic" }
+                return (left.map(\.date).max() ?? .distantPast) > (right.map(\.date).max() ?? .distantPast)
+            }
+            let retainedEditions = Array(editions.filter { groups[$0]?.first?.mode == "classic" }.prefix(1)) + Array(editions.filter { groups[$0]?.first?.mode != "classic" }.prefix(7))
+            let retained = Set(retainedEditions.flatMap { edition in
+                (groups[edition] ?? []).sorted { $0.value > $1.value }.prefix(10).map(\.id)
+            })
+            defaults.set(try JSONEncoder().encode(stored.filter { retained.contains($0.id) }), forKey: scoresKey)
             verifyRecords()
         } catch { self.error = error.localizedDescription }
     }
@@ -256,8 +268,8 @@ final class ArcadeStore: ObservableObject {
         return stored
     }
 
-    private func verifyRecords() {
-        records = savedRecords().compactMap { record in
+    private func verifyRecords(_ candidates: [PlayRecord]? = nil) {
+        records = (candidates ?? savedRecords()).compactMap { record in
             do {
                 context?.setObject(record.replay, forKeyedSubscript: "scoreReplay" as NSString)
                 guard let text = try evaluate("JSON.stringify(arcade.score(archive, arcade.restore(archive, scoreReplay)))").toString(),
@@ -273,7 +285,7 @@ final class ArcadeStore: ObservableObject {
     var shareText: String {
         guard let score = snapshot?.score else { return "REDI Play — a history of conviction. https://oftarradiddle.github.io/RED/play/" }
         let dollars = score.endValue.formatted(.currency(code: "USD"))
-        return "My fictional $100 became \(dollars) in REDI Play. \(score.mode.capitalized)\(score.day.map { " · " + $0 + " UTC" } ?? "") · 12 historical decisions. Historical learning game; not a forecast. https://oftarradiddle.github.io/RED/play/"
+        return "My fictional $100 became \(dollars) in REDI Play. \(score.mode.capitalized)\(score.day.map { " · " + $0 + " UTC" } ?? "") · \(snapshot?.round ?? 0) historical decisions. Historical learning game; not a forecast. https://oftarradiddle.github.io/RED/play/"
     }
 
     static var utcDay: String {

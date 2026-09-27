@@ -59,9 +59,9 @@ def test_publication_has_data_documents_but_no_private_route(snapshot):
         assert PRIVATE_ROUTE not in html
         assert 'Shadow NAV' not in html
         page=BeautifulSoup(html,'html.parser')
-        if route == 'innovation/index.html':
+        if route in ('innovation/index.html', 'play/index.html', 'play/support.html'):
             assert page.select_one('.development-notice')
-            assert 'All game money is fictional' in page.get_text()
+            assert 'fictional' in page.get_text().lower()
             continue
         banner=page.select_one('.demo-strip');assert banner
         banner.decompose()

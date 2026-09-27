@@ -13,6 +13,10 @@ SOCIAL_IMAGE = '/assets/hetzerk-social.png'
 # Legacy research drafts, utility pages and aliases remain reachable but are
 # excluded from the sitemap of current search landing pages.
 METADATA = {
+    'play/index.html': ('REDI Play — The Innovation Investing Game | Hetzerk Asset Management',
+                         'Start with $100 of fictional capital. Play twelve historical innovation moments, choose your allocation, and watch your decisions unfold in REDI Play.'),
+    'play/support.html': ('REDI Play Support | Hetzerk Asset Management',
+                           'Get help with REDI Play, saved runs, device scores, game rules, historical data and the native iPhone app.'),
     'innovation/index.html': ('Innovation Atlas & Investing Game | Hetzerk Asset Management',
                               'Explore six decades of innovation, sourced company histories and historical stock returns. Start with $100 of fictional capital in the Hetzerk investing game.'),
     'index.html': ('Hetzerk Asset Management | Investing in Innovation, REDI for tomorrow',
@@ -117,7 +121,7 @@ def apply_seo(pages, *, site_url=None, base_path='', indexable=False):
         for tag in page.head.select('meta[charset],meta[name="viewport"],meta[name="description"],meta[name="robots"],meta[name^="twitter:"],meta[property^="og:"],link[rel="canonical"],script[type="application/ld+json"]'):
             tag.decompose()
         page.head.insert(0, page.new_tag('meta', charset='utf-8'))
-        _meta(page, 'viewport', 'width=device-width, initial-scale=1' + (', viewport-fit=cover' if route == 'compare/index.html' else ''))
+        _meta(page, 'viewport', 'width=device-width, initial-scale=1' + (', viewport-fit=cover' if route in {'compare/index.html', 'play/index.html'} else ''))
         target = canonical_route(route)
         default_title = page.title.get_text(' ', strip=True) if page.title else BRAND
         title, description = METADATA.get(target, UTILITY_METADATA.get(route, (default_title, default_description)))

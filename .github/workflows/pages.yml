@@ -40,7 +40,7 @@ jobs:
         run: |
           python -m pytest tests/site tests/test_comparison_data.py -q
           node --test tests/comparison-math.test.cjs
-          node --test tests/innovation-game.test.cjs services/innovation-leaderboard/worker.test.mjs
+          node --test tests/innovation-game.test.cjs tests/innovation-arcade.test.cjs services/innovation-leaderboard/worker.test.mjs
       - name: Restore latest ETF comparison observations
         uses: actions/cache/restore@v4
         with:

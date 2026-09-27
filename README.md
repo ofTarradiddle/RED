@@ -215,3 +215,24 @@ The [optional shared leaderboard](services/innovation-leaderboard/README.md)
 is implemented and tested but requires a Cloudflare account and D1 deployment.
 It verifies submitted decisions against a pinned dataset. No invented players are
 seeded, and the UI labels device and shared rankings separately.
+
+## REDI Play: the short game and native iPhone app
+
+Open **/play/** for the compact game. Classic and Daily runs start with $100 of
+fictional capital and twelve chronological opportunities. Each choice closes the
+previous position at a verified quote and allocates 0%, 25%, 50% or 100% of current
+capital to the next company. The full research timeline remains at /innovation/.
+
+`assets/innovation-arcade-engine.js` selects and verifies each route using the
+original historical accounting engine. The web page and the native SwiftUI Play
+tab use those same files and the same source dataset. Native execution uses
+JavaScriptCore with bundled code and data; it does not embed the website or
+download executable scripts. Runs persist as choices and are verified by replay.
+Classic and each UTC Daily challenge have separate device leaderboards.
+
+The native app now displays **REDI Play**, with Compare, Risk and REDI tools in
+adjacent tabs. See [native build and review](ios/README.md) and the concrete
+[App Store launch steps](ios/AppStore/LAUNCH.md). The current publisher has no
+Apple Developer membership, so TestFlight and App Store distribution are not yet
+available. A successful unsigned archive is build evidence, not a distributable
+App Store binary.
