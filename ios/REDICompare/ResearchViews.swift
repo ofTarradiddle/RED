@@ -233,6 +233,16 @@ private struct ResearchChartCard: View {
         guard let selectedDate else { return result.end }
         return result.dates.min { abs(ResearchDisplay.date($0).timeIntervalSince(selectedDate)) < abs(ResearchDisplay.date($1).timeIntervalSince(selectedDate)) }
     }
+    private var persistentSelection: Binding<Date?> {
+        Binding(get: { selectedDate }, set: { touchedDate in
+            // Swift Charts clears its gesture selection on touch-up. The inspector
+            // should retain the observed month so its values can be read afterward.
+            guard let touchedDate, let month = result.dates.min(by: {
+                abs(ResearchDisplay.date($0).timeIntervalSince(touchedDate)) < abs(ResearchDisplay.date($1).timeIntervalSince(touchedDate))
+            }) else { return }
+            selectedDate = ResearchDisplay.date(month)
+        })
+    }
     private var yDomain: ClosedRange<Double> {
         let values = result.series.flatMap { $0.points.map(\.value) }
         let low = values.min() ?? 100, high = values.max() ?? 100
@@ -299,7 +309,7 @@ private struct ResearchChartCard: View {
         .chartForegroundStyleScale(domain: result.series.map(\.id), range: result.series.map { ResearchDisplay.color($0.id) })
         .chartYScale(domain: yDomain, type: logarithmic ? .log : .linear)
         .chartLegend(.hidden)
-        .chartXSelection(value: $selectedDate)
+        .chartXSelection(value: persistentSelection)
         .chartXAxis { AxisMarks(values: .automatic(desiredCount: 4)) }
         .chartYAxis {
             AxisMarks(position: .leading, values: .automatic(desiredCount: 5)) { value in

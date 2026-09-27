@@ -117,10 +117,18 @@ final class REDICompareUITests: XCTestCase {
         XCTAssertEqual(app.staticTexts["research-chart-title"].label, "Log returns")
         let middle = chart.coordinate(withNormalizedOffset: CGVector(dx: 0.50, dy: 0.50))
         middle.press(forDuration: 0.1, thenDragTo: chart.coordinate(withNormalizedOffset: CGVector(dx: 0.60, dy: 0.50)))
-        XCTAssertNotEqual(app.staticTexts["research-inspected-date"].label, "Month end · 2026-08-31")
+        let inspector = app.staticTexts["research-inspected-date"]
+        let inspectedMonth = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "label BEGINSWITH %@ AND label != %@", "Month end · ", "Month end · 2026-08-31"),
+            object: inspector)
+        let inspectionState = XCTWaiter.wait(for: [inspectedMonth], timeout: 3)
         screenshot("11-research-log")
+        XCTAssertEqual(inspectionState, .completed)
+        let retainedMonth = inspector.label
+        XCTAssertNotEqual(retainedMonth, "Month end · 2026-08-31")
         reveal(app.segmentedControls["research-scale"], scrollingUp: false)
         app.segmentedControls["research-scale"].buttons["Linear"].tap()
+        XCTAssertEqual(inspector.label, retainedMonth)
         reveal(app.buttons["research-series-SPY"], scrollingUp: false)
         app.buttons["research-series-SPY"].tap()
         reveal(chart)
