@@ -40,19 +40,27 @@ private enum Display {
 
 struct ContentView: View {
     @EnvironmentObject private var store: ComparisonStore
+    @State private var selectedTab = ProcessInfo.processInfo.arguments.contains("--ui-testing") ? "compare" : "play"
     @AppStorage("hetzerk.native.developmentNoticeDismissed") private var noticeDismissed = false
 
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
+            ArcadeScreen()
+                .tabItem { Label("Play", systemImage: "gamecontroller") }
+                .tag("play")
+                .accessibilityIdentifier("app-tab-play")
             CompareScreen()
                 .tabItem { Label("Compare", systemImage: "chart.xyaxis.line") }
                 .accessibilityIdentifier("app-tab-compare")
+                .tag("compare")
             RiskScreen()
                 .tabItem { Label("Risk", systemImage: "waveform.path") }
                 .accessibilityIdentifier("app-tab-risk")
+                .tag("risk")
             FundScreen()
                 .tabItem { Label("REDI", systemImage: "square.stack.3d.up") }
                 .accessibilityIdentifier("app-tab-fund")
+                .tag("fund")
         }
         .tint(HetzerkTheme.ivory)
         .preferredColorScheme(.dark)

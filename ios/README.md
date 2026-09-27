@@ -1,6 +1,14 @@
-# REDI Compare for iOS
+# REDI Play for iOS
 
-A native SwiftUI app for comparing the Hetzerk Innovation Factor ETF with SPY,
+A native SwiftUI investing game, with the existing ETF comparison tools alongside it.
+The app opens on **Play**: $100 of fictional capital, 12 historical opportunities,
+Classic and Daily runs, animated wing-H flight, haptic decisions, resumable games,
+and replay-verified device scores. It works offline using bundled dated history
+and the same JavaScriptCore accounting rules as the web game. No remote code or
+web view powers the native game. Different modes, UTC days and data editions have
+separate scoreboards; no public leaderboard or Game Center connection is claimed.
+
+The Compare, Risk and REDI tabs provide a native interface for comparing the Hetzerk Innovation Factor ETF with SPY,
 VOO, QQQ, ITAN, and SYLD. Requires iOS 17 or later. It uses Swift Charts, native
 tabs, touch chart inspection, saved comparisons, and the iOS share sheet. There
 is no embedded website, login, analytics SDK, or brokerage connection.
@@ -16,7 +24,12 @@ targets or project settings, edit the generator and regenerate the project.
 
 ## Data and calculations
 
-The app downloads the daily public JSON snapshot at
+The game bundles `data/innovation/dataset.json` and both innovation engines via
+project references, so the sources cannot silently drift into a separate copy.
+Updating the app publishes a new game-data edition when economic inputs change.
+Only canonical allocation choices are saved; balances are replayed on restore.
+
+The comparison tools download the daily public JSON snapshot at
 `https://oftarradiddle.github.io/RED/compare/data.json`. The existing GitHub
 Actions data publisher refreshes Yahoo peer observations on weekdays. Pull to
 refresh checks for the latest published snapshot; it does not query a live quote
@@ -51,7 +64,7 @@ iPhone until signing and distribution are configured.
 
 1. Enroll or use the publisher's Apple Developer Program account; select its
    signing team in Xcode. Confirm or replace the proposed bundle identifier
-   `com.hetzerk.REDICompare` in the project generator.
+   `com.hetzerk.REDIPlay` in the project generator.
 2. Register the app in App Store Connect. Review the metadata draft in
    `AppStore/metadata.md`, privacy disclosure, market-data distribution rights,
    and the eventual live REDI feed before a public financial-app release.

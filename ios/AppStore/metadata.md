@@ -1,48 +1,76 @@
-# App Store Connect draft
+# REDI Play — App Store Connect draft
 
-Status: preparation only; no App Store listing or TestFlight build is published.
+Status: native review build. The publisher has not enrolled in the Apple
+Developer Program. No TestFlight build or App Store listing is live.
 
-**Name:** REDI Compare
+**Name:** REDI Play
 
-**Subtitle:** An ETF perspective by Hetzerk
+**Subtitle:** Invest through innovation
 
-**Category:** Finance
+**Primary category:** Games (Simulation / Strategy, subject to the publisher's final category selection)
+
+**Secondary category:** Finance
+
+**Proposed bundle identifier:** `com.hetzerk.REDIPlay`
 
 **Description:**
 
-Put the Hetzerk Innovation Factor ETF beside other equity ETFs and explore how
-their paths differ. Compare market prices on a shared timeline, inspect REDI's
-NAV where available, and choose price change or distribution reinvestment.
+Start with $100. Meet twelve moments that changed the world. Make the call.
 
-Explore drawdown, volatility, and correlation with clear source dates and
-methodology. Save a comparison on your device and share a dated summary through
-the iOS share sheet. Your last downloaded snapshot remains available offline.
+REDI Play turns innovation history into a short investing game. Read the company
+opportunity, inspect dated financial evidence when available, and choose how much
+of your fictional capital to invest. Watch the years unfold, then decide again.
 
-Market observations are published daily, not in real time. Fund performance,
-sources, and limitations are identified in the app. Investing involves risk,
-including possible loss of principal. Past performance does not predict future
-results. This app does not provide investment advice or execute trades.
+Play the same Classic route to refine your decisions, or try a new Daily route.
+Resume a run offline, track your personal bests, and share your result. The
+Hetzerk wing H follows your capital through six decades of business history.
 
-**Development review note:** REDI currently uses clearly marked illustrative
-history; peer data is sourced from Yahoo through a public daily snapshot. There
-is no account or paywall. This development build is intended for TestFlight
-review. Publish the live product only after authorized market-data distribution
-and the production fund feed are in place.
+Explore native ETF comparison tools alongside the game: dated market-price
+history, NAV where available, drawdown, volatility and correlation. Save a
+comparison and inspect the source and calculation assumptions.
 
-**Privacy/support:** Use publisher-controlled, public privacy and support URLs
-in App Store Connect. The current website privacy URL is
-`https://oftarradiddle.github.io/RED/privacy/`; review it for the native app before
-submission. Confirm the actual support contact and legal publisher in the
-Apple account rather than assuming the trade name is the enrolled entity.
+The game uses selected historical companies and provider-adjusted returns. It is
+an educational exercise with hindsight and survivorship bias, not a test that
+predicts investing ability. All game money is fictional. There are no brokerage
+connections, real-money wagers, prizes or in-app purchases. Past performance does
+not predict future results.
 
-**Privacy implementation:** No app analytics, advertising identifiers, account,
-or tracking. Settings, bookmarks, and cached prices are stored on the device.
-HTTPS requests to the public data host expose normal network information to
-that host. External source links and user-selected share destinations have
-their own privacy practices. `PrivacyInfo.xcprivacy` declares the UserDefaults
-required-reason API; App Store Connect's privacy answers need final review by
-the publisher and must reflect the data host's practices as well.
+**Review notes:**
 
-**Screenshots:** Use actual iPhone simulator captures from the native CI review
-artifact. Capture final release screens after the production feed and wording
-are approved; do not market illustrative REDI results as actual performance.
+- No login is required. Tap Play → Play Classic to start; choose Pass, 25%, 50%
+  or All in, then Next Opportunity. After twelve decisions, the run is saved to
+  the device board. Tap the trophy to inspect it. There is no public leaderboard.
+- Game content and JavaScriptCore rules are bundled and work offline; the native
+  UI is SwiftUI, not a website wrapper. No executable code is downloaded.
+- Every choice closes the previous position at an observed price and reallocates
+  current capital. Cash earns 0%; fees, taxes and inflation are excluded.
+- The information button documents rules, source limitations and privacy. Motion
+  controls and system Reduce Motion are respected. Haptic feedback is optional.
+- The Compare, Risk and REDI tabs use a dated public website feed. REDI remains
+  marked as illustrative until its verified live feed is supplied.
+- The yellow development notice is intentional in this review build. Review
+  final production wording and market-data redistribution rights before public
+  submission; this draft is not a representation of App Review approval.
+
+**Privacy URL:** `https://oftarradiddle.github.io/RED/privacy/`
+
+**Support URL:** `https://oftarradiddle.github.io/RED/play/support.html`
+
+Confirm the enrolled legal publisher and support contact before submitting.
+Complete the current age-rating questionnaire from the actual app content;
+fictional investing is not a claim of real-money gambling or a cash prize.
+
+**Privacy implementation:** No analytics, ads, account, tracking identifier or
+public upload of game scores. Canonical decisions, device scores, motion
+preferences, bookmarks and cached comparison data remain on the device. The data
+host receives ordinary HTTPS request metadata for comparison refreshes. Native
+sharing uses the user's chosen share destination. The privacy manifest declares
+the UserDefaults required-reason API. Final App Store privacy answers must
+reflect the configured data host as well as the app.
+
+**Screenshots:** Use the actual iPhone captures exported by the native CI tests:
+Play home, decision, reveal, completed run, device board and comparison tools.
+Do not label simulator screenshots as an App Store release or promote fictional
+capital as a real investment outcome.
+
+**Enrollment and release:** See [launch steps](LAUNCH.md).

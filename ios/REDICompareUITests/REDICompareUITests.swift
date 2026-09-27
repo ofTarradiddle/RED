@@ -53,4 +53,42 @@ final class REDICompareUITests: XCTestCase {
         app.staticTexts["My market view"].tap()
         XCTAssertTrue(app.buttons["peer-SPY"].waitForExistence(timeout: 8))
     }
+
+    func testNativePlayRoundAndResume() {
+        app.tabBars.buttons["Play"].tap()
+        XCTAssertTrue(app.buttons["play-classic"].waitForExistence(timeout: 15))
+        screenshot("06-play-home")
+        app.buttons["play-classic"].tap()
+        XCTAssertTrue(app.buttons["play-choice-25"].waitForExistence(timeout: 10))
+        XCTAssertEqual(app.staticTexts["play-round"].label, "1 / 12")
+        screenshot("07-play-decision")
+        app.buttons["play-choice-25"].tap()
+        XCTAssertTrue(app.buttons["play-next"].waitForExistence(timeout: 10))
+        screenshot("08-play-reveal")
+        app.buttons["play-home"].tap()
+        XCTAssertTrue(app.buttons["play-resume"].waitForExistence(timeout: 8))
+        app.buttons["play-resume"].tap()
+        XCTAssertTrue(app.buttons["play-next"].waitForExistence(timeout: 8))
+        app.buttons["play-next"].tap()
+        XCTAssertEqual(app.staticTexts["play-round"].label, "2 / 12")
+    }
+
+    func testNativeDailyRunFinishesAndVerifiesDeviceScore() {
+        app.tabBars.buttons["Play"].tap()
+        XCTAssertTrue(app.buttons["play-daily"].waitForExistence(timeout: 15))
+        app.buttons["play-daily"].tap()
+        for _ in 0..<12 {
+            XCTAssertTrue(app.buttons["play-choice-0"].waitForExistence(timeout: 10))
+            app.buttons["play-choice-0"].tap()
+            XCTAssertTrue(app.buttons["play-next"].waitForExistence(timeout: 10))
+            app.buttons["play-next"].tap()
+        }
+        XCTAssertTrue(app.buttons["play-again"].waitForExistence(timeout: 10))
+        XCTAssertEqual(app.staticTexts["play-finish-capital"].label, "$100.00")
+        screenshot("09-play-finish")
+        app.buttons["play-scores"].tap()
+        XCTAssertTrue(app.navigationBars["Device leaderboard"].waitForExistence(timeout: 8))
+        XCTAssertTrue(app.staticTexts["$100.00"].exists)
+        screenshot("10-play-scores")
+    }
 }
