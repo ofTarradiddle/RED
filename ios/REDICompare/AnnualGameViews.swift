@@ -239,6 +239,8 @@ struct AnnualGameScreen: View {
                     Button { openHistory(item.id) } label: {
                         HStack { VStack(alignment: .leading, spacing: 4) { Text(item.ticker ?? item.name).font(.subheadline.weight(.medium)); Text(item.name).font(.caption).foregroundStyle(HetzerkTheme.muted) }; Spacer(); Text(item.periodReturn.map(AnnualStyle.percent) ?? "Unavailable").font(.caption.monospaced()); Image(systemName: "arrow.up.right").font(.caption2) }
                             .padding(.vertical, 10)
+                            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                            .contentShape(Rectangle())
                     }.buttonStyle(.plain).accessibilityIdentifier("annual-outcome-\(item.ticker ?? item.id)")
                 }
             } else {
