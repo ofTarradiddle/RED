@@ -21,7 +21,15 @@ self.addEventListener('activate', event => {
   })());
 });
 self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET' || !ALLOWED.has(event.request.url)) return;
+  const cacheURL = new URL(event.request.url);
+  const appPath = new URL(self.registration.scope).pathname;
+  // The view query controls client-side tabs; both views use the same static
+  // document. Keep that document available when a shared deep link is offline.
+  if (event.request.mode === 'navigate' && (cacheURL.pathname === appPath || cacheURL.pathname === appPath + 'index.html')) {
+    cacheURL.search = '';
+  }
+  const cacheKey = cacheURL.href;
+  if (event.request.method !== 'GET' || !ALLOWED.has(cacheKey)) return;
   event.respondWith((async () => {
     const cache = await caches.open(CACHE);
     const controller = new AbortController();
@@ -29,10 +37,10 @@ self.addEventListener('fetch', event => {
     try {
       const response = await fetch(event.request, {signal: controller.signal});
       if (!response.ok) throw new Error('Snapshot request failed');
-      await cache.put(event.request, response.clone());
+      await cache.put(cacheKey, response.clone());
       return response;
     } catch (_) {
-      const cached = await cache.match(event.request);
+      const cached = await cache.match(cacheKey);
       if (!cached) return new Response('Offline. Reconnect to load this page.', {status: 503});
       const headers = new Headers(cached.headers);
       headers.set('X-Hetzerk-Cache', 'offline');

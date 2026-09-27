@@ -134,6 +134,7 @@ def publish_comparison(stage, snapshot, *, base_path='', peer_path=None, live_pa
             relative += 'index.html'
         digest.update((stage / relative).read_bytes())
     worker = (ROOT / 'assets/comparison-worker.js').read_text()
+    digest.update(worker.encode())
     worker = worker.replace('__APP_FILES__', json.dumps(files))
     worker = worker.replace('__APP_REVISION__', digest.hexdigest()[:16])
     (folder / 'sw.js').write_text(worker)
