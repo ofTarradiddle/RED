@@ -33,10 +33,10 @@ def phase(name, isa, files):
     return add(name, isa, buildActionMask=2147483647, files=files, runOnlyForDeploymentPostprocessing=0)
 
 
-swift = ['REDICompareApp.swift', 'ComparisonStore.swift', 'Theme.swift', 'Views.swift', 'ArcadeStore.swift', 'ArcadeViews.swift', 'ResearchViews.swift']
+swift = ['REDICompareApp.swift', 'ComparisonStore.swift', 'Theme.swift', 'Views.swift', 'ArcadeStore.swift', 'ArcadeViews.swift', 'ResearchViews.swift', 'AnnualGameStore.swift', 'AnnualGameViews.swift']
 source_refs = [file(name, 'sourcecode.swift') for name in swift]
 source_builds = [add('source:' + name, 'PBXBuildFile', fileRef=identifier) for name, identifier in zip(swift, source_refs)]
-resource_names = [('Assets.xcassets', 'folder.assetcatalog'), ('PrivacyInfo.xcprivacy', 'text.xml'), ('comparison-preview.json', 'text.json'), ('../../assets/innovation-game-engine.js', 'sourcecode.javascript'), ('../../assets/innovation-arcade-engine.js', 'sourcecode.javascript'), ('../../data/innovation/dataset.json', 'text.json'), ('../../data/strategy_research.json', 'text.json')]
+resource_names = [('Assets.xcassets', 'folder.assetcatalog'), ('PrivacyInfo.xcprivacy', 'text.xml'), ('comparison-preview.json', 'text.json'), ('../../assets/innovation-game-engine.js', 'sourcecode.javascript'), ('../../assets/innovation-arcade-engine.js', 'sourcecode.javascript'), ('../../assets/annual-portfolio-engine.js', 'sourcecode.javascript'), ('../../data/innovation/dataset.json', 'text.json'), ('../../data/strategy_research.json', 'text.json')]
 resource_refs = [file(name, kind) for name, kind in resource_names]
 resource_builds = [add('resource:' + name, 'PBXBuildFile', fileRef=identifier) for (name, _), identifier in zip(resource_names, resource_refs)]
 info = file('Info.plist', 'text.plist.xml')
@@ -86,10 +86,17 @@ def configurations(key, configs):
     return add(key, 'XCConfigurationList', buildConfigurations=configs, defaultConfigurationIsVisible=0, defaultConfigurationName='Release')
 
 
+annual_resource = add('annual-resource-copy', 'PBXShellScriptBuildPhase', name='Bundle annual portfolio source',
+                      buildActionMask=2147483647, files=[], runOnlyForDeploymentPostprocessing=0,
+                      inputPaths=['$(SRCROOT)/../data/annual-game/dataset.json'],
+                      outputPaths=['$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/annual-game.json'],
+                      shellPath='/bin/sh',
+                      shellScript='/bin/cp "${SCRIPT_INPUT_FILE_0}" "${SCRIPT_OUTPUT_FILE_0}"\n')
+
 app_target = add('app-target', 'PBXNativeTarget', buildConfigurationList=configurations('app-configs', app_configs),
                  buildPhases=[phase('app-sources', 'PBXSourcesBuildPhase', source_builds),
                               phase('app-frameworks', 'PBXFrameworksBuildPhase', [framework]),
-                              phase('app-resources', 'PBXResourcesBuildPhase', resource_builds)],
+                              phase('app-resources', 'PBXResourcesBuildPhase', resource_builds), annual_resource],
                  buildRules=[], dependencies=[], name='REDICompare', productName='REDICompare',
                  productReference=app_product, productType='com.apple.product-type.application',
                  packageProductDependencies=[dependency])

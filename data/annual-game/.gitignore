@@ -1,0 +1,8 @@
+# Full provider caches are local inputs; reviewed monthly universe is published.
+prices.json.gz
+wiki-prices.json.gz
+yahoo-2020-prices.json.gz
+yahoo-2022-prices.json.gz
+yahoo-apr2022-prices.json.gz
+yahoo-2023-prices.json.gz
+yahoo-jul2025-prices.json.gz

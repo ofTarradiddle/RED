@@ -1,0 +1,2 @@
+-r requirements-shadow.txt
+lxml>=4.9,<7

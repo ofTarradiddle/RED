@@ -120,7 +120,7 @@ def test_all_generated_routes_assets_and_anchors(snapshot):
     parsed={}
     for path,content in pages.items():
         parser=Links();parser.feed(content);parsed[path]=parser
-        if path in ('innovation/index.html', 'play/index.html', 'play/support.html'):
+        if path in ('innovation/index.html', 'play/index.html', 'play/arcade/index.html', 'play/support.html'):
             assert 'Just for fun and development practice' in content
             assert 'fictional' in content.lower()
         else:
@@ -141,7 +141,7 @@ def test_all_generated_routes_assets_and_anchors(snapshot):
             elif route.startswith('assets/'):
                 assert (ROOT/route).exists(),(path,link)
             else:
-                assert route in ('review/hetzerk-demo.xlsx', 'etfs/redi/fact-sheet.pdf', 'compare/data.json', 'compare/research.json', 'compare/manifest.webmanifest', 'innovation/data.json') or route.endswith(('/holdings.csv','/daily.csv','/distributions.csv')),(path,link)
+                assert route in ('review/hetzerk-demo.xlsx', 'etfs/redi/fact-sheet.pdf', 'compare/data.json', 'compare/research.json', 'compare/manifest.webmanifest', 'innovation/data.json', 'play/data.json') or route.endswith(('/holdings.csv','/daily.csv','/distributions.csv')),(path,link)
 
 
 def test_spread_and_data_labels_are_honest(snapshot):

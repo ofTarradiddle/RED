@@ -45,7 +45,7 @@ struct ContentView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            ArcadeScreen()
+            AnnualGameScreen()
                 .tabItem { Label("Play", systemImage: "gamecontroller") }
                 .tag("play")
                 .accessibilityIdentifier("app-tab-play")

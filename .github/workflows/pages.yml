@@ -29,18 +29,21 @@ jobs:
           cache-dependency-path: |
             requirements-site.txt
             requirements-shadow.txt
+            requirements-annual.txt
       - name: Install publisher and test dependencies
         # The publication-boundary tests also import the local accounting library.
         # No market refresh or accounting replay is run by this workflow.
-        run: python -m pip install -r requirements-shadow.txt
+        run: python -m pip install -r requirements-annual.txt
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Check public pages
         run: |
           python -m pytest tests/site tests/test_comparison_data.py tests/test_strategy_research_import.py -q
+          python -m pytest tests/test_annual_universe.py tests/test_annual_filings.py tests/test_annual_release.py tests/test_annual_excerpt.py -q
           node --test tests/comparison-math.test.cjs tests/strategy-research-math.test.cjs
           node --test tests/innovation-game.test.cjs tests/innovation-arcade.test.cjs services/innovation-leaderboard/worker.test.mjs
+          node --test tests/annual-portfolio.test.cjs
       - name: Restore latest ETF comparison observations
         uses: actions/cache/restore@v4
         with:

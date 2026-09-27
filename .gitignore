@@ -62,6 +62,8 @@ dist
 *.xlsx.inspect.ndjson
 data/shadow_reports/
 data/shadow_spy/
+data/annual-game/prices.json.gz
+data/annual-game/filings.json
 
 # Test coverage
 .coverage

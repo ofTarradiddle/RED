@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "asOf": "2026-09-25",
+  "scope": "Bounded cross-check of overlapping actual monthly observations from the same eligible security era. Material unresolved adjustment disagreements are quarantined, not repaired or treated as losses. This is not a complete corporate-action audit.",
+  "flags": [
+    {
+      "id": "DHR-2016-07-29",
+      "assetId": "cik-0000313616-DHR",
+      "excludedDate": "2016-07-29",
+      "intervalStart": "2016-06-30",
+      "intervalEnd": "2016-07-29",
+      "selectedSource": "Yahoo Finance adjusted close",
+      "reason": "Fortive share distribution: large unresolved adjusted-return discontinuity.",
+      "sourceReturns": [
+        {
+          "source": "Yahoo Finance adjusted close",
+          "sourceUrl": "https://finance.yahoo.com/quote/DHR/history/",
+          "returnFraction": 0.6543804644380202,
+          "edition": "1d39f9575105d7df"
+        },
+        {
+          "source": "Quandl WIKI archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/marketneutral/quandl-wiki-prices-us-equites",
+          "returnFraction": 0.06358947338805265,
+          "sourceSha256": "adfd226694c6f3ec2c56b585d973764180a39a3ec516601721e90096dc1de94f"
+        },
+        {
+          "source": "April-2022 adjusted-close archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/hanseopark/sp-500-stocks-value-with-financial-statement",
+          "returnFraction": 0.06355794927658343,
+          "sourceSha256": "e80a8e048cca38c49904921024252aaf032811042861ae2174700668cb04b18e"
+        }
+      ],
+      "corporateActionSourceUrl": "https://investors.danaher.com/2016-07-02-Danaher-Corporation-Completes-Separation-of-Fortive-Corporation"
+    },
+    {
+      "id": "XRX-2017-01-03",
+      "assetId": "cik-0001770450-XRX",
+      "excludedDate": "2016-12-30",
+      "intervalStart": "2016-12-30",
+      "intervalEnd": "2017-01-03",
+      "selectedSource": "Yahoo Finance adjusted close",
+      "reason": "Conduent separation: adjusted-return paths disagree across the annual boundary. The pre-event observation is withheld so the following clean holding period can still begin.",
+      "sourceReturns": [
+        {
+          "source": "Yahoo Finance adjusted close",
+          "sourceUrl": "https://finance.yahoo.com/quote/XRX/history/",
+          "returnFraction": 0.3763514239660275,
+          "edition": "1d39f9575105d7df"
+        },
+        {
+          "source": "Quandl WIKI archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/marketneutral/quandl-wiki-prices-us-equites",
+          "returnFraction": -0.21076746849941141,
+          "sourceSha256": "adfd226694c6f3ec2c56b585d973764180a39a3ec516601721e90096dc1de94f"
+        }
+      ],
+      "corporateActionSourceUrl": "https://www.sec.gov/Archives/edgar/data/108772/000119312517000337/d312814d8k.htm"
+    },
+    {
+      "id": "VTR-2015-08-31",
+      "assetId": "cik-0000740260-VTR",
+      "excludedDate": "2015-08-31",
+      "intervalStart": "2015-07-31",
+      "intervalEnd": "2015-08-31",
+      "selectedSource": "Yahoo Finance adjusted close",
+      "reason": "Care Capital Properties share distribution: payout treatment remains unreconciled.",
+      "sourceReturns": [
+        {
+          "source": "Yahoo Finance adjusted close",
+          "sourceUrl": "https://finance.yahoo.com/quote/VTR/history/",
+          "returnFraction": -0.2818452541769132,
+          "edition": "1d39f9575105d7df"
+        },
+        {
+          "source": "Quandl WIKI archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/marketneutral/quandl-wiki-prices-us-equites",
+          "returnFraction": -0.06316784322562086,
+          "sourceSha256": "adfd226694c6f3ec2c56b585d973764180a39a3ec516601721e90096dc1de94f"
+        },
+        {
+          "source": "April-2022 adjusted-close archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/hanseopark/sp-500-stocks-value-with-financial-statement",
+          "returnFraction": -0.2818448726166366,
+          "sourceSha256": "e80a8e048cca38c49904921024252aaf032811042861ae2174700668cb04b18e"
+        }
+      ],
+      "corporateActionSourceUrl": "https://ir.ventasreit.com/news/news-details/2015/Ventas-Completes-Spin-off-of-Pure-Play-Skilled-Nursing-REIT-Care-Capital-Properties-Inc/default.aspx"
+    },
+    {
+      "id": "EXPE-2011-12-30",
+      "assetId": "cik-0001324424-EXPE",
+      "excludedDate": "2011-12-30",
+      "intervalStart": "2011-11-30",
+      "intervalEnd": "2011-12-30",
+      "selectedSource": "Yahoo Finance adjusted close",
+      "reason": "TripAdvisor distribution and Expedia reverse split: the complete shareholder distribution is not independently reconciled.",
+      "sourceReturns": [
+        {
+          "source": "Yahoo Finance adjusted close",
+          "sourceUrl": "https://finance.yahoo.com/quote/EXPE/history/",
+          "returnFraction": -0.29049458247721194,
+          "edition": "1d39f9575105d7df"
+        },
+        {
+          "source": "Quandl WIKI archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/marketneutral/quandl-wiki-prices-us-equites",
+          "returnFraction": -0.4465418347302825,
+          "sourceSha256": "adfd226694c6f3ec2c56b585d973764180a39a3ec516601721e90096dc1de94f"
+        },
+        {
+          "source": "April-2022 adjusted-close archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/hanseopark/sp-500-stocks-value-with-financial-statement",
+          "returnFraction": -0.2904946478563699,
+          "sourceSha256": "e80a8e048cca38c49904921024252aaf032811042861ae2174700668cb04b18e"
+        }
+      ],
+      "corporateActionSourceUrl": "https://www.sec.gov/Archives/edgar/data/1324424/000119312512050009/d269044d10k.htm"
+    },
+    {
+      "id": "ITT-2011-11-30",
+      "assetId": "cik-0000216228-ITT",
+      "excludedDate": "2011-11-30",
+      "intervalStart": "2011-10-31",
+      "intervalEnd": "2011-11-30",
+      "selectedSource": "Yahoo Finance adjusted close",
+      "reason": "Large adjusted-return disagreement around the ITT separation and reverse split requires a verified shareholder-action reconstruction.",
+      "sourceReturns": [
+        {
+          "source": "Yahoo Finance adjusted close",
+          "sourceUrl": "https://finance.yahoo.com/quote/ITT/history/",
+          "returnFraction": 0.33992294543846446,
+          "edition": "1d39f9575105d7df"
+        },
+        {
+          "source": "Quandl WIKI archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/marketneutral/quandl-wiki-prices-us-equites",
+          "returnFraction": -0.7778181768694756,
+          "sourceSha256": "adfd226694c6f3ec2c56b585d973764180a39a3ec516601721e90096dc1de94f"
+        }
+      ],
+      "corporateActionSourceUrl": "https://www.sec.gov/Archives/edgar/data/216228/000095012311095346/y93291e8vk.htm"
+    },
+    {
+      "id": "NEE-2015-11-30",
+      "assetId": "cik-0000753308-NEE",
+      "excludedDate": "2015-11-30",
+      "intervalStart": "2015-10-30",
+      "intervalEnd": "2015-11-30",
+      "selectedSource": "Yahoo Finance adjusted close",
+      "reason": "Same-security archived and current adjusted returns differ by more than two percentage points. The adjustment cause is unverified.",
+      "sourceReturns": [
+        {
+          "source": "Yahoo Finance adjusted close",
+          "sourceUrl": "https://finance.yahoo.com/quote/NEE/history/",
+          "returnFraction": -0.019763594810721985,
+          "edition": "1d39f9575105d7df"
+        },
+        {
+          "source": "Quandl WIKI archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/marketneutral/quandl-wiki-prices-us-equites",
+          "returnFraction": -0.019740058787923065,
+          "sourceSha256": "adfd226694c6f3ec2c56b585d973764180a39a3ec516601721e90096dc1de94f"
+        },
+        {
+          "source": "April-2022 adjusted-close archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/hanseopark/sp-500-stocks-value-with-financial-statement",
+          "returnFraction": 0.011577915869225963,
+          "sourceSha256": "e80a8e048cca38c49904921024252aaf032811042861ae2174700668cb04b18e"
+        }
+      ]
+    },
+    {
+      "id": "NI-2012-10-31",
+      "assetId": "cik-0001111711-NI",
+      "excludedDate": "2012-10-31",
+      "intervalStart": "2012-09-28",
+      "intervalEnd": "2012-10-31",
+      "selectedSource": "Yahoo Finance adjusted close",
+      "reason": "Same-security archived and current adjusted returns differ by more than two percentage points. The adjustment cause is unverified.",
+      "sourceReturns": [
+        {
+          "source": "Yahoo Finance adjusted close",
+          "sourceUrl": "https://finance.yahoo.com/quote/NI/history/",
+          "returnFraction": 0.009119902570863925,
+          "edition": "1d39f9575105d7df"
+        },
+        {
+          "source": "Quandl WIKI archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/marketneutral/quandl-wiki-prices-us-equites",
+          "returnFraction": -0.0003924646781793273,
+          "sourceSha256": "adfd226694c6f3ec2c56b585d973764180a39a3ec516601721e90096dc1de94f"
+        },
+        {
+          "source": "April-2022 adjusted-close archive",
+          "sourceUrl": "https://www.kaggle.com/datasets/hanseopark/sp-500-stocks-value-with-financial-statement",
+          "returnFraction": 0.033924375674718066,
+          "sourceSha256": "e80a8e048cca38c49904921024252aaf032811042861ae2174700668cb04b18e"
+        }
+      ]
+    }
+  ]
+}

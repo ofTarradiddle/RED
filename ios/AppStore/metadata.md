@@ -15,15 +15,20 @@ Developer Program. No TestFlight build or App Store listing is live.
 
 **Description:**
 
-Start with $100. Meet twelve moments that changed the world. Make the call.
+Start with $100. Build a portfolio. Let the years answer.
 
-REDI Play turns innovation history into a short investing game. Read the company
-opportunity, inspect dated financial evidence when available, and choose how much
-of your fictional capital to invest. Watch the years unfold, then decide again.
+REDI Play begins at year-end 2010. Explore a reconstruction of that year's S&P 500
+constituents, inspect company filings available at the time, and choose portfolio
+weights across supported firms. Invest up to 100% in total; leave the rest in cash.
+Then advance a year and inspect the resulting portfolio and individual firm returns.
+Prepare an equal-weight draft across the supported universe, then edit it before
+locking. Inspect completed company returns against SPY and track linked returns
+through only the periods you held each firm, alongside your dollar profit.
 
-Play the same Classic route to refine your decisions, or try a new Daily route.
-Resume a run offline, track your personal bests, and share your result. The
-Hetzerk wing H follows your capital through six decades of business history.
+Follow your actual invested periods across repeated entries and exits. Compare
+the portfolio's observed path with an ETF market proxy, resume offline, and keep
+replay-verified device scores. The smaller Classic and Daily arcade is also available
+as a separate exercise, with its own progress and scores.
 
 Explore native ETF comparison tools alongside the game: dated market-price
 history, NAV where available, drawdown, volatility and correlation. Save a
@@ -37,23 +42,34 @@ research levels are transcribed and rounded; source fee and dividend assumptions
 are unspecified, and the underlying backtest has not been independently verified.
 They are separate from REDI NAV and actual fund performance.
 
-The game uses selected historical companies and provider-adjusted returns. It is
-an educational exercise with hindsight and survivorship bias, not a test that
-predicts investing ability. All game money is fictional. There are no brokerage
+The annual universe is a public historical reconstruction, not an official licensed
+index record. Every constituent remains visible, but incomplete, delisted or
+ambiguous return paths cannot be used until supported. This creates coverage bias.
+The game uses provider-adjusted returns and dated financial evidence; it is an
+educational exercise, not a test that predicts investing ability. All game money
+is fictional. There are no brokerage
 connections, real-money wagers, prizes or in-app purchases. Past performance does
 not predict future results.
 
 **Review notes:**
 
-- No login is required. Tap Play → Play Classic to start; choose Pass, 25%, 50%
-  or All in, then Next Opportunity. After twelve decisions, the run is saved to
-  the device board. Tap the trophy to inspect it. There is no public leaderboard.
+- No login is required. Tap Play → Build Your Portfolio. Search a historical
+  company, inspect its record, enter a portfolio percentage, and Apply Weight.
+  Combined weights must stay at or below 100%. Lock the Portfolio advances one
+  annual period; an empty allocation holds cash. The final partial year ends at
+  the source's latest completed observation. Tap the trophy for local scores.
+- Equal weight universe fills an editable draft using the full supported roster,
+  not just search results. It never submits an allocation automatically. Revealed
+  universe rows open completed company/SPY return paths even for unheld firms.
 - Game content and JavaScriptCore rules are bundled and work offline; the native
   UI is SwiftUI, not a website wrapper. No executable code is downloaded.
-- Every choice closes the previous position at an observed price and reallocates
-  current capital. Cash earns 0%; fees, taxes and inflation are excluded.
-- The information button documents rules, source limitations and privacy. Motion
-  controls and system Reduce Motion are respected. Haptic feedback is optional.
+- Each annual rebalance closes previous return-unit lots at observed marks and
+  reallocates current capital. Provider dividend and split adjustments are not
+  credited twice. Cash earns 0%; fees, taxes and inflation are excluded.
+- The information button documents rules, coverage limitations and privacy.
+  Individual company records link dated original filings and distinguish missing
+  financials from zero. The secondary arcade respects Reduce Motion and offers
+  optional haptic feedback.
 - The Compare, Risk and REDI tabs use a dated public website feed. REDI remains
   marked as illustrative until its verified live feed is supplied.
 - Tap “The measure of fire” in Compare or REDI for offline strategy research.
@@ -80,7 +96,8 @@ the UserDefaults required-reason API. Final App Store privacy answers must
 reflect the configured data host as well as the app.
 
 **Screenshots:** Use the actual iPhone captures exported by the native CI tests:
-Play home, decision, reveal, completed run, device board, comparison tools and research.
+Annual portfolio home, dated company evidence, annual results and owned-period
+history, plus the secondary arcade, comparison tools and research.
 Do not label simulator screenshots as an App Store release or promote fictional
 capital as a real investment outcome.
 

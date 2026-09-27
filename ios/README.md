@@ -1,12 +1,24 @@
 # REDI Play for iOS
 
-A native SwiftUI investing game, with the existing ETF comparison tools alongside it.
-The app opens on **Play**: $100 of fictional capital, 12 historical opportunities,
-Classic and Daily runs, animated wing-H flight, haptic decisions, resumable games,
-and replay-verified device scores. It works offline using bundled dated history
-and the same JavaScriptCore accounting rules as the web game. No remote code or
-web view powers the native game. Different modes, UTC days and data editions have
-separate scoreboards; no public leaderboard or Game Center connection is claimed.
+A native SwiftUI annual portfolio exercise, with ETF comparison tools alongside it.
+The app opens on **Play**: $100 of fictional capital and a year-end 2010 decision.
+Search the full historical constituent roster, inspect filings available by that
+cutoff, and allocate across any supported firms. Combined weights cannot exceed
+100%; the remainder stays in cash. Each annual reveal shows the observed capital
+path, firm returns, and each holding's contribution. Repeated entries and exits
+retain separate invested-period records. Progress and device scores replay through
+the same bundled JavaScriptCore accounting engine as the website.
+
+**Equal weight universe** prepares an editable 100% allocation across every
+supported company at that cutoff, regardless of the current search. It does not
+commit the year. Company deep dives show the latest completed eligible interval
+against SPY, including unheld firms. A separate linked return compounds only the
+periods you owned the firm, remains flat across gaps, and sits beside actual dollar
+profit so position-size effects remain distinct.
+
+The twelve-decision Classic/Daily arcade remains a secondary option. Its saves
+and scores are separate from the annual exercise. There is no public leaderboard,
+Game Center connection, downloaded executable code, or website wrapper.
 
 The Compare, Risk and REDI tabs provide a native interface for comparing the Hetzerk Innovation Factor ETF with SPY,
 VOO, QQQ, ITAN, and SYLD. Requires iOS 17 or later. It uses Swift Charts, native
@@ -24,7 +36,15 @@ targets or project settings, edit the generator and regenerate the project.
 
 ## Data and calculations
 
-The game bundles `data/innovation/dataset.json` and both innovation engines via
+The annual exercise bundles `assets/annual-portfolio-engine.js` and only the
+published `data/annual-game/dataset.json`. A declared Xcode copy phase renames the
+JSON resource to `annual-game.json`, avoiding a collision with the older archive.
+Private source caches and filing downloads are not copied into the app. File
+loading, JSON parsing, edition validation and initial replay run in the background
+with a loading indicator. Source editions, historical eligibility, coverage gaps,
+and filed fact dates remain explicit; unavailable returns are never filled.
+
+The secondary arcade bundles `data/innovation/dataset.json` and both innovation engines via
 project references, so the sources cannot silently drift into a separate copy.
 Updating the app publishes a new game-data edition when economic inputs change.
 Only canonical allocation choices are saved; balances are replayed on restore.

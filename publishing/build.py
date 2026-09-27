@@ -59,6 +59,8 @@ def build(workbook, output=ROOT / "dist", proxy_path=None, base_path='', *, site
                            live_path=ROOT/'data/redi_live.json')
         from publishing.innovation_release import publish_innovation
         publish_innovation(stage)
+        from publishing.annual_release import publish_annual_game
+        publish_annual_game(stage)
         shutil.copyfile(workbook, stage / 'review/hetzerk-demo.xlsx')
         if hashlib.sha256((stage / 'review/hetzerk-demo.xlsx').read_bytes()).hexdigest() != snapshot['source_sha256']:
             raise ValueError('Workbook changed during the build; save it and rebuild')

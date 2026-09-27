@@ -3,7 +3,7 @@ name: Build native REDI iOS app
 on:
   push:
     branches: [2026-sep-red]
-    paths: ['ios/**', 'assets/innovation-game-engine.js', 'assets/innovation-arcade-engine.js', 'data/innovation/dataset.json', 'data/strategy_research.json', '.github/workflows/native-ios.yml']
+    paths: ['ios/**', 'assets/annual-portfolio-engine.js', 'assets/innovation-game-engine.js', 'assets/innovation-arcade-engine.js', 'data/annual-game/dataset.json', 'data/innovation/dataset.json', 'data/strategy_research.json', '.github/workflows/native-ios.yml']
   workflow_dispatch:
 
 permissions:
@@ -21,6 +21,11 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_26.3.app/Contents/Developer
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate shared annual portfolio accounting
+        run: node --test tests/annual-portfolio.test.cjs
       - name: Validate native comparison calculations
         run: swift test --package-path ios/REDICore
       - name: Validate generated Xcode project

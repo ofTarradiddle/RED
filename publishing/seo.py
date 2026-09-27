@@ -13,8 +13,10 @@ SOCIAL_IMAGE = '/assets/hetzerk-social.png'
 # Legacy research drafts, utility pages and aliases remain reachable but are
 # excluded from the sitemap of current search landing pages.
 METADATA = {
-    'play/index.html': ('REDI Play — The Innovation Investing Game | Hetzerk Asset Management',
-                         'Start with $100 of fictional capital. Play twelve historical innovation moments, choose your allocation, and watch your decisions unfold in REDI Play.'),
+    'play/index.html': ('REDI Play — The Annual Portfolio Game | Hetzerk Asset Management',
+                         'Build a portfolio from historical company rosters beginning at year-end 2010. Read dated SEC filings, rebalance annually and follow company and portfolio returns against SPY.'),
+    'play/arcade/index.html': ('REDI Play — The Quick Game | Hetzerk Asset Management',
+                         'Twelve historical innovation decisions with fictional capital. The original REDI quick game.'),
     'play/support.html': ('REDI Play Support | Hetzerk Asset Management',
                            'Get help with REDI Play, saved runs, device scores, game rules, historical data and the native iPhone app.'),
     'innovation/index.html': ('Innovation Atlas & Investing Game | Hetzerk Asset Management',

@@ -1,0 +1,105 @@
+name: Refresh annual game source snapshot
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh_membership:
+        description: Re-download and pin the public historical constituent sources
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: annual-game-source-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 2026-sep-red
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: |
+            requirements-site.txt
+            requirements-shadow.txt
+            requirements-annual.txt
+      - name: Install source processing dependencies
+        run: python -m pip install -r requirements-annual.txt
+      - name: Restore source evidence
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            .cache/annual-filings
+            data/annual-game/prices.json.gz
+            data/annual-game/wiki-prices.json.gz
+            data/annual-game/yahoo-2020-prices.json.gz
+            data/annual-game/yahoo-2022-prices.json.gz
+            data/annual-game/yahoo-apr2022-prices.json.gz
+            data/annual-game/yahoo-2023-prices.json.gz
+            data/annual-game/yahoo-jul2025-prices.json.gz
+            data/annual-game/filings.json
+          key: annual-sources-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: annual-sources-v1-${{ runner.os }}-
+      - name: Refresh observed trading calendar
+        run: python -m scripts.refresh_comparison --strict
+      - name: Refresh membership when explicitly selected
+        if: inputs.refresh_membership
+        run: python -m scripts.annual_universe --refresh-sources
+      - name: Refresh current company prices
+        run: python -m scripts.annual_universe --refresh-prices --workers 5
+      - name: Refresh dated SEC submissions and annual evidence
+        # Global throttling remains below seven SEC requests per second.
+        # A cold cache can take an hour; subsequent runs reuse annual reports.
+        run: python -m scripts.annual_filings --universe data/annual-game/universe.json --refresh-metadata --workers 10
+      - name: Compile and validate the review edition
+        run: |
+          python -m scripts.refresh_annual_game
+          python -m pytest tests/test_annual_universe.py tests/test_annual_filings.py tests/test_annual_excerpt.py tests/test_annual_release.py -q
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          payload = json.loads(Path('data/annual-game/dataset.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as report:
+              report.write('## Annual game review snapshot\n\n')
+              report.write(f"Edition `{payload['version']}`, observations through {payload['asOf']}.\n\n")
+              report.write('Download the artifact and review coverage before committing it to the website branch. This workflow does not deploy a changed game edition.\n\n')
+              report.write('| Decision year | Members | Complete price paths | Filed financials | Filing topics |\n|---|---:|---:|---:|---:|\n')
+              for round in payload['rounds']:
+                  c = round['coverage']
+                  report.write(f"| {round['year']} | {c['members']} | {c['priced']} | {c['filedFinancials']} | {c['filingNarratives']} |\n")
+          PY
+      - name: Retain source cache for incremental refreshes
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            .cache/annual-filings
+            data/annual-game/prices.json.gz
+            data/annual-game/wiki-prices.json.gz
+            data/annual-game/yahoo-2020-prices.json.gz
+            data/annual-game/yahoo-2022-prices.json.gz
+            data/annual-game/yahoo-apr2022-prices.json.gz
+            data/annual-game/yahoo-2023-prices.json.gz
+            data/annual-game/yahoo-jul2025-prices.json.gz
+            data/annual-game/filings.json
+          key: annual-sources-v1-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Retain the proposed public edition for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: annual-game-review
+          retention-days: 90
+          path: |
+            data/annual-game/dataset.json
+            data/annual-game/universe.json
+            data/annual-game/coverage.json
+            data/annual-game/quality_flags.json
+            data/annual-game/sources/
+            data/annual-game/README.md

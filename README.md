@@ -216,19 +216,32 @@ is implemented and tested but requires a Cloudflare account and D1 deployment.
 It verifies submitted decisions against a pinned dataset. No invented players are
 seeded, and the UI labels device and shared rankings separately.
 
-## REDI Play: the short game and native iPhone app
+## REDI Play: annual portfolios and the native iPhone app
 
-Open **/play/** for the compact game. Classic and Daily runs start with $100 of
-fictional capital and twelve chronological opportunities. Each choice closes the
-previous position at a verified quote and allocates 0%, 25%, 50% or 100% of current
-capital to the next company. The full research timeline remains at /innovation/.
+Open **/play/** for the annual portfolio game. Begin at year-end 2010 with $100
+of fictional capital. Search each historical S&P 500 roster, inspect dated SEC
+annual-report evidence, and allocate across any number of supported companies.
+Total weights cannot exceed 100%; the remainder stays in cash. Rebalance once a
+year and inspect monthly portfolio marks, SPY, each holding's period return,
+and the profit contributed across all periods you owned it. The last interval
+ends at the source observation date and can be a partial year.
 
-`assets/innovation-arcade-engine.js` selects and verifies each route using the
-original historical accounting engine. The web page and the native SwiftUI Play
-tab use those same files and the same source dataset. Native execution uses
-JavaScriptCore with bundled code and data; it does not embed the website or
-download executable scripts. Runs persist as choices and are verified by replay.
-Classic and each UTC Daily challenge have separate device leaderboards.
+`assets/annual-portfolio-engine.js` and `data/annual-game/dataset.json` are shared
+by the web page and native SwiftUI Play tab. JavaScriptCore runs bundled code
+and data on iOS; the app does not embed the website or download executable code.
+Saved allocations are checked by deterministic replay. Completed annual runs
+have device records separated by data edition. Historical rosters and adjusted
+prices are public reconstructions/proxies, not certified index or shareholder
+accounting records. Incomplete company-period prices block allocation while
+the company remains visible; missing filing fields remain unknown.
+
+The earlier twelve-choice Classic/Daily game is preserved at **/play/arcade/**
+and under the native quick-game option. The research timeline remains at
+**/innovation/**. These modes retain their own accounting and rankings.
+
+See [annual game mechanics, SEC evidence, and refresh](docs/annual-game.md), and
+the [source edition and per-year coverage](data/annual-game/README.md). A browser
+visit uses the published snapshot. It never fetches or re-extracts SEC reports.
 
 The native app now displays **REDI Play**, with Compare, Risk and REDI tools in
 adjacent tabs. See [native build and review](ios/README.md) and the concrete
