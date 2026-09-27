@@ -202,7 +202,7 @@ private struct CompareScreen: View {
             ComparisonControls()
             if let result = store.result, !result.series.isEmpty {
                 ComparisonChartCard(result: result)
-                REDICore.ComparisonResults(result: result)
+                ComparisonResults(result: result)
                 ResultWarnings(result: result)
                 ShareLink(item: store.shareSummary) {
                     Label("Share this comparison", systemImage: "square.and.arrow.up")
@@ -428,7 +428,7 @@ private struct ComparisonChartCard: View {
     }
 }
 
-private struct REDICore.ComparisonResults: View {
+private struct ComparisonResults: View {
     let result: REDICore.ComparisonResult
     var body: some View {
         VStack(alignment: .leading, spacing: 13) {
