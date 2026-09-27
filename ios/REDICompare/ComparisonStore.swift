@@ -27,7 +27,7 @@ final class ComparisonStore: ObservableObject {
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isUsingCache = false
-    @Published var result: ComparisonResult?
+    @Published var result: REDICore.ComparisonResult?
     @Published var savedComparisons: [SavedComparison]
 
     private let defaults: UserDefaults

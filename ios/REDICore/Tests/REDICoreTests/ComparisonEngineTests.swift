@@ -19,7 +19,7 @@ final class ComparisonEngineTests: XCTestCase {
     }
 
     private func compare(_ funds: [FundSeries], basis: REDIBasis = .marketPrice,
-                         mode: ReturnMode = .price, period: ComparisonPeriod = .all) throws -> ComparisonResult {
+                         mode: ReturnMode = .price, period: ComparisonPeriod = .all) throws -> REDICore.ComparisonResult {
         try ComparisonEngine.compare(snapshot: snapshot(funds), settings: ComparisonSettings(
             peers: funds.filter { $0.id != "REDI" }.map(\.id), basis: basis, returnMode: mode, period: period))
     }

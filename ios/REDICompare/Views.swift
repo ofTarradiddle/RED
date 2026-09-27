@@ -202,7 +202,7 @@ private struct CompareScreen: View {
             ComparisonControls()
             if let result = store.result, !result.series.isEmpty {
                 ComparisonChartCard(result: result)
-                ComparisonResults(result: result)
+                REDICore.ComparisonResults(result: result)
                 ResultWarnings(result: result)
                 ShareLink(item: store.shareSummary) {
                     Label("Share this comparison", systemImage: "square.and.arrow.up")
@@ -326,7 +326,7 @@ private struct PeriodSelector: View {
 }
 
 private struct ComparisonChartCard: View {
-    let result: ComparisonResult
+    let result: REDICore.ComparisonResult
     @State private var selectedDate: Date?
 
     private var selectedDay: String? {
@@ -428,8 +428,8 @@ private struct ComparisonChartCard: View {
     }
 }
 
-private struct ComparisonResults: View {
-    let result: ComparisonResult
+private struct REDICore.ComparisonResults: View {
+    let result: REDICore.ComparisonResult
     var body: some View {
         VStack(alignment: .leading, spacing: 13) {
             Eyebrow(text: "Over the shared period")
@@ -455,7 +455,7 @@ private struct ComparisonResults: View {
 }
 
 private struct ResultWarnings: View {
-    let result: ComparisonResult
+    let result: REDICore.ComparisonResult
     var body: some View {
         if !result.warnings.isEmpty {
             VStack(alignment: .leading, spacing: 9) {
