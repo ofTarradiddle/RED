@@ -24,8 +24,7 @@ def test_original_home_sections_and_full_names_remain(pages):
     assert not page.select('[data-innovation-journey], script[src$="innovation-journey.js"]')
     case = pages['etfs/redi/why-red.html']
     assert len(case.select('h1')) == 1
-    assert case.select_one('#research-eras [data-innovation-journey]')
-    assert len(case.select('[data-journey-tab]')) == 7
+    assert not case.select('#research-eras, [data-innovation-journey], script[src$="innovation-journey.js"]')
 
 
 def test_original_etf_boxes_and_fund_specific_identity(pages):

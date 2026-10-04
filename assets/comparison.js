@@ -7,6 +7,7 @@
   const peers = Array.from(document.querySelectorAll('input[name="peer"]'));
   const basis = $('redi-basis'), mode = $('return-mode');
   const svg = $('comparison-chart'), cursor = $('chart-cursor');
+  const customDates = $('comparison-custom-dates'), startDate = $('comparison-start-date'), endDate = $('comparison-end-date');
   const storageKey = 'hetzerk-comparison-preferences-v1';
   const colors = {REDI: '#a31d32', SPY: '#425968', VOO: '#857047', QQQ: '#477b72', ITAN: '#8972a6', SYLD: '#a07137'};
   const ns = 'http://www.w3.org/2000/svg';
@@ -16,6 +17,7 @@
   const dateFormat = new Intl.DateTimeFormat('en-US', {month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC'});
   let payload = null, result = null, period = '1Y', fetching = false, cached = false, chartGeometry = null;
   let focusLine = null, focusDots = [], resizeFrame = null;
+  let customDatesInitialized = false;
 
   function write(id, text) { const node = $(id); if (node) node.textContent = text; }
   function dateText(value) { return math.validDate(value) ? dateFormat.format(new Date(value + 'T00:00:00Z')) : 'Not available'; }
@@ -26,7 +28,7 @@
     node.hidden = !message;
   }
   function save() {
-    try { localStorage.setItem(storageKey, JSON.stringify({peers: peers.filter(input => input.checked).map(input => input.value), basis: basis.value, mode: mode.value, period: period})); } catch (_) {}
+    try { localStorage.setItem(storageKey, JSON.stringify({peers: peers.filter(input => input.checked).map(input => input.value), basis: basis.value, mode: mode.value, period: period, startDate: startDate.value, endDate: endDate.value})); } catch (_) {}
   }
   function restore() {
     try {
@@ -38,7 +40,11 @@
       }
       if (['nav', 'market_price'].includes(saved.basis)) basis.value = saved.basis;
       if (['price', 'reinvested'].includes(saved.mode)) mode.value = saved.mode;
-      if (['1M', '3M', '6M', 'YTD', '1Y', 'ALL'].includes(saved.period)) period = saved.period;
+      if (math.periods.includes(saved.period)) period = saved.period;
+      if (math.validDate(saved.startDate)) startDate.value = saved.startDate;
+      if (math.validDate(saved.endDate)) endDate.value = saved.endDate;
+      customDatesInitialized = Boolean(startDate.value && endDate.value);
+      if (period === 'CUSTOM' && (!math.validDate(startDate.value) || !math.validDate(endDate.value) || startDate.value > endDate.value)) period = '1Y';
     } catch (_) {}
   }
 
@@ -189,7 +195,8 @@
     for (let i = 0; i < ticks; i += 1) {
       const index = Math.round(i / (ticks - 1) * (result.dates.length - 1));
       const date = new Date(result.dates[index] + 'T00:00:00Z');
-      const label = new Intl.DateTimeFormat('en-US', {month: 'short', day: 'numeric', timeZone: 'UTC'}).format(date);
+      const longPeriod = Date.parse(result.end) - Date.parse(result.start) > 365 * 86400000;
+      const label = new Intl.DateTimeFormat('en-US', longPeriod ? {month: 'short', year: 'numeric', timeZone: 'UTC'} : {month: 'short', day: 'numeric', timeZone: 'UTC'}).format(date);
       svg.append(element('text', {x: x(index), y: height - 14, 'text-anchor': i === 0 ? 'start' : i === ticks - 1 ? 'end' : 'middle', class: 'chart-axis-label'}, label));
     }
     result.series.slice().reverse().forEach(series => {
@@ -207,6 +214,7 @@
   }
 
   function render() {
+    customDates.hidden = period !== 'CUSTOM';
     document.querySelectorAll('[data-period]').forEach(button => {
       const active = button.dataset.period === period;
       button.setAttribute('aria-pressed', String(active)); button.classList.toggle('is-active', active);
@@ -214,10 +222,31 @@
     if (!payload) return;
     const peerIds = peers.filter(input => input.checked).map(input => input.value);
     const selected = ['REDI', ...peerIds].map(id => payload.series.find(series => series.id === id) || {id: id, name: id, currency: 'USD', status: 'unavailable', observations: [], error: 'No published history.'});
-    try { result = math.compare({series: selected, basis: basis.value, mode: mode.value, period: period}); }
-    catch (error) { setError(error.message); return; }
+    if (period === 'CUSTOM' && !customDatesInitialized) {
+      const available = math.compare({series: selected, basis: basis.value, mode: mode.value, period: 'ALL'});
+      if (!startDate.value && available.start) startDate.value = available.start;
+      if (!endDate.value && available.end) endDate.value = available.end;
+      customDatesInitialized = true;
+    }
+    try {
+      result = math.compare({series: selected, basis: basis.value, mode: mode.value, period: period, startDate: startDate.value, endDate: endDate.value});
+      write('comparison-date-error', '');
+      startDate.removeAttribute('aria-invalid'); endDate.removeAttribute('aria-invalid');
+    }
+    catch (error) {
+      write('comparison-date-error', error.message);
+      startDate.setAttribute('aria-invalid', 'true'); endDate.setAttribute('aria-invalid', 'true');
+      result = {series: [], dates: [], reason: error.message, riskAvailable: false, riskReason: error.message};
+      renderLegend(); renderTable(); renderChart();
+      write('risk-status', error.message); $('risk-status').hidden = false;
+      write('comparison-range', 'Choose a valid date range.');
+      write('comparison-coverage-note', ''); $('comparison-coverage-note').hidden = true;
+      return;
+    }
     updateQuotes(); updateSources(selected); renderLegend(); renderTable(); renderChart();
     write('comparison-range', result.start ? dateText(result.start) + ' — ' + dateText(result.end) : 'No shared history');
+    write('comparison-coverage-note', result.coverageNote || '');
+    $('comparison-coverage-note').hidden = !result.coverageNote;
     write('comparison-summary', (mode.value === 'reinvested' ? 'Distributions reinvested' : 'Price change') + ' · Each series starts at 100.');
     write('risk-status', result.riskReason || '');
     if ($('risk-status')) $('risk-status').hidden = !result.riskReason;
@@ -277,7 +306,9 @@
     save(); render();
   }));
   [basis, mode].forEach(select => select.addEventListener('change', () => { save(); render(); }));
-  document.querySelectorAll('[data-period]').forEach(button => button.addEventListener('click', () => { period = button.dataset.period; save(); render(); }));
+  document.querySelectorAll('[data-period]').forEach(button => button.addEventListener('click', () => { period = button.dataset.period; render(); save(); }));
+  [startDate, endDate].forEach(input => input.addEventListener('change', () => { customDatesInitialized = true; render(); save(); }));
+  customDates.addEventListener('submit', event => { event.preventDefault(); render(); save(); });
   document.querySelectorAll('[data-refresh]').forEach(button => button.addEventListener('click', refresh));
   cursor.addEventListener('input', () => inspect(Number(cursor.value)));
   function inspectPointer(event) {

@@ -1,18 +1,36 @@
 /* Accessible tabs with fully readable content when JavaScript is unavailable. */
 document.querySelectorAll('[data-case-explorer]').forEach(explorer => {
   const list = explorer.querySelector('.case-tabs');
+  if (!list || explorer.classList.contains('is-enhanced')) return;
   const tabs = Array.from(list.querySelectorAll('button'));
   const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
-  if (panels.some(panel => !panel)) return;
+  if (!tabs.length || panels.some(panel => !panel || !explorer.contains(panel))) return;
+  const previous = explorer.querySelector('[data-case-prev]');
+  const next = explorer.querySelector('[data-case-next]');
+  const count = explorer.querySelector('[data-case-count]');
+  const status = explorer.querySelector('[data-case-status]');
+  let current = 0, initialized = false;
 
   function select(index, focus = false) {
+    index = Math.max(0, Math.min(index, tabs.length - 1));
+    const changed = current !== index;
+    const hidingFocus = changed && panels[current].contains(document.activeElement);
+    if (focus || hidingFocus) tabs[index].focus({preventScroll: true});
     tabs.forEach((tab, i) => {
       const active = i === index;
       tab.setAttribute('aria-selected', String(active));
       tab.tabIndex = active ? 0 : -1;
       panels[i].hidden = !active;
     });
-    if (focus) tabs[index].focus();
+    current = index;
+    explorer.dataset.caseStep = String(index + 1);
+    if (previous) previous.disabled = index === 0;
+    if (next) next.disabled = index === tabs.length - 1;
+    if (count) count.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(tabs.length).padStart(2, '0');
+    if (status && initialized && changed) {
+      const label = tabs[index].querySelector('.case-tab-copy strong') || panels[index].querySelector('h3');
+      status.textContent = 'Step ' + (index + 1) + ' of ' + tabs.length + ': ' + label.textContent;
+    }
   }
 
   list.setAttribute('role', 'tablist');
@@ -22,6 +40,7 @@ document.querySelectorAll('[data-case-explorer]').forEach(explorer => {
     panels[index].tabIndex = 0;
     tab.addEventListener('click', () => select(index));
     tab.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
       let next;
       if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
       if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
@@ -32,8 +51,11 @@ document.querySelectorAll('[data-case-explorer]').forEach(explorer => {
       select(next, true);
     });
   });
+  previous?.addEventListener('click', () => select(current - 1));
+  next?.addEventListener('click', () => select(current + 1));
   explorer.classList.add('is-enhanced');
   select(0);
+  initialized = true;
 });
 
 // Source artwork opens as a plain image without JS, and in a zoomable dialog with JS.

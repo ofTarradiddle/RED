@@ -11,75 +11,69 @@ from publishing.objective_scenes import objective_scene
 
 CHAPTERS = (
     dict(
-        key='economics', label='The intuition', subtitle='How innovation creates value',
-        kicker='Economic, theoretical & factor foundations',
-        title='The source<br>of <em>growth.</em>',
-        body='Research builds knowledge. Knowledge can raise productivity. The investment question is who turns it into value—and at what price.',
+        key='economics', label='The intuition', subtitle='Innovation belongs inside value',
+        kicker='The foundation / Innovation & value',
+        title='Innovation<br>belongs in <em>value.</em>',
+        body='A business is worth what it can earn over time. Innovation shapes that earning power. Capital allocation determines how the opportunity is pursued.',
         topics=(
-            ('theory', 'Theoretical', 'Growth beyond more inputs',
-             'Endogenous growth theory puts knowledge inside the growth process. Research can expand productive capacity even as growth in workers or physical capital slows.',
-             'Research → knowledge → productive capacity'),
-            ('economy', 'Economic', 'Private capital funds the possibility',
-             'The source’s 1953–2023 R&D exhibit traces a shift from government toward business funding. Owners commit capital, bear uncertainty and may participate in the value innovation creates.',
-             'Capital + expertise → uncertain innovation'),
-            ('factor', 'Factor', 'Spending is only the beginning',
-             'Commercial ability separates successful R&D from spending alone. REDI studies that characteristic across industries, distinguishing it from growth through acquisitions or pricing power.',
-             'Innovation value and innovation ability'),
+            ('theory', 'Value', 'Innovation is part of the business’s value',
+             'Better products, processes and capabilities can change future cash flows. Assessing innovation is part of understanding fundamental value, together with risk and the price paid.',
+             'What the business earns. What it can become.'),
+            ('economy', 'Allocation', 'A separate leadership skill',
+             'Operating success does not guarantee capital-allocation skill. Decisions to distribute, reinvest or acquire reach across the business’s future earnings, competitive position and resilience.',
+             'Every dollar shapes the business owners hold.'),
+            ('factor', 'Reinvestment', 'Create the next source of earnings',
+             'Dividends and buybacks return capital to owners. Well-chosen reinvestment in innovation can create new earning power and compound value within the business.',
+             'Productive reinvestment can change the whole business.'),
         ),
-        anatomy=('Research', 'Knowledge', 'Potential commercial value'),
-        takeaway_label='The investment implication',
-        takeaway='A consistent company characteristic.<br><strong>Across changing industries.</strong>',
-        note='Innovation may not produce commercial value. The economic argument and historical research do not establish a guaranteed return.',
+        anatomy=('Capital allocation', 'Business value', 'Productive reinvestment'),
+        takeaway_label='The investment intuition',
+        takeaway='Innovation is always part of the value question.<br><strong>We seek the ability to turn it into earning power.</strong>',
+        note='The illustration expresses an investment idea, not a forecast. Reinvestment can fail, and even a capable business can be overpriced.',
         source='endogenous', source_label='Economic rationale · Source slide 7',
     ),
     dict(
-        key='endurance', label='Investing forever', subtitle='What a lasting strategy requires',
+        key='endurance', label='Investing forever', subtitle='Principles that can endure',
         kicker='What it takes to invest forever',
-        title='Built for<br><em>the long run.</em>',
-        body='An enduring strategy needs rules that stay consistent, a reason to expect a return, and a structure that can withstand uncertainty.',
+        title='Principles<br>that <em>endure.</em>',
+        body='The businesses change. The question stays: can this remain a sound way to invest through changing markets?',
         topics=(
-            ('systematic', 'Systematic', 'Same object. Same measure. Same rules.',
-             'Holdings can change while the characteristic being measured and the decision rules stay consistent. The process should remain repeatable as managers, markets and narratives change.',
-             'Consistent measurement through time'),
-            ('mean', 'Positive mean', 'An expectation supported by reasons',
-             'A positive population mean needs economic intuition, theoretical justification and empirical evidence. A favorable historical sample alone is not enough.',
-             'Expected excess return: a hypothesis to test'),
-            ('tails', 'Tail discipline', 'Constrain avoidable paths to severe loss',
-             'Ordinary equities, equal weighting and no leverage keep the structure understandable. Mid- and large-cap businesses can offer funding access, distribution and liquidity as research succeeds or fails.',
-             'Constrained tail events ≠ eliminated losses'),
+            ('systematic', 'Repeatable', 'A process beyond the story',
+             'Measure the same business characteristic with consistent rules. Holdings evolve as companies change; the discipline should remain understandable and repeatable.',
+             'Consistent questions. Consistent decisions.'),
+            ('mean', 'Reasoned', 'A reason to expect a return',
+             'A lasting strategy needs an economic reason, a coherent theory and evidence that can be challenged. An attractive historical result is only part of the case.',
+             'A return expectation supported by more than a sample.'),
+            ('tails', 'Resilient', 'Leave room for uncertainty',
+             'Ordinary U.S. mid- and large-cap equities, equal weighting and no leverage keep the structure clear. Diversification and disciplined construction help manage risk while leaving room for innovation to disappoint.',
+             'Risk discipline. No promise of protection.'),
         ),
-        anatomy=('Consistent rules', 'Expected return', 'Risk discipline'),
+        anatomy=('Repeatable process', 'Reasoned expectation', 'Risk discipline'),
         takeaway_label='The portfolio expression',
         takeaway='U.S. mid- &amp; large-cap equities.<br><strong>Equal weight. Long only. No leverage.</strong>',
-        note='Conceptual paths show uncertainty, not fund performance or a forecast. “Forever” refers to the principles; holdings can change and losses remain possible.',
+        note='“Forever” describes the principles, not a permanent holding list. Market losses and company-specific losses remain possible.',
         source='longterm', source_label='Characteristics of fire · Source slide 9',
     ),
     dict(
-        key='why-now', label='Why now', subtitle='Where the next dollar goes',
+        key='why-now', label='Why now', subtitle='A rare kind of runway',
         kicker='Why now / The reinvestment opportunity',
-        title='The business<br>of <em>tomorrow.</em>',
-        body='Every business chooses where its cash goes. We examine the reinvestment that can change what the business becomes.',
+        title='Returns.<br>With <em>room.</em>',
+        body='High incremental returns matter most when there is room to invest substantial capital. That combination is rare. It is the opportunity we seek.',
         topics=(
-            ('reinvestment', 'Reinvestment', 'Build the next source of cash flow',
-             'Internal reinvestment can create products, capabilities and future earning power. REDI evaluates that possibility through the price paid and the company’s ability to execute.',
-             'Today’s research → tomorrow’s business potential'),
-            ('dividends', 'Dividends', 'Return cash to shareholders',
-             'Dividends distribute cash generated by the business. They are one use of capital; REDI’s research also asks what retained cash can create inside the company.',
-             'Business cash → shareholder distribution'),
-            ('repurchases', 'Repurchases', 'Buy back ownership in the business',
-             'Share repurchases return capital by buying the company’s own shares. Their economic value depends in part on the price paid and the alternatives available.',
-             'Business cash → repurchased shares'),
-            ('debt', 'Debt repayment', 'Strengthen the balance sheet',
-             'Repaying debt reduces borrowing obligations. The allocation decision weighs financial resilience against other opportunities for the next dollar.',
-             'Business cash → reduced borrowing'),
-            ('acquisitions', 'Acquisitions', 'Acquire a new capability',
-             'Acquisitions add businesses and capabilities from outside the firm. REDI distinguishes acquisition-driven growth from the ability to turn internal research into commercial progress.',
-             'Business cash → external capabilities'),
+            ('reinvestment', 'Returns', 'What can the next dollar earn?',
+             'We ask how much additional earning power new investment can create, and whether management has the judgment to pursue it well.',
+             'The return on new capital matters.'),
+            ('capacity', 'Runway', 'Enough room to matter',
+             'A small project can earn exceptional returns and barely move the business. We seek room to reinvest substantial amounts at high incremental returns, repeatedly.',
+             'Strong returns. Substantial room to reinvest.'),
+            ('discipline', 'Price', 'Own the opportunity at a sensible price',
+             'The share price may already reflect an exceptional opportunity. We bring the reinvestment case together with valuation and evidence that the company can execute.',
+             'A business opportunity still needs an investment case.'),
         ),
-        anatomy=('Business cash', 'Internal reinvestment', 'Potential cash flows'),
+        anatomy=('Attractive new returns', 'Substantial runway', 'Disciplined ownership'),
         takeaway_label='REDI’s selection discipline',
-        takeaway='A valuation test for what comes next.<br><strong>Innovation value and innovation ability.</strong>',
-        note='Opportunity is assessed company by company as industries evolve. Reinvestment can fail, and a compelling innovation story can still be overpriced.',
+        takeaway='High incremental returns. Room to reinvest.<br><strong>Innovation ability, evaluated through innovation value.</strong>',
+        note='This combination is uncommon. Attractive reinvestment opportunities can shrink, execution can fail, and the share price can already reflect the opportunity.',
         source='reinvestment', source_label='Why now · Source slide 6; reinvestment illustration · Slide 12',
     ),
 )
@@ -96,9 +90,9 @@ def _topics(chapter, stem):
 
 def _hotspots(chapter, stem):
     anchors = {
-        'economics': (('theory', 'Knowledge', 49.4, 78.5), ('economy', 'Private capital', 15.4, 91), ('factor', 'Commercial ability', 80.7, 76)),
-        'endurance': (('systematic', 'Rules', 28.8, 89), ('mean', 'Expected edge', 52.5, 89), ('tails', 'Risk discipline', 76.3, 89)),
-        'why-now': (('reinvestment', 'Reinvestment', 50, 89.7), ('dividends', 'Dividends', 13.5, 40.3), ('repurchases', 'Repurchases', 84.5, 39.2), ('debt', 'Debt repayment', 85.6, 86.3), ('acquisitions', 'Acquisitions', 13, 86.8)),
+        'economics': (('economy', 'Capital', 16.3, 80), ('theory', 'Business value', 46, 80), ('factor', 'Reinvestment', 75, 80)),
+        'endurance': (('systematic', 'Repeatable', 22, 80), ('mean', 'Reasoned', 50, 80), ('tails', 'Resilient', 78, 80)),
+        'why-now': (('reinvestment', 'Incremental returns', 24, 43), ('capacity', 'Reinvestment runway', 75, 43), ('discipline', 'Both, at the right price', 50, 84)),
     }
     return ''.join(f'''<button type="button" class="objective-hotspot" style="--hotspot-x:{x}%;--hotspot-y:{y}%" data-objective-hotspot="{key}" aria-controls="{stem}-{key}" aria-label="Explore {escape(label.lower())}"><span class="objective-hotspot-dot" aria-hidden="true">+</span><span>{label}</span></button>''' for key, label, x, y in anchors[chapter['key']])
 
@@ -110,7 +104,7 @@ def objective_journey(prefix='home'):
         topic_buttons, topic_panels = _topics(chapter, stem)
         tabs.append(f'''<button type="button" id="{stem}-tab" data-objective-tab aria-controls="{stem}"><span class="objective-tab-number" aria-hidden="true">{index:02}</span><span><strong>{chapter['label']}</strong><small>{chapter['subtitle']}</small></span><span class="objective-tab-arrow" aria-hidden="true">↗</span></button>''')
         anatomy = ''.join(f'<span><i aria-hidden="true">{i:02}</i>{label}</span>' for i, label in enumerate(chapter['anatomy'], 1))
-        source_extra = ('''<div class="objective-source-context"><h4>The opportunity in context</h4><p>The source frames innovation as a company characteristic that can be assessed as industries evolve. U.S. businesses may sell internationally, but that does not make the portfolio an international equity allocation. REDI is intended for consideration as a core or satellite equity holding.</p></div>''' if chapter['key'] == 'why-now' else '')
+        source_extra = ('''<div class="objective-source-context"><h4>The opportunity in context</h4><p>Why now is an ongoing business question: where can the next dollar earn an attractive return, and how much capital can be invested there? Innovation creates possibilities. Capital allocation and valuation determine the investment case.</p></div>''' if chapter['key'] == 'why-now' else '')
         panels.append(f'''<article class="objective-panel objective-{chapter['key']}" id="{stem}" data-objective-panel aria-labelledby="{stem}-tab">
           <div class="objective-exploration" data-objective-exploration data-focus="{chapter['topics'][0][0]}">
             <div class="objective-copy"><p class="objective-kicker"><span aria-hidden="true"></span>{chapter['kicker']}</p>
@@ -121,11 +115,10 @@ def objective_journey(prefix='home'):
             <div class="objective-art"><span class="objective-scene-number" aria-hidden="true">{index:02}</span>
               <div class="objective-scene" data-objective-scene>{objective_scene(chapter['key'], stem)}
                 <div class="objective-hotspots">{_hotspots(chapter, stem)}</div>
-                {'<span class="objective-cash-center">Business<br><strong>cash</strong></span>' if index == 3 else ''}
-                <div class="objective-scene-heading"><span>{'The knowledge engine' if index == 1 else 'A range of possible outcomes' if index == 2 else 'The allocation of corporate cash'}</span><small>{'Conceptual relationships' if index != 2 else 'Conceptual paths · not a forecast'}</small></div>
+                <div class="objective-scene-heading"><span>{'Capital becomes earning power' if index == 1 else 'Three principles. One discipline.' if index == 2 else 'The rare combination we seek'}</span><small>{'A conceptual relationship · not a forecast' if index != 2 else 'Principles of strategy design'}</small></div>
               </div>
               <div class="objective-anatomy" aria-label="{'Strategy principles' if index == 2 else 'Economic relationships'}">{anatomy}</div>
-              <p class="objective-art-hint"><span aria-hidden="true">↖</span> Select {'a use of cash' if index == 3 else 'a principle' if index == 2 else 'a perspective'} to explore the idea</p>
+              <p class="objective-art-hint"><span aria-hidden="true">↖</span> Select {'a quality' if index == 3 else 'a principle' if index == 2 else 'an idea'} to explore the idea</p>
             </div>
           </div>
           <div class="objective-conclusion"><p class="objective-takeaway-label">{chapter['takeaway_label']}</p><p class="objective-takeaway">{chapter['takeaway']}</p><p class="objective-note">{chapter['note']}</p></div>

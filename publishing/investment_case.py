@@ -7,7 +7,6 @@ and internal notes are not fund facts.
 """
 from bs4 import BeautifulSoup
 from html import escape
-from publishing.innovation_journey import innovation_journey
 
 
 VISUALS = {
@@ -149,10 +148,15 @@ STEPS = (
 )
 
 
-def case_explorer(prefix):
+def case_explorer(prefix, featured=False):
     # All panels remain readable without JavaScript; JS progressively adds tab roles.
+    captions = ('Price the opportunity', 'Examine the evidence', 'Build the portfolio')
+    def tab_label(index, label):
+        if featured:
+            return f'<span class="case-tab-copy"><strong>{label}</strong><small>{captions[index-1]}</small></span>'
+        return f'<span>{label}</span>'
     buttons = ''.join(
-        f'<button type="button" id="{prefix}-tab-{key}" aria-controls="{prefix}-panel-{key}"><span class="case-step-number">0{i}</span><span>{label}</span><span class="case-step-arrow" aria-hidden="true">↗</span></button>'
+        f'<button type="button" id="{prefix}-tab-{key}" aria-controls="{prefix}-panel-{key}"><span class="case-step-number">0{i}</span>{tab_label(i, label)}<span class="case-step-arrow" aria-hidden="true">↗</span></button>'
         for i, (key, label, *_) in enumerate(STEPS, 1)
     )
     visual_keys = {'value': 'reinvestment', 'ability': 'endogenous', 'portfolio': 'weighting'}
@@ -164,9 +168,15 @@ def case_explorer(prefix):
         </article>'''
         for i, (key, label, title, body, lens_a, text_a, lens_b, text_b) in enumerate(STEPS, 1)
     )
-    return f'''<div class="case-explorer" data-case-explorer>
+    footer = ('''<div class="case-process-footer">
+      <div class="case-process-actions"><button type="button" data-case-prev aria-label="Previous process step">←</button><span class="case-process-count" data-case-count>01 / 03</span><button type="button" data-case-next aria-label="Next process step">→</button></div>
+      <a class="case-process-link" href="/etfs/redi/why-red.html#process">Explore the full investment case <span aria-hidden="true">↗</span></a>
+      <span class="case-process-status" data-case-status role="status" aria-live="polite" aria-atomic="true"></span>
+    </div>''' if featured else '')
+    return f'''<div class="case-explorer{' case-process-featured' if featured else ''}" data-case-explorer>
       <div class="case-tabs" aria-label="Explore the investment process">{buttons}</div>
       <div class="case-panels">{panels}</div>
+      {footer}
     </div>'''
 
 
@@ -189,7 +199,7 @@ def research_charts():
 
 def why_now_section():
     return '''<section class="case-why-now investment-case" id="why-now" aria-labelledby="why-now-title">
-      <div class="case-section-heading"><div><p class="home-eyebrow">02 / The opportunity</p><h2 id="why-now-title">Why now?<br>Look at what comes next.</h2></div><p>Companies decide how much cash to return today and how much to invest in tomorrow. REDI focuses on the reinvestment that can create future earning power, with a disciplined view of its value.</p></div>
+      <div class="case-section-heading"><div><p class="home-eyebrow">02 / The opportunity</p><h2 id="why-now-title">Why now?<br>The next dollar matters.</h2></div><p>Innovation is part of fundamental value. We seek businesses that can put substantial capital to work at attractive incremental returns—and assess what investors pay for that opportunity.</p></div>
       <div class="case-now-layout">
         <div class="case-capital">
           <p class="case-kicker">Five uses of corporate cash</p>
@@ -201,13 +211,13 @@ def why_now_section():
             <li><span class="case-cash-number">04</span><div><strong>Acquisitions</strong><span>Acquire businesses and capabilities.</span></div></li>
             <li class="case-cash-focus"><span class="case-cash-number">05</span><div><strong>Reinvestment <span>REDI’s focus</span></strong><span>Develop products, knowledge and capabilities within the business.</span></div></li>
           </ol>
-          <p class="case-capital-note">The research connects investment in innovation with a company’s ability to turn it into commercial results.</p>
+          <p class="case-capital-note">Dividends and buybacks return capital to owners. Productive reinvestment can expand the business’s earning power. The allocation decision shapes what shareholders ultimately own.</p>
         </div>
         <div class="case-now-reasons">
-          <article><span class="case-kicker">Valuation</span><h3>Growth still has a price.</h3><p>A compelling innovation story needs a valuation test. REDI considers innovation investment alongside the price paid and evidence of commercial execution.</p></article>
-          <article><span class="case-kicker">Opportunity</span><h3>Industries keep changing.</h3><p>Innovation can reshape established industries and create new ones. A factor process can reassess companies as that opportunity changes, without depending on a single technology theme.</p></article>
-          <article><span class="case-kicker">Business exposure</span><h3>U.S. companies. Global customers.</h3><p>Domestic companies can earn revenue abroad. That can broaden their economic exposure; overseas sales do not turn U.S. equity holdings into an international equity allocation.</p></article>
-          <article><span class="case-kicker">Portfolio role</span><h3>A long-term equity allocation.</h3><p>The strategy seeks capital appreciation through long-only equities. It is designed for consideration within a core or satellite allocation, with equal weighting and no leverage.</p></article>
+          <article><span class="case-kicker">Incremental returns</span><h3>What can new capital earn?</h3><p>Current profitability describes the business today. We also ask whether the next investment can create meaningful additional earnings through better products, processes and capabilities.</p></article>
+          <article><span class="case-kicker">Reinvestment capacity</span><h3>High returns need room.</h3><p>A small project can earn exceptional returns and barely move the business. We seek the rare ability to reinvest substantial amounts at high incremental returns, repeatedly.</p></article>
+          <article><span class="case-kicker">Capital allocation</span><h3>A separate management skill.</h3><p>Operating success does not guarantee capital-allocation skill. Decisions to distribute, reinvest or acquire shape future earnings, resilience and competitive position. We look for evidence of sound judgment.</p></article>
+          <article><span class="case-kicker">Valuation</span><h3>Opportunity still has a price.</h3><p>Even an exceptional business can be a poor investment at the wrong price. Innovation value and innovation ability bring the reinvestment case together with valuation and evidence of execution.</p></article>
         </div>
       </div>
     </section>'''
@@ -215,7 +225,7 @@ def why_now_section():
 
 def long_term_section():
     return f'''<section class="case-long-term investment-case" id="long-term" aria-labelledby="long-term-title">
-      <div class="case-section-heading"><div><p class="home-eyebrow">06 / Characteristics of fire</p><h2 id="long-term-title">Characteristics<br>you can hold forever.</h2></div><p>A durable strategy needs a process you can repeat, a reason to expect a return, and clear constraints on portfolio risk.</p></div>
+      <div class="case-section-heading"><div><p class="home-eyebrow">05 / Characteristics of fire</p><h2 id="long-term-title">Characteristics<br>you can hold forever.</h2></div><p>A durable strategy needs a process you can repeat, a reason to expect a return, and clear constraints on portfolio risk.</p></div>
       <div class="case-enduring-layout">
         {case_visual('longterm')}
         <ol class="case-enduring-principles">
@@ -229,12 +239,10 @@ def long_term_section():
 
 
 def home_case():
-    from publishing.objective_journey import objective_journey
-    return f'''<section id="innovation" class="investment-case home-investment" aria-labelledby="case-heading">
+    return f'''<section id="innovation" class="investment-case home-investment home-process" aria-labelledby="case-heading">
       <span id="services" class="home-anchor" aria-hidden="true"></span>
-      <div class="case-section-heading"><div><p class="home-eyebrow">The investment case</p><h2 id="case-heading">Look beneath<br>the obvious.</h2></div><p>Innovation at a justifiable valuation. Explore the economic intuition, the conditions for enduring investment, and the case for reinvestment.</p></div>
-      {objective_journey('home')}
-      <details class="home-method-details"><summary><span>The selection process</span><span>Innovation value / Innovation ability / Portfolio construction</span><span aria-hidden="true">+</span></summary>{case_explorer('home-case')}</details>
+      <div class="case-section-heading"><div><p class="home-eyebrow">03 / The process</p><h2 id="case-heading">Two lenses.<br>One repeatable process.</h2></div><p>Start with U.S. mid- and large-cap equities. Evaluate innovation value, then innovation ability, and bring the selected companies together in an equally weighted portfolio.</p></div>
+      {case_explorer('home-case', featured=True)}
       <div class="home-research-proof"><div><p class="home-eyebrow">Strategy research</p><h3>The research<br>behind the process.</h3><p>Explore the historical comparisons and the reasoning behind REDI’s selection framework.</p><a class="home-text-link" href="/research/the-measure-of-fire.html">Read the research <span aria-hidden="true">↗</span></a></div>{business_card()}</div>
     </section>'''
 
@@ -269,11 +277,11 @@ def render_case(home_html):
         <p class="home-eyebrow">REDI / The investment case</p>
         <h1 id="investment-title">Innovation at a<br><span>justifiable valuation.</span></h1>
         <div class="case-hero-bottom"><p>Seek long-term capital appreciation through companies investing in innovation—and turning it into commercial progress.</p><span class="case-signature">Investing in Innovation,<br><strong>REDI for tomorrow</strong></span></div>
-        <nav class="case-jump-links" aria-label="Investment case sections"><a href="#why-now">Why now</a><a href="#process">The process</a><a href="#research">The research</a><a href="#research-eras">Research eras</a><a href="#long-term">Long-term characteristics</a><a href="#portfolio">The portfolio</a></nav>
+        <nav class="case-jump-links" aria-label="Investment case sections"><a href="#why-now">Why now</a><a href="#process">The process</a><a href="#research">The research</a><a href="#long-term">Long-term characteristics</a><a href="#portfolio">The portfolio</a></nav>
       </section>
       <section class="case-thesis investment-case" aria-labelledby="thesis-title">
-        <div><p class="home-eyebrow">01 / The idea</p><h2 id="thesis-title">Research today.<br>Business potential tomorrow.</h2></div>
-        <div class="case-thesis-copy"><p>Reinvestment in research and development can create new products, capabilities and sources of future cash flow. REDI’s research asks which businesses can turn that investment into commercial success—and what investors pay for that potential.</p>
+        <div><p class="home-eyebrow">01 / The idea</p><h2 id="thesis-title">Innovation belongs<br>inside value.</h2></div>
+        <div class="case-thesis-copy"><p>Fundamental value includes what a business can earn in the future. Innovation can create new products, capabilities and sources of cash flow. REDI’s research asks which businesses can turn reinvestment into commercial success, how much capital that opportunity can absorb—and what investors pay for it.</p>
           <div class="case-cycle" aria-label="Research investment, commercial application, potential future cash flows"><span>Research<br>investment</span><span aria-hidden="true">→</span><span>Commercial<br>application</span><span aria-hidden="true">→</span><span>Potential future<br>cash flows</span></div></div>
       </section>
       {why_now_section()}
@@ -282,15 +290,9 @@ def render_case(home_html):
         {case_explorer('full-case')}
       </section>
       {research_charts()}
-      <section class="case-factor investment-case" id="research-eras" aria-labelledby="factor-title">
-        <div><p class="home-eyebrow">05 / The perspective</p><h2 id="factor-title">A factor approach<br>to a changing world.</h2><p>Technologies and industries evolve. The research focuses on company characteristics that can be assessed across those changes.</p></div>
-        <dl class="case-contrast"><div><dt>Thematic lens</dt><dd>Starts with a particular technology, industry or structural trend.</dd></div><div><dt>REDI’s factor lens</dt><dd>Starts with a company’s innovation activity, commercial ability and valuation.</dd></div></dl>
-        {innovation_journey()}
-        <details class="case-timeline-source" id="timeline-source"><summary>Original research timeline <span aria-hidden="true">+</span></summary>{case_visual('timeline')}</details>
-      </section>
       {long_term_section()}
       <section class="case-portfolio investment-case" id="portfolio" aria-labelledby="portfolio-title">
-        <div class="case-section-heading"><div><p class="home-eyebrow">07 / The portfolio</p><h2 id="portfolio-title">Clear principles.<br>Disciplined implementation.</h2></div><p>Fundamental reasoning informs the signals. A systematic process applies them across the investment universe.</p></div>
+        <div class="case-section-heading"><div><p class="home-eyebrow">06 / The portfolio</p><h2 id="portfolio-title">Clear principles.<br>Disciplined implementation.</h2></div><p>Fundamental reasoning informs the signals. A systematic process applies them across the investment universe.</p></div>
         <dl class="case-principles"><div><dt>U.S. equities</dt><dd>Mid- and large-cap companies.</dd></div><div><dt>Equal weighting</dt><dd>Each selected company starts with the same allocation.</dd></div><div><dt>Long-only</dt><dd>Equity exposure, without leverage.</dd></div></dl>
         <details class="case-risk"><summary>Investment considerations <span aria-hidden="true">+</span></summary><p>Innovation may not lead to commercial success. Valuations can decline, and research signals or data may be incomplete or inaccurate. Equal weighting can produce different sector and company exposures from a market-cap-weighted index. The strategy may underperform, and investors can lose principal.</p></details>
       </section>

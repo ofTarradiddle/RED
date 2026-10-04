@@ -2,8 +2,6 @@
 from copy import deepcopy
 
 from bs4 import BeautifulSoup
-from publishing.investment_case import attach_assets
-from publishing.objective_journey import objective_journey
 from publishing.masthead import refine_masthead
 
 
@@ -113,16 +111,6 @@ def refine_pages(pages):
                 comparison_link = page.new_tag('a', href='/compare/', attrs={'class': 'home-text-link'})
                 comparison_link.string = 'Open REDI Compare ↗'
                 performance.append(comparison_link)
-            objective = BeautifulSoup(objective_journey('etf'), 'html.parser').section
-            # The original economics slide contains backtested return series.
-            # Keep the reconstructed rationale here, with performance research
-            # available in Compare instead of on the fund page.
-            economics_source = objective.select_one('.objective-economics .objective-source')
-            if economics_source:
-                economics_source.decompose()
-            page.select_one('#overview').insert_after(objective)
-            if not page.select_one('link[href="/assets/investment-case.css"]'):
-                attach_assets(page)
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/institutional-etf.css'))
         elif route in EXCHANGE_ROUTES:
             page.body['class'].append('institutional-351')
@@ -159,6 +147,8 @@ def refine_pages(pages):
             page.head.append(page.new_tag('script', src='/assets/objective-journey.js', defer=''))
         refine_masthead(page)
         page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/atmosphere.css'))
+        if page.select_one('.home-process'):
+            page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/home-process.css'))
         if route == 'etfs/redi/fact-sheet.html':
             page.body['class'].append('fact-sheet-page')
             page.head.append(page.new_tag('link', rel='stylesheet', href='/assets/fact-sheet.css'))

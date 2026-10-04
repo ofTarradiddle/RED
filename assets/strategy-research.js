@@ -39,6 +39,7 @@
     const $ = name => host.querySelector('[data-sr-' + name + ']');
     const all = selector => Array.from(host.querySelectorAll(selector));
     const chart = $('chart'), cursor = $('cursor');
+    const customDates = $('custom-dates'), startDate = $('start-date'), endDate = $('end-date');
     const comparisonMode = host.dataset.srMode === 'comparison';
     const palette = comparisonMode ? comparisonColors : colors;
     const storageKey = comparisonMode ? 'hetzerk-comparison-research-v1' : 'hetzerk-strategy-research-v1';
@@ -46,14 +47,19 @@
     let research = null, market = null, result = null, ids = comparisonMode ? [referenceId, 'INNOVATION', 'MARKET'] : defaults.slice(), period = 'ALL', scale = 'log';
     let geometry = null, focusLine = null, focusDots = [], selectionIndex = null, missingMarket = false;
     let emphasizedId = null;
+    let customDatesInitialized = false;
     const saved = savedPreferences(storageKey);
     if (saved) {
       if (Array.isArray(saved.ids)) ids = comparisonMode ? Array.from(new Set(saved.ids.filter(id => typeof id === 'string'))) : [referenceId, ...Array.from(new Set(saved.ids.filter(id => typeof id === 'string' && id !== referenceId))).slice(0,3)];
-      if (['ALL','1Y','5Y','10Y'].includes(saved.period)) period = saved.period;
+      if ((window.HetzerkResearchMath ? window.HetzerkResearchMath.periods : ['ALL','1Y','5Y','10Y']).includes(saved.period)) period = saved.period;
+      if (startDate && window.HetzerkComparisonMath.validDate(saved.startDate)) startDate.value = saved.startDate;
+      if (endDate && window.HetzerkComparisonMath.validDate(saved.endDate)) endDate.value = saved.endDate;
+      customDatesInitialized = Boolean(startDate && endDate && startDate.value && endDate.value);
+      if (period === 'CUSTOM' && (!startDate || !endDate || !startDate.value || !endDate.value || startDate.value > endDate.value)) period = 'ALL';
       if (['log','linear'].includes(saved.scale)) scale = saved.scale;
     }
     function write(name, value) { const target = $(name); if (target) target.textContent = value; }
-    function save() { try { localStorage.setItem(storageKey, JSON.stringify({ids, period, scale})); } catch (_) {} }
+    function save() { try { localStorage.setItem(storageKey, JSON.stringify({ids, period, scale, startDate: startDate && startDate.value, endDate: endDate && endDate.value})); } catch (_) {} }
     function warning(value) { write('warning', value); $('warning').hidden = !value; }
     function chip(series, isETF) {
       const label = element('label','sr-chip'), input = document.createElement('input');
@@ -206,6 +212,7 @@
       all('[data-sr-emphasize]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.srEmphasize===emphasizedId)));
     }
     function render() {
+      if (customDates) customDates.hidden = period !== 'CUSTOM';
       all('[data-sr-period]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.srPeriod===period)));
       all('[data-sr-scale]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.srScale===scale)));
       if (!research) return;
@@ -215,18 +222,36 @@
         write('selection-status',researchCount+' research series · '+etfCount+' ETF'+(etfCount===1?'':'s'));
       }
       try {
-        result=window.HetzerkResearchMath.compare(research,market||{series:[]},{ids,period});
+        if (period === 'CUSTOM' && !customDatesInitialized) {
+          const available=window.HetzerkResearchMath.compare(research,market||{series:[]},{ids,period:'ALL'});
+          if (!startDate.value && available.start) startDate.value=available.start;
+          if (!endDate.value && available.end) endDate.value=available.end;
+          customDatesInitialized=true;
+        }
+        result=window.HetzerkResearchMath.compare(research,market||{series:[]},{ids,period,startDate:startDate&&startDate.value,endDate:endDate&&endDate.value});
+        write('date-error','');
+        if (startDate) { startDate.removeAttribute('aria-invalid');endDate.removeAttribute('aria-invalid'); }
         if(emphasizedId && !result.series.some(series=>series.id===emphasizedId))emphasizedId=null;
         write('status',result.dates.length+' shared month-end observations');
         write('range',result.start?date(result.start)+' — '+date(result.end)+' · Starting value 100':'No shared monthly history');
+        write('coverage-note',result.coverageNote||'');$('coverage-note').hidden=!result.coverageNote;
         const messages=[...(result.warnings||[]),...(result.excluded||[]).map(item=>item.id+': '+item.reason)];
         if(missingMarket)messages.push('ETF observations could not be loaded. The source research record remains available.');
         warning(messages.join(' '));
         write('unit','Growth of 100 · '+(scale==='log'?'logarithmic':'linear')+' scale');
         legend();table();plot();
-      } catch(failure){warning(failure.message);write('status','Research comparison unavailable');result=null;plot();}
+      } catch(failure){
+        warning(period==='CUSTOM'?'':failure.message);write('date-error',period==='CUSTOM'?failure.message:'');
+        if (period==='CUSTOM' && startDate) { startDate.setAttribute('aria-invalid','true');endDate.setAttribute('aria-invalid','true'); }
+        write('status','Research comparison unavailable');write('range','Choose a valid date range.');write('coverage-note','');$('coverage-note').hidden=true;
+        result={series:[],dates:[],reason:failure.message};legend();table();plot();
+      }
     }
-    all('[data-sr-period]').forEach(button=>button.addEventListener('click',()=>{period=button.dataset.srPeriod;selectionIndex=null;save();render();}));
+    all('[data-sr-period]').forEach(button=>button.addEventListener('click',()=>{period=button.dataset.srPeriod;selectionIndex=null;render();save();}));
+    if (customDates) {
+      [startDate,endDate].forEach(input=>input.addEventListener('change',()=>{customDatesInitialized=true;selectionIndex=null;render();save();}));
+      customDates.addEventListener('submit',event=>{event.preventDefault();selectionIndex=null;render();save();});
+    }
     all('[data-sr-scale]').forEach(button=>button.addEventListener('click',()=>{scale=button.dataset.srScale;save();render();}));
     all('[data-sr-select]').forEach(button=>button.addEventListener('click',()=>{
       if(!research)return;

@@ -6,7 +6,7 @@
   const STORAGE = 'hetzerk.annual-portfolio.v1';
   const SCORE_STORAGE = 'hetzerk.annual-records.v1';
   const PAGE_SIZE = 12;
-  let data, run, decision, draft = {}, reveal = false, page = 0, busy = false, storageOK = true;
+  let data, run, decision, draft = {}, notebook = {}, reveal = false, page = 0, busy = false, storageOK = true;
   let currentCompanies = [], companyMap = new Map(), filterQuery = '', sector = '', sort = 'name', availableOnly = false;
   let outcomeCompanies = [], outcomePage = 0, outcomeQuery = '';
   let investedPage = 0, investedQuery = '';
@@ -40,7 +40,7 @@
   function save() {
     if (!run) return;
     try {
-      localStorage.setItem(STORAGE, JSON.stringify({version: 1, run: engine.serialize(run), draft, reveal}));
+      localStorage.setItem(STORAGE, JSON.stringify({version: 1, run: engine.serialize(run), draft, notebook, reveal}));
       storageOK = true;
     } catch (_) { storageOK = false; }
     $('ap-save-status').textContent = storageOK ? 'Saved on this device' : 'Storage unavailable · keep this tab open';
@@ -61,6 +61,16 @@
     const next = {};
     if (value && typeof value === 'object' && !Array.isArray(value)) Object.entries(value).forEach(([id, fraction]) => {
       if (companyMap.get(id)?.canInvest && finite(fraction) && fraction >= 0 && fraction <= 1) next[id] = fraction;
+    });
+    return next;
+  }
+  function safeNotebook(value) {
+    const next = {}, cutoffs = new Set(data.rounds.map(round => round.cutoff)), ids = new Set(data.assets.map(asset => asset.id));
+    if (value && typeof value === 'object' && !Array.isArray(value)) Object.entries(value).slice(0, 2000).forEach(([key, note]) => {
+      const separator = key.indexOf(':'), cutoff = key.slice(0, separator), id = key.slice(separator + 1);
+      if (!cutoffs.has(cutoff) || !ids.has(id) || !note || typeof note !== 'object') return;
+      const thesis = typeof note.thesis === 'string' ? note.thesis.slice(0, 320) : '', watch = typeof note.watch === 'string' ? note.watch.slice(0, 320) : '';
+      if (thesis || watch) next[key] = {thesis, watch};
     });
     return next;
   }
@@ -121,7 +131,7 @@
       if (finite(rd)) title.append(element('span', 'ap-filed-hint', 'As filed · R&D ' + compact(rd) + ' · FY ' + String(financials.metricSources?.rd?.fiscalPeriodEnd || financials.fiscalPeriodEnd).slice(0, 4)));
       else title.append(element('span', 'ap-filed-hint' + (!financials ? ' is-missing' : ''), financials ? 'Dated company file available' : 'Dated filing evidence unavailable'));
       if (!company.canInvest) title.append(element('span', 'ap-unavailable', 'Incomplete price coverage · allocation unavailable'));
-      const actions = element('div', 'ap-company-actions'), brief = element('button', 'ap-brief-button', 'File ↗');
+      const actions = element('div', 'ap-company-actions'), brief = element('button', 'ap-brief-button', 'Research ↗');
       brief.type = 'button'; brief.setAttribute('aria-label', 'Read ' + company.name + ' company file'); brief.addEventListener('click', () => openBrief(company.id));
       const selected = Object.hasOwn(draft, company.id), add = element('button', 'ap-add' + (selected ? ' is-allocated' : ''), selected ? weightText(draft[company.id]) + '%' : '+');
       add.type = 'button'; add.disabled = !company.canInvest;
@@ -423,6 +433,128 @@
     }
     slider.addEventListener('input', inspect); inspect(); section.append(inspection, slider);
   }
+  function matchedRatio(financials, numerator, denominator) {
+    const metrics = financials?.metrics || {}, sources = financials?.metricSources || {}, first = sources[numerator], second = sources[denominator];
+    if (!finite(metrics[numerator]) || !finite(metrics[denominator]) || metrics[denominator] <= 0 || !first?.periodStart || first.periodStart !== second?.periodStart || first.fiscalPeriodEnd !== second.fiscalPeriodEnd || first.unit !== second.unit) return null;
+    return metrics[numerator] / metrics[denominator];
+  }
+  function appendFiledFact(container, financials, key, label, explanation) {
+    const source = financials?.metricSources?.[key], value = financials?.metrics?.[key], cell = element('div');
+    cell.append(element('dt', '', label), element('dd', finite(value) ? '' : 'is-unavailable', formatFact(value, source?.unit || (key === 'epsDiluted' ? 'USD/shares' : 'USD'))));
+    if (explanation) cell.append(element('p', 'ap-fact-explanation', explanation));
+    const note = element('small', '', finite(value) ? 'FY ended ' + dateText(source?.fiscalPeriodEnd || financials?.fiscalPeriodEnd) + ' · filed ' + dateText(source?.filed || financials?.availableAt) : 'No eligible reported value. Unknown, not zero.');
+    if (finite(value) && source?.sourceUrl) { note.append(document.createTextNode(' · '), link(source.sourceUrl, 'SEC ↗')); }
+    cell.append(note); container.append(cell);
+  }
+  function appendOperatingBrief(content, financials) {
+    const operations = element('section', 'ap-operating-brief');
+    operations.append(element('p', 'ap-eyebrow', '01 / THE OPERATING ENGINE'), element('h3', '', 'What the business earns.'));
+    const facts = element('dl', 'ap-brief-facts');
+    [['revenue', 'Revenue'], ['netIncome', 'Net income'], ['operatingCashFlow', 'Operating cash flow'], ['epsDiluted', 'Diluted earnings / share']].forEach(([key, label]) => appendFiledFact(facts, financials, key, label));
+    operations.append(facts);
+    const ratios = element('div', 'ap-brief-ratios'), margin = matchedRatio(financials, 'netIncome', 'revenue');
+    if (margin !== null) ratios.append(element('span', '', percent(margin, false, 1) + ' net margin · matching filed periods'));
+    if (finite(financials?.valuation?.pe)) {
+      const pe = element('span', '', financials.valuation.pe.toFixed(2) + '× price / filed annual earnings');
+      if (financials.valuation.sourceUrl) { pe.append(document.createTextNode(' · '), link(financials.valuation.sourceUrl, 'Evidence ↗')); }
+      ratios.append(pe);
+    }
+    if (ratios.childElementCount) operations.append(ratios);
+    if (financials?.valuation?.note) operations.append(element('p', 'ap-chart-note', financials.valuation.note));
+    content.append(operations);
+    const capital = element('section', 'ap-capital-brief');
+    capital.append(element('p', 'ap-eyebrow', '02 / THE NEXT DOLLAR'), element('h3', '', 'Where capital is going.'));
+    const investment = element('dl', 'ap-brief-facts ap-investment-facts');
+    [['rd', 'Research & development', 'Reported spending on research and development.'], ['capex', 'Capital expenditures', 'Reported investment in property, plant and equipment.'], ['acquisitions', 'Acquisitions', 'Reported spending to acquire businesses.']].forEach(([key, label, explanation]) => appendFiledFact(investment, financials, key, label, explanation));
+    capital.append(investment);
+    const intensity = matchedRatio(financials, 'rd', 'revenue');
+    if (intensity !== null) capital.append(element('p', 'ap-capital-ratio', percent(intensity, false, 1) + ' of revenue reported as R&D · matching filed periods'));
+    capital.append(element('p', 'ap-chart-note', 'These are separate accounting measures, not a combined investment total. Spending alone does not establish a return on capital.'));
+    const prompt = element('div', 'ap-investor-prompt');
+    prompt.append(element('strong', '', 'Your question as an owner'), element('p', '', 'Can the next dollar earn an attractive return—and is the opportunity large enough to keep reinvesting? Look for evidence of better products, stronger economics or useful capacity, then weigh the price you pay.'));
+    capital.append(prompt); content.append(capital);
+  }
+  function appendFilingContext(content, financials) {
+    const filings = financials?.filings || [], themes = filings.flatMap(filing => (filing.investmentThemes || []).map(theme => ({...theme, filing})));
+    const section = element('section', 'ap-strategy-brief');
+    section.append(element('p', 'ap-eyebrow', '03 / OPERATIONS & STRATEGY'), element('h3', '', 'Inside the company filing.'));
+    const focusAreas = [...new Set(filings.flatMap(filing => filing.focusAreas || []))];
+    if (focusAreas.length) {
+      const topics = element('div', 'ap-filing-topics'); focusAreas.forEach(area => topics.append(element('span', '', area))); section.append(topics);
+      section.append(element('p', 'ap-chart-note', 'Topics found near investment discussion. These are reading pointers, not verified business segments or management priorities.'));
+    }
+    if (!themes.length) section.append(element('p', 'ap-brief-warning', 'Operating and strategy excerpts are unavailable in this edition. Use an eligible source filing below to understand the business.'));
+    themes.forEach(theme => {
+      const card = element('article', 'ap-filing-excerpt'); card.append(element('h4', '', theme.label || 'As filed'));
+      if (theme.excerpt) card.append(element('blockquote', '', '“' + theme.excerpt + '”'));
+      if (theme.filing.url) card.append(link(theme.filing.url, (theme.filing.form || 'SEC filing') + ' · ' + dateText(theme.filing.filed) + ' ↗'));
+      section.append(card);
+    });
+    if (themes.length) section.append(element('p', 'ap-chart-note', 'Short automated excerpts. They indicate a topic mention, not a verified project budget or a complete account of strategy.'));
+    const details = element('details', 'ap-brief-sources'); details.append(element('summary', '', 'Open dated source filings'));
+    if (filings.length) filings.forEach(filing => {
+      const row = element('div', 'ap-filing'); row.append(link(filing.url, (filing.form || 'SEC filing') + ' · filed ' + dateText(filing.filed) + ' ↗'), element('p', '', 'Period ended ' + dateText(filing.reportDate) + (filing.accession ? ' · ' + filing.accession : ''))); details.append(row);
+    });
+    else details.append(element('p', 'ap-chart-note', 'No eligible SEC filing is attached at this decision cutoff.'));
+    section.append(details); content.append(section);
+  }
+  function appendInvestorNote(content, company, cutoff) {
+    if (!company || !cutoff) return;
+    const key = cutoff + ':' + company.id, editable = !!decision && !reveal && companyMap.has(company.id) && cutoff === decision.cutoff, saved = notebook[key] || {};
+    if (!editable && !saved.thesis && !saved.watch) return;
+    const section = element('section', 'ap-investor-note');
+    section.append(element('p', 'ap-eyebrow', 'YOUR INVESTMENT CASE / ' + String(cutoff).slice(0, 4)), element('h3', '', editable ? 'Put your conviction into words.' : 'What you expected.'));
+    section.append(element('p', 'ap-chart-note', editable ? 'Optional. Write before the year unfolds; revisit it alongside the result. Saved with this run on your device.' : 'Your note from the decision cutoff. Read it alongside the completed return, then revisit the business evidence.'));
+    [['thesis', 'Why should this business become more valuable?', 'What is improving, and why can the firm reinvest at attractive returns?'], ['watch', 'What would change your mind?', 'Name one operating fact or risk you would revisit next year.']].forEach(([field, label, placeholder]) => {
+      if (!editable) {
+        if (saved[field]) section.append(element('h4', '', label), element('p', 'ap-written-case', saved[field]));
+        return;
+      }
+      const wrap = element('label'), input = element('textarea');
+      wrap.append(element('span', '', label)); input.rows = 2; input.maxLength = 320; input.value = saved[field] || ''; input.placeholder = placeholder;
+      input.addEventListener('input', () => {
+        const note = notebook[key] || {thesis: '', watch: ''}; note[field] = input.value;
+        if (!note.thesis && !note.watch) delete notebook[key]; else notebook[key] = note;
+        save(); status.textContent = storageOK ? 'Note saved on this device.' : 'Storage unavailable. Keep this tab open.';
+      }); wrap.append(input); section.append(wrap);
+    });
+    const status = element('p', 'ap-note-status'); status.setAttribute('role', 'status'); if (editable) section.append(status);
+    content.append(section);
+  }
+  function appendBriefNavigation(content, id) {
+    if (!decision || reveal) return;
+    const companies = filteredCompanies(), index = companies.findIndex(company => company.id === id);
+    if (index < 0 || companies.length < 2) return;
+    const navigation = element('nav', 'ap-brief-navigation'); navigation.setAttribute('aria-label', 'Read companies in the current filtered universe');
+    [[index - 1, '← Previous'], [index + 1, 'Next →']].forEach(([position, label]) => {
+      const target = companies[position], button = element('button', '', label); button.type = 'button'; button.disabled = !target;
+      if (target) { button.append(element('small', '', target.ticker || target.name)); button.setAttribute('aria-label', label + ': ' + target.name); button.addEventListener('click', () => openBrief(target.id)); }
+      navigation.append(button);
+    });
+    navigation.insertBefore(element('span', '', (index + 1) + ' / ' + companies.length + ' files'), navigation.lastChild); content.append(navigation);
+  }
+  function appendBriefAllocation(content, company) {
+    if (!decision || reveal || !companyMap.has(company.id)) return;
+    const controls = element('form', 'ap-brief-allocation ap-brief-allocation-desk');
+    const label = element('label'), input = element('input'), status = element('p', 'ap-brief-allocation-status');
+    label.append(element('span', '', 'YOUR PORTFOLIO WEIGHT')); input.type = 'number'; input.min = '0'; input.max = '100'; input.step = 'any'; input.inputMode = 'decimal'; input.value = weightText(draft[company.id] || 0); input.disabled = !company.canInvest; input.setAttribute('aria-label', company.name + ' portfolio weight percentage');
+    const field = element('span', 'ap-brief-weight'); field.append(input, element('span', '', '%')); label.append(field); controls.append(label);
+    const shortcuts = element('div', 'ap-weight-shortcuts'); shortcuts.setAttribute('aria-label', 'Allocation shortcuts');
+    [0, 5, 10, 20].forEach(weight => { const button = element('button', '', weight + '%'); button.type = 'button'; button.disabled = !company.canInvest; button.addEventListener('click', () => { input.value = weight; status.textContent = 'Press Set weight to update your allocation.'; }); shortcuts.append(button); }); controls.append(shortcuts);
+    const button = element('button', 'ap-primary', 'Set weight ↗'); button.type = 'submit'; button.disabled = !company.canInvest; controls.append(button);
+    const otherWeight = () => Object.entries(draft).reduce((sum, [id, weight]) => sum + (id === company.id ? 0 : weight), 0);
+    status.setAttribute('role', 'status'); status.textContent = company.canInvest ? weightText(Math.max(0, 1 - otherWeight())) + '% room for this company. Your decision applies when you lock the year.' : 'Allocation unavailable: this interval has incomplete price coverage.';
+    controls.append(status);
+    controls.addEventListener('submit', event => {
+      event.preventDefault(); if (!company.canInvest) return;
+      const weight = Number(input.value) / 100;
+      if (!input.value.trim() || !finite(weight) || weight < 0 || weight > 1 || weight + otherWeight() > 1 + 1e-9) { input.setAttribute('aria-invalid', 'true'); status.textContent = 'Use 0%–' + weightText(Math.max(0, 1 - otherWeight())) + '% to keep your portfolio within 100%.'; return; }
+      input.removeAttribute('aria-invalid'); if (weight === 0) delete draft[company.id]; else draft[company.id] = weight;
+      renderBasket(); renderCompanies(); save();
+      status.textContent = (weight ? (company.ticker || company.name) + ' set to ' + weightText(weight) + '% · ' + money(decision.capital * weight) : (company.ticker || company.name) + ' removed from your allocation') + '. ' + weightText(Math.max(0, 1 - totalWeight())) + '% cash remains.';
+      announce(status.textContent);
+    }); content.append(controls);
+  }
   function openBrief(id) {
     const company = knownCompany(id), content = $('ap-brief-content');
     content.replaceChildren();
@@ -430,6 +562,7 @@
     const heading = element('h2', '', company?.name || record?.name || id); heading.id = 'ap-brief-title'; content.append(heading);
     const meta = element('div', 'ap-brief-meta'); meta.append(element('span', 'ap-brief-tag', company?.ticker || record?.ticker || id));
     if (company?.sector) meta.append(element('span', 'ap-brief-tag', company.sector)); content.append(meta);
+    appendBriefNavigation(content, id);
     if (company?.identityNote) {
       const identity = element('details', 'ap-identity-note');
       identity.append(element('summary', '', 'Historical identity'), element('p', '', company.identityNote));
@@ -439,6 +572,9 @@
     const financials = company?.financials, cutoff = financials?.decisionCutoff || company?.decisionCutoff || decision?.cutoff;
     content.append(element('p', 'ap-brief-cutoff', 'AS FILED · Evidence available by ' + dateText(cutoff) + '. Subsequent operating results are not used in this decision file.'));
     if (company?.canInvest === false) content.append(element('p', 'ap-brief-warning', 'Allocation unavailable. ' + (company.coverage?.reason || 'Complete verifiable price coverage is unavailable for this investment interval.')));
+    appendOperatingBrief(content, financials);
+    appendFilingContext(content, financials);
+    appendInvestorNote(content, company, cutoff);
     const observed = record?.mostRecentPeriod;
     if (observed) {
       const section = element('section', 'ap-company-period'); section.append(element('h3', '', 'The last completed interval.'));
@@ -454,47 +590,9 @@
         appendCompanyChart(section, observed.path, observed.benchmark?.path, observed.ticker || 'Company');
         section.append(element('p', 'ap-chart-note', 'Growth of 100 over this observed interval. Provider adjustments reflect distributions and splits.'));
       } else section.append(element('p', 'ap-brief-warning', 'Complete observed price coverage is unavailable for this completed interval. No return has been filled or inferred.'));
+      if (observed.cutoff !== cutoff) appendInvestorNote(section, company, observed.cutoff);
       content.append(section);
     }
-    const metrics = financials?.metrics || {}, metricSources = financials?.metricSources || {};
-    const facts = element('dl', 'ap-brief-facts');
-    [['rd', 'ANNUAL R&D'], ['capex', 'CAPITAL EXPENDITURES'], ['acquisitions', 'ACQUISITION SPENDING'], ['revenue', 'ANNUAL REVENUE'], ['operatingCashFlow', 'OPERATING CASH FLOW'], ['epsDiluted', 'DILUTED EPS']].forEach(([key, label]) => {
-      const cell = element('div'), source = metricSources[key], raw = metrics[key], value = finite(raw) ? raw : raw?.value;
-      cell.append(element('dt', '', label));
-      const dd = element('dd', finite(value) ? '' : 'is-unavailable', formatFact(value, source?.unit || (key === 'epsDiluted' ? 'USD/shares' : 'USD'))); cell.append(dd);
-      const note = element('small', '', finite(value) ? 'FY ended ' + dateText(source?.fiscalPeriodEnd || financials?.fiscalPeriodEnd) + ' · filed ' + dateText(source?.filed || financials?.availableAt) : 'No eligible filed value in this edition.');
-      if (finite(value) && source?.sourceUrl) { note.append(document.createTextNode(' · '), link(source.sourceUrl, 'SEC source ↗')); }
-      cell.append(note); facts.append(cell);
-    }); content.append(facts);
-    content.append(element('p', 'ap-chart-note', 'R&D, capital expenditures and acquisitions are separate reported measures. They can overlap and are not added into a single investment total.'));
-    if (financials?.valuation && finite(financials.valuation.pe)) {
-      content.append(element('h3', '', 'Valuation at the cutoff'));
-      content.append(element('p', '', 'Price / filed earnings: ' + financials.valuation.pe.toFixed(2) + '×. ' + (financials.valuation.note || '')));
-      if (financials.valuation.sourceUrl) content.append(link(financials.valuation.sourceUrl, 'Valuation evidence ↗'));
-    }
-    const filings = financials?.filings || [];
-    content.append(element('h3', '', 'The investment brief.'));
-    const themes = filings.flatMap(filing => (filing.investmentThemes || []).map(theme => ({...theme, filing})));
-    if (!themes.length) content.append(element('p', 'ap-brief-warning', 'A verified, dated operating-investment excerpt is not available in this data edition. No investment thesis has been inferred from later results. Review any linked eligible filing for the company’s own discussion.'));
-    themes.forEach(theme => {
-      content.append(element('h3', '', theme.label || 'As filed'));
-      if (theme.excerpt) content.append(element('p', 'ap-brief-section-copy', theme.excerpt));
-      if (theme.note) content.append(element('p', 'ap-chart-note', theme.note));
-      if (theme.filing.url) content.append(link(theme.filing.url, theme.filing.form + ' · filed ' + dateText(theme.filing.filed) + ' ↗'));
-    });
-    filings.forEach(filing => {
-      if (!filing.focusAreas?.length) return;
-      content.append(element('p', 'ap-chart-note', 'Filing topic pointers: ' + filing.focusAreas.join(' · ') + '. ' + (filing.focusNote || 'These are navigation labels, not a reconstruction of the company’s strategy or spending.')));
-    });
-    if (filings.length) {
-      content.append(element('h3', '', 'Dated source filings'));
-      filings.forEach(filing => {
-        const row = element('div', 'ap-filing');
-        row.append(link(filing.url, (filing.form || 'SEC filing') + ' · filed ' + dateText(filing.filed) + ' ↗'));
-        row.append(element('p', '', 'Period ended ' + dateText(filing.reportDate) + (filing.accession ? ' · ' + filing.accession : '')));
-        content.append(row);
-      });
-    } else content.append(element('p', 'ap-chart-note', 'No eligible SEC filing is attached to this company at the decision cutoff.'));
     if (record && recordPeriods(record).length) {
       const section = element('section', 'ap-brief-history'); section.append(element('h3', '', 'Your invested periods'));
       section.append(element('p', '', signedMoney(recordProfit(record)) + ' in total contribution to your portfolio. Only periods in which you allocated capital are included.'));
@@ -509,13 +607,8 @@
         const row = element('div', 'ap-brief-period'); row.append(element('span', '', dateText(period.from) + ' — ' + dateText(period.to)), element('strong', '', percent(period.return, true) + ' / ' + signedMoney(period.profit))); section.append(row);
       }); section.append(miniChart(record.path || [])); content.append(section);
     }
-    if (decision && !reveal && companyMap.has(id)) {
-      const controls = element('div', 'ap-brief-allocation');
-      controls.append(element('p', '', company.canInvest ? 'Set the share of your full portfolio to hold for the next period. No purchase occurs until you lock the allocation.' : 'This company’s next investment interval lacks complete verifiable price coverage. Allocation is unavailable.'));
-      const button = element('button', 'ap-primary', Object.hasOwn(draft, id) ? 'Edit allocation ↗' : 'Add to portfolio +'); button.type = 'button'; button.disabled = !company.canInvest;
-      button.addEventListener('click', () => { closeDialogs(); addCompany(id); }); controls.append(button); content.append(controls);
-    }
-    openDialog($('ap-brief')); $('ap-brief').scrollTop = 0;
+    if (company) appendBriefAllocation(content, company);
+    openDialog($('ap-brief')); $('ap-brief').scrollTop = 0; heading.tabIndex = -1; heading.focus({preventScroll: true});
   }
   async function commit() {
     if (busy || !decision) return;
@@ -534,7 +627,7 @@
     reveal = false; page = 0; filterQuery = ''; sector = ''; $('ap-search').value = ''; save(); render(); setDesk('universe');
     $('ap-plan').scrollIntoView({behavior: 'smooth', block: 'start'}); announce('New annual decision. ' + dateText(decision.cutoff) + '.');
   }
-  function reset() { run = engine.create(data); refreshDecision(); draft = {}; reveal = false; page = 0; filterQuery = ''; sector = ''; $('ap-search').value = ''; closeDialogs(); error(''); save(); render(); setDesk('universe'); $('ap-plan').scrollIntoView({behavior: 'smooth', block: 'start'}); }
+  function reset() { run = engine.create(data); refreshDecision(); draft = {}; notebook = {}; reveal = false; page = 0; filterQuery = ''; sector = ''; $('ap-search').value = ''; closeDialogs(); error(''); save(); render(); setDesk('universe'); $('ap-plan').scrollIntoView({behavior: 'smooth', block: 'start'}); }
   function readScores() {
     try { const result = JSON.parse(localStorage.getItem(SCORE_STORAGE) || '[]'); return Array.isArray(result) ? result.slice(0, 100) : []; } catch (_) { return []; }
   }
@@ -615,7 +708,7 @@
       let saved = null;
       try { const text = localStorage.getItem(STORAGE); if (text) saved = JSON.parse(text); } catch (_) { storageOK = false; }
       if (saved?.run) {
-        try { run = engine.restore(data, saved.run); refreshDecision(); draft = safeDraft(saved.draft); reveal = !!saved.reveal && !!run.lastResult; }
+        try { run = engine.restore(data, saved.run); refreshDecision(); draft = safeDraft(saved.draft); notebook = safeNotebook(saved.notebook); reveal = !!saved.reveal && !!run.lastResult; }
         catch (_) { error('The previous save belongs to a different or unverifiable data edition. This run starts from $100 with the current data.'); }
       }
       if (!decision) reveal = true;

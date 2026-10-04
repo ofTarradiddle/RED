@@ -13,6 +13,7 @@
   const COMPARISON_IDS = ['MARKET', 'MARKET_CAP', 'NON_RD', 'RD_OTHER', 'INNOVATION', 'PREDICTED_INNOVATION',
     'INNOVATION_150_75', 'INNOVATION_200_100', 'INNOVATION_250_125'];
   const ETF_IDS = ['SPY', 'VOO', 'QQQ', 'ITAN', 'SYLD'];
+  const PERIODS = ['ALL', '1Y', '3Y', '5Y', '10Y', '12Y', '15Y', '18Y', '20Y', 'CUSTOM'];
   const positive = value => typeof value === 'number' && Number.isFinite(value) && value > 0;
   const stamp = date => Date.parse(date + 'T00:00:00Z');
 
@@ -36,7 +37,7 @@
   function cutoffDate(end, period) {
     if (!marketMath.validDate(end)) throw new Error('Invalid closing month.');
     if (period === 'ALL') return null;
-    const months = {'1Y': 12, '5Y': 60, '10Y': 120}[period];
+    const months = {'1Y': 12, '3Y': 36, '5Y': 60, '10Y': 120, '12Y': 144, '15Y': 180, '18Y': 216, '20Y': 240}[period];
     if (!months) throw new Error('Unsupported research period.');
     const time = new Date(stamp(end)), day = time.getUTCDate();
     time.setUTCDate(1);
@@ -101,7 +102,8 @@
   function compare(research, market, options = {}) {
     if (!marketMath) throw new Error('Comparison calculations are unavailable.');
     const period = options.period || 'ALL';
-    if (!['ALL', '1Y', '5Y', '10Y'].includes(period)) throw new Error('Unsupported research period.');
+    if (!PERIODS.includes(period)) throw new Error('Unsupported research period.');
+    const custom = period === 'CUSTOM' ? marketMath.customRange(options.startDate, options.endDate) : null;
     const config = configuration(research), ids = options.ids || config.defaults;
     if (!Array.isArray(ids) || new Set(ids).size !== ids.length || ids.some(id => ![...config.ids, ...ETF_IDS].includes(id))) {
       throw new Error('Unknown or repeated comparison selection.');
@@ -127,14 +129,22 @@
     }
     const reference = prepared.find(series => series.id === config.referenceId) || (!config.requiredReference && prepared[0]);
     const empty = {series: [], dates: [], start: null, end: null, period, warnings, excluded,
-      referenceId: reference ? reference.id : config.referenceId, reason: null};
+      referenceId: reference ? reference.id : config.referenceId, reason: null,
+      availableStart: null, availableEnd: null, requestedStart: custom && custom.start, requestedEnd: custom && custom.end,
+      coverageNote: null};
     if (!reference) return {...empty, reason: !requested.length ? 'Select at least one research series or ETF.'
       : config.requiredReference ? config.referenceName + ' research is unavailable.' : 'The selected series have no usable month-end observations.'};
     let dates = reference.points.map(point => point.date).filter(date => prepared.every(series => series.index.has(date)));
     if (!dates.length) return {...empty, reason: 'The selected series do not share an observed closing month.'};
-    const cutoff = cutoffDate(dates[dates.length - 1], period);
-    dates = dates.filter(date => !cutoff || date >= cutoff);
+    const availableStart = dates[0], availableEnd = dates[dates.length - 1];
+    const cutoff = custom ? custom.start : cutoffDate(availableEnd, period);
+    const requestedEnd = custom ? custom.end : availableEnd;
+    const coverage = {availableStart, availableEnd, requestedStart: cutoff, requestedEnd};
+    dates = dates.filter(date => (!cutoff || date >= cutoff) && date <= requestedEnd);
+    if (!dates.length) return {...empty, ...coverage, reason: 'No shared month-end observations fall within the selected date range.'};
     const start = dates[0], end = dates[dates.length - 1];
+    const coverageNote = custom ? 'Custom range uses only shared observed month-ends; actual dates are shown.'
+      : cutoff && availableStart > cutoff ? 'The selected series have less than ' + period.replace('Y', ' year') + (period === '1Y' ? '' : 's') + ' of shared history. Showing the available period.' : null;
     const expected = (Number(end.slice(0, 4)) - Number(start.slice(0, 4))) * 12 + Number(end.slice(5, 7)) - Number(start.slice(5, 7)) + 1;
     if (expected !== dates.length) warnings.push('Some closing months are missing. No values are filled; month-end drawdown uses only matched observations.');
     if (prepared.some(series => series.kind === 'etf')) {
@@ -156,7 +166,7 @@
         drawdown: points.length > 1 ? drawdown : null
       }};
     });
-    return {...empty, series: output, dates, start, end, reason: dates.length < 2 ? 'At least two shared months are needed to calculate returns.' : null};
+    return {...empty, ...coverage, coverageNote, series: output, dates, start, end, reason: dates.length < 2 ? 'At least two shared months are needed to calculate returns.' : null};
   }
-  return {compare, monthlyETF, monthEnd, cutoffDate, researchSeries};
+  return {compare, monthlyETF, monthEnd, cutoffDate, researchSeries, periods: PERIODS};
 }));

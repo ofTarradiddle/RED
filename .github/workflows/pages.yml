@@ -68,7 +68,7 @@ jobs:
 
           release = Path('dist').resolve(strict=True)
           page = BeautifulSoup((release / 'index.html').read_text(), 'html.parser')
-          if not page.select_one('.home-fund-card') or not page.select_one('[data-objective-journey]'):
+          if not page.select_one('.home-fund-card') or not page.select_one('#innovation.home-process [data-case-explorer]'):
               raise SystemExit('The Pages entry point must be the generated Hetzerk homepage')
           if any((release / path).exists() for path in ('README.md', 'lib', 'scripts', 'data/shadow_spy', 'perspective-7f3c9e', 'shadow-nav.html')):
               raise SystemExit('Source or private accounting files must not enter the Pages artifact')

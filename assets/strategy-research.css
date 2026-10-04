@@ -161,3 +161,20 @@ body.institutional-etf #overview .etf-research-card{grid-column:1/-1;padding:0;m
 @media(max-width:760px){.sr-panel .sr-legend-note{padding-inline:25px}.sr-selection-actions [data-sr-selection-status]{flex-basis:100%;margin:4px 0 0}.sr-panel[data-sr-mode=comparison] .sr-chart-bottom>[data-sr-unit]{font-size:10px}}
 @media(max-width:500px){.sr-panel .sr-legend-note{padding-inline:19px}.sr-panel[data-sr-mode=comparison] .sr-preferred-chip{flex-basis:100%}.sr-panel[data-sr-mode=comparison] .sr-etf-chips .sr-chip>span{padding-inline:10px}.sr-panel[data-sr-mode=comparison] .sr-etf-chips .sr-chip>span>i{display:block}.sr-panel[data-sr-mode=comparison] [data-sr-readout]{margin-top:9px;grid-template-columns:1fr;gap:2px}.sr-selection-actions button{flex:1 1 auto;min-height:42px}.sr-panel[data-sr-mode=comparison] .sr-chip>span{padding-inline:11px}}
 @media(max-width:355px){.sr-panel .sr-legend-note{padding-inline:16px}}
+.sr-panel[data-sr-mode=comparison] .sr-chart-top{flex-wrap:wrap;align-items:flex-start}
+.sr-panel[data-sr-mode=comparison] .sr-chart-controls{flex-wrap:wrap;flex-shrink:1;max-width:100%}
+.sr-panel[data-sr-mode=comparison] .sr-periods{flex-wrap:wrap}
+.sr-custom-dates{margin:16px 36px 3px;display:grid;grid-template-columns:minmax(140px,200px) minmax(140px,200px) auto;gap:12px;align-items:end}
+.sr-custom-dates[hidden],.sr-coverage-note[hidden]{display:none}
+.sr-custom-dates label{display:grid;gap:7px;min-width:0;font-size:10px;color:#c2a590}
+.sr-custom-dates input{box-sizing:border-box;min-width:0;width:100%;font:inherit;font-size:12px;padding:10px 11px;background:#261e24;border:1px solid #82626c;border-radius:4px;min-height:42px;color:#f3d3b9;color-scheme:dark}
+.sr-custom-dates input[aria-invalid=true]{border-color:#ef8895}
+.sr-custom-dates button{justify-self:start;min-height:42px;border:1px solid #997180;border-radius:4px;background:#533844;color:#f3d3b9;font-size:11px;padding:10px 16px}
+.sr-panel .sr-custom-dates p{grid-column:1/-1;font-size:11px;color:#f0a1aa;line-height:1.7}
+.sr-custom-dates p:empty{display:none}
+.sr-panel .sr-coverage-note{margin:12px 36px 2px;color:#d3b098;font-size:11px;line-height:1.7;max-width:650px}
+@media(max-width:1050px){.sr-custom-dates,.sr-panel .sr-coverage-note{margin-inline:28px}}
+@media(max-width:760px){.sr-custom-dates,.sr-panel .sr-coverage-note{margin-inline:25px}}
+@media(max-width:500px){.sr-panel[data-sr-mode=comparison] .sr-chart-controls{display:block}.sr-panel[data-sr-mode=comparison] .sr-periods{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;width:100%}.sr-panel[data-sr-mode=comparison] .sr-periods button{min-height:42px;min-width:0;padding:8px 4px;font-size:10px}.sr-panel[data-sr-mode=comparison] .sr-scales{width:max-content;margin-top:10px}.sr-custom-dates{margin:16px 19px 3px;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px 10px}.sr-custom-dates button{grid-column:1/-1;justify-self:stretch}.sr-panel .sr-coverage-note{margin:12px 19px 2px;font-size:10px}}
+@media(max-width:355px){.sr-custom-dates,.sr-panel .sr-coverage-note{margin-inline:16px}}
+@media print{.sr-custom-dates{display:none!important}}

@@ -30,7 +30,7 @@ def render_comparison():
   <div class="demo-strip"><div class="compare-width"><strong>Illustrative demo</strong> * REDI is an illustrative prelaunch series. Yahoo peers are historical market data. This comparison is an interface preview, not an actual REDI track record or an investment offering.</div></div>
   <header class="compare-header compare-width">
     <div class="compare-brand"><a class="hetzerk-logo" href="/" aria-label="Hetzerk Asset Management home"></a><div><a class="compare-wordmark" href="/">Hetzerk</a><span class="compare-brand-caption">Asset Management</span></div><span class="compare-product">Compare</span></div>
-    <nav class="compare-header-actions" aria-label="App navigation"><a class="compare-site-link" href="/etfs/redi/">The ETF <span aria-hidden="true">↗</span></a><button class="compare-icon-button" type="button" data-install-open aria-label="Add REDI Compare to your Home Screen"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15V3m-4 4 4-4 4 4M7 11H5v10h14V11h-2"/></svg><span>Install app</span></button></nav>
+    <nav class="compare-header-actions" aria-label="App navigation"><a class="compare-site-link" href="/etfs/redi/">The ETF <span aria-hidden="true">↗</span></a></nav>
   </header>
   <main id="main" class="compare-width">
     <section class="compare-intro" aria-labelledby="compare-title">
@@ -69,10 +69,20 @@ def render_comparison():
   </main>
   <footer class="compare-footer compare-width"><p>Hetzerk Asset Management<span class="compare-footer-tagline">Innovation, examined.</span></p><div><a href="/">Main site</a><a href="/disclosures/">Disclosures</a><a href="/privacy/">Privacy</a></div></footer>
   <nav class="compare-dock" aria-label="Comparison sections"><a href="#compare"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4v16h16M7 15l4-5 4 3 5-7"/></svg><span>Compare</span></a><a href="#risk"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 17h3V9H4zm7 0h3V5h-3zm7 0h3V12h-3zM3 21h19"/></svg><span>Risk</span></a><a href="#fund"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5v14m14-14v14M5 12h14"/></svg><span>REDI</span></a><a href="#methodology"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v1"/></svg><span>Method</span></a></nav>
-  <dialog id="install-dialog" class="compare-install-dialog" aria-labelledby="install-heading"><div class="compare-install-topline"><p class="compare-eyebrow">Keep perspective close</p><button type="button" class="compare-icon-button" data-install-close aria-label="Close installation instructions">×</button></div><h2 id="install-heading">A place on your<br>Home Screen.</h2><p>Open REDI Compare like an app, with your selections remembered on this device.</p><ol><li><strong>On iPhone, open this page in Safari.</strong></li><li>Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</li><li>Turn on <strong>Open as Web App</strong>, if shown, and tap <strong>Add</strong>.</li></ol><button type="button" id="install-native" class="compare-install-native" hidden>Install REDI Compare</button><p class="compare-install-note">On Android or desktop, use your browser’s install option when available. The app uses the same published daily data as this page.</p></dialog>
 </body></html>'''
 
     page = BeautifulSoup(html, 'html.parser')
+    periods = ('1M', '3M', '6M', 'YTD', '1Y', '3Y', '5Y', '10Y', '12Y', '15Y', '18Y', '20Y', 'ALL', 'CUSTOM')
+    controls = page.select_one('.compare-periods')
+    controls.clear()
+    for period in periods:
+        button = page.new_tag('button', attrs={'type': 'button', 'data-period': period, 'aria-pressed': str(period == '1Y').lower()})
+        button.string = 'All' if period == 'ALL' else 'Custom' if period == 'CUSTOM' else period
+        controls.append(button)
+    dates = BeautifulSoup('<form id="comparison-custom-dates" class="compare-custom-dates" hidden><label for="comparison-start-date">Start date<input id="comparison-start-date" type="date" required></label><label for="comparison-end-date">End date<input id="comparison-end-date" type="date" required></label><button type="submit">Apply range</button><p id="comparison-date-error" role="status" aria-live="polite"></p></form><p id="comparison-coverage-note" class="compare-coverage-note" role="status" hidden></p>', 'html.parser')
+    heading = page.select_one('.compare-chart-heading')
+    for node in reversed(list(dates.contents)):
+        heading.insert_after(node)
     attach_strategy_research_assets(page)
     main = page.find('main')
     chart = main.find(id='compare')

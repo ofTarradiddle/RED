@@ -146,3 +146,55 @@ test('the supplied file remains a distinct path from the PDF chart and is rebase
   assert.equal(legacy.start,'2003-04-30');
   near(legacy.series[0].metrics.change,48.08-1);
 });
+
+test('every long-year preset uses the supplied record and exact calendar boundary',()=>{
+  const data=require('../data/comparison_research.json');
+  for (const years of [3,5,10,12,15,18,20]) {
+    const result=math.compare(data,null,{ids:['PREDICTED_INNOVATION'],period:years+'Y'});
+    const start=`${2026-years}-08-31`;
+    assert.equal(result.start,start);
+    assert.equal(result.end,'2026-08-31');
+    assert.equal(result.dates.length,years*12+1);
+    const sourceLevel=data.series.find(series=>series.id==='PREDICTED_INNOVATION').observations.find(row=>row.date===start).level;
+    near(result.series[0].metrics.change,65.75/sourceLevel-1);
+    assert.equal(result.coverageNote,null);
+  }
+});
+
+test('a short-lived ETF clips a long research preset and discloses actual coverage',()=>{
+  const result=math.compare(uploaded(),peer([close('2024-02-29',100),close('2024-03-28',110)]),{ids:['PREDICTED_INNOVATION','SPY'],period:'20Y'});
+  assert.equal(result.start,'2024-02-29');
+  assert.equal(result.end,'2024-03-31');
+  assert.match(result.coverageNote,/less than 20 years/);
+  assert.equal(result.series[0].metrics.cagr,null);
+});
+
+test('custom research dates select shared month-ends within the bounds without interpolation',()=>{
+  const market=peer([close('2023-12-29',100),close('2024-01-31',110),close('2024-02-29',120),close('2024-03-28',130)]);
+  const result=math.compare(uploaded(),market,{ids:['PREDICTED_INNOVATION','SPY'],period:'CUSTOM',startDate:'2024-01-01',endDate:'2024-03-30'});
+  assert.deepEqual(result.dates,['2024-01-31','2024-02-29']);
+  assert.equal(result.availableStart,'2023-12-31');
+  assert.equal(result.availableEnd,'2024-03-31');
+  result.series.forEach(series=>near(series.points[0].value,100));
+  near(result.series.find(series=>series.id==='SPY').metrics.change,120/110-1);
+  assert.match(result.coverageNote,/only shared observed month-ends/);
+});
+
+test('custom research bounds retain genuine endpoints, and empty or one-mark windows do not invent returns',()=>{
+  let result=math.compare(uploaded(),null,{ids:['PREDICTED_INNOVATION'],period:'CUSTOM',startDate:'2000-01-01',endDate:'2030-01-01'});
+  assert.equal(result.start,'2023-12-31');
+  assert.equal(result.end,'2024-03-31');
+  result=math.compare(uploaded(),null,{ids:['PREDICTED_INNOVATION'],period:'CUSTOM',startDate:'2024-02-29',endDate:'2024-02-29'});
+  assert.equal(result.dates.length,1);
+  assert.deepEqual(result.series[0].metrics,{change:null,cagr:null,drawdown:null});
+  result=math.compare(uploaded(),null,{ids:['PREDICTED_INNOVATION'],period:'CUSTOM',startDate:'2024-01-01',endDate:'2024-01-15'});
+  assert.deepEqual(result.series,[]);
+  assert.match(result.reason,/No shared month-end/);
+  assert.equal(result.availableEnd,'2024-03-31');
+});
+
+test('custom research dates require valid ordered ISO dates',()=>{
+  for (const [startDate,endDate] of [['2024-02-30','2024-03-31'],['2024-03-31','2024-01-31'],['2024-01-31',''],['1/31/2024','2024-03-31']]) {
+    assert.throws(()=>math.compare(uploaded(),null,{period:'CUSTOM',startDate,endDate}),/date/);
+  }
+});

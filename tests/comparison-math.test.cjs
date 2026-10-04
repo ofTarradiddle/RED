@@ -145,3 +145,68 @@ test('duplicate dates are rejected instead of silently choosing one price', () =
   assert.throws(() => math.buildWealth(series('REDI', [['2025-01-02', 100], ['2025-01-02', 101]]), 'market_price', 'price'), /duplicate/);
   assert.equal(math.validDate('2025-02-30'), false);
 });
+
+test('long-year presets use calendar horizons anchored to the last shared close', () => {
+  const rows = Array.from({length: 26}, (_, i) => [`${2000 + i}-08-31`, 100 + i]);
+  const peerRows = [...rows, ['2026-08-31', 127]];
+  for (const years of [3, 5, 10, 12, 15, 18, 20]) {
+    const result = math.compare({series: [series('REDI', rows), series('SPY', peerRows)], period: years + 'Y'});
+    assert.equal(result.start, `${2025 - years}-08-31`);
+    assert.equal(result.end, '2025-08-31');
+    assert.equal(result.coverageNote, null);
+    nearly(result.series[0].metrics.change, 125 / (125 - years) - 1);
+  }
+  assert.equal(math.cutoffDate('2024-02-29', '3Y'), '2021-02-28');
+  assert.equal(math.cutoffDate('2024-02-29', '20Y'), '2004-02-29');
+});
+
+test('a requested long horizon explicitly discloses shorter shared history', () => {
+  const fund = series('REDI', [['2025-01-02', 100], ['2025-01-03', 110]]);
+  const result = math.compare({series: [fund], period: '20Y'});
+  assert.equal(result.start, '2025-01-02');
+  assert.equal(result.requestedStart, '2005-01-03');
+  assert.match(result.coverageNote, /less than 20 years/);
+  nearly(result.series[0].metrics.change, .1);
+});
+
+test('custom ranges use actual common sessions inside inclusive bounds and rebase there', () => {
+  const redi = series('REDI', [['2025-01-02', 100], ['2025-01-03', 110], ['2025-01-06', 121], ['2025-01-07', 130]]);
+  const spy = series('SPY', [['2025-01-02', 50], ['2025-01-06', 55], ['2025-01-07', 60]]);
+  const result = math.compare({series: [redi, spy], period: 'CUSTOM', startDate: '2025-01-04', endDate: '2025-01-08'});
+  assert.deepEqual(result.dates, ['2025-01-06', '2025-01-07']);
+  assert.equal(result.availableStart, '2025-01-02');
+  assert.equal(result.availableEnd, '2025-01-07');
+  assert.equal(result.requestedStart, '2025-01-04');
+  assert.equal(result.requestedEnd, '2025-01-08');
+  nearly(result.series[0].points[0].value, 100);
+  nearly(result.series[0].metrics.change, 130 / 121 - 1);
+  assert.match(result.coverageNote, /only shared observed closes/);
+});
+
+test('custom bounds can contain the whole record without fabricating endpoints', () => {
+  const fund = series('REDI', [['2025-01-02', 100], ['2025-01-03', 110]]);
+  const result = math.compare({series: [fund], period: 'CUSTOM', startDate: '2000-01-01', endDate: '2030-01-01'});
+  assert.equal(result.start, '2025-01-02');
+  assert.equal(result.end, '2025-01-03');
+  nearly(result.series[0].metrics.change, .1);
+});
+
+test('custom dates reject invalid calendars and reversed ranges, while empty windows show no metrics', () => {
+  const fund = series('REDI', [['2025-01-02', 100], ['2025-01-03', 110]]);
+  for (const [startDate, endDate] of [['2025-02-30', '2025-03-01'], ['', '2025-01-03'], ['2025-01-03', '2025-01-02'], ['01/02/2025', '2025-01-03']]) {
+    assert.throws(() => math.compare({series: [fund], period: 'CUSTOM', startDate, endDate}), /date/);
+  }
+  const result = math.compare({series: [fund], period: 'CUSTOM', startDate: '2025-01-04', endDate: '2025-01-05'});
+  assert.deepEqual(result.dates, []);
+  assert.deepEqual(result.series, []);
+  assert.match(result.reason, /No shared observations/);
+  assert.equal(result.availableEnd, '2025-01-03');
+});
+
+test('distributions within a custom range are included exactly once after rebasing', () => {
+  const fund = series('REDI', [['2025-01-02', 100], ['2025-01-03', 110], ['2025-01-06', 108, 2], ['2025-01-07', 110]]);
+  const result = math.compare({series: [fund], mode: 'reinvested', period: 'CUSTOM', startDate: '2025-01-03', endDate: '2025-01-07'});
+  assert.equal(result.start, '2025-01-03');
+  nearly(result.series[0].points[1].value, 100);
+  nearly(result.series[0].metrics.change, 110 / 108 - 1);
+});
