@@ -55,7 +55,16 @@ def _fund_copy(page):
             heading.string = 'The investment lens'
             paragraph = heading.find_next_sibling('p')
             if paragraph:
-                paragraph.string = 'Innovation spending is a starting point. Valuation and evidence of commercial execution help distinguish an investment opportunity from a compelling story.'
+                paragraph.string = (
+                    'Innovation factor firms have exhibited the ability to execute successful innovation, '
+                    'have large enough projects with sufficient rates of return to matter, and are justifiably priced. '
+                    'Firms not fitting this description return cash to shareholders.'
+                )
+                metaphor = page.new_tag('p', attrs={'class': paragraph.get('class', []) + ['mt-4', 'italic']})
+                metaphor.string = (
+                    'Only the ouroboros consumes itself through a measure of fire and remains strong enough to live forever.'
+                )
+                paragraph.insert_after(metaphor)
 
 
 def refine_pages(pages):
